@@ -158,7 +158,6 @@ const FleetGraphics = () => {
       state: '',
       zip: '',
       vehicle: '',
-      length: '',
       vehicleSize: {
         length: '',
         width: ''
