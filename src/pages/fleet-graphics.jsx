@@ -158,18 +158,9 @@ const FleetGraphics = () => {
       state: '',
       zip: '',
       vehicle: '',
-      driverSize: {
-        length: '',
-        width: ''
-      },
-      passengerSize: {
-        length: '',
-        width: ''
-      },
-      doorSize: {
-        length: '',
-        width: ''
-      },
+      driverSize: { length: '', width: '' },
+      passengerSize: { length: '', width: '' },
+      doorSize: { length: '', width: '' },
       finishing: '',
       img: null,
       message: ''
@@ -178,6 +169,7 @@ const FleetGraphics = () => {
     const [errors, setErrors] = useState({});
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
+    
     const handleStateChange = (e) => {
       setSelectedState(e.target.value);
       setErrors({ ...errors, state: '' }); // Clear state error when state changes
@@ -276,12 +268,7 @@ const FleetGraphics = () => {
       }
     }));
   };
-  
-// Function to remove a size
-const handleRemoveSize = (index) => {
-  const updatedSizes = addedSizes.filter((_, i) => i !== index);
-  setAddedSizes(updatedSizes);
-};
+
 
 // Function to handle adding a door size
 const handleAddDoorSize = () => {
@@ -320,19 +307,6 @@ const handleRemoveFinishing = (index) => {
   const updatedFinishing = addedFinishing.filter((_, i) => i !== index);
   setAddedFinishing(updatedFinishing);
 };
-
-  // Handle Feet/Inches dropdown change
-  const handleUnitChange = (type, unit) => {
-    if (type === 'length') {
-      setLengthUnit(unit);
-    } else if (type === 'width') {
-      setWidthUnit(unit);
-    } else if (type === 'door-length') {
-      setDoorLengthUnit(unit)
-    } else if (type === 'door-width') {
-      setDoorWidthUnit(unit)
-    }
-  };
 // Handle Vehicle Type Change
 const handleTypeChange = (e) => {
   const vehicleType = e.target.value;
@@ -558,84 +532,84 @@ const handleModelChange = (e) => {
 };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'length', 'width', 'message'];
+        setSubmissionErrorMessage('');
+        setSubmissionMessage('');
+        const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
 const newErrors = {};
     
       
-        requiredFields.forEach(field => {
-          if (!formData[field]) {
-            let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-            if (field === 'first') fieldLabel = 'First Name';
-            if (field === 'last') fieldLabel = 'Last Name';
-            if (field === 'company') fieldLabel = 'Company Name';
-            if (field === 'phone') fieldLabel = 'Phone Number';
-            if (field ==='address') fieldLabel = 'Address';
-            if (field === 'city') fieldLabel = 'City';
-            if (field ==='state') fieldLabel = 'State';
-            if (field === 'zip') fieldLabel = 'Zip Code';
-            if (field === 'img') fieldLabel = 'Logo';
-            newErrors[field] = `${fieldLabel} is required!`;
-          }
-        });
-    
-        if (Object.keys(newErrors).length > 0) {
-            setErrorMessage('Required fields are Missing.');
-          setErrors(newErrors);
-          return;
-        }
-    
-        try {     
-          const sizeData = {
-            length: `${formData.length} ${lengthUnit}`,
-            width: `${formData.width} ${widthUnit}`
-          };
-          const doorData = {
-              doorlength: `${formData.type} ${doorLengthUnit}`,
-              doorwidth: `${formData.finish} ${doorWidthUnit}`
-            };
-          const vehicleString = addedVehicles.join(', ');
-          const formDataToSend = {
-            ...formData,
-            vehicle: vehicleString,
-            size: sizeData,
-            door: doorData
-          };
-          const response = await axios.post('/fleet-graphics', formDataToSend, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
-          console.log(response.data);
-          setFormData({
-            first: '',
-            last: '',
-            company: '',
-            email: '',
-            phone: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: '',
-            year: '',
-            make: '',
-            model: '',
-            vehicle: '',
-            length: '',
-            width: '',
-            doorLength: '',
-            doorWidth: '',
-            finishing: '',
-            img: null,
-            message: ''
-          });
-    
-          setErrors({});
-          setPhone('');
-          setSubmissionMessage('Fleet/Decal Vehicle Graphics Request Submitted! We will be with you within 48 hours!');
-        } catch (error) {
-          console.error('Error submitting Fleet/Decal Vehicle Graphics job:', error);
-        }
-      };
+requiredFields.forEach(field => {
+  if (!formData[field]) {
+    let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+    if (field === 'first') fieldLabel = 'First Name';
+    if (field === 'last') fieldLabel = 'Last Name';
+    if (field === 'company') fieldLabel = 'Company Name';
+    if (field === 'phone') fieldLabel = 'Phone Number';
+    if (field === 'address') fieldLabel = 'Address';
+    if (field === 'city') fieldLabel = 'City';
+    if (field === 'state') fieldLabel = 'State';
+    if (field === 'zip') fieldLabel = 'Zip Code';
+    if (field === 'img') fieldLabel = 'Logo';
+    newErrors[field] = `${fieldLabel} is required!`;
+  }
+});
+
+if (Object.keys(newErrors).length > 0) {
+  setErrorMessage('Required fields are missing.');
+  setErrors(newErrors);
+  return;
+}
+
+try {
+  const formDataToSubmit = {
+    ...formData,
+    vehicle: addedVehicles.join(', '), // Convert the vehicle array to a comma-separated string
+    driverSize: addedDriverSizes.join(', '),
+    passengerSize: addedPassengerSizes.join(', '),
+    doorSize: addedDoors.join(', '),
+    finishing: addedFinishing.join(', '),
+  };
+
+  const response = await axios.post('/fleet-graphics', formDataToSubmit, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  // Set success message
+  setSubmissionMessage('Fleet/Decal Vehicle Graphics Request Submitted! We will be with you within 48 hours!');
+  console.log(response.data);
+
+  // Clear form fields after successful submission
+  setFormData({
+    first: '',
+    last: '',
+    company: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    vehicle: '',
+    driverSize: { length: '', width: '' },
+    passengerSize: { length: '', width: '' },
+    doorSize: { length: '', width: '' },
+    finishing: '',
+    img: null,
+    message: ''
+  });
+  setAddedDriverSizes([]);
+  setAddedPassengerSizes([]);
+  setAddedDoors([]);
+  setAddedFinishing([]);
+  setErrors({});
+  setPhone('');
+} catch (error) {
+  console.error('Error submitting Fleet/Decal Vehicle Graphics job:', error);
+  setSubmissionErrorMessage('An error occurred while submitting. Please try again.');
+}
+};
     return (
         <div>
             <Header/>
@@ -896,7 +870,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     )}
   </ul>
 </div>
-{errorMessage && <span className="error-message">{errorMessage}</span>}
+{errors.vehicle && <span className="error-message">{errors.vehicle}</span>}
 <label className="size-fleet-label">Size of Vehicle:</label>
 
 {/* Driver Size Section */}
@@ -970,6 +944,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     )}
   </div>
 </div>
+{errors.driverSize && <span className="error-message">{errors.driverSize}</span>}
 
 {/* Passenger Size Section */}
 <div className="size-fleet-section">
@@ -1025,9 +1000,9 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 
     {/* Added Passenger Sizes */}
     {addedPassengerSizes.length > 0 ? (
-      addedPassengerSizes.map((size, index) => (
+      addedPassengerSizes.map((passengerSize, index) => (
         <li className="vehicle-passenger-size-li" key={index}>
-          {size}
+          {passengerSize}
           <button
             className="btn-submit btn--full submit-size"
             type="button"
@@ -1043,7 +1018,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
   </div>
 </div>
 
-{errorMessage && <span className="error-message">{errorMessage}</span>}
+{errors.passengerSize && <span className="error-message">{errors.passengerSize}</span>}
 
 <label className="size-fleet-label">Size of Backdoor/Tailgate Side Vehicle:</label>
 <div className="size-door-fleet-section">
@@ -1116,6 +1091,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     <p className="no-added-vehicles">No Back Door/Tailgate sizes added yet.</p>
   )}
 </ul>
+{errors.doorSize && <span className="error-message">{errors.doorSize}</span>}
 </div>
 <label className="finish-fleet-label">Finishing Touch:</label>
 <div className="finish-fleet-section">
@@ -1206,10 +1182,15 @@ we are closed, we will respond the next business day. Please note that we do not
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
   {submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
+  <div className="submission-message">{submissionMessage}</div>
 )}
+
+{submissionErrorMessage && (
+  <div className="submission-error-message">{submissionErrorMessage}</div>
+)}
+
   </div>
-  <button type="button" className="btn-fleet-submit btn--full submit-fleet" onClick={handleSubmit}>SUBMIT VEHICLE FLEET/DECAL GRAPHICS</button>
+  <button type="submit" className="btn-fleet-submit btn--full submit-fleet" onClick={handleSubmit}>SUBMIT VEHICLE FLEET/DECAL GRAPHICS</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
