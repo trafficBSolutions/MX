@@ -1,0 +1,313 @@
+/* ================================
+   ================================
+   TOP OF THE ADHESIVE PAGE
+   ================================
+   ================================ */
+   .page-window-container {
+    padding: 80px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+    padding-top: 300px;
+    background-color: #b4feff;
+  }
+
+  .window-name-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.window-description {
+    color: #000;
+    font-family: "Kairos W04 Extended Bold";
+    font-size: 100px;
+    text-align: center;
+  }
+
+  /* ================================
+   ================================
+    PHOTO GALLERY
+   ================================
+   ================================ */
+   .photo-gal-window {
+    background-color: #8fafff;
+  }
+
+  /* ================================
+   ================================
+    ADHESIVE SECTION FORM
+   ================================
+   ================================ */
+   .window-set {
+    padding-top: 10px;
+    background-color: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-section {
+    padding-bottom: 3.5rem;
+}
+.window-form-info {
+    margin: 10px;
+    width: 100%;
+}
+  .window-app-box {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 50px;
+  }
+  .log-re {
+    margin: 40px;
+    text-align: center;
+    font-size: 50px;
+  }
+.window-fill {
+    margin: 40px;
+    text-align: center;
+    font-size: 35px;
+}
+.window-notice,.logo-notice {
+    color: #194fb4;
+}
+.window-warn {
+    font-size: 30px;
+    margin: 5%;
+    color: #000
+}
+.logo-warn {
+    font-size: 30px;
+    margin-top: 0%;
+    color: #000
+}
+.window-actual {
+    width: 90%;
+    margin: 50px;
+
+}
+/* ================================
+   Larger Labels for Adhesive Section
+   ================================ */
+.first-window-name-label, 
+.window-company-label, 
+.emailphone-window-label,
+.address-window-label,
+.size-window-label,
+.message-window-label,
+.place-window-label,
+.finish-window-label,
+.window-file-label {
+  margin-bottom: 50px;
+  padding: 50px;
+  font-size: 50px;
+  font-style: inherit;
+}
+
+/* ================================
+   Grouped input sections
+   ================================ */
+  .first-window-window-input {
+    margin: 40px;
+    display: flex;
+  }
+  .emailphone-window-input, 
+  .address-window-input-container, 
+  .size-window-section {
+    margin: 10px;
+    display: flex;
+  }
+
+
+  /* ================================
+   Grouped Labels and Input Box Styling
+   ================================ */
+   .last-window-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .window-company-name-input, 
+  .address-window-input,
+  .email-window-input,
+  .window-phone-name-input,
+  .length-window-section,
+  .width-window-section,
+  .place-window-section, 
+  .finish-window-section,
+  .file-window-section,
+  .border-window-section {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 50px;
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+
+  .address-window-inputing, 
+  .city-window-input,
+  .phone-window {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .state-window-input,  
+  .zip-window-input{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    position: relative;
+  }
+
+
+/* ================================
+   Small Label Styling
+   ================================ */
+ .first-window-label-name, 
+  .last-window-label-name,
+  .company-window-name,
+  .email-window-name,
+  .phone-window-label,
+  .addr-window-label, 
+  .city-window-label,
+  .state-window-label,
+  .zip-window-label,
+  .length-label, 
+  .width-label,
+  .place-label,
+  .finish-label,
+  .border-label,
+  .window-logo {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  
+
+/* ================================
+   Input Box Styling
+   ================================ */
+   .firstname-window-name-input,
+   .lastname-window-name-input, 
+   .company-window-name-input,
+   .email-window-box,
+   .phone-window-box,
+   .address-window-box, 
+   .city-window-box,
+   .state-window-box,
+   .zip-window-box,
+   .length-window-box, 
+   .width-window-box,
+   .border-window-box,
+   .length-select,
+   .width-select, 
+   .place-select,
+   .finish-select,
+   .border-select {
+     padding: 10px;
+     font-size: 20px;
+     margin-bottom: 20px;
+   }
+
+/* ================================
+   window Image Section
+   ================================ */
+   .place-flex-container {
+    display: flex;
+    justify-content: space-between; /* Adjusts space between items */
+    align-items: center; /* Aligns items vertically */
+    flex-wrap: nowrap; /* Ensures the items stay on one line */
+}
+
+.place-img-container {
+    flex: 1;
+    text-align: center; /* Centers the text under each image */
+}
+
+.place-img {
+    width: 330px;
+    height: 200px;
+    object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
+}
+
+
+  /* ================================
+   Window Message Styling
+   ================================ */
+  .message-window-note {
+    font-style: normal;
+    text-align: center;
+    text-emphasis: none;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    padding-top: 30px;
+  }
+  
+  .message-window-text {
+    font-style: normal;
+    text-align: left;
+    text-emphasis: none;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    width: 100%;
+    height: 300px;
+  }
+
+    
+/* ================================
+   Submit Button Styling
+   ================================ */
+   .submit-window-size {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    color: #fff;
+  }  
+  .choose-logo-contain {
+    display: flex;
+    align-items: center;
+}
+.file-window-label, .remove-window-file-button {
+    display: flex;
+    background-color: #0f375a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.file-window-label input[type=file] {
+    display: none;
+}
+  .submit-window {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+  }
+  .submit-size:hover, 
+  .submit-window:hover,
+  .file-window-label:hover,
+  .remove-window-file-button:hover {
+    background-color: #226daf;
+  }

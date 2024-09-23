@@ -1,0 +1,1650 @@
+/* ================================
+   ================================
+   TOP OF THE FLEET PAGE
+   ================================
+   ================================ */
+   .page-fleet-banner {
+    padding: 80px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+    padding-top: 300px;
+    background-color: #b4feff;
+  }
+
+  .fleet-name-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.fleet-description {
+    color: #000;
+    font-family: "Kairos W04 Extended Bold";
+    font-size: 100px;
+    text-align: center;
+  }
+
+  /* ================================
+   ================================
+    PHOTO GALLERY
+   ================================
+   ================================ */
+   .photo-fleet-gal-fleet {
+    background-color: #8fafff;
+  }
+  .photo-mx-fleet-note {
+    font-size: 50px;
+    text-align: center;
+    font-family: "Kairos W04 Extended Bold";
+  }
+
+  /* ================================
+   ================================
+    ADHESIVE SECTION FORM
+   ================================
+   ================================ */
+   .fleet-form-container {
+    background-color: #e7e7e7;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+   .fleet-set {
+    padding-top: 10px;
+    background-color: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-section {
+    padding-bottom: 3.5rem;
+}
+.fleet-form-info {
+    margin: 10px;
+    width: 100%;
+}
+  .fleet-app-box {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 50px;
+  }
+  .log-re {
+    margin: 40px;
+    text-align: center;
+    font-size: 50px;
+  }
+.fleet-fill {
+    margin: 40px;
+    text-align: center;
+    font-size: 35px;
+}
+.fleet-notice,.logo-notice {
+    color: #194fb4;
+}
+.fleet-warn {
+    font-size: 30px;
+    margin: 5%;
+    color: #000
+}
+.logo-warn {
+    font-size: 30px;
+    margin-top: 0%;
+    color: #000
+}
+.fleet-actual {
+    width: 90%;
+    margin: 50px;
+
+}
+/* ================================
+   Larger Labels for Adhesive Section
+   ================================ */
+.first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+  margin-bottom: 50px;
+  padding: 50px;
+  font-size: 50px;
+  font-style: inherit;
+}
+/* ================================
+   Added Item Label Categories
+   ================================ */
+.size-driver-fleet-note {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 10%;
+  font-size: 40px;
+}
+.size-passenger-fleet-note {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 10px;
+  padding-left: 10px;
+  font-size: 50px;
+}
+/* ================================
+   Added Items Labels
+   ================================ */
+.added-vehicle-label {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 10px;
+  padding-left: 10px;
+  font-size: 50px;
+}
+.vehicle-list {
+  margin: 50px;
+  font-size: 40px;
+  
+  font-family: "Moveo Sans w00 Regular";
+}
+.no-added-vehicles, .no-added-finishings {
+  margin: 50px;
+  text-align: center;
+  font-size: 40px;
+}
+/* ================================
+   Grouped input sections
+   ================================ */
+  .first-fleet-fleet-input {
+    margin: 40px;
+    display: flex;
+  }
+  .emailphone-fleet-input, 
+  .address-fleet-input-container, 
+
+  .size-door-fleet-section {
+    margin: 10px;
+  }
+
+  .size-fleet-section {
+    margin-top: 30px;
+    display: inline-block;
+  }
+  /* ================================
+   Grouped Labels and Input Box Styling
+   ================================ */
+   .last-fleet-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .fleet-company-name-input, 
+  .address-fleet-input,
+  .email-fleet-input,
+  .fleet-phone-name-input,
+  .length-fleet-section,
+  .length-door-fleet-section,
+  .width-fleet-section,
+  .place-fleet-section, 
+  .finish-fleet-section,
+  .file-fleet-section,
+  .border-fleet-section,
+  .type-fleet-section {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 50px;
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+
+  .address-fleet-inputing, 
+  .city-fleet-input,
+  .phone-fleet {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .state-fleet-input,  
+  .zip-fleet-input{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    position: relative;
+  }
+
+
+/* ================================
+   Small Label Styling
+   ================================ */
+ .first-fleet-label-name, 
+  .last-fleet-label-name,
+  .company-fleet-name,
+  .email-fleet-name,
+  .phone-fleet-label,
+  .addr-fleet-label, 
+  .city-fleet-label,
+  .state-fleet-label,
+  .zip-fleet-label,
+  .length-label, 
+  .width-label,
+  .place-label,
+  .finish-label,
+  .border-label,
+  .fleet-logo,
+  .year-fleet-label,
+  .make-fleet-label,
+  .model-fleet-label,
+  .trim-fleet-label {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  
+
+/* ================================
+   Input Box Styling
+   ================================ */
+   .firstname-fleet-name-input,
+   .lastname-fleet-name-input, 
+   .company-fleet-name-input,
+   .email-fleet-box,
+   .phone-fleet-box,
+   .address-fleet-box, 
+   .city-fleet-box,
+   .state-fleet-box,
+   .zip-fleet-box,
+   .length-fleet-box, 
+   .width-fleet-box,
+   .border-fleet-box,
+   .length-door-fleet-box,
+   .width-door-fleet-box,
+   .length-select,
+   .width-select, 
+   .place-select,
+   .finish-select,
+   .border-select,
+   .type-fleet-box,
+   .year-fleet-box,
+   .make-fleet-box,
+   .model-fleet-box,
+   .trim-fleet-box {
+     padding: 10px;
+     font-size: 20px;
+     margin-bottom: 20px;
+   }
+
+/* ================================
+   fleet Image Section
+   ================================ */
+   .place-flex-container {
+    display: flex;
+    justify-content: space-between; /* Adjusts space between items */
+    align-items: center; /* Aligns items vertically */
+    flex-wrap: nowrap; /* Ensures the items stay on one line */
+}
+
+.place-img-container {
+    flex: 1;
+    text-align: center; /* Centers the text under each image */
+}
+
+.place-img {
+    width: 330px;
+    height: 200px;
+    object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
+}
+
+
+/* ================================
+   Year Input Box Note Style
+   ================================ */
+.year-fleet-note {
+font-size: 20px;
+font-display: flex;
+margin: 10px;
+font-family: "Kairos W01 Extended Medium";
+}
+  /* ================================
+   fleet Message Styling
+   ================================ */
+  .message-fleet-note {
+    font-style: normal;
+    text-align: center;
+    text-emphasis: none;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    padding-top: 30px;
+  }
+  
+  .message-fleet-text {
+    font-style: normal;
+    text-align: left;
+    text-emphasis: none;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    width: 100%;
+    height: 300px;
+  }
+
+    
+/* ================================
+   Submit Button Styling
+   ================================ */
+   .submit-fleet-size, .submit-finishing,
+   .remove-finishing {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    color: #fff;
+  }  
+  .submit-vehicle {
+    background-color: #0f375a;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  .choose-logo-contain {
+    display: flex;
+    align-items: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+    display: flex;
+    background-color: #0f375a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.file-fleet-label input[type=file] {
+    display: none;
+}
+  .submit-fleet {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+  }
+  .submit-size:hover, 
+  .submit-finishing:hover,
+  .submit-fleet:hover,
+  .file-fleet-label:hover,
+  .remove-finishing:hover,
+  .remove-fleet-file-button:hover {
+    background-color: #226daf;
+  }
+  .btn-submit, .btn-fleet-submit {
+    text-decoration: none;
+      padding: 20px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      font-family: "Kairos W01 Extended Medium";
+      transition: all .3s;
+      margin-top: 1rem;
+  }
+  .btn-fleet-submit {
+    padding: 0;
+  }
+  /* ================================
+   Error Message Styling
+   ================================ */
+.error-message {
+  color: red;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    font-family: "Kairos W04 Extended Bold";
+    margin-bottom: 10px;
+}
+
+.submission-error-message {
+  color: red;
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-fleet-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .fleet-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-fleet-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .fleet-set {
+      width: 90%;
+    }
+    .fleet-form-info {
+      margin: 0;
+    }
+    .fleet-app-box {
+      font-size: 37px;
+    }
+    .fleet-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .fleet-actual {
+      margin: 0;
+    }
+    .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+  font-size: 33px;
+}
+.fleet-message-container {
+  margin-top: 10px;
+}
+.message-fleet-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.fleet-file-label {
+padding: 0;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+  margin: 0;
+  display: block;
+}
+.last-fleet-name {
+  padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-select, 
+.width-select, 
+.place-select, 
+.finish-select, 
+.border-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box
+ {
+  font-size: 12px;
+}
+.model-fleet-box {
+  font-size: 6px;
+}
+.fleet-company-label {
+  font-size: 20px;
+  padding: 0;
+}
+.fleet-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-fleet-label {
+  font-size: 24px;
+  padding: 0;
+}
+.fleet-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-fleet-input {
+  padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+  margin: 0px;
+  display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+  padding-left: 0px;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-label, 
+.width-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.fleet-logo,
+.year-fleet-label,
+.make-fleet-label,
+.model-fleet-label, 
+.trim-fleet-label {
+  padding-left: 0;
+}
+.address-fleet-label, 
+.type-fleet-label,
+.size-fleet-label {
+  font-size: 20px;
+  padding: 0;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-fleet-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-fleet {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.btn-submit, .btn-fleet-submit {
+  text-decoration: none;
+    padding: 10px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: "Kairos W01 Extended Medium";
+    transition: all .3s;
+    margin-top: 1rem;
+}
+.btn-fleet-submit {
+  padding: 0;
+}
+  }
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: Landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-fleet-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .fleet-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-fleet-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .fleet-set {
+      width: 90%;
+    }
+    .fleet-form-info {
+      margin: 0;
+    }
+    .fleet-app-box {
+      font-size: 37px;
+    }
+    .fleet-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .fleet-actual {
+      margin: 0;
+    }
+    .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+  font-size: 33px;
+}
+.fleet-message-container {
+  margin-top: 10px;
+}
+.message-fleet-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.fleet-file-label {
+padding: 0;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+  margin: 0;
+  display: block;
+}
+.last-fleet-name {
+  padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-select, 
+.width-select, 
+.place-select, 
+.finish-select, 
+.border-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box
+ {
+  font-size: 12px;
+}
+.model-fleet-box {
+  font-size: 6px;
+}
+.fleet-company-label {
+  font-size: 20px;
+  padding: 0;
+}
+.fleet-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-fleet-label {
+  font-size: 24px;
+  padding: 0;
+}
+.fleet-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-fleet-input {
+  padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+  margin: 0px;
+  display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+  padding-left: 0px;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-label, 
+.width-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.fleet-logo,
+.year-fleet-label,
+.make-fleet-label,
+.model-fleet-label, 
+.trim-fleet-label {
+  padding-left: 0;
+}
+.address-fleet-label, 
+.type-fleet-label,
+.size-fleet-label {
+  font-size: 20px;
+  padding: 0;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-fleet-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-fleet {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.btn-submit, .btn-fleet-submit {
+  text-decoration: none;
+    padding: 10px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: "Kairos W01 Extended Medium";
+    transition: all .3s;
+    margin-top: 1rem;
+}
+.btn-fleet-submit {
+  padding: 0;
+}
+  }
+  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-fleet-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .fleet-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-fleet-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .fleet-set {
+      width: 90%;
+    }
+    .fleet-form-info {
+      margin: 0;
+    }
+    .fleet-app-box {
+      font-size: 37px;
+    }
+    .fleet-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .fleet-actual {
+      margin: 0;
+    }
+    .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+  font-size: 33px;
+}
+.fleet-message-container {
+  margin-top: 10px;
+}
+.message-fleet-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.fleet-file-label {
+padding: 0;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+  margin: 0;
+  display: block;
+}
+.last-fleet-name {
+  padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-select, 
+.width-select, 
+.place-select, 
+.finish-select, 
+.border-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box
+ {
+  font-size: 20px;
+}
+.model-fleet-box {
+  font-size: 10px;
+}
+.fleet-company-label {
+  font-size: 30px;
+  padding: 0;
+}
+.fleet-warn, .logo-warn {
+  font-size: 20px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-fleet-label {
+  font-size: 30px;
+  padding: 0;
+}
+.fleet-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-fleet-input {
+  padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+  margin: 0px;
+  display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+  padding-left: 0px;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-label, 
+.width-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.fleet-logo,
+.year-fleet-label,
+.make-fleet-label,
+.model-fleet-label, 
+.trim-fleet-label {
+  padding-left: 0;
+}
+.address-fleet-label, 
+.type-fleet-label,
+.size-fleet-label {
+  font-size: 30px;
+  padding: 0;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-fleet-text {
+  margin-left: 17px;
+  text-align: center;
+}
+.submit-fleet {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.btn-submit, .btn-fleet-submit {
+  text-decoration: none;
+    padding: 10px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: "Kairos W01 Extended Medium";
+    transition: all .3s;
+    margin-top: 1rem;
+}
+.btn-fleet-submit {
+  padding: 0;
+}
+  }
+  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-fleet-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .fleet-description {
+      font-size: 40px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-fleet-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .fleet-set {
+      width: 90%;
+    }
+    .fleet-form-info {
+      margin: 0;
+    }
+    .fleet-app-box {
+      font-size: 37px;
+    }
+    .fleet-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .fleet-actual {
+      margin: 0;
+    }
+    .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+  font-size: 40px;
+}
+.fleet-message-container {
+  margin-top: 10px;
+}
+.message-fleet-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.fleet-file-label {
+padding: 0;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+  margin: 0;
+  display: block;
+}
+.last-fleet-name {
+  padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-select, 
+.width-select, 
+.place-select, 
+.finish-select, 
+.border-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box
+ {
+  font-size: 30px;
+}
+.model-fleet-box {
+  font-size: 30px;
+}
+.fleet-warn, .logo-warn {
+  font-size: 20px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 40px;
+  padding-top: 2%;
+  margin: 0;
+  text-align: center;
+}
+.fleet-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-fleet-input {
+  padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+  margin: 0px;
+  display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+  padding-left: 0px;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-label, 
+.width-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.fleet-logo,
+.year-fleet-label,
+.make-fleet-label,
+.model-fleet-label, 
+.trim-fleet-label {
+  padding-left: 0;
+}
+
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-fleet-text {
+  margin-left: 17px;
+  text-align: center;
+}
+.submit-fleet {
+  margin: 0;
+  font-size: 30px;
+  width: 110%;
+}
+.btn-submit, .btn-fleet-submit {
+  text-decoration: none;
+    padding: 20px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: "Kairos W01 Extended Medium";
+    transition: all .3s;
+    margin-top: 1rem;
+}
+.btn-fleet-submit {
+  padding: 0;
+}
+  }
+  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-fleet-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .fleet-description {
+      font-size: 40px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-fleet-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .fleet-set {
+      width: 90%;
+    }
+    .fleet-form-info {
+      margin: 0;
+    }
+    .fleet-app-box {
+      font-size: 37px;
+    }
+    .fleet-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .fleet-actual {
+      margin: 0;
+    }
+    .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+  font-size: 40px;
+}
+.fleet-message-container {
+  margin-top: 10px;
+}
+.message-fleet-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.fleet-file-label {
+padding: 0;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+  margin: 0;
+  display: block;
+}
+.last-fleet-name {
+  padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-select, 
+.width-select, 
+.place-select, 
+.finish-select, 
+.border-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box
+ {
+  font-size: 30px;
+}
+.model-fleet-box {
+  font-size: 30px;
+}
+.fleet-warn, .logo-warn {
+  font-size: 20px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 40px;
+  padding-top: 2%;
+  margin: 0;
+  text-align: center;
+}
+.fleet-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-fleet-input {
+  padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+  margin: 0px;
+  display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+  padding-left: 0px;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-label, 
+.width-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.fleet-logo,
+.year-fleet-label,
+.make-fleet-label,
+.model-fleet-label, 
+.trim-fleet-label {
+  padding-left: 0;
+}
+
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-fleet-text {
+  margin-left: 17px;
+  text-align: center;
+}
+.submit-fleet {
+  margin: 0;
+  font-size: 30px;
+  width: 110%;
+}
+.btn-submit, .btn-fleet-submit {
+  text-decoration: none;
+    padding: 20px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: "Kairos W01 Extended Medium";
+    transition: all .3s;
+    margin-top: 1rem;
+}
+.btn-fleet-submit {
+  padding: 0;
+}
+  }
+  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-fleet-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .fleet-description {
+      font-size: 40px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-fleet-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .fleet-set {
+      width: 90%;
+    }
+    .fleet-form-info {
+      margin: 0;
+    }
+    .fleet-app-box {
+      font-size: 37px;
+    }
+    .fleet-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .fleet-actual {
+      margin: 0;
+    }
+    .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+  font-size: 40px;
+}
+.fleet-message-container {
+  margin-top: 10px;
+}
+.message-fleet-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.fleet-file-label {
+padding: 0;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+  margin: 0;
+  display: block;
+}
+.last-fleet-name {
+  padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-select, 
+.width-select, 
+.place-select, 
+.finish-select, 
+.border-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box
+ {
+  font-size: 30px;
+}
+.model-fleet-box {
+  font-size: 30px;
+}
+.fleet-warn, .logo-warn {
+  font-size: 20px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 40px;
+  padding-top: 2%;
+  margin: 0;
+  text-align: center;
+}
+.fleet-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-fleet-input {
+  padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+  margin: 0px;
+  display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+  padding-left: 0px;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-label, 
+.width-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.fleet-logo,
+.year-fleet-label,
+.make-fleet-label,
+.model-fleet-label, 
+.trim-fleet-label {
+  padding-left: 0;
+}
+
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-fleet-text {
+  margin-left: 17px;
+  text-align: center;
+}
+.submit-fleet {
+  margin: 0;
+  font-size: 30px;
+  width: 110%;
+}
+.btn-submit, .btn-fleet-submit {
+  text-decoration: none;
+    padding: 20px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: "Kairos W01 Extended Medium";
+    transition: all .3s;
+    margin-top: 1rem;
+}
+.btn-fleet-submit {
+  padding: 0;
+}
+  }
+  @media screen and (min-width: 1080px) and (max-width: 1920px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .fleet-description {
+      font-size: 85px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .first-name-fleet-input {
+      display: flex;
+      margin: 40px;
+    }
+    .size-fleet-section, .size-door-fleet-section {
+      margin: 0;
+
+    }
+    .submit-fleet, .submit-vehicle {
+      width: 100%;
+      font-size: 40px;
+      height: auto;
+    }
+  }

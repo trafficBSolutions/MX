@@ -1,0 +1,309 @@
+/* ================================
+   ================================
+   TOP OF THE ADHESIVE PAGE
+   ================================
+   ================================ */
+   .page-banner-container {
+    padding: 80px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+    padding-top: 300px;
+    background-color: #b4feff;
+  }
+
+  .banner-name-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.banner-description {
+    color: #000;
+    font-family: "Kairos W04 Extended Bold";
+    font-size: 100px;
+    text-align: center;
+  }
+
+  /* ================================
+   ================================
+    PHOTO GALLERY
+   ================================
+   ================================ */
+   .photo-gal-banner {
+    background-color: #8fafff;
+  }
+
+  /* ================================
+   ================================
+    ADHESIVE SECTION FORM
+   ================================
+   ================================ */
+   .banner-set {
+    padding-top: 10px;
+    background-color: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-section {
+    padding-bottom: 3.5rem;
+}
+.banner-form-info {
+    margin: 10px;
+    width: 100%;
+}
+  .banner-app-box {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 50px;
+  }
+  .log-re {
+    margin: 40px;
+    text-align: center;
+    font-size: 50px;
+  }
+.banner-fill {
+    margin: 40px;
+    text-align: center;
+    font-size: 35px;
+}
+.banner-notice,.logo-notice {
+    color: #194fb4;
+}
+.banner-warn {
+    font-size: 30px;
+    margin: 5%;
+    color: #000
+}
+.logo-warn {
+    font-size: 30px;
+    margin-top: 0%;
+    color: #000
+}
+.banner-actual {
+    width: 90%;
+    margin: 50px;
+
+}
+/* ================================
+   Larger Labels for Adhesive Section
+   ================================ */
+.first-banner-name-label, 
+.banner-company-label, 
+.emailphone-banner-label,
+.address-banner-label,
+.size-banner-label,
+.message-banner-label,
+.place-banner-label,
+.finish-banner-label,
+.banner-file-label {
+  margin-bottom: 50px;
+  padding: 50px;
+  font-size: 50px;
+  font-style: inherit;
+}
+
+/* ================================
+   Grouped input sections
+   ================================ */
+  .first-banner-banner-input {
+    margin: 40px;
+    display: flex;
+  }
+  .emailphone-banner-input, 
+  .address-banner-input-container, 
+  .size-banner-section {
+    margin: 10px;
+    display: flex;
+  }
+
+
+  /* ================================
+   Grouped Labels and Input Box Styling
+   ================================ */
+   .last-banner-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .banner-company-name-input, 
+  .address-banner-input,
+  .email-banner-input,
+  .banner-phone-name-input,
+  .length-banner-section,
+  .width-banner-section,
+  .place-banner-section, 
+  .finish-banner-section,
+  .file-banner-section {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 50px;
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+
+  .address-banner-inputing, 
+  .city-banner-input,
+  .phone-banner {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .state-banner-input,  
+  .zip-banner-input{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    position: relative;
+  }
+
+
+/* ================================
+   Small Label Styling
+   ================================ */
+ .first-banner-label-name, 
+  .last-banner-label-name,
+  .company-banner-name,
+  .email-banner-name,
+  .phone-banner-label,
+  .addr-banner-label, 
+  .city-banner-label,
+  .state-banner-label,
+  .zip-banner-label,
+  .length-label, 
+  .width-label,
+  .place-label,
+  .finish-label,
+  .banner-logo {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  
+
+/* ================================
+   Input Box Styling
+   ================================ */
+   .firstname-banner-name-input,
+   .lastname-banner-name-input, 
+   .company-banner-name-input,
+   .email-banner-box,
+   .phone-banner-box,
+   .address-banner-box, 
+   .city-banner-box,
+   .state-banner-box,
+   .zip-banner-box,
+   .length-banner-box, 
+   .width-banner-box,
+   .length-select,
+   .width-select, 
+   .place-select,
+   .finish-select {
+     padding: 10px;
+     font-size: 20px;
+     margin-bottom: 20px;
+   }
+
+/* ================================
+   Banner Image Section
+   ================================ */
+   .place-flex-container {
+    display: flex;
+    justify-content: space-between; /* Adjusts space between items */
+    align-items: center; /* Aligns items vertically */
+    flex-wrap: nowrap; /* Ensures the items stay on one line */
+}
+
+.place-img-container {
+    flex: 1;
+    text-align: center; /* Centers the text under each image */
+}
+
+.place-img {
+    width: 330px;
+    height: 200px;
+    object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
+}
+
+
+  /* ================================
+   Adhesive Message Styling
+   ================================ */
+  .message-banner-note {
+    font-style: normal;
+    text-align: center;
+    text-emphasis: none;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    padding-top: 30px;
+  }
+  
+  .message-banner-text {
+    font-style: normal;
+    text-align: left;
+    text-emphasis: none;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    width: 100%;
+    height: 300px;
+  }
+
+    
+/* ================================
+   Submit Button Styling
+   ================================ */
+   .submit-size {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 200px;
+    color: #fff;
+  }  
+  .choose-logo-contain {
+    display: flex;
+    align-items: center;
+}
+.file-banner-label, .remove-banner-file-button {
+    display: flex;
+    background-color: #0f375a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.file-banner-label input[type=file] {
+    display: none;
+}
+  .submit-banner {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+  }
+  .submit-size:hover, 
+  .submit-banner:hover,
+  .file-banner-label:hover,
+  .remove-banner-file-button:hover {
+    background-color: #226daf;
+  }

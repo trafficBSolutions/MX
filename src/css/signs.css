@@ -1,0 +1,2749 @@
+/* ================================
+   ================================
+   TOP OF THE SIGN PAGE
+   ================================
+   ================================ */
+  .page-sign-banner {
+    padding: 80px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+    padding-top: 300px;
+    background-color: #b4feff;
+  }
+
+  .sign-name-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.sign-description {
+    color: #000;
+    font-family: "Kairos W04 Extended Bold";
+    font-size: 110px;
+    text-align: center;
+  }
+
+
+/* ================================
+   ================================
+   ABOVE PHOTO GALLERY
+   ================================
+   ================================ */
+   .sign-descript-container {
+    background-color: #0f375a;
+    margin-bottom: 10px;
+   }
+  .sign-descript {
+    line-height: 1.6;
+    margin: 10px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+  }
+
+
+/* ================================
+   ================================
+   SIGN PHOTO GALLERY
+   ================================
+   ================================ */
+  .photo-gal-sign {
+    background-color: #8fafff;
+  }
+  
+
+/* ================================
+   ================================
+   SIGN SECTION FORM
+   ================================
+   ================================ */
+  .sign-set {
+    padding-top: 10px;
+    background-color: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .box {
+    content: normal;
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    width: 90%;
+    margin: auto;
+  }
+  .page-section {
+    padding-bottom: 3.5rem;
+}
+.sign-form-info {
+    margin: 10px;
+    width: 100%;
+}
+  .sign-app-box {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 50px;
+  }
+  .log-re {
+    margin: 40px;
+    text-align: center;
+    font-size: 50px;
+  }
+.sign-fill {
+    margin: 40px;
+    text-align: center;
+    font-size: 35px;
+}
+.sign-notice,.logo-notice {
+    color: #194fb4;
+}
+.sign-warn {
+    font-size: 30px;
+    margin: 5%;
+    color: #000
+}
+.logo-warn {
+    font-size: 30px;
+    margin-top: 0%;
+    color: #000
+}
+.sign-actual {
+    width: 90%;
+    margin: 50px;
+
+}
+/* ================================
+   Larger Labels for Sign Section
+   ================================ */
+.first-sign-name-label, 
+.sign-company-label, 
+.emailphone-sign-label,
+.address-sign-label,
+.size-sign-label,
+.message-sign-label,
+.type-sign-label,
+.finish-sign-label,
+.sign-file-label {
+  margin-bottom: 50px;
+  padding: 50px;
+  font-size: 50px;
+  font-style: inherit;
+}
+
+/* ================================
+   Grouped input sections
+   ================================ */
+  .first-name-sign-input {
+    margin: 40px;
+    display: flex;
+  }
+  .emailphone-sign-input, 
+  .address-sign-input-container, 
+  .size-sign-section {
+    margin: 10px;
+    display: flex;
+  }
+
+
+  /* ================================
+   Grouped Labels and Input Box Styling
+   ================================ */
+   .last-sign-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .sign-company-name-input, 
+  .address-sign-input,
+  .email-sign-input,
+  .sign-phone-name-input,
+  .length-sign-section,
+  .width-sign-section,
+  .type-sign-section, 
+  .finish-sign-section,
+  .file-sign-section {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 50px;
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+
+  .address-sign-inputing, 
+  .city-sign-input,
+  .phone-sign {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .state-sign-input,  
+  .zip-sign-input{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    position: relative;
+  }
+
+
+/* ================================
+   Small Label Styling
+   ================================ */
+ .first-sign-label-name, 
+  .last-sign-label-name,
+  .company-sign-name,
+  .email-sign-name,
+  .phone-sign-label,
+  .addr-sign-label, 
+  .city-sign-label,
+  .state-sign-label,
+  .zip-sign-label,
+  .length-label, 
+  .width-label,
+  .type-label,
+  .finish-label,
+  .sign-logo {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  
+
+/* ================================
+   Input Box Styling
+   ================================ */
+   .firstname-sign-name-input,
+   .lastname-sign-name-input, 
+   .company-sign-name-input,
+   .email-sign-box,
+   .phone-sign-box,
+   .address-sign-box, 
+   .city-sign-box,
+   .state-sign-box,
+   .zip-sign-box,
+   .length-sign-box, 
+   .width-sign-box,
+   .length-select,
+   .width-select, 
+   .type-select,
+   .finish-select {
+     padding: 10px;
+     font-size: 20px;
+     margin-bottom: 20px;
+   }
+
+
+  /* ================================
+   Sign Message Styling
+   ================================ */
+  .message-sign-note {
+    font-style: normal;
+    text-align: center;
+    text-emphasis: none;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    padding-top: 30px;
+  }
+  
+  .message-sign-text {
+    font-style: normal;
+    text-align: left;
+    text-emphasis: none;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    width: 100%;
+    height: 300px;
+  }
+
+    
+/* ================================
+   Sign Button Styling
+   ================================ */
+   .submit-size {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 200px;
+    color: #fff;
+  }  
+  .choose-logo-contain {
+    display: flex;
+    align-items: center;
+}
+.file-sign-label, .remove-sign-file-button {
+    display: flex;
+    background-color: #0f375a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.file-sign-label input[type=file] {
+    display: none;
+}
+  .submit-sign {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+  }
+  .submit-size:hover, 
+  .submit-sign:hover,
+  .file-sign-label:hover,
+  .remove-sign-file-button:hover {
+    background-color: #226daf;
+  }
+  
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-sign-banner {
+      padding-top: 40px;
+  }
+  .sign-form-container {
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 200px;
+    display: block;
+  }
+  .sign-description {
+    font-size: 22px;
+  }
+  
+  .sign-set {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .sign-app-box {
+    font-size: 40px;
+  }
+  
+  .sign-img-section {
+    display: block;
+  }
+  
+  
+  .first-name-sign-input {
+    margin: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .firstname-sign-input {
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+    display: block;
+  } 
+  .firstname-sign-name-input {
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .last-sign-name {
+    padding-left: 0;
+  }
+  
+  .last-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .lastname-sign-name-input {
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .first-sign-name-label {
+    font-size: 40px;
+  }
+  
+  .sign-company-label {
+    font-size: 40px;
+  
+  }
+  
+  .sign-company-name-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  
+  .company-sign-name-input {
+    font-size: 12px;
+  }
+  
+  .emailphone-sign-label {
+    font-size: 33px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .email-sign-box {
+    font-size: 12px;
+  }
+  .phone-sign {
+    padding-left: 0px;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .phone-sign-box {
+    font-size: 12px;
+  }
+  .address-sign-label {
+    font-size: 40px;
+  }
+  .address-sign-input-container {
+    display: block;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .address-sign-inputing {
+    padding-left: 0;
+  }
+  .address-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-right: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .city-sign-input {
+    padding-left: 0;
+  }
+  .state-sign-input {
+    display: block;
+    margin: 0;
+  }
+  .zip-sign-input {
+    display: block;
+    margin: 0
+  }
+  .address-sign-box {
+    font-size: 13px;
+  }
+  .city-sign-label {
+    padding-left: 0px;
+  }
+  .city-sign-box {
+    font-size: 13px;
+  }
+  .city-sign-state {
+    padding-left: 0;
+    display: block;
+  }
+  .state-sign-box {
+    font-size: 12px;
+  }
+  .state-sign-label {
+    padding-left: 0%;
+  }
+  .zip-sign-label {
+    padding-left: 0px;
+  }
+  .zip-sign-box {
+    font-size: 13px;
+  }
+  .reflective-label {
+    font-size: 40px;
+  }
+  .reflective-img {
+    width: 110%;
+  }
+  .reflective-select {
+    font-size: 14px;
+  }
+  .submit-reflective {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+  .remove-reflective {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+  .size-label {
+    font-size: 40px;
+  }
+  .post-label {
+    font-size: 40px;
+  }
+  .bracket-image-label {
+    font-size: 40px;
+  }
+  .size-select {
+    font-size: 9px;
+  }
+  .quantity-size-box {
+    font-size: 13px;
+  }
+  .submit-size {
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .remove-size {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+  .post-img-section {
+    display: block;
+    max-width: 100%;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+  .post-img-text, .post2-img-text {
+    padding-left: 40px;
+  }
+  .post2-img-container {
+    width: 100%;
+  }
+  .post-img {
+    width: 120%;
+    margin: 0px;
+  }
+  .post-select {
+    font-size: 14px;
+  }
+  .post-quantity-box {
+    font-size: 12px;
+  }
+  .submit-post{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .remove-post{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .bracket-img-section {
+    display: block;
+  }
+  .bracket-select {
+    font-size: 6px;
+  }
+  .quantity-box {
+    font-size: 13px;
+  }
+  .submit-bracket{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .remove-bracket{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .traffic-sign-image-label {
+    font-size: 40px;
+  }
+  .traffic-sign-img-section {
+    margin-top: 10px;
+  }
+  .traffic-sign-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    padding-left: 15px;
+    display: block;
+  }
+  .message-sign-label {
+    margin-bottom: 10px;
+    font-size: 40px;
+  }
+  .traffic-signfile-input-container {
+    display: block;
+  }
+  .file-sign-label, .remove-sign-file-button {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .message-sign-text {
+    width: 180px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  }
+  
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-sign-banner {
+      padding-top: 40px;
+  }
+  .sign-form-container {
+    padding: 1rem;
+      margin: 0 auto;
+      max-width: 200px;
+      display: block;
+  }
+  .sign-description {
+    font-size: 22px;
+  }
+  .reflective-select {
+    font-size: 14px;
+  }
+  .sign-set {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .sign-app-box {
+    font-size: 40px;
+  }
+  
+  .sign-img-section {
+    display: block;
+  }
+  
+  
+  .first-name-sign-input {
+    margin: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .firstname-sign-input {
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+    display: block;
+  } 
+  .firstname-sign-name-input {
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .last-sign-name {
+    padding-left: 0;
+  }
+  
+  .last-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .lastname-sign-name-input {
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .first-sign-name-label {
+    font-size: 40px;
+  }
+  
+  .sign-company-label {
+    font-size: 40px;
+  
+  }
+  
+  .sign-company-name-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  
+  .company-sign-name-input {
+    font-size: 12px;
+  }
+  
+  .emailphone-sign-label {
+    font-size: 33px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .address-sign-box {
+    font-size: 13px;
+  }
+  .email-sign-box {
+    font-size: 12px;
+  }
+  .phone-sign {
+    padding-left: 0px;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .phone-sign-box {
+    font-size: 12px;
+  }
+  .address-sign-label {
+    font-size: 40px;
+  }
+  .address-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .address-sign-input-container {
+    display: block;
+    margin: 0px;
+    padding-left: 0;
+  }
+  .address-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-right: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .address-sign-inputing {
+    padding-left: 0;
+  }
+  .city-sign-input {
+    padding-left: 0;
+  }
+  .state-sign-input {
+    display: block;
+    margin: 0;
+  }
+  .zip-sign-input {
+    display: block;
+    margin: 0
+  }
+  .city-sign-label {
+    padding-left: 0px;
+  }
+  .city-sign-box {
+    font-size: 13px;
+  }
+  .state-sign-box {
+    font-size: 12px;
+  }
+  .state-sign-label {
+    padding-left: 0%;
+  }
+  .zip-sign-label {
+    padding-left: 0px;
+  }
+  .zip-sign-box {
+    font-size: 13px;
+  }
+  .reflective-label {
+    font-size: 40px;
+  }
+  .reflective-img {
+    width: 110%;
+  }
+  .submit-reflective {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+  .remove-reflective {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+  .size-label {
+    font-size: 40px;
+  }
+  .post-label {
+    font-size: 40px;
+  }
+  .bracket-image-label {
+    font-size: 40px;
+  }
+  .size-select {
+    font-size: 9px;
+  }
+  .quantity-size-box {
+    font-size: 13px;
+  }
+  .submit-size {
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .remove-size {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+  .post-img-section {
+    display: block;
+    max-width: 100%;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+  .post-img-text, .post2-img-text {
+    padding-left: 40px;
+  }
+  .post2-img-container {
+    width: 100%;
+  }
+  .post-img {
+    width: 120%;
+    margin: 0px;
+  }
+  .post-select {
+    font-size: 14px;
+  }
+  .post-quantity-box {
+    font-size: 12px;
+  }
+  .submit-post{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .remove-post{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .bracket-img-section {
+    display: block;
+  }
+  .bracket-select {
+    font-size: 6px;
+  }
+  .quantity-box {
+    font-size: 13px;
+  }
+  .submit-bracket{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .remove-bracket{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .traffic-sign-image-label {
+    font-size: 40px;
+  }
+  .traffic-sign-img-section {
+    margin-top: 10px;
+  }
+  .traffic-sign-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    padding-left: 15px;
+    display: block;
+  }
+  .message-sign-label {
+    margin-bottom: 10px;
+    font-size: 40px;
+  }
+  .traffic-signfile-input-container {
+    display: block;
+  }
+  .file-sign-label, .remove-sign-file-button {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .message-sign-text {
+    width: 180px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  }
+  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-sign-banner {
+      padding-top: 80px;
+  }
+  .sign-description {
+    font-size: 33px;
+  }
+  
+  .sign-set {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .sign-form-container {
+    max-width: 300px;
+  }
+  .sign-app-box {
+    font-size: 50px;
+  }
+  .sign-img-section {
+      display: block;
+  }
+  
+  .first-name-sign-input {
+    margin: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .firstname-sign-input {
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+    display: block;
+  } 
+  .firstname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .last-sign-name {
+    padding-left: 0;
+  }
+  
+  .last-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .lastname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .first-sign-name-label {
+    font-size: 50px;
+  }
+  
+  .sign-company-label {
+    font-size: 50px;
+  }
+  .sign-company-name-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .company-sign-name-input {
+    font-size: 20px;
+  }
+  .emailphone-sign-label {
+    font-size: 33px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .email-sign-box {
+    font-size: 20px;
+  }
+  .phone-sign {
+    padding-left: 0px;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .phone-sign-box {
+    font-size: 20px;
+  }
+  .address-sign-label {
+    font-size: 50px;
+  }
+  .address-sign-input-container {
+    margin: 0px;
+    display: block;
+  }
+  .address-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+    display: block;
+  }
+  .state-sign-input {
+    display: block;
+    margin: 5px;
+  }
+  .zip-sign-input {
+    display: block;
+    margin: 5px;
+  }
+  .address-sign-box {
+    font-size: 20px;
+  }
+  .city-sign-label {
+    padding-left: 0px;
+  }
+  .city-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-label {
+    padding-left: 0%;
+  }
+  .zip-sign-label {
+    padding-left: 0;
+  }
+  .zip-sign-box {
+    font-size: 20px;
+  }
+  .city-sign-state {
+    display: block;
+    padding-left: 0;
+  }
+  .reflective-label {
+    font-size: 50px;
+  }
+  .reflective-img {
+    width: 110%;
+  }
+  .submit-reflective {
+    font-size: 20px;
+    margin-left: 8px;
+  }
+  .remove-reflective {
+    font-size: 20px;
+    margin-left: 0px;
+  }
+  .size-label {
+    font-size: 50px;
+  }
+  .post-label {
+    font-size: 50px;
+  }
+  .bracket-image-label {
+    font-size: 50px;
+  }
+  .size-select {
+    font-size: 15px;
+  }
+  .quantity-size-box {
+    font-size: 20px;
+  }
+  .submit-size {
+    font-size: 30px;
+    margin-left: 25px;
+  }
+  .remove-size {
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .post-img-section {
+    display: block;
+    max-width: 100%;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+  .post-img-text, .post2-img-text {
+    padding-left: 40px;
+  }
+  .post2-img-container {
+    width: 100%;
+  }
+  .post-img {
+    width: 120%;
+    margin: 0px;
+  }
+  .post-select {
+    font-size: 20px;
+  }
+  .post-quantity-box {
+    font-size: 12px;
+  }
+  .submit-post{
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  .remove-post{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .bracket-img-section {
+    display: block;
+  }
+  .bracket-select {
+    font-size: 6.7px;
+  }
+  .quantity-box {
+    font-size: 20px;
+  }
+  .submit-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .remove-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .traffic-sign-image-label {
+    font-size: 50px;
+  }
+  .traffic-sign-img-section {
+    margin-top: 10px;
+  }
+  .traffic-sign-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    padding-left: 15px;
+    display: block;
+  }
+  .message-sign-label {
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+  .traffic-signfile-input-container {
+    display: block;
+  }
+  .file-sign-label, .remove-sign-file-button {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .message-sign-text {
+    width: 280px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  }
+  
+  @media screen and (min-width: 375px) and (max-width: 667px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+      .page-sign-banner {
+      padding-top: 80px;
+  }
+  .sign-description {
+    font-size: 33px;
+  }
+  .sign-form-container {
+    padding: 1rem;
+      margin: 0 auto;
+      max-width: 300px;
+      display: block;
+  }
+  .sign-set {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .sign-app-box {
+    font-size: 50px;
+  }
+  .sign-img-section {
+      display: block;
+  }
+  
+  .first-name-sign-input {
+    margin: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .firstname-sign-input {
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+    display: block;
+  } 
+  .firstname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .last-sign-name {
+    padding-left: 0;
+  }
+  
+  .last-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .lastname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .first-sign-name-label {
+    font-size: 50px;
+  }
+  
+  .sign-company-label {
+    font-size: 50px;
+  }
+  .sign-company-name-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .company-sign-name-input {
+    font-size: 20px;
+  }
+  .emailphone-sign-label {
+    font-size: 33px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .email-sign-box {
+    font-size: 20px;
+  }
+  .phone-sign {
+    padding-left: 0px;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .phone-sign-box {
+    font-size: 20px;
+  }
+  .address-sign-label {
+    font-size: 50px;
+  }
+  .address-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .address-sign-box {
+    font-size: 20px;
+  }
+  .city-sign-label {
+    padding-left: 0px;
+  }
+  .city-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-label {
+    padding-left: 0%;
+  }
+  .zip-sign-label {
+    padding-left: 55px;
+  }
+  .zip-sign-box {
+    font-size: 20px;
+  }
+  .reflective-label {
+    font-size: 50px;
+  }
+  .reflective-img {
+    width: 110%;
+  }
+  .submit-reflective {
+    font-size: 20px;
+    margin-left: 8px;
+  }
+  .remove-reflective {
+    font-size: 20px;
+    margin-left: 0px;
+  }
+  .size-label {
+    font-size: 50px;
+  }
+  .post-label {
+    font-size: 50px;
+  }
+  .bracket-image-label {
+    font-size: 50px;
+  }
+  .size-select {
+    font-size: 15px;
+  }
+  .quantity-size-box {
+    font-size: 20px;
+  }
+  .submit-size {
+    font-size: 30px;
+    margin-left: 25px;
+  }
+  .remove-size {
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .post-img-section {
+    display: block;
+  }
+  .post-select {
+    font-size: 20px;
+  }
+  .post-quantity-box {
+    font-size: 12px;
+  }
+  .submit-post{
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  .remove-post{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .bracket-img-section {
+    display: block;
+  }
+  .bracket-select {
+    font-size: 6.7px;
+  }
+  .quantity-box {
+    font-size: 20px;
+  }
+  .submit-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .remove-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .traffic-sign-image-label {
+    font-size: 50px;
+  }
+  .traffic-sign-img-section {
+    margin-top: 10px;
+  }
+  .traffic-sign-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    padding-left: 15px;
+    display: block;
+  }
+  .message-sign-label {
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+  .traffic-signfile-input-container {
+    display: block;
+  }
+  .file-sign-label, .remove-sign-file-button {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .message-sign-text {
+    width: 280px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  }
+  
+  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    
+  }
+  @media screen and (min-width: 360px) and (max-width: 740px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    .page-sign-banner {
+      padding-top: 200px;
+  }
+  .sign-description {
+    font-size: 60px;
+  }
+  
+  .sign-set {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .sign-app-box {
+    font-size: 50px;
+  }
+  .sign-form-container{
+    max-width: 600px;
+  }
+  
+  .first-name-sign-input {
+    margin: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .firstname-sign-input {
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+    display: block;
+  } 
+  .firstname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .last-sign-name {
+    padding-left: 0;
+  }
+  
+  .last-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .lastname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .first-sign-name-label {
+    font-size: 50px;
+  }
+  
+  .sign-company-label {
+    font-size: 50px;
+  }
+  .sign-company-name-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .company-sign-name-input {
+    font-size: 20px;
+  }
+  .emailphone-sign-label {
+    font-size: 33px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .email-sign-box {
+    font-size: 20px;
+  }
+  .phone-sign {
+    padding-left: 0px;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .phone-sign-box {
+    font-size: 20px;
+  }
+  .address-sign-label {
+    font-size: 50px;
+  }
+  
+  .address-sign-input {
+    padding-left: 0px; 
+    margin: 0;
+  }
+  .city-sign-state {
+    padding-top: 21px;
+    padding-left: 20px;
+  }
+  .address-sign-box {
+    font-size: 20px;
+  }
+  .city-sign-label {
+    padding-left: 0px;
+  }
+  .city-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-label {
+    padding-left: 0%;
+  }
+  .zip-sign-label {
+    padding-left: 55px;
+  }
+  .zip-sign-box {
+    font-size: 20px;
+  }
+  .reflective-label {
+    font-size: 50px;
+  }
+  .reflective-img {
+    width: 110%;
+  }
+  .submit-reflective {
+    font-size: 50px;
+    margin-left: 0px;
+  }
+  .remove-reflective {
+    font-size: 50px;
+    margin-left: 0px;
+  }
+  .size-label {
+    font-size: 50px;
+  }
+  .post-label {
+    font-size: 50px;
+  }
+  .bracket-image-label {
+    font-size: 50px;
+  }
+  .size-select {
+    font-size: 15px;
+  }
+  .quantity-size-box {
+    font-size: 20px;
+  }
+  .submit-size {
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  .remove-size {
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  .post-select {
+    font-size: 20px;
+  }
+  .post-img-section {
+    margin-left: 100px;
+  }
+  .post-quantity-box {
+    font-size: 36px;
+  }
+  .submit-post{
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  .remove-post{
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  
+  .bracket-select {
+    font-size: 13px;
+  }
+  .quantity-box {
+    font-size: 30px;
+  }
+  .submit-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .remove-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .traffic-sign-image-label {
+    font-size: 50px;
+  }
+  .traffic-sign-img-section {
+    margin-top: 10px;
+  }
+  .traffic-sign-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    padding-left: 15px;
+    display: block;
+  }
+  .message-sign-label {
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+  .traffic-signfile-input-container {
+    display: block;
+  }
+  .file-sign-label, .remove-sign-file-button {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .message-sign-text {
+    width: 605px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    margin-left: 90px;
+  }
+  }
+  
+  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-sign-banner {
+      padding-top: 200px;
+  }
+  .sign-description {
+    font-size: 60px;
+  }
+  .sign-form-container {
+    padding: 1rem;
+      margin: 0 auto;
+      max-width: 500px;
+      display: block;
+  }
+  .sign-set {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .sign-app-box {
+    font-size: 50px;
+  }
+  
+  
+  .first-name-sign-input {
+    margin: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .firstname-sign-input {
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+    display: block;
+  } 
+  .firstname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .last-sign-name {
+    padding-left: 0;
+  }
+  
+  .last-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .lastname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .first-sign-name-label {
+    font-size: 50px;
+  }
+  
+  .sign-company-label {
+    font-size: 50px;
+  }
+  .sign-company-name-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .company-sign-name-input {
+    font-size: 20px;
+  }
+  .emailphone-sign-label {
+    font-size: 50px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .email-sign-box {
+    font-size: 20px;
+  }
+  .phone-sign {
+    padding-left: 0px;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .phone-sign-box {
+    font-size: 20px;
+  }
+  .address-sign-input-container {
+    margin: 0px;
+    margin-top: 10px;
+    display: block;
+  }
+  .address-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+    display: block;
+    position: relative;
+  }
+  .address-sign-label {
+    font-size: 50px;
+  }
+  .address-sign-box {
+    font-size: 20px;
+  }
+  .city-sign-state {
+    display: block;
+    padding-left: 0;
+  }
+  .city-sign-input {
+    margin: 0px;
+      display: block;
+      padding-left: 59px;
+  }
+  .city-sign-label {
+    padding-left: 0px;
+  }
+  .city-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-input {
+    padding-left: 44px;
+  }
+  .state-sign-label {
+    padding-left: 0%;
+  }
+  .zip-sign-input {
+    margin-left: 16px;
+  }
+  .zip-sign-label {
+    padding-left: 0px;
+  }
+  .zip-sign-box {
+    font-size: 20px;
+  }
+  .reflective-label {
+    font-size: 50px;
+  }
+  .reflective-img {
+    width: 110%;
+  }
+  .submit-reflective {
+    font-size: 50px;
+    margin-left: 0px;
+  }
+  .remove-reflective {
+    font-size: 50px;
+    margin-left: 0px;
+  }
+  .size-label {
+    font-size: 50px;
+  }
+  .post-label {
+    font-size: 50px;
+  }
+  .bracket-image-label {
+    font-size: 50px;
+  }
+  .size-select {
+    font-size: 15px;
+  }
+  .quantity-size-box {
+    font-size: 20px;
+  }
+  .submit-size {
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  .remove-size {
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  .post-select {
+    font-size: 20px;
+  }
+  
+  .post-img-section {
+    margin-left: 100px;
+  }
+  .post-img-section {
+    max-width: 200%;
+    margin-left: 0px;
+    margin-right: 40px;
+  }
+  .post-img-text {
+    padding-left: 0px;
+    text-align: center;
+    justify-content: center;
+    width: 200%;
+  }
+   .post2-img-text {
+    padding-left: 0px;
+    width: 200%
+  }
+  .post2-img-container {
+    width: 100%;
+    margin-left: 60px;
+  }
+  .post-img {
+    width: 200%;
+    margin: 0px;
+  }
+  .pos
+  .post-quantity-box {
+    font-size: 36px;
+  }
+  .submit-post{
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  .remove-post{
+    font-size: 80px;
+    margin-left: 0px;
+  }
+  
+  .bracket-select {
+    font-size: 13px;
+  }
+  .quantity-box {
+    font-size: 30px;
+  }
+  .submit-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .remove-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .traffic-sign-image-label {
+    font-size: 50px;
+  }
+  .traffic-sign-img-section {
+    margin-top: 10px;
+  }
+  .traffic-sign-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    padding-left: 15px;
+    display: block;
+  }
+  .message-sign-label {
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+  .traffic-signfile-input-container {
+    display: block;
+  }
+  .file-sign-label, .remove-sign-file-button {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .message-sign-text {
+    width: 551px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    margin-left: 10px;
+  }
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 658px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  }
+  
+  @media screen and (min-width: 390px) and (max-width: 844px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    
+  }
+  
+  @media screen and (min-width: 393px) and (max-width: 783px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+   
+  }
+  
+  @media screen and (min-width: 430px) and (max-width: 932px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .page-sign-banner {
+      padding-top: 100px;
+  }
+  .sign-description {
+    font-size: 40px;
+  }
+  .sign-img-section {
+    position: relative;
+    display: grid;
+    grid-gap: 30px;
+    right: 0%;
+    margin-top: 10px
+  }
+  
+  .sign-img-container {
+    width: 100%;
+  }
+  .sign-img-container.single-image {
+    width: 100%;
+  
+    position: static;
+  }
+  .sign-set {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .sign-app-box {
+    font-size: 50px;
+  }
+  .sign-form-container{
+    max-width: 400px;
+  }
+  
+  .first-name-sign-input {
+    margin: 10px;
+    display: block;
+    padding-left: 0px;
+  }
+  .firstname-sign-input {
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+    display: block;
+  } 
+  .firstname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .last-sign-name {
+    padding-left: 0;
+  }
+  
+  .last-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .lastname-sign-name-input {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .first-sign-name-label {
+    font-size: 50px;
+  }
+  
+  .sign-company-label {
+    font-size: 50px;
+  }
+  .sign-company-name-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .company-sign-name-input {
+    font-size: 20px;
+  }
+  .emailphone-sign-label {
+    font-size: 33px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  
+  .email-sign-box {
+    font-size: 20px;
+  }
+  .phone-sign {
+    padding-left: 70px;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 0px;
+  }
+  .phone-sign-box {
+    font-size: 20px;
+  }
+  .address-sign-label {
+    font-size: 50px;
+  }
+  .address-sign-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    padding-left: 0px;
+    display: block;
+    position: relative;
+  }
+  .city-sign-input {
+  margin: 0px;
+  display: block;
+  padding-left: 59px;
+  }
+  .address-sign-box {
+    font-size: 20px;
+  }
+  .city-sign-label {
+    padding-left: 0px;
+  }
+  .city-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 45px;
+    font-size: 20px;
+  }
+  .state-sign-box {
+    font-size: 20px;
+  }
+  .state-sign-label {
+    padding-left: 0%;
+  }
+  .zip-sign-input {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 0;
+  padding-left: 16px;
+  font-size: 20px;
+  }
+  .zip-sign-label {
+    padding-left: 0px;
+  }
+  .zip-sign-box {
+    font-size: 20px;
+  }
+  .reflective-label {
+    font-size: 50px;
+  }
+  .reflective-img {
+    width: 110%;
+  }
+  .submit-reflective {
+    font-size: 30px;
+  }
+  .remove-reflective {
+    font-size: 30px;
+    margin-left: 10px;
+  }
+  .size-label {
+    font-size: 50px;
+  }
+  .post-label {
+    font-size: 50px;
+  }
+  .post-note {
+    padding-right: 150px;
+    width: 80%;
+  }
+  .bracket-image-label {
+    font-size: 50px;
+  }
+  .size-select {
+    font-size: 15px;
+  }
+  .quantity-size-box {
+    font-size: 20px;
+  }
+  .submit-size {
+    font-size: 30px;
+    margin-left: 75px;
+    align-items: center;
+  }
+  .remove-size {
+    font-size: 30px;
+    margin-left: 40px;
+    align-items: center;
+  }
+  .post-container {
+    width: 150%;
+  }
+  .post-select {
+    font-size: 20px;
+  }
+  
+  .post-selection {
+    display: inline;
+  }
+  .post-img-section {
+    display: flex;
+    justify-content: flex-start; /* Move the images to the left */
+    position: relative;
+    margin-bottom: 60px;
+    max-width: 500%;
+    margin-left: 0px;
+  }
+  
+  .post-img-container {
+    display: block;
+    text-align: center;
+    position: relative;
+    width: 100%; /* Keep the width at 300% */
+  }
+  .post2-img-container {
+    display: block;
+    text-align: center;
+    position: relative;
+    width: 250%; /* Keep the width at 300% */
+  }
+  
+  .post-img {
+    width: 100%; /* Adjust image size */
+  }
+  
+  .post-img-text {
+    font-size: 17px;
+    display: flex;
+    padding-left: 30px;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .post2-img-text {
+    font-size: 17px;
+    display: flex;
+    padding-left: 30px;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .post-quantity-box {
+    font-size: 26px;
+  }
+  .submit-post{
+    font-size: 40px;
+    margin-left: 50px;
+  }
+  .remove-post{
+    font-size: 40px;
+    margin-right: 40px;
+  }
+  .bracket-img-section {
+    display: flex;
+  }
+  .bracket-select {
+    font-size: 10px;
+  }
+  .quantity-box {
+    font-size: 30px;
+  }
+  .submit-bracket{
+    font-size: 30px;
+    margin-left: 45px;
+  }
+  .remove-bracket{
+    font-size: 30px;
+    margin-left: 0px;
+  }
+  .traffic-sign-image-label {
+    font-size: 50px;
+  }
+  .traffic-sign-img-section {
+    margin-top: 10px;
+  }
+  .traffic-sign-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    padding-left: 15px;
+    display: block;
+  }
+  .message-sign-label {
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+  .traffic-signfile-input-container {
+    display: block;
+  }
+  .file-sign-label, .remove-sign-file-button {
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .message-sign-text {
+    width: 389px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    margin-left: 10px;
+  }
+  }
+  
+  @media screen and (min-width: 820px) and (max-width: 1180px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .sign-description {
+      font-size: 99px;
+  }
+  
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .sign-description {
+      font-size: 70px;
+  }
+  .page-sign-banner {
+    padding-top: 200px;
+  }
+  .sign-app-box {
+    font-size: 60px;
+    width: 100%
+  }
+  .sign-img-section {
+    position: relative;
+      display: grid;
+      grid-gap: 0px;
+      right: 0%;
+      margin-top: 10px;
+  }
+  .sign-img-container {
+    width: 90%;
+  }
+  .sign-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .first-name-sign-input {
+    margin-right: 60px;
+    display: flex;
+  }
+  .firstname-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .last-sign-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .last-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-form-container{
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 690px;
+    display: block;
+  }
+  .sign-company-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 15px;
+  }
+  
+  .emailphone-sign-label {
+    font-size: 50px;
+  }
+  .emailphone-sign-input {
+    display: flex;
+  }
+  .email-sign-input {
+    padding-top: 0px;
+  }
+  
+  .address-sign-input {
+    display: flex;
+  }
+  .city-sign-state {
+    margin: 0;
+    display: block;
+    padding-top: 10px;
+    padding-left: 30px;
+  }
+  .city-sign-input {
+    padding-left: 10px;
+  }
+  .state-sign-input {
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  .zip-sign-input {
+    padding-top: 0px;
+  }
+  .reflective-section {
+    margin-top: 130px;
+  }
+  .submit-reflective {
+   margin-left: 150px
+  }
+  .remove-reflective {
+    margin-left: 120px;
+  }
+  .submit-post {
+    margin-left: 200px;
+  }
+  .remove-post {
+    margin-left: 165px;
+  }
+  .bracket-select {
+    font-size: 17px;
+  }
+  .remove-bracket {
+    font-size: 30px;
+    margin-left: 150px;
+  }
+  .message-sign-text {
+    width: 670px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    margin-left: 110px;
+  }
+  }
+  
+  @media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .sign-description {
+      font-size: 68px;
+  }
+  .page-sign-banner {
+    padding-top: 200px;
+  }
+  .sign-app-box {
+    font-size: 60px;
+    width: 100%
+  }
+  .sign-img-section {
+    position: relative;
+      display: grid;
+      grid-gap: 0px;
+      right: 0%;
+      margin-top: 10px;
+  }
+  .sign-img-container {
+    width: 90%;
+  }
+  .sign-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .first-name-sign-input {
+    margin-right: 60px;
+    display: block;
+  }
+  .firstname-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .last-sign-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .last-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-form-container{
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 550px;
+    display: block;
+  }
+  .sign-company-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 15px;
+  }
+  
+  .emailphone-sign-label {
+    font-size: 50px;
+  }
+  .emailphone-sign-input {
+    display: block;
+  }
+  .email-sign-input {
+    padding-top: 0px;
+  }
+  
+  .address-sign-input {
+    display: block;
+  }
+  .city-sign-state {
+    margin: 0;
+    display: block;
+    padding-top: 10px;
+    padding-left: 30px;
+  }
+  .city-sign-input {
+    padding-left: 10px;
+  }
+  .state-sign-input {
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  .zip-sign-input {
+    padding-top: 0px;
+  }
+  
+  .submit-reflective {
+   margin-left: 150px
+  }
+  .remove-reflective {
+    margin-left: 120px;
+  }
+  .submit-post {
+    margin-left: 200px;
+  }
+  .post-quantity-box {
+    font-size: 26px;
+    display: flex;
+  }
+  .remove-post {
+    margin-left: 75px;
+  }
+  .bracket-select {
+    font-size: 15px;
+  }
+  .remove-bracket {
+    font-size: 30px;
+    margin-left: 150px;
+  }
+  .message-sign-text {
+    width: 530px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    margin-left: 40px;
+  }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .sign-description {
+      font-size: 74px;
+  }
+  .page-sign-banner {
+    padding-top: 200px;
+  }
+  .sign-app-box {
+    font-size: 60px;
+    width: 100%
+  }
+  .sign-set {
+    width: 90%;
+  }
+  .sign-img-section {
+    position: relative;
+      display: grid;
+      grid-gap: 20px;
+      right: 0%;
+      margin-top: 10px;
+  }
+  .sign-img-container {
+    width: 100%;
+  }
+  .sign-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .first-name-sign-input {
+    margin-right: 60px;
+    display: flex;
+  }
+  .firstname-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .last-sign-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .last-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-form-container{
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 690px;
+    display: block;
+  }
+  .sign-company-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 15px;
+  }
+  .city-sign-state {
+    margin: 0;
+    padding-top: 20px;
+    padding-left: 0px;
+  }
+  .emailphone-sign-label {
+    font-size: 50px;
+  }
+  .emailphone-sign-input {
+    display: flex;
+  }
+  .email-sign-input {
+    padding-top: 0px;
+    margin: 0;
+  }
+  
+  .address-sign-input {
+    margin: 0;
+  }
+  
+  .submit-reflective {
+   margin-left: 150px
+  }
+  .remove-reflective {
+    margin-left: 120px;
+  }
+  .submit-post {
+    margin-left: 200px;
+  }
+  .remove-post {
+    margin-left: 165px;
+  }
+  .bracket-select {
+    font-size: 17px;
+  }
+  .remove-bracket {
+    font-size: 30px;
+    margin-left: 150px;
+  }
+  .message-sign-text {
+    width: 670px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    margin-left: 110px;
+  }
+  }
+  
+  @media screen and (min-width: 912px) and (max-width: 1368px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .sign-description {
+      font-size: 74px;
+  }
+  .page-sign-banner {
+    padding-top: 200px;
+  }
+  .sign-app-box {
+    font-size: 60px;
+    width: 100%
+  }
+  .sign-set {
+    width: 90%;
+  }
+  .sign-img-section {
+    position: relative;
+      display: grid;
+      grid-gap: 20px;
+      right: 0%;
+      margin-top: 10px;
+  }
+  .sign-img-container {
+    width: 100%;
+  }
+  .sign-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .first-name-sign-input {
+    margin-right: 60px;
+    display: flex;
+  }
+  .firstname-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .last-sign-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .last-sign-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-form-container{
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 690px;
+    display: block;
+  }
+  .sign-company-name-input {
+    font-family: "Moveo Sans w00 Regular";
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+  }
+  .sign-phone-name-input {
+    padding-bottom: 30px;
+    margin: 0px;
+    margin-left: -7px;
+    padding-left: 15px;
+  }
+  .city-sign-state {
+    margin: 0;
+    padding-top: 20px;
+    padding-left: 0px;
+  }
+  .emailphone-sign-label {
+    font-size: 50px;
+  }
+  .emailphone-sign-input {
+    display: flex;
+  }
+  .email-sign-input {
+    padding-top: 0px;
+    margin: 0;
+  }
+  
+  .address-sign-input {
+    margin: 0;
+  }
+  
+  .submit-reflective {
+   margin-left: 150px
+  }
+  .remove-reflective {
+    margin-left: 120px;
+  }
+  .submit-post {
+    margin-left: 200px;
+  }
+  .remove-post {
+    margin-left: 165px;
+  }
+  .bracket-select {
+    font-size: 17px;
+  }
+  .remove-bracket {
+    font-size: 30px;
+    margin-left: 150px;
+  }
+  .message-sign-text {
+    width: 670px;
+    margin-left: 0;
+    height: 300px;
+  }
+  .submit-sign {
+    margin-left: 110px;
+  }
+  }
