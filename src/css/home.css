@@ -85,10 +85,26 @@ body {
     url("https://db.onlinewebfonts.com/t/f1d461b4bad8f8aac1730a9e629e702d.ttf")format("truetype"),
     url("https://db.onlinewebfonts.com/t/f1d461b4bad8f8aac1730a9e629e702d.svg#Highway Gothic Narrow")format("svg");
   }
+  @font-face {
+    font-family: "Moveo Sans W00 Bold";
+    src: url("https://db.onlinewebfonts.com/t/82baa4951eee7df05175ada4cb171e35.eot");
+    src: url("https://db.onlinewebfonts.com/t/82baa4951eee7df05175ada4cb171e35.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/82baa4951eee7df05175ada4cb171e35.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/82baa4951eee7df05175ada4cb171e35.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/82baa4951eee7df05175ada4cb171e35.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/82baa4951eee7df05175ada4cb171e35.svg#Moveo Sans W00 Bold")format("svg");
+}
   .container {
     max-width: 120rem;
     padding: 0 3.2rem;
     margin: 0 auto;
+}
+.subheading {
+    font-size: 60px;
+    font-family: "Moveo Sans W00 Bold";
+    text-align: center;
+    display: block;
+    margin: 10px;
 }
 .material-box {
     content: normal;
@@ -212,8 +228,14 @@ position: relative;
 }
 
 .contact-materialX {
-    font-family: "Kairos W04 Extended Bold";
-    color: #0042e9
+    font-family: "Moveo Sans W00 Bold";
+    color: #0042e9;
+    font-size: 40px;
+}
+.contact-descript {
+    font-family: "Moveo Sans W00 Regular";
+    font-size: 20px;
+    text-align: center;
 }
 .bryson-contact-link {
     font-family: "Kairos W04 Extended Bold";
@@ -223,13 +245,19 @@ position: relative;
     text-align: center;
 }
 .will-contact-link, .carson-contact-link, .jonkell-contact-link {
-    font-family: "Kairos W04 Extended Bold";
-    font-size: 10px;
+    font-family: "Moveo Sans W00 Bold";
+    font-size: 20px;
     color: #1841aa;
     margin-top: 20px;
     text-align: center;
 }
-
+.contact-william-info {
+    font-family: "Moveo Sans W00 Bold";
+    font-size: 40px;
+    color: #1841aa;
+    margin-top: 20px;
+    text-align: center;
+}
 .photo-mx-note {
     font-size: 50px;
     text-align: center;
@@ -265,11 +293,17 @@ position: relative;
     line-height: 1.2;
     margin-bottom: 3.2rem;
 }
-.heading-primary, .heading-secondary, .heading-tertiary {
+.heading-primary, .heading-tertiary {
     font-weight: 700;
     color: #333;
     letter-spacing: -.5px;
     font-size: 2rem;
+}
+.heading-secondary {
+    font-size: 40px;
+    color: #000290;
+    text-align: center;
+    font-family: "Highway Gothic Narrow";
 }
 .custom-signage, 
 .decals-stickers-home, 
@@ -345,7 +379,7 @@ position: relative;
 }
 
 .step-fleet-img {
-    width: 51%; /* Set a consistent width */
+    width: 43%; /* Set a consistent width */
     height: auto; /* Let the height adjust automatically */
     aspect-ratio: 1 / 1; /* Ensures the height matches the width, making it a perfect circle */
     margin-bottom: 2rem; /* Adds space between the image and button */
