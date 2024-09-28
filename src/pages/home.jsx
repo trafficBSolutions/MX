@@ -112,7 +112,7 @@ const Home = () => {
           <div className="main-material-container">
           <section className="section-how" id="how">
           <div className="container">
-            <span className="subheading">What We Do</span>
+            <span className="subheading">SERVICES</span>
             <h2 className="heading-secondary">
             You can choose from what we do.
             </h2>
@@ -155,7 +155,7 @@ const Home = () => {
             <div className="step-img-box">
             <div className="img-btn-container">
               <img
-                src="../public/MX Photos/box truck.JPG"
+                src="../public/MX Photos/jt.JPG"
                 className="step-decal-img"
                 alt="iPhone app
               meal approving plan screen"
@@ -256,7 +256,7 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
 <div className="custom-fleet-graphics">
   <div className="step-text-box">
     <p className="step-number">07</p>
-    <h3 className="heading-tertiary">VEHICLE FLEET GRAPHICS</h3>
+    <h3 className="heading-tertiary">VEHICLE FLEET AND DECALED GRAPHICS</h3>
     <p className="step-description">
     Vehicle fleet graphics are vinyl decals or wraps meticulously designed to transform vehicles into impactful marketing tools. Whether adorning business trucks, 
     delivery vans, or even personal vehicles, these graphics serve as dynamic canvases for brand messaging, logos, and eye-catching designs.
@@ -267,7 +267,7 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
 
   <div className="step-img-box">
     <div className="img-btn-container">
-      <img src="../public/MX Photos/Fleet.jpg" className="step-fleet-img" alt="iPhone app preferences selection screen" />
+      <img src="../public/MX Photos/box truck.jpg" className="step-fleet-img" alt="iPhone app preferences selection screen" />
       <a href="/fleet-graphics" className="btn btn--full fleet-quote">GET A QUOTE FOR FLEET GRAPHICS</a>
     </div>
   </div>
@@ -275,32 +275,28 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
             </div>
         </section>
 
-              <div className="contacting-container">
+        <div className="contacting-container">
     <h1 className="contact-materialX">
-        If you have any questions about your design or need any assistance with your item, please contact us:
+        Need a Professional Website? Contact Us Today!
     </h1>
-
-<div className="bryson-contact-link">
-    <h1 className="bryson-contact">
-        OWNER: BRYSON DAVIS: <a className="bryson-phone" href="tel:+17062630175">706-263-0175</a> or <a className="bryson-email" href="mailto:tbsolutions3@gmail.com">tbsolutions3@gmail.com</a>
-    </h1>
-</div>
-<div className="carson-contact-link">
-    <h1 className="carson-contact">
-        SUPERVISOR: CARSON SPEER: <a className="carson-phone" href="tel:+17065814465">706-581-4465</a> or <a className="carson-email" href="mailto:tbsolutions4@gmail.com">tbsolutions4@gmail.com</a>
-    </h1>
-</div>
-<div className="will-contact-link">
-    <h1 className="will-contact">
-        PRODUCT DESIGNER: WILLIAM ROWELL: <a className="will-phone" href="tel:+17068790106">706-879-0106</a> or <a className="will-email" href="mailto:tbsolutions9@gmail.com">tbsolutions9@gmail.com</a>
-    </h1>
-</div>
-<div className="jonkell-contact-link">
-    <h1 className="jonkell-contact">
-        PRODUCT MANUFACTURER: JONKELL TOLBERT: <a className="jonkell-phone" href="tel:+17068799246">706-879-9246</a> or <a className="jonkell-email" href="mailto:tbsolutions55@gmail.com">tbsolutions55@gmail.com</a>
-    </h1>
-</div>
-</div>
+    <p className="contact-descript">
+        Whether you love the design of this website or need custom development services for your business, we are here to help. Get a modern, responsive, and visually striking website tailored to your needs!
+    </p>
+    <div className="will-contact-link">
+        <h2 className="will-contact">
+            Contact William Rowell, Product Designer & MX Website Developer:
+        </h2>
+        <p className="contact-info">
+            <a className="will-phone" href="tel:+17068790106">
+                <i className="fas fa-phone"></i> Call or Text: 706-879-0106
+            </a> or
+            <a className="will-email" href="mailto:tbsolutions9@gmail.com">
+                <i className="fas fa-envelope"></i> Email: tbsolutions9@gmail.com
+            </a>
+        </p>
+        <p className="contact-william-info">Material WorX Website Created by William Rowell</p>
+    </div>
+          </div>
           </div>
         </div>
       </main>
@@ -320,26 +316,14 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
           <div className="footer-content">
             <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
             <ul className="footer-navigate">
-              <li><a className="footer-material-nav-link" href="/custom-signs">Custom Signs</a></li>
-              <li><a className="footer-material-nav-link" href="/decals-stickers">Decals & Stickers</a></li>
-              <li><a className="footer-material-nav-link" href="/banners">Banners</a></li>
-              <li><a className="footer-material-nav-link" href="/t-shirts-sweatshirts-jackets">T-Shirts Sweatshirts Jackets</a></li>
-              <li><a className="footer-material-nav-link" href="/window-frost-tint">Window Frosting & Tinting</a></li>
-              <li><a className="footer-material-nav-link" href="/drywall-floor-concrete">Drywall Floor & Concrete Graphics</a></li>
-              <li><a className="footer-material-nav-link" href="/fleet-graphics">Fleet Graphics</a></li>
+              <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
+              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/services">Services</a></li>
+              <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
           </div>
           <div className="footer-contact">
             <div className="statement-box">
-              <p className="statement">
-                <b className="safety-b">Safety Statement: </b>
-                At TBS, safety is our top priority. We are dedicated to ensuring the well-being of our employees, clients, 
-                and the general public in every aspect of our operations. Through comprehensive safety training, 
-                strict adherence to regulatory standards, and continuous improvement initiatives, 
-                we strive to create a work environment where accidents and injuries are preventable. 
-                Our commitment to safety extends beyond compliance—it's a fundamental value embedded in everything we do. 
-                Together, we work tirelessly to promote a culture of safety, accountability, and excellence, because when it comes to traffic control, there's no compromise on safety.
-              </p>
               <p className="trademark-warning">
                 <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
