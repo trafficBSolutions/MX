@@ -631,8 +631,9 @@ try {
 <h2 className="fleet-fill">Please Fill Out the Form Below to Submit Your FLEET GRAPHICS Information to get an Inquiry or Quote.</h2>
 </div>
 <div className="fleet-actual">
-<label className="first-fleet-name-label">Name: </label>
-<div className="first-name-fleet-input">
+  <div className="name-section-fleet">
+    <label className="first-fleet-name-label">Name: </label>
+      <div className="first-name-fleet-input">
 
   <div className="first-fleet-name">
     <div className="firstname-fleet-input">
@@ -672,6 +673,8 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     </div>
   </div>
 </div>
+</div>
+<div className="company-fleet-section">
 <label className="fleet-company-label">Company/Excavator: </label>
 <div className="company-fleet-input">
   <div className="company-fleet">
@@ -687,6 +690,8 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     </div>
   </div>
   </div>
+  </div>
+  <div className="emailphone-fleet-section">
   <label className="emailphone-fleet-label">Email/Phone Number:</label>
 <div className="emailphone-fleet-input">
   <div className="email-fleet">
@@ -728,6 +733,8 @@ onChange={handlePhoneChange}
     </div>
   </div>
 </div>
+</div>
+<div className="address-fleet-section">
 <label className="address-fleet-label">Company Address: </label>
 <div className="address-fleet-input-container">
 <div className="address-fleet-input">
@@ -795,6 +802,8 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 </div>
 </div>
 </div>
+</div>
+<div className="vehicle-type-fleet-section">
 <label className="type-fleet-label" htmlFor="vehicleType">Vehicle Type:</label>
 <div className="type-fleet-section">
       {/* Vehicle Type Dropdown */}
@@ -871,13 +880,15 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
   </ul>
 </div>
 {errors.vehicle && <span className="error-message">{errors.vehicle}</span>}
+</div>
+<div className="vehicle-size-fleet-section">
 <label className="size-fleet-label">Size of Vehicle:</label>
-
 {/* Driver Size Section */}
 <div className="size-fleet-section">
   <label className="size-driver-fleet-note">Driver Side:</label>
   <div className="driver-side-section">
-    <label className="length-label" htmlFor="driver-length">Length *</label>
+    <div className="driver-length-section">
+    <label className="length-fleet-label" htmlFor="driver-length">Length *</label>
     <input
       className="length-fleet-box"
       type="number"
@@ -888,7 +899,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     />
 
     <select
-      className="length-select"
+      className="length-fleet-select"
       value={driverLengthUnit}
       onChange={(e) => setDriverLengthUnit(e.target.value)}
     >
@@ -896,8 +907,9 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
-
-    <label className="width-label" htmlFor="driver-width">Width *</label>
+</div>
+    <div className="driver-width-section">
+    <label className="width-fleet-label" htmlFor="driver-width">Width *</label>
     <input
       className="width-fleet-box"
       type="number"
@@ -908,7 +920,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     />
 
     <select
-      className="length-select"
+      className="length-fleet-select"
       value={driverWidthUnit}
       onChange={(e) => setDriverWidthUnit(e.target.value)}
     >
@@ -916,22 +928,13 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
-
-    <button
-      type="button"
-      className="btn-submit btn--full submit-size"
-      onClick={handleAddDriverSize}
-    >
-      ADD DRIVER SIZE
-    </button>
-
     {/* Added Driver Sizes */}
     {addedDriverSizes.length > 0 ? (
       addedDriverSizes.map((size, index) => (
         <li className="vehicle-driver-size-li" key={index}>
           {size}
           <button
-            className="btn-submit btn--full submit-size"
+            className="btn-submit btn--full driver-remove-submit-size"
             type="button"
             onClick={() => handleRemoveDriverSize(index)}
           >
@@ -943,6 +946,14 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       <p className="no-added-vehicles">No Driver sizes added yet.</p>
     )}
   </div>
+  <button
+      type="button"
+      className="btn-submit btn--full driver-submit-size"
+      onClick={handleAddDriverSize}
+    >
+      ADD DRIVER SIZE
+    </button>
+</div>
 </div>
 {errors.driverSize && <span className="error-message">{errors.driverSize}</span>}
 
@@ -950,7 +961,8 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 <div className="size-fleet-section">
   <label className="size-passenger-fleet-note">Passenger Side:</label>
   <div className="passenger-side-section">
-    <label className="length-label" htmlFor="passenger-length">Length *</label>
+    <div className="passenger-length-section">
+    <label className="length-fleet-label" htmlFor="passenger-length">Length *</label>
     <input
       className="length-fleet-box"
       type="number"
@@ -961,7 +973,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     />
 
     <select
-      className="length-select"
+      className="length-fleet-select"
       value={passengerLengthUnit}
       onChange={(e) => setPassengerLengthUnit(e.target.value)}
     >
@@ -969,8 +981,9 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
-
-    <label className="width-label" htmlFor="passenger-width">Width *</label>
+</div>
+<div className="passenger-side-width">
+    <label className="width-fleet-label" htmlFor="passenger-width">Width *</label>
     <input
       className="width-fleet-box"
       type="number"
@@ -981,7 +994,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     />
 
     <select
-      className="length-select"
+      className="length-fleet-select"
       value={passengerWidthUnit}
       onChange={(e) => setPassengerWidthUnit(e.target.value)}
     >
@@ -989,10 +1002,10 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
-
+</div>
     <button
       type="button"
-      className="btn-submit btn--full submit-size"
+      className="btn-submit btn--full passenger-submit-size"
       onClick={handleAddPassengerSize}
     >
       ADD PASSENGER SIZE
@@ -1004,7 +1017,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
         <li className="vehicle-passenger-size-li" key={index}>
           {passengerSize}
           <button
-            className="btn-submit btn--full submit-size"
+            className="btn-submit btn--full passenger-remove-submit-size"
             type="button"
             onClick={() => handleRemovePassengerSize(index)}
           >
@@ -1019,11 +1032,12 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 </div>
 
 {errors.passengerSize && <span className="error-message">{errors.passengerSize}</span>}
-
+</div>
+<div className="door-size-fleet-section">
 <label className="size-fleet-label">Size of Backdoor/Tailgate Side Vehicle:</label>
 <div className="size-door-fleet-section">
   <div className="length-door-fleet-section">
-    <label className="length-label" htmlFor="length">Length *</label>
+    <label className="length-fleet-label" htmlFor="length">Length *</label>
     <input
       className="length-door-fleet-box"
       type="number"
@@ -1033,7 +1047,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       placeholder="Enter length"
     />
     <select
-      className="length-select"
+      className="length-fleet-select"
       value={doorLengthUnit}
       onChange={(e) => setDoorLengthUnit(e.target.value)} // Set unit for length
     >
@@ -1044,7 +1058,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
   </div>
 
   <div className="width-door-fleet-section">
-    <label className="width-label" htmlFor="width">Width *</label>
+    <label className="width-fleet-label" htmlFor="width">Width *</label>
     <input
       className="width-door-fleet-box"
       type="number"
@@ -1054,7 +1068,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       placeholder="Enter width"
     />
     <select
-      className="width-select"
+      className="width-fleet-select"
       value={doorWidthUnit}
       onChange={(e) => setDoorWidthUnit(e.target.value)} // Set unit for width
     >
@@ -1065,7 +1079,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
   </div>
 
   <button
-    className="btn-submit btn--full submit-size"
+    className="btn-submit btn--full door-length-submit-size"
     type="button" // Make sure this button doesn't act like a form submit
     onClick={handleAddDoorSize}
   >
@@ -1076,11 +1090,11 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
   <ul>
   {addedDoors.length > 0 ? (
     addedDoors.map((doorSize, index) => (
-      <li key={index}>
+      <li className="door-list" key={index}>
         {doorSize}
         <button
           type="button"
-          className="btn-submit btn--full submit-size"
+          className="btn-submit btn--full door-remove-length-submit-size"
           onClick={() => handleRemoveDoorSize(index)} // Handle removing door sizes
         >
           REMOVE BACKDOOR/TAILGATE SIZE
@@ -1093,12 +1107,29 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 </ul>
 {errors.doorSize && <span className="error-message">{errors.doorSize}</span>}
 </div>
+</div>
+<div className="finishing-fleet-section">
 <label className="finish-fleet-label">Finishing Touch:</label>
+<div className="fleet-finish-img-section">
+  <div className="matte-img-fleet">
+    <img className="matte-img" alt="matte" src="../public/vinyls/matte.jpg"/>
+    <h2 className="matte-fleet-note">Matte</h2>
+  </div>
+  <div className="gloss-img-fleet">
+    <img className="gloss-img" alt="gloss" src="../public/vinyls/gloss.jpg"/>  
+    <h2 className="gloss-fleet-note">Gloss</h2>
+  </div>
+  <div className="ra-img-fleet">
+    <img className="ORAFOL-img" alt="orafol" src="../public/vinyls/orafol 5600.jpg"/>  
+    <h2 className="orafol-fleet-note">ORALITE 5600RA(Fleet Graphics)</h2>
+  </div>
+</div>
+
 <div className="finish-fleet-section">
   <label className="finish-label" htmlFor="finishing">Finishing *</label>
   <select
     name="finishing"
-    className="finish-select"
+    className="finish-fleet-select"
     value={selectedFinishing}
     onChange={(e) => setSelectedFinishing(e.target.value)}
     disabled={addedFinishing.length === 3}
@@ -1134,7 +1165,8 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     {errors.finishing && <span className="error-message">{errors.finishing}</span>}
   </div>
 </div>
-
+</div>
+<div className="fleet-file-section">
 <label className="fleet-file-label">Logo/Image:</label>
 <h2 className="fleet-warn"><b className="fleet-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
@@ -1162,6 +1194,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           )}
         
         {errors.img && <span className="error-message">{errors.img}</span>}
+</div>
 </div>
 </div>
 <div className="fleet-message-container">
@@ -1217,26 +1250,14 @@ we are closed, we will respond the next business day. Please note that we do not
           <div className="footer-content">
             <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
             <ul className="footer-navigate">
-              <li><a className="footer-material-nav-link" href="/custom-signs">Custom Signs</a></li>
-              <li><a className="footer-material-nav-link" href="/decals-stickers">Decals & Stickers</a></li>
-              <li><a className="footer-material-nav-link" href="/banners">Banners</a></li>
-              <li><a className="footer-material-nav-link" href="/t-shirts-sweatshirts-jackets">T-Shirts Sweatshirts Jackets</a></li>
-              <li><a className="footer-material-nav-link" href="/window-frost-tint">Window Frosting & Tinting</a></li>
-              <li><a className="footer-material-nav-link" href="/drywall-floor-concrete">Drywall Floor & Concrete Graphics</a></li>
-              <li><a className="footer-material-nav-link-view" href="">Fleet Graphics</a></li>
+              <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
+              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/services">Services</a></li>
+              <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
           </div>
           <div className="footer-contact">
             <div className="statement-box">
-              <p className="statement">
-                <b className="safety-b">Safety Statement: </b>
-                At TBS, safety is our top priority. We are dedicated to ensuring the well-being of our employees, clients, 
-                and the general public in every aspect of our operations. Through comprehensive safety training, 
-                strict adherence to regulatory standards, and continuous improvement initiatives, 
-                we strive to create a work environment where accidents and injuries are preventable. 
-                Our commitment to safety extends beyond compliance—it's a fundamental value embedded in everything we do. 
-                Together, we work tirelessly to promote a culture of safety, accountability, and excellence, because when it comes to traffic control, there's no compromise on safety.
-              </p>
               <p className="trademark-warning">
                 <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
