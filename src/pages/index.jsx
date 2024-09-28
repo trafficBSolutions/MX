@@ -4,4 +4,9 @@ import Adhesive from './drywall-floor-concrete'
 import Banner from './banners'
 import Window from './window-frost-tint'
 import FleetGraphics from './fleet-graphics'
-export { Home, Signs, Adhesive, Banner, Window, FleetGraphics }
+import About from './about-us'
+import Invoice from './pay-invoice'
+import Service from './services'
+import Logo from './new-logo'
+import Contact from './contact-us'
+export { Home, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact }
