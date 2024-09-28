@@ -577,26 +577,14 @@ and what time you want an MX crew will arrive.</h1>
           <div className="footer-content">
             <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
             <ul className="footer-navigate">
-              <li><a className="footer-material-nav-link" href="/custom-signs">Custom Signs</a></li>
-              <li><a className="footer-material-nav-link" href="/decals-stickers">Decals & Stickers</a></li>
-              <li><a className="footer-material-nav-link-view" href="">Banners</a></li>
-              <li><a className="footer-material-nav-link" href="/t-shirts-sweatshirts-jackets">T-Shirts Sweatshirts Jackets</a></li>
-              <li><a className="footer-material-nav-link" href="/window-frost-tint">Window Frosting & Tinting</a></li>
-              <li><a className="footer-material-nav-link" href="/drywall-floor-concrete">Drywall Floor & Concrete Graphics</a></li>
-              <li><a className="footer-material-nav-link" href="/fleet-graphics">Fleet Graphics</a></li>
+              <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
+              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/services">Services</a></li>
+              <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
           </div>
           <div className="footer-contact">
             <div className="statement-box">
-              <p className="statement">
-                <b className="safety-b">Safety Statement: </b>
-                At TBS, safety is our top priority. We are dedicated to ensuring the well-being of our employees, clients, 
-                and the general public in every aspect of our operations. Through comprehensive safety training, 
-                strict adherence to regulatory standards, and continuous improvement initiatives, 
-                we strive to create a work environment where accidents and injuries are preventable. 
-                Our commitment to safety extends beyond compliance—it's a fundamental value embedded in everything we do. 
-                Together, we work tirelessly to promote a culture of safety, accountability, and excellence, because when it comes to traffic control, there's no compromise on safety.
-              </p>
               <p className="trademark-warning">
                 <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
@@ -610,4 +598,4 @@ and what time you want an MX crew will arrive.</h1>
                 </div>
             );
 };
-export default Banner
+export default Banner;
