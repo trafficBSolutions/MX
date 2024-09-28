@@ -1,0 +1,171 @@
+.service-page-heading {
+    color: #2f2f2f;
+    font-family: "Kairos W04 Extended Bold";
+    font-size: 80px;
+    text-align: center;
+}
+.service {
+    background-color: aqua;
+}
+.service-main {
+    background-color: #e7e7e7;
+}
+.service-para {
+    font-family: "Moveo Sans w00 Regular";
+    font-size: 30px;
+    text-align: center;
+    margin: 60px;
+    width: auto;
+}
+
+.material-worx-service {
+    color:#7aebff;
+    font-size: 60px;
+    padding: 30px;
+    font-family: "Moveo Sans w00 Bold";
+}
+.material-services-buttons {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    flex-wrap: wrap; /* Ensures buttons wrap to a new row if the screen size is smaller */
+    margin: 40px;
+    justify-content: space-around; /* Distributes buttons evenly */
+}
+
+.custom-sign-service-button,
+.decals-stickers-service-button,
+.banner-service-button,
+.t-shirt-service-button,
+.window-service-button,
+.drywall-service-button,
+.fleet-service-button {
+    display: flex;
+    flex-direction: column; /* Stack icon on top of text */
+    align-items: center; /* Center both icon and text horizontally */
+    justify-content: center; /* Center both icon and text vertically */
+    background-color: #81c4ff;
+    color: #0044c3;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    font-family: "Kairos W04 Extended Bold";
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+    height: 180px; /* Sets a consistent height for all buttons */
+    width: 150px; /* Optional: sets consistent width for all buttons */
+    box-sizing: border-box; /* Ensures padding and border are included in the height and width */
+}
+
+.custom-sign-service-button:hover,
+.decals-stickers-service-button:hover,
+.banner-service-button:hover,
+.t-shirt-service-button:hover,
+.window-service-button:hover,
+.drywall-service-button:hover,
+.fleet-service-button:hover {
+    background-color: #3b87c9;
+}
+
+.custom-sign-service-button img,
+.decals-stickers-service-button img,
+.banner-service-button img,
+.t-shirt-service-button img,
+.window-service-button img,
+.drywall-service-button img,
+.fleet-service-button img {
+    width: 50px; /* Sets a consistent icon width */
+    height: 50px; /* Sets a consistent icon height */
+    margin-bottom: 10px; /* Space between icon and text */
+}
+
+.custom-sign-service-button span,
+.decals-stickers-service-button span,
+.banner-service-button span,
+.t-shirt-service-button span,
+.window-service-button span,
+.drywall-service-button span,
+.fleet-service-button span {
+    font-size: 16px;
+    line-height: 1.2;
+}
+.service-note-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Align items to the top-left */
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+.service-note {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.service-question {
+    font-size: 3rem; /* Adjust font size */
+    font-family: "Moveo Sans W00 Bold";
+    text-align: center;
+    margin-bottom: 2rem; /* Add space between the question and the image */
+}
+.service-contact {
+    font-family: "Moveo Sans W00 Regular";
+    font-size: 20px;
+    margin: 50px;
+}
+.service-description {
+    font-size: 1.4rem; /* Adjust font size to fit under the image */
+    font-family: "Moveo Sans W00 Regular";
+    text-align: left;
+    max-width: 70%; /* Limit the width of the paragraph */
+    margin-top: 1rem; /* Add space between the image and the paragraph */
+}
+
+.image-service-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Align image to the left */
+    width: 150%;
+    text-align: center;
+}
+
+.working-img-two {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 120%; /* Adjust to fit the layout */
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 1rem; /* Add space between the image and the paragraph */
+}
+
+.working-two {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover;
+    border: 5px solid #003366; /* Inner border - darker blue */
+    padding: 5px; /* Space between inner and outer border */
+    background-color: #66b2ff; /* Outer border - lighter blue */
+}
+.logo-new {
+    font-size: 60px;
+    font-family: "Moveo Sans W00 Bold";
+    text-align: center;
+}
+.new-logo-button {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 2rem; /* Adjust size as needed */
+    color: #fff;
+    padding: 1rem 2rem; /* Adjust padding for a better fit */
+    text-align: center;
+    width: fit-content;
+    border-radius: 5px;
+    font-family: "Kairos W04 Extended Bold";
+    cursor: pointer;
+}
