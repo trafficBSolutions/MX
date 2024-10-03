@@ -262,10 +262,7 @@ import Header from '../components/headerviews/HeaderSign';
     // Construct the new sign object with custom length, width, and units for non-Aluminum signs
     const newSign = {
       signType,
-      signSize:
-        signType === 'Aluminum Sign Blank'
-          ? signSize
-          : `${customLength} ${lengthUnit} x ${customWidth} ${widthUnit}`,
+      signSize: signType === 'Yard Signs' ? '18"x24"' : `${customLength} ${lengthUnit} x ${customWidth} ${widthUnit}`,
       signSides: signSidesValue, // Add this line to include sides for all sign types
       finishing: selectedFinishing,
       thickness:
@@ -297,6 +294,7 @@ import Header from '../components/headerviews/HeaderSign';
     setCustomWidth('');
     setQuantity(0);
   };
+  
   
 
   const handleRemoveSigns = (index) => {
@@ -762,6 +760,13 @@ onChange={(e) => {
 {/* Yard Signs Section */}
 {signType === 'Yard Signs' && (
   <>
+  <label className="sign-size-label">Sign Size</label>
+    <input
+      type="text"
+      value="18in x 24in"
+      readOnly
+      className="sign-size-input"
+    />
     <label>Sign Sides *</label>
     <select value={signSidesValue} onChange={(e) => {
         setSignSidesValue(e.target.value);
@@ -1106,9 +1111,6 @@ and what time you want an MX crew will arrive.</h1>
   }}
 />
 {errors.message && <span className="error-message">{errors.message}</span>}
-  {submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
-)}
   </div>
   <button type="button" className="btn btn--full submit-sign" onClick={handleSubmit}>SUBMIT CUSTOM SIGN</button>
 
@@ -1120,6 +1122,9 @@ and what time you want an MX crew will arrive.</h1>
     <div className="submission-error-message">{errorMessage}</div>
   )}
 </div>
+{submissionMessage && (
+<div className="submission-message">{submissionMessage}</div>
+)}
 </div>
 
       </div>
