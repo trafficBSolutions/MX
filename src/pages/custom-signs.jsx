@@ -56,149 +56,363 @@ import Header from '../components/headerviews/HeaderSign';
         { abbreviation: 'WI', name: 'Wisconsin' },
         { abbreviation: 'WY', name: 'Wyoming' }
       ];
+      const sizeAluminumBlankOptions = [
+        {name: '12"x6"', disabled: false},
+        {name: '18"x6"'},
+        {name: '24"x6"'},
+        {name: '24"x8"'},
+        {name: '18"x12"'},
+        {name: '24"x18"'},
+        {name: '30"x24"'},
+        {name: '36"x24"'},
+        {name: '12"x12"'},
+        {name: '18"x18"'},
+        {name: '24"x24"'},
+        {name: '24"x24" Octagon(Stop Sign)'},
+        {name: '24"x24" Triangle(Yield Sign)'},
+        {name: '30"x30"'},
+        {name: '30"x30" Octagon(Stop Sign)'},
+        {name: '30"x30" Triangle(Yield Sign)'},
+        {name: '30"x30" Pentagon(School Zone Sign)'},
+        {name: '36"x36"'},
+        {name: '36"x36" Octagon(Stop Sign)'},
+        {name: '36"x36" Triangle(Yield Sign)'},
+        {name: '36"x36" Pentagon(School Zone Sign)'},
+        {name: '48"x48"'},
+        {name: '48"x48" Octagon(Stop Sign)'},
+        {name: '48"x48" Triangle(Yield Sign)'},
+        {name: '48"x48" Pentagon(School Zone Sign)'},
+        {name: 'Other: Please Specify in Message'},
+      ]
+      const finishOptions = [
+        { name: 'Matte', disabled: false },
+        { name: 'Gloss', disabled: false },
+        { name: 'Chrome', disabled: false },
+        { name: 'High Intensity Prismatic (Reflective)', disabled: false },
+        { name: 'Diamond Grade (Reflective)', disabled: false }
+      ];
+      const signTypeOptions = [
+        { name: 'Aluminum Sign Blank', disabled: false, value: 'Aluminum Sign Blank' },
+        { name: 'Aluminum Composite Material (ACM)', disabled: false, value: 'Aluminum Composite Material (ACM)' },
+        { name: 'Corrugated Plastic', disabled: false, value: 'Corrugated Plastic' },
+        { name: 'Yard Signs (18"x24" Corrugated Plastic)', disabled: false, value: 'Yard Signs' },
+        { name: 'Clear Acrylic', disabled: false, value: 'Clear Acrylic' },
+        { name: 'Colored Acrylic', disabled: false, value: 'Colored Acrylic' },
+        { name: 'LED', disabled: false, value: 'LED' },
+      ];
+      const signSides = [
+        { name: 'Single-Sided', disabled: false },
+        { name: 'Double-Sided', disabled: false }
+      ];
       const sizeOptions = [
-        { name: 'Select Measurement', disabled: true }, // Add this default option
         { name: 'Feet', disabled: false },
         { name: 'Inches', disabled: false },
       ];
+      const acmColors = [
+        { name: 'White', disabled: false },
+        { name: 'Black', disabled: false },
+        { name: 'Silver', disabled: false }
+      ];
+      const signThickness = [
+        { name: '1/8"(3mm)', disabled: false },
+        { name: '1/4"(6mm)', disabled: false },
+      ];
+      const AcrylicColor = [
+        { name: 'Red', disabled: false },
+        { name: 'Orange', disabled: false },
+        { name: 'Yellow', disabled: false },
+        { name: 'Green', disabled: false },
+        { name: 'Light Blue', disabled: false },
+        { name: 'Blue', disabled: false },
+        { name: 'Purple', disabled: false },
+      ];
         const Signs = () => {
-            const [phone, setPhone] = useState('');
-            const [selectedSize, setSelectedSize] = useState('');
-            const [addedSizes, setAddedSizes] = useState([]);
-            const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
-            const [widthUnit, setWidthUnit] = useState(''); // Default to feet
-            const [typeUnit, setTypeUnit] = useState(''); // Default to feet
-            const [finishUnit, setFinishUnit] = useState(''); // Default to feet
-            const [errorMessage, setErrorMessage] = useState('');
-            const [formData, setFormData] = useState({
-              first: '',
-              last: '',
-              company: '',
-              email: '',
-              phone: '',
-              address: '',
-              city: '',
-              state: '',
-              zip: '',
-              length: '',
-              width: '',
-              type: null,
-              finishing: null,
-              img: null,
-              message: ''
-            });
-            const [errors, setErrors] = useState({});
-            const [submissionMessage, setSubmissionMessage] = useState('');
-            const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
-            const handleStateChange = (e) => {
-              setSelectedState(e.target.value);
-              setErrors({ ...errors, state: '' }); // Clear state error when state changes
-            };
+          const [phone, setPhone] = useState('');
+          const [signSize, setSignSize] = useState('');
+          const [lengthError, setLengthError] = useState('');
+          const [acmColorError, setAcmColorError] = useState('');
+          const [acrylicColorError, setAcrylicColorError] = useState('');
+          const [signThicknessError, setSignThicknessError] = useState('');
+          const [quantityError, setQuantityError] = useState('');
+          const [widthError, setWidthError] = useState('');
+          const [signType, setSignType] = useState(''); // Sign type selected by user
+          const [customLength, setCustomLength] = useState(''); // Custom length for sign
+          const [customWidth, setCustomWidth] = useState(''); // Custom width for sign
+          const [lengthUnit, setLengthUnit] = useState('feet'); // Length measurement unit
+          const [widthUnit, setWidthUnit] = useState('feet'); // Width measurement unit
+          const [selectedFinishing, setSelectedFinishing] = useState('');
+          const [addedFinishing, setAddedFinishing] = useState([]);
+          const [acmColor, setAcmColor] = useState('');
+          const [acrylicColor, setAcrylicColor] = useState('');
+          const [signThicknessValue, setSignThicknessValue] = useState('');
+          const [signSidesValue, setSignSidesValue] = useState('');
+          const [errors, setErrors] = useState({});
+          const [errorMessage, setErrorMessage] = useState('');
+          const [submissionMessage, setSubmissionMessage] = useState('');
+          const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
+          const [quantity, setQuantity] = useState(0); // Default quantity
+          const [addedSigns, setAddedSigns] = useState([]);
+          const [signTypeError, setSignTypeError] = useState(''); // Error for sign type
+          const [signSizeError, setSignSizeError] = useState(''); // Error for sign size
+          const [signSidesError, setSignSidesError] = useState(''); // Error for sign sides
+          const [finishingError, setFinishingError] = useState(''); // Error for finishing
+
+  const [formData, setFormData] = useState({
+    first: '',
+    last: '',
+    company: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    signType: '',
+    logo: '',
+    message: ''
+  });
+  const handleAddSigns = () => {
+    let isValid = true;
+  
+    // Reset all previous errors
+    setSignTypeError('');
+    setSignSizeError('');
+    setSignSidesError('');
+    setFinishingError('');
+    setLengthError('');
+    setWidthError('');
+    setSignThicknessError('');
+    setAcmColorError('');
+    setAcrylicColorError('');
+    setQuantityError('');
+    setErrorMessage('');
+  
+    // Validate Sign Type
+    if (!signType) {
+      setSignTypeError('Please select a sign type.');
+      isValid = false;
+    }
+  
+    // Validate Sign Size based on sign type
+    if (signType === 'Aluminum Sign Blank' && !signSize) {
+      setSignSizeError('Please select a sign size.');
+      isValid = false;
+    } else if (
+      signType === 'Aluminum Composite Material (ACM)' ||
+      signType === 'Corrugated Plastic' ||
+      signType === 'Clear Acrylic' ||
+      signType === 'Colored Acrylic'
+    ) {
+      // For custom signs, validate length and width
+      if (!customLength || customLength <= 0) {
+        setLengthError('Please enter a length greater than 0.');
+        isValid = false;
+      }
+      if (!customWidth || customWidth <= 0) {
+        setWidthError('Please enter a width greater than 0.');
+        isValid = false;
+      }
+      // Validate thickness for these custom signs
+      if (!signThicknessValue) {
+        setSignThicknessError('Please select a sign thickness.');
+        isValid = false;
+      }
+      if (!signSidesValue) {
+        setSignSidesError('Please select the number of sides.');
+        isValid = false;
+      }
+    }
+  
+    // Validate Sign Sides only for Aluminum Sign Blank and Yard Signs
+    if (signType === 'Aluminum Sign Blank' || signType === 'Yard Signs') {
+      if (!signSidesValue) {
+        setSignSidesError('Please select the number of sides.');
+        isValid = false;
+      }
+    }
+  
+    // Validate Finishing
+    if (!selectedFinishing) {
+      setFinishingError('Please select a finishing type.');
+      isValid = false;
+    }
+  
+    // Validate ACM color for ACM signs
+    if (signType === 'Aluminum Composite Material (ACM)' && !acmColor) {
+      setAcmColorError('Please select an ACM color.');
+      isValid = false;
+    }
+  
+    // Validate Acrylic color for Colored Acrylic signs
+    if (signType === 'Colored Acrylic' && !acrylicColor) {
+      setAcrylicColorError('Please select an acrylic color.');
+      isValid = false;
+    }
+  
+    // Check for quantity
+    if (quantity <= 0) {
+      setQuantityError('Please enter a valid quantity greater than 0.');
+      isValid = false;
+    }
+  
+    // If validation fails, return early to prevent submission
+    if (!isValid) {
+      return;
+    }
+  
+    // Construct the new sign object with custom length, width, and units for non-Aluminum signs
+    const newSign = {
+      signType,
+      signSize:
+        signType === 'Aluminum Sign Blank'
+          ? signSize
+          : `${customLength} ${lengthUnit} x ${customWidth} ${widthUnit}`,
+      signSides: signSidesValue, // Add this line to include sides for all sign types
+      finishing: selectedFinishing,
+      thickness:
+        signType === 'Aluminum Composite Material (ACM)' ||
+        signType === 'Corrugated Plastic' ||
+        signType === 'Clear Acrylic' ||
+        signType === 'Colored Acrylic'
+          ? signThicknessValue
+          : null,
+      acmColor: signType === 'Aluminum Composite Material (ACM)' ? acmColor : null,
+      acrylicColor: signType === 'Colored Acrylic' ? acrylicColor : null,
+      quantity,
+    };
+  
+    setAddedSigns([...addedSigns, newSign]);
+  
+    // Clear the submission error once a sign has been successfully added
+    setSubmissionErrorMessage('');
+  
+    // Reset fields after adding the sign
+    setSignType('');
+    setSignSize('');
+    setSignSidesValue('');
+    setSelectedFinishing('');
+    setSignThicknessValue('');
+    setAcmColor('');
+    setAcrylicColor('');
+    setCustomLength('');
+    setCustomWidth('');
+    setQuantity(0);
+  };
+  
+
+  const handleRemoveSigns = (index) => {
+    const updatedSigns = addedSigns.filter((_, i) => i !== index);
+    setAddedSigns(updatedSigns);
+  };
             const handlePhoneChange = (event) => {
               const input = event.target.value;
-              const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+              const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              
               setPhone(formatted);
               setFormData({ ...formData, phone: formatted });
+            
+              // Check if the input has 10 digits and clear the error if it does
+              if (rawInput.length === 10) {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
+              }
             };
             const handleFileChange = (e, fileType) => {
             const file = e.target.files[0];
             setFormData({ ...formData, [fileType]: file });
           };
+          const handleZipChange = (event) => {
+            const input = event.target.value;
+            const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+          
+            setFormData({ ...formData, zip: rawInput });
+          
+            // Check if the input has 5 digits and clear the error if it does
+            if (rawInput.length === 5) {
+              setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
+            } else {
+              setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
+            }
+          };
           
           const handleFileRemove = (fileType) => {
             setFormData({ ...formData, [fileType]: null });
           };
-          const handleSizeChange = (e) => {
-            const { name, value } = e.target;
-            setFormData({ ...formData, [name]: value });
-          };
-        
-          // Handle Feet/Inches dropdown change
-          const handleUnitChange = (type, unit) => {
-            if (type === 'length') {
-              setLengthUnit(unit);
-            } else if (type === 'width') {
-              setWidthUnit(unit);
-            } else if (type === 'type') {
-              setTypeUnit(unit)
-            } else if (type === 'finish') {
-              setFinishUnit(unit)
+
+
+          const handleSubmit = async (e) => {
+            e.preventDefault();
+          
+            let hasErrors = false;
+          
+            // Check if there are no added signs
+            if (addedSigns.length === 0) {
+              setSubmissionErrorMessage('You must add at least one sign before submitting.');
+              hasErrors = true;
+            } else {
+              setSubmissionErrorMessage('');
+            }
+          
+            // Field validation for required form fields (like first name, last name, etc.)
+            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'logo', 'message'];
+            const newErrors = {};
+          
+            requiredFields.forEach(field => {
+              if (!formData[field]) {
+                newErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
+                hasErrors = true;
+              }
+            });
+          
+            setErrors(newErrors);
+            if (Object.keys(newErrors).length > 0) {
+              setErrorMessage('Required fields are missing.');
+              setErrors(newErrors);
+              return;
+            }
+            if (hasErrors) {
+              return;
+            }
+          
+            // Proceed with form submission logic if there are no errors
+            try {
+              const formDataToSend = {
+                ...formData,
+                signs: addedSigns
+              };
+          
+              const response = await axios.post('/custom-signs', formDataToSend);
+              console.log(response.data);
+              setSubmissionMessage('Customizable Signage Request Submitted!');
+          
+              // Reset form fields after successful submission
+              setFormData({
+                first: '',
+                last: '',
+                company: '',
+                email: '',
+                phone: '',
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                signType: '',
+                message: ''
+              });
+              setAddedSigns([]);
+              setErrors({});
+              setPhone('');
+              setAcmColor('');
+              setAcrylicColor('');
+              setSignThicknessValue('');
+            } catch (error) {
+              console.error('Error submitting custom sign:', error);
+              setSubmissionErrorMessage('There was an error submitting your request. Please try again.');
             }
           };
-
-            const handleSubmit = async (e) => {
-              e.preventDefault();
-              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'length', 'width', 'message'];
-    const newErrors = {};
           
-            
-              requiredFields.forEach(field => {
-                if (!formData[field]) {
-                  let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                  if (field === 'first') fieldLabel = 'First Name';
-                  if (field === 'last') fieldLabel = 'Last Name';
-                  if (field === 'company') fieldLabel = 'Company Name';
-                  if (field === 'phone') fieldLabel = 'Phone Number';
-                  if (field ==='address') fieldLabel = 'Address';
-                  if (field === 'city') fieldLabel = 'City';
-                  if (field ==='state') fieldLabel = 'State';
-                  if (field === 'zip') fieldLabel = 'Zip Code';
-                  if (field === 'img') fieldLabel = 'Logo';
-                  newErrors[field] = `${fieldLabel} is required!`;
-                }
-              });
-          
-              if (Object.keys(newErrors).length > 0) {
-                  setErrorMessage('Required fields are Missing.');
-                setErrors(newErrors);
-                return;
-              }
-          
-              try {
-                const sizeData = {
-                  length: `${formData.length} ${lengthUnit}`,
-                  width: `${formData.width} ${widthUnit}`
-                };
-                const typeData = {
-                    type: `${formData.type} ${typeUnit}`,
-                    finish: `${formData.finish} ${finishUnit}`
-                  };
-                const formDataToSend = {
-                  ...formData,
-                  size: sizeData,
-                  type: typeData
-                };
-                const response = await axios.post('/custom-signs', formDataToSend, {
-                  headers: {
-                    'Content-Type': 'multipart/form-data'
-                  }
-                });
-                console.log(response.data);
-                setFormData({
-                  first: '',
-                  last: '',
-                  company: '',
-                  email: '',
-                  phone: '',
-                  address: '',
-                  city: '',
-                  state: '',
-                  zip: '',
-                  length: '',
-                  width: '',
-                  type: null,
-                  finishing: null,
-                  img: null,
-                  message: ''
-                });
-          
-                setErrors({});
-                setPhone('');
-                setSubmissionMessage('Customizable Signage Request Submitted! We will be with you within 48 hours!');
-              } catch (error) {
-                console.error('Error submitting Custom Sign job:', error);
-              }
-            };
     return (
         <div>
         <Header />
@@ -222,6 +436,7 @@ import Header from '../components/headerviews/HeaderSign';
 <h2 className="sign-fill">Please Fill Out the Form Below to Submit Your Custom Sign Information to get an Inquiry or Quote.</h2>
 </div>
 <div className="sign-actual">
+  <div className="name-section-sign">
 <label className="first-sign-name-label">Name: </label>
 <div className="first-name-sign-input">
 
@@ -230,15 +445,19 @@ import Header from '../components/headerviews/HeaderSign';
     <div className="input-first-sign-container">
 <label className="first-sign-label-name">First Name *</label>
 <input
-name="first"
-type="text"
-className="firstname-sign-name-input"
-text="first-name--input"
-placeholder="Enter First Name"
-
-value={formData.first}
-onChange={(e) => setFormData({ ...formData, first: e.target.value })}
+  name="first"
+  type="text"
+  className="firstname-sign-name-input"
+  placeholder="Enter First Name"
+  value={formData.first}
+  onChange={(e) => {
+    setFormData({ ...formData, first: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+    }
+  }}
 />
+{errors.first && <div className="error-message">{errors.first}</div>}
 </div>
     </div>
   </div>
@@ -247,22 +466,25 @@ onChange={(e) => setFormData({ ...formData, first: e.target.value })}
     <div className="last-sign-input-container">
 <label className="last-sign-label-name">Last Name *</label>
 <input
-name="last"
-type="text"
-className="lastname-sign-name-input"
-text="last-name--input"
-placeholder="Enter Last Name"
-
-value={formData.last}
-onChange={(e) => setFormData({ ...formData, last: e.target.value })}
-
+  name="last"
+  type="text"
+  className="lastname-sign-name-input"
+  placeholder="Enter Last Name"
+  value={formData.last}
+  onChange={(e) => {
+    setFormData({ ...formData, last: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
+    }
+  }}
 />
 {errors.last && <div className="error-message">{errors.last}</div>}
 </div>
     </div>
   </div>
 </div>
-
+</div>
+<div className="company-sign-section">
 <label className="sign-company-label">Company/Excavator: </label>
 
 <div className="company-sign-input">
@@ -270,16 +492,26 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     <div className="sign-company-name-input">
     <div className="sign-input-container">
       <label className="company-sign-name">Company *</label>
-      <input name="company-sign-name-input" type="text" className="company-sign-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-
-        />
-        {errors.company && <span className="error-message">{errors.company}</span>}
+      <input
+  name="company-sign-name-input"
+  type="text"
+  className="company-sign-name-input"
+  placeholder="Enter Company Name"
+  value={formData.company}
+  onChange={(e) => {
+    setFormData({ ...formData, company: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
+    }
+  }}
+/>
+{errors.company && <span className="error-message">{errors.company}</span>}
         </div>
     </div>
   </div>
   </div>
-
+</div>
+<div className="emailphone-sign-section">
 <label className="emailphone-sign-label">Email/Phone Number:</label>
 <div className="emailphone-sign-input">
   <div className="email-sign">
@@ -287,15 +519,17 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     <div className="email-sign-input-container">
 <label className="email-sign-name">Email *</label>
 <input
-name="email"
-type="text"
-className="email-sign-box"
-text="email--input"
-placeholder="Enter Email"
-
-value={formData.email}
-onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-
+  name="email"
+  type="text"
+  className="email-sign-box"
+  placeholder="Enter Email"
+  value={formData.email}
+  onChange={(e) => {
+    setFormData({ ...formData, email: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
+    }
+  }}
 />
 {errors.email && <div className="error-message">{errors.email}</div>}
 </div>
@@ -305,23 +539,24 @@ onChange={(e) => setFormData({ ...formData, email: e.target.value })}
   <div className="phone-sign">
     <div className="sign-phone-name-input">
     <div className="sign-phone-input-container">
-<label className="phone-sign-label">Phone Number *</label>
+    <label className="phone-sign-label">Phone Number *</label>
 <input
-name="phone"
-type="text"
-className="phone-sign-box"
-text="phone--input"
-placeholder="Enter Phone Number"
-
-value={phone}
-onChange={handlePhoneChange}
+  name="phone"
+  type="text"
+  className="phone-sign-box"
+  placeholder="Enter Phone Number"
+  value={phone}
+  onChange={(e) => {
+    handlePhoneChange(e);
+  }}
 />
 {errors.phone && <div className="error-message">{errors.phone}</div>}
 </div>
     </div>
   </div>
 </div>
-
+</div>
+<div className="address-sign-section">
 <label className="address-sign-label">Company Address: </label>
 <div className="address-sign-input-container">
 <div className="address-sign-input">
@@ -329,13 +564,17 @@ onChange={handlePhoneChange}
   <div className="address-sign-inputing">
 <label className="addr-sign-label">Address *</label>
 <input
-name="address-box"
-type="text"
-className="address-sign-box"
-text="address--input"
-placeholder="Enter Address"
-value={formData.address}
-onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+  name="address-box"
+  type="text"
+  className="address-sign-box"
+  placeholder="Enter Address"
+  value={formData.address}
+  onChange={(e) => {
+    setFormData({ ...formData, address: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
+    }
+  }}
 />
 {errors.address && <span className="error-message">{errors.address}</span>}
 </div>
@@ -349,7 +588,12 @@ className="city-sign-box"
 text="city--input"
 placeholder="City"
 value={formData.city}
-onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, city: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
+  }
+}}
 />
 {errors.city && <span className="error-message">{errors.city}</span>}
 </div>
@@ -362,7 +606,12 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       className="state-sign-box"
       
       value={formData.state}
-      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+      onChange={(e) => {
+        setFormData({ ...formData, state: e.target.value });
+        if (e.target.value) {
+          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
+        }
+      }}
     >
       <option value="">Select State</option>
       {states.map(state => (
@@ -372,138 +621,440 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     {errors.state && <span className="error-message">{errors.state}</span>}
     </div>
     <div className="zip-sign-input">
-<label className="zip-sign-label">Zip Code *</label>
-<input
-        name="zip"
-        type="text"
-        className="zip-sign-box"
-        value={formData.zip}
-        onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
-        placeholder="Zip Code"
-        maxLength={5}
-        pattern="\d{5}"
-        title="Zip code must be 5 digits"
-      />
-      {errors.zip && <span className="error-message">{errors.zip}</span>}
+  <label className="zip-sign-label">Zip Code *</label>
+  <input
+    name="zip"
+    type="text"
+    className="zip-sign-box"
+    value={formData.zip}
+    onChange={(e) => handleZipChange(e)}
+    placeholder="Zip Code"
+    maxLength={5}
+    pattern="\d{5}"
+    title="Zip code must be 5 digits"
+  />
+  {errors.zip && <span className="error-message">{errors.zip}</span>}
 </div>
 </div>
 </div>
 </div>
-<label className="size-sign-label">Size of Sign:</label>
-<div className="size-sign-section">
-  <div className="length-sign-section">
-    <label className="length-label" htmlFor="length">Length *</label>
+</div>
+{/* Sign Type Selection */}
+<div className="type-sign-section">
+  <label className="type-sign-label">Sign Type:</label>
+  <label className="sign-type-label">Sign Type *</label>
+  <select 
+  className="sign-type-input" 
+  value={signType} 
+  onChange={(e) => {
+    setSignType(e.target.value);
+    if (e.target.value) {
+      setSignTypeError(''); // Clear error once a valid sign type is selected
+    }
+  }}>
+  <option value="" disabled>Select Sign Type</option> {/* Default option */}
+  {signTypeOptions.map((option, index) => (
+    <option key={index} value={option.value} disabled={option.disabled}>
+      {option.name}
+    </option>
+  ))}
+</select>
+{signTypeError && <div className="error-message">{signTypeError}</div>}
+
+{/* Conditional Rendering for Sign Size, Thickness, Sides */}
+{signType === 'Aluminum Sign Blank' && (
+  <>
+    {/* Show size options, sides, finishing, and quantity for Aluminum Sign Blank */}
+    <label className="sign-size-label">Sign Size *</label>
+    <select 
+      value={signSize} 
+      className="sign-size-input"
+      onChange={(e) => {
+        setSignSize(e.target.value);
+        if (e.target.value) {
+          setSignSizeError(''); // Clear error once a valid sign size is selected
+        }
+      }}>
+      <option value="">Select Sign Size</option> {/* Default option */}
+      {sizeAluminumBlankOptions.map((option, index) => (
+        <option key={index} value={option.name}>
+          {option.name}
+        </option>
+      ))}
+    </select>
+    {signSizeError && <div className="error-message">{signSizeError}</div>}
+
+    <label className="sign-sides-labeling">Sign Sides *</label>
+    <select 
+      value={signSidesValue} 
+      onChange={(e) => {
+        setSignSidesValue(e.target.value);
+        if (e.target.value) {
+          setSignSidesError(''); // Clear error once valid sides are selected
+        }
+      }}
+      className="sign-sides-input">
+      <option value="">Select Sides</option> {/* Default option */}
+      {signSides.map((option, index) => (
+        <option key={index} value={option.name}>
+          {option.name}
+        </option>
+      ))}
+    </select>
+    {signSidesError && <div className="error-message">{signSidesError}</div>}
+
+    <label className="finish-sign-label" htmlFor="finishing">Finishing *</label>
+    <select
+      name="finishing"
+      className="finish-sign-select"
+      value={selectedFinishing}
+      onChange={(e) => setSelectedFinishing(e.target.value)}
+    >
+      <option value="">Select Finishing Type</option>
+      {finishOptions.map((option, index) => (
+        <option key={index} value={option.name}>{option.name}</option>
+      ))}
+    </select>
+    {finishingError && <div className="error-message">{finishingError}</div>}
+
+    <label className="sign-quantity-label">How Many Signs *</label>
     <input
-      className="length-sign-box"
       type="number"
-      name="length"
-      value={formData.length}
-      onChange={handleSizeChange}
+      className="sign-quantity-input"
+      value={quantity}
+      min="1"
+      onChange={(e) => setQuantity(e.target.value)}
+      placeholder="Enter quantity"
+    />
+    {quantityError && <div className="error-message">{quantityError}</div>}
+  </>
+)}
+
+{/* Yard Signs Section */}
+{signType === 'Yard Signs' && (
+  <>
+    <label>Sign Sides *</label>
+    <select value={signSidesValue} onChange={(e) => {
+        setSignSidesValue(e.target.value);
+        if (e.target.value) setSignSidesError(''); // Clear error when valid value is selected
+    }}>
+      <option value="">Select Sides</option> {/* Default option */}
+      <option value="Single-Sided">Single-Sided</option>
+      <option value="Double-Sided">Double-Sided</option>
+    </select>
+    {signSidesError && <div className="error-message">{signSidesError}</div>}
+
+    <label className="finish-label" htmlFor="finishing">Finishing *</label>
+    <select
+      name="finishing"
+      className="finish-sign-select"
+      value={selectedFinishing}
+      onChange={(e) => {
+          setSelectedFinishing(e.target.value);
+          if (e.target.value) setFinishingError(''); // Clear error when valid value is selected
+      }}
+      disabled={addedFinishing.length === 3}
+    >
+      <option value="">Select Finishing Type</option>
+      {finishOptions.map((option, index) => (
+        <option key={index} value={option.name}>
+          {option.name}
+        </option>
+      ))}
+    </select>
+    {finishingError && <div className="error-message">{finishingError}</div>}
+
+    <label className="sign-quantity-label">How Many Signs *</label>
+    <input
+      type="number"
+      value={quantity}
+      min="1"
+      onChange={(e) => {
+        setQuantity(e.target.value);
+        if (e.target.value > 0) setQuantityError(''); // Clear error when quantity is greater than 0
+      }}
+      placeholder="Enter quantity"
+    />
+    {quantityError && <div className="error-message">{quantityError}</div>}
+  </>
+)}
+
+{/* Other Sign Types (ACM, Corrugated Plastic, etc.) */}
+{(signType === 'Aluminum Composite Material (ACM)' ||
+  signType === 'Corrugated Plastic' ||
+  signType === 'Clear Acrylic' ||
+  signType === 'Colored Acrylic') && (
+  <>
+    {/* Length and Width Fields */}
+    <label className="sign-size-label">Sign Size *</label>
+    <label className="sign-length-label">Length *</label>
+    <input
+      className="sign-length-input"
+      type="number"
+      value={customLength}
+      onChange={(e) => {
+        setCustomLength(e.target.value);
+        if (e.target.value > 0) setLengthError(''); // Clear error if length is greater than 0
+      }}
       placeholder="Enter length"
     />
     <select
-      className="length-select"
+      className="sign-length-select"
       value={lengthUnit}
-      onChange={(e) => handleUnitChange('length', e.target.value)}
+      onChange={(e) => setLengthUnit(e.target.value)}
     >
-      <option value="" disabled>Select Measurement</option> {/* Default option */}
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
-  </div>
+    {lengthError && <div className="error-message">{lengthError}</div>}
 
-  <div className="width-sign-section">
-    <label className="width-label" htmlFor="width">Width *</label>
+    <label className="sign-width-label">Width *</label>
     <input
-      className="width-sign-box"
+      className="sign-width-input"
       type="number"
-      name="width"
-      value={formData.width}
-      onChange={handleSizeChange}
+      value={customWidth}
+      onChange={(e) => {
+        setCustomWidth(e.target.value);
+        if (e.target.value > 0) setWidthError(''); // Clear error if width is greater than 0
+      }}
       placeholder="Enter width"
     />
     <select
-      className="width-select"
+      className="sign-width-select"
       value={widthUnit}
-      onChange={(e) => handleUnitChange('width', e.target.value)}
+      onChange={(e) => setWidthUnit(e.target.value)}
     >
-      <option value="" disabled>Select Measurement</option> {/* Default option */}
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
-  </div>
+    {widthError && <div className="error-message">{widthError}</div>}
 
-  <button className="btn btn--full submit-size" type="submit">SUBMIT SIZE</button>
+    {/* Conditionally render thickness for specific sign types */}
+    {(signType === 'Aluminum Composite Material (ACM)' ||
+      signType === 'Corrugated Plastic' ||
+      signType === 'Clear Acrylic' ||
+      signType === 'Colored Acrylic') && (
+      <>
+        <label className="sign-thickness-label">Sign Thickness *</label>
+<select 
+  className="sign-thickness-select"
+  value={signThicknessValue} 
+  onChange={(e) => {
+    const thickness = e.target.value;
+    setSignThicknessValue(thickness);
 
-  {submissionMessage && <p>{submissionMessage}</p>}
-  {Object.keys(errors).map((error) => (
-    <p key={error} className="error-message">{errors[error]}</p>
+    if (!thickness) {
+      setSignThicknessError('Please select a sign thickness');
+    } else {
+      setSignThicknessError(''); // Clear error if valid
+    }
+  }}
+>
+  <option value="">Select Thickness</option> {/* Default option */}
+  {signThickness.map((option, index) => (
+    <option key={index} value={option.name}>
+      {option.name}
+    </option>
   ))}
-</div>
-<label className="type-sign-label">Type of Sign:</label>
-<div className="type-sign-section">
-  <label className="type-label" htmlFor="type">Type *</label>
-  <select
-    className="type-select"
-    value={formData.type}
-    onChange={(e) => handleUnitChange('type', e.target.value)} // 'type' unit
-  >
-    <option value="" disabled>Select Type</option>{/* Default option */}
-    <option value="Aluminum Composite Panel">Aluminum Composite Panel (ACM)</option>
-    <option value="Corrugated Plastic(Yard Signs 18in x 24in)">Yard Signs 18in x 24in</option>
-    <option value="Corrugated Plastic">Corrugated Plastic</option>
-    <option value="Pine Wood">Pine Wood</option>
-    <option value="Oak Wood">Oak Wood</option>
-    <option value="Clear Acrylic">Clear Acrylic</option>
-    <option value="Colored Acrylic">Colored Acrylic (Specify Color in Message)</option>
-    <option value="LED">LED</option>
-  </select>
-</div>
+</select>
+{signThicknessError && <div className="error-message">{signThicknessError}</div>}
+      </>
+    )}
+    {(signType === 'Aluminum Composite Material (ACM)' ||
+      signType === 'Corrugated Plastic' ||
+      signType === 'Clear Acrylic' ||
+      signType === 'Colored Acrylic') && (
+      <>
+        <label className="sign-sides-labeling">Sign Sides *</label>
+        <select 
+  value={signSidesValue} 
+  onChange={(e) => {
+    setSignSidesValue(e.target.value);
+    if (e.target.value) {
+      setSignSidesError('');
+    }
+  }}
+  className="sign-sides-input">
+  <option value="">Select Sides</option>
+  {signSides.map((option, index) => (
+    <option key={index} value={option.name}>
+      {option.name}
+    </option>
+  ))}
+</select>
+    {signSidesError && <div className="error-message">{signSidesError}</div>}
+      </>
+    )}
 
-<label className="finish-sign-label">Finishing Touch:</label>
-<div className="finish-sign-section">
-  <label className="finish-label" htmlFor="finish">Finishing *</label>
-  <select
-    className="finish-select"
-    value={formData.finish}
-    onChange={(e) => handleUnitChange('finish', e.target.value)} // 'finish' unit
-  >
-    <option value="" disabled>Select Finishing</option>
-    <option value="Matte">Matte</option>
-    <option value="Gloss">Gloss</option>
-    <option value="Chrome">Chrome</option>
-    <option value="High Intensity Prismatic (Reflective)">High Intensity Prismatic (Reflective)</option>
-    <option value="Diamond Grade (Reflective)">Diamond Grade (Reflective)</option>
-  </select>
-</div>
 
+    {/* ACM Color Error */}
+    {signType === 'Aluminum Composite Material (ACM)' && (
+      <>
+<label className="sign-acm-color-label">ACM Material Color *</label>
+    <select 
+      className="sign-acm-color-select"
+      value={acmColor} 
+      onChange={(e) => {
+        const selectedColor = e.target.value;
+        setAcmColor(selectedColor);
+
+        if (!selectedColor) {
+          setAcmColorError('Please select an ACM color');
+        } else {
+          setAcmColorError(''); // Clear error if valid
+        }
+      }}
+    >
+      <option value="">Select Color</option> {/* Default option */}
+      {acmColors.map((option, index) => (
+        <option key={index} value={option.name}>
+          {option.name}
+        </option>
+      ))}
+    </select>
+    {acmColorError && <div className="error-message">{acmColorError}</div>}
+      </>
+    )}
+
+    {/* Acrylic Color Error */}
+    {signType === 'Colored Acrylic' && (
+  <>
+    <label className="sign-coloring-label">Acrylic Color *</label>
+    <select 
+      className="sign-acrylic-color-select"
+      value={acrylicColor} 
+      onChange={(e) => {
+        setAcrylicColor(e.target.value);
+        if (e.target.value) {
+          setAcrylicColorError(''); // Clear error if valid color is selected
+        } else {
+          setAcrylicColorError('Please select an acrylic color');
+        }
+      }}
+    >
+      <option value="">Select Color</option> {/* Default option */}
+      {AcrylicColor.map((option, index) => (
+        <option key={index} value={option.name}>
+          {option.name}
+        </option>
+      ))}
+    </select>
+    {acrylicColorError && <div className="error-message">{acrylicColorError}</div>}
+  </>
+)}
+
+
+    
+    <label className="finish-sign-label" htmlFor="finishing">Finishing *</label>
+    <select
+      name="finishing"
+      className="finish-sign-select"
+      value={selectedFinishing}
+      onChange={(e) => {
+        setSelectedFinishing(e.target.value);
+        if (e.target.value) setFinishingError(''); // Clear error when valid value is selected
+      }}
+      disabled={addedFinishing.length === 3}
+    >
+      <option value="">Select Finishing Type</option>
+      {finishOptions.map((option, index) => (
+        <option key={index} value={option.name}>
+          {option.name}
+        </option>
+      ))}
+    </select>
+    {finishingError && <div className="error-message">{finishingError}</div>}
+
+    <label className="sign-quantity-label">How Many Signs *</label>
+<input
+  type="number"
+  className="sign-quantity-input"
+  value={quantity}
+  min="1"
+  onChange={(e) => {
+    const value = e.target.value;
+    setQuantity(value);
+
+    if (value <= 0 || !value) {
+      setQuantityError('Please enter a quantity greater than 0');
+    } else {
+      setQuantityError(''); // Clear the error if valid
+    }
+  }}
+  placeholder="Enter quantity"
+/>
+{quantityError && <div className="error-message">{quantityError}</div>}
+
+  </>
+)}
+
+  <button className="btn btn--full submit-signs" type="button" onClick={handleAddSigns}>
+    ADD SIGN
+  </button>
+  <div className="sign-list">
+  <h3 className="added-sign-list">Added Signs:</h3>
+  {addedSigns.length > 0 ? (
+    <ul>
+      {addedSigns.map((sign, index) => (
+        <li className="added-signs-li" key={index}>
+        <p className="sign-type-p"><b className="added-sign-b-type">Type:</b> {sign.signType}</p>
+        <p className="sign-size-p"><b className="added-sign-b-size">Size:</b> {sign.signSize}</p>
+        <p className="sign-side-p"><b className="added-sign-b-side">Sides:</b> {sign.signSides || 'Not specified'}</p>
+        <p className="sign-finish-p"><b className="added-sign-b-finish">Finishing:</b> {sign.finishing}</p>
+        {sign.thickness && <p className="sign-thickness-p"><b className="added-sign-b-thickness">Thickness:</b> {sign.thickness}</p>}
+        {sign.acmColor && <p className="sign-acm-color-p"><b className="added-sign-b-acm-color">ACM Color:</b> {sign.acmColor}</p>}
+        {sign.acrylicColor && <p className="sign-acrylic-color-p"><b className="added-sign-b-acrylic-color">Acrylic Color:</b> {sign.acrylicColor}</p>}
+        <p className="sign-quantity-p"><b className="added-sign-b-quantity">Quantity:</b> {sign.quantity}</p>
+        <button className="btn btn--full remove-sign" onClick={() => handleRemoveSigns(index)}>
+          REMOVE SIGN
+        </button>
+      </li>
+      ))}
+    </ul>
+  ) : (
+    <p className="no-added-signs">No signs added yet.</p>
+  )}
+</div>
+{errors.type && <div className="error-message">{errors.type}</div>}
+</div>
+<div className="sign-file-section">
 <label className="sign-file-label">Logo/Image:</label>
 <h2 className="sign-warn"><b className="sign-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <h1 className="log-re">Logo Redesigning(Optional)</h1>
-    <h2 className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, there will be fee for
+    <p className="log-re">Logo Redesigning(Optional)</p>
+    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, there will be fee for
     redesigning your logo depending on how much time it takes us and how fastidious you are at your logo redesign. Please Specify if you need your logo redesigned
     in the Message Section.
-</h2>
+</p>
 </h2>
 <div className="file-sign-section">
 <label htmlFor="logo-select" className="sign-logo">Logo/Image for Sign *</label>
 <div className="choose-logo-contain">
     <label className="file-sign-label">
-    {formData.img ? (
-            <span>{formData.img.name}</span>
+    {formData.logo ? (
+            <span>{formData.logo.name}</span>
           ) : (
             <span>Choose Your Logo For Your Sign</span>
           )}
-          <input type="file" name="img" accept=".pdf,.svg,.doc,.png,.jpg,.jpeg" onChange={(e) => handleFileChange(e, 'img')} />
-          </label>
-          {formData.img && (
-            <button type="button" className="remove-sign-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
+          <input
+  type="file"
+  name="logo"
+  accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+  onChange={(e) => {
+    handleFileChange(e, 'logo');
+    if (e.target.files[0]) {
+      setErrors((prevErrors) => ({ ...prevErrors, logo: '' })); // Clear the error
+    }
+  }}
+/>
+</label>
+{formData.logo && (
+            <button type="button" className="remove-sign-file-button" onClick={() => handleFileRemove('logo')}>Remove</button>
           )}
-        
-        {errors.img && <span className="error-message">{errors.img}</span>}
+{errors.logo && <span className="error-message">{errors.logo}</span>}
+</div>
 </div>
 </div>
 <div className="sign-message-container">
@@ -513,21 +1064,33 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 to request a crew to help install your signs, please specify where the location is, when 
 and what time you want an MX crew will arrive.</h1>
 
-<textarea className="message-sign-text" name="message" type="text" placeholder="Enter Message"
-  value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-  />
-  {errors.message && <span className="error-message">{errors.message}</span>}
+<textarea
+  className="message-sign-text"
+  name="message"
+  placeholder="Enter Message"
+  value={formData.message}
+  onChange={(e) => {
+    setFormData({ ...formData, message: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, message: '' })); // Clear the error
+    }
+  }}
+/>
+{errors.message && <span className="error-message">{errors.message}</span>}
   {submissionMessage && (
 <div className="submission-message">{submissionMessage}</div>
 )}
   </div>
   <button type="button" className="btn btn--full submit-sign" onClick={handleSubmit}>SUBMIT CUSTOM SIGN</button>
-  {submissionErrorMessage &&
-            <div className="submission-error-message">{submissionErrorMessage}</div>
-          }
-          {errorMessage &&
-            <div className="submission-error-message">{errorMessage}</div>
-          }
+
+<div className="error-messages-container">
+  {submissionErrorMessage && (
+    <div className="submission-error-message">{submissionErrorMessage}</div>
+  )}
+  {errorMessage && (
+    <div className="submission-error-message">{errorMessage}</div>
+  )}
+</div>
 </div>
 
       </div>
@@ -547,7 +1110,7 @@ and what time you want an MX crew will arrive.</h1>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-            <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
+          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
               <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
@@ -558,7 +1121,7 @@ and what time you want an MX crew will arrive.</h1>
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
