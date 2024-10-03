@@ -167,8 +167,7 @@ import Header from '../components/headerviews/HeaderSign';
     city: '',
     state: '',
     zip: '',
-    signType: '',
-    logo: '',
+    img: null,
     message: ''
   });
   const handleAddSigns = () => {
@@ -320,9 +319,9 @@ import Header from '../components/headerviews/HeaderSign';
               }
             };
             const handleFileChange = (e, fileType) => {
-            const file = e.target.files[0];
-            setFormData({ ...formData, [fileType]: file });
-          };
+              const file = e.target.files[0];
+              setFormData({ ...formData, [fileType]: file });
+            };
           const handleZipChange = (event) => {
             const input = event.target.value;
             const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
@@ -356,13 +355,22 @@ import Header from '../components/headerviews/HeaderSign';
             }
           
             // Field validation for required form fields (like first name, last name, etc.)
-            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'logo', 'message'];
+            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
             const newErrors = {};
           
             requiredFields.forEach(field => {
               if (!formData[field]) {
-                newErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
-                hasErrors = true;
+                let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                if (field === 'first') fieldLabel = 'First Name';
+                if (field === 'last') fieldLabel = 'Last Name';
+                if (field === 'company') fieldLabel = 'Company Name';
+                if (field === 'phone') fieldLabel = 'Phone Number';
+                if (field === 'address') fieldLabel = 'Address';
+                if (field === 'city') fieldLabel = 'City';
+                if (field === 'state') fieldLabel = 'State';
+                if (field === 'zip') fieldLabel = 'Zip Code';
+                if (field === 'img') fieldLabel = 'Logo';
+                newErrors[field] = `${fieldLabel} is required!`;
               }
             });
           
@@ -378,12 +386,33 @@ import Header from '../components/headerviews/HeaderSign';
           
             // Proceed with form submission logic if there are no errors
             try {
-              const formDataToSend = {
-                ...formData,
-                signs: addedSigns
-              };
+              // Create FormData instance to handle file upload
+              const formDataToSend = new FormData();
+              formDataToSend.append('first', formData.first);
+              formDataToSend.append('last', formData.last);
+              formDataToSend.append('company', formData.company);
+              formDataToSend.append('email', formData.email);
+              formDataToSend.append('phone', formData.phone);
+              formDataToSend.append('address', formData.address);
+              formDataToSend.append('city', formData.city);
+              formDataToSend.append('state', formData.state);
+              formDataToSend.append('zip', formData.zip);
+              formDataToSend.append('message', formData.message);
           
-              const response = await axios.post('/custom-signs', formDataToSend);
+              // Append the image file (logo)
+              if (formData.img) {
+                formDataToSend.append('img', formData.img);
+              }
+          
+              // Append added signs
+              formDataToSend.append('signs', JSON.stringify(addedSigns));
+          
+              const response = await axios.post('/custom-signs', formDataToSend, {
+                headers: {
+                  'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
+                },
+              });
+          
               console.log(response.data);
               setSubmissionMessage('Customizable Signage Request Submitted!');
           
@@ -398,7 +427,7 @@ import Header from '../components/headerviews/HeaderSign';
                 city: '',
                 state: '',
                 zip: '',
-                signType: '',
+                img: null,
                 message: ''
               });
               setAddedSigns([]);
@@ -1033,27 +1062,27 @@ onChange={(e) => {
 <label htmlFor="logo-select" className="sign-logo">Logo/Image for Sign *</label>
 <div className="choose-logo-contain">
     <label className="file-sign-label">
-    {formData.logo ? (
-            <span>{formData.logo.name}</span>
+    {formData.img ? (
+            <span>{formData.img.name}</span>
           ) : (
             <span>Choose Your Logo For Your Sign</span>
           )}
           <input
   type="file"
-  name="logo"
+  name="img"
   accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
   onChange={(e) => {
-    handleFileChange(e, 'logo');
+    handleFileChange(e, 'img');
     if (e.target.files[0]) {
-      setErrors((prevErrors) => ({ ...prevErrors, logo: '' })); // Clear the error
+      setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
     }
   }}
 />
 </label>
-{formData.logo && (
-            <button type="button" className="remove-sign-file-button" onClick={() => handleFileRemove('logo')}>Remove</button>
+{formData.img && (
+            <button type="button" className="remove-sign-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
           )}
-{errors.logo && <span className="error-message">{errors.logo}</span>}
+{errors.img && <span className="error-message">{errors.img}</span>}
 </div>
 </div>
 </div>
