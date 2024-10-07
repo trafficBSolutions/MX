@@ -19,64 +19,87 @@ const Contact = () => {
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
         
             const handlePhoneChange = (event) => {
-                const input = event.target.value;
-                const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
-                setPhone(formatted);
-                setFormData({ ...formData, phone: formatted });
-              };
+              const input = event.target.value;
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+              const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              
+              setPhone(formatted);
+              setFormData({ ...formData, phone: formatted });
+            
+              // Check if the input has 10 digits and clear the error if it does
+              if (rawInput.length === 10) {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
+              }
+            };
 
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'message'];
-    const newErrors = {};
-    requiredFields.forEach(field => {
-        if (!formData[field]) {
-          let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-          if (field === 'first') fieldLabel = 'First Name';
-          if (field === 'last') fieldLabel = 'Last Name';
-          if (field === 'company') fieldLabel = 'Company Name';
-          if (field === 'phone') fieldLabel = 'Phone Number';
-          newErrors[field] = `${fieldLabel} is required!`;
-        }
-      });
-  
-      if (Object.keys(newErrors).length > 0) {
-          setErrorMessage('Required fields are Missing.');
-        setErrors(newErrors);
-        return;
-      }
-      try {
-        const formDataToSend = {
-            ...formData
-          };
-      const response = await axios.post('/contact-us', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      console.log(response.data);
-                setFormData({
-                  first: '',
-                  last: '',
-                  company: '',
-                  email: '',
-                  phone: '',
-                  message: ''
-                });
+            const handleSubmit = async (e) => {
+              e.preventDefault();
           
-                setErrors({});
-                setPhone('');
-                setSubmissionMessage('Message Has Been Sent! We will be with you within 48 hours!');
+              // Clear previous error and submission messages
+              setErrorMessage(''); // Clear error message at the start
+              setSubmissionErrorMessage('');
+              setSubmissionMessage('');
+          
+              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'message'];
+              const newErrors = {};
+          
+              // Validation check for required fields
+              requiredFields.forEach(field => {
+                  if (!formData[field]) {
+                      let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                      if (field === 'first') fieldLabel = 'First Name';
+                      if (field === 'last') fieldLabel = 'Last Name';
+                      if (field === 'company') fieldLabel = 'Company Name';
+                      if (field === 'phone') fieldLabel = 'Phone Number';
+                      newErrors[field] = `${fieldLabel} is required!`;
+                  }
+              });
+          
+              // If there are any errors, set the error message and stop submission
+              if (Object.keys(newErrors).length > 0) {
+                  setErrors(newErrors);
+                  setErrorMessage('Required fields are missing.');
+                  return;
+              }
+          
+              // Clear the error message if all validations pass
+              setErrorMessage('');  // This ensures the error message is cleared before submission
+          
+              try {
+                  const formDataToSend = { ...formData };
+                  const response = await axios.post('/contact-us', formDataToSend, {
+                      headers: {
+                          'Content-Type': 'application/json',
+                      }
+                  });
+          
+                  // Success: clear the form and show success message
+                  console.log(response.data);
+                  setFormData({
+                      first: '',
+                      last: '',
+                      company: '',
+                      email: '',
+                      phone: '',
+                      message: ''
+                  });
+                  setErrors({});
+                  setPhone('');
+                  setSubmissionMessage('Message has been sent! We will be with you within 48 hours.');
               } catch (error) {
-                console.error('Error submitting Message:', error);
-              }  
-            }
+                  console.error('Error submitting message:', error);
+                  setSubmissionErrorMessage('An error occurred while submitting. Please try again.');
+              }
+          };
+          
     return (
         <div>
             <Header/>
     <main className="contact-main">
         <div className="material-image">
-      <img className="material-img" alt="Material WorX logo" src="../public/MX Photos/material worx.png" />
+        <img className="material-img" alt="Material WorX logo" src="../public/MX Logos/Material WorX.svg" />
     </div>
     <h1 className="contact-material">Contact Material WorX</h1>
     <div className="contact-flexi">
@@ -92,16 +115,20 @@ const Contact = () => {
     <div className="input-first-contact-container">
 <label className="first-contact-label-name">First Name *</label>
 <input
-name="first"
-type="text"
-className="firstname-contact-name-input"
-text="first-name--input"
-placeholder="Enter First Name"
-
-value={formData.first}
-onChange={(e) => setFormData({ ...formData, first: e.target.value })}
+  name="first"
+  type="text"
+  className="firstname-contact-name-input"
+  placeholder="Enter First Name"
+  value={formData.first}
+  onChange={(e) => {
+    setFormData({ ...formData, first: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, first: '' }));  // Clear the first name error
+    }
+  }}
 />
-{errors.last && <div className="error-message">{errors.first}</div>}
+{errors.first && <div className="error-message">{errors.first}</div>}
+
 </div>
     </div>
   </div>
@@ -110,17 +137,20 @@ onChange={(e) => setFormData({ ...formData, first: e.target.value })}
     <div className="last-contact-input-container">
 <label className="last-contact-label-name">Last Name *</label>
 <input
-name="last"
-type="text"
-className="lastname-contact-name-input"
-text="last-name--input"
-placeholder="Enter Last Name"
-
-value={formData.last}
-onChange={(e) => setFormData({ ...formData, last: e.target.value })}
-
+  name="last"
+  type="text"
+  className="lastname-contact-name-input"
+  placeholder="Enter Last Name"
+  value={formData.last}
+  onChange={(e) => {
+    setFormData({ ...formData, last: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, last: '' }));  // Clear the last name error
+    }
+  }}
 />
 {errors.last && <div className="error-message">{errors.last}</div>}
+
 </div>
     </div>
   </div>
@@ -134,10 +164,14 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     <div className="contact-input-container">
       <label className="company-contact-name">Company *</label>
       <input name="company-contact-name-input" type="text" className="company-contact-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-
+        value={formData.company} onChange={(e) => {
+          setFormData({ ...formData, company: e.target.value });
+          if (e.target.value) {
+            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
+          }
+        }}
         />
-        {errors.company && <span className="error-message">{errors.company}</span>}
+        {errors.company && <div className="error-message">{errors.company}</div>}
         </div>
     </div>
   </div>
@@ -158,8 +192,12 @@ text="email--input"
 placeholder="Enter Email"
 
 value={formData.email}
-onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-
+onChange={(e) => {
+  setFormData({ ...formData, email: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
+  }
+}}
 />
 {errors.email && <div className="error-message">{errors.email}</div>}
 </div>
@@ -189,7 +227,12 @@ onChange={handlePhoneChange}
 <div className="contact-message-container">
 <label className="message-contact-label">Message: </label>
 <textarea className="message-contact-text" name="message" type="text" placeholder="Enter Message"
-  value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+  value={formData.message} onChange={(e) => {
+    setFormData({ ...formData, message: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, message: '' })); // Clear the error
+    }
+  }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
   {submissionMessage && (
@@ -270,18 +313,18 @@ onChange={handlePhoneChange}
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-            <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
+          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
               <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
-              <li><a className="footer-material-nav-link" href="">Services</a></li>
-              <li><a className="footer-material-nav-link-view" href="/contact-us">Contact Us</a></li>
+              <li><a className="footer-material-nav-link" href="/services">Services</a></li>
+              <li><a className="footer-material-nav-link-view" href="">Contact Us</a></li>
             </ul>
           </div>
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
