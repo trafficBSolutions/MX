@@ -2,6 +2,7 @@ import Header from '../components/headerviews/HeaderLogo'
 import '../css/logo.css'
 import axios from 'axios';
 import React, {useState} from 'react'
+import MapLogoComponent from '../components/GoogleLogoMaps'
 const states = [
     { abbreviation: 'AL', name: 'Alabama' },
     { abbreviation: 'AK', name: 'Alaska' },
@@ -75,76 +76,111 @@ const Logo = () => {
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
         
             const handlePhoneChange = (event) => {
-                const input = event.target.value;
-                const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
-                setPhone(formatted);
-                setFormData({ ...formData, phone: formatted });
-              };
+              const input = event.target.value;
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+              const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              
+              setPhone(formatted);
+              setFormData({ ...formData, phone: formatted });
+            
+              // Check if the input has 10 digits and clear the error if it does
+              if (rawInput.length === 10) {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
+              }
+            };
+            const handleZipChange = (event) => {
+              const input = event.target.value;
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+            
+              setFormData({ ...formData, zip: rawInput });
+            
+              // Check if the input has 5 digits and clear the error if it does
+              if (rawInput.length === 5) {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
+              }
+            };
               const handleFileChange = (e, fileType) => {
                 const file = e.target.files[0];
                 setFormData({ ...formData, [fileType]: file });
-              };
+                setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear error on file selection
+            };
               
               const handleFileRemove = (fileType) => {
                 setFormData({ ...formData, [fileType]: null });
               };
 
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
-    const newErrors = {};
-    requiredFields.forEach(field => {
-        if (!formData[field]) {
-          let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-          if (field === 'first') fieldLabel = 'First Name';
-          if (field === 'last') fieldLabel = 'Last Name';
-          if (field === 'company') fieldLabel = 'Company Name';
-          if (field === 'phone') fieldLabel = 'Phone Number';
-          if (field ==='address') fieldLabel = 'Address';
-          if (field === 'city') fieldLabel = 'City';
-          if (field ==='state') fieldLabel = 'State';
-          if (field === 'zip') fieldLabel = 'Zip Code';
-          if (field === 'img') fieldLabel = 'Logo';
-          newErrors[field] = `${fieldLabel} is required!`;
-        }
-      });
-  
-      if (Object.keys(newErrors).length > 0) {
-          setErrorMessage('Required fields are Missing.');
-        setErrors(newErrors);
-        return;
-      }
-      try {
-        const formDataToSend = {
-            ...formData
-          };
-      const response = await axios.post('/new-logo', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      console.log(response.data);
-                setFormData({
-                  first: '',
-                  last: '',
-                  company: '',
-                  email: '',
-                  phone: '',
-                  address: '',
-                  city: '',
-                  state: '',
-                  zip: '',
-                  img: null,
-                  message: ''
+              const handleSubmit = async (e) => {
+                e.preventDefault();
+                
+                const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
+                const newErrors = {};
+        
+                // Validate required fields
+                requiredFields.forEach(field => {
+                    if (!formData[field]) {
+                        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                        if (field === 'first') fieldLabel = 'First Name';
+                        if (field === 'last') fieldLabel = 'Last Name';
+                        if (field === 'company') fieldLabel = 'Company Name';
+                        if (field === 'phone') fieldLabel = 'Phone Number';
+                        if (field === 'address') fieldLabel = 'Address';
+                        if (field === 'city') fieldLabel = 'City';
+                        if (field === 'state') fieldLabel = 'State';
+                        if (field === 'zip') fieldLabel = 'Zip Code';
+                        newErrors[field] = `${fieldLabel} is required!`;
+                    }
                 });
-          
-                setErrors({});
-                setPhone('');
-                setSubmissionMessage('New Logo Request Submitted! We will be with you within 48 hours!');
-              } catch (error) {
-                console.error('Error submitting Window Job:', error);
-              }  
-            }
+        
+                // Validate if file is selected
+                if (!formData.img) {
+                    newErrors.img = 'Please select a file for your logo.';
+                }
+        
+                // If there are errors, set error messages and return
+                if (Object.keys(newErrors).length > 0) {
+                    setErrorMessage('Required fields are missing.');
+                    setErrors(newErrors);
+                    return;
+                }
+        
+                try {
+                    const formDataToSend = {
+                        ...formData
+                    };
+                    const response = await axios.post('/new-logo', formDataToSend, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    });
+                    console.log(response.data);
+        
+                    // Clear form and reset state on successful submission
+                    setFormData({
+                        first: '',
+                        last: '',
+                        company: '',
+                        email: '',
+                        phone: '',
+                        address: '',
+                        city: '',
+                        state: '',
+                        zip: '',
+                        img: null,
+                        message: ''
+                    });
+        
+                    setErrors({});
+                    setPhone('');
+                    setSubmissionMessage('New Logo Request Submitted! We will be with you within 48 hours!');
+                } catch (error) {
+                    console.error('Error submitting Logo Request:', error);
+                    setSubmissionErrorMessage('Error submitting your request. Please try again.');
+                }
+            };
     return (
         <div>
             <Header/>
@@ -179,9 +215,14 @@ text="first-name--input"
 placeholder="Enter First Name"
 
 value={formData.first}
-onChange={(e) => setFormData({ ...formData, first: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, first: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+  }
+}}
 />
-{errors.last && <div className="error-message">{errors.first}</div>}
+{errors.first && <div className="error-message">{errors.first}</div>}
 </div>
     </div>
   </div>
@@ -197,8 +238,12 @@ text="last-name--input"
 placeholder="Enter Last Name"
 
 value={formData.last}
-onChange={(e) => setFormData({ ...formData, last: e.target.value })}
-
+onChange={(e) => {
+  setFormData({ ...formData, last: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
+  }
+}}
 />
 {errors.last && <div className="error-message">{errors.last}</div>}
 </div>
@@ -214,8 +259,12 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     <div className="logo-input-container">
       <label className="company-logo-name">Company *</label>
       <input name="company-logo-name-input" type="text" className="company-logo-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-
+        value={formData.company} onChange={(e) => {
+          setFormData({ ...formData, company: e.target.value });
+          if (e.target.value) {
+            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
+          }
+        }}
         />
         {errors.company && <span className="error-message">{errors.company}</span>}
         </div>
@@ -238,8 +287,12 @@ text="email--input"
 placeholder="Enter Email"
 
 value={formData.email}
-onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-
+onChange={(e) => {
+  setFormData({ ...formData, email: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
+  }
+}}
 />
 {errors.email && <div className="error-message">{errors.email}</div>}
 </div>
@@ -258,7 +311,9 @@ text="phone--input"
 placeholder="Enter Phone Number"
 
 value={phone}
-onChange={handlePhoneChange}
+onChange={(e) => {
+  handlePhoneChange(e);
+}}
 />
 {errors.phone && <div className="error-message">{errors.phone}</div>}
 </div>
@@ -280,7 +335,12 @@ className="address-logo-box"
 text="address--input"
 placeholder="Enter Address"
 value={formData.address}
-onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, address: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
+  }
+}}
 />
 {errors.address && <span className="error-message">{errors.address}</span>}
 </div>
@@ -294,7 +354,12 @@ className="city-logo-box"
 text="city--input"
 placeholder="City"
 value={formData.city}
-onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, city: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
+  }
+}}
 />
 {errors.city && <span className="error-message">{errors.city}</span>}
 </div>
@@ -307,7 +372,12 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       className="state-logo-box"
       
       value={formData.state}
-      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+      onChange={(e) => {
+        setFormData({ ...formData, state: e.target.value });
+        if (e.target.value) {
+          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
+        }
+      }}
     >
       <option value="">Select State</option>
       {states.map(state => (
@@ -323,7 +393,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
         type="text"
         className="zip-logo-box"
         value={formData.zip}
-        onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
+        onChange={(e) => handleZipChange(e)}
         placeholder="Zip Code"
         maxLength={5}
         pattern="\d{5}"
@@ -337,16 +407,17 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 </div>
 <div className="logo-file-section">
 <label className="logo-file-label">Logo/Image:</label>
-<h2 className="logo-warn"><b className="logo-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
-    how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
-    These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
-    JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <p className="log-re">Logo Redesigning(Optional)</p>
-    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, there will be fee for
-    redesigning your logo depending on how much time it takes us and how fastidious you are at your logo redesign. Please Specify if you need your logo redesigned
-    in the Message Section.
-</p>
+<h2 className="logo-warn"><b className="logo-notice">NOTICE</b>: 
+Please submit your logo you want redesigned and vectorized. If you have any questions or concerns,
+ please call or text Carson Speer at <a href="tel:+17065814465">(706) 581-4465 </a>
+  or come by our Sign Shop within business hours. We are open Monday-Friday 8:00am-4:00pm EST.
 </h2>
+<div className="logo-alt">
+<div className="google-map-logo">
+<MapLogoComponent/>
+</div>
+</div>
+<h1 className="logo-logo-label">You can submit jpeg, jpg, png, pdf, and svg files:</h1>
 <div className="file-logo-section">
 <label htmlFor="logo-select" className="logo-logo">Logo/Image for Redesigning *</label>
 <div className="choose-logo-contain">
@@ -356,7 +427,8 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           ) : (
             <span>Choose Your Logo For Redesigning</span>
           )}
-          <input type="file" name="img" accept=".pdf,.svg,.doc,.png,.jpg,.jpeg" onChange={(e) => handleFileChange(e, 'img')} />
+          <input type="file" name="img" accept=".pdf,.svg,.doc,.png,.jpg,.jpeg" onChange={(e) => handleFileChange(e, 'img')} 
+          />
           </label>
           {formData.img && (
             <button type="button" className="remove-logo-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
@@ -370,7 +442,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     <label className="print-logo-label">Printing Options For Your New Logo</label>
     <h2 className="printing-logo-h2">If you want your new logo to be used for our sign shop needs,
         please select a job here to film out of one of the printable/plottable options. Once you have submitted this form or
-        if you have aleady submitted one of the following forms, we will contact you within 48 hours
+        if you have already submitted one of the following forms, we will contact you within 48 hours.
     </h2>
     <div className="material-services-buttons">
           <div className="signs-button">
@@ -427,7 +499,12 @@ we are closed, we will respond the next business day. Please also note that we d
   </h1>
 
 <textarea className="message-logo-text" name="message" type="text" placeholder="Enter Message"
-  value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+  value={formData.message} onChange={(e) => {
+    setFormData({ ...formData, message: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, message: '' })); // Clear the error
+    }
+  }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
   {submissionMessage && (
@@ -464,7 +541,7 @@ we are closed, we will respond the next business day. Please also note that we d
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-            <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
+          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
               <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
@@ -475,7 +552,7 @@ we are closed, we will respond the next business day. Please also note that we d
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
