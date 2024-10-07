@@ -125,9 +125,12 @@ const Window = () => {
                 setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
               }
             };
+            const handleOptionChange = (type, value) => {
+              setFormData({ ...formData, [type]: value });
+            };
             const handleAddSize = () => {
               const { windowSize } = formData;
-            
+          
               if (windowSize.length && windowSize.width && windowSize.border && lengthUnit && widthUnit && borderUnit) {
                 // Create a new size string with units
                 const newSize = {
@@ -135,10 +138,13 @@ const Window = () => {
                   width: `${windowSize.width} ${widthUnit}`,
                   border: `${windowSize.border} ${borderUnit}`,
                 };
-                
+          
                 // Add the new size to the list
                 setAddedSizes([...addedSizes, newSize]);
-                
+          
+                // Clear the error if the size was valid
+                setErrors((prevErrors) => ({ ...prevErrors, windowSize: '' }));
+          
                 // Clear the form inputs after adding
                 setFormData((prevState) => ({
                   ...prevState,
@@ -147,11 +153,12 @@ const Window = () => {
                 setLengthUnit('');
                 setWidthUnit('');
                 setBorderUnit('');
-                setErrorMessage(''); // Clear any previous errors
               } else {
                 setErrorMessage('Please enter valid Length, Width, Border, and their units.');
               }
             };
+          
+            // Function to handle removing window size
             const handleRemoveSize = (index) => {
               const updatedSizes = addedSizes.filter((_, i) => i !== index);  // Remove the selected size
               setAddedSizes(updatedSizes);
@@ -160,112 +167,112 @@ const Window = () => {
               if (formData.tint) {
                 setAddedTint([...addedTint, formData.tint]);  // Add the selected tint
                 setFormData({ ...formData, tint: '' });  // Reset the tint input
+          
+                // Clear the error if the tint was valid
+                setErrors((prevErrors) => ({ ...prevErrors, tint: '' }));
               }
             };
+          
+            // Function to handle removing tint/frost option
             const handleRemoveTint = (index) => {
               const updatedTints = addedTint.filter((_, i) => i !== index);  // Remove the selected tint
               setAddedTint(updatedTints);
             };
-                                                
-          const handleOptionChange = (type, value) => {
-            setFormData({ ...formData, [type]: value });
-          };
-          const handleSubmit = async (e) => {
-            e.preventDefault();
-        
-            // Reset messages before validation
-            setSubmissionErrorMessage('');
-            setSubmissionMessage('');
-        
-            // Required fields
-            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
-        
-            // Prepare newErrors object to track missing fields
-            const newErrors = {};
-        
-            // Loop through required fields and check if they are missing
-            requiredFields.forEach((field) => {
+          
+            // Function to handle form submission
+            const handleSubmit = async (e) => {
+              e.preventDefault();
+            
+              // Reset messages before validation
+              setSubmissionErrorMessage('');
+              setSubmissionMessage('');
+            
+              // Required fields
+              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
+            
+              // Prepare newErrors object to track missing fields
+              const newErrors = {};
+            
+              // Loop through required fields and check if they are missing
+              requiredFields.forEach((field) => {
                 if (!formData[field] || formData[field].trim() === '') {
-                    let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                    if (field === 'first') fieldLabel = 'First Name';
-                    if (field === 'last') fieldLabel = 'Last Name';
-                    if (field === 'company') fieldLabel = 'Company Name';
-                    if (field === 'phone') fieldLabel = 'Phone Number';
-                    if (field === 'address') fieldLabel = 'Address';
-                    if (field === 'city') fieldLabel = 'City';
-                    if (field === 'state') fieldLabel = 'State';
-                    if (field === 'zip') fieldLabel = 'Zip Code';
-                    newErrors[field] = `${fieldLabel} is required!`;
+                  let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                  if (field === 'first') fieldLabel = 'First Name';
+                  if (field === 'last') fieldLabel = 'Last Name';
+                  if (field === 'company') fieldLabel = 'Company Name';
+                  if (field === 'phone') fieldLabel = 'Phone Number';
+                  if (field === 'address') fieldLabel = 'Address';
+                  if (field === 'city') fieldLabel = 'City';
+                  if (field === 'state') fieldLabel = 'State';
+                  if (field === 'zip') fieldLabel = 'Zip Code';
+                  newErrors[field] = `${fieldLabel} is required!`;
                 }
-            });
-        
-            // Validate window size fields only if no sizes have been added
-            if (addedSizes.length === 0) {
+              });
+            
+              // Validate window size and tint options
+              if (addedSizes.length === 0) {
                 newErrors.windowSize = 'Please add at least one window size (Length, Width, and Border).';
-            }
-        
-            // If any errors are found, stop the form submission and display errors
-            if (Object.keys(newErrors).length > 0) {
+              }
+              if (addedTint.length === 0) {
+                newErrors.tint = 'Please add at least one frost/tint option.';
+              }
+            
+              // If there are errors, set error messages and stop form submission
+              if (Object.keys(newErrors).length > 0) {
                 setErrorMessage('Required fields are missing.');
                 setErrors(newErrors);
                 return;
-            }
-        
-            // Convert addedSizes array to a formatted string for submission
-            const formattedWindowSize = addedSizes
+              }
+            
+              // If no errors, clear the error message
+              setErrorMessage('');
+              setErrors({});
+            
+              // Convert addedSizes array to a formatted string for submission
+              const formattedWindowSize = addedSizes
                 .map(size => `Length: ${size.length}, Width: ${size.width}, Border: ${size.border}`)
                 .join(' | ');
-        
-            // Debugging: log form data before sending
-            console.log('Form Data being sent:', {
-                ...formData,
-                windowSize: formattedWindowSize,
-                tint: addedTint.join(', ')
-            });
-        
-            // No errors, proceed with submission
-            try {
+            
+              // If no errors, proceed with submission
+              try {
                 const formDataToSend = {
-                    ...formData,
-                    windowSize: formattedWindowSize, // Join the added sizes array into a string
-                    tint: addedTint.join(', '),      // Join the added tints array into a string
+                  ...formData,
+                  windowSize: formattedWindowSize, // Join the added sizes array into a string
+                  tint: addedTint.join(', '),      // Join the added tints array into a string
                 };
-        
+            
                 const response = await axios.post('/window-frost-tint', formDataToSend, {
-                    headers: {
-                        'Content-Type': 'application/json', // Make sure the Content-Type is correct
-                    },
+                  headers: {
+                    'Content-Type': 'application/json', // Make sure the Content-Type is correct
+                  },
                 });
-        
-                // Debugging: log the server response
-                console.log('Server Response:', response.data);
-        
+            
                 // Reset form after successful submission
+                console.log(response.data);
                 setFormData({
-                    first: '',
-                    last: '',
-                    company: '',
-                    email: '',
-                    phone: '',
-                    address: '',
-                    city: '',
-                    state: '',
-                    zip: '',
-                    windowSize: { length: '', width: '', border: '' },
-                    tint: '',
-                    message: '',
+                  first: '',
+                  last: '',
+                  company: '',
+                  email: '',
+                  phone: '',
+                  address: '',
+                  city: '',
+                  state: '',
+                  zip: '',
+                  windowSize: { length: '', width: '', border: '' },
+                  tint: '',
+                  message: '',
                 });
                 setAddedSizes([]);  // Clear added sizes
                 setAddedTint([]);   // Clear added tints
                 setErrors({});
                 setPhone('');
                 setSubmissionMessage('Window Frost/Tinting Request Submitted! We will be with you within 48 hours!');
-            } catch (error) {
-                // Debugging: log the error
+              } catch (error) {
                 console.log('Submission Error:', error);
                 setSubmissionErrorMessage('There was an error submitting your request. Please try again later.');
-            }
-        };        
+              }
+            };
             return (
                 <div>
                     <Header />
@@ -310,7 +317,7 @@ onChange={(e) => {
 }}
 
 />
-
+{errors.first && <div className="error-message">{errors.first}</div>}
 
 </div>
     </div>
@@ -358,7 +365,7 @@ onChange={(e) => {
         }}
 
         />
-        {errors.company && <span className="error-message">{errors.company}</span>}
+        {errors.company && <div className="error-message">{errors.company}</div>}
         </div>
     </div>
   </div>
@@ -435,7 +442,7 @@ onChange={(e) => {
   }
 }}
 />
-{errors.address && <span className="error-message">{errors.address}</span>}
+{errors.address && <div className="error-message">{errors.address}</div>}
 </div>
 <div className="city-window-input">
 <label className="city-window-label">City *</label>
@@ -454,7 +461,7 @@ onChange={(e) => {
   }
 }}
 />
-{errors.city && <span className="error-message">{errors.city}</span>}
+{errors.city && <div className="error-message">{errors.city}</div>}
 </div>
 </div>
 <div className="city-window-state">
@@ -477,7 +484,7 @@ onChange={(e) => {
         <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
       ))}
     </select>
-    {errors.state && <span className="error-message">{errors.state}</span>}
+    {errors.state && <div className="error-message">{errors.state}</div>}
     </div>
     <div className="zip-window-input">
 <label className="zip-window-label">Zip Code *</label>
@@ -492,7 +499,7 @@ onChange={(e) => {
         pattern="\d{5}"
         title="Zip code must be 5 digits"
       />
-      {errors.zip && <span className="error-message">{errors.zip}</span>}
+      {errors.zip && <div className="error-message">{errors.zip}</div>}
 </div>
 </div>
 </div>
@@ -570,6 +577,7 @@ onChange={(e) => {
 <button className="btn btn--full submit-window-size" type="button" onClick={handleAddSize}>
   ADD SIZE
 </button>
+{errors.windowSize && <div className="error-message">{errors.windowSize}</div>}
   <div className="size-list">
   <ul>
     {addedSizes.length > 0 ? (
@@ -590,10 +598,7 @@ onChange={(e) => {
   </ul>
 </div>
 
-  {submissionMessage && <p>{submissionMessage}</p>}
-  {Object.keys(errors).map((error) => (
-    <p key={error} className="error-message">{errors[error]}</p>
-  ))}
+
 </div>
 <div className="window-stand-section">
 <label className="place-window-label">Types of Frost/Tint:</label>
@@ -646,7 +651,7 @@ onChange={(e) => {
       <button className="btn btn--full submit-window-place" type="button" onClick={handleAddTint}>
   ADD TINT
 </button>
-      <div className="tint-list">
+{errors.tint && <div className="error-message">{errors.tint}</div>}
       <div className="tint-list">
   <ul>
     {addedTint.length > 0 ? (
@@ -665,10 +670,6 @@ onChange={(e) => {
       <p className="no-added-tint">No added frost/tints yet.</p>
     )}
   </ul>
-</div>
-
-
-    {errors.tint && <span className="error-message">{errors.tint}</span>}
   </div>
       </div>
 <div className="window-message-container">
