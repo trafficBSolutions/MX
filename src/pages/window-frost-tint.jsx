@@ -63,7 +63,6 @@ const states = [
     { name: 'Inches', disabled: false },
   ];
   const windowOptions = [
-    { name: 'Select Tint', disabled: true }, // Default option
     { name: 'Black Out', disabled: false },
     { name: 'White Out', disabled: false },
     { name: 'White Frost', disabled: false },
@@ -74,11 +73,12 @@ const states = [
 
 const Window = () => {
     const [phone, setPhone] = useState('');
-            const [selectedSize, setSelectedSize] = useState('');
-            const [addedSizes, setAddedSizes] = useState([]);
             const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
             const [widthUnit, setWidthUnit] = useState(''); // Default to feet
-            const [availablewindowOptions, setAvailablewindowOptions] = useState(windowOptions);
+            const [borderUnit, setBorderUnit] = useState(''); // Default to inches
+            const [availablewindowOptions] = useState(windowOptions);
+            const [addedSizes, setAddedSizes] = useState([]);  // To store multiple sizes
+            const [addedTint, setAddedTint] = useState([]);  // To store multiple tint/frost selections
             const [errorMessage, setErrorMessage] = useState('');
             const [formData, setFormData] = useState({
               first: '',
@@ -90,116 +90,182 @@ const Window = () => {
               city: '',
               state: '',
               zip: '',
-              length: '',
-              width: '',
-              stand: null,
-              finishing: null,
-              img: null,
+              windowSize: { length: '', width: '', border: '' },
+              tint: '',
               message: ''
             });
             const [errors, setErrors] = useState({});
             const [submissionMessage, setSubmissionMessage] = useState('');
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
-            const handleStateChange = (e) => {
-              setSelectedState(e.target.value);
-              setErrors({ ...errors, state: '' }); // Clear state error when state changes
-            };
             const handlePhoneChange = (event) => {
               const input = event.target.value;
-              const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+              const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              
               setPhone(formatted);
               setFormData({ ...formData, phone: formatted });
+            
+              // Check if the input has 10 digits and clear the error if it does
+              if (rawInput.length === 10) {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
+              }
             };
-          const handleSizeChange = (e) => {
-            const { name, value } = e.target;
-            setFormData({ ...formData, [name]: value });
-          };
-        
-          // Handle Feet/Inches dropdown change
-          const handleUnitChange = (type, unit) => {
-            if (type === 'length') {
-              setLengthUnit(unit);
-            } else if (type === 'width') {
-              setWidthUnit(unit);
-            }
-          };
-        
+            const handleZipChange = (event) => {
+              const input = event.target.value;
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+            
+              setFormData({ ...formData, zip: rawInput });
+            
+              // Check if the input has 5 digits and clear the error if it does
+              if (rawInput.length === 5) {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
+              }
+            };
+            const handleAddSize = () => {
+              const { windowSize } = formData;
+            
+              if (windowSize.length && windowSize.width && windowSize.border && lengthUnit && widthUnit && borderUnit) {
+                // Create a new size string with units
+                const newSize = {
+                  length: `${windowSize.length} ${lengthUnit}`,
+                  width: `${windowSize.width} ${widthUnit}`,
+                  border: `${windowSize.border} ${borderUnit}`,
+                };
+                
+                // Add the new size to the list
+                setAddedSizes([...addedSizes, newSize]);
+                
+                // Clear the form inputs after adding
+                setFormData((prevState) => ({
+                  ...prevState,
+                  windowSize: { length: '', width: '', border: '' }
+                }));
+                setLengthUnit('');
+                setWidthUnit('');
+                setBorderUnit('');
+                setErrorMessage(''); // Clear any previous errors
+              } else {
+                setErrorMessage('Please enter valid Length, Width, Border, and their units.');
+              }
+            };
+            const handleRemoveSize = (index) => {
+              const updatedSizes = addedSizes.filter((_, i) => i !== index);  // Remove the selected size
+              setAddedSizes(updatedSizes);
+            };
+            const handleAddTint = () => {
+              if (formData.tint) {
+                setAddedTint([...addedTint, formData.tint]);  // Add the selected tint
+                setFormData({ ...formData, tint: '' });  // Reset the tint input
+              }
+            };
+            const handleRemoveTint = (index) => {
+              const updatedTints = addedTint.filter((_, i) => i !== index);  // Remove the selected tint
+              setAddedTint(updatedTints);
+            };
+                                                
           const handleOptionChange = (type, value) => {
             setFormData({ ...formData, [type]: value });
           };
-
-            const handleSubmit = async (e) => {
-              e.preventDefault();
-              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'length', 'width', 'message'];
-    const newErrors = {};
-          
-            
-              requiredFields.forEach(field => {
-                if (!formData[field]) {
-                  let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                  if (field === 'first') fieldLabel = 'First Name';
-                  if (field === 'last') fieldLabel = 'Last Name';
-                  if (field === 'company') fieldLabel = 'Company Name';
-                  if (field === 'phone') fieldLabel = 'Phone Number';
-                  if (field ==='address') fieldLabel = 'Address';
-                  if (field === 'city') fieldLabel = 'City';
-                  if (field ==='state') fieldLabel = 'State';
-                  if (field === 'zip') fieldLabel = 'Zip Code';
-                  if (field === 'img') fieldLabel = 'Logo';
-                  newErrors[field] = `${fieldLabel} is required!`;
+          const handleSubmit = async (e) => {
+            e.preventDefault();
+        
+            // Reset messages before validation
+            setSubmissionErrorMessage('');
+            setSubmissionMessage('');
+        
+            // Required fields
+            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
+        
+            // Prepare newErrors object to track missing fields
+            const newErrors = {};
+        
+            // Loop through required fields and check if they are missing
+            requiredFields.forEach((field) => {
+                if (!formData[field] || formData[field].trim() === '') {
+                    let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                    if (field === 'first') fieldLabel = 'First Name';
+                    if (field === 'last') fieldLabel = 'Last Name';
+                    if (field === 'company') fieldLabel = 'Company Name';
+                    if (field === 'phone') fieldLabel = 'Phone Number';
+                    if (field === 'address') fieldLabel = 'Address';
+                    if (field === 'city') fieldLabel = 'City';
+                    if (field === 'state') fieldLabel = 'State';
+                    if (field === 'zip') fieldLabel = 'Zip Code';
+                    newErrors[field] = `${fieldLabel} is required!`;
                 }
-              });
-          
-              if (Object.keys(newErrors).length > 0) {
-                  setErrorMessage('Required fields are Missing.');
+            });
+        
+            // Validate window size fields only if no sizes have been added
+            if (addedSizes.length === 0) {
+                newErrors.windowSize = 'Please add at least one window size (Length, Width, and Border).';
+            }
+        
+            // If any errors are found, stop the form submission and display errors
+            if (Object.keys(newErrors).length > 0) {
+                setErrorMessage('Required fields are missing.');
                 setErrors(newErrors);
                 return;
-              }
-          
-              try {
-                const sizeData = {
-                  length: `${formData.length} ${lengthUnit}`,
-                  width: `${formData.width} ${widthUnit}`
-                };
-                const windowData = {
-                    window: `${formData.window} ${windowUnit}`,
-                    finish: `${formData.finish} ${finishUnit}`
-                  };
+            }
+        
+            // Convert addedSizes array to a formatted string for submission
+            const formattedWindowSize = addedSizes
+                .map(size => `Length: ${size.length}, Width: ${size.width}, Border: ${size.border}`)
+                .join(' | ');
+        
+            // Debugging: log form data before sending
+            console.log('Form Data being sent:', {
+                ...formData,
+                windowSize: formattedWindowSize,
+                tint: addedTint.join(', ')
+            });
+        
+            // No errors, proceed with submission
+            try {
                 const formDataToSend = {
-                  ...formData,
-                  size: sizeData,
+                    ...formData,
+                    windowSize: formattedWindowSize, // Join the added sizes array into a string
+                    tint: addedTint.join(', '),      // Join the added tints array into a string
                 };
+        
                 const response = await axios.post('/window-frost-tint', formDataToSend, {
-                  headers: {
-                    'Content-Type': 'multipart/form-data'
-                  }
+                    headers: {
+                        'Content-Type': 'application/json', // Make sure the Content-Type is correct
+                    },
                 });
-                console.log(response.data);
+        
+                // Debugging: log the server response
+                console.log('Server Response:', response.data);
+        
+                // Reset form after successful submission
                 setFormData({
-                  first: '',
-                  last: '',
-                  company: '',
-                  email: '',
-                  phone: '',
-                  address: '',
-                  city: '',
-                  state: '',
-                  zip: '',
-                  length: '',
-                  width: '',
-                  stand: null,
-                  finishing: null,
-                  img: null,
-                  message: ''
+                    first: '',
+                    last: '',
+                    company: '',
+                    email: '',
+                    phone: '',
+                    address: '',
+                    city: '',
+                    state: '',
+                    zip: '',
+                    windowSize: { length: '', width: '', border: '' },
+                    tint: '',
+                    message: '',
                 });
-          
+                setAddedSizes([]);  // Clear added sizes
+                setAddedTint([]);   // Clear added tints
                 setErrors({});
                 setPhone('');
                 setSubmissionMessage('Window Frost/Tinting Request Submitted! We will be with you within 48 hours!');
-              } catch (error) {
-                console.error('Error submitting Window Job:', error);
-              }
-            };
+            } catch (error) {
+                // Debugging: log the error
+                console.log('Submission Error:', error);
+                setSubmissionErrorMessage('There was an error submitting your request. Please try again later.');
+            }
+        };        
             return (
                 <div>
                     <Header />
@@ -220,6 +286,7 @@ const Window = () => {
                         Information to get an Inquiry or Quote.</h2>
                 </div>
                 <div className="window-actual">
+                  <div className="name-section-window">
 <label className="first-window-name-label">Name: </label>
 <div className="first-name-window-input">
 
@@ -235,7 +302,12 @@ text="first-name--input"
 placeholder="Enter First Name"
 
 value={formData.first}
-onChange={(e) => setFormData({ ...formData, first: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, first: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+  }
+}}
 
 />
 
@@ -255,7 +327,12 @@ text="last-name--input"
 placeholder="Enter Last Name"
 
 value={formData.last}
-onChange={(e) => setFormData({ ...formData, last: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, last: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
+  }
+}}
 
 />
 {errors.last && <div className="error-message">{errors.last}</div>}
@@ -263,7 +340,8 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     </div>
   </div>
 </div>
-
+</div>
+<div className="company-window-section">
 <label className="window-company-label">Company/Excavator: </label>
 
 <div className="company-window-input">
@@ -272,7 +350,12 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     <div className="window-input-container">
       <label className="company-window-name">Company *</label>
       <input name="company-window-name-input" type="text" className="company-window-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+        value={formData.company} onChange={(e) => {
+          setFormData({ ...formData, company: e.target.value });
+          if (e.target.value) {
+            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
+          }
+        }}
 
         />
         {errors.company && <span className="error-message">{errors.company}</span>}
@@ -280,7 +363,8 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     </div>
   </div>
   </div>
-
+</div>
+<div className="emailphone-window-section">
 <label className="emailphone-window-label">Email/Phone Number:</label>
 <div className="emailphone-window-input">
   <div className="email-window">
@@ -295,7 +379,12 @@ text="email--input"
 placeholder="Enter Email"
 
 value={formData.email}
-onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, email: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
+  }
+}}
 
 />
 {errors.email && <div className="error-message">{errors.email}</div>}
@@ -315,14 +404,17 @@ text="phone--input"
 placeholder="Enter Phone Number"
 
 value={phone}
-onChange={handlePhoneChange}
+onChange={(e) => {
+  handlePhoneChange(e);
+}}
 />
 {errors.phone && <div className="error-message">{errors.phone}</div>}
 </div>
     </div>
   </div>
 </div>
-
+</div>
+<div className="address-window-section">
 <label className="address-window-label">Company Address: </label>
 <div className="address-window-input-container">
 <div className="address-window-input">
@@ -336,7 +428,12 @@ className="address-window-box"
 text="address--input"
 placeholder="Enter Address"
 value={formData.address}
-onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, address: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
+  }
+}}
 />
 {errors.address && <span className="error-message">{errors.address}</span>}
 </div>
@@ -350,7 +447,12 @@ className="city-window-box"
 text="city--input"
 placeholder="City"
 value={formData.city}
-onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, city: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
+  }
+}}
 />
 {errors.city && <span className="error-message">{errors.city}</span>}
 </div>
@@ -363,7 +465,12 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       className="state-window-box"
       
       value={formData.state}
-      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+      onChange={(e) => {
+        setFormData({ ...formData, state: e.target.value });
+        if (e.target.value) {
+          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
+        }
+      }}
     >
       <option value="">Select State</option>
       {states.map(state => (
@@ -379,7 +486,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
         type="text"
         className="zip-window-box"
         value={formData.zip}
-        onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
+        onChange={(e) => handleZipChange(e)}
         placeholder="Zip Code"
         maxLength={5}
         pattern="\d{5}"
@@ -390,22 +497,24 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 </div>
 </div>
 </div>
+</div>
+<div className="window-size-section">
 <label className="size-window-label">Size of Window:</label>
 <div className="size-window-section">
   <div className="length-window-section">
     <label className="length-label" htmlFor="length">Length *</label>
     <input
-      className="length-window-box"
-      type="number"
-      name="length"
-      value={formData.length}
-      onChange={handleSizeChange}
-      placeholder="Enter length"
-    />
+  className="length-window-box"
+  type="number"
+  name="length"  // Ensure the name is correct
+  value={formData.windowSize.length}
+      onChange={(e) => setFormData({ ...formData, windowSize: { ...formData.windowSize, length: e.target.value } })}
+  placeholder="Enter length"
+/>
     <select
       className="length-select"
       value={lengthUnit}
-      onChange={(e) => handleUnitChange('length', e.target.value)}
+      onChange={(e) => setLengthUnit(e.target.value)}
     >
       <option value="" disabled>Select Measurement</option> {/* Default option */}
       <option value="feet">Feet</option>
@@ -416,90 +525,117 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
   <div className="width-window-section">
     <label className="width-label" htmlFor="width">Width *</label>
     <input
-      className="width-window-box"
-      type="number"
-      name="width"
-      value={formData.width}
-      onChange={handleSizeChange}
-      placeholder="Enter width"
-    />
+  className="width-window-box"
+  type="number"
+  name="width"  // Ensure the name is correct
+  value={formData.windowSize.width}
+      onChange={(e) => setFormData({ ...formData, windowSize: { ...formData.windowSize, width: e.target.value } })}
+  placeholder="Enter Width"
+/>
     <select
       className="width-select"
       value={widthUnit}
-      onChange={(e) => handleUnitChange('width', e.target.value)}
+      onChange={(e) => setWidthUnit(e.target.value)}
     >
       <option value="" disabled>Select Measurement</option> {/* Default option */}
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
+  </div>
   </div>
   <div className="border-window-section">
-    <label className="border-label" htmlFor="border">Border Radius*</label>
-    <input
-      className="border-window-box"
-      type="number"
-      name="border"
-      value={formData.border}
-      onChange={handleSizeChange}
-      placeholder="Enter width"
-    />
-    <select
-      className="border-select"
-      value={widthUnit}
-      onChange={(e) => handleUnitChange('width', e.target.value)}
-    >
-      <option value="" disabled>Select Measurement</option> {/* Default option */}
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-  </div>
+  <label className="border-label" htmlFor="border">Border Radius*</label>
+  <input
+  className="border-window-box"
+  type="number"
+  name="border"  // Ensure the name is correct
+  value={formData.windowSize.border}
+  onChange={(e) => setFormData({ ...formData, windowSize: { ...formData.windowSize, border: e.target.value } })}
+  placeholder="Enter Border Radius"
+  step="0.01"
+  min="0.00"
+/>
 
-  <button className="btn btn--full submit-window-size" type="submit">SUBMIT SIZE</button>
+  <select
+    className="border-select"
+    value={borderUnit}
+      onChange={(e) => setBorderUnit(e.target.value)}
+  >
+    <option value="" disabled>Select Measurement</option> {/* Default option */}
+    <option value="inches">Inches</option>
+  </select>
+</div>
+
+
+<button className="btn btn--full submit-window-size" type="button" onClick={handleAddSize}>
+  ADD SIZE
+</button>
+  <div className="size-list">
+  <ul>
+    {addedSizes.length > 0 ? (
+      addedSizes.map((size, index) => (
+        <li className="size-item" key={index}>
+          Length: {size.length}, Width: {size.width}, Border: {size.border}
+          <button
+            className="btn btn--full remove-size"
+            onClick={() => handleRemoveSize(index)}
+          >
+            REMOVE SIZE
+          </button>
+        </li>
+      ))
+    ) : (
+      <p className="no-added-size">No sizes added yet.</p>
+    )}
+  </ul>
+</div>
 
   {submissionMessage && <p>{submissionMessage}</p>}
   {Object.keys(errors).map((error) => (
     <p key={error} className="error-message">{errors[error]}</p>
   ))}
 </div>
+<div className="window-stand-section">
 <label className="place-window-label">Types of Frost/Tint:</label>
-<div className="placement-imgs">
+<div className="tint-imgs">
     <div className="place-img-container">
-        <h1 className="place-examples">Placement Examples</h1>
+        <h1 className="place-examples">Frost/Tint Examples</h1>
     </div>
 <div className="place-flex-container">
     <div className="place-img-container">
-        <img src="../public/window tinting types/black out.png" alt="Placement=photo" className="place-img"/>
+        <img src="../public/window tinting types/black out.png" alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Black Out</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/window tinting types/white out.png" alt="Placement=photo" className="place-img"/>
+        <img src="../public/window tinting types/white out.png" alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">White Out</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/window tinting types/white frost.png" alt="Placement=photo" className="place-img"/>
+        <img src="../public/window tinting types/white frost.png" alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">White Frost</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/window tinting types/reflective.png" alt="Placement=photo" className="place-img"/>
+        <img src="../public/window tinting types/reflective.png" alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Reflective</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/window tinting types/Panashield.png" alt="Placement=photo" className="place-img"/>
+        <img src="../public/window tinting types/Panashield.png" alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Panashield</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/window tinting types/sputterd bronze.png" alt="Placement=photo" className="place-img"/>
+        <img src="../public/window tinting types/sputterd bronze.png" alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Sputtered Bronze</h3>
 </div>
     </div>
 </div>
       <div className="place-window-section">
-        <label className="place-label" htmlFor="place">Placement *</label>
+        <label className="place-label" htmlFor="tint">Frost/Tint *</label>
         <select
           className="place-select"
-          value={formData.type}
-          onChange={(e) => handleOptionChange('type', e.target.value)}
+          value={formData.tint}
+          onChange={(e) => handleOptionChange('tint', e.target.value)}
         >
+          <option value="" disabled>Select Frost/Tint</option>
           {availablewindowOptions.map((option, index) => (
             <option key={index} value={option.name} disabled={option.disabled}>
               {option.name}
@@ -507,7 +643,34 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           ))}
         </select>
       </div>
+      <button className="btn btn--full submit-window-place" type="button" onClick={handleAddTint}>
+  ADD TINT
+</button>
+      <div className="tint-list">
+      <div className="tint-list">
+  <ul>
+    {addedTint.length > 0 ? (
+      addedTint.map((tint, index) => (
+        <li className="tint-item" key={index}>
+          {tint}
+          <button
+            className="btn btn--full remove-tint"
+            onClick={() => handleRemoveTint(index)}
+          >
+            REMOVE FROST/TINT
+          </button>
+        </li>
+      ))
+    ) : (
+      <p className="no-added-tint">No added frost/tints yet.</p>
+    )}
+  </ul>
+</div>
 
+
+    {errors.tint && <span className="error-message">{errors.tint}</span>}
+  </div>
+      </div>
 <div className="window-message-container">
 <label className="message-window-label">Message: </label>
 <h1 className="message-window-note">Tell us about your window frost/tinting job and how you want it designed! Is your frost/tint going
@@ -516,7 +679,12 @@ to request a crew to help install your Window Frosting/Tinting, please specify w
 and what time you want an MX crew will arrive.</h1>
 
 <textarea className="message-window-text" name="message" type="text" placeholder="Enter Message"
-  value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+  value={formData.message} onChange={(e) => {
+    setFormData({ ...formData, message: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, message: '' })); // Clear the error
+    }
+  }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
   {submissionMessage && (
@@ -548,7 +716,7 @@ and what time you want an MX crew will arrive.</h1>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-            <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
+          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
               <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
@@ -559,7 +727,7 @@ and what time you want an MX crew will arrive.</h1>
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
@@ -571,4 +739,4 @@ and what time you want an MX crew will arrive.</h1>
                 </div>
             );
 };
-export default Window
+export default Window;
