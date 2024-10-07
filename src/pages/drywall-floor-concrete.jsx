@@ -57,13 +57,7 @@ const states = [
     { abbreviation: 'WI', name: 'Wisconsin' },
     { abbreviation: 'WY', name: 'Wyoming' }
   ];
-  const sizeOptions = [
-    { name: 'Select Measurement', disabled: true }, // Add this default option
-    { name: 'Feet', disabled: false },
-    { name: 'Inches', disabled: false },
-  ];
   const placeOptions = [
-    { name: 'Select Placement', disabled: true }, // Default option
     { name: 'Drywall Graphics (Examples: Homes and Office Buildings)', disabled: false },
     { name: 'Floor Graphics', disabled: false },
     { name: 'Concrete Graphics (Examples: Sidewalks and Roads)', disabled: false },
@@ -72,18 +66,18 @@ const states = [
   ];
   
   const finishOptions = [
-    { name: 'Select Finishing', disabled: true }, // Default option
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false }
   ];
 const Adhesive = () => {
     const [phone, setPhone] = useState('');
-            const [selectedSize, setSelectedSize] = useState('');
-            const [addedSizes, setAddedSizes] = useState([]);
-            const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
-            const [widthUnit, setWidthUnit] = useState(''); // Default to feet
-            const [availableplaceOptions, setAvailableplaceOptions] = useState(placeOptions);
-            const [availablefinishOptions, setAvailablefinishOptions] = useState(finishOptions);
+            const [addedvinylSizes, setAddedvinylSizes] = useState([]);
+            const [vinylLengthUnit, setVinylLengthUnit] = useState('');
+            const [vinylWidthUnit, setVinylWidthUnit] = useState('');
+            const [selectedPlacement, setSelectedPlacement] = useState('');
+            const [addedPlacement, setAddedPlacement] = useState([]);
+            const [selectedFinishing, setSelectedFinishing] = useState('');
+            const [addedFinishing, setAddedFinishing] = useState([]);
             const [errorMessage, setErrorMessage] = useState('');
             const [formData, setFormData] = useState({
               first: '',
@@ -95,124 +89,198 @@ const Adhesive = () => {
               city: '',
               state: '',
               zip: '',
-              length: '',
-              width: '',
-              type: null,
-              finishing: null,
+              vinylSize: { length: '', width: '' },
+              placement: '',
+              finishing: '',
               img: null,
               message: ''
             });
             const [errors, setErrors] = useState({});
             const [submissionMessage, setSubmissionMessage] = useState('');
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
-            const handleStateChange = (e) => {
-              setSelectedState(e.target.value);
-              setErrors({ ...errors, state: '' }); // Clear state error when state changes
-            };
             const handlePhoneChange = (event) => {
               const input = event.target.value;
-              const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+              const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              
               setPhone(formatted);
               setFormData({ ...formData, phone: formatted });
+            
+              // Check if the input has 10 digits and clear the error if it does
+              if (rawInput.length === 10) {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
+              }
+            };
+            const handleAddFinishing = () => {
+              if (selectedFinishing && addedFinishing.length < 2) {
+                setAddedFinishing([...addedFinishing, selectedFinishing]);
+                setSelectedFinishing('');
+                setErrors((prevErrors) => ({ ...prevErrors, finishing: '' }));
+              } else {
+                setErrorMessage('Please select a finishing option.');
+              }
+            };
+            // Function to remove a finishing
+            const handleRemoveFinishing = (index) => {
+              const updatedFinishing = addedFinishing.filter((_, i) => i !== index);
+              setAddedFinishing(updatedFinishing);
+            };
+            const handleAddPlacement = () => {
+              if (selectedPlacement && addedPlacement.length < 5) {
+                setAddedPlacement([...addedPlacement, selectedPlacement]);
+                setSelectedPlacement('');
+                setErrors((prevErrors) => ({ ...prevErrors, placement: '' }));
+              } else {
+                setErrorMessage('Please select a placement option.');
+              }
+            };
+            
+            
+            // Function to remove a placement
+            const handleRemovePlacement = (index) => {
+              const updatedPlacement = addedPlacement.filter((_, i) => i !== index);
+              setAddedPlacement(updatedPlacement);
+            };
+            const handleAddVinylSize = () => {
+              const { vinylSize } = formData;
+            
+              if (vinylSize.length && vinylSize.width && vinylLengthUnit && vinylWidthUnit) {
+                // Create a new size string with units
+                const newSize = `${vinylSize.length} ${vinylLengthUnit} x ${vinylSize.width} ${vinylWidthUnit}`;
+                
+                // Add the new size to the list
+                setAddedvinylSizes([...addedvinylSizes, newSize]);
+                setErrors((prevErrors) => ({ ...prevErrors, vinylSize: '' }));
+                // Clear the form inputs after adding
+                setFormData((prevState) => ({
+                  ...prevState,
+                  vinylSize: { length: '', width: '' }
+                }));
+                setVinylLengthUnit('');
+                setVinylWidthUnit('');
+                setErrorMessage(''); // Clear any previous errors
+              } else {
+                setErrorMessage('Please enter both length, width, and their units.');
+              }
+            };
+            
+            const handleRemoveVinylSize = (index) => {
+              const updatedVinylSizes = addedvinylSizes.filter((_, i) => i !== index);
+              setAddedvinylSizes(updatedVinylSizes);
+            };
+            const handleZipChange = (event) => {
+              const input = event.target.value;
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+            
+              setFormData({ ...formData, zip: rawInput });
+            
+              // Check if the input has 5 digits and clear the error if it does
+              if (rawInput.length === 5) {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
+              }
             };
             const handleFileChange = (e, fileType) => {
             const file = e.target.files[0];
             setFormData({ ...formData, [fileType]: file });
+            if (file) {
+              setErrors((prevErrors) => ({ ...prevErrors, img: '' }));
+          }
           };
           
           const handleFileRemove = (fileType) => {
             setFormData({ ...formData, [fileType]: null });
           };
-          const handleSizeChange = (e) => {
-            const { name, value } = e.target;
-            setFormData({ ...formData, [name]: value });
-          };
+
+          const handleSubmit = async (e) => {
+            e.preventDefault();
+            setSubmissionErrorMessage('');
+            setSubmissionMessage('');
+            
+            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
+            const newErrors = {};
+          
+            // Validation for required fields
+            requiredFields.forEach(field => {
+              if (!formData[field]) {
+                let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                if (field === 'first') fieldLabel = 'First Name';
+                if (field === 'last') fieldLabel = 'Last Name';
+                if (field === 'company') fieldLabel = 'Company Name';
+                if (field === 'phone') fieldLabel = 'Phone Number';
+                if (field === 'address') fieldLabel = 'Address';
+                if (field === 'city') fieldLabel = 'City';
+                if (field === 'state') fieldLabel = 'State';
+                if (field === 'zip') fieldLabel = 'Zip Code';
+                if (field === 'img') fieldLabel = 'Logo';
+                newErrors[field] = `${fieldLabel} is required!`;
+              }
+            });
+        // Check if file (logo/image) is added
+  if (!formData.img) {
+    newErrors.img = 'Logo/Image is required.';
+  }
+            // Ensure vinyl sizes, placement, and finishing are also checked
+            if (!addedPlacement.length) {
+              newErrors.placement = 'At least one placement is required.';
+            }
+            if (!addedFinishing.length) {
+              newErrors.finishing = 'At least one finishing option is required.';
+            }
         
-          // Handle Feet/Inches dropdown change
-          const handleUnitChange = (type, unit) => {
-            if (type === 'length') {
-              setLengthUnit(unit);
-            } else if (type === 'width') {
-              setWidthUnit(unit);
+            // Show errors if they exist
+            if (Object.keys(newErrors).length > 0) {
+              setErrorMessage('Required fields are missing.');
+              setErrors(newErrors);
+              return;
+            }
+        
+            // If no errors, proceed with form submission
+            try {
+              const formDataToSend = {
+                ...formData,
+                vinylSize: addedvinylSizes.join(', '),
+                placement: addedPlacement.join(', '),
+                finishing: addedFinishing.join(', ')
+              };
+          
+              const response = await axios.post('/drywall-floor-concrete', formDataToSend, {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              });
+              console.log(response.data);
+              // Clear form on success
+              setFormData({
+                first: '',
+                last: '',
+                company: '',
+                email: '',
+                phone: '',
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                vinylSize: { length: '', width: '' },
+                placement: '',
+                finishing: '',
+                img: null,
+                message: ''
+              });
+              setAddedvinylSizes([]);
+              setAddedPlacement([]);
+              setAddedFinishing([]);
+              setErrors({});
+              setPhone('');
+              setSubmissionMessage('Drywall/Floor/Concrete Graphics Request Submitted! We will be with you within 48 hours!');
+            } catch (error) {
+              console.error('Error submitting Drywall/Floor/Concrete Graphics Job:', error);
             }
           };
         
-          const handleOptionChange = (type, value) => {
-            setFormData({ ...formData, [type]: value });
-          };
-
-            const handleSubmit = async (e) => {
-              e.preventDefault();
-              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'length', 'width', 'message'];
-    const newErrors = {};
-          
-            
-              requiredFields.forEach(field => {
-                if (!formData[field]) {
-                  let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                  if (field === 'first') fieldLabel = 'First Name';
-                  if (field === 'last') fieldLabel = 'Last Name';
-                  if (field === 'company') fieldLabel = 'Company Name';
-                  if (field === 'phone') fieldLabel = 'Phone Number';
-                  if (field ==='address') fieldLabel = 'Address';
-                  if (field === 'city') fieldLabel = 'City';
-                  if (field ==='state') fieldLabel = 'State';
-                  if (field === 'zip') fieldLabel = 'Zip Code';
-                  if (field === 'img') fieldLabel = 'Logo';
-                  newErrors[field] = `${fieldLabel} is required!`;
-                }
-              });
-          
-              if (Object.keys(newErrors).length > 0) {
-                  setErrorMessage('Required fields are Missing.');
-                setErrors(newErrors);
-                return;
-              }
-          
-              try {
-                const sizeData = {
-                  length: `${formData.length} ${lengthUnit}`,
-                  width: `${formData.width} ${widthUnit}`
-                };
-                const placeData = {
-                    place: `${formData.place} ${placeUnit}`,
-                    finish: `${formData.finish} ${finishUnit}`
-                  };
-                const formDataToSend = {
-                  ...formData,
-                  size: sizeData,
-                };
-                const response = await axios.post('/drywall-floor-concrete', formDataToSend, {
-                  headers: {
-                    'Content-Type': 'multipart/form-data'
-                  }
-                });
-                console.log(response.data);
-                setFormData({
-                  first: '',
-                  last: '',
-                  company: '',
-                  email: '',
-                  phone: '',
-                  address: '',
-                  city: '',
-                  state: '',
-                  zip: '',
-                  length: '',
-                  width: '',
-                  type: null,
-                  finishing: null,
-                  img: null,
-                  message: ''
-                });
-          
-                setErrors({});
-                setPhone('');
-                setSubmissionMessage('Drywall/Floor/Concrete Graphics Request Submitted! We will be with you within 48 hours!');
-              } catch (error) {
-                console.error('Error submitting Drywall/Floor/Concrete Graphics Job:', error);
-              }
-            };
             return (
                 <div>
                     <Header />
@@ -233,6 +301,7 @@ const Adhesive = () => {
                         Information to get an Inquiry or Quote.</h2>
                 </div>
                 <div className="dry-actual">
+                  <div className="name-section-dry">
 <label className="first-dry-name-label">Name: </label>
 <div className="first-dry-dry-input">
 
@@ -248,11 +317,14 @@ text="first-name--input"
 placeholder="Enter First Name"
 
 value={formData.first}
-onChange={(e) => setFormData({ ...formData, first: e.target.value })}
-
+onChange={(e) => {
+  setFormData({ ...formData, first: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+  }
+}}
 />
-
-
+{errors.first && <div className="error-message">{errors.first}</div>}
 </div>
     </div>
   </div>
@@ -268,7 +340,12 @@ text="last-name--input"
 placeholder="Enter Last Name"
 
 value={formData.last}
-onChange={(e) => setFormData({ ...formData, last: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, last: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
+  }
+}}
 
 />
 {errors.last && <div className="error-message">{errors.last}</div>}
@@ -276,7 +353,8 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     </div>
   </div>
 </div>
-
+</div>
+<div className="company-dry-section">
 <label className="dry-company-label">Company/Excavator: </label>
 
 <div className="company-dry-input">
@@ -285,7 +363,12 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     <div className="dry-input-container">
       <label className="company-dry-name">Company *</label>
       <input name="company-dry-name-input" type="text" className="company-dry-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+        value={formData.company} onChange={(e) => {
+          setFormData({ ...formData, company: e.target.value });
+          if (e.target.value) {
+            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
+          }
+        }}
 
         />
         {errors.company && <span className="error-message">{errors.company}</span>}
@@ -293,7 +376,8 @@ onChange={(e) => setFormData({ ...formData, last: e.target.value })}
     </div>
   </div>
   </div>
-
+  </div>
+  <div className="emailphone-dry-section">
 <label className="emailphone-dry-label">Email/Phone Number:</label>
 <div className="emailphone-dry-input">
   <div className="email-dry">
@@ -308,14 +392,18 @@ text="email--input"
 placeholder="Enter Email"
 
 value={formData.email}
-onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, email: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
+  }
+}}
 
 />
 {errors.email && <div className="error-message">{errors.email}</div>}
 </div>
     </div>
   </div>
-
   <div className="phone-dry">
     <div className="dry-phone-name-input">
     <div className="dry-phone-input-container">
@@ -328,14 +416,17 @@ text="phone--input"
 placeholder="Enter Phone Number"
 
 value={phone}
-onChange={handlePhoneChange}
+onChange={(e) => {
+  handlePhoneChange(e);
+}}
 />
 {errors.phone && <div className="error-message">{errors.phone}</div>}
 </div>
     </div>
   </div>
 </div>
-
+</div>
+<div className="address-dry-section">
 <label className="address-dry-label">Company Address: </label>
 <div className="address-dry-input-container">
 <div className="address-dry-input">
@@ -349,7 +440,12 @@ className="address-dry-box"
 text="address--input"
 placeholder="Enter Address"
 value={formData.address}
-onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, address: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
+  }
+}}
 />
 {errors.address && <span className="error-message">{errors.address}</span>}
 </div>
@@ -363,7 +459,12 @@ className="city-dry-box"
 text="city--input"
 placeholder="City"
 value={formData.city}
-onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+onChange={(e) => {
+  setFormData({ ...formData, city: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
+  }
+}}
 />
 {errors.city && <span className="error-message">{errors.city}</span>}
 </div>
@@ -376,7 +477,12 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       className="state-dry-box"
       
       value={formData.state}
-      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+      onChange={(e) => {
+        setFormData({ ...formData, state: e.target.value });
+        if (e.target.value) {
+          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
+        }
+      }}
     >
       <option value="">Select State</option>
       {states.map(state => (
@@ -392,7 +498,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
         type="text"
         className="zip-dry-box"
         value={formData.zip}
-        onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
+        onChange={(e) => handleZipChange(e)}
         placeholder="Zip Code"
         maxLength={5}
         pattern="\d{5}"
@@ -403,6 +509,8 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 </div>
 </div>
 </div>
+</div>
+<div className="size-dry-vinyl-section">
 <label className="size-dry-label">Size of Vinyl:</label>
 <div className="size-dry-section">
   <div className="length-dry-section">
@@ -411,16 +519,16 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       className="length-dry-box"
       type="number"
       name="length"
-      value={formData.length}
-      onChange={handleSizeChange}
+      value={formData.vinylSize.length}
+      onChange={(e) => setFormData({ ...formData, vinylSize: { ...formData.vinylSize, length: e.target.value } })}
       placeholder="Enter length"
     />
     <select
       className="length-select"
-      value={lengthUnit}
-      onChange={(e) => handleUnitChange('length', e.target.value)}
+      value={vinylLengthUnit}
+      onChange={(e) => setVinylLengthUnit(e.target.value)}
     >
-      <option value="" disabled>Select Measurement</option> {/* Default option */}
+      <option value="" disabled>Select Unit</option>
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
@@ -432,29 +540,57 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
       className="width-dry-box"
       type="number"
       name="width"
-      value={formData.width}
-      onChange={handleSizeChange}
+      value={formData.vinylSize.width}
+      onChange={(e) => setFormData({ ...formData, vinylSize: { ...formData.vinylSize, width: e.target.value } })}
       placeholder="Enter width"
     />
     <select
       className="width-select"
-      value={widthUnit}
-      onChange={(e) => handleUnitChange('width', e.target.value)}
+      value={vinylWidthUnit}
+      onChange={(e) => setVinylWidthUnit(e.target.value)}
     >
-      <option value="" disabled>Select Measurement</option> {/* Default option */}
+      <option value="" disabled>Select Unit</option>
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
   </div>
 
-  <button className="btn btn--full submit-size" type="submit">SUBMIT SIZE</button>
+  {/* Add button to add the size */}
+  <button
+    type="button"
+    className="btn-submit btn--full vinyl-submit-size"
+    onClick={handleAddVinylSize}
+  >
+    ADD VINYL SIZE
+  </button>
 
-  {submissionMessage && <p>{submissionMessage}</p>}
-  {Object.keys(errors).map((error) => (
-    <p key={error} className="error-message">{errors[error]}</p>
-  ))}
+  {/* Display the list of added sizes */}
+  <ul>
+    {addedvinylSizes.length > 0 ? (
+      addedvinylSizes.map((size, index) => (
+        <li className="vehicle-vinyl-size-li" key={index}>
+          {size}
+          <button
+            className="btn-submit btn--full vinyl-remove-submit-size"
+            type="button"
+            onClick={() => handleRemoveVinylSize(index)}
+          >
+            REMOVE SIZE
+          </button>
+        </li>
+      ))
+    ) : (
+      <p className="no-added-vinyl">No vinyl sizes added yet.</p>
+    )}
+  </ul>
+
+  {/* Show error messages if any */}
+  {errorMessage && <p className="error-message">{errorMessage}</p>}
 </div>
-<label className="place-dry-label">Type of Placement:</label>
+
+</div>
+<div className="placement-dry-section">
+<label className="place-dry-label">Placement and Finishing:</label>
 <div className="placement-imgs">
     <div className="place-img-container">
         <h1 className="place-examples">Placement Examples</h1>
@@ -483,47 +619,108 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
     </div>
 </div>
       <div className="place-dry-section">
-        <label className="place-label" htmlFor="place">Placement *</label>
+        <label className="place-label" htmlFor="placement">Placement *</label>
         <select
-          className="place-select"
-          value={formData.type}
-          onChange={(e) => handleOptionChange('type', e.target.value)}
-        >
-          {availableplaceOptions.map((option, index) => (
-            <option key={index} value={option.name} disabled={option.disabled}>
-              {option.name}
-            </option>
-          ))}
-        </select>
-      </div>
+  className="place-select"
+  value={selectedPlacement}
+  onChange={(e) => setSelectedPlacement(e.target.value)} // Make sure this line is updating the state
+>
+  <option value="" disabled>Select Placement</option>
+  {placeOptions.map((option, index) => (
+    <option key={index} value={option.name} disabled={option.disabled}>
+      {option.name}
+    </option>
+  ))}
+</select>
 
+        <button className="btn btn--full submit-place" type="button" onClick={handleAddPlacement}>
+    ADD PLACEMENT
+  </button>
+  <div className="placement-list">
+  <ul>
+  {addedPlacement.length > 0 ? (
+    addedPlacement.map((placement, index) => (
+      <li className="placement-item" key={index}>
+        {placement}
+        <button
+          className="btn btn--full remove-placement"
+          onClick={() => handleRemovePlacement(index)}
+        >
+          REMOVE PLACEMENT
+        </button>
+      </li>
+    ))
+  ) : (
+    <p className="no-added-placement">No added placements yet.</p>
+  )}
+</ul>
+
+    {errors.placement && <span className="error-message">{errors.placement}</span>}
+  </div>
+      </div>
+      <div className="dry-finish-img-section">
+  <div className="matte-img-dry">
+    <img className="matte-img" alt="matte" src="../public/vinyls/matte.jpg"/>
+    <h2 className="matte-dry-note">Matte</h2>
+  </div>
+  <div className="gloss-img-dry">
+    <img className="gloss-img" alt="gloss" src="../public/vinyls/gloss.jpg"/>  
+    <h2 className="gloss-dry-note">Gloss</h2>
+  </div>
+</div>
       <label className="finish-dry-label">Finishing Touch:</label>
-      <div className="finish-dry-section">
-        <label className="finish-label" htmlFor="finish">Finishing *</label>
-        <select
-          className="finish-select"
-          value={formData.finishing}
-          onChange={(e) => handleOptionChange('finishing', e.target.value)}
+      <div className="finish-fleet-section">
+  <label className="finish-label" htmlFor="finishing">Finishing *</label>
+  <select
+    name="finishing"
+    className="finish-fleet-select"
+    value={selectedFinishing}
+    onChange={(e) => setSelectedFinishing(e.target.value)}
+    disabled={addedFinishing.length === 3}
+  >
+    <option value="">Select Finishing Type</option>
+    {finishOptions.map((option, index) => (
+      <option key={index} value={option.name}>
+        {option.name}
+      </option>
+    ))}
+  </select>
+  <button className="btn btn--full submit-finishing" type="button" onClick={handleAddFinishing}>
+    ADD FINISHING
+  </button>
+  <div className="finishing-list">
+  <ul>
+  {addedFinishing.length > 0 ? (
+    addedFinishing.map((finishing, index) => (
+      <li className="finishing-item" key={index}>
+        {finishing}
+        <button
+          className="btn btn--full remove-finishing"
+          onClick={() => handleRemoveFinishing(index)}
         >
-          {availablefinishOptions.map((option, index) => (
-            <option key={index} value={option.name} disabled={option.disabled}>
-              {option.name}
-            </option>
-          ))}
-        </select>
+          REMOVE FINISHING
+        </button>
+      </li>
+    ))
+  ) : (
+    <p className="no-added-vehicles">No Finishing items added yet.</p>
+  )}
+</ul>
+    {errors.finishing && <span className="error-message">{errors.finishing}</span>}
+  </div>
+</div>
       </div>
-
-
+<div className="dry-file-section">
 <label className="dry-file-label">Logo/Image:</label>
 <h2 className="dry-warn"><b className="dry-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <h1 className="log-re">Logo Redesigning(Optional)</h1>
-    <h2 className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, there will be fee for
+    <p className="log-re">Logo Redesigning(Optional)</p>
+    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, there will be fee for
     redesigning your logo depending on how much time it takes us and how fastidious you are at your logo redesign. Please Specify if you need your logo redesigned
     in the Message Section.
-</h2>
+</p>
 </h2>
 <div className="file-dry-section">
 <label htmlFor="logo-select" className="dry-logo">Logo/Image for Graphics *</label>
@@ -543,6 +740,7 @@ onChange={(e) => setFormData({ ...formData, city: e.target.value })}
         {errors.img && <span className="error-message">{errors.img}</span>}
 </div>
 </div>
+</div>
 <div className="dry-message-container">
 <label className="message-dry-label">Message: </label>
 <h1 className="message-dry-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
@@ -551,7 +749,12 @@ to request a crew to help install your drywall/concrete/floor graphics, please s
 and what time you want an MX crew will arrive.</h1>
 
 <textarea className="message-dry-text" name="message" type="text" placeholder="Enter Message"
-  value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+  value={formData.message} onChange={(e) => {
+    setFormData({ ...formData, message: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, message: '' })); // Clear the error
+    }
+  }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
   {submissionMessage && (
@@ -583,7 +786,7 @@ and what time you want an MX crew will arrive.</h1>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-            <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
+          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
               <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
@@ -594,7 +797,7 @@ and what time you want an MX crew will arrive.</h1>
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
