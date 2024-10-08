@@ -1,0 +1,1946 @@
+@import url(https://db.onlinewebfonts.com/c/82baa4951eee7df05175ada4cb171e35?family=Moveo+Sans+W00+Bold);
+@import url(https://db.onlinewebfonts.com/c/82302682c00aba868f6ae01a375b10ac?family=Moveo+Sans+SemiExt+W00+Bold);
+/* ================================
+   ================================
+   TOP OF THE DECAL PAGE
+   ================================
+   ================================ */
+   .page-decal-banner {
+    padding: 80px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    padding-top: 300px;
+    background-color: #b4feff;
+    height: auto;
+  }
+
+  .decal-name-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: auto;
+  }
+
+.decal-description {
+    color: #000;
+    font-family: "Kairos W04 Extended Bold";
+    font-size: 110px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  /* ================================
+   ================================
+    PHOTO GALLERY
+   ================================
+   ================================ */
+   .photo-decal-gal-decal {
+    background-color: #8fafff;
+    height: auto;
+  }
+  .photo-mx-decal-note {
+    font-size: 50px;
+    text-align: center;
+    font-family: "Kairos W04 Extended Bold";
+    height: auto;
+  }
+
+  /* ================================
+   ================================
+    ADHESIVE SECTION FORM
+   ================================
+   ================================ */
+   .decal-form-container {
+    background-color: #e7e7e7;
+    width: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: auto;
+}
+   .decal-set {
+    padding-top: 10px;
+    background-color: #e7e7e7;
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  .page-section {
+    padding-bottom: 3.5rem;
+    width: auto;
+    height: auto;
+}
+.decal-form-info {
+    margin: 10px;
+    width: 100%;
+    height: auto;
+}
+  .decal-app-box {
+    margin-top: 10px;
+    text-align: center;
+    color: #0f375a;
+    width: auto;
+    height: auto;
+    font-size: 50px;
+  }
+  .log-re {
+    margin: 40px;
+    text-align: center;
+    font-size: 50px;
+    width: auto;
+    height: auto;
+  }
+.decal-fill {
+    margin: 40px;
+    text-align: center;
+    color: #194fb4;
+    font-size: 35px;
+    height: auto;
+}
+.decal-notice,.logo-notice {
+    color: #194fb4;
+    height: auto;
+}
+.decal-warn {
+    font-size: 30px;
+    margin: 5%;
+    color: #000;
+    height: auto;
+}
+.logo-warn {
+    font-size: 30px;
+    margin-top: 0%;
+    color: #000;
+    height: auto;
+}
+.decal-actual {
+    width: auto;
+    margin: 50px;
+    height: auto;
+}
+/* ================================
+   decal Boxed Sections
+   ================================ */
+   .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .type-decal-section,
+   .decal-sticker-section,
+   .decal-file-section,
+   .decal-message-container {
+    border-color: #000;
+  border-width: 4px;
+  background-color: #cccbcb;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  padding: 20px;
+  }
+  
+
+  
+/* ================================
+   Larger Labels for Adhesive Section
+   ================================ */
+.first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.type-decal-label,
+.decal-sticker-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+.type-decal-label {
+  padding: 50px;
+  color:#000;
+  font-family: "Moveo Sans w00 Bold";
+  text-align: center;
+  font-size: 80px;
+  font-style: inherit;
+  height: auto;
+}
+
+/* ================================
+   Added Item Label Categories
+   ================================ */
+.added-decal-list, .decal-item {
+  font-family: "Moveo Sans w00 Bold";
+  font-style: normal;
+  margin: 0;
+  color: rgb(30, 255, 0);
+  text-align: center;
+  font-size: 70px;
+  height: auto;
+  text-shadow: 
+    1.3px 1.3px #000,
+    -1.3px 1.3px #000,
+    1.3px -1.3px #000,
+    -1.3px -1.3px #000
+    ;
+}
+.no-added-decals {
+  color: #000;
+  font-size: 40px;
+  height: auto;
+  margin: 10px;
+  text-align: center;
+}
+.decal-item {
+    text-decoration: none;
+    list-style: none;
+}
+.decal-type-p,
+.decal-size-p,
+.decal-cut-p,
+.decal-quantity-p {
+  text-decoration: none;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  margin: 0;
+  color: rgb(255, 238, 0);
+  text-align: center;
+  font-size: 60px;
+  height: auto;
+  text-shadow:
+    1.3px 1.3px #000,
+    -1.3px 1.3px #000,
+    1.3px -1.3px #000,
+    -1.3px -1.3px #000
+    ;
+}
+.added-decal-b-type,
+.added-decal-b-size,
+.added-decal-b-cut,
+.added-decal-b-quantity {
+    font-family: "Moveo Sans w00 bold";
+    font-style: normal;
+    margin: 0;
+    color: rgb(79, 255, 196);
+}
+
+.decal-length-label, 
+.decal-width-label {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 10px;
+  margin-bottom: 10px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 30px;
+  height: auto;
+}
+/* ================================
+   Grouped input sections
+   ================================ */
+  .first-decal-decal-input {
+    margin: 40px;
+    display: flex;
+    height: auto;
+  }
+  .address-decal-input-container, 
+  .size-door-decal-section {
+    margin: 10px;
+    height: auto;
+  }
+
+  /* ================================
+   Grouped Labels and Input Box Styling
+   ================================ */
+   .last-decal-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    height: auto;
+  }
+  .first-name-decal-input,
+  .emailphone-decal-input,
+  .decal-company-name-input, 
+  .address-decal-input,
+  .email-decal-input,
+  .decal-phone-name-input,
+  .length-decal-section,
+  .width-decal-section, 
+  .file-decal-section{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 10px;
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+    height: auto;
+  }
+  .finish-decal-section {
+    display: block;
+  }
+
+  .address-decal-inputing, 
+  .city-decal-input,
+  .phone-decal {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    height: auto;
+  }
+  .state-decal-input,  
+  .zip-decal-input{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    position: relative;
+    height: auto;
+  }
+
+/* ================================
+   Small Label Styling
+   ================================ */
+ .first-decal-label-name, 
+  .last-decal-label-name,
+  .company-decal-name,
+  .email-decal-name,
+  .phone-decal-label,
+  .addr-decal-label, 
+  .city-decal-label,
+  .state-decal-label,
+  .zip-decal-label,
+  .decal-type-label, 
+  .decal-size-label, 
+  .decal-cut-unit-label, 
+  .decal-quantity-label,
+  .decal-logo {
+    font-family: "Highway Gothic Narrow";
+    font-style: normal;
+    margin: 0;
+    color:#226daf;
+    padding-left: 10px;
+    font-size: 70px;
+    height: auto;
+  }
+  
+
+/* ================================
+   Input Box Styling
+   ================================ */
+   .firstname-decal-name-input,
+   .lastname-decal-name-input, 
+   .company-decal-name-input,
+   .email-decal-box,
+   .phone-decal-box,
+   .address-decal-box, 
+   .city-decal-box,
+   .state-decal-box,
+   .zip-decal-box,
+   .decal-type-input, 
+   .decal-size-input,
+   .border-decal-box,
+   .decal-sides-input,
+   .decal-side-select,
+   .decal-length-input,
+   .decal-length-select,
+   .decal-width-input,
+   .decal-width-select,
+   .decal-cut-input,
+   .decal-quantity-input {
+     padding: 10px;
+     color:#0f375a;
+     font-size: 50px;
+     margin-bottom: 20px;
+     height: auto;
+   }
+   .length-decal-box, 
+   .width-decal-box,
+   .length-door-decal-box,
+   .width-door-decal-box {
+    font-size: 80px;
+
+   }
+/* ================================
+   decal Image Section
+   ================================ */
+   .place-flex-container {
+    display: flex;
+    justify-content: space-between; /* Adjusts space between items */
+    align-items: center; /* Aligns items vertically */
+    flex-wrap: nowrap; /* Ensures the items stay on one line */
+    height: auto;
+}
+
+.place-img-container {
+    flex: 1;
+    text-align: center; /* Centers the text under each image */
+    height: auto;
+}
+
+.place-img {
+    width: 330px;
+    height: auto;
+    object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
+}
+
+/* ================================
+   Year Input Box Note Style
+   ================================ */
+.year-decal-note {
+font-size: 20px;
+font-display: flex;
+margin: 10px;
+font-family: "Kairos W01 Extended Medium";
+height: auto;
+}
+/* ================================
+   decal Finishing Image Section
+   ================================ */
+   .decal-finish-img-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px; /* Adds space between the columns */
+    padding: 10px;
+    height: auto;
+  }
+  
+  .matte-img-decal, .gloss-img-decal, .ra-img-decal {
+    text-align: center; /* Centers the image and text within each div */
+    height: auto;
+  }
+  
+  .matte-img, .gloss-img, .ORAFOL-img {
+    max-width: 100%; /* Ensures the images do not exceed their container's width */
+    height: auto; /* Maintains the image's aspect ratio */
+  }
+  
+
+  /* ================================
+   decal Message Styling
+   ================================ */
+  .message-decal-note {
+    font-style: normal;
+    text-align: center;
+    text-emphasis: none;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    padding-top: 30px;
+    height: auto;
+  }
+  
+  .message-decal-text {
+    font-style: normal;
+    text-align: left;
+    text-emphasis: none;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    width: 100%;
+    height: 300px;
+  }
+  .choose-logo-contain {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+.file-decal-label, .remove-decal-file-button {
+    display: flex;
+    background-color: #0f375a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: auto;
+}
+.file-decal-label input[type=file] {
+    display: none;
+}
+.submit-decals
+ {
+  width: 100%;
+  font-size: 40px;
+  height: auto;
+}
+
+  .submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+    height: auto;
+  }
+  .submit-decal {
+    width: 100%;
+    font-size: 40px;
+    height: auto;
+  }
+  .driver-submit-size, .passenger-submit-size, .driver-remove-submit-size,
+  .passenger-remove-submit-size,
+  .door-remove-length-submit-size,
+  .door-length-submit-size {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+    height: auto;
+   }
+  .submit-size:hover, 
+  .submit-finishing:hover,
+  .submit-decal:hover,
+  .file-decal-label:hover,
+  .remove-finishing:hover,
+  .remove-decal-file-button:hover,
+  .new-decal-logo-button:hover {
+    background-color: #226daf;
+  }
+  .btn-submit, .btn-decal-submit {
+    text-decoration: none;
+      padding: 20px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      font-family: "Kairos W01 Extended Medium";
+      transition: all .3s;
+      margin-top: 1rem;
+      height: auto;
+  }
+  .btn-decal-submit {
+    padding: 0;
+    height: auto;
+  }
+  /* ================================
+   Message Styling
+   ================================ */
+.error-message {
+  color: red;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    font-family: "Kairos W04 Extended Bold";
+    margin-bottom: 10px;
+    height: auto;
+}
+
+.submission-error-message {
+  color: red;
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+.submission-message {
+  color: rgb(38, 173, 38);
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-decal-graphics {
+      display: block;
+    }
+    .page-decal-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .decal-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-decal-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .decal-form-info {
+      margin: 0;
+    }
+    .decal-app-box {
+      font-size: 37px;
+    }
+    .decal-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .decal-actual {
+      margin: 0;
+    }
+    .decal-set {
+      display: block;
+    }
+    .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .vehicle-type-decal-section,
+   .vehicle-size-decal-section,
+   .door-size-decal-section,
+   .finishing-decal-section,
+   .decal-file-section,
+   .decal-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+.type-decal-label {
+  font-size: 33px;
+}
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+  display: block;
+  padding-left: 0;
+}
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.decal-logo, 
+.year-decal-label, 
+.make-decal-label, 
+.model-decal-label, 
+.trim-decal-label {
+  font-size: 25px;
+}
+.decal-message-container {
+  margin-top: 10px;
+}
+.message-decal-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+  margin: 0;
+  display: block;
+}
+.last-decal-name {
+  padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.length-decal-select, 
+.width-decal-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.year-decal-box,
+.make-decal-box,
+.length-door-decal-box,
+.width-door-decal-box
+ {
+  font-size: 12px;
+}
+.model-decal-box {
+  font-size: 6px;
+}
+.decal-company-label {
+  font-size: 18px;
+  padding: 0;
+}
+.finish-decal-label {
+  font-size: 30px;
+}
+.decal-finish-img-section {
+  display: block;
+}
+.finish-decal-select {
+  font-size: 7px;
+}
+.decal-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-decal-label {
+  font-size: 24px;
+  padding: 0;
+}
+.decal-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-decal-input {
+  padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+  margin: 0px;
+  display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+  padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-decal-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-decal-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-decal {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-decal-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 20px;
+}
+  }
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-decal-graphics {
+      display: block;
+    }
+    .page-decal-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .decal-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-decal-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .decal-form-info {
+      margin: 0;
+    }
+    .decal-app-box {
+      font-size: 40px;
+    }
+    .decal-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .decal-actual {
+      margin: 0;
+    }
+    .decal-set {
+      display: block;
+    }
+    .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .vehicle-type-decal-section,
+   .vehicle-size-decal-section,
+   .door-size-decal-section,
+   .finishing-decal-section,
+   .decal-file-section,
+   .decal-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+.type-decal-label {
+  font-size: 50px;
+}
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+  display: block;
+  padding-left: 0;
+}
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.decal-logo, 
+.year-decal-label, 
+.make-decal-label, 
+.model-decal-label, 
+.trim-decal-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+.decal-message-container {
+  margin-top: 10px;
+}
+.message-decal-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+  margin: 0;
+  display: block;
+}
+.last-decal-name {
+  padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.length-decal-select, 
+.width-decal-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.year-decal-box,
+.make-decal-box,
+.length-door-decal-box,
+.width-door-decal-box
+ {
+  font-size: 18px;
+}
+.model-decal-box {
+  font-size: 10px;
+}
+.decal-company-label {
+  font-size: 25px;
+  padding: 0;
+}
+.finish-decal-label {
+  font-size: 30px;
+}
+.decal-finish-img-section {
+  display: block;
+}
+.finish-decal-select {
+  font-size: 7px;
+}
+.decal-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-decal-label {
+  font-size: 24px;
+  padding: 0;
+}
+.decal-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-decal-input {
+  padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+  margin: 0px;
+  display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+  padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-decal-label {
+  font-size: 28px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-decal-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-decal {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-decal-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 30px;
+}
+  }
+  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-decal-graphics {
+      display: block;
+    }
+    .page-decal-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .decal-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-decal-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .decal-form-info {
+      margin: 0;
+    }
+    .decal-app-box {
+      font-size: 40px;
+    }
+    .decal-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .decal-actual {
+      margin: 0;
+    }
+    .decal-set {
+      display: block;
+    }
+    .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .vehicle-type-decal-section,
+   .vehicle-size-decal-section,
+   .door-size-decal-section,
+   .finishing-decal-section,
+   .decal-file-section,
+   .decal-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+.type-decal-label {
+  font-size: 50px;
+}
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+  display: block;
+  padding-left: 0;
+}
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.decal-logo, 
+.year-decal-label, 
+.make-decal-label, 
+.model-decal-label, 
+.trim-decal-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+.decal-message-container {
+  margin-top: 10px;
+}
+.message-decal-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+  margin: 0;
+  display: block;
+}
+.last-decal-name {
+  padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.length-decal-select, 
+.width-decal-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.year-decal-box,
+.make-decal-box,
+.length-door-decal-box,
+.width-door-decal-box
+ {
+  font-size: 18px;
+}
+.model-decal-box {
+  font-size: 10px;
+}
+.decal-company-label {
+  font-size: 25px;
+  padding: 0;
+}
+.finish-decal-label {
+  font-size: 30px;
+}
+.decal-finish-img-section {
+  display: block;
+}
+.finish-decal-select {
+  font-size: 7px;
+}
+.decal-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-decal-label {
+  font-size: 24px;
+  padding: 0;
+}
+.decal-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-decal-input {
+  padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+  margin: 0px;
+  display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+  padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-decal-label {
+  font-size: 35px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-decal-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-decal {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-decal-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+  }
+  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-decal-graphics {
+      display: block;
+    }
+    .page-decal-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .decal-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-decal-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .decal-form-info {
+      margin: 0;
+    }
+    .decal-app-box {
+      font-size: 40px;
+    }
+    .decal-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .decal-actual {
+      margin: 0;
+    }
+    .decal-set {
+      display: block;
+    }
+    .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .vehicle-type-decal-section,
+   .vehicle-size-decal-section,
+   .door-size-decal-section,
+   .finishing-decal-section,
+   .decal-file-section,
+   .decal-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+.type-decal-label {
+  font-size: 50px;
+}
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+  display: block;
+  padding-left: 0;
+}
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.decal-logo, 
+.year-decal-label, 
+.make-decal-label, 
+.model-decal-label, 
+.trim-decal-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+.year-decal-label {
+  font-size: 50px;
+}
+.decal-message-container {
+  margin-top: 10px;
+}
+.message-decal-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+  margin: 0;
+  display: block;
+}
+.last-decal-name {
+  padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.length-decal-select, 
+.width-decal-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.year-decal-box,
+.make-decal-box,
+.length-door-decal-box,
+.width-door-decal-box
+ {
+  font-size: 18px;
+}
+.model-decal-box {
+  font-size: 10px;
+}
+.decal-company-label {
+  font-size: 30px;
+  padding: 0;
+}
+.finish-decal-label {
+  font-size: 30px;
+}
+.decal-finish-img-section {
+  display: block;
+}
+.finish-decal-select {
+  font-size: 13px;
+}
+.decal-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.decal-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-decal-input {
+  padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+  margin: 0px;
+  display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+  padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-decal-label {
+  font-size: 35px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-decal-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-decal {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-decal-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+  }
+  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-decal-graphics {
+      display: block;
+    }
+    .page-decal-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .decal-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-decal-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .decal-form-info {
+      margin: 0;
+    }
+    .decal-app-box {
+      font-size: 40px;
+    }
+    .decal-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .decal-actual {
+      margin: 0;
+    }
+    .decal-set {
+      display: block;
+    }
+  
+
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.decal-logo, 
+.year-decal-label, 
+.make-decal-label, 
+.model-decal-label, 
+.trim-decal-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+
+.decal-message-container {
+  margin-top: 10px;
+}
+.message-decal-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+
+.last-decal-name {
+  padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.length-decal-select, 
+.width-decal-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.year-decal-box,
+.make-decal-box,
+.length-door-decal-box,
+.width-door-decal-box
+ {
+  font-size: 19px;
+}
+.model-decal-box {
+  font-size: 19px;
+}
+.decal-company-label {
+  font-size: 30px;
+  padding: 0;
+}
+.finish-decal-label {
+  font-size: 30px;
+}
+
+.finish-decal-select {
+  font-size: 13px;
+}
+.decal-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.decal-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-decal-input {
+  padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+  margin: 0px;
+  display: grid;
+}
+.first-decal-name-label {
+  font-size: 50px;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+  margin: 0px;
+  display: grid;
+  padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+  padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+  font-size: 26px;
+}
+
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-decal-label {
+  font-size: 35px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-decal-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-decal {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 30px;
+}
+.btn-decal-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 20px;
+  margin-left: 0;
+}
+  }
+  @media screen and (min-width: 1080px) and (max-width: 1920px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .decal-description {
+      font-size: 85px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .first-name-decal-input {
+      display: flex;
+      margin: 40px;
+    }
+    .size-decal-section, .size-door-decal-section {
+      margin: 0;
+
+    }
+
+  }

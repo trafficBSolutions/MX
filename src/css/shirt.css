@@ -1,0 +1,1938 @@
+@import url(https://db.onlinewebfonts.com/c/82baa4951eee7df05175ada4cb171e35?family=Moveo+Sans+W00+Bold);
+@import url(https://db.onlinewebfonts.com/c/82302682c00aba868f6ae01a375b10ac?family=Moveo+Sans+SemiExt+W00+Bold);
+/* ================================
+   ================================
+   TOP OF THE apparel PAGE
+   ================================
+   ================================ */
+   .page-apparel-banner {
+    padding: 80px 0 40px 0;
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    padding-top: 300px;
+    background-color: #b4feff;
+    height: auto;
+  }
+
+  .apparel-name-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: auto;
+  }
+
+.apparel-description {
+    color: #000;
+    font-family: "Kairos W04 Extended Bold";
+    font-size: 110px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  /* ================================
+   ================================
+    PHOTO GALLERY
+   ================================
+   ================================ */
+   .photo-apparel-gal-apparel {
+    background-color: #8fafff;
+    height: auto;
+  }
+  .photo-mx-apparel-note {
+    font-size: 50px;
+    text-align: center;
+    font-family: "Kairos W04 Extended Bold";
+    height: auto;
+  }
+
+  /* ================================
+   ================================
+    ADHESIVE SECTION FORM
+   ================================
+   ================================ */
+   .apparel-form-container {
+    background-color: #e7e7e7;
+    width: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: auto;
+}
+   .apparel-set {
+    padding-top: 10px;
+    background-color: #e7e7e7;
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  .page-section {
+    padding-bottom: 3.5rem;
+    width: auto;
+    height: auto;
+}
+.apparel-form-info {
+    margin: 10px;
+    width: 100%;
+    height: auto;
+}
+  .apparel-app-box {
+    margin-top: 10px;
+    text-align: center;
+    color: #0f375a;
+    width: auto;
+    height: auto;
+    font-size: 50px;
+  }
+  .log-re {
+    margin: 40px;
+    text-align: center;
+    font-size: 50px;
+    width: auto;
+    height: auto;
+  }
+.apparel-fill {
+    margin: 40px;
+    text-align: center;
+    color: #194fb4;
+    font-size: 35px;
+    height: auto;
+}
+.apparel-notice,.logo-notice {
+    color: #194fb4;
+    height: auto;
+}
+.apparel-warn {
+    font-size: 30px;
+    margin: 5%;
+    color: #000;
+    height: auto;
+}
+.logo-warn {
+    font-size: 30px;
+    margin-top: 0%;
+    color: #000;
+    height: auto;
+}
+.apparel-actual {
+    width: auto;
+    margin: 50px;
+    height: auto;
+}
+/* ================================
+   apparel Boxed Sections
+   ================================ */
+   .name-section-apparel,
+   .company-apparel-section,
+   .emailphone-apparel-section,
+   .address-apparel-section,
+   .type-apparel-section,
+   .apparel-sticker-section,
+   .apparel-file-section,
+   .apparel-input-container,
+   .apparel-message-container {
+    border-color: #000;
+  border-width: 4px;
+  background-color: #cccbcb;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  padding: 20px;
+  }
+  
+
+  
+/* ================================
+   Larger Labels for Adhesive Section
+   ================================ */
+.first-apparel-name-label, 
+.apparel-company-label, 
+.emailphone-apparel-label,
+.address-apparel-label,
+.type-apparel-label,
+.message-apparel-label,
+.apparel-large-type-label,
+.apparel-file-label,
+.type-apparel-label {
+  padding: 50px;
+  color:#000;
+  font-family: "Moveo Sans w00 Bold";
+  text-align: center;
+  font-size: 80px;
+  font-style: inherit;
+  height: auto;
+}
+
+/* ================================
+   Added Item Label Categories
+   ================================ */
+.added-apparel-list, .apparel-item {
+  font-family: "Moveo Sans w00 Bold";
+  font-style: normal;
+  margin: 0;
+  color: rgb(30, 255, 0);
+  text-align: center;
+  font-size: 70px;
+  height: auto;
+  text-shadow: 
+    1.3px 1.3px #000,
+    -1.3px 1.3px #000,
+    1.3px -1.3px #000,
+    -1.3px -1.3px #000
+    ;
+}
+.no-added-apparels {
+  color: #000;
+  font-size: 40px;
+  height: auto;
+  margin: 10px;
+  text-align: center;
+}
+.apparel-item {
+    text-decoration: none;
+    list-style: none;
+}
+.apparel-type-p,
+.apparel-size-p,
+.apparel-cut-p,
+.apparel-quantity-p {
+  text-decoration: none;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  margin: 0;
+  color: rgb(255, 238, 0);
+  text-align: center;
+  font-size: 60px;
+  height: auto;
+  text-shadow:
+    1.3px 1.3px #000,
+    -1.3px 1.3px #000,
+    1.3px -1.3px #000,
+    -1.3px -1.3px #000
+    ;
+}
+.added-apparel-b-type,
+.added-apparel-b-size,
+.added-apparel-b-cut,
+.added-apparel-b-quantity {
+    font-family: "Moveo Sans w00 bold";
+    font-style: normal;
+    margin: 0;
+    color: rgb(79, 255, 196);
+}
+
+.apparel-length-label, 
+.apparel-width-label {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 10px;
+  margin-bottom: 10px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 30px;
+  height: auto;
+}
+/* ================================
+   Grouped input sections
+   ================================ */
+  .first-apparel-apparel-input {
+    margin: 40px;
+    display: flex;
+    height: auto;
+  }
+  .address-apparel-input-container, 
+  .size-door-apparel-section {
+    margin: 10px;
+    height: auto;
+  }
+
+  /* ================================
+   Grouped Labels and Input Box Styling
+   ================================ */
+   .last-apparel-name {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    height: auto;
+  }
+  .first-name-apparel-input,
+  .emailphone-apparel-input,
+  .apparel-company-name-input, 
+  .address-apparel-input,
+  .email-apparel-input,
+  .apparel-phone-name-input,
+  .length-apparel-section,
+  .width-apparel-section, 
+  .file-apparel-section{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 10px;
+    margin-right: 0;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+    height: auto;
+  }
+  .finish-apparel-section {
+    display: block;
+  }
+
+  .address-apparel-inputing, 
+  .city-apparel-input,
+  .phone-apparel {
+    font-family: "Moveo Sans w00 Regular";
+    font-style: normal;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    height: auto;
+  }
+  .state-apparel-input,  
+  .zip-apparel-input{
+    font-family: "Moveo Sans w00 Regular";
+    margin: 0px;
+    margin-right: 0;
+    position: relative;
+    height: auto;
+  }
+
+/* ================================
+   Small Label Styling
+   ================================ */
+ .first-apparel-label-name, 
+  .last-apparel-label-name,
+  .company-apparel-name,
+  .email-apparel-name,
+  .phone-apparel-label,
+  .addr-apparel-label, 
+  .city-apparel-label,
+  .state-apparel-label,
+  .zip-apparel-label,
+  .apparel-type-label, 
+  .apparel-size-label, 
+  .apparel-color-label, 
+  .apparel-quantity-label,
+  .apparel-logo {
+    font-family: "Highway Gothic Narrow";
+    font-style: normal;
+    margin: 0;
+    color:#226daf;
+    padding-left: 10px;
+    font-size: 70px;
+    height: auto;
+  }
+  
+
+/* ================================
+   Input Box Styling
+   ================================ */
+   .firstname-apparel-name-input,
+   .lastname-apparel-name-input, 
+   .company-apparel-name-input,
+   .email-apparel-box,
+   .phone-apparel-box,
+   .address-apparel-box, 
+   .city-apparel-box,
+   .state-apparel-box,
+   .zip-apparel-box,
+   .apparel-type-input, 
+   .apparel-size-input,
+   .apparel-color-input,
+   .apparel-quantity-input {
+     padding: 10px;
+     color:#0f375a;
+     font-size: 50px;
+     margin-bottom: 20px;
+     height: auto;
+   }
+   .length-apparel-box, 
+   .width-apparel-box,
+   .length-door-apparel-box,
+   .width-door-apparel-box {
+    font-size: 80px;
+
+   }
+/* ================================
+   apparel Image Section
+   ================================ */
+   .place-flex-container {
+    display: flex;
+    justify-content: space-between; /* Adjusts space between items */
+    align-items: center; /* Aligns items vertically */
+    flex-wrap: nowrap; /* Ensures the items stay on one line */
+    height: auto;
+}
+
+.place-img-container {
+    flex: 1;
+    text-align: center; /* Centers the text under each image */
+    height: auto;
+}
+
+.place-img {
+    width: 330px;
+    height: auto;
+    object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
+}
+
+/* ================================
+   Year Input Box Note Style
+   ================================ */
+.year-apparel-note {
+font-size: 20px;
+font-display: flex;
+margin: 10px;
+font-family: "Kairos W01 Extended Medium";
+height: auto;
+}
+/* ================================
+   apparel Finishing Image Section
+   ================================ */
+   .apparel-finish-img-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px; /* Adds space between the columns */
+    padding: 10px;
+    height: auto;
+  }
+  
+  .matte-img-apparel, .gloss-img-apparel, .ra-img-apparel {
+    text-align: center; /* Centers the image and text within each div */
+    height: auto;
+  }
+  
+  .matte-img, .gloss-img, .ORAFOL-img {
+    max-width: 100%; /* Ensures the images do not exceed their container's width */
+    height: auto; /* Maintains the image's aspect ratio */
+  }
+  
+
+  /* ================================
+   apparel Message Styling
+   ================================ */
+  .message-apparel-note {
+    font-style: normal;
+    text-align: center;
+    text-emphasis: none;
+    margin: 0px;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    padding-top: 30px;
+    height: auto;
+  }
+  
+  .message-apparel-text {
+    font-style: normal;
+    text-align: left;
+    text-emphasis: none;
+    font-size: 20px;
+    font-family: "Moveo Sans W00 Regular";
+    width: 100%;
+    height: 300px;
+  }
+  .choose-logo-contain {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+.file-apparel-label, .remove-apparel-file-button {
+    display: flex;
+    background-color: #0f375a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: auto;
+}
+.file-apparel-label input[type=file] {
+    display: none;
+}
+.submit-apparels
+ {
+  width: 100%;
+  font-size: 40px;
+  height: auto;
+}
+
+  .submit-apparels, .remove-apparel, .submit-apparel, .new-apparel-logo-button {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+    height: auto;
+  }
+  .submit-apparel {
+    width: 100%;
+    font-size: 40px;
+    height: auto;
+  }
+  .driver-submit-size, .passenger-submit-size, .driver-remove-submit-size,
+  .passenger-remove-submit-size,
+  .door-remove-length-submit-size,
+  .door-length-submit-size {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+    height: auto;
+   }
+  .submit-size:hover, 
+  .submit-finishing:hover,
+  .submit-apparel:hover,
+  .file-apparel-label:hover,
+  .remove-finishing:hover,
+  .remove-apparel-file-button:hover,
+  .new-apparel-logo-button:hover {
+    background-color: #226daf;
+  }
+  .btn-submit, .btn-apparel-submit {
+    text-decoration: none;
+      padding: 20px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      font-family: "Kairos W01 Extended Medium";
+      transition: all .3s;
+      margin-top: 1rem;
+      height: auto;
+  }
+  .btn-apparel-submit {
+    padding: 0;
+    height: auto;
+  }
+  /* ================================
+   Message Styling
+   ================================ */
+.error-message {
+  color: red;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    font-family: "Kairos W04 Extended Bold";
+    margin-bottom: 10px;
+    height: auto;
+}
+
+.submission-error-message {
+  color: red;
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+.submission-message {
+  color: rgb(38, 173, 38);
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-apparel-graphics {
+      display: block;
+    }
+    .page-apparel-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .apparel-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-apparel-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .apparel-form-info {
+      margin: 0;
+    }
+    .apparel-app-box {
+      font-size: 37px;
+    }
+    .apparel-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .apparel-actual {
+      margin: 0;
+    }
+    .apparel-set {
+      display: block;
+    }
+    .name-section-apparel,
+   .company-apparel-section,
+   .emailphone-apparel-section,
+   .address-apparel-section,
+   .vehicle-type-apparel-section,
+   .vehicle-size-apparel-section,
+   .door-size-apparel-section,
+   .finishing-apparel-section,
+   .apparel-file-section,
+   .apparel-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-apparel-name-label, 
+.apparel-company-label, 
+.emailphone-apparel-label,
+.address-apparel-label,
+.size-apparel-label,
+.message-apparel-label,
+.place-apparel-label,
+.finish-apparel-label,
+.apparel-file-label,
+.type-apparel-label {
+  font-size: 33px;
+}
+.first-name-apparel-input, 
+.emailphone-apparel-input, 
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.length-door-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section, 
+.type-apparel-section {
+  display: block;
+  padding-left: 0;
+}
+.first-apparel-label-name, 
+.last-apparel-label-name, 
+.company-apparel-name, 
+.email-apparel-name, 
+.phone-apparel-label, 
+.addr-apparel-label, 
+.city-apparel-label, 
+.state-apparel-label, 
+.zip-apparel-label, 
+.length-apparel-label, 
+.width-apparel-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.apparel-logo, 
+.year-apparel-label, 
+.make-apparel-label, 
+.model-apparel-label, 
+.trim-apparel-label {
+  font-size: 25px;
+}
+.apparel-message-container {
+  margin-top: 10px;
+}
+.message-apparel-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.apparel-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-apparel-input
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section,
+.size-door-apparel-section {
+  margin: 0;
+  display: block;
+}
+.last-apparel-name {
+  padding-left: 0;
+}
+.firstname-apparel-name-input, 
+.lastname-apparel-name-input, 
+.company-apparel-name-input, 
+.email-apparel-box, 
+.phone-apparel-box, 
+.address-apparel-box, 
+.city-apparel-box, 
+.state-apparel-box, 
+.zip-apparel-box, 
+.length-apparel-box, 
+.width-apparel-box, 
+.border-apparel-box, 
+.length-apparel-select, 
+.width-apparel-select, 
+.place-apparel-select, 
+.finish-apparel-select, 
+.border-apparel-select, 
+.type-apparel-box,
+.year-apparel-box,
+.make-apparel-box,
+.length-door-apparel-box,
+.width-door-apparel-box
+ {
+  font-size: 12px;
+}
+.model-apparel-box {
+  font-size: 6px;
+}
+.apparel-company-label {
+  font-size: 18px;
+  padding: 0;
+}
+.finish-apparel-label {
+  font-size: 30px;
+}
+.apparel-finish-img-section {
+  display: block;
+}
+.finish-apparel-select {
+  font-size: 7px;
+}
+.apparel-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-apparel-label {
+  font-size: 24px;
+  padding: 0;
+}
+.apparel-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-apparel-input {
+  padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+  margin: 0px;
+  display: block;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+  padding-left: 0px;
+}
+
+.address-apparel-label, 
+.type-apparel-label,
+.size-apparel-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-apparel-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-apparel-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-apparel {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-apparel-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 20px;
+}
+  }
+  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-apparel-graphics {
+      display: block;
+    }
+    .page-apparel-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .apparel-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-apparel-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .apparel-form-info {
+      margin: 0;
+    }
+    .apparel-app-box {
+      font-size: 40px;
+    }
+    .apparel-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .apparel-actual {
+      margin: 0;
+    }
+    .apparel-set {
+      display: block;
+    }
+    .name-section-apparel,
+   .company-apparel-section,
+   .emailphone-apparel-section,
+   .address-apparel-section,
+   .vehicle-type-apparel-section,
+   .vehicle-size-apparel-section,
+   .door-size-apparel-section,
+   .finishing-apparel-section,
+   .apparel-file-section,
+   .apparel-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-apparel-name-label, 
+.apparel-company-label, 
+.emailphone-apparel-label,
+.address-apparel-label,
+.size-apparel-label,
+.message-apparel-label,
+.place-apparel-label,
+.finish-apparel-label,
+.apparel-file-label,
+.type-apparel-label {
+  font-size: 50px;
+}
+.first-name-apparel-input, 
+.emailphone-apparel-input, 
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.length-door-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section, 
+.type-apparel-section {
+  display: block;
+  padding-left: 0;
+}
+.first-apparel-label-name, 
+.last-apparel-label-name, 
+.company-apparel-name, 
+.email-apparel-name, 
+.phone-apparel-label, 
+.addr-apparel-label, 
+.city-apparel-label, 
+.state-apparel-label, 
+.zip-apparel-label, 
+.length-apparel-label, 
+.width-apparel-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.apparel-logo, 
+.year-apparel-label, 
+.make-apparel-label, 
+.model-apparel-label, 
+.trim-apparel-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+.apparel-message-container {
+  margin-top: 10px;
+}
+.message-apparel-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.apparel-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-apparel-input
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section,
+.size-door-apparel-section {
+  margin: 0;
+  display: block;
+}
+.last-apparel-name {
+  padding-left: 0;
+}
+.firstname-apparel-name-input, 
+.lastname-apparel-name-input, 
+.company-apparel-name-input, 
+.email-apparel-box, 
+.phone-apparel-box, 
+.address-apparel-box, 
+.city-apparel-box, 
+.state-apparel-box, 
+.zip-apparel-box, 
+.length-apparel-box, 
+.width-apparel-box, 
+.border-apparel-box, 
+.length-apparel-select, 
+.width-apparel-select, 
+.place-apparel-select, 
+.finish-apparel-select, 
+.border-apparel-select, 
+.type-apparel-box,
+.year-apparel-box,
+.make-apparel-box,
+.length-door-apparel-box,
+.width-door-apparel-box
+ {
+  font-size: 18px;
+}
+.model-apparel-box {
+  font-size: 10px;
+}
+.apparel-company-label {
+  font-size: 25px;
+  padding: 0;
+}
+.finish-apparel-label {
+  font-size: 30px;
+}
+.apparel-finish-img-section {
+  display: block;
+}
+.finish-apparel-select {
+  font-size: 7px;
+}
+.apparel-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-apparel-label {
+  font-size: 24px;
+  padding: 0;
+}
+.apparel-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-apparel-input {
+  padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+  margin: 0px;
+  display: block;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+  padding-left: 0px;
+}
+
+.address-apparel-label, 
+.type-apparel-label,
+.size-apparel-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-apparel-label {
+  font-size: 28px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-apparel-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-apparel {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-apparel-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 30px;
+}
+  }
+  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-apparel-graphics {
+      display: block;
+    }
+    .page-apparel-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .apparel-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-apparel-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .apparel-form-info {
+      margin: 0;
+    }
+    .apparel-app-box {
+      font-size: 40px;
+    }
+    .apparel-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .apparel-actual {
+      margin: 0;
+    }
+    .apparel-set {
+      display: block;
+    }
+    .name-section-apparel,
+   .company-apparel-section,
+   .emailphone-apparel-section,
+   .address-apparel-section,
+   .vehicle-type-apparel-section,
+   .vehicle-size-apparel-section,
+   .door-size-apparel-section,
+   .finishing-apparel-section,
+   .apparel-file-section,
+   .apparel-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-apparel-name-label, 
+.apparel-company-label, 
+.emailphone-apparel-label,
+.address-apparel-label,
+.size-apparel-label,
+.message-apparel-label,
+.place-apparel-label,
+.finish-apparel-label,
+.apparel-file-label,
+.type-apparel-label {
+  font-size: 50px;
+}
+.first-name-apparel-input, 
+.emailphone-apparel-input, 
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.length-door-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section, 
+.type-apparel-section {
+  display: block;
+  padding-left: 0;
+}
+.first-apparel-label-name, 
+.last-apparel-label-name, 
+.company-apparel-name, 
+.email-apparel-name, 
+.phone-apparel-label, 
+.addr-apparel-label, 
+.city-apparel-label, 
+.state-apparel-label, 
+.zip-apparel-label, 
+.length-apparel-label, 
+.width-apparel-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.apparel-logo, 
+.year-apparel-label, 
+.make-apparel-label, 
+.model-apparel-label, 
+.trim-apparel-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+.apparel-message-container {
+  margin-top: 10px;
+}
+.message-apparel-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.apparel-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-apparel-input
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section,
+.size-door-apparel-section {
+  margin: 0;
+  display: block;
+}
+.last-apparel-name {
+  padding-left: 0;
+}
+.firstname-apparel-name-input, 
+.lastname-apparel-name-input, 
+.company-apparel-name-input, 
+.email-apparel-box, 
+.phone-apparel-box, 
+.address-apparel-box, 
+.city-apparel-box, 
+.state-apparel-box, 
+.zip-apparel-box, 
+.length-apparel-box, 
+.width-apparel-box, 
+.border-apparel-box, 
+.length-apparel-select, 
+.width-apparel-select, 
+.place-apparel-select, 
+.finish-apparel-select, 
+.border-apparel-select, 
+.type-apparel-box,
+.year-apparel-box,
+.make-apparel-box,
+.length-door-apparel-box,
+.width-door-apparel-box
+ {
+  font-size: 18px;
+}
+.model-apparel-box {
+  font-size: 10px;
+}
+.apparel-company-label {
+  font-size: 25px;
+  padding: 0;
+}
+.finish-apparel-label {
+  font-size: 30px;
+}
+.apparel-finish-img-section {
+  display: block;
+}
+.finish-apparel-select {
+  font-size: 7px;
+}
+.apparel-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-apparel-label {
+  font-size: 24px;
+  padding: 0;
+}
+.apparel-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-apparel-input {
+  padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+  margin: 0px;
+  display: block;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+  padding-left: 0px;
+}
+
+.address-apparel-label, 
+.type-apparel-label,
+.size-apparel-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-apparel-label {
+  font-size: 35px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-apparel-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-apparel {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-apparel-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+  }
+  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-apparel-graphics {
+      display: block;
+    }
+    .page-apparel-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .apparel-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-apparel-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .apparel-form-info {
+      margin: 0;
+    }
+    .apparel-app-box {
+      font-size: 40px;
+    }
+    .apparel-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .apparel-actual {
+      margin: 0;
+    }
+    .apparel-set {
+      display: block;
+    }
+    .name-section-apparel,
+   .company-apparel-section,
+   .emailphone-apparel-section,
+   .address-apparel-section,
+   .vehicle-type-apparel-section,
+   .vehicle-size-apparel-section,
+   .door-size-apparel-section,
+   .finishing-apparel-section,
+   .apparel-file-section,
+   .apparel-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-apparel-name-label, 
+.apparel-company-label, 
+.emailphone-apparel-label,
+.address-apparel-label,
+.size-apparel-label,
+.message-apparel-label,
+.place-apparel-label,
+.finish-apparel-label,
+.apparel-file-label,
+.type-apparel-label {
+  font-size: 50px;
+}
+.first-name-apparel-input, 
+.emailphone-apparel-input, 
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.length-door-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section, 
+.type-apparel-section {
+  display: block;
+  padding-left: 0;
+}
+.first-apparel-label-name, 
+.last-apparel-label-name, 
+.company-apparel-name, 
+.email-apparel-name, 
+.phone-apparel-label, 
+.addr-apparel-label, 
+.city-apparel-label, 
+.state-apparel-label, 
+.zip-apparel-label, 
+.length-apparel-label, 
+.width-apparel-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.apparel-logo, 
+.year-apparel-label, 
+.make-apparel-label, 
+.model-apparel-label, 
+.trim-apparel-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+.year-apparel-label {
+  font-size: 50px;
+}
+.apparel-message-container {
+  margin-top: 10px;
+}
+.message-apparel-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.apparel-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-apparel-input
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section,
+.size-door-apparel-section {
+  margin: 0;
+  display: block;
+}
+.last-apparel-name {
+  padding-left: 0;
+}
+.firstname-apparel-name-input, 
+.lastname-apparel-name-input, 
+.company-apparel-name-input, 
+.email-apparel-box, 
+.phone-apparel-box, 
+.address-apparel-box, 
+.city-apparel-box, 
+.state-apparel-box, 
+.zip-apparel-box, 
+.length-apparel-box, 
+.width-apparel-box, 
+.border-apparel-box, 
+.length-apparel-select, 
+.width-apparel-select, 
+.place-apparel-select, 
+.finish-apparel-select, 
+.border-apparel-select, 
+.type-apparel-box,
+.year-apparel-box,
+.make-apparel-box,
+.length-door-apparel-box,
+.width-door-apparel-box
+ {
+  font-size: 18px;
+}
+.model-apparel-box {
+  font-size: 10px;
+}
+.apparel-company-label {
+  font-size: 30px;
+  padding: 0;
+}
+.finish-apparel-label {
+  font-size: 30px;
+}
+.apparel-finish-img-section {
+  display: block;
+}
+.finish-apparel-select {
+  font-size: 13px;
+}
+.apparel-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-apparel-label {
+  font-size: 30px;
+  padding: 0;
+}
+.apparel-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-apparel-input {
+  padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+  margin: 0px;
+  display: block;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+  padding-left: 0px;
+}
+
+.address-apparel-label, 
+.type-apparel-label,
+.size-apparel-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-apparel-label {
+  font-size: 35px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-apparel-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-apparel {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-apparel-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+  }
+  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .main-apparel-graphics {
+      display: block;
+    }
+    .page-apparel-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .apparel-description {
+      font-size: 43px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-apparel-note {
+      font-size: 30px; /* Reduce font size */
+    }
+    .apparel-form-info {
+      margin: 0;
+    }
+    .apparel-app-box {
+      font-size: 40px;
+    }
+    .apparel-fill {
+      margin: 10px;
+      font-size: 22px;
+    }
+    .apparel-actual {
+      margin: 0;
+    }
+    .apparel-set {
+      display: block;
+    }
+  
+
+.first-apparel-label-name, 
+.last-apparel-label-name, 
+.company-apparel-name, 
+.email-apparel-name, 
+.phone-apparel-label, 
+.addr-apparel-label, 
+.city-apparel-label, 
+.state-apparel-label, 
+.zip-apparel-label, 
+.length-apparel-label, 
+.width-apparel-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.apparel-logo, 
+.year-apparel-label, 
+.make-apparel-label, 
+.model-apparel-label, 
+.trim-apparel-label {
+  font-size: 35px;
+  padding-left: 0;
+}
+
+.apparel-message-container {
+  margin-top: 10px;
+}
+.message-apparel-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.apparel-file-label {
+padding: 0;
+font-size: 30px;
+}
+
+.last-apparel-name {
+  padding-left: 0;
+}
+.firstname-apparel-name-input, 
+.lastname-apparel-name-input, 
+.company-apparel-name-input, 
+.email-apparel-box, 
+.phone-apparel-box, 
+.address-apparel-box, 
+.city-apparel-box, 
+.state-apparel-box, 
+.zip-apparel-box, 
+.length-apparel-box, 
+.width-apparel-box, 
+.border-apparel-box, 
+.length-apparel-select, 
+.width-apparel-select, 
+.place-apparel-select, 
+.finish-apparel-select, 
+.border-apparel-select, 
+.type-apparel-box,
+.year-apparel-box,
+.make-apparel-box,
+.length-door-apparel-box,
+.width-door-apparel-box
+ {
+  font-size: 19px;
+}
+.model-apparel-box {
+  font-size: 19px;
+}
+.apparel-company-label {
+  font-size: 30px;
+  padding: 0;
+}
+.finish-apparel-label {
+  font-size: 30px;
+}
+
+.finish-apparel-select {
+  font-size: 13px;
+}
+.apparel-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-apparel-label {
+  font-size: 30px;
+  padding: 0;
+}
+.apparel-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-apparel-input {
+  padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+  margin: 0px;
+  display: grid;
+}
+.first-apparel-name-label {
+  font-size: 50px;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+  margin: 0px;
+  display: grid;
+  padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+  padding-left: 0px;
+}
+
+.address-apparel-label, 
+.type-apparel-label,
+.size-apparel-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+  font-size: 26px;
+}
+
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-apparel-label {
+  font-size: 35px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-apparel-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-apparel {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 30px;
+}
+.btn-apparel-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 20px;
+  margin-left: 0;
+}
+  }
+  @media screen and (min-width: 1080px) and (max-width: 1920px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .apparel-description {
+      font-size: 85px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .first-name-apparel-input {
+      display: flex;
+      margin: 40px;
+    }
+    .size-apparel-section, .size-door-apparel-section {
+      margin: 0;
+
+    }
+
+  }
