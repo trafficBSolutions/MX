@@ -1,7 +1,7 @@
 .service-page-heading {
     color: #2f2f2f;
     font-family: "Kairos W04 Extended Bold";
-    font-size: 80px;
+    font-size: 150px;
     text-align: center;
 }
 .service {
@@ -31,7 +31,6 @@
     margin: 40px;
     justify-content: space-around; /* Distributes buttons evenly */
 }
-
 .custom-sign-service-button,
 .decals-stickers-service-button,
 .banner-service-button,
@@ -47,6 +46,8 @@
     color: #0044c3;
     text-align: center;
     border-radius: 5px;
+    border-color: #000;
+    border-style: solid;
     padding: 10px;
     text-decoration: none;
     font-family: "Kairos W04 Extended Bold";
@@ -80,7 +81,6 @@
     margin-bottom: 10px; /* Space between icon and text */
 }
 
-.custom-sign-service-button span,
 .decals-stickers-service-button span,
 .banner-service-button span,
 .t-shirt-service-button span,
@@ -90,12 +90,17 @@
     font-size: 16px;
     line-height: 1.2;
 }
+.custom-sign-service-button span {
+    line-height: 1.2;
+    font-size: 15px;
+}
 .service-note-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     align-items: flex-start; /* Align items to the top-left */
     justify-content: flex-start;
     width: 100%;
+    background-color: #c2b9b9;
     box-sizing: border-box;
 }
 .service-note {
@@ -104,29 +109,29 @@
     flex-direction: column;
 }
 .service-question {
-    font-size: 3rem; /* Adjust font size */
+    font-size: 5rem; /* Adjust font size */
     font-family: "Moveo Sans W00 Bold";
     text-align: center;
     margin-bottom: 2rem; /* Add space between the question and the image */
 }
 .service-contact {
     font-family: "Moveo Sans W00 Regular";
-    font-size: 20px;
+    font-size: 40px;
     margin: 50px;
 }
 .service-description {
-    font-size: 1.4rem; /* Adjust font size to fit under the image */
+    font-size: 2.4rem; /* Adjust font size to fit under the image */
     font-family: "Moveo Sans W00 Regular";
     text-align: left;
     max-width: 70%; /* Limit the width of the paragraph */
-    margin-top: 1rem; /* Add space between the image and the paragraph */
+    margin-top: 2.5rem; /* Add space between the image and the paragraph */
 }
 
 .image-service-section {
     display: flex;
     flex-direction: row;
     align-items: flex-start; /* Align image to the left */
-    width: 150%;
+    width: 100%;
     text-align: center;
 }
 
@@ -141,7 +146,12 @@
     position: relative;
     margin-bottom: 1rem; /* Add space between the image and the paragraph */
 }
-
+.new-logo-img-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
 .working-two {
     width: 100%;
     height: auto;
@@ -152,20 +162,96 @@
     padding: 5px; /* Space between inner and outer border */
     background-color: #66b2ff; /* Outer border - lighter blue */
 }
-.logo-new {
+.logo-design-section {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    width: 100%;
+    background-color: #2f2f2f;
+    box-sizing: border-box;
+}
+.logo-new, .web-design-title {
     font-size: 60px;
     font-family: "Moveo Sans W00 Bold";
     text-align: center;
+    color: #c2b9b9;
 }
-.new-logo-button {
-    background-color: #0f375a;
+.web-design-title {
+    color: #000;
+}
+.new-logo-description, .web-design-description {
+    font-size: 2rem; /* Adjust font size to fit under the image */
+    font-family: "Moveo Sans W00 Regular";
+    text-align: center;
+    max-width: 100%; /* Limit the width of the paragraph */
+    margin-top: 4rem; /* Add space between the image and the paragraph */
+    color: #c2b9b9;
+}
+.web-design-description, .web-wix-tease {
+    font-size: 1.4rem; /* Adjust font size to fit under the image */
+    font-family: "Moveo Sans W00 Regular";
+    text-align: center;
+    margin: 50px;
+    max-width: 100%; /* Limit the width of the paragraph */
+    margin-top: 2rem; /* Add space between the image and the paragraph */
+    color: #000;
+}
+.new-logo-button, .web-design-button {
+    background-color: #4d7faa;
     position: relative;
-    font-size: 2rem; /* Adjust size as needed */
-    color: #fff;
+    font-size: 5rem; /* Adjust size as needed */
+    color: #ffffff;
+    padding: 3rem 3rem; /* Adjust padding for a better fit */
+    text-align: center;
+    width: fit-content;
+    border-radius: 5px;
+    font-family: "Kairos W04 Extended Bold";
+    cursor: pointer;
+}
+.web-design-button {
+    background-color: #4d7faa;
+    position: relative;
+    font-size: 5rem; /* Adjust size as needed */
+    color: #ffffff;
     padding: 1rem 2rem; /* Adjust padding for a better fit */
     text-align: center;
     width: fit-content;
     border-radius: 5px;
     font-family: "Kairos W04 Extended Bold";
     cursor: pointer;
+}
+.new-logo-button:hover, .web-design-button:hover {
+    background-color: #8fcbff;
+}
+.new-logo-img {
+    width: 50%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: fill;
+    border: 5px solid #0c68c4; /* Inner border - darker blue */
+    padding: 4px; /* Space between inner and outer border */
+    background-color: #c7ced4; /* Outer border - lighter blue */
+}
+.new-logo-button-container, .web-design-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; /* Adjust as needed */
+}
+.web-design-section {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    width: 100%;
+    background-color: #d1cccc;
+    box-sizing: border-box;
+}
+.web-design-img-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
 }
