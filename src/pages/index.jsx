@@ -9,4 +9,7 @@ import Invoice from './pay-invoice'
 import Service from './services'
 import Logo from './new-logo'
 import Contact from './contact-us'
-export { Home, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact }
+import Decal from  './decals-stickers'
+import Shirt from './t-shirts-sweatshirts-jackets'
+import Web from './new-website'
+export { Home, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact, Decal, Shirt, Web }
