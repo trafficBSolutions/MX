@@ -514,7 +514,7 @@ onChange={(e) => {
 <label className="size-dry-label">Size of Vinyl:</label>
 <div className="size-dry-section">
   <div className="length-dry-section">
-    <label className="length-label" htmlFor="length">Length *</label>
+    <label className="length-dry-label" htmlFor="length">Length *</label>
     <input
       className="length-dry-box"
       type="number"
@@ -524,7 +524,7 @@ onChange={(e) => {
       placeholder="Enter length"
     />
     <select
-      className="length-select"
+      className="length-dry-select"
       value={vinylLengthUnit}
       onChange={(e) => setVinylLengthUnit(e.target.value)}
     >
@@ -535,7 +535,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-dry-section">
-    <label className="width-label" htmlFor="width">Width *</label>
+    <label className="width-dry-label" htmlFor="width">Width *</label>
     <input
       className="width-dry-box"
       type="number"
@@ -545,7 +545,7 @@ onChange={(e) => {
       placeholder="Enter width"
     />
     <select
-      className="width-select"
+      className="width-dry-select"
       value={vinylWidthUnit}
       onChange={(e) => setVinylWidthUnit(e.target.value)}
     >
@@ -558,7 +558,7 @@ onChange={(e) => {
   {/* Add button to add the size */}
   <button
     type="button"
-    className="btn-submit btn--full vinyl-submit-size"
+    className="dry-vinyl-submit-size btn--full"
     onClick={handleAddVinylSize}
   >
     ADD VINYL SIZE
@@ -568,10 +568,10 @@ onChange={(e) => {
   <ul>
     {addedvinylSizes.length > 0 ? (
       addedvinylSizes.map((size, index) => (
-        <li className="vehicle-vinyl-size-li" key={index}>
+        <li className="dry-vinyl-size-li" key={index}>
           {size}
           <button
-            className="btn-submit btn--full vinyl-remove-submit-size"
+            className="dry-vinyl-remove-submit-size btn--full"
             type="button"
             onClick={() => handleRemoveVinylSize(index)}
           >
@@ -621,7 +621,7 @@ onChange={(e) => {
       <div className="place-dry-section">
         <label className="place-label" htmlFor="placement">Placement *</label>
         <select
-  className="place-select"
+  className="place-dry-selection"
   value={selectedPlacement}
   onChange={(e) => setSelectedPlacement(e.target.value)} // Make sure this line is updating the state
 >
@@ -673,7 +673,7 @@ onChange={(e) => {
   <label className="finish-label" htmlFor="finishing">Finishing *</label>
   <select
     name="finishing"
-    className="finish-fleet-select"
+    className="finish-dry-select"
     value={selectedFinishing}
     onChange={(e) => setSelectedFinishing(e.target.value)}
     disabled={addedFinishing.length === 3}
@@ -685,7 +685,7 @@ onChange={(e) => {
       </option>
     ))}
   </select>
-  <button className="btn btn--full submit-finishing" type="button" onClick={handleAddFinishing}>
+  <button className="btn btn--full submit-dry-finishing" type="button" onClick={handleAddFinishing}>
     ADD FINISHING
   </button>
   <div className="finishing-list">
@@ -761,7 +761,7 @@ and what time you want an MX crew will arrive.</h1>
 <div className="submission-message">{submissionMessage}</div>
 )}
   </div>
-  <button type="button" className="btn btn--full submit-dry" onClick={handleSubmit}>SUBMIT CUSTOM DRYWALL/FLOOR/CONCRETE GRAPHICS</button>
+  <button type="button" className="btn btn--full submit-dry" onClick={handleSubmit}>SUBMIT CUSTOM DRYWALL FLOOR CONCRETE GRAPHICS</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
@@ -789,7 +789,7 @@ and what time you want an MX crew will arrive.</h1>
           <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
