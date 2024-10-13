@@ -509,7 +509,7 @@ onChange={(e) => {
 <label className="size-window-label">Size of Window:</label>
 <div className="size-window-section">
   <div className="length-window-section">
-    <label className="length-label" htmlFor="length">Length *</label>
+    <label className="length-window-label" htmlFor="length">Length *</label>
     <input
   className="length-window-box"
   type="number"
@@ -519,7 +519,7 @@ onChange={(e) => {
   placeholder="Enter length"
 />
     <select
-      className="length-select"
+      className="length-window-select"
       value={lengthUnit}
       onChange={(e) => setLengthUnit(e.target.value)}
     >
@@ -530,7 +530,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-window-section">
-    <label className="width-label" htmlFor="width">Width *</label>
+    <label className="width-window-label" htmlFor="width">Width *</label>
     <input
   className="width-window-box"
   type="number"
@@ -540,7 +540,7 @@ onChange={(e) => {
   placeholder="Enter Width"
 />
     <select
-      className="width-select"
+      className="width-window-select"
       value={widthUnit}
       onChange={(e) => setWidthUnit(e.target.value)}
     >
@@ -720,7 +720,7 @@ and what time you want an MX crew will arrive.</h1>
           <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
