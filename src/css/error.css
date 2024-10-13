@@ -1,0 +1,85 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: rgb(158, 158, 158);
+    padding: 20px;
+}
+.error-content-inner {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.error-content-inn {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.error-logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.NotFound {
+    font-size: 7rem;
+    font-family: "Moveo Sans W00 Bold";
+    text-align: center;
+    color: #000000;
+}
+.error-info {
+    font-size: 3rem;
+    margin-top: 2rem;
+    font-family: "Moveo Sans W00 Regular";
+    text-align: center;
+    color: #000000;
+}
+.error-link {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 2rem; /* Adjust size as needed */
+    color: #fff;
+    padding: 1rem 2rem; /* Adjust padding for a better fit */
+    text-align: center;
+    width: fit-content;
+    border-radius: 5px;
+    font-family: "Kairos W04 Extended Bold";
+    cursor: pointer;
+}
+.error-link:hover {
+    background-color: #226daf;
+}
+@media screen and (max-width: 320px) and (orientation: portrait) {
+    .NotFound {
+        font-size: 2rem;
+    }
+    .error-link {
+        font-size: 1rem;
+    }
+    .error-info {
+        font-size: 1.5rem;
+    }
+    .error-content-inner {
+        max-width: 900px;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: landscape) {
+    .NotFound {
+        font-size: 2rem;
+    }
+    .error-link {
+        font-size: 1rem;
+    }
+    .error-info {
+        font-size: 1.5rem;
+    }
+    .error-content-inner {
+        max-width: 900px;
+        padding: 0;
+    }
+}
