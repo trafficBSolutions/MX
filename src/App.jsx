@@ -30,3 +30,8 @@ function App() {
       <Route path="/new-website" element={<Web/>}/>
       <Route path="/blog" element={<Blog/>}/>
      </Routes>
+    </>
+  )
+}
+
+export default App;
