@@ -382,13 +382,6 @@
 /* ================================
    fleet Image Section
    ================================ */
-   .place-flex-container {
-    display: flex;
-    justify-content: space-between; /* Adjusts space between items */
-    align-items: center; /* Aligns items vertically */
-    flex-wrap: nowrap; /* Ensures the items stay on one line */
-    height: auto;
-}
 
 .place-img-container {
     flex: 1;
@@ -518,7 +511,7 @@ height: auto;
   .driver-submit-size, .passenger-submit-size, .driver-remove-submit-size,
   .passenger-remove-submit-size,
   .door-remove-length-submit-size,
-  .door-length-submit-size {
+  .door-length-submit-size, .new-fleet-logo-button {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -535,7 +528,8 @@ height: auto;
   .submit-fleet:hover,
   .file-fleet-label:hover,
   .remove-finishing:hover,
-  .remove-fleet-file-button:hover {
+  .remove-fleet-file-button:hover,
+  .new-fleet-logo-button:hover {
     background-color: #226daf;
   }
   .btn-submit, .btn-fleet-submit {
@@ -586,7 +580,224 @@ height: auto;
   width: 100%;
   height: auto;
 }
-  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
+  .page-fleet-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .fleet-description {
+    font-size: 43px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-fleet-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .fleet-form-info {
+    margin: 0;
+  }
+  .fleet-app-box {
+    font-size: 37px;
+  }
+  .fleet-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .fleet-actual {
+    margin: 0;
+  }
+  .fleet-set {
+    display: block;
+  }
+  .firstname-fleet-name-input, 
+  .lastname-fleet-name-input, 
+  .company-fleet-name-input, 
+  .email-fleet-box, 
+  .phone-fleet-box, 
+  .address-fleet-box, 
+  .city-fleet-box,
+  .state-fleet-box, 
+  .zip-fleet-box, 
+  .length-fleet-box, 
+  .width-fleet-box, 
+  .border-fleet-box,
+  .length-door-fleet-box, 
+  .width-door-fleet-box, 
+  .length-fleet-select, 
+  .width-fleet-select, 
+  .place-fleet-select, 
+  .finish-fleet-select,
+  .border-fleet-select,
+  .type-fleet-box, 
+  .year-fleet-box, 
+  .make-fleet-box, 
+  .model-fleet-box, 
+  .trim-fleet-box 
+{
+font-size: 2.5rem;
+}
+.first-name-fleet-input, 
+.emailphone-fleet-input, 
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.length-door-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section, 
+.type-fleet-section {
+  display: block;
+}
+.width-door-fleet-section {
+  display: block;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+  .page-fleet-banner {
+  padding-top: 130px; /* Reduce padding */
+}
+.fleet-description {
+  font-size: 43px; /* Reduce font size */
+  padding: 10px; /* Add padding to avoid content touching the edges */
+}
+.photo-mx-fleet-note {
+  font-size: 25px; /* Reduce font size */
+}
+.fleet-form-info {
+  margin: 0;
+}
+.fleet-app-box {
+  font-size: 37px;
+}
+.fleet-fill {
+  margin: 10px;
+  font-size: 18px;
+}
+.fleet-actual {
+  margin: 0;
+}
+.fleet-set {
+  display: block;
+}
+.first-name-fleet-input, 
+.emailphone-fleet-input, 
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.length-door-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section, 
+.type-fleet-section {
+  display: block;
+}
+.fleet-company-label {
+  font-size: 4.5rem;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-door-fleet-box, 
+.width-door-fleet-box, 
+.length-fleet-select, 
+.width-fleet-select, 
+.place-fleet-select, 
+.finish-fleet-select, 
+.border-fleet-select, 
+.type-fleet-box, 
+.year-fleet-box, 
+.make-fleet-box, 
+.model-fleet-box, 
+.trim-fleet-box {
+  font-size: 2rem;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    .page-fleet-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .fleet-description {
+    font-size: 43px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-fleet-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .fleet-form-info {
+    margin: 0;
+  }
+  .fleet-app-box {
+    font-size: 37px;
+  }
+  .fleet-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .fleet-actual {
+    margin: 0;
+  }
+  .fleet-set {
+    display: block;
+  }
+  .first-name-fleet-input, 
+  .emailphone-fleet-input, 
+  .fleet-company-name-input, 
+  .address-fleet-input, 
+  .email-fleet-input, 
+  .fleet-phone-name-input, 
+  .length-fleet-section, 
+  .length-door-fleet-section, 
+  .width-fleet-section, 
+  .place-fleet-section, 
+  .finish-fleet-section, 
+  .file-fleet-section, 
+  .border-fleet-section, 
+  .type-fleet-section {
+    display: block;
+  }
+  .firstname-fleet-name-input, 
+  .lastname-fleet-name-input, 
+  .company-fleet-name-input, 
+  .email-fleet-box, 
+  .phone-fleet-box, 
+  .address-fleet-box, 
+  .city-fleet-box, 
+  .state-fleet-box, 
+  .zip-fleet-box, 
+  .length-fleet-box, 
+  .width-fleet-box, 
+  .border-fleet-box, 
+  .length-door-fleet-box, 
+  .width-door-fleet-box, 
+  .length-fleet-select, 
+  .width-fleet-select, 
+  .place-fleet-select, 
+  .finish-fleet-select, 
+  .border-fleet-select, 
+  .type-fleet-box, 
+  .year-fleet-box, 
+  .make-fleet-box, 
+  .model-fleet-box, 
+  .trim-fleet-box {
+    font-size: 2rem;
+  }
+}
+  @media screen and (max-width: 320px) and (orientation: portrait) {
     .main-fleet-graphics {
       display: block;
     }
@@ -871,7 +1082,7 @@ font-size: 30px;
   font-size: 20px;
 }
   }
-  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  @media screen and (max-width: 320px) and (orientation: landscape) {
     .main-fleet-graphics {
       display: block;
     }
@@ -1157,7 +1368,7 @@ font-size: 30px;
   font-size: 30px;
 }
   }
-  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  @media screen and (min-width: 320px) and (max-width: 600px) and (orientation: portrait) {
     .main-fleet-graphics {
       display: block;
     }
