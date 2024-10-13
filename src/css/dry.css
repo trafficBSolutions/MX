@@ -1,14 +1,19 @@
+@import url(https://db.onlinewebfonts.com/c/82baa4951eee7df05175ada4cb171e35?family=Moveo+Sans+W00+Bold);
+@import url(https://db.onlinewebfonts.com/c/82302682c00aba868f6ae01a375b10ac?family=Moveo+Sans+SemiExt+W00+Bold);
 /* ================================
    ================================
-   TOP OF THE ADHESIVE PAGE
+   TOP OF THE dry
+ PAGE
    ================================
    ================================ */
-   .page-dry-container {
+   .page-dry-container{
     padding: 80px 0 40px 0;
     position: relative;
     overflow: hidden;
+    width: auto;
     padding-top: 300px;
     background-color: #b4feff;
+    height: auto;
   }
 
   .dry-name-container {
@@ -16,22 +21,38 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: auto;
+    width: auto;
   }
 
 .dry-description {
     color: #000;
     font-family: "Kairos W04 Extended Bold";
-    font-size: 100px;
+    font-size: 110px;
+    width: auto;
+    height: auto;
     text-align: center;
+    padding: 10px; /* Add padding to avoid content touching the edges */
   }
-
   /* ================================
    ================================
     PHOTO GALLERY
    ================================
    ================================ */
-   .photo-gal-dry {
+   .photo-dry-gal-dry {
     background-color: #8fafff;
+    height: auto;
+  }
+  .photo-drywall-mx-note {
+    font-size: 50px;
+    text-align: center;
+    font-family: "Kairos W04 Extended Bold";
+  }
+  .photo-mx-dry-note {
+    font-size: 50px;
+    text-align: center;
+    font-family: "Kairos W04 Extended Bold";
+    height: auto;
   }
 
   /* ================================
@@ -39,55 +60,105 @@
     ADHESIVE SECTION FORM
    ================================
    ================================ */
+   .dry-form-container {
+    background-color: #e7e7e7;
+    width: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: auto;
+}
    .dry-set {
     padding-top: 10px;
     background-color: #e7e7e7;
     display: flex;
+    width: auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: auto;
   }
 
   .page-section {
     padding-bottom: 3.5rem;
+    width: auto;
+    height: auto;
 }
 .dry-form-info {
     margin: 10px;
     width: 100%;
+    height: auto;
 }
   .dry-app-box {
     margin-top: 10px;
     text-align: center;
+    color: #0f375a;
+    width: auto;
+    height: auto;
     font-size: 50px;
   }
   .log-re {
     margin: 40px;
     text-align: center;
     font-size: 50px;
+    width: auto;
+    height: auto;
   }
 .dry-fill {
     margin: 40px;
     text-align: center;
+    color: #194fb4;
     font-size: 35px;
+    height: auto;
 }
 .dry-notice,.logo-notice {
     color: #194fb4;
+    height: auto;
 }
 .dry-warn {
     font-size: 30px;
     margin: 5%;
-    color: #000
+    color: #000;
+    height: auto;
 }
 .logo-warn {
     font-size: 30px;
     margin-top: 0%;
-    color: #000
+    color: #000;
+    height: auto;
 }
 .dry-actual {
-    width: 90%;
+    width: auto;
     margin: 50px;
-
+    height: auto;
 }
+/* ================================
+   dry Boxed Sections
+   ================================ */
+   .name-section-dry,
+   .company-dry-section,
+   .emailphone-dry-section,
+   .address-dry-section,
+   .size-dry-vinyl-section,
+   .placement-dry-section,
+   .door-size-dry-section,
+   .finishing-dry-section,
+   .dry-file-section,
+   .dry-message-container {
+    border-color: #000;
+  border-width: 4px;
+  background-color: #cccbcb;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  padding: 20px;
+  }
+  
+  
 /* ================================
    Larger Labels for Adhesive Section
    ================================ */
@@ -99,28 +170,84 @@
 .message-dry-label,
 .place-dry-label,
 .finish-dry-label,
-.dry-file-label {
-  margin-bottom: 50px;
+.dry-file-label,
+.type-dry-label {
   padding: 50px;
-  font-size: 50px;
+  color:#000;
+  font-family: "Moveo Sans w00 Bold";
+  text-align: center;
+  font-size: 80px;
   font-style: inherit;
+  height: auto;
 }
 
+/* ================================
+   Added Item Label Categories
+   ================================ */
+.size-driver-dry-note, .size-passenger-dry-note {
+  font-family: "Moveo Sans w00 bold";
+  font-style: normal;
+  display: block;
+  text-align: center;
+  font-size: 70px;
+  height: auto;
+}
+.placement-item {
+  font-family: "Kairos W01 Extended Medium";
+  list-style: none;
+  color: #000;
+  font-size: 40px;
+}
+.vehicle-vinyl-size-li, 
+.finishing-item {
+  font-size: 70px;
+  list-style: none;
+  color: #000;
+  font-family: "Kairos W01 Extended Medium";
+}
+
+/* ================================
+   Added Items Labels
+   ================================ */
+.added-vehicle-label {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 10px;
+  padding-left: 10px;
+  font-size: 50px;
+  height: auto;
+}
+.no-added-vehicles, .no-added-finishings {
+  margin: 50px;
+  text-align: center;
+  font-size: 40px;
+  height: auto;
+}
+.dry-vinyl-size-li {
+  font-size: 70px;
+    list-style: none;
+    color: #000;
+    font-family: "Kairos W01 Extended Medium";
+}
 /* ================================
    Grouped input sections
    ================================ */
   .first-dry-dry-input {
     margin: 40px;
     display: flex;
+    height: auto;
   }
-  .emailphone-dry-input, 
   .address-dry-input-container, 
-  .size-dry-section {
+  .size-door-dry-section {
     margin: 10px;
-    display: flex;
+    height: auto;
   }
 
-
+  .size-dry-section {
+    margin-top: 30px;
+    display: inline-block;
+    height: auto;
+  }
   /* ================================
    Grouped Labels and Input Box Styling
    ================================ */
@@ -130,22 +257,31 @@
     margin: 0;
     padding-left: 10px;
     font-size: 20px;
+    height: auto;
   }
+  .first-name-dry-input,
+  .emailphone-dry-input,
   .dry-company-name-input, 
   .address-dry-input,
   .email-dry-input,
   .dry-phone-name-input,
   .length-dry-section,
+  .length-door-dry-section,
   .width-dry-section,
   .place-dry-section, 
   .finish-dry-section,
-  .file-dry-section {
+  .file-dry-section,
+  .border-dry-section,
+  .type-dry-section {
     font-family: "Moveo Sans w00 Regular";
-    margin: 50px;
+    margin: 10px;
     margin-right: 0;
     position: relative;
     padding-left: 15px;
-    display: flex;
+    height: auto;
+  }
+  .finish-dry-section {
+    display: block;
   }
 
   .address-dry-inputing, 
@@ -156,6 +292,7 @@
     margin: 0;
     padding-left: 10px;
     font-size: 20px;
+    height: auto;
   }
   .state-dry-input,  
   .zip-dry-input{
@@ -163,8 +300,8 @@
     margin: 0px;
     margin-right: 0;
     position: relative;
+    height: auto;
   }
-
 
 /* ================================
    Small Label Styling
@@ -178,16 +315,25 @@
   .city-dry-label,
   .state-dry-label,
   .zip-dry-label,
-  .length-label, 
-  .width-label,
+  .length-dry-label, 
+  .width-dry-label,
   .place-label,
   .finish-label,
-  .dry-logo {
-    font-family: "Moveo Sans w00 Regular";
+  .border-label,
+  .dry-logo,
+  .year-dry-label,
+  .make-dry-label,
+  .model-dry-label,
+  .trim-dry-label,
+  .length-dry-label,
+  .width-dry-label {
+    font-family: "Highway Gothic Narrow";
     font-style: normal;
     margin: 0;
+    color:#226daf;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 70px;
+    height: auto;
   }
   
 
@@ -205,41 +351,111 @@
    .zip-dry-box,
    .length-dry-box, 
    .width-dry-box,
-   .length-select,
-   .width-select, 
-   .place-select,
-   .finish-select {
+   .border-dry-box,
+   .length-door-dry-box,
+   .width-door-dry-box,
+   .length-dry-select,
+   .width-dry-select, 
+   .place-dry-select,
+   .finish-dry-select,
+   .border-dry-select,
+   .type-dry-box,
+   .year-dry-box,
+   .make-dry-box,
+   .model-dry-box,
+   .length-dry-select,
+   .width-dry-select,
+   .place-dry-selection {
      padding: 10px;
-     font-size: 20px;
+     color:#0f375a;
+     font-size: 50px;
      margin-bottom: 20px;
+     height: auto;
    }
+   .length-dry-box, 
+   .width-dry-box,
+   .length-door-dry-box,
+   .width-door-dry-box {
+    font-size: 80px;
 
+   }
+   .type-dry-box,
+   .year-dry-box,
+   .make-dry-box,
+   .model-dry-box {
+    font-size: 40px;
+   }
+   /* ================================
+   Length and Width Display Boxes
+   ================================ */
+   .driver-length-section, 
+   .driver-width-section,
+   .passenger-length-section,
+   .passenger-side-width,
+   .length-door-dry-section,
+   .width-door-dry-section {
+    display: grid;
+    padding-left: 0;
+    margin-top: 0;
+    margin: 0;
+   }
 /* ================================
-   Drywall Image Section
+   dry Image Section
    ================================ */
    .place-flex-container {
     display: flex;
     justify-content: space-between; /* Adjusts space between items */
     align-items: center; /* Aligns items vertically */
     flex-wrap: nowrap; /* Ensures the items stay on one line */
+    height: auto;
 }
 
 .place-img-container {
     flex: 1;
     text-align: center; /* Centers the text under each image */
+    height: auto;
 }
 
 .place-img {
     width: 330px;
-    height: 200px;
+    height: auto;
     object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
 }
 
-.place-examples {
-  margin: 25px;
+/* ================================
+   Year Input Box Note Style
+   ================================ */
+.year-dry-note {
+font-size: 20px;
+font-display: flex;
+margin: 10px;
+font-family: "Kairos W01 Extended Medium";
+height: auto;
 }
+/* ================================
+   dry Finishing Image Section
+   ================================ */
+   .dry-finish-img-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px; /* Adds space between the columns */
+    padding: 10px;
+    height: auto;
+  }
+  
+  .matte-img-dry, .gloss-img-dry, .ra-img-dry {
+    text-align: center; /* Centers the image and text within each div */
+    height: auto;
+  }
+  
+  .matte-img, .gloss-img, .ORAFOL-img {
+    max-width: 100%; /* Ensures the images do not exceed their container's width */
+    height: auto; /* Maintains the image's aspect ratio */
+  }
+  
+
   /* ================================
-   Adhesive Message Styling
+   dry Message Styling
    ================================ */
   .message-dry-note {
     font-style: normal;
@@ -249,13 +465,13 @@
     font-size: 20px;
     font-family: "Moveo Sans W00 Regular";
     padding-top: 30px;
+    height: auto;
   }
   
   .message-dry-text {
     font-style: normal;
     text-align: left;
     text-emphasis: none;
-    margin-left: 40px;
     font-size: 20px;
     font-family: "Moveo Sans W00 Regular";
     width: 100%;
@@ -266,18 +482,27 @@
 /* ================================
    Submit Button Styling
    ================================ */
-   .submit-size {
+   .submit-dry-size, .submit-finishing,
+   .remove-finishing, .submit-place, .remove-placement {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 200px;
+    margin-left: 80px;
     color: #fff;
+    height: auto;
   }  
+  .submit-vehicle {
+    background-color: #0f375a;
+    color: #fff;
+    margin-bottom: 30px;
+    height: auto;
+  }
   .choose-logo-contain {
     display: flex;
     align-items: center;
+    height: auto;
 }
 .file-dry-label, .remove-dry-file-button {
     display: flex;
@@ -288,11 +513,17 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    height: auto;
 }
 .file-dry-label input[type=file] {
     display: none;
 }
-  .submit-dry {
+.submit-dry, .submit-vehicle {
+  width: 100%;
+  font-size: 40px;
+  height: auto;
+}
+  .submit-dry, .dry-vinyl-submit-size, .dry-vinyl-remove-submit-size {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -302,10 +533,1219 @@
     display: block;
     width: 100%;
     color: #fff;
+    height: auto;
   }
+  .submit-dry-finishing, .passenger-submit-size, .driver-remove-submit-size,
+  .passenger-remove-submit-size,
+  .door-remove-length-submit-size,
+  .door-length-submit-size,
+  .new-dry-logo-button {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+    height: auto;
+   }
   .submit-size:hover, 
+  .submit-finishing:hover,
   .submit-dry:hover,
   .file-dry-label:hover,
-  .remove-dry-file-button:hover {
+  .remove-finishing:hover,
+  .remove-dry-file-button:hover,
+  .new-dry-logo-button:hover,
+  .submit-dry-finishing:hover {
     background-color: #226daf;
+  }
+  .btn-submit, .btn-dry-submit, .dry-vinyl-submit-size,
+  .dry-vinyl-remove-submit-size {
+    text-decoration: none;
+      padding: 20px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      font-family: "Kairos W01 Extended Medium";
+      transition: all .3s;
+      margin-top: 1rem;
+      height: auto;
+  }
+  .btn-dry-submit {
+    padding: 0;
+    height: auto;
+  }
+  /* ================================
+   Message Styling
+   ================================ */
+.error-message {
+  color: red;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    font-family: "Kairos W04 Extended Bold";
+    margin-bottom: 10px;
+    height: auto;
+}
+
+.submission-error-message {
+  color: red;
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+.submission-message {
+  color: rgb(38, 173, 38);
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
+  .page-dry-container {
+    padding-top: 100px;
+  }
+  .photo-drywall-mx-note {
+    font-size: 2.5rem;
+  }
+  .main-dry-graphics {
+    display: block;
+  }
+  .page-dry-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .dry-description {
+    font-size: 50px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-dry-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .dry-form-info {
+    margin: 0;
+  }
+  .dry-app-box {
+    font-size: 37px;
+  }
+  .dry-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .dry-actual {
+    margin: 0;  
+  }
+    .first-dry-name-label, 
+    .address-dry-label, 
+    .size-dry-label,
+    .message-dry-label, 
+    .place-dry-label, 
+    .finish-dry-label, 
+    .dry-file-label, 
+    .type-dry-label {
+    font-size: 60px;
+    padding: 0;
+    }
+    .dry-company-label {
+    font-size: 50px;
+    padding: 0;
+    }
+    .emailphone-dry-label {
+    font-size: 50px;
+    padding: 0;
+    }
+    .dry-file-label {
+    font-size: 27px;
+    padding: 0;
+    }
+    .dry-warn {
+    font-size: 1.5rem;
+    text-align: center;
+    
+    }
+    .message-dry-note {
+    font-size: 1.2rem;
+    text-align: center;
+    }
+    .first-dry-label-name, 
+    .last-dry-label-name, 
+    .company-dry-name, 
+    .email-dry-name,
+    .phone-dry-label, 
+    .addr-dry-label, 
+    .city-dry-label, 
+    .state-dry-label,
+    .zip-dry-label,
+    .length-dry-label, 
+    .width-dry-label, 
+    .place-label, 
+    .finish-label,
+    .border-label, 
+    .dry-logo,
+    .year-dry-label, 
+    .make-dry-label, 
+    .model-dry-label, 
+    .trim-dry-label {
+    font-size: 60px;
+    padding: 0;
+    }
+    .firstname-dry-name-input, 
+    .lastname-dry-name-input, 
+    .company-dry-name-input, 
+    .email-dry-box, 
+    .phone-dry-box,
+    .address-dry-box, 
+    .city-dry-box, 
+    .state-dry-box, 
+    .zip-dry-box, 
+    .length-dry-box, 
+    .width-dry-box,
+    .border-dry-box, 
+    .length-door-dry-box, 
+    .width-door-dry-box, 
+    .length-dry-select, 
+    .width-dry-select, 
+    .place-dry-select, 
+    .finish-dry-select, 
+    .border-dry-select, 
+    .type-dry-box,
+    .year-dry-box, 
+    .make-dry-box, 
+    .model-dry-box, 
+    .length-dry-select, 
+    .width-dry-select {
+    font-size: 1.8rem;
+    }
+    .place-dry-selection {
+    font-size: 1.3rem;
+    }
+
+    .first-name-dry-input, 
+    .emailphone-dry-input, 
+    .dry-company-name-input, 
+    .address-dry-input, 
+    .email-dry-input, 
+    .dry-phone-name-input, 
+    .length-dry-section, 
+    .length-door-dry-section, 
+    .width-dry-section, 
+    .place-dry-section, 
+    .finish-dry-section, 
+    .file-dry-section, 
+    .last-dry-name, 
+    .dry-company-name-input,
+    .emailphone-dry-input,
+    .phone-dry {
+    padding-left: 0;
+    margin: 0;
+    }
+    .address-dry-input-container {
+    margin: 0;
+    }
+    .dry-vinyl-size-li {
+    font-size: 2rem;
+    }
+
+    .place-img {
+    max-width: 150px;
+    }
+    .submit-dry,
+    .submit-dry-size, 
+    .submit-finishing, 
+    .remove-finishing, 
+    .submit-place, 
+    .remove-placement,
+    .submit-dry-finishing,
+    .new-dry-logo-button,
+    .file-dry-label,
+    .remove-dry-file-button {
+    font-size: 1.5rem;
+    }
+    .dry-finish-img-section {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      }
+    .placement-item {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    }
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  .dry-set {
+    display: block;
+  }
+  .page-dry-container {
+    padding-top: 100px;
+  }
+  .photo-drywall-mx-note {
+    font-size: 1.5rem;
+  }
+  .main-dry-graphics {
+    display: block;
+  }
+  .page-dry-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .dry-description {
+    font-size: 37px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-dry-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .dry-form-info {
+    margin: 0;
+  }
+  .dry-app-box {
+    font-size: 37px;
+  }
+  .dry-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .dry-actual {
+    margin: 0;  
+  }
+  .first-dry-dry-input {
+    display: block;
+    margin: 0;
+    }
+    .first-dry-name-label, 
+    .address-dry-label, 
+    .size-dry-label,
+    .message-dry-label, 
+    .place-dry-label, 
+    .finish-dry-label, 
+    .dry-file-label, 
+    .type-dry-label {
+    font-size: 60px;
+    padding: 0;
+    }
+    .dry-company-label {
+    font-size: 50px;
+    padding: 0;
+    }
+    .emailphone-dry-label {
+    font-size: 50px;
+    padding: 0;
+    }
+    .dry-file-label {
+    font-size: 27px;
+    padding: 0;
+    }
+    .dry-warn {
+    font-size: 1.5rem;
+    text-align: center;
+    
+    }
+    .message-dry-note {
+    font-size: 1.2rem;
+    text-align: center;
+    }
+    .first-dry-label-name, 
+    .last-dry-label-name, 
+    .company-dry-name, 
+    .email-dry-name,
+    .phone-dry-label, 
+    .addr-dry-label, 
+    .city-dry-label, 
+    .state-dry-label,
+    .zip-dry-label,
+    .length-dry-label, 
+    .width-dry-label, 
+    .place-label, 
+    .finish-label,
+    .border-label, 
+    .dry-logo,
+    .year-dry-label, 
+    .make-dry-label, 
+    .model-dry-label, 
+    .trim-dry-label {
+    font-size: 25px;
+    padding: 0;
+    }
+    .firstname-dry-name-input, 
+    .lastname-dry-name-input, 
+    .company-dry-name-input, 
+    .email-dry-box, 
+    .phone-dry-box,
+    .address-dry-box, 
+    .city-dry-box, 
+    .state-dry-box, 
+    .zip-dry-box, 
+    .length-dry-box, 
+    .width-dry-box,
+    .border-dry-box, 
+    .length-door-dry-box, 
+    .width-door-dry-box, 
+    .length-dry-select, 
+    .width-dry-select, 
+    .place-dry-select, 
+    .finish-dry-select, 
+    .border-dry-select, 
+    .type-dry-box,
+    .year-dry-box, 
+    .make-dry-box, 
+    .model-dry-box, 
+    .length-dry-select, 
+    .width-dry-select {
+    font-size: 1.8rem;
+    }
+    .place-dry-selection {
+    font-size: 1.3rem;
+    }
+    .name-section-dry, 
+    .company-dry-section,
+    .emailphone-dry-section, 
+    .address-dry-section, 
+    .size-dry-vinyl-section, 
+    .placement-dry-section, 
+    .door-size-dry-section, 
+    .finishing-dry-section, 
+    .dry-file-section, 
+    .dry-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    }
+    .first-name-dry-input, 
+    .emailphone-dry-input, 
+    .dry-company-name-input, 
+    .address-dry-input, 
+    .email-dry-input, 
+    .dry-phone-name-input, 
+    .length-dry-section, 
+    .length-door-dry-section, 
+    .width-dry-section, 
+    .place-dry-section, 
+    .finish-dry-section, 
+    .file-dry-section, 
+    .last-dry-name, 
+    .dry-company-name-input,
+    .emailphone-dry-input,
+    .phone-dry {
+    padding-left: 0;
+    margin: 0;
+    }
+    .address-dry-input-container {
+    margin: 0;
+    }
+    .dry-vinyl-size-li {
+    font-size: 2rem;
+    }
+    .place-flex-container {
+    display: block;
+    margin: 0;
+    }
+    .place-img {
+    max-width: 150px;
+    }
+    .submit-dry,
+    .submit-dry-size, 
+    .submit-finishing, 
+    .remove-finishing, 
+    .submit-place, 
+    .remove-placement,
+    .submit-dry-finishing,
+    .new-dry-logo-button,
+    .file-dry-label,
+    .remove-dry-file-button {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+    }
+    .dry-finish-img-section {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      }
+    .placement-item {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    }
+}
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+  .dry-set {
+    display: block;
+  }
+  .page-dry-container {
+    padding-top: 100px;
+  }
+  .photo-drywall-mx-note {
+    font-size: 1.5rem;
+  }
+  .main-dry-graphics {
+    display: block;
+  }
+  .page-dry-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .dry-description {
+    font-size: 37px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-dry-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .dry-form-info {
+    margin: 0;
+  }
+  .dry-app-box {
+    font-size: 37px;
+  }
+  .dry-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .dry-actual {
+    margin: 0;  
+  }
+  .first-dry-dry-input {
+    display: block;
+    margin: 0;
+    }
+    .first-dry-name-label, 
+    .address-dry-label, 
+    .size-dry-label,
+    .message-dry-label, 
+    .place-dry-label, 
+    .finish-dry-label, 
+    .dry-file-label, 
+    .type-dry-label {
+    font-size: 60px;
+    padding: 0;
+    }
+    .dry-company-label {
+    font-size: 50px;
+    padding: 0;
+    }
+    .emailphone-dry-label {
+    font-size: 50px;
+    padding: 0;
+    }
+    .dry-file-label {
+    font-size: 27px;
+    padding: 0;
+    }
+    .dry-warn {
+    font-size: 1.5rem;
+    text-align: center;
+    
+    }
+    .message-dry-note {
+    font-size: 1.2rem;
+    text-align: center;
+    }
+    .first-dry-label-name, 
+    .last-dry-label-name, 
+    .company-dry-name, 
+    .email-dry-name,
+    .phone-dry-label, 
+    .addr-dry-label, 
+    .city-dry-label, 
+    .state-dry-label,
+    .zip-dry-label,
+    .length-dry-label, 
+    .width-dry-label, 
+    .place-label, 
+    .finish-label,
+    .border-label, 
+    .dry-logo,
+    .year-dry-label, 
+    .make-dry-label, 
+    .model-dry-label, 
+    .trim-dry-label {
+    font-size: 25px;
+    padding: 0;
+    }
+    .firstname-dry-name-input, 
+    .lastname-dry-name-input, 
+    .company-dry-name-input, 
+    .email-dry-box, 
+    .phone-dry-box,
+    .address-dry-box, 
+    .city-dry-box, 
+    .state-dry-box, 
+    .zip-dry-box, 
+    .length-dry-box, 
+    .width-dry-box,
+    .border-dry-box, 
+    .length-door-dry-box, 
+    .width-door-dry-box, 
+    .length-dry-select, 
+    .width-dry-select, 
+    .place-dry-select, 
+    .finish-dry-select, 
+    .border-dry-select, 
+    .type-dry-box,
+    .year-dry-box, 
+    .make-dry-box, 
+    .model-dry-box, 
+    .length-dry-select, 
+    .width-dry-select {
+    font-size: 1.8rem;
+    }
+    .place-dry-selection {
+    font-size: 1.3rem;
+    }
+    .name-section-dry, 
+    .company-dry-section,
+    .emailphone-dry-section, 
+    .address-dry-section, 
+    .size-dry-vinyl-section, 
+    .placement-dry-section, 
+    .door-size-dry-section, 
+    .finishing-dry-section, 
+    .dry-file-section, 
+    .dry-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    }
+    .first-name-dry-input, 
+    .emailphone-dry-input, 
+    .dry-company-name-input, 
+    .address-dry-input, 
+    .email-dry-input, 
+    .dry-phone-name-input, 
+    .length-dry-section, 
+    .length-door-dry-section, 
+    .width-dry-section, 
+    .place-dry-section, 
+    .finish-dry-section, 
+    .file-dry-section, 
+    .last-dry-name, 
+    .dry-company-name-input,
+    .emailphone-dry-input,
+    .phone-dry {
+    padding-left: 0;
+    margin: 0;
+    }
+    .address-dry-input-container {
+    margin: 0;
+    }
+    .dry-vinyl-size-li {
+    font-size: 2rem;
+    }
+    .place-flex-container {
+    display: block;
+    margin: 0;
+    }
+    .place-img {
+    max-width: 150px;
+    }
+    .submit-dry,
+    .submit-dry-size, 
+    .submit-finishing, 
+    .remove-finishing, 
+    .submit-place, 
+    .remove-placement,
+    .submit-dry-finishing,
+    .new-dry-logo-button,
+    .file-dry-label,
+    .remove-dry-file-button {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+    }
+    .dry-finish-img-section {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      }
+    .placement-item {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 600px) and (orientation: portrait) {
+  .dry-set {
+    display: block;
+  }
+  .page-dry-container {
+    padding-top: 100px;
+  }
+  .photo-drywall-mx-note {
+    font-size: 1.5rem;
+  }
+  .main-dry-graphics {
+    display: block;
+  }
+  .page-dry-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .dry-description {
+    font-size: 37px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-dry-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .dry-form-info {
+    margin: 0;
+  }
+  .dry-app-box {
+    font-size: 37px;
+  }
+  .dry-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .dry-actual {
+    margin: 0;  
+  }
+  .first-dry-dry-input {
+    display: block;
+    margin: 0;
+    }
+    .first-dry-name-label, 
+    .address-dry-label, 
+    .size-dry-label,
+    .message-dry-label, 
+    .place-dry-label, 
+    .finish-dry-label, 
+    .dry-file-label, 
+    .type-dry-label {
+    font-size: 33px;
+    padding: 0;
+    }
+    .dry-company-label {
+    font-size: 19px;
+    padding: 0;
+    }
+    .emailphone-dry-label {
+    font-size: 24px;
+    padding: 0;
+    }
+    .dry-file-label {
+    font-size: 27px;
+    padding: 0;
+    }
+    .dry-warn {
+    font-size: 1rem;
+    text-align: center;
+    
+    }
+    .message-dry-note {
+    font-size: 1.2rem;
+    text-align: center;
+    }
+    .first-dry-label-name, 
+    .last-dry-label-name, 
+    .company-dry-name, 
+    .email-dry-name,
+    .phone-dry-label, 
+    .addr-dry-label, 
+    .city-dry-label, 
+    .state-dry-label,
+    .zip-dry-label,
+    .length-dry-label, 
+    .width-dry-label, 
+    .place-label, 
+    .finish-label,
+    .border-label, 
+    .dry-logo,
+    .year-dry-label, 
+    .make-dry-label, 
+    .model-dry-label, 
+    .trim-dry-label {
+    font-size: 25px;
+    padding: 0;
+    }
+    .firstname-dry-name-input, 
+    .lastname-dry-name-input, 
+    .company-dry-name-input, 
+    .email-dry-box, 
+    .phone-dry-box,
+    .address-dry-box, 
+    .city-dry-box, 
+    .state-dry-box, 
+    .zip-dry-box, 
+    .length-dry-box, 
+    .width-dry-box,
+    .border-dry-box, 
+    .length-door-dry-box, 
+    .width-door-dry-box, 
+    .length-dry-select, 
+    .width-dry-select, 
+    .place-dry-select, 
+    .finish-dry-select, 
+    .border-dry-select, 
+    .type-dry-box,
+    .year-dry-box, 
+    .make-dry-box, 
+    .model-dry-box, 
+    .length-dry-select, 
+    .width-dry-select {
+    font-size: 1.4rem;
+    }
+    .place-dry-selection {
+    font-size: 0.62rem;
+    }
+    .name-section-dry, 
+    .company-dry-section,
+    .emailphone-dry-section, 
+    .address-dry-section, 
+    .size-dry-vinyl-section, 
+    .placement-dry-section, 
+    .door-size-dry-section, 
+    .finishing-dry-section, 
+    .dry-file-section, 
+    .dry-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    }
+    .first-name-dry-input, 
+    .emailphone-dry-input, 
+    .dry-company-name-input, 
+    .address-dry-input, 
+    .email-dry-input, 
+    .dry-phone-name-input, 
+    .length-dry-section, 
+    .length-door-dry-section, 
+    .width-dry-section, 
+    .place-dry-section, 
+    .finish-dry-section, 
+    .file-dry-section, 
+    .last-dry-name, 
+    .dry-company-name-input,
+    .emailphone-dry-input,
+    .phone-dry {
+    padding-left: 0;
+    margin: 0;
+    }
+    .address-dry-input-container {
+    margin: 0;
+    }
+    .dry-vinyl-size-li {
+    font-size: 2rem;
+    }
+    .place-flex-container {
+    display: block;
+    margin: 0;
+    }
+    .place-img {
+    max-width: 150px;
+    }
+    .submit-dry,
+    .submit-dry-size, 
+    .submit-finishing, 
+    .remove-finishing, 
+    .submit-place, 
+    .remove-placement,
+    .submit-dry-finishing,
+    .new-dry-logo-button,
+    .file-dry-label,
+    .remove-dry-file-button {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+    }
+    .dry-finish-img-section {
+    display: block;
+    }
+    .placement-item {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: landscape) {
+  .page-dry-container {
+    padding-top: 100px;
+  }
+  .photo-drywall-mx-note {
+    font-size: 1.5rem;
+  }
+  .main-dry-graphics {
+    display: block;
+  }
+  .page-dry-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .dry-description {
+    font-size: 37px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-dry-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .dry-form-info {
+    margin: 0;
+  }
+  .dry-app-box {
+    font-size: 37px;
+  }
+  .dry-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .dry-actual {
+    margin: 0;
+  }
+  .dry-set {
+    display: block;
+  }
+.first-dry-dry-input {
+display: block;
+margin: 0;
+}
+.first-dry-name-label, 
+.address-dry-label, 
+.size-dry-label,
+.message-dry-label, 
+.place-dry-label, 
+.finish-dry-label, 
+.dry-file-label, 
+.type-dry-label {
+font-size: 33px;
+padding: 0;
+}
+.dry-company-label {
+font-size: 19px;
+padding: 0;
+}
+.emailphone-dry-label {
+font-size: 24px;
+padding: 0;
+}
+.dry-file-label {
+font-size: 27px;
+padding: 0;
+}
+.dry-warn {
+font-size: 1rem;
+text-align: center;
+
+}
+.message-dry-note {
+font-size: 1.2rem;
+text-align: center;
+}
+.first-dry-label-name, 
+.last-dry-label-name, 
+.company-dry-name, 
+.email-dry-name,
+.phone-dry-label, 
+.addr-dry-label, 
+.city-dry-label, 
+.state-dry-label,
+.zip-dry-label,
+.length-dry-label, 
+.width-dry-label, 
+.place-label, 
+.finish-label,
+.border-label, 
+.dry-logo,
+.year-dry-label, 
+.make-dry-label, 
+.model-dry-label, 
+.trim-dry-label {
+font-size: 25px;
+padding: 0;
+}
+.firstname-dry-name-input, 
+.lastname-dry-name-input, 
+.company-dry-name-input, 
+.email-dry-box, 
+.phone-dry-box,
+.address-dry-box, 
+.city-dry-box, 
+.state-dry-box, 
+.zip-dry-box, 
+.length-dry-box, 
+.width-dry-box,
+.border-dry-box, 
+.length-door-dry-box, 
+.width-door-dry-box, 
+.length-dry-select, 
+.width-dry-select, 
+.place-dry-select, 
+.finish-dry-select, 
+.border-dry-select, 
+.type-dry-box,
+.year-dry-box, 
+.make-dry-box, 
+.model-dry-box, 
+.length-dry-select, 
+.width-dry-select {
+font-size: 12px;
+}
+.place-dry-selection {
+font-size: 0.36rem;
+}
+.name-section-dry, 
+.company-dry-section,
+.emailphone-dry-section, 
+.address-dry-section, 
+.size-dry-vinyl-section, 
+.placement-dry-section, 
+.door-size-dry-section, 
+.finishing-dry-section, 
+.dry-file-section, 
+.dry-message-container {
+display: block;
+padding: 0;
+margin: 0;
+margin-top: 10px;
+}
+.first-name-dry-input, 
+.emailphone-dry-input, 
+.dry-company-name-input, 
+.address-dry-input, 
+.email-dry-input, 
+.dry-phone-name-input, 
+.length-dry-section, 
+.length-door-dry-section, 
+.width-dry-section, 
+.place-dry-section, 
+.finish-dry-section, 
+.file-dry-section, 
+.last-dry-name, 
+.dry-company-name-input,
+.emailphone-dry-input,
+.phone-dry {
+padding-left: 0;
+margin: 0;
+}
+.address-dry-input-container {
+margin: 0;
+}
+.dry-vinyl-size-li {
+font-size: 1.7rem;
+}
+.place-flex-container {
+display: block;
+margin: 0;
+}
+.place-img {
+max-width: 150px;
+}
+.submit-dry,
+.submit-dry-size, 
+.submit-finishing, 
+.remove-finishing, 
+.submit-place, 
+.remove-placement,
+.submit-dry-finishing,
+.new-dry-logo-button,
+.file-dry-label,
+.remove-dry-file-button {
+font-size: 1.5rem;
+padding: 0;
+margin: 0;
+}
+.dry-finish-img-section {
+gap: 7.6rem;
+}
+.placement-item {
+font-size: 1.5rem;
+}
+}
+  @media screen and (max-width: 320px) and (orientation: portrait) {
+    .page-dry-container {
+      padding-top: 100px;
+    }
+    .photo-drywall-mx-note {
+      font-size: 1.5rem;
+    }
+    .main-dry-graphics {
+      display: block;
+    }
+    .page-dry-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .dry-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-dry-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .dry-form-info {
+      margin: 0;
+    }
+    .dry-app-box {
+      font-size: 37px;
+    }
+    .dry-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .dry-actual {
+      margin: 0;
+    }
+    .dry-set {
+      display: block;
+    }
+.first-dry-dry-input {
+  display: block;
+  margin: 0;
+}
+.first-dry-name-label, 
+.address-dry-label, 
+.size-dry-label,
+.message-dry-label, 
+.place-dry-label, 
+.finish-dry-label, 
+.dry-file-label, 
+.type-dry-label {
+  font-size: 33px;
+  padding: 0;
+}
+.dry-company-label {
+  font-size: 19px;
+  padding: 0;
+}
+.emailphone-dry-label {
+  font-size: 24px;
+  padding: 0;
+}
+.dry-file-label {
+  font-size: 27px;
+  padding: 0;
+}
+.dry-warn {
+  font-size: 1rem;
+  text-align: center;
+
+}
+.message-dry-note {
+  font-size: 1.2rem;
+  text-align: center;
+}
+.first-dry-label-name, 
+.last-dry-label-name, 
+.company-dry-name, 
+.email-dry-name,
+.phone-dry-label, 
+.addr-dry-label, 
+.city-dry-label, 
+.state-dry-label,
+.zip-dry-label,
+.length-dry-label, 
+.width-dry-label, 
+.place-label, 
+.finish-label,
+.border-label, 
+.dry-logo,
+.year-dry-label, 
+.make-dry-label, 
+.model-dry-label, 
+.trim-dry-label {
+  font-size: 25px;
+  padding: 0;
+}
+.firstname-dry-name-input, 
+.lastname-dry-name-input, 
+.company-dry-name-input, 
+.email-dry-box, 
+.phone-dry-box,
+.address-dry-box, 
+.city-dry-box, 
+.state-dry-box, 
+.zip-dry-box, 
+.length-dry-box, 
+.width-dry-box,
+.border-dry-box, 
+.length-door-dry-box, 
+.width-door-dry-box, 
+.length-dry-select, 
+.width-dry-select, 
+.place-dry-select, 
+.finish-dry-select, 
+.border-dry-select, 
+.type-dry-box,
+.year-dry-box, 
+.make-dry-box, 
+.model-dry-box, 
+.length-dry-select, 
+.width-dry-select {
+  font-size: 12px;
+}
+.place-dry-selection {
+  font-size: 0.36rem;
+}
+.name-section-dry, 
+.company-dry-section,
+.emailphone-dry-section, 
+.address-dry-section, 
+.size-dry-vinyl-section, 
+.placement-dry-section, 
+.door-size-dry-section, 
+.finishing-dry-section, 
+.dry-file-section, 
+.dry-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+.first-name-dry-input, 
+.emailphone-dry-input, 
+.dry-company-name-input, 
+.address-dry-input, 
+.email-dry-input, 
+.dry-phone-name-input, 
+.length-dry-section, 
+.length-door-dry-section, 
+.width-dry-section, 
+.place-dry-section, 
+.finish-dry-section, 
+.file-dry-section, 
+.last-dry-name, 
+.dry-company-name-input,
+.emailphone-dry-input,
+.phone-dry {
+  padding-left: 0;
+  margin: 0;
+}
+.address-dry-input-container {
+  margin: 0;
+}
+.dry-vinyl-size-li {
+  font-size: 1.7rem;
+}
+.place-flex-container {
+  display: block;
+  margin: 0;
+}
+.place-img {
+  max-width: 150px;
+}
+.submit-dry,
+.submit-dry-size, 
+.submit-finishing, 
+.remove-finishing, 
+.submit-place, 
+.remove-placement,
+.submit-dry-finishing,
+.new-dry-logo-button,
+.file-dry-label,
+.remove-dry-file-button {
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+.dry-finish-img-section {
+  gap: 35px;
+}
+.placement-item {
+  font-size: 1.5rem;
+}
   }
