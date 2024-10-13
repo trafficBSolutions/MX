@@ -1,3 +1,5 @@
+
+    
 * {
     padding: 0;
     margin: 0;
@@ -19,6 +21,9 @@ body {
     font-family: "Kairos W01 Extended Medium";
     transition: all .3s;
     margin-top: 1rem; /* Add margin to move the button down */
+}
+.material-main {
+    width: 100%;
 }
 .sign-quote, 
 .decal-quote, 
@@ -99,6 +104,23 @@ body {
     padding: 0 3.2rem;
     margin: 0 auto;
 }
+.home-web-button {
+    background-color: #07476D;
+    color: #fff;
+    font-size: 60px;
+    font-family: "Kairos W04 Extended Bold";
+    border-radius: 5px;
+    border-color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.home-web-button:hover {
+    background-color: #0051ff;
+}
 .subheading {
     font-size: 60px;
     font-family: "Moveo Sans W00 Bold";
@@ -120,20 +142,24 @@ body {
 
 
 .material-image {
-    background-color: #b4feff;
+    background-color: gray;
     text-align: center;
+    width: 100%;
+    height: auto;
+
 }
 
 .material-slogan {
-    font-size: 75px;
+    font-size: clamp(20px, 4vw, 75px);
     text-align: center;
     font-family: "Kairos W04 Extended Bold"
 }
 
 .material-descript {
     margin-top: 15px;
-    font-size: 25px;
+    font-size: clamp(16px, 3vw, 25px);
     line-height: 30px;
+    text-align: center;
     font-family: "Moveo Sans W00 Regular";
 }
 
@@ -193,7 +219,7 @@ position: relative;
 .material-page-heading {
     color: #2f2f2f;
     font-family: "Kairos W04 Extended Bold";
-    font-size: 80px;
+    font-size: clamp(24px, 5vw, 80px);
     text-align: center;
 }
 
@@ -213,7 +239,7 @@ position: relative;
     overflow: hidden;
 }
 .material-page-banner {
-    background-color: aqua;
+    background-color: rgb(163, 213, 247);
 }
 .window-frost-example-container {
     margin: auto;
@@ -247,6 +273,7 @@ position: relative;
 .will-contact-link, .carson-contact-link, .jonkell-contact-link {
     font-family: "Moveo Sans W00 Bold";
     font-size: 20px;
+    display: grid;
     color: #1841aa;
     margin-top: 20px;
     text-align: center;
@@ -279,7 +306,7 @@ position: relative;
   font-family: "Kairos W04 Extended Bold";
 }
 .section-how {
-    padding: 9.6rem 0;
+    padding: 10px;
 }
 
 .step-number {
@@ -323,22 +350,25 @@ position: relative;
     font-size: 1rem;
     line-height: 1.8;
 }
-.step-img-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    width: 100%; /* Ensure full width in container */
-    padding-top: 130px; /* Center the container itself */
-    text-align: center; /* Center the text and button */
-    position: relative;
-}
+
 .img-btn-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1; /* Ensure this is above the circles */
+}
+.gallery-mx-container {
+    width: 100%; /* Ensure the gallery container is responsive */
+    max-width: 1200px; /* You can set a max width if desired */
+    margin: 0 auto; /* Center the gallery */
+}
+
+/* Ensure that images adjust their size proportionally */
+.react-photo-gallery--gallery {
+    width: 100% !important; /* Force the width to always be 100% of the container */
+    height: auto !important; /* Force maintaining the aspect ratio */
+    object-fit: cover !important; /* Ensures the image covers its container */
 }
 .step-text-box {
     width: 80%;
@@ -348,88 +378,53 @@ position: relative;
     max-width: 300px; /* Add a max-width for better responsiveness */
     margin-bottom: 2rem; /* Adds space between the image and button */
 }
-.step-sign-img {
-    width: 38%; /* Set a consistent width */
-    height: auto; /* Let the height adjust automatically */
-    aspect-ratio: 1 / 1; /* Ensures the height matches the width, making it a perfect circle */
-    margin-bottom: 2rem; /* Adds space between the image and button */
-    border-radius: 50%; /* Makes the image a circle */
-    object-fit: cover; /* Ensures the image fits within the circle */
-}
-.step-decal-img {
-    width: 38%; /* Set a consistent width */
-    height: auto; /* Let the height adjust automatically */
-    aspect-ratio: 1 / 1; /* Ensures the height matches the width, making it a perfect circle */
-    margin-bottom: 2rem; /* Adds space between the image and button */
-    border-radius: 50%; /* Makes the image a circle */
-    object-fit: cover; /* Ensures the image fits within the circle */
-}
-
+.step-sign-img,
+.step-decal-img,
 .step-banner-img, 
 .step-shirt-img, 
 .step-window-img, 
 .step-frost-img, 
-.step-building-img {
-    width: 40%; /* Set a consistent width */
-    height: auto; /* Let the height adjust automatically */
-    aspect-ratio: 1 / 1; /* Ensures the height matches the width, making it a perfect circle */
-    margin-bottom: 2rem; /* Adds space between the image and button */
-    border-radius: 50%; /* Makes the image a circle */
-    object-fit: cover; /* Ensures the image fits within the circle */
+.step-building-img,
+.step-fleet-img {
+    width: 60%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 70px solid #c7eef8;;
+    padding: 40px;
+    background-color: #94e3f7
+}
+.step-img-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 1rem;
+}
+.working-two {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #003366;
+    padding: 5px;
+    background-color: #66b2ff;
 }
 
-.step-fleet-img {
-    width: 43%; /* Set a consistent width */
-    height: auto; /* Let the height adjust automatically */
-    aspect-ratio: 1 / 1; /* Ensures the height matches the width, making it a perfect circle */
-    margin-bottom: 2rem; /* Adds space between the image and button */
-    border-radius: 50%; /* Makes the image a circle */
-    object-fit: cover; /* Ensures the image fits within the circle */
-}
-.step-img-box:before {
-    width: 60%;
-    padding-bottom: 60%;
-    background-color: #c7eef8;
-    z-index: -2;
-}
-.step-img-box:before, .step-img-box:after {
-    content: "";
-    display: block;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.step-img-box:after {
-    content: "";
-    width: 45%;
-    padding-bottom: 45%;
-    background-color: #94e3f7;
-    z-index: -1;
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Move back to center */
-    border-radius: 50%; /* Make the after element circular */
-}
-@media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (max-width: 320px) and (orientation: portrait) {
     .material-img {
         width: 100%;
     }
-    .material-page-heading {
-        font-size: 30px;
-    }
+
     .material-page-video-banner {
         width: 100%;
         height: auto;
-    }
-    .material-slogan {
-        font-size: 30px;   
-        line-height: 35px; 
-    }
-    .material-descript {
-        text-align: center;
     }
     .main-material-container {
         width: 100%;
@@ -459,6 +454,18 @@ position: relative;
     .custom-sign-img, .custom-decal-img, .custom-banner-img {
         width: 70%;
         margin: 5px;
+    }
+    .step-sign-img, .step-banner-img, .step-shirt-img, .step-window-img, .step-fleet-img  {
+        width: 120%;
+        padding: 5px;
+        border: 20px solid #c7eef8;
+        display: block;
+    }
+    .step-decal-img, .step-frost-img, .step-building-img {
+        width: 100%;
+        padding: 5px;
+        border: 20px solid #c7eef8;
+        display: block;
     }
     .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
         font-size: 60px;
@@ -474,114 +481,100 @@ position: relative;
         margin: 0 auto;
         align-items: center;
     }
+    .container {
+        padding: 0;
+    }
+    .subheading {
+        margin: 0;
+        font-size: 36px;
+    }
+    .home-web-button {
+        font-size: 20px;
+        padding: 0;
+    }
+    .step-text-box {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    .step-number {
+        font-size: 100px;
+    }
+    .custom-signage, 
+    .decals-stickers-home, 
+    .custom-banner, 
+    .custom-t-shirts, 
+    .custom-windowing, 
+    .custom-building-graphics, 
+    .custom-fleet-graphics {
+        display: block;
+    }
+    .sign-quote, 
+    .decal-quote, 
+    .banner-quote, 
+    .t-shirt-quote, 
+    .window-quote, 
+    .building-quote, 
+    .fleet-quote {
+        font-size: 12px;
+        padding: 0px;
+    }
+    .step-description {
+        font-size: 17px;
+        line-height: 1;
+    }
+    .heading-primary, 
+    .heading-tertiary {
+        font-size: 25px;
+        margin-bottom: auto;
+    }
+    .heading-secondary {
+        font-size: 20px;
+    }
+    .section-how {
+        padding: 10px;
+    }
+    .contact-materialX {
+        font-size: 35px;
+    }
 }
-@media screen and (min-width: 240px) and (max-width: 320px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (max-width: 320px) and (orientation: landscape) {
     .material-img {
         width: 100%;
     }
     .material-page-heading {
-        font-size: 40px;
-    }
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .custom-sign, .custom-decal, .custom-banner, .custom-tshirts, .custom-window-frost, .custom-drywall, .custom-graphic {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #07476D;
-        border-radius: 20px;
-        text-align: center;
-    }
-    .material-slogan {
-        font-size: 30px;   
-        line-height: 35px; 
-    }
-    .material-descript {
-        text-align: center;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 95%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img, .custom-decal-img, .custom-banner-img {
-        width: 70%;
-        margin: 5px;
-    }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-}
-@media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .material-img {
-        width: 100%;
-    }
-    .material-page-heading {
-        font-size: 40px;
-    }
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .custom-sign, .custom-decal, .custom-banner, .custom-tshirts, .custom-window-frost, .custom-drywall, .custom-graphic {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #07476D;
-        border-radius: 20px;
-        text-align: center;
-    }
-    .material-slogan {
-        font-size: 25px;   
-        line-height: 35px; 
-    }
-    .material-descript {
-        font-size: 15px;
-        text-align: center;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 80%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
         font-size: 30px;
     }
+    .material-page-video-banner {
+        width: 100%;
+        height: auto;
+    }
+    .material-slogan {
+        font-size: 30px;
+        padding: 10px;
+        width: 100%;
+    }
+    .material-descript {
+        text-align: center;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .main-material-container {
+        width: 100%;
+    }
+    .material-box {
+        width: 90%;
+    }
+    .custom-sign-h1, 
+    .custom-decal-h1, 
+    .custom-banner-h1, 
+    .custom-tshirts-h1, 
+    .custom-window-frost-h1, 
+    .custom-drywall-h1, 
+    .custom-graphic-h1 {
+        margin-top: 10px;
+        font-size: 20px;
+    }
     .custom-sign-h2, 
     .custom-decal-h2, 
     .custom-banner-h2, 
@@ -595,215 +588,24 @@ position: relative;
         width: 70%;
         margin: 5px;
     }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
+    .step-sign-img, .step-banner-img, .step-shirt-img, .step-window-img, .step-fleet-img  {
+        width: 110%;
         padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .custom-decal-img2 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-decal-img3 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-banner-img {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-banner-img2 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-shirt-img, .custom-shirt-img2 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-frost-img, .custom-frost-img2, .custom-frost-img3 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-floor-img, .custom-contrete-img, .custom-drywall-img, .custom-drywall-img2 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-graphic-img {
-        width: 90%;
-        margin-top: 10px;
-    }
-}
-@media screen and (min-width: 360px) and (max-width: 640px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .material-img {
-        width: 100%;
-    }
-    .material-page-heading {
-        font-size: 50px;
-    }
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .custom-sign, .custom-decal, .custom-banner, .custom-tshirts, .custom-window-frost, .custom-drywall, .custom-graphic {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #07476D;
-        border-radius: 20px;
-        text-align: center;
-    }
-    .material-slogan {
-        margin-top: 10px;
-        font-size: 50px;   
-        line-height: 60px; 
-    }
-    .material-descript {
-        text-align: center;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 95%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 45px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img, .custom-banner-img, .custom-banner-img2 {
-        width: 40%;
+        border: 20px solid #c7eef8;;
         display: block;
-        margin-left: 30px;
-        flex-wrap: wrap;
+    }
+    .step-decal-img {
+        width: 107%;
+        padding: 5px;
+        border: 20px solid #c7eef8;;
+        display: block;
     }
     
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
+    .step-frost-img, .step-building-img {
+        width: 110%;
         padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .image-sign-material-container , .image-banner-material-container {
-        max-width: 100%;
-        margin-left: 50px;
-        display: flex;
-        margin-right: 50px;
-    }
-    .image-decal-material-container {
-        max-width: 500%;
-        margin-left: 100px;
-        display: flex;
-        margin-right: 50px;
-    }
-    .custom-decal-img {
-        width: 40%;
-    }
-    .custom-decal-img2 {
-        width: 90%;
-    }
-    .custom-decal-img3 {
-        width: 30%;
-        margin-left: 130px;
-    }
-    .custom-vehicle-decal-h2, .custom-football-decal-h2, .custom-chrome-decal-h2  {
-        margin-right: 10px;
-    }
-
-}
-@media screen and (min-width: 360px) and (max-width: 740px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-    .material-img {
-        width: 100%;
-    }
-    .material-page-heading {
-        font-size: 50px;
-    }
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .custom-sign, .custom-decal, .custom-banner, .custom-tshirts, .custom-window-frost, .custom-drywall, .custom-graphic {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #07476D;
-        border-radius: 20px;
-        text-align: center;
-    }
-    .material-slogan {
-        margin-top: 10px;
-        font-size: 50px;   
-        line-height: 60px; 
-    }
-    .material-descript {
-        text-align: center;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 95%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 45px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img {
-        width: 90%;
-        margin-left: 30px;
-    }
-     .custom-banner-img, .custom-banner-img2 {
-        width: 100%;
+        border: 20px solid #c7eef8;;
         display: block;
-        margin-left: 10px;
-    } 
-    .custom-shirt-img, .custom-shirt-img2 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-frost-img, .custom-frost-img2, .custom-frost-img3 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-floor-img, .custom-contrete-img, .custom-drywall-img, .custom-drywall-img2 {
-        width: 90%;
-        margin-top: 10px;
-    }
-    .custom-graphic-img {
-        width: 90%;
-        margin-top: 10px;
     }
     .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
         font-size: 60px;
@@ -811,165 +613,86 @@ position: relative;
         margin-top: 10px;
         margin-bottom: 10px;
     }
-    .image-sign-material-container , .image-banner-material-container {
-        max-width: 100%;
-        margin-left: 50px;
+    .photo-mx-note {
+        font-size: 30px;
+    }
+    .section-mx-featured {
         display: flex;
-        margin-right: 50px;
+        margin: 0 auto;
+        align-items: center;
     }
-    .image-decal-material-container {
-        max-width: 500%;
-        margin-left: 100px;
-        display: flex;
-        margin-right: 50px;
-    }
-    .custom-decal-img {
-        width: 90%;
-    }
-    .custom-decal-img2 {
-        width: 90%;
-    }
-    .custom-decal-img3 {
-        width: 50%;
-        margin-left: 100px;
-    }
-    .custom-vehicle-decal-h2, .custom-football-decal-h2, .custom-chrome-decal-h2  {
-        margin-right: 10px;
-    }
-
+.container {
+    padding: 0;
 }
-@media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .material-img {
-        width: 100%;
-    }
-    .material-page-heading {
-        font-size: 50px;
-    }
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .custom-sign, .custom-decal, .custom-banner, .custom-tshirts, .custom-window-frost, .custom-drywall, .custom-graphic {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #07476D;
-        border-radius: 20px;
-        text-align: center;
-    }
-    .material-slogan {
-        margin-top: 10px;
-        font-size: 50px;   
-        line-height: 60px; 
-    }
-    .material-descript {
-        text-align: center;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 95%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 60px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img{
-        width: 100%;
-        display: block;
-        margin-left: 10px;
-        flex-wrap: wrap;
-    } .custom-banner-img, .custom-banner-img2{
-        width: 40%;
-        display: block;
-        margin-left: 30px;
-        flex-wrap: wrap;
-    } 
-        
-    
-    
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .image-sign-material-container , .image-banner-material-container {
-        max-width: 100%;
-        margin-left: 50px;
-        display: flex;
-        margin-right: 50px;
-    }
-    .image-decal-material-container {
-        max-width: 500%;
-        margin-left: 100px;
-        display: flex;
-        margin-right: 50px;
-    }
-    .custom-decal-img {
-        width: 40%;
-    }
-    .custom-decal-img2 {
-        width: 90%;
-    }
-    .custom-decal-img3 {
-        width: 60%;
-        margin-left: 80px;
-    }
-    .custom-shirt-img, .custom-shirt-img2 {
-        width: 40%;
-        margin-left: 30px;
-    }
-    .custom-vehicle-decal-h2 {
-        margin-left: 60px;
-    } 
-    .custom-football-decal-h2 {
-        margin-right: 20px
-    } .custom-chrome-decal-h2  {
-        margin-left: 50px;
-    }
-    .custom-floor-img {
-        width: 70%;
-        margin-left: 10px;
-    }
-    .custom-contrete-img {
-        width: 70%;
-        margin-left: 10px;
-    }
-    .custom-drywall-img, .custom-drywall-img2 {
-        width: 45%;
-        margin-left: 10px;
-    }
-
-    .custom-graphic-img {
-        width: 70%;
-        margin-left: 10px;
-    }
+.subheading {
+    margin: 0;
+    font-size: 40px;
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-   .main-material-container {
+.home-web-button {
+    font-size: 20px;
+    padding: 0;
+}
+.step-text-box {
     width: 100%;
-   }
-   .material-box {
-    width: 95%;
-   }
+    display: block;
+    text-align: center;
+}
+.step-number {
+    font-size: 120px;
+}
+.custom-signage, .decals-stickers-home, .custom-banner, .custom-t-shirts, .custom-windowing, .custom-building-graphics, .custom-fleet-graphics {
+    display: block;
+}
+.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
+    font-size: 15px;
+    padding: 0px;
+}
+.step-description {
+    font-size: 20px;
+    line-height: 1;
+}
+.heading-primary, .heading-tertiary {
+    font-size: 30px;
+    margin-bottom: auto;
+}
+.heading-secondary {
+    font-size: 22px;
+}
+.section-how {
+    padding: 10px;
+}
+.contact-materialX {
+    font-size: 35px;
+}
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) and (orientation: portrait) {
+    .material-img {
+        width: 100%;
+    }
+    .material-page-heading {
+        font-size: 30px;
+    }
+    .material-page-video-banner {
+        width: 100%;
+        height: auto;
+    }
+    .material-slogan {
+        font-size: 30px;
+        padding: 10px;
+        width: 100%;
+    }
+    .material-descript {
+        text-align: center;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .main-material-container {
+        width: 100%;
+    }
+    .material-box {
+        width: 90%;
+    }
     .custom-sign-h1, 
     .custom-decal-h1, 
     .custom-banner-h1, 
@@ -978,34 +701,493 @@ position: relative;
     .custom-drywall-h1, 
     .custom-graphic-h1 {
         margin-top: 10px;
-        font-size: 70px;
+        font-size: 20px;
     }
-    .custom-decal-img2 {
+    .custom-sign-h2, 
+    .custom-decal-h2, 
+    .custom-banner-h2, 
+    .custom-tshirts-h2, 
+    .custom-window-frost-h2, 
+    .custom-drywall-h2, 
+    .custom-graphic-h2 {
+        font-size: 20px;
+    }
+    .custom-sign-img, .custom-decal-img, .custom-banner-img {
+        width: 70%;
+        margin: 5px;
+    }
+    .step-sign-img, .step-banner-img, .step-shirt-img, .step-window-img, .step-fleet-img  {
+        width: 110%;
+        padding: 20px;
+        border: 30px solid #c7eef8;;
+        display: block;
+    }
+    .step-decal-img {
+        width: 107%;
+        padding: 20px;
+        border: 35px solid #c7eef8;
+        display: block;
+    }
+    
+    .step-frost-img, .step-building-img {
+        width: 110%;
+        padding: 20px;
+        border: 35px solid #c7eef8;
+        display: block;
+    }
+    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
+        font-size: 60px;
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .photo-mx-note {
+        font-size: 30px;
+    }
+    .section-mx-featured {
+        margin: 0 auto;
+        align-items: center;
+    }
+.container {
+    padding: 0;
+}
+.subheading {
+    margin: 0;
+    font-size: 40px;
+}
+.home-web-button {
+    font-size: 20px;
+    padding: 0;
+}
+.step-text-box {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.step-number {
+    font-size: 120px;
+}
+.custom-signage, .decals-stickers-home, .custom-banner, .custom-t-shirts, .custom-windowing, .custom-building-graphics, .custom-fleet-graphics {
+    display: block;
+}
+.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
+    font-size: 15px;
+    padding: 0px;
+}
+.step-description {
+    font-size: 20px;
+    line-height: 1;
+}
+.heading-primary, .heading-tertiary {
+    font-size: 30px;
+    margin-bottom: auto;
+}
+.heading-secondary {
+    font-size: 22px;
+}
+.section-how {
+    padding: 10px;
+}
+.contact-materialX {
+    font-size: 35px;
+}
+}
+@media screen and (max-width: 1138px) and (orientation: portrait){
+    .material-img {
+        width: 100%;
+    }
+    .material-page-heading {
+        font-size: 30px;
+    }
+    .material-page-video-banner {
+        width: 100%;
+        height: auto;
+    }
+    .material-slogan {
+        font-size: 30px;
+        padding: 10px;
+        width: 100%;
+    }
+    .material-descript {
+        text-align: center;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .main-material-container {
+        width: 100%;
+    }
+    .material-box {
         width: 90%;
-        margin-left: 10px;
     }
-    .custom-banner-img, .custom-banner-img2 {
-        width: 40%;
-        margin-left: 30px;
+    .custom-sign-h1, 
+    .custom-decal-h1, 
+    .custom-banner-h1, 
+    .custom-tshirts-h1, 
+    .custom-window-frost-h1, 
+    .custom-drywall-h1, 
+    .custom-graphic-h1 {
+        margin-top: 10px;
+        font-size: 20px;
     }
-    .custom-shirt-img, .custom-shirt-img2 {
-        width: 40%;
-        margin-left: 30px;
+    .custom-sign-h2, 
+    .custom-decal-h2, 
+    .custom-banner-h2, 
+    .custom-tshirts-h2, 
+    .custom-window-frost-h2, 
+    .custom-drywall-h2, 
+    .custom-graphic-h2 {
+        font-size: 20px;
     }
-    .custom-floor-img {
+    .custom-sign-img, .custom-decal-img, .custom-banner-img {
         width: 70%;
-        margin-left: 10px;
+        margin: 5px;
     }
-    .custom-contrete-img {
+
+
+    
+    .step-frost-img, .step-building-img {
+        width: 110%;
+        padding: 20px;
+        border: 35px solid #c7eef8;
+        display: block;
+    }
+    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
+        font-size: 60px;
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .photo-mx-note {
+        font-size: 30px;
+    }
+    .section-mx-featured {
+        margin: 0 auto;
+        align-items: center;
+    }
+.container {
+    padding: 0;
+}
+.subheading {
+    margin: 0;
+    font-size: 40px;
+}
+.home-web-button {
+    font-size: 20px;
+    padding: 0;
+}
+.step-text-box {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.step-number {
+    font-size: 120px;
+}
+
+.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
+    font-size: 15px;
+    padding: 0px;
+}
+.step-description {
+    font-size: 20px;
+    line-height: 1;
+}
+.heading-primary, .heading-tertiary {
+    font-size: 30px;
+    margin-bottom: auto;
+}
+.heading-secondary {
+    font-size: 22px;
+}
+.section-how {
+    padding: 10px;
+}
+.contact-materialX {
+    font-size: 35px;
+}
+.react-photo-gallery--gallery {
+    display: block;
+}
+
+/* Ensure the container adapts well to landscape mode */
+.gallery-mx-container {
+    width: 100%; /* Full width of the parent container */
+    max-width: 100vw; /* Ensure no overflow on wide landscape screens */
+    margin: 0 auto; /* Center the gallery */
+}
+
+/* If needed, adjust heights or paddings */
+.gallery-mx-container {
+    padding: 0 10px;
+}
+}
+@media screen  and (max-width: 1200px) and (orientation: portrait) {
+    .material-img {
+        width: 100%;
+    }
+    .material-page-heading {
+        font-size: 30px;
+    }
+    .material-page-video-banner {
+        width: 100%;
+        height: auto;
+    }
+    .material-slogan {
+        font-size: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+    .material-descript {
+        text-align: center;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .main-material-container {
+        width: 100%;
+    }
+    .material-box {
+        width: 90%;
+    }
+    .custom-sign-h1, 
+    .custom-decal-h1, 
+    .custom-banner-h1, 
+    .custom-tshirts-h1, 
+    .custom-window-frost-h1, 
+    .custom-drywall-h1, 
+    .custom-graphic-h1 {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .custom-sign-h2, 
+    .custom-decal-h2, 
+    .custom-banner-h2, 
+    .custom-tshirts-h2, 
+    .custom-window-frost-h2, 
+    .custom-drywall-h2, 
+    .custom-graphic-h2 {
+        font-size: 20px;
+    }
+    .custom-sign-img, .custom-decal-img, .custom-banner-img {
         width: 70%;
-        margin-left: 10px;
+        margin: 5px;
     }
-    .custom-drywall-img, .custom-drywall-img2 {
-        width: 45%;
-        margin-left: 10px;
+
+    .step-sign-img,
+    .step-decal-img,
+    .step-banner-img, 
+    .step-shirt-img, 
+    .step-window-img, 
+    .step-frost-img, 
+    .step-building-img,
+    .step-fleet-img,
+    .step-frost-img, .step-building-img {
+        width: 100%;
+        padding: 20px;
+        border: 35px solid #c7eef8;
+        display: block;
     }
-    .custom-graphic-img {
+    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
+        font-size: 60px;
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .photo-mx-note {
+        font-size: 30px;
+    }
+    .section-mx-featured {
+        margin: 0 auto;
+        align-items: center;
+    }
+.container {
+    padding: 0;
+}
+.subheading {
+    margin: 0;
+    font-size: 40px;
+}
+.home-web-button {
+    font-size: 20px;
+    padding: 0;
+}
+.step-text-box {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.step-number {
+    font-size: 120px;
+}
+
+.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
+    font-size: 15px;
+    padding: 0px;
+}
+.step-description {
+    font-size: 20px;
+    line-height: 1;
+}
+.heading-primary, .heading-tertiary {
+    font-size: 30px;
+    margin-bottom: auto;
+}
+.heading-secondary {
+    font-size: 22px;
+}
+.section-how {
+    padding: 10px;
+}
+.contact-materialX {
+    font-size: 35px;
+}
+.react-photo-gallery--gallery {
+    display: block;
+}
+
+/* Ensure the container adapts well to landscape mode */
+.gallery-mx-container {
+    width: 100%; /* Full width of the parent container */
+    max-width: 100vw; /* Ensure no overflow on wide landscape screens */
+    margin: 0 auto; /* Center the gallery */
+}
+
+/* If needed, adjust heights or paddings */
+.gallery-mx-container {
+    padding: 0 10px;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    .material-img {
+        width: 100%;
+    }
+    .material-page-heading {
+        font-size: 30px;
+    }
+    .material-page-video-banner {
+        width: 100%;
+        height: auto;
+    }
+    .material-slogan {
+        font-size: 30px;
+        padding: 10px;
+        width: 100%;
+    }
+    .material-descript {
+        text-align: center;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .main-material-container {
+        width: 100%;
+    }
+    .material-box {
+        width: 90%;
+    }
+    .custom-sign-h1, 
+    .custom-decal-h1, 
+    .custom-banner-h1, 
+    .custom-tshirts-h1, 
+    .custom-window-frost-h1, 
+    .custom-drywall-h1, 
+    .custom-graphic-h1 {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .custom-sign-h2, 
+    .custom-decal-h2, 
+    .custom-banner-h2, 
+    .custom-tshirts-h2, 
+    .custom-window-frost-h2, 
+    .custom-drywall-h2, 
+    .custom-graphic-h2 {
+        font-size: 20px;
+    }
+    .custom-sign-img, .custom-decal-img, .custom-banner-img {
         width: 70%;
-        margin-left: 10px;
+        margin: 5px;
     }
+
+    .step-sign-img,
+    .step-decal-img,
+    .step-banner-img, 
+    .step-shirt-img, 
+    .step-window-img, 
+    .step-frost-img, 
+    .step-building-img,
+    .step-fleet-img,
+    .step-frost-img, .step-building-img {
+        width: 100%;
+        padding: 20px;
+        border: 35px solid #c7eef8;
+        display: block;
+    }
+    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
+        font-size: 60px;
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .photo-mx-note {
+        font-size: 30px;
+    }
+    .section-mx-featured {
+        margin: 0 auto;
+        align-items: center;
+    }
+.container {
+    padding: 0;
+}
+.subheading {
+    margin: 0;
+    font-size: 40px;
+}
+.home-web-button {
+    font-size: 20px;
+    padding: 0;
+}
+.step-text-box {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.step-number {
+    font-size: 120px;
+}
+
+.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
+    font-size: 15px;
+    padding: 0px;
+}
+.step-description {
+    font-size: 20px;
+    line-height: 1;
+}
+.heading-primary, .heading-tertiary {
+    font-size: 30px;
+    margin-bottom: auto;
+}
+.heading-secondary {
+    font-size: 22px;
+}
+.section-how {
+    padding: 10px;
+}
+.contact-materialX {
+    font-size: 35px;
+}
+.react-photo-gallery--gallery {
+    display: block;
+}
+
+/* Ensure the container adapts well to landscape mode */
+.gallery-mx-container {
+    width: 100%; /* Full width of the parent container */
+    max-width: 100vw; /* Ensure no overflow on wide landscape screens */
+    margin: 0 auto; /* Center the gallery */
+}
+
+/* If needed, adjust heights or paddings */
+.gallery-mx-container {
+    padding: 0 10px;
+}
 }
