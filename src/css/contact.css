@@ -155,7 +155,6 @@
     font-family: "Moveo Sans w00 Regular";
     font-style: normal;
     margin: 0;
-    padding-left: 10px;
     font-size: 20px;
     height: auto;
   }
@@ -188,7 +187,6 @@
     font-family: "Moveo Sans w00 Regular";
     font-style: normal;
     margin: 0;
-    padding-left: 10px;
     font-size: 20px;
     height: auto;
   }
@@ -264,7 +262,7 @@
      display: flex;
      flex-direction: column;
      font-size: 40px;
-     margin-bottom: 20px;
+     margin-top: 5px;
      height: auto;
    }
    .length-contact-box, 
@@ -408,6 +406,11 @@ height: auto;
   /* ================================
    Message Styling
    ================================ */
+   .contact-message-container {
+    height: 100vh;
+    width: 100%;
+    height: auto;
+  }
 .error-message {
   color: red;
     font-size: 20px;
@@ -466,10 +469,7 @@ height: auto;
   }
   
   /* Optional: Ensure icons inside the list are aligned properly */
-  .contact-alternative img {
-    width: 40px; /* Adjust size of icons */
-    height: auto;
-  }
+
   
   .contact-alternative p {
     margin: 0; /* Remove default margin from paragraphs */
@@ -532,8 +532,1080 @@ height: auto;
     text-decoration: none;
   }
   
-  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  @media screen and (max-width: 1200px) and (orientation: landscape) {
+    .contact-flexi {
+      flex-direction: row;
+      justify-content: center;
+    }
     .main-contact-graphics {
+      display: block;
+    }
+    .page-contact-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .contact-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-contact-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .contact-form-info {
+      margin: 0;
+    }
+    .contact-app-box {
+      font-size: 37px;
+    }
+    .contact-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .contact-actual {
+      margin: 0;
+    }
+    .contact-material {
+      font-size: 3rem;
+    }
+    .phone-paragraph, .email-paragraph, .address-paragraph {
+      font-size: 1.15rem;
+    }
+    .phone-img-contact, .email-img-contact, .address-img-contact {
+      width: 30px;
+    }
+    .name-section-contact,
+   .company-contact-section,
+   .emailphone-contact-section,
+   .address-contact-section,
+   .vehicle-type-contact-section,
+   .vehicle-size-contact-section,
+   .door-size-contact-section,
+   .finishing-contact-section,
+   .contact-file-section,
+   .contact-message-container {
+    display: grid;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-contact-name-label, 
+.contact-company-label, 
+.emailphone-contact-label,
+.address-contact-label,
+.size-contact-label,
+.message-contact-label,
+.place-contact-label,
+.finish-contact-label,
+.contact-file-label,
+.type-contact-label {
+  font-size: 33px;
+}
+.first-name-contact-input, 
+.emailphone-contact-input, 
+.contact-company-name-input, 
+.address-contact-input, 
+.email-contact-input, 
+.contact-phone-name-input, 
+.length-contact-section, 
+.length-door-contact-section, 
+.width-contact-section, 
+.place-contact-section, 
+.finish-contact-section, 
+.file-contact-section, 
+.border-contact-section, 
+.type-contact-section {
+  display: block;
+  padding-left: 0;
+  text-align: center;
+}
+.first-contact-label-name, 
+.last-contact-label-name, 
+.company-contact-name, 
+.email-contact-name, 
+.phone-contact-label, 
+.addr-contact-label, 
+.city-contact-label, 
+.state-contact-label, 
+.zip-contact-label, 
+.length-contact-label, 
+.width-contact-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.contact-contact, 
+.year-contact-label, 
+.make-contact-label, 
+.model-contact-label, 
+.trim-contact-label {
+  font-size: 2rem;
+}
+.contact-message-container {
+  margin-top: 10px;
+}
+.message-contact-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.contact-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-contact-input
+.emailphone-contact-input, 
+.address-contact-input-container, 
+.size-contact-section,
+.size-door-contact-section {
+  margin: 0;
+  display: block;
+}
+.last-contact-name {
+  padding-left: 0;
+}
+.firstname-contact-name-input, 
+.lastname-contact-name-input, 
+.company-contact-name-input, 
+.email-contact-box, 
+.phone-contact-box
+ {
+  font-size: 1.53rem;
+  
+}
+.model-contact-box {
+  font-size: 6px;
+}
+.contact-company-label {
+  font-size: 1.6rem;
+  padding: 0;
+}
+.finish-contact-label {
+  font-size: 30px;
+}
+.contact-finish-img-section {
+  display: block;
+}
+.finish-contact-select {
+  font-size: 7px;
+}
+.contact-warn, .contact-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-contact-label {
+  font-size: 24px;
+  padding: 0;
+}
+.contact-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-contact-input {
+  padding-left: 0px;
+}
+.emailphone-contact-input, 
+.address-contact-input-container, 
+.size-contact-section {
+  margin: 0px;
+  display: block;
+}
+.contact-company-name-input, 
+.address-contact-input, 
+.email-contact-input, 
+.contact-phone-name-input, 
+.length-contact-section, 
+.width-contact-section, 
+.place-contact-section, 
+.finish-contact-section, 
+.file-contact-section, 
+.border-contact-section,
+.type-contact-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-contact-inputing, 
+.city-contact-input, 
+.phone-contact {
+  padding-left: 0px;
+}
+
+.address-contact-label, 
+.type-contact-label,
+.size-contact-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-contact-note, .size-passenger-contact-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-contact-section, 
+.width-door-contact-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-contact-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-contact-contain {
+  display: block;
+  text-align: center;
+}
+.file-contact-label, .remove-contact-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-contact-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-contact {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-contact-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 20px;
+}
+  }
+
+  @media screen and (max-width: 1200px) and (orientation: portrait) {
+    .contact-flexi {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .main-contact-graphics {
+      display: block;
+    }
+    .page-contact-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .contact-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-contact-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .contact-form-info {
+      margin: 0;
+    }
+    .contact-app-box {
+      font-size: 37px;
+    }
+    .contact-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .contact-actual {
+      margin: 0;
+    }
+    .contact-material {
+      font-size: 3rem;
+    }
+    .phone-paragraph, .email-paragraph, .address-paragraph {
+      font-size: 1.15rem;
+    }
+    .phone-img-contact, .email-img-contact, .address-img-contact {
+      width: 30px;
+    }
+    .name-section-contact,
+   .company-contact-section,
+   .emailphone-contact-section,
+   .address-contact-section,
+   .vehicle-type-contact-section,
+   .vehicle-size-contact-section,
+   .door-size-contact-section,
+   .finishing-contact-section,
+   .contact-file-section,
+   .contact-message-container {
+    display: grid;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-contact-name-label, 
+.contact-company-label, 
+.emailphone-contact-label,
+.address-contact-label,
+.size-contact-label,
+.message-contact-label,
+.place-contact-label,
+.finish-contact-label,
+.contact-file-label,
+.type-contact-label {
+  font-size: 33px;
+}
+.first-name-contact-input, 
+.emailphone-contact-input, 
+.contact-company-name-input, 
+.address-contact-input, 
+.email-contact-input, 
+.contact-phone-name-input, 
+.length-contact-section, 
+.length-door-contact-section, 
+.width-contact-section, 
+.place-contact-section, 
+.finish-contact-section, 
+.file-contact-section, 
+.border-contact-section, 
+.type-contact-section {
+  display: block;
+  padding-left: 0;
+  text-align: center;
+}
+.first-contact-label-name, 
+.last-contact-label-name, 
+.company-contact-name, 
+.email-contact-name, 
+.phone-contact-label, 
+.addr-contact-label, 
+.city-contact-label, 
+.state-contact-label, 
+.zip-contact-label, 
+.length-contact-label, 
+.width-contact-label, 
+.place-label, 
+.finish-label, 
+.border-label, 
+.contact-contact, 
+.year-contact-label, 
+.make-contact-label, 
+.model-contact-label, 
+.trim-contact-label {
+  font-size: 2rem;
+}
+.contact-message-container {
+  margin-top: 10px;
+}
+.message-contact-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.contact-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-contact-input
+.emailphone-contact-input, 
+.address-contact-input-container, 
+.size-contact-section,
+.size-door-contact-section {
+  margin: 0;
+  display: block;
+}
+.last-contact-name {
+  padding-left: 0;
+}
+.firstname-contact-name-input, 
+.lastname-contact-name-input, 
+.company-contact-name-input, 
+.email-contact-box, 
+.phone-contact-box, 
+.address-contact-box, 
+.city-contact-box, 
+.state-contact-box, 
+.zip-contact-box, 
+.length-contact-box, 
+.width-contact-box, 
+.border-contact-box, 
+.length-contact-select, 
+.width-contact-select, 
+.place-contact-select, 
+.finish-contact-select, 
+.border-contact-select, 
+.type-contact-box,
+.year-contact-box,
+.make-contact-box,
+.length-door-contact-box,
+.width-door-contact-box
+ {
+  font-size: 1.53rem;
+  
+}
+.model-contact-box {
+  font-size: 6px;
+}
+.contact-company-label {
+  font-size: 1.6rem;
+  padding: 0;
+}
+.finish-contact-label {
+  font-size: 30px;
+}
+.contact-finish-img-section {
+  display: block;
+}
+.finish-contact-select {
+  font-size: 7px;
+}
+.contact-warn, .contact-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-contact-label {
+  font-size: 24px;
+  padding: 0;
+}
+.contact-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-contact-input {
+  padding-left: 0px;
+}
+.emailphone-contact-input, 
+.address-contact-input-container, 
+.size-contact-section {
+  margin: 0px;
+  display: block;
+}
+.contact-company-name-input, 
+.address-contact-input, 
+.email-contact-input, 
+.contact-phone-name-input, 
+.length-contact-section, 
+.width-contact-section, 
+.place-contact-section, 
+.finish-contact-section, 
+.file-contact-section, 
+.border-contact-section,
+.type-contact-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-contact-inputing, 
+.city-contact-input, 
+.phone-contact {
+  padding-left: 0px;
+}
+
+.address-contact-label, 
+.type-contact-label,
+.size-contact-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-contact-note, .size-passenger-contact-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-contact-section, 
+.width-door-contact-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-contact-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-contact-contain {
+  display: block;
+  text-align: center;
+}
+.file-contact-label, .remove-contact-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-contact-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-contact {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-contact-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 20px;
+}
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 600px) and (orientation: portrait) {
+    .contact-flexi {
+      display: block;
+    }
+    .main-contact-graphics {
+      display: block;
+    }
+    .page-contact-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .contact-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-contact-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .contact-form-info {
+      margin: 0;
+    }
+    .contact-app-box {
+      font-size: 37px;
+    }
+    .contact-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .contact-actual {
+      margin: 0;
+    }
+    .contact-material {
+      font-size: 3rem;
+    }
+    .phone-paragraph, .email-paragraph, .address-paragraph {
+      font-size: 1.15rem;
+    }
+    .phone-img-contact, .email-img-contact, .address-img-contact {
+      width: 30px;
+    }
+    .name-section-contact,
+   .company-contact-section,
+   .emailphone-contact-section,
+   .contact-message-container {
+    display: grid;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+   }
+    .first-contact-name-label, 
+  .contact-company-label, 
+  .emailphone-contact-label{
+  font-size: 33px;
+  }
+  .first-name-contact-input, 
+  .emailphone-contact-input, 
+  .contact-company-name-input, 
+  .address-contact-input, 
+  .email-contact-input,
+  .company-contact-input {
+  display: block;
+  padding-left: 0;
+  text-align: center;
+  }
+  .first-contact-label-name, 
+  .last-contact-label-name, 
+  .company-contact-name, 
+  .email-contact-name, 
+  .phone-contact-label {
+  font-size: 2rem;
+  }
+  .contact-message-container {
+  margin-top: 10px;
+  }
+  .message-contact-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+  }
+  .contact-file-label {
+  padding: 0;
+  font-size: 30px;
+  }
+  .first-name-contact-input
+  .emailphone-contact-input, 
+  .address-contact-input-container, 
+  .size-contact-section,
+  .size-door-contact-section {
+  margin: 0;
+  display: block;
+  }
+  .last-contact-name {
+  padding-left: 0;
+  }
+  .firstname-contact-name-input, 
+  .lastname-contact-name-input, 
+  .company-contact-name-input, 
+  .email-contact-box, 
+  .phone-contact-box
+  {
+  font-size: 1.2rem;
+  }
+  .model-contact-box {
+  font-size: 6px;
+  }
+  .contact-company-label {
+  font-size: 1.6rem;
+  padding: 0;
+  }
+  .finish-contact-label {
+  font-size: 30px;
+  }
+  .contact-finish-img-section {
+  display: block;
+  }
+  .finish-contact-select {
+  font-size: 7px;
+  }
+  .contact-warn, .contact-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+  }
+  .log-re {
+  font-size: 17px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+  }
+  .emailphone-contact-label {
+  font-size: 24px;
+  padding: 0;
+  }
+  .contact-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+  }
+  .company-contact-input {
+  padding-left: 0px;
+  }
+  .emailphone-contact-input, 
+  .address-contact-input-container, 
+  .size-contact-section {
+  margin: 0px;
+  display: block;
+  }
+  .contact-company-name-input, 
+  .address-contact-input, 
+  .email-contact-input, 
+  .contact-phone-name-input, 
+  .length-contact-section, 
+  .width-contact-section, 
+  .place-contact-section, 
+  .finish-contact-section, 
+  .file-contact-section, 
+  .border-contact-section,
+  .type-contact-section {
+  margin: 0px;
+  display: flex;
+  padding-left: 0;
+  }
+  .address-contact-inputing, 
+  .city-contact-input, 
+  .phone-contact {
+  padding-left: 0px;
+  }
+  
+  .address-contact-label, 
+  .type-contact-label,
+  .size-contact-label {
+  font-size: 30px;
+  padding: 0;
+  }
+  .size-driver-contact-note, .size-passenger-contact-note {
+  font-size: 26px;
+  }
+  .driver-length-section, 
+  .driver-width-section, 
+  .passenger-length-section, 
+  .passenger-side-width, 
+  .length-door-contact-section, 
+  .width-door-contact-section {
+  display: block;
+  }
+  .vehicle-list, 
+  .vehicle-driver-size-li, 
+  .vehicle-passenger-size-li, 
+  .finishing-item,
+  .door-list {
+  font-size: 22px;
+  }
+  .passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+  }
+  .size-contact-label {
+  font-size: 20px;
+  }
+  .submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+  }
+  .choose-contact-contain {
+  display: block;
+  text-align: center;
+  }
+  .file-contact-label, .remove-contact-file-button {
+  font-size: 1rem;
+  display: block;
+  }
+  
+  .message-contact-text {
+  margin-left: 0;
+  text-align: center;
+  }
+  .submit-contact {
+  margin: 0;
+  font-size: 20px;
+  width: 110%;
+  }
+  .submit-vehicle {
+  font-size: 10px;
+  }
+  .btn-contact-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+  }
+  .door-length-submit-size, 
+  .door-remove-length-submit-size,
+  .submit-finishing,
+  .remove-finishing {
+  font-size: 12px;
+  margin-left: 0;
+  }
+  .no-added-vehicles,
+  .no-added-finishings {
+  margin: 0;
+  font-size: 20px;
+  }
+  }
+  
+  @media screen and (max-width: 320px) and (orientation: landscape) {
+    .contact-flexi {
+     display: block;
+   }
+   .main-contact-graphics {
+     display: block;
+   }
+   .page-contact-banner {
+     padding-top: 130px; /* Reduce padding */
+   }
+   .contact-description {
+     font-size: 37px; /* Reduce font size */
+     padding: 10px; /* Add padding to avoid content touching the edges */
+   }
+   .photo-mx-contact-note {
+     font-size: 25px; /* Reduce font size */
+   }
+   .contact-form-info {
+     margin: 0;
+   }
+   .contact-app-box {
+     font-size: 37px;
+   }
+   .contact-fill {
+     margin: 10px;
+     font-size: 18px;
+   }
+   .contact-actual {
+     margin: 0;
+   }
+   .contact-material {
+     font-size: 3rem;
+   }
+   .phone-paragraph, .email-paragraph, .address-paragraph {
+     font-size: 1.15rem;
+   }
+   .phone-img-contact, .email-img-contact, .address-img-contact {
+     width: 30px;
+   }
+   .name-section-contact,
+  .company-contact-section,
+  .emailphone-contact-section,
+  .contact-message-container {
+   display: grid;
+   justify-content: center;
+   padding: 0;
+   text-align: center;
+   margin: 0;
+  }
+   .first-contact-name-label, 
+ .contact-company-label, 
+ .emailphone-contact-label{
+ font-size: 33px;
+ }
+ .first-name-contact-input, 
+ .emailphone-contact-input, 
+ .contact-company-name-input, 
+ .address-contact-input, 
+ .email-contact-input,
+ .company-contact-input {
+ display: block;
+ padding-left: 0;
+ text-align: center;
+ }
+ .first-contact-label-name, 
+ .last-contact-label-name, 
+ .company-contact-name, 
+ .email-contact-name, 
+ .phone-contact-label {
+ font-size: 2rem;
+ }
+ .contact-message-container {
+ margin-top: 10px;
+ }
+ .message-contact-label {
+ margin-bottom: 0;
+ margin-top: 10px;
+ padding: 0;
+ 
+ }
+ .contact-file-label {
+ padding: 0;
+ font-size: 30px;
+ }
+ .first-name-contact-input
+ .emailphone-contact-input, 
+ .address-contact-input-container, 
+ .size-contact-section,
+ .size-door-contact-section {
+ margin: 0;
+ display: block;
+ }
+ .last-contact-name {
+ padding-left: 0;
+ }
+ .firstname-contact-name-input, 
+ .lastname-contact-name-input, 
+ .company-contact-name-input, 
+ .email-contact-box, 
+ .phone-contact-box
+ {
+ font-size: 1.2rem;
+ }
+ .model-contact-box {
+ font-size: 6px;
+ }
+ .contact-company-label {
+ font-size: 1.6rem;
+ padding: 0;
+ }
+ .finish-contact-label {
+ font-size: 30px;
+ }
+ .contact-finish-img-section {
+ display: block;
+ }
+ .finish-contact-select {
+ font-size: 7px;
+ }
+ .contact-warn, .contact-warn {
+ font-size: 15px;
+ padding-top: 10%;
+ margin: 0;
+ text-align: center;
+ }
+ .log-re {
+ font-size: 17px;
+ padding-top: 10%;
+ margin: 0;
+ text-align: center;
+ }
+ .emailphone-contact-label {
+ font-size: 24px;
+ padding: 0;
+ }
+ .contact-company-name-input {
+ margin: 10px;
+ padding-left: 0;
+ display: block;
+ }
+ .company-contact-input {
+ padding-left: 0px;
+ }
+ .emailphone-contact-input, 
+ .address-contact-input-container, 
+ .size-contact-section {
+ margin: 0px;
+ display: block;
+ }
+ .contact-company-name-input, 
+ .address-contact-input, 
+ .email-contact-input, 
+ .contact-phone-name-input, 
+ .length-contact-section, 
+ .width-contact-section, 
+ .place-contact-section, 
+ .finish-contact-section, 
+ .file-contact-section, 
+ .border-contact-section,
+ .type-contact-section {
+ margin: 0px;
+ display: flex;
+ padding-left: 0;
+ }
+ .address-contact-inputing, 
+ .city-contact-input, 
+ .phone-contact {
+ padding-left: 0px;
+ }
+ 
+ .address-contact-label, 
+ .type-contact-label,
+ .size-contact-label {
+ font-size: 30px;
+ padding: 0;
+ }
+ .size-driver-contact-note, .size-passenger-contact-note {
+ font-size: 26px;
+ }
+ .driver-length-section, 
+ .driver-width-section, 
+ .passenger-length-section, 
+ .passenger-side-width, 
+ .length-door-contact-section, 
+ .width-door-contact-section {
+ display: block;
+ }
+ .vehicle-list, 
+ .vehicle-driver-size-li, 
+ .vehicle-passenger-size-li, 
+ .finishing-item,
+ .door-list {
+ font-size: 22px;
+ }
+ .passenger-submit-size, .passenger-remove-submit-size {
+ font-size: 15px;
+ }
+ .size-contact-label {
+ font-size: 20px;
+ }
+ .submit-size {
+ margin-left: 0;
+ font-size: 15px;
+ text-align: center;
+ }
+ .choose-contact-contain {
+ display: block;
+ text-align: center;
+ }
+ .file-contact-label, .remove-contact-file-button {
+ font-size: 1rem;
+ display: block;
+ }
+ 
+ .message-contact-text {
+ margin-left: 0;
+ text-align: center;
+ }
+ .submit-contact {
+ margin: 0;
+ font-size: 20px;
+ width: 110%;
+ }
+ .submit-vehicle {
+ font-size: 10px;
+ }
+ .btn-contact-submit {
+ padding: 0;
+ margin-top: 10px;
+ width: 100%;
+ }
+ .door-length-submit-size, 
+ .door-remove-length-submit-size,
+ .submit-finishing,
+ .remove-finishing {
+ font-size: 12px;
+ margin-left: 0;
+ }
+ .no-added-vehicles,
+ .no-added-finishings {
+ margin: 0;
+ font-size: 20px;
+ }
+ }
+  @media screen and (max-width: 320px) and (orientation: portrait) {
+   .main-contact-graphics {
       display: block;
     }
     .page-contact-banner {
@@ -561,6 +1633,18 @@ height: auto;
     }
     .contact-set {
       display: block;
+    }
+    .contact-material {
+      font-size: 3rem;
+    }
+    .contact-flexi {
+      display: block;
+    }
+    .phone-paragraph, .email-paragraph, .address-paragraph {
+      font-size: 0.8rem;
+    }
+    .phone-img-contact, .email-img-contact, .address-img-contact {
+      width: 30px;
     }
     .name-section-contact,
    .company-contact-section,
@@ -680,7 +1764,7 @@ font-size: 30px;
   font-size: 6px;
 }
 .contact-company-label {
-  font-size: 18px;
+  font-size: 1.4rem;
   padding: 0;
 }
 .finish-contact-label {
@@ -816,1097 +1900,4 @@ font-size: 30px;
   margin: 0;
   font-size: 20px;
 }
-  }
-  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-contact-graphics {
-      display: block;
-    }
-    .page-contact-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .contact-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-contact-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .contact-form-info {
-      margin: 0;
-    }
-    .contact-app-box {
-      font-size: 40px;
-    }
-    .contact-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .contact-actual {
-      margin: 0;
-    }
-    .contact-set {
-      display: block;
-    }
-    .name-section-contact,
-   .company-contact-section,
-   .emailphone-contact-section,
-   .address-contact-section,
-   .vehicle-type-contact-section,
-   .vehicle-size-contact-section,
-   .door-size-contact-section,
-   .finishing-contact-section,
-   .contact-file-section,
-   .contact-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-contact-name-label, 
-.contact-company-label, 
-.emailphone-contact-label,
-.address-contact-label,
-.size-contact-label,
-.message-contact-label,
-.place-contact-label,
-.finish-contact-label,
-.contact-file-label,
-.type-contact-label {
-  font-size: 50px;
 }
-.first-name-contact-input, 
-.emailphone-contact-input, 
-.contact-company-name-input, 
-.address-contact-input, 
-.email-contact-input, 
-.contact-phone-name-input, 
-.length-contact-section, 
-.length-door-contact-section, 
-.width-contact-section, 
-.place-contact-section, 
-.finish-contact-section, 
-.file-contact-section, 
-.border-contact-section, 
-.type-contact-section {
-  display: block;
-  padding-left: 0;
-}
-.first-contact-label-name, 
-.last-contact-label-name, 
-.company-contact-name, 
-.email-contact-name, 
-.phone-contact-label, 
-.addr-contact-label, 
-.city-contact-label, 
-.state-contact-label, 
-.zip-contact-label, 
-.length-contact-label, 
-.width-contact-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.contact-contact, 
-.year-contact-label, 
-.make-contact-label, 
-.model-contact-label, 
-.trim-contact-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-.contact-message-container {
-  margin-top: 10px;
-}
-.message-contact-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.contact-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-contact-input
-.emailphone-contact-input, 
-.address-contact-input-container, 
-.size-contact-section,
-.size-door-contact-section {
-  margin: 0;
-  display: block;
-}
-.last-contact-name {
-  padding-left: 0;
-}
-.firstname-contact-name-input, 
-.lastname-contact-name-input, 
-.company-contact-name-input, 
-.email-contact-box, 
-.phone-contact-box, 
-.address-contact-box, 
-.city-contact-box, 
-.state-contact-box, 
-.zip-contact-box, 
-.length-contact-box, 
-.width-contact-box, 
-.border-contact-box, 
-.length-contact-select, 
-.width-contact-select, 
-.place-contact-select, 
-.finish-contact-select, 
-.border-contact-select, 
-.type-contact-box,
-.year-contact-box,
-.make-contact-box,
-.length-door-contact-box,
-.width-door-contact-box
- {
-  font-size: 18px;
-}
-.model-contact-box {
-  font-size: 10px;
-}
-.contact-company-label {
-  font-size: 25px;
-  padding: 0;
-}
-.finish-contact-label {
-  font-size: 30px;
-}
-.contact-finish-img-section {
-  display: block;
-}
-.finish-contact-select {
-  font-size: 7px;
-}
-.contact-warn, .contact-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-contact-label {
-  font-size: 24px;
-  padding: 0;
-}
-.contact-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-contact-input {
-  padding-left: 0px;
-}
-.emailphone-contact-input, 
-.address-contact-input-container, 
-.size-contact-section {
-  margin: 0px;
-  display: block;
-}
-.contact-company-name-input, 
-.address-contact-input, 
-.email-contact-input, 
-.contact-phone-name-input, 
-.length-contact-section, 
-.width-contact-section, 
-.place-contact-section, 
-.finish-contact-section, 
-.file-contact-section, 
-.border-contact-section,
-.type-contact-section {
-  margin: 0px;
-  display: block;
-  padding-left: 0;
-}
-.address-contact-inputing, 
-.city-contact-input, 
-.phone-contact {
-  padding-left: 0px;
-}
-
-.address-contact-label, 
-.type-contact-label,
-.size-contact-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-contact-note, .size-passenger-contact-note {
-  font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-contact-section, 
-.width-door-contact-section {
-  display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-contact-label {
-  font-size: 28px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-contact-contain {
-  display: block;
-  text-align: center;
-}
-.file-contact-label, .remove-contact-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-contact-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 10px;
-}
-.btn-contact-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
-}
-.no-added-vehicles,
-.no-added-finishings {
-  margin: 0;
-  font-size: 30px;
-}
-  }
-  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-contact-graphics {
-      display: block;
-    }
-    .page-contact-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .contact-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-contact-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .contact-form-info {
-      margin: 0;
-    }
-    .contact-app-box {
-      font-size: 40px;
-    }
-    .contact-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .contact-actual {
-      margin: 0;
-    }
-    .contact-set {
-      display: block;
-    }
-    .name-section-contact,
-   .company-contact-section,
-   .emailphone-contact-section,
-   .address-contact-section,
-   .vehicle-type-contact-section,
-   .vehicle-size-contact-section,
-   .door-size-contact-section,
-   .finishing-contact-section,
-   .contact-file-section,
-   .contact-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-contact-name-label, 
-.contact-company-label, 
-.emailphone-contact-label,
-.address-contact-label,
-.size-contact-label,
-.message-contact-label,
-.place-contact-label,
-.finish-contact-label,
-.contact-file-label,
-.type-contact-label {
-  font-size: 50px;
-}
-.first-name-contact-input, 
-.emailphone-contact-input, 
-.contact-company-name-input, 
-.address-contact-input, 
-.email-contact-input, 
-.contact-phone-name-input, 
-.length-contact-section, 
-.length-door-contact-section, 
-.width-contact-section, 
-.place-contact-section, 
-.finish-contact-section, 
-.file-contact-section, 
-.border-contact-section, 
-.type-contact-section {
-  display: block;
-  padding-left: 0;
-}
-.first-contact-label-name, 
-.last-contact-label-name, 
-.company-contact-name, 
-.email-contact-name, 
-.phone-contact-label, 
-.addr-contact-label, 
-.city-contact-label, 
-.state-contact-label, 
-.zip-contact-label, 
-.length-contact-label, 
-.width-contact-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.contact-contact, 
-.year-contact-label, 
-.make-contact-label, 
-.model-contact-label, 
-.trim-contact-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-.contact-message-container {
-  margin-top: 10px;
-}
-.message-contact-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.contact-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-contact-input
-.emailphone-contact-input, 
-.address-contact-input-container, 
-.size-contact-section,
-.size-door-contact-section {
-  margin: 0;
-  display: block;
-}
-.last-contact-name {
-  padding-left: 0;
-}
-.firstname-contact-name-input, 
-.lastname-contact-name-input, 
-.company-contact-name-input, 
-.email-contact-box, 
-.phone-contact-box, 
-.address-contact-box, 
-.city-contact-box, 
-.state-contact-box, 
-.zip-contact-box, 
-.length-contact-box, 
-.width-contact-box, 
-.border-contact-box, 
-.length-contact-select, 
-.width-contact-select, 
-.place-contact-select, 
-.finish-contact-select, 
-.border-contact-select, 
-.type-contact-box,
-.year-contact-box,
-.make-contact-box,
-.length-door-contact-box,
-.width-door-contact-box
- {
-  font-size: 18px;
-}
-.model-contact-box {
-  font-size: 10px;
-}
-.contact-company-label {
-  font-size: 25px;
-  padding: 0;
-}
-.finish-contact-label {
-  font-size: 30px;
-}
-.contact-finish-img-section {
-  display: block;
-}
-.finish-contact-select {
-  font-size: 7px;
-}
-.contact-warn, .contact-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-contact-label {
-  font-size: 24px;
-  padding: 0;
-}
-.contact-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-contact-input {
-  padding-left: 0px;
-}
-.emailphone-contact-input, 
-.address-contact-input-container, 
-.size-contact-section {
-  margin: 0px;
-  display: block;
-}
-.contact-company-name-input, 
-.address-contact-input, 
-.email-contact-input, 
-.contact-phone-name-input, 
-.length-contact-section, 
-.width-contact-section, 
-.place-contact-section, 
-.finish-contact-section, 
-.file-contact-section, 
-.border-contact-section,
-.type-contact-section {
-  margin: 0px;
-  display: block;
-  padding-left: 0;
-}
-.address-contact-inputing, 
-.city-contact-input, 
-.phone-contact {
-  padding-left: 0px;
-}
-
-.address-contact-label, 
-.type-contact-label,
-.size-contact-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-contact-note, .size-passenger-contact-note {
-  font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-contact-section, 
-.width-door-contact-section {
-  display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-contact-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-contact-contain {
-  display: block;
-  text-align: center;
-}
-.file-contact-label, .remove-contact-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-contact-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 10px;
-}
-.btn-contact-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-contact-graphics {
-      display: block;
-    }
-    .page-contact-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .contact-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-contact-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .contact-form-info {
-      margin: 0;
-    }
-    .contact-app-box {
-      font-size: 40px;
-    }
-    .contact-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .contact-actual {
-      margin: 0;
-    }
-    .contact-set {
-      display: block;
-    }
-    .name-section-contact,
-   .company-contact-section,
-   .emailphone-contact-section,
-   .address-contact-section,
-   .vehicle-type-contact-section,
-   .vehicle-size-contact-section,
-   .door-size-contact-section,
-   .finishing-contact-section,
-   .contact-file-section,
-   .contact-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-contact-name-label, 
-.contact-company-label, 
-.emailphone-contact-label,
-.address-contact-label,
-.size-contact-label,
-.message-contact-label,
-.place-contact-label,
-.finish-contact-label,
-.contact-file-label,
-.type-contact-label {
-  font-size: 50px;
-}
-.first-name-contact-input, 
-.emailphone-contact-input, 
-.contact-company-name-input, 
-.address-contact-input, 
-.email-contact-input, 
-.contact-phone-name-input, 
-.length-contact-section, 
-.length-door-contact-section, 
-.width-contact-section, 
-.place-contact-section, 
-.finish-contact-section, 
-.file-contact-section, 
-.border-contact-section, 
-.type-contact-section {
-  display: block;
-  padding-left: 0;
-}
-.first-contact-label-name, 
-.last-contact-label-name, 
-.company-contact-name, 
-.email-contact-name, 
-.phone-contact-label, 
-.addr-contact-label, 
-.city-contact-label, 
-.state-contact-label, 
-.zip-contact-label, 
-.length-contact-label, 
-.width-contact-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.contact-contact, 
-.year-contact-label, 
-.make-contact-label, 
-.model-contact-label, 
-.trim-contact-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-.year-contact-label {
-  font-size: 50px;
-}
-.contact-message-container {
-  margin-top: 10px;
-}
-.message-contact-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.contact-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-contact-input
-.emailphone-contact-input, 
-.address-contact-input-container, 
-.size-contact-section,
-.size-door-contact-section {
-  margin: 0;
-  display: block;
-}
-.last-contact-name {
-  padding-left: 0;
-}
-.firstname-contact-name-input, 
-.lastname-contact-name-input, 
-.company-contact-name-input, 
-.email-contact-box, 
-.phone-contact-box, 
-.address-contact-box, 
-.city-contact-box, 
-.state-contact-box, 
-.zip-contact-box, 
-.length-contact-box, 
-.width-contact-box, 
-.border-contact-box, 
-.length-contact-select, 
-.width-contact-select, 
-.place-contact-select, 
-.finish-contact-select, 
-.border-contact-select, 
-.type-contact-box,
-.year-contact-box,
-.make-contact-box,
-.length-door-contact-box,
-.width-door-contact-box
- {
-  font-size: 18px;
-}
-.model-contact-box {
-  font-size: 10px;
-}
-.contact-company-label {
-  font-size: 30px;
-  padding: 0;
-}
-.finish-contact-label {
-  font-size: 30px;
-}
-.contact-finish-img-section {
-  display: block;
-}
-.finish-contact-select {
-  font-size: 13px;
-}
-.contact-warn, .contact-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-contact-label {
-  font-size: 30px;
-  padding: 0;
-}
-.contact-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-contact-input {
-  padding-left: 0px;
-}
-.emailphone-contact-input, 
-.address-contact-input-container, 
-.size-contact-section {
-  margin: 0px;
-  display: block;
-}
-.contact-company-name-input, 
-.address-contact-input, 
-.email-contact-input, 
-.contact-phone-name-input, 
-.length-contact-section, 
-.width-contact-section, 
-.place-contact-section, 
-.finish-contact-section, 
-.file-contact-section, 
-.border-contact-section,
-.type-contact-section {
-  margin: 0px;
-  display: block;
-  padding-left: 0;
-}
-.address-contact-inputing, 
-.city-contact-input, 
-.phone-contact {
-  padding-left: 0px;
-}
-
-.address-contact-label, 
-.type-contact-label,
-.size-contact-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-contact-note, .size-passenger-contact-note {
-  font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-contact-section, 
-.width-door-contact-section {
-  display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-contact-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-contact-contain {
-  display: block;
-  text-align: center;
-}
-.file-contact-label, .remove-contact-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-contact-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 10px;
-}
-.btn-contact-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-contact-graphics {
-      display: block;
-    }
-    .page-contact-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .contact-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-contact-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .contact-form-info {
-      margin: 0;
-    }
-    .contact-app-box {
-      font-size: 40px;
-    }
-    .contact-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .contact-actual {
-      margin: 0;
-    }
-    .contact-set {
-      display: block;
-    }
-  
-
-.first-contact-label-name, 
-.last-contact-label-name, 
-.company-contact-name, 
-.email-contact-name, 
-.phone-contact-label, 
-.addr-contact-label, 
-.city-contact-label, 
-.state-contact-label, 
-.zip-contact-label, 
-.length-contact-label, 
-.width-contact-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.contact-contact, 
-.year-contact-label, 
-.make-contact-label, 
-.model-contact-label, 
-.trim-contact-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-
-.contact-message-container {
-  margin-top: 10px;
-}
-.message-contact-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.contact-file-label {
-padding: 0;
-font-size: 30px;
-}
-
-.last-contact-name {
-  padding-left: 0;
-}
-.firstname-contact-name-input, 
-.lastname-contact-name-input, 
-.company-contact-name-input, 
-.email-contact-box, 
-.phone-contact-box, 
-.address-contact-box, 
-.city-contact-box, 
-.state-contact-box, 
-.zip-contact-box, 
-.length-contact-box, 
-.width-contact-box, 
-.border-contact-box, 
-.length-contact-select, 
-.width-contact-select, 
-.place-contact-select, 
-.finish-contact-select, 
-.border-contact-select, 
-.type-contact-box,
-.year-contact-box,
-.make-contact-box,
-.length-door-contact-box,
-.width-door-contact-box
- {
-  font-size: 19px;
-}
-.model-contact-box {
-  font-size: 19px;
-}
-.contact-company-label {
-  font-size: 30px;
-  padding: 0;
-}
-.finish-contact-label {
-  font-size: 30px;
-}
-
-.finish-contact-select {
-  font-size: 13px;
-}
-.contact-warn, .contact-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-contact-label {
-  font-size: 30px;
-  padding: 0;
-}
-.contact-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-contact-input {
-  padding-left: 0px;
-}
-.emailphone-contact-input, 
-.address-contact-input-container, 
-.size-contact-section {
-  margin: 0px;
-  display: grid;
-}
-.first-contact-name-label {
-  font-size: 50px;
-}
-.contact-company-name-input, 
-.address-contact-input, 
-.email-contact-input, 
-.contact-phone-name-input, 
-.length-contact-section, 
-.width-contact-section, 
-.place-contact-section, 
-.finish-contact-section, 
-.file-contact-section, 
-.border-contact-section,
-.type-contact-section {
-  margin: 0px;
-  display: grid;
-  padding-left: 0;
-}
-.address-contact-inputing, 
-.city-contact-input, 
-.phone-contact {
-  padding-left: 0px;
-}
-
-.address-contact-label, 
-.type-contact-label,
-.size-contact-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-contact-note, .size-passenger-contact-note {
-  font-size: 26px;
-}
-
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-contact-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-contact-contain {
-  display: block;
-  text-align: center;
-}
-.file-contact-label, .remove-contact-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-contact-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 30px;
-}
-.btn-contact-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 20px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 1080px) and (max-width: 1920px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .contact-description {
-      font-size: 85px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .size-contact-section, .size-door-contact-section {
-      margin: 0;
-
-    }
-    .submit-contact, .submit-vehicle {
-      width: 100%;
-      font-size: 40px;
-      height: auto;
-    }
-  }
