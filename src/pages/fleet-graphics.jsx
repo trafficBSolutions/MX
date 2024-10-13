@@ -1391,7 +1391,7 @@ we are closed, we will respond the next business day. Please note that we do not
           <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
