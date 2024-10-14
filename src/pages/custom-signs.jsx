@@ -767,8 +767,10 @@ onChange={(e) => {
       readOnly
       className="sign-size-input"
     />
-    <label>Sign Sides *</label>
-    <select value={signSidesValue} onChange={(e) => {
+    <label className="sign-sides-labeling">Sign Sides *</label>
+    <select 
+    className="sign-sides-input"
+    value={signSidesValue} onChange={(e) => {
         setSignSidesValue(e.target.value);
         if (e.target.value) setSignSidesError(''); // Clear error when valid value is selected
     }}>
@@ -801,6 +803,7 @@ onChange={(e) => {
     <label className="sign-quantity-label">How Many Signs *</label>
     <input
       type="number"
+      className="sign-quantity-input"
       value={quantity}
       min="1"
       onChange={(e) => {
@@ -1147,7 +1150,7 @@ and what time you want an MX crew will arrive.</h1>
           <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
