@@ -41,7 +41,7 @@ export default function MXShirtGallery() {
 
   return (
     <div>
-      <h2 className="photo-mx-note">MX T-SHIRT/SWEATSHIRT/JACKET PHOTO GALLERY</h2>
+      <h2 className="photo-mx-note">MX T-SHIRT SWEATSHIRT JACKET PHOTO GALLERY</h2>
       <div style={{ position: 'relative' }}>
         <Gallery photos={visiblePhotos} />
         {currentPhotoIndex !== 0 && (
