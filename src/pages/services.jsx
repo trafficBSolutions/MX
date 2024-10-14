@@ -23,7 +23,7 @@ const Service = () => {
     and vibrant designs that reflect your brand's vision. Trust us to deliver on time, every time, with 
     a commitment to excellence and customer satisfaction.
   </p>
-  <p className="service-contact">Click any of the buttons below to learn more about our sign shop services.
+  <p className="service-contact">Click any of the buttons to learn more about our sign shop services.
     Please contact us if you have any questions or concerns at <a href="tel:+17062630175">(706) 263-0175</a> or <a href="mailto:tbsolutions1999@gmail.com">tbsolutions1999@gmail.com</a>
   </p>
   <div className="material-services-buttons">
@@ -136,7 +136,7 @@ const Service = () => {
           <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link-view" href="">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
