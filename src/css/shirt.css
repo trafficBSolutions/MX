@@ -48,7 +48,11 @@
     font-family: "Kairos W04 Extended Bold";
     height: auto;
   }
-
+  .photo-gal-apparel {
+    max-width: 1500px;
+    height: auto;
+    margin: 0 auto;
+  }
   /* ================================
    ================================
     ADHESIVE SECTION FORM
@@ -89,13 +93,6 @@
     width: auto;
     height: auto;
     font-size: 50px;
-  }
-  .log-re {
-    margin: 40px;
-    text-align: center;
-    font-size: 50px;
-    width: auto;
-    height: auto;
   }
 .apparel-fill {
     margin: 40px;
@@ -368,13 +365,6 @@
 /* ================================
    apparel Image Section
    ================================ */
-   .place-flex-container {
-    display: flex;
-    justify-content: space-between; /* Adjusts space between items */
-    align-items: center; /* Aligns items vertically */
-    flex-wrap: nowrap; /* Ensures the items stay on one line */
-    height: auto;
-}
 
 .place-img-container {
     flex: 1;
@@ -558,15 +548,892 @@ height: auto;
   width: 100%;
   height: auto;
 }
-  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+@media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
+  .main-apparel-graphics {
+    display: block;
+  }
+  .page-apparel-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .apparel-description {
+    font-size: 4rem; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-apparel-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .apparel-form-info {
+    margin: 0;
+  }
+  .apparel-app-box {
+    font-size: 40px;
+  }
+  .apparel-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+.first-apparel-label-name, .last-apparel-label-name, .company-apparel-name, .email-apparel-name, .phone-apparel-label, .addr-apparel-label, .city-apparel-label, 
+.state-apparel-label, .zip-apparel-label, .apparel-type-label, .apparel-size-label, .apparel-color-label, .apparel-quantity-label, .apparel-logo {
+font-size: 3rem;
+}
+.apparel-message-container {
+margin-top: 10px;
+}
+.message-apparel-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+
+.last-apparel-name {
+padding-left: 0;
+}
+.firstname-apparel-name-input, .lastname-apparel-name-input, .company-apparel-name-input, 
+.email-apparel-box, .phone-apparel-box, .address-apparel-box, .city-apparel-box, .state-apparel-box, .zip-apparel-box, 
+.apparel-type-input, .apparel-size-input, .apparel-color-input, .apparel-quantity-input 
+{
+font-size: 2.6rem;
+}
+.added-apparel-list, .apparel-item-list {
+font-size: 3rem;
+}
+.apparel-type-p, .apparel-size-p, .apparel-cut-p, .apparel-quantity-p {
+  font-size: 2rem;
+}
+.finish-apparel-label {
+font-size: 30px;
+}
+.apparel-finish-img-section {
+display: block;
+}
+.finish-apparel-select {
+font-size: 7px;
+}
+.apparel-warn, .logo-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.company-apparel-input {
+padding-left: 0px;
+}
+
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+padding-left: 0px;
+}
+
+.size-driver-apparel-note, .size-passenger-apparel-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-apparel-label {
+font-size: 35px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-apparel-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-apparel {
+margin: 0;
+font-size: 20px;
+width: 110%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-apparel-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+.apparel-warn {
+  font-size: 1.4rem;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  .main-apparel-graphics {
+    display: block;
+  }
+  .page-apparel-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .apparel-description {
+    font-size: 4rem; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-apparel-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .apparel-form-info {
+    margin: 0;
+  }
+  .apparel-app-box {
+    font-size: 40px;
+  }
+  .apparel-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .apparel-actual {
+    margin: 0;
+  }
+  .apparel-set {
+    display: block;
+  }
+  .name-section-apparel,
+ .company-apparel-section,
+ .emailphone-apparel-section,
+ .address-apparel-section,
+ .vehicle-type-apparel-section,
+ .vehicle-size-apparel-section,
+ .door-size-apparel-section,
+ .finishing-apparel-section,
+ .apparel-file-section,
+ .apparel-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+ .first-apparel-name-label, .emailphone-apparel-label, 
+ .address-apparel-label, .type-apparel-label, .message-apparel-label, .apparel-large-type-label, .apparel-file-label, .type-apparel-label  {
+font-size: 50px;
+padding: 0;
+}
+.first-name-apparel-input, 
+.emailphone-apparel-input, 
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.length-door-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section, 
+.type-apparel-section {
+display: block;
+padding-left: 0;
+}
+.first-apparel-label-name, .last-apparel-label-name, .company-apparel-name, .email-apparel-name, .phone-apparel-label, .addr-apparel-label, .city-apparel-label, 
+.state-apparel-label, .zip-apparel-label, .apparel-type-label, .apparel-size-label, .apparel-color-label, .apparel-quantity-label, .apparel-logo {
+font-size: 35px;
+padding-left: 0;
+}
+.apparel-message-container {
+margin-top: 10px;
+}
+.message-apparel-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.apparel-file-label {
+padding: 0;
+font-size: 3.7rem;
+}
+.first-name-apparel-input
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section,
+.size-door-apparel-section {
+margin: 0;
+display: block;
+}
+.last-apparel-name {
+padding-left: 0;
+}
+.firstname-apparel-name-input, .lastname-apparel-name-input, .company-apparel-name-input, 
+.email-apparel-box, .phone-apparel-box, .address-apparel-box, .city-apparel-box, .state-apparel-box, .zip-apparel-box, 
+.apparel-type-input, .apparel-size-input, .apparel-color-input, .apparel-quantity-input 
+{
+font-size: 20px;
+}
+.model-apparel-box {
+font-size: 10px;
+}
+.added-apparel-list, .apparel-item-list {
+font-size: 3rem;
+}
+.apparel-type-p, .apparel-size-p, .apparel-cut-p, .apparel-quantity-p {
+  font-size: 2rem;
+}
+.apparel-company-label {
+font-size: 30px;
+padding: 0;
+}
+.finish-apparel-label {
+font-size: 30px;
+}
+.apparel-finish-img-section {
+display: block;
+}
+.finish-apparel-select {
+font-size: 7px;
+}
+.apparel-warn, .logo-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-apparel-label {
+font-size: 30px;
+padding: 0;
+}
+.apparel-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-apparel-input {
+padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+margin: 0px;
+display: block;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+padding-left: 0px;
+}
+
+.address-apparel-label, 
+.type-apparel-label,
+.size-apparel-label {
+font-size: 30px;
+padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-apparel-label {
+font-size: 35px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-apparel-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-apparel {
+margin: 0;
+font-size: 20px;
+width: 110%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-apparel-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+.apparel-warn {
+  font-size: 1.4rem;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+  .main-apparel-graphics {
+    display: block;
+  }
+  .page-apparel-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .apparel-description {
+    font-size: 4rem; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-apparel-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .apparel-form-info {
+    margin: 0;
+  }
+  .apparel-app-box {
+    font-size: 40px;
+  }
+  .apparel-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .apparel-actual {
+    margin: 0;
+  }
+  .apparel-set {
+    display: block;
+  }
+  .name-section-apparel,
+ .company-apparel-section,
+ .emailphone-apparel-section,
+ .address-apparel-section,
+ .vehicle-type-apparel-section,
+ .vehicle-size-apparel-section,
+ .door-size-apparel-section,
+ .finishing-apparel-section,
+ .apparel-file-section,
+ .apparel-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+ .first-apparel-name-label, .emailphone-apparel-label, 
+ .address-apparel-label, .type-apparel-label, .message-apparel-label, .apparel-large-type-label, .apparel-file-label, .type-apparel-label  {
+font-size: 50px;
+padding: 0;
+}
+.first-name-apparel-input, 
+.emailphone-apparel-input, 
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.length-door-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section, 
+.type-apparel-section {
+display: block;
+padding-left: 0;
+}
+.first-apparel-label-name, .last-apparel-label-name, .company-apparel-name, .email-apparel-name, .phone-apparel-label, .addr-apparel-label, .city-apparel-label, 
+.state-apparel-label, .zip-apparel-label, .apparel-type-label, .apparel-size-label, .apparel-color-label, .apparel-quantity-label, .apparel-logo {
+font-size: 2.5rem;
+padding-left: 0;
+}
+.apparel-message-container {
+margin-top: 10px;
+}
+.message-apparel-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.apparel-file-label {
+padding: 0;
+font-size: 3.7rem;
+}
+.first-name-apparel-input
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section,
+.size-door-apparel-section {
+margin: 0;
+display: block;
+}
+.last-apparel-name {
+padding-left: 0;
+}
+.firstname-apparel-name-input, .lastname-apparel-name-input, .company-apparel-name-input, 
+.email-apparel-box, .phone-apparel-box, .address-apparel-box, .city-apparel-box, .state-apparel-box, .zip-apparel-box, 
+.apparel-type-input, .apparel-size-input, .apparel-color-input, .apparel-quantity-input 
+{
+font-size: 2rem;
+}
+.model-apparel-box {
+font-size: 10px;
+}
+.added-apparel-list, .apparel-item-list {
+font-size: 3rem;
+}
+.apparel-type-p, .apparel-size-p, .apparel-cut-p, .apparel-quantity-p {
+  font-size: 2rem;
+}
+.apparel-company-label {
+font-size: 3.5rem;
+padding: 0;
+}
+.finish-apparel-label {
+font-size: 30px;
+}
+.apparel-finish-img-section {
+display: block;
+}
+.finish-apparel-select {
+font-size: 7px;
+}
+.apparel-warn, .logo-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-apparel-label {
+font-size: 3.5rem;
+padding: 0;
+}
+.apparel-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-apparel-input {
+padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+margin: 0px;
+display: block;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+padding-left: 0px;
+}
+
+.address-apparel-label {
+font-size: 3.5rem;
+padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-apparel-label {
+font-size: 35px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-apparel-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-apparel {
+margin: 0;
+font-size: 20px;
+width: 110%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-apparel-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+.apparel-warn {
+  font-size: 1.4rem;
+}
+}
+@media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
+  .main-apparel-graphics {
+    display: block;
+  }
+  .page-apparel-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .apparel-description {
+    font-size: 2.2rem; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-apparel-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .apparel-form-info {
+    margin: 0;
+  }
+  .apparel-app-box {
+    font-size: 40px;
+  }
+  .apparel-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .apparel-actual {
+    margin: 0;
+  }
+  .apparel-set {
+    display: block;
+  }
+  .name-section-apparel,
+ .company-apparel-section,
+ .emailphone-apparel-section,
+ .address-apparel-section,
+ .vehicle-type-apparel-section,
+ .vehicle-size-apparel-section,
+ .door-size-apparel-section,
+ .finishing-apparel-section,
+ .apparel-file-section,
+ .apparel-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+ .first-apparel-name-label, .emailphone-apparel-label, 
+ .address-apparel-label, .type-apparel-label, .message-apparel-label, .apparel-large-type-label, .apparel-file-label, .type-apparel-label  {
+font-size: 50px;
+padding: 0;
+}
+.first-name-apparel-input, 
+.emailphone-apparel-input, 
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.length-door-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section, 
+.type-apparel-section {
+display: block;
+padding-left: 0;
+}
+.first-apparel-label-name, .last-apparel-label-name, .company-apparel-name, .email-apparel-name, .phone-apparel-label, .addr-apparel-label, .city-apparel-label, 
+.state-apparel-label, .zip-apparel-label, .apparel-type-label, .apparel-size-label, .apparel-color-label, .apparel-quantity-label, .apparel-logo {
+font-size: 35px;
+padding-left: 0;
+}
+.apparel-message-container {
+margin-top: 10px;
+}
+.message-apparel-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.apparel-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-apparel-input
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section,
+.size-door-apparel-section {
+margin: 0;
+display: block;
+}
+.last-apparel-name {
+padding-left: 0;
+}
+.firstname-apparel-name-input, .lastname-apparel-name-input, .company-apparel-name-input, 
+.email-apparel-box, .phone-apparel-box, .address-apparel-box, .city-apparel-box, .state-apparel-box, .zip-apparel-box, 
+.apparel-type-input, .apparel-size-input, .apparel-color-input, .apparel-quantity-input 
+{
+font-size: 20px;
+}
+.model-apparel-box {
+font-size: 10px;
+}
+.added-apparel-list, .apparel-item-list {
+font-size: 3rem;
+}
+.apparel-type-p, .apparel-size-p, .apparel-cut-p, .apparel-quantity-p {
+  font-size: 2rem;
+}
+.apparel-company-label {
+font-size: 30px;
+padding: 0;
+}
+.finish-apparel-label {
+font-size: 30px;
+}
+.apparel-finish-img-section {
+display: block;
+}
+.finish-apparel-select {
+font-size: 7px;
+}
+.apparel-warn, .logo-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-apparel-label {
+font-size: 30px;
+padding: 0;
+}
+.apparel-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-apparel-input {
+padding-left: 0px;
+}
+.emailphone-apparel-input, 
+.address-apparel-input-container, 
+.size-apparel-section {
+margin: 0px;
+display: block;
+}
+.apparel-company-name-input, 
+.address-apparel-input, 
+.email-apparel-input, 
+.apparel-phone-name-input, 
+.length-apparel-section, 
+.width-apparel-section, 
+.place-apparel-section, 
+.finish-apparel-section, 
+.file-apparel-section, 
+.border-apparel-section,
+.type-apparel-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-apparel-inputing, 
+.city-apparel-input, 
+.phone-apparel {
+padding-left: 0px;
+}
+
+.address-apparel-label, 
+.type-apparel-label,
+.size-apparel-label {
+font-size: 30px;
+padding: 0;
+}
+.size-driver-apparel-note, .size-passenger-apparel-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-apparel-section, 
+.width-door-apparel-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-apparel-label {
+font-size: 35px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-apparel-label, .remove-apparel-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-apparel-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-apparel {
+margin: 0;
+font-size: 20px;
+width: 110%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-apparel-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+}
+  @media screen and (max-width: 320px) and (orientation: portrait) {
     .main-apparel-graphics {
       display: block;
     }
     .page-apparel-banner {
-      padding-top: 130px; /* Reduce padding */
+      padding-top: 100px; /* Reduce padding */
     }
     .apparel-description {
-      font-size: 37px; /* Reduce font size */
+      font-size: 23px; /* Reduce font size */
       padding: 10px; /* Add padding to avoid content touching the edges */
     }
     .photo-mx-apparel-note {
@@ -603,16 +1470,15 @@ height: auto;
     margin: 0;
     margin-top: 10px;
    }
-    .first-apparel-name-label, 
-.apparel-company-label, 
-.emailphone-apparel-label,
-.address-apparel-label,
-.size-apparel-label,
-.message-apparel-label,
-.place-apparel-label,
-.finish-apparel-label,
-.apparel-file-label,
-.type-apparel-label {
+   .first-apparel-name-label, 
+   .apparel-company-label, 
+   .emailphone-apparel-label, 
+   .address-apparel-label, 
+   .type-apparel-label, 
+   .message-apparel-label, 
+   .apparel-large-type-label, 
+   .apparel-file-label, 
+   .type-apparel-label  {
   font-size: 33px;
 }
 .first-name-apparel-input, 
@@ -641,16 +1507,11 @@ height: auto;
 .city-apparel-label, 
 .state-apparel-label, 
 .zip-apparel-label, 
-.length-apparel-label, 
-.width-apparel-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.apparel-logo, 
-.year-apparel-label, 
-.make-apparel-label, 
-.model-apparel-label, 
-.trim-apparel-label {
+.apparel-type-label, 
+.apparel-size-label, 
+.apparel-color-label, 
+.apparel-quantity-label, 
+.apparel-logo {
   font-size: 25px;
 }
 .apparel-message-container {
@@ -686,19 +1547,10 @@ font-size: 30px;
 .city-apparel-box, 
 .state-apparel-box, 
 .zip-apparel-box, 
-.length-apparel-box, 
-.width-apparel-box, 
-.border-apparel-box, 
-.length-apparel-select, 
-.width-apparel-select, 
-.place-apparel-select, 
-.finish-apparel-select, 
-.border-apparel-select, 
-.type-apparel-box,
-.year-apparel-box,
-.make-apparel-box,
-.length-door-apparel-box,
-.width-door-apparel-box
+.apparel-type-input, 
+.apparel-size-input, 
+.apparel-color-input, 
+.apparel-quantity-input
  {
   font-size: 12px;
 }
@@ -724,12 +1576,6 @@ font-size: 30px;
   margin: 0;
   text-align: center;
 }
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
 .emailphone-apparel-label {
   font-size: 24px;
   padding: 0;
@@ -777,6 +1623,13 @@ font-size: 30px;
 }
 .size-driver-apparel-note, .size-passenger-apparel-note {
   font-size: 26px;
+}
+.added-apparel-list, .apparel-item {
+  
+  font-size: 20px;
+}
+.apparel-type-p, .apparel-size-p, .apparel-cut-p, .apparel-quantity-p {
+  font-size: 20px;
 }
 .driver-length-section, 
 .driver-width-section, 
@@ -830,12 +1683,8 @@ font-size: 30px;
   margin-top: 10px;
   width: 100%;
 }
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
+.submit-apparels, .remove-apparel, .submit-apparel, .new-apparel-logo-button {
+  font-size: 10px;
 }
 .no-added-vehicles,
 .no-added-finishings {
@@ -843,29 +1692,29 @@ font-size: 30px;
   font-size: 20px;
 }
   }
-  @media screen and (min-width: 240px) and (max-width: 320px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  @media screen and (max-width: 320px) and (orientation: landscape) {
     .main-apparel-graphics {
       display: block;
     }
     .page-apparel-banner {
-      padding-top: 130px; /* Reduce padding */
+      padding-top: 100px; /* Reduce padding */
     }
     .apparel-description {
-      font-size: 43px; /* Reduce font size */
+      font-size: 2rem; /* Reduce font size */
       padding: 10px; /* Add padding to avoid content touching the edges */
     }
     .photo-mx-apparel-note {
-      font-size: 30px; /* Reduce font size */
+      font-size: 25px; /* Reduce font size */
     }
     .apparel-form-info {
       margin: 0;
     }
     .apparel-app-box {
-      font-size: 40px;
+      font-size: 37px;
     }
     .apparel-fill {
       margin: 10px;
-      font-size: 22px;
+      font-size: 18px;
     }
     .apparel-actual {
       margin: 0;
@@ -888,17 +1737,16 @@ font-size: 30px;
     margin: 0;
     margin-top: 10px;
    }
-    .first-apparel-name-label, 
-.apparel-company-label, 
-.emailphone-apparel-label,
-.address-apparel-label,
-.size-apparel-label,
-.message-apparel-label,
-.place-apparel-label,
-.finish-apparel-label,
-.apparel-file-label,
-.type-apparel-label {
-  font-size: 50px;
+   .first-apparel-name-label, 
+   .apparel-company-label, 
+   .emailphone-apparel-label, 
+   .address-apparel-label, 
+   .type-apparel-label, 
+   .message-apparel-label, 
+   .apparel-large-type-label, 
+   .apparel-file-label, 
+   .type-apparel-label  {
+  font-size: 33px;
 }
 .first-name-apparel-input, 
 .emailphone-apparel-input, 
@@ -926,18 +1774,12 @@ font-size: 30px;
 .city-apparel-label, 
 .state-apparel-label, 
 .zip-apparel-label, 
-.length-apparel-label, 
-.width-apparel-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.apparel-logo, 
-.year-apparel-label, 
-.make-apparel-label, 
-.model-apparel-label, 
-.trim-apparel-label {
-  font-size: 35px;
-  padding-left: 0;
+.apparel-type-label, 
+.apparel-size-label, 
+.apparel-color-label, 
+.apparel-quantity-label, 
+.apparel-logo {
+  font-size: 25px;
 }
 .apparel-message-container {
   margin-top: 10px;
@@ -972,27 +1814,18 @@ font-size: 30px;
 .city-apparel-box, 
 .state-apparel-box, 
 .zip-apparel-box, 
-.length-apparel-box, 
-.width-apparel-box, 
-.border-apparel-box, 
-.length-apparel-select, 
-.width-apparel-select, 
-.place-apparel-select, 
-.finish-apparel-select, 
-.border-apparel-select, 
-.type-apparel-box,
-.year-apparel-box,
-.make-apparel-box,
-.length-door-apparel-box,
-.width-door-apparel-box
+.apparel-type-input, 
+.apparel-size-input, 
+.apparel-color-input, 
+.apparel-quantity-input
  {
-  font-size: 18px;
+  font-size: 15px;
 }
 .model-apparel-box {
-  font-size: 10px;
+  font-size: 6px;
 }
 .apparel-company-label {
-  font-size: 25px;
+  font-size: 20px;
   padding: 0;
 }
 .finish-apparel-label {
@@ -1010,12 +1843,6 @@ font-size: 30px;
   margin: 0;
   text-align: center;
 }
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
 .emailphone-apparel-label {
   font-size: 24px;
   padding: 0;
@@ -1064,6 +1891,13 @@ font-size: 30px;
 .size-driver-apparel-note, .size-passenger-apparel-note {
   font-size: 26px;
 }
+.added-apparel-list, .apparel-item {
+  
+  font-size: 20px;
+}
+.apparel-type-p, .apparel-size-p, .apparel-cut-p, .apparel-quantity-p {
+  font-size: 20px;
+}
 .driver-length-section, 
 .driver-width-section, 
 .passenger-length-section, 
@@ -1083,7 +1917,7 @@ font-size: 30px;
   font-size: 15px;
 }
 .size-apparel-label {
-  font-size: 28px;
+  font-size: 20px;
 }
 .submit-size {
   margin-left: 0;
@@ -1116,823 +1950,13 @@ font-size: 30px;
   margin-top: 10px;
   width: 100%;
 }
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
+.submit-apparels, .remove-apparel, .submit-apparel, .new-apparel-logo-button {
+  font-size: 10px;
 }
 .no-added-vehicles,
 .no-added-finishings {
   margin: 0;
-  font-size: 30px;
-}
-  }
-  @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-apparel-graphics {
-      display: block;
-    }
-    .page-apparel-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .apparel-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-apparel-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .apparel-form-info {
-      margin: 0;
-    }
-    .apparel-app-box {
-      font-size: 40px;
-    }
-    .apparel-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .apparel-actual {
-      margin: 0;
-    }
-    .apparel-set {
-      display: block;
-    }
-    .name-section-apparel,
-   .company-apparel-section,
-   .emailphone-apparel-section,
-   .address-apparel-section,
-   .vehicle-type-apparel-section,
-   .vehicle-size-apparel-section,
-   .door-size-apparel-section,
-   .finishing-apparel-section,
-   .apparel-file-section,
-   .apparel-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-apparel-name-label, 
-.apparel-company-label, 
-.emailphone-apparel-label,
-.address-apparel-label,
-.size-apparel-label,
-.message-apparel-label,
-.place-apparel-label,
-.finish-apparel-label,
-.apparel-file-label,
-.type-apparel-label {
-  font-size: 50px;
-}
-.first-name-apparel-input, 
-.emailphone-apparel-input, 
-.apparel-company-name-input, 
-.address-apparel-input, 
-.email-apparel-input, 
-.apparel-phone-name-input, 
-.length-apparel-section, 
-.length-door-apparel-section, 
-.width-apparel-section, 
-.place-apparel-section, 
-.finish-apparel-section, 
-.file-apparel-section, 
-.border-apparel-section, 
-.type-apparel-section {
-  display: block;
-  padding-left: 0;
-}
-.first-apparel-label-name, 
-.last-apparel-label-name, 
-.company-apparel-name, 
-.email-apparel-name, 
-.phone-apparel-label, 
-.addr-apparel-label, 
-.city-apparel-label, 
-.state-apparel-label, 
-.zip-apparel-label, 
-.length-apparel-label, 
-.width-apparel-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.apparel-logo, 
-.year-apparel-label, 
-.make-apparel-label, 
-.model-apparel-label, 
-.trim-apparel-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-.apparel-message-container {
-  margin-top: 10px;
-}
-.message-apparel-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.apparel-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-apparel-input
-.emailphone-apparel-input, 
-.address-apparel-input-container, 
-.size-apparel-section,
-.size-door-apparel-section {
-  margin: 0;
-  display: block;
-}
-.last-apparel-name {
-  padding-left: 0;
-}
-.firstname-apparel-name-input, 
-.lastname-apparel-name-input, 
-.company-apparel-name-input, 
-.email-apparel-box, 
-.phone-apparel-box, 
-.address-apparel-box, 
-.city-apparel-box, 
-.state-apparel-box, 
-.zip-apparel-box, 
-.length-apparel-box, 
-.width-apparel-box, 
-.border-apparel-box, 
-.length-apparel-select, 
-.width-apparel-select, 
-.place-apparel-select, 
-.finish-apparel-select, 
-.border-apparel-select, 
-.type-apparel-box,
-.year-apparel-box,
-.make-apparel-box,
-.length-door-apparel-box,
-.width-door-apparel-box
- {
-  font-size: 18px;
-}
-.model-apparel-box {
-  font-size: 10px;
-}
-.apparel-company-label {
-  font-size: 25px;
-  padding: 0;
-}
-.finish-apparel-label {
-  font-size: 30px;
-}
-.apparel-finish-img-section {
-  display: block;
-}
-.finish-apparel-select {
-  font-size: 7px;
-}
-.apparel-warn, .logo-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-apparel-label {
-  font-size: 24px;
-  padding: 0;
-}
-.apparel-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-apparel-input {
-  padding-left: 0px;
-}
-.emailphone-apparel-input, 
-.address-apparel-input-container, 
-.size-apparel-section {
-  margin: 0px;
-  display: block;
-}
-.apparel-company-name-input, 
-.address-apparel-input, 
-.email-apparel-input, 
-.apparel-phone-name-input, 
-.length-apparel-section, 
-.width-apparel-section, 
-.place-apparel-section, 
-.finish-apparel-section, 
-.file-apparel-section, 
-.border-apparel-section,
-.type-apparel-section {
-  margin: 0px;
-  display: block;
-  padding-left: 0;
-}
-.address-apparel-inputing, 
-.city-apparel-input, 
-.phone-apparel {
-  padding-left: 0px;
-}
-
-.address-apparel-label, 
-.type-apparel-label,
-.size-apparel-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-apparel-note, .size-passenger-apparel-note {
-  font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-apparel-section, 
-.width-door-apparel-section {
-  display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-apparel-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-logo-contain {
-  display: block;
-  text-align: center;
-}
-.file-apparel-label, .remove-apparel-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-apparel-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-apparel {
-  margin: 0;
   font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 10px;
-}
-.btn-apparel-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
   }
-  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-apparel-graphics {
-      display: block;
-    }
-    .page-apparel-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .apparel-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-apparel-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .apparel-form-info {
-      margin: 0;
-    }
-    .apparel-app-box {
-      font-size: 40px;
-    }
-    .apparel-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .apparel-actual {
-      margin: 0;
-    }
-    .apparel-set {
-      display: block;
-    }
-    .name-section-apparel,
-   .company-apparel-section,
-   .emailphone-apparel-section,
-   .address-apparel-section,
-   .vehicle-type-apparel-section,
-   .vehicle-size-apparel-section,
-   .door-size-apparel-section,
-   .finishing-apparel-section,
-   .apparel-file-section,
-   .apparel-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-apparel-name-label, 
-.apparel-company-label, 
-.emailphone-apparel-label,
-.address-apparel-label,
-.size-apparel-label,
-.message-apparel-label,
-.place-apparel-label,
-.finish-apparel-label,
-.apparel-file-label,
-.type-apparel-label {
-  font-size: 50px;
-}
-.first-name-apparel-input, 
-.emailphone-apparel-input, 
-.apparel-company-name-input, 
-.address-apparel-input, 
-.email-apparel-input, 
-.apparel-phone-name-input, 
-.length-apparel-section, 
-.length-door-apparel-section, 
-.width-apparel-section, 
-.place-apparel-section, 
-.finish-apparel-section, 
-.file-apparel-section, 
-.border-apparel-section, 
-.type-apparel-section {
-  display: block;
-  padding-left: 0;
-}
-.first-apparel-label-name, 
-.last-apparel-label-name, 
-.company-apparel-name, 
-.email-apparel-name, 
-.phone-apparel-label, 
-.addr-apparel-label, 
-.city-apparel-label, 
-.state-apparel-label, 
-.zip-apparel-label, 
-.length-apparel-label, 
-.width-apparel-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.apparel-logo, 
-.year-apparel-label, 
-.make-apparel-label, 
-.model-apparel-label, 
-.trim-apparel-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-.year-apparel-label {
-  font-size: 50px;
-}
-.apparel-message-container {
-  margin-top: 10px;
-}
-.message-apparel-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.apparel-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-apparel-input
-.emailphone-apparel-input, 
-.address-apparel-input-container, 
-.size-apparel-section,
-.size-door-apparel-section {
-  margin: 0;
-  display: block;
-}
-.last-apparel-name {
-  padding-left: 0;
-}
-.firstname-apparel-name-input, 
-.lastname-apparel-name-input, 
-.company-apparel-name-input, 
-.email-apparel-box, 
-.phone-apparel-box, 
-.address-apparel-box, 
-.city-apparel-box, 
-.state-apparel-box, 
-.zip-apparel-box, 
-.length-apparel-box, 
-.width-apparel-box, 
-.border-apparel-box, 
-.length-apparel-select, 
-.width-apparel-select, 
-.place-apparel-select, 
-.finish-apparel-select, 
-.border-apparel-select, 
-.type-apparel-box,
-.year-apparel-box,
-.make-apparel-box,
-.length-door-apparel-box,
-.width-door-apparel-box
- {
-  font-size: 18px;
-}
-.model-apparel-box {
-  font-size: 10px;
-}
-.apparel-company-label {
-  font-size: 30px;
-  padding: 0;
-}
-.finish-apparel-label {
-  font-size: 30px;
-}
-.apparel-finish-img-section {
-  display: block;
-}
-.finish-apparel-select {
-  font-size: 13px;
-}
-.apparel-warn, .logo-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-apparel-label {
-  font-size: 30px;
-  padding: 0;
-}
-.apparel-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-apparel-input {
-  padding-left: 0px;
-}
-.emailphone-apparel-input, 
-.address-apparel-input-container, 
-.size-apparel-section {
-  margin: 0px;
-  display: block;
-}
-.apparel-company-name-input, 
-.address-apparel-input, 
-.email-apparel-input, 
-.apparel-phone-name-input, 
-.length-apparel-section, 
-.width-apparel-section, 
-.place-apparel-section, 
-.finish-apparel-section, 
-.file-apparel-section, 
-.border-apparel-section,
-.type-apparel-section {
-  margin: 0px;
-  display: block;
-  padding-left: 0;
-}
-.address-apparel-inputing, 
-.city-apparel-input, 
-.phone-apparel {
-  padding-left: 0px;
-}
-
-.address-apparel-label, 
-.type-apparel-label,
-.size-apparel-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-apparel-note, .size-passenger-apparel-note {
-  font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-apparel-section, 
-.width-door-apparel-section {
-  display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-apparel-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-logo-contain {
-  display: block;
-  text-align: center;
-}
-.file-apparel-label, .remove-apparel-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-apparel-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-apparel {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 10px;
-}
-.btn-apparel-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-apparel-graphics {
-      display: block;
-    }
-    .page-apparel-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .apparel-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-apparel-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .apparel-form-info {
-      margin: 0;
-    }
-    .apparel-app-box {
-      font-size: 40px;
-    }
-    .apparel-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .apparel-actual {
-      margin: 0;
-    }
-    .apparel-set {
-      display: block;
-    }
-  
-
-.first-apparel-label-name, 
-.last-apparel-label-name, 
-.company-apparel-name, 
-.email-apparel-name, 
-.phone-apparel-label, 
-.addr-apparel-label, 
-.city-apparel-label, 
-.state-apparel-label, 
-.zip-apparel-label, 
-.length-apparel-label, 
-.width-apparel-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.apparel-logo, 
-.year-apparel-label, 
-.make-apparel-label, 
-.model-apparel-label, 
-.trim-apparel-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-
-.apparel-message-container {
-  margin-top: 10px;
-}
-.message-apparel-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.apparel-file-label {
-padding: 0;
-font-size: 30px;
-}
-
-.last-apparel-name {
-  padding-left: 0;
-}
-.firstname-apparel-name-input, 
-.lastname-apparel-name-input, 
-.company-apparel-name-input, 
-.email-apparel-box, 
-.phone-apparel-box, 
-.address-apparel-box, 
-.city-apparel-box, 
-.state-apparel-box, 
-.zip-apparel-box, 
-.length-apparel-box, 
-.width-apparel-box, 
-.border-apparel-box, 
-.length-apparel-select, 
-.width-apparel-select, 
-.place-apparel-select, 
-.finish-apparel-select, 
-.border-apparel-select, 
-.type-apparel-box,
-.year-apparel-box,
-.make-apparel-box,
-.length-door-apparel-box,
-.width-door-apparel-box
- {
-  font-size: 19px;
-}
-.model-apparel-box {
-  font-size: 19px;
-}
-.apparel-company-label {
-  font-size: 30px;
-  padding: 0;
-}
-.finish-apparel-label {
-  font-size: 30px;
-}
-
-.finish-apparel-select {
-  font-size: 13px;
-}
-.apparel-warn, .logo-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-apparel-label {
-  font-size: 30px;
-  padding: 0;
-}
-.apparel-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-apparel-input {
-  padding-left: 0px;
-}
-.emailphone-apparel-input, 
-.address-apparel-input-container, 
-.size-apparel-section {
-  margin: 0px;
-  display: grid;
-}
-.first-apparel-name-label {
-  font-size: 50px;
-}
-.apparel-company-name-input, 
-.address-apparel-input, 
-.email-apparel-input, 
-.apparel-phone-name-input, 
-.length-apparel-section, 
-.width-apparel-section, 
-.place-apparel-section, 
-.finish-apparel-section, 
-.file-apparel-section, 
-.border-apparel-section,
-.type-apparel-section {
-  margin: 0px;
-  display: grid;
-  padding-left: 0;
-}
-.address-apparel-inputing, 
-.city-apparel-input, 
-.phone-apparel {
-  padding-left: 0px;
-}
-
-.address-apparel-label, 
-.type-apparel-label,
-.size-apparel-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-apparel-note, .size-passenger-apparel-note {
-  font-size: 26px;
-}
-
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-apparel-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-logo-contain {
-  display: block;
-  text-align: center;
-}
-.file-apparel-label, .remove-apparel-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-apparel-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-apparel {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 30px;
-}
-.btn-apparel-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 20px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 1080px) and (max-width: 1920px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .apparel-description {
-      font-size: 85px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .first-name-apparel-input {
-      display: flex;
-      margin: 40px;
-    }
-    .size-apparel-section, .size-door-apparel-section {
-      margin: 0;
-
-    }
-
-  }
+ 
