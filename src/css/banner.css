@@ -1,14 +1,19 @@
+@import url(https://db.onlinewebfonts.com/c/82baa4951eee7df05175ada4cb171e35?family=Moveo+Sans+W00+Bold);
+@import url(https://db.onlinewebfonts.com/c/82302682c00aba868f6ae01a375b10ac?family=Moveo+Sans+SemiExt+W00+Bold);
 /* ================================
    ================================
-   TOP OF THE ADHESIVE PAGE
+   TOP OF THE banner
+ PAGE
    ================================
    ================================ */
    .page-banner-container {
     padding: 80px 0 40px 0;
     position: relative;
     overflow: hidden;
+    width: auto;
     padding-top: 300px;
     background-color: #b4feff;
+    height: auto;
   }
 
   .banner-name-container {
@@ -16,22 +21,38 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: auto;
+    width: auto;
   }
 
 .banner-description {
     color: #000;
     font-family: "Kairos W04 Extended Bold";
-    font-size: 100px;
+    font-size: 200px;
+    width: auto;
+    height: auto;
     text-align: center;
+    padding: 10px; /* Add padding to avoid content touching the edges */
   }
-
   /* ================================
    ================================
     PHOTO GALLERY
    ================================
    ================================ */
-   .photo-gal-banner {
+   .photo-banner-gal-banner {
     background-color: #8fafff;
+    height: auto;
+  }
+  .photo-mx-banner-note {
+    font-size: 50px;
+    text-align: center;
+    font-family: "Kairos W04 Extended Bold";
+    height: auto;
+  }
+  .photo-gal-banner {
+    max-width: 1500px;
+    height: auto;
+    margin: 0 auto;
   }
 
   /* ================================
@@ -39,55 +60,98 @@
     ADHESIVE SECTION FORM
    ================================
    ================================ */
+   .banner-form-container {
+    background-color: #e7e7e7;
+    width: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: auto;
+}
    .banner-set {
     padding-top: 10px;
     background-color: #e7e7e7;
     display: flex;
+    width: auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: auto;
   }
 
   .page-section {
     padding-bottom: 3.5rem;
+    width: auto;
+    height: auto;
 }
 .banner-form-info {
     margin: 10px;
     width: 100%;
+    height: auto;
 }
   .banner-app-box {
     margin-top: 10px;
     text-align: center;
-    font-size: 50px;
-  }
-  .log-re {
-    margin: 40px;
-    text-align: center;
+    color: #0f375a;
+    width: auto;
+    height: auto;
     font-size: 50px;
   }
 .banner-fill {
     margin: 40px;
     text-align: center;
+    color: #194fb4;
     font-size: 35px;
+    height: auto;
 }
 .banner-notice,.logo-notice {
     color: #194fb4;
+    height: auto;
 }
 .banner-warn {
     font-size: 30px;
     margin: 5%;
-    color: #000
+    color: #000;
+    height: auto;
 }
 .logo-warn {
     font-size: 30px;
     margin-top: 0%;
-    color: #000
+    color: #000;
+    height: auto;
 }
 .banner-actual {
-    width: 90%;
+    width: auto;
     margin: 50px;
-
+    height: auto;
 }
+/* ================================
+   banner Boxed Sections
+   ================================ */
+   .name-section-banner,
+   .company-banner-section,
+   .emailphone-banner-section,
+   .address-banner-section,
+   .size-banner-vinyl-section,
+   .placement-banner-section,
+   .door-size-banner-section,
+   .finishing-banner-section,
+   .banner-file-section,
+   .banner-message-container {
+    border-color: #000;
+  border-width: 4px;
+  background-color: #cccbcb;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  padding: 20px;
+  }
+  
+  
 /* ================================
    Larger Labels for Adhesive Section
    ================================ */
@@ -99,28 +163,85 @@
 .message-banner-label,
 .place-banner-label,
 .finish-banner-label,
-.banner-file-label {
-  margin-bottom: 50px;
+.banner-file-label,
+.type-banner-label {
   padding: 50px;
-  font-size: 50px;
+  color:#000;
+  font-family: "Moveo Sans w00 Bold";
+  text-align: center;
+  font-size: 80px;
   font-style: inherit;
+  height: auto;
 }
 
+/* ================================
+   Added Item Label Categories
+   ================================ */
+.size-driver-banner-note, .size-passenger-banner-note {
+  font-family: "Moveo Sans w00 bold";
+  font-style: normal;
+  display: block;
+  text-align: center;
+  font-size: 70px;
+  height: auto;
+}
+
+.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li,
+.finishing-item, .door-list {
+  font-size: 70px;
+  list-style: none;
+  color: #000;
+  font-family: "Kairos W01 Extended Medium";
+}
+
+/* ================================
+   Added Items Labels
+   ================================ */
+.added-vehicle-label {
+  font-family: "Moveo Sans w00 Regular";
+  font-style: normal;
+  margin: 10px;
+  padding-left: 10px;
+  font-size: 50px;
+  height: auto;
+}
+.no-added-vehicles, .no-added-finishings {
+  margin: 50px;
+  text-align: center;
+  font-size: 40px;
+  height: auto;
+}
+.hang-item, .finish-item, .size-banner-item {
+  text-decoration: none;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  margin: 0;
+  color: rgb(255, 238, 0);
+  text-align: center;
+  font-size: 60px;
+  height: auto;
+  text-shadow: 1.3px 1.3px #000, -1.3px 1.3px #000, 1.3px -1.3px #000, -1.3px -1.3px #000;
+}
 /* ================================
    Grouped input sections
    ================================ */
   .first-banner-banner-input {
     margin: 40px;
     display: flex;
+    height: auto;
   }
-  .emailphone-banner-input, 
   .address-banner-input-container, 
-  .size-banner-section {
+  .size-door-banner-section {
     margin: 10px;
-    display: flex;
+    height: auto;
   }
 
-
+  .size-banner-section {
+    margin-top: 30px;
+    display: inline-block;
+    height: auto;
+  }
   /* ================================
    Grouped Labels and Input Box Styling
    ================================ */
@@ -130,22 +251,32 @@
     margin: 0;
     padding-left: 10px;
     font-size: 20px;
+    height: auto;
   }
+  .first-name-banner-input,
+  .emailphone-banner-input,
   .banner-company-name-input, 
   .address-banner-input,
   .email-banner-input,
   .banner-phone-name-input,
   .length-banner-section,
+  .length-door-banner-section,
   .width-banner-section,
   .place-banner-section, 
   .finish-banner-section,
-  .file-banner-section {
+  .file-banner-section,
+  .border-banner-section,
+  .type-banner-section {
     font-family: "Moveo Sans w00 Regular";
-    margin: 50px;
+    margin: 10px;
     margin-right: 0;
     position: relative;
     padding-left: 15px;
     display: flex;
+    height: auto;
+  }
+  .finish-banner-section {
+    display: block;
   }
 
   .address-banner-inputing, 
@@ -156,6 +287,7 @@
     margin: 0;
     padding-left: 10px;
     font-size: 20px;
+    height: auto;
   }
   .state-banner-input,  
   .zip-banner-input{
@@ -163,8 +295,8 @@
     margin: 0px;
     margin-right: 0;
     position: relative;
+    height: auto;
   }
-
 
 /* ================================
    Small Label Styling
@@ -178,16 +310,22 @@
   .city-banner-label,
   .state-banner-label,
   .zip-banner-label,
-  .length-label, 
-  .width-label,
+  .length-banner-label, 
+  .width-banner-label,
   .place-label,
   .finish-label,
-  .banner-logo {
-    font-family: "Moveo Sans w00 Regular";
+  .banner-logo,
+  .year-banner-label,
+  .make-banner-label,
+  .model-banner-label,
+  .trim-banner-label {
+    font-family: "Highway Gothic Narrow";
     font-style: normal;
     margin: 0;
+    color:#226daf;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 70px;
+    height: auto;
   }
   
 
@@ -205,39 +343,124 @@
    .zip-banner-box,
    .length-banner-box, 
    .width-banner-box,
-   .length-select,
-   .width-select, 
-   .place-select,
-   .finish-select {
+   .border-banner-box,
+   .length-door-banner-box,
+   .width-door-banner-box,
+   .length-banner-select,
+   .width-banner-select, 
+   .place-banner-select,
+   .finish-banner-select,
+   .border-banner-select,
+   .type-banner-box,
+   .year-banner-box,
+   .make-banner-box,
+   .model-banner-box,
+   .trim-banner-box {
      padding: 10px;
-     font-size: 20px;
+     color:#0f375a;
+     font-size: 50px;
      margin-bottom: 20px;
+     height: auto;
    }
+   .length-banner-box, 
+   .width-banner-box,
+   .length-door-banner-box,
+   .width-door-banner-box {
+    font-size: 80px;
 
-/* ================================
-   Banner Image Section
+   }
+   .type-banner-box,
+   .year-banner-box,
+   .make-banner-box,
+   .model-banner-box {
+    font-size: 40px;
+   }
+   /* ================================
+   Length and Width Display Boxes
    ================================ */
-   .place-flex-container {
+   .driver-length-section, 
+   .driver-width-section,
+   .passenger-length-section,
+   .passenger-side-width,
+   .length-door-banner-section,
+   .width-door-banner-section {
+    display: grid;
+    padding-left: 0;
+    margin-top: 0;
+    margin: 0;
+   }
+/* ================================
+   banner Image Section
+   ================================ */
+   .place-banner-container {
     display: flex;
     justify-content: space-between; /* Adjusts space between items */
     align-items: center; /* Aligns items vertically */
     flex-wrap: nowrap; /* Ensures the items stay on one line */
+    height: auto;
 }
 
 .place-img-container {
     flex: 1;
     text-align: center; /* Centers the text under each image */
+    height: auto;
 }
 
-.place-img {
-    width: 330px;
-    height: 200px;
+.place-banner-img, .place-banner-type-img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
     object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
 }
 
-
+/* ================================
+   Year Input Box Note Style
+   ================================ */
+.year-banner-note {
+font-size: 20px;
+font-display: flex;
+margin: 10px;
+font-family: "Kairos W01 Extended Medium";
+height: auto;
+}
+/* ================================
+   banner Finishing Image Section
+   ================================ */
+   .banner-finish-img-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px; /* Adds space between the columns */
+    padding: 10px;
+    height: auto;
+  }
+  
+  .matte-img-banner, .gloss-img-banner, .ra-img-banner {
+    text-align: center; /* Centers the image and text within each div */
+    height: auto;
+  }
+  
+.place-examples {
+  font-size: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+.place-img-test {
+  width: 100%;
+  height: auto;
+  color: #000;
+  object-fit: contain;
+  font-size: 2rem;
+}
+.retract-img-test {
+  width: 100%;
+  height: auto;
+  font-family: "Moveo Sans W00 Regular";
+  object-fit: contain;
+  font-size: 2rem;
+}
   /* ================================
-   Adhesive Message Styling
+   banner Message Styling
    ================================ */
   .message-banner-note {
     font-style: normal;
@@ -247,13 +470,13 @@
     font-size: 20px;
     font-family: "Moveo Sans W00 Regular";
     padding-top: 30px;
+    height: auto;
   }
   
   .message-banner-text {
     font-style: normal;
     text-align: left;
     text-emphasis: none;
-    margin-left: 40px;
     font-size: 20px;
     font-family: "Moveo Sans W00 Regular";
     width: 100%;
@@ -264,18 +487,28 @@
 /* ================================
    Submit Button Styling
    ================================ */
-   .submit-size {
+   .submit-finishing,
+   .remove-finishing
+   {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 200px;
+    margin-left: 80px;
     color: #fff;
+    height: auto;
   }  
+  .submit-vehicle {
+    background-color: #0f375a;
+    color: #fff;
+    margin-bottom: 30px;
+    height: auto;
+  }
   .choose-logo-contain {
     display: flex;
     align-items: center;
+    height: auto;
 }
 .file-banner-label, .remove-banner-file-button {
     display: flex;
@@ -286,11 +519,17 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    height: auto;
 }
 .file-banner-label input[type=file] {
     display: none;
 }
-  .submit-banner {
+.submit-banner, .submit-vehicle {
+  width: 100%;
+  font-size: 40px;
+  height: auto;
+}
+  .submit-banner, .new-banner-logo-button {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -300,10 +539,1609 @@
     display: block;
     width: 100%;
     color: #fff;
+    height: auto;
   }
-  .submit-size:hover, 
+  .submit-banner-finish, .remove-banner-finish, .submit-banner-size,
+  .submit-banner-place,
+  .remove-banner-place,
+   .remove-banner-size  {
+    background-color: #0f375a;
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin: 5 auto;
+    display: block;
+    width: 100%;
+    color: #fff;
+    height: auto;
+   }
+  .submit-banner-size:hover, 
+  .submit-banner-place:hover,
+  .submit-banner-finishing:hover,
   .submit-banner:hover,
   .file-banner-label:hover,
-  .remove-banner-file-button:hover {
+  .remove-banner-finishing:hover,
+  .remove-banner-size:hover,
+  .remove-banner-place:hover,
+  .remove-banner-file-button:hover,
+  .new-banner-logo-button:hover {
     background-color: #226daf;
   }
+  .btn-submit, .btn-banner-submit {
+    text-decoration: none;
+      padding: 20px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      font-family: "Kairos W01 Extended Medium";
+      transition: all .3s;
+      margin-top: 1rem;
+      height: auto;
+  }
+  .btn-banner-submit {
+    padding: 0;
+    height: auto;
+  }
+  /* ================================
+   Message Styling
+   ================================ */
+.error-message {
+  color: red;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    font-family: "Kairos W04 Extended Bold";
+    margin-bottom: 10px;
+    height: auto;
+}
+
+.submission-error-message {
+  color: red;
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+.submission-message {
+  color: rgb(38, 173, 38);
+  font-family: "Kairos W04 Extended Bold";
+  font-size: large;
+  font-style: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
+  .page-banner-container {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .banner-description {
+    font-size: 80px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-banner-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .banner-form-info {
+    margin: 0;
+  }
+  .banner-app-box {
+    font-size: 40px;
+  }
+  .banner-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .banner-actual {
+    margin: 0;
+  }
+  .banner-set {
+    display: block;
+  }
+
+.first-banner-label-name, 
+.last-banner-label-name, 
+.company-banner-name, 
+.email-banner-name, 
+.phone-banner-label, 
+.addr-banner-label, 
+.city-banner-label, 
+.state-banner-label, 
+.zip-banner-label, 
+.length-banner-label, 
+.width-banner-label, 
+.place-label, 
+.finish-label, 
+.banner-logo, 
+.year-banner-label, 
+.make-banner-label, 
+.model-banner-label, 
+.trim-banner-label {
+font-size: 50px;
+}
+.banner-message-container {
+margin-top: 10px;
+}
+.message-banner-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.firstname-banner-name-input, 
+.lastname-banner-name-input, 
+.company-banner-name-input, 
+.email-banner-box, 
+.phone-banner-box, 
+.address-banner-box, 
+.city-banner-box, 
+.state-banner-box, 
+.zip-banner-box, 
+.length-banner-box, 
+.width-banner-box, 
+.border-banner-box, 
+.length-banner-select, 
+.width-banner-select, 
+.place-banner-select, 
+.finish-banner-select, 
+.border-banner-select, 
+.type-banner-box,
+.year-banner-box,
+.make-banner-box,
+.length-door-banner-box,
+.width-door-banner-box
+{
+font-size: 40px;
+}
+.place-examples {
+font-size: 3.2rem;
+margin: 10px;
+}
+.retract-img-test {
+font-size: 1.3rem;
+}
+.banner-finish-img-section {
+display: block;
+}
+.place-banner-img {
+  max-width: 300px;
+}
+.message-banner-text {
+margin-left: 0;
+text-align: center;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+.main-banner-graphics {
+    display: block;
+  }
+  .page-banner-container {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .banner-description {
+    font-size: 80px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-banner-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .banner-form-info {
+    margin: 0;
+  }
+  .banner-app-box {
+    font-size: 40px;
+  }
+  .banner-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .banner-actual {
+    margin: 0;
+  }
+  .banner-set {
+    display: block;
+  }
+  .name-section-banner,
+ .company-banner-section,
+ .emailphone-banner-section,
+ .address-banner-section,
+ .vehicle-type-banner-section,
+ .vehicle-size-banner-section,
+ .door-size-banner-section,
+ .finishing-banner-section,
+ .banner-file-section,
+ .banner-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+  .first-banner-name-label, 
+.banner-company-label, 
+.emailphone-banner-label,
+.address-banner-label,
+.size-banner-label,
+.message-banner-label,
+.place-banner-label,
+.finish-banner-label,
+.banner-file-label,
+.type-banner-label {
+font-size: 50px;
+}
+.first-name-banner-input, 
+.emailphone-banner-input, 
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.length-door-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section, 
+.type-banner-section {
+display: block;
+padding-left: 0;
+}
+.first-banner-label-name, 
+.last-banner-label-name, 
+.company-banner-name, 
+.email-banner-name, 
+.phone-banner-label, 
+.addr-banner-label, 
+.city-banner-label, 
+.state-banner-label, 
+.zip-banner-label, 
+.length-banner-label, 
+.width-banner-label, 
+.place-label, 
+.finish-label, 
+.banner-logo, 
+.year-banner-label, 
+.make-banner-label, 
+.model-banner-label, 
+.trim-banner-label {
+font-size: 35px;
+padding-left: 0;
+}
+.banner-message-container {
+margin-top: 10px;
+}
+.message-banner-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.banner-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-banner-input
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section,
+.size-door-banner-section {
+margin: 0;
+display: block;
+}
+.last-banner-name {
+padding-left: 0;
+}
+.firstname-banner-name-input, 
+.lastname-banner-name-input, 
+.company-banner-name-input, 
+.email-banner-box, 
+.phone-banner-box, 
+.address-banner-box, 
+.city-banner-box, 
+.state-banner-box, 
+.zip-banner-box, 
+.length-banner-box, 
+.width-banner-box, 
+.border-banner-box, 
+.length-banner-select, 
+.width-banner-select, 
+.place-banner-select, 
+.finish-banner-select, 
+.border-banner-select, 
+.type-banner-box,
+.year-banner-box,
+.make-banner-box,
+.length-door-banner-box,
+.width-door-banner-box
+{
+font-size: 21px;
+}
+.place-examples {
+font-size: 3.2rem;
+margin: 10px;
+}
+.retract-img-test {
+font-size: 1.3rem;
+}
+.model-banner-box {
+font-size: 10px;
+}
+.banner-company-label {
+font-size: 25px;
+padding: 0;
+}
+.finish-banner-label {
+font-size: 30px;
+}
+.banner-finish-img-section {
+display: block;
+}
+.banner-warn, .logo-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-banner-label {
+font-size: 24px;
+padding: 0;
+}
+.banner-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-banner-input {
+padding-left: 0px;
+}
+.hang-item, .finish-item, .size-banner-item {
+font-size: 2rem;
+}
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section {
+margin: 0px;
+display: block;
+}
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section,
+.type-banner-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-banner-inputing, 
+.city-banner-input, 
+.phone-banner {
+padding-left: 0px;
+}
+
+.address-banner-label, 
+.type-banner-label,
+.size-banner-label {
+font-size: 30px;
+padding: 0;
+}
+.size-driver-banner-note, .size-passenger-banner-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-banner-section, 
+.width-door-banner-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-banner-label {
+font-size: 35px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-banner-label, .remove-banner-file-button {
+font-size: 1rem;
+display: block;
+}
+.place-banner-img {
+  max-width: 300px;
+}
+.message-banner-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-banner {
+margin: 0;
+font-size: 20px;
+width: 100%;
+}
+.submit-banner-place, 
+.submit-banner-finish, 
+.remove-banner-finish,
+.remove-banner-place{
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+  .main-banner-graphics {
+    display: block;
+  }
+  .page-banner-container {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .banner-description {
+    font-size: 80px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-banner-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .banner-form-info {
+    margin: 0;
+  }
+  .banner-app-box {
+    font-size: 40px;
+  }
+  .banner-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .banner-actual {
+    margin: 0;
+  }
+  .banner-set {
+    display: block;
+  }
+  .name-section-banner,
+ .company-banner-section,
+ .emailphone-banner-section,
+ .address-banner-section,
+ .vehicle-type-banner-section,
+ .vehicle-size-banner-section,
+ .door-size-banner-section,
+ .finishing-banner-section,
+ .banner-file-section,
+ .banner-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+  .first-banner-name-label, 
+.banner-company-label, 
+.emailphone-banner-label,
+.address-banner-label,
+.size-banner-label,
+.message-banner-label,
+.place-banner-label,
+.finish-banner-label,
+.banner-file-label,
+.type-banner-label {
+font-size: 50px;
+}
+.first-name-banner-input, 
+.emailphone-banner-input, 
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.length-door-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section, 
+.type-banner-section {
+display: block;
+padding-left: 0;
+}
+.first-banner-label-name, 
+.last-banner-label-name, 
+.company-banner-name, 
+.email-banner-name, 
+.phone-banner-label, 
+.addr-banner-label, 
+.city-banner-label, 
+.state-banner-label, 
+.zip-banner-label, 
+.length-banner-label, 
+.width-banner-label, 
+.place-label, 
+.finish-label, 
+.banner-logo, 
+.year-banner-label, 
+.make-banner-label, 
+.model-banner-label, 
+.trim-banner-label {
+font-size: 35px;
+padding-left: 0;
+}
+.banner-message-container {
+margin-top: 10px;
+}
+.message-banner-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.banner-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-banner-input
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section,
+.size-door-banner-section {
+margin: 0;
+display: block;
+}
+.last-banner-name {
+padding-left: 0;
+}
+.firstname-banner-name-input, 
+.lastname-banner-name-input, 
+.company-banner-name-input, 
+.email-banner-box, 
+.phone-banner-box, 
+.address-banner-box, 
+.city-banner-box, 
+.state-banner-box, 
+.zip-banner-box, 
+.length-banner-box, 
+.width-banner-box, 
+.border-banner-box, 
+.length-banner-select, 
+.width-banner-select, 
+.place-banner-select, 
+.finish-banner-select, 
+.border-banner-select, 
+.type-banner-box,
+.year-banner-box,
+.make-banner-box,
+.length-door-banner-box,
+.width-door-banner-box
+{
+font-size: 21px;
+}
+.place-examples {
+font-size: 3.2rem;
+margin: 10px;
+}
+.retract-img-test {
+font-size: 1.3rem;
+}
+.model-banner-box {
+font-size: 10px;
+}
+.banner-company-label {
+font-size: 25px;
+padding: 0;
+}
+.finish-banner-label {
+font-size: 30px;
+}
+.banner-finish-img-section {
+display: block;
+}
+.banner-warn, .logo-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-banner-label {
+font-size: 24px;
+padding: 0;
+}
+.banner-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-banner-input {
+padding-left: 0px;
+}
+.hang-item, .finish-item, .size-banner-item {
+font-size: 2rem;
+}
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section {
+margin: 0px;
+display: block;
+}
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section,
+.type-banner-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-banner-inputing, 
+.city-banner-input, 
+.phone-banner {
+padding-left: 0px;
+}
+
+.address-banner-label, 
+.type-banner-label,
+.size-banner-label {
+font-size: 30px;
+padding: 0;
+}
+.size-driver-banner-note, .size-passenger-banner-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-banner-section, 
+.width-door-banner-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-banner-label {
+font-size: 35px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-banner-label, .remove-banner-file-button {
+font-size: 1rem;
+display: block;
+}
+.place-banner-img {
+  max-width: 300px;
+}
+.message-banner-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-banner {
+margin: 0;
+font-size: 20px;
+width: 100%;
+}
+.submit-banner-place, 
+.submit-banner-finish, 
+.remove-banner-finish,
+.remove-banner-place{
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+}
+@media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) {
+  .main-banner-graphics {
+    display: block;
+  }
+  .page-banner-container {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .banner-description {
+    font-size: 50px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-banner-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .banner-form-info {
+    margin: 0;
+  }
+  .banner-app-box {
+    font-size: 40px;
+  }
+  .banner-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .banner-actual {
+    margin: 0;
+  }
+  .banner-set {
+    display: block;
+  }
+  .name-section-banner,
+ .company-banner-section,
+ .emailphone-banner-section,
+ .address-banner-section,
+ .vehicle-type-banner-section,
+ .vehicle-size-banner-section,
+ .door-size-banner-section,
+ .finishing-banner-section,
+ .banner-file-section,
+ .banner-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+  .first-banner-name-label, 
+.banner-company-label, 
+.emailphone-banner-label,
+.address-banner-label,
+.size-banner-label,
+.message-banner-label,
+.place-banner-label,
+.finish-banner-label,
+.banner-file-label,
+.type-banner-label {
+font-size: 50px;
+}
+.first-name-banner-input, 
+.emailphone-banner-input, 
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.length-door-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section, 
+.type-banner-section {
+display: block;
+padding-left: 0;
+}
+.first-banner-label-name, 
+.last-banner-label-name, 
+.company-banner-name, 
+.email-banner-name, 
+.phone-banner-label, 
+.addr-banner-label, 
+.city-banner-label, 
+.state-banner-label, 
+.zip-banner-label, 
+.length-banner-label, 
+.width-banner-label, 
+.place-label, 
+.finish-label, 
+.banner-logo, 
+.year-banner-label, 
+.make-banner-label, 
+.model-banner-label, 
+.trim-banner-label {
+font-size: 35px;
+padding-left: 0;
+}
+.banner-message-container {
+margin-top: 10px;
+}
+.message-banner-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.banner-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-banner-input
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section,
+.size-door-banner-section {
+margin: 0;
+display: block;
+}
+.last-banner-name {
+padding-left: 0;
+}
+.firstname-banner-name-input, 
+.lastname-banner-name-input, 
+.company-banner-name-input, 
+.email-banner-box, 
+.phone-banner-box, 
+.address-banner-box, 
+.city-banner-box, 
+.state-banner-box, 
+.zip-banner-box, 
+.length-banner-box, 
+.width-banner-box, 
+.border-banner-box, 
+.length-banner-select, 
+.width-banner-select, 
+.place-banner-select, 
+.finish-banner-select, 
+.border-banner-select, 
+.type-banner-box,
+.year-banner-box,
+.make-banner-box,
+.length-door-banner-box,
+.width-door-banner-box
+{
+font-size: 21px;
+}
+.place-examples {
+font-size: 3.2rem;
+margin: 10px;
+}
+.retract-img-test {
+font-size: 1.3rem;
+}
+.model-banner-box {
+font-size: 10px;
+}
+.banner-company-label {
+font-size: 25px;
+padding: 0;
+}
+.finish-banner-label {
+font-size: 30px;
+}
+.banner-finish-img-section {
+display: block;
+}
+.banner-warn, .logo-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-banner-label {
+font-size: 24px;
+padding: 0;
+}
+.banner-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-banner-input {
+padding-left: 0px;
+}
+.hang-item, .finish-item, .size-banner-item {
+font-size: 2rem;
+}
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section {
+margin: 0px;
+display: block;
+}
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section,
+.type-banner-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-banner-inputing, 
+.city-banner-input, 
+.phone-banner {
+padding-left: 0px;
+}
+
+.address-banner-label, 
+.type-banner-label,
+.size-banner-label {
+font-size: 30px;
+padding: 0;
+}
+.size-driver-banner-note, .size-passenger-banner-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-banner-section, 
+.width-door-banner-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-banner-label {
+font-size: 35px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-banner-label, .remove-banner-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-banner-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-banner {
+margin: 0;
+font-size: 20px;
+width: 100%;
+}
+.submit-banner-place, 
+.submit-banner-finish, 
+.remove-banner-finish,
+.remove-banner-place{
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 12px;
+margin-left: 0;
+}
+}
+  @media screen and (max-width: 320px) and (orientation: portrait) {
+    .main-banner-graphics {
+      display: block;
+    }
+    .page-banner-container {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .place-examples {
+      font-size: 1.7rem;
+      margin: 10px;
+    }
+    .banner-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-banner-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .banner-form-info {
+      margin: 0;
+    }
+    .banner-app-box {
+      font-size: 37px;
+    }
+    .banner-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .banner-actual {
+      margin: 0;
+    }
+    .banner-set {
+      display: block;
+    }
+    .name-section-banner,
+   .company-banner-section,
+   .emailphone-banner-section,
+   .address-banner-section,
+   .size-banner-vinyl-section,
+   .placement-banner-section,
+   .door-size-banner-section,
+   .finishing-banner-section,
+   .banner-file-section,
+   .banner-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-banner-name-label, 
+.banner-company-label, 
+.emailphone-banner-label,
+.address-banner-label,
+.size-banner-label,
+.message-banner-label,
+.place-banner-label,
+.finish-banner-label,
+.banner-file-label,
+.type-banner-label {
+  font-size: 30px;
+  padding: 0;
+}
+.first-name-banner-input, 
+.emailphone-banner-input, 
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.length-door-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section, 
+.type-banner-section {
+  display: block;
+  padding-left: 0;
+}
+.first-banner-label-name, 
+.last-banner-label-name, 
+.company-banner-name, 
+.email-banner-name, 
+.phone-banner-label, 
+.addr-banner-label, 
+.city-banner-label, 
+.state-banner-label, 
+.zip-banner-label, 
+.length-banner-label, 
+.width-banner-label, 
+.place-label, 
+.finish-label, 
+.banner-logo, 
+.year-banner-label, 
+.make-banner-label, 
+.model-banner-label, 
+.trim-banner-label {
+  font-size: 25px;
+}
+.banner-message-container {
+  margin-top: 10px;
+}
+.message-banner-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.banner-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-banner-input
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section,
+.size-door-banner-section {
+  margin: 0;
+  display: block;
+}
+.last-banner-name {
+  padding-left: 0;
+}
+.firstname-banner-name-input, 
+.lastname-banner-name-input, 
+.company-banner-name-input, 
+.email-banner-box, 
+.phone-banner-box, 
+.address-banner-box, 
+.city-banner-box, 
+.state-banner-box, 
+.zip-banner-box, 
+.length-banner-box, 
+.width-banner-box, 
+.border-banner-box, 
+.length-banner-select, 
+.width-banner-select, 
+.place-banner-select, 
+.finish-banner-select, 
+.border-banner-select, 
+.type-banner-box,
+.year-banner-box,
+.make-banner-box,
+.length-door-banner-box,
+.width-door-banner-box
+ {
+  font-size: 12px;
+}
+.model-banner-box {
+  font-size: 6px;
+}
+.banner-company-label {
+  font-size: 18px;
+  padding: 0;
+}
+.finish-banner-label {
+  font-size: 30px;
+}
+.banner-finish-img-section {
+  display: block;
+}
+.finish-banner-select {
+  font-size: 15px;
+}
+.banner-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-banner-label {
+  font-size: 24px;
+  padding: 0;
+}
+.banner-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-banner-input {
+  padding-left: 0px;
+}
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section {
+  margin: 0px;
+  display: block;
+}
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section,
+.type-banner-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-banner-inputing, 
+.city-banner-input, 
+.phone-banner {
+  padding-left: 0px;
+}
+.hang-item, .finish-item, .size-banner-item {
+  font-size: 2rem;
+}
+.address-banner-label, 
+.type-banner-label,
+.size-banner-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-banner-note, .size-passenger-banner-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-banner-section, 
+.width-door-banner-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-banner-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-banner-label, .remove-banner-file-button {
+  font-size: 1rem;
+  display: block;
+}
+.retract-img-test {
+  font-size: 1rem;
+}
+.message-banner-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-banner {
+  margin: 0;
+  font-size: 20px;
+  width: 100%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-banner-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.submit-banner-finish, .remove-banner-finish, .submit-banner-size,
+  .submit-banner-place,
+  .remove-banner-place,
+   .remove-banner-size{
+  font-size: 12px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 20px;
+}
+  }
+  @media screen and (max-width: 320px) and (orientation: landscape) {
+    .main-banner-graphics {
+      display: block;
+    }
+    .page-banner-container {
+      padding-top: 100px; /* Reduce padding */
+    }
+    .place-examples {
+      font-size: 1.7rem;
+      margin: 10px;
+    }
+    .banner-description {
+      font-size: 50px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-banner-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .banner-form-info {
+      margin: 0;
+    }
+    .banner-app-box {
+      font-size: 37px;
+    }
+    .banner-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .banner-actual {
+      margin: 0;
+    }
+    .banner-set {
+      display: block;
+    }
+    .name-section-banner,
+   .company-banner-section,
+   .emailphone-banner-section,
+   .address-banner-section,
+   .size-banner-vinyl-section,
+   .placement-banner-section,
+   .door-size-banner-section,
+   .finishing-banner-section,
+   .banner-file-section,
+   .banner-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-banner-name-label, 
+.banner-company-label, 
+.emailphone-banner-label,
+.address-banner-label,
+.size-banner-label,
+.message-banner-label,
+.place-banner-label,
+.finish-banner-label,
+.banner-file-label,
+.type-banner-label {
+  font-size: 30px;
+  padding: 0;
+}
+.first-name-banner-input, 
+.emailphone-banner-input, 
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.length-door-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section, 
+.type-banner-section {
+  display: block;
+  padding-left: 0;
+}
+.first-banner-label-name, 
+.last-banner-label-name, 
+.company-banner-name, 
+.email-banner-name, 
+.phone-banner-label, 
+.addr-banner-label, 
+.city-banner-label, 
+.state-banner-label, 
+.zip-banner-label, 
+.length-banner-label, 
+.width-banner-label, 
+.place-label, 
+.finish-label, 
+.banner-logo, 
+.year-banner-label, 
+.make-banner-label, 
+.model-banner-label, 
+.trim-banner-label {
+  font-size: 25px;
+}
+.banner-message-container {
+  margin-top: 10px;
+}
+.message-banner-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.banner-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-banner-input
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section,
+.size-door-banner-section {
+  margin: 0;
+  display: block;
+}
+.last-banner-name {
+  padding-left: 0;
+}
+.firstname-banner-name-input, 
+.lastname-banner-name-input, 
+.company-banner-name-input, 
+.email-banner-box, 
+.phone-banner-box, 
+.address-banner-box, 
+.city-banner-box, 
+.state-banner-box, 
+.zip-banner-box, 
+.length-banner-box, 
+.width-banner-box, 
+.border-banner-box, 
+.length-banner-select, 
+.width-banner-select, 
+.place-banner-select, 
+.finish-banner-select, 
+.border-banner-select, 
+.type-banner-box,
+.year-banner-box,
+.make-banner-box,
+.length-door-banner-box,
+.width-door-banner-box
+ {
+  font-size: 12px;
+}
+.model-banner-box {
+  font-size: 6px;
+}
+.banner-company-label {
+  font-size: 18px;
+  padding: 0;
+}
+.finish-banner-label {
+  font-size: 30px;
+}
+.banner-finish-img-section {
+  display: block;
+}
+.finish-banner-select {
+  font-size: 15px;
+}
+.banner-warn, .logo-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-banner-label {
+  font-size: 24px;
+  padding: 0;
+}
+.banner-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-banner-input {
+  padding-left: 0px;
+}
+.emailphone-banner-input, 
+.address-banner-input-container, 
+.size-banner-section {
+  margin: 0px;
+  display: block;
+}
+.banner-company-name-input, 
+.address-banner-input, 
+.email-banner-input, 
+.banner-phone-name-input, 
+.length-banner-section, 
+.width-banner-section, 
+.place-banner-section, 
+.finish-banner-section, 
+.file-banner-section, 
+.border-banner-section,
+.type-banner-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-banner-inputing, 
+.city-banner-input, 
+.phone-banner {
+  padding-left: 0px;
+}
+.hang-item, .finish-item, .size-banner-item {
+  font-size: 2rem;
+}
+.address-banner-label, 
+.type-banner-label,
+.size-banner-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-banner-note, .size-passenger-banner-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-banner-section, 
+.width-door-banner-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-banner-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-banner-label, .remove-banner-file-button {
+  font-size: 1rem;
+  display: block;
+}
+.retract-img-test {
+  font-size: 1rem;
+}
+.message-banner-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-banner {
+  margin: 0;
+  font-size: 20px;
+  width: 100%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-banner-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.submit-banner-finish, .remove-banner-finish, .submit-banner-size,
+  .submit-banner-place,
+  .remove-banner-place,
+   .remove-banner-size {
+  font-size: 15px;
+  margin-left: 0;
+}
+.no-added-vehicles,
+.no-added-finishings {
+  margin: 0;
+  font-size: 20px;
+}
+  }
+  
