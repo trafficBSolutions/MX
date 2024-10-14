@@ -692,7 +692,7 @@ and what time you want an MX crew will arrive.</h1>
 <div className="submission-message">{submissionMessage}</div>
 )}
   </div>
-  <button type="button" className="btn btn--full submit-window" onClick={handleSubmit}>SUBMIT WINDOW FROSTING/TINTING</button>
+  <button type="button" className="btn btn--full submit-window" onClick={handleSubmit}>SUBMIT WINDOW FROSTING TINTING</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
