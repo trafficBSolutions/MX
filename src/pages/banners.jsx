@@ -585,7 +585,7 @@ onChange={(e) => {
 <label className="size-banner-label">Size of Banner:</label>
 <div className="size-banner-section">
   <div className="length-banner-section">
-    <label className="length-label" htmlFor="length">Length *</label>
+    <label className="length-banner-label" htmlFor="length">Length *</label>
     <input
       className="length-banner-box"
       type="number"
@@ -595,7 +595,7 @@ onChange={(e) => {
       placeholder="Enter length"
     />
     <select
-      className="length-select"
+      className="length-banner-select"
       value={lengthUnit}
       onChange={(e) => handleUnitChange('length', e.target.value)}
     >
@@ -606,7 +606,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-banner-section">
-    <label className="width-label" htmlFor="width">Width *</label>
+    <label className="width-banner-label" htmlFor="width">Width *</label>
     <input
       className="width-banner-box"
       type="number"
@@ -616,7 +616,7 @@ onChange={(e) => {
       placeholder="Enter width"
     />
     <select
-      className="width-select"
+      className="width-banner-select"
       value={widthUnit}
       onChange={(e) => handleUnitChange('width', e.target.value)}
     >
@@ -626,12 +626,12 @@ onChange={(e) => {
     </select>
   </div>
 
-  <button className="btn btn--full submit-size" type="button" onClick={handleAddSize}>ADD SIZE</button>
+  <button className="btn btn--full submit-banner-size" type="button" onClick={handleAddSize}>ADD SIZE</button>
   <div className="size-banner-list">
   <ul>
     {addedSizes.length > 0 ? (
       addedSizes.map((size, index) => (
-        <li className="size-item" key={index}>
+        <li className="size-banner-item" key={index}>
           Length: {size.length}, Width: {size.width}
           <button className="btn btn--full remove-size" onClick={() => handleRemoveSize(index)}>REMOVE SIZE</button>
         </li>
@@ -652,7 +652,7 @@ onChange={(e) => {
     </div>
 <div className="place-flex-container">
 <div className="place-img-container">
-        <img src="../public/banner types/retract.png" alt="Placement=photo" className="place-img"/>
+        <img src="../public/banner types/retract.png" alt="Placement=photo" className="place-banner-img"/>
         <h3 className="place-img-test">Retractable Stand</h3>
         <p className="retract-img-test">Retractable Stands are regular printed banners only they are not worked on by any of the banner types.
           Instead, they are placed on a retractable stand that can be pulled out and retracted when needed and are great for events and trade shows.
@@ -660,7 +660,7 @@ onChange={(e) => {
         </p>
   </div>
   <div className="place-img-container">
-        <img src="../public/banner types/banner types.jpg" alt="Placement=photo" className="place-img"/>
+        <img src="../public/banner types/banner types.jpg" alt="Placement=photo" className="place-banner-type-img"/>
         <h3 className="place-img-test">Banner Types</h3>
   </div>
     </div>
@@ -680,14 +680,14 @@ onChange={(e) => {
           ))}
         </select>
       </div>
-      <button className="btn btn--full submit-place" type="button" onClick={handleAddPlacement}>ADD PLACEMENT</button>
+      <button className="btn btn--full submit-banner-place" type="button" onClick={handleAddPlacement}>ADD PLACEMENT</button>
       <div className="place-banner-list">
   <ul>
     {addedPlaces.length > 0 ? (
       addedPlaces.map((hang, index) => (
         <li className="hang-item" key={index}>
           {hang.hang}
-          <button className="btn btn--full remove-size" onClick={() => handleRemovePlace(index)}>REMOVE PLACEMENT</button>
+          <button className="btn btn--full remove-banner-place" onClick={() => handleRemovePlace(index)}>REMOVE PLACEMENT</button>
         </li>
       ))
     ) : (
@@ -702,7 +702,7 @@ onChange={(e) => {
       <div className="finish-banner-section">
         <label className="finish-label" htmlFor="finish">Finishing *</label>
         <select
-          className="finish-select"
+          className="finish-banner-select"
           value={formData.finishing}
           onChange={(e) => handleOptionChange('finishing', e.target.value)}
         >
@@ -714,14 +714,14 @@ onChange={(e) => {
           ))}
         </select>
       </div>
-      <button className="btn btn--full submit-finish" type="button" onClick={handleAddFinish}>ADD FINISHING</button>
+      <button className="btn btn--full submit-banner-finish" type="button" onClick={handleAddFinish}>ADD FINISHING</button>
       <div className="finish-banner-list">
   <ul>
     {addedFinishes.length > 0 ? (
       addedFinishes.map((finish, index) => (
         <li className="finish-item" key={index}>
           {finish.name}
-          <button className="btn btn--full remove-size" onClick={() => handleRemoveFinish(index)}>REMOVE FINISHING</button>
+          <button className="btn btn--full remove-banner-finish" onClick={() => handleRemoveFinish(index)}>REMOVE FINISHING</button>
         </li>
       ))
     ) : (
@@ -815,7 +815,7 @@ and what time you want an MX crew will arrive.</h1>
           <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
