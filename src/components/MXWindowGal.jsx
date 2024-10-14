@@ -40,7 +40,7 @@ export default function MXWindowGal() {
 
   return (
     <div>
-      <h2 className="photo-mx-note">MX WINDOW FROSTING/TINTING PHOTO GALLERY</h2>
+      <h2 className="photo-mx-note">MX WINDOW FROSTING TINTING PHOTO GALLERY</h2>
       <div style={{ position: 'relative' }}>
         <Gallery photos={visiblePhotos} />
         {currentPhotoIndex !== 0 && (
