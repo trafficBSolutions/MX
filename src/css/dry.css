@@ -96,13 +96,6 @@
     height: auto;
     font-size: 50px;
   }
-  .log-re {
-    margin: 40px;
-    text-align: center;
-    font-size: 50px;
-    width: auto;
-    height: auto;
-  }
 .dry-fill {
     margin: 40px;
     text-align: center;
@@ -319,7 +312,6 @@
   .width-dry-label,
   .place-label,
   .finish-label,
-  .border-label,
   .dry-logo,
   .year-dry-label,
   .make-dry-label,
@@ -688,7 +680,6 @@ height: auto;
     .width-dry-label, 
     .place-label, 
     .finish-label,
-    .border-label, 
     .dry-logo,
     .year-dry-label, 
     .make-dry-label, 
@@ -865,7 +856,6 @@ height: auto;
     .width-dry-label, 
     .place-label, 
     .finish-label,
-    .border-label, 
     .dry-logo,
     .year-dry-label, 
     .make-dry-label, 
@@ -1061,7 +1051,6 @@ height: auto;
     .width-dry-label, 
     .place-label, 
     .finish-label,
-    .border-label, 
     .dry-logo,
     .year-dry-label, 
     .make-dry-label, 
@@ -1257,7 +1246,6 @@ height: auto;
     .width-dry-label, 
     .place-label, 
     .finish-label,
-    .border-label, 
     .dry-logo,
     .year-dry-label, 
     .make-dry-label, 
@@ -1450,7 +1438,6 @@ text-align: center;
 .width-dry-label, 
 .place-label, 
 .finish-label,
-.border-label, 
 .dry-logo,
 .year-dry-label, 
 .make-dry-label, 
@@ -1642,7 +1629,6 @@ font-size: 1.5rem;
 .width-dry-label, 
 .place-label, 
 .finish-label,
-.border-label, 
 .dry-logo,
 .year-dry-label, 
 .make-dry-label, 
