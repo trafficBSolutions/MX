@@ -41,7 +41,7 @@ export default function MXDrywallGallery() {
 
   return (
     <div>
-      <h2 className="photo-mx-note">MX DRYWALL/FLOOR/CONCRETE PHOTO GALLERY</h2>
+      <h2 className="photo-drywall-mx-note">MX DRYWALL FLOOR CONCRETE PHOTO GALLERY</h2>
       <div style={{ position: 'relative' }}>
         <Gallery photos={visiblePhotos} />
         {currentPhotoIndex !== 0 && (
