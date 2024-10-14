@@ -90,13 +90,6 @@
     height: auto;
     font-size: 50px;
   }
-  .log-re {
-    margin: 40px;
-    text-align: center;
-    font-size: 50px;
-    width: auto;
-    height: auto;
-  }
 .fleet-fill {
     margin: 40px;
     text-align: center;
@@ -303,7 +296,6 @@
   .width-fleet-label,
   .place-label,
   .finish-label,
-  .border-label,
   .fleet-logo,
   .year-fleet-label,
   .make-fleet-label,
@@ -884,7 +876,6 @@ font-size: 2.5rem;
 .width-fleet-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .fleet-logo, 
 .year-fleet-label, 
 .make-fleet-label, 
@@ -959,12 +950,6 @@ font-size: 30px;
 }
 .fleet-warn, .logo-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -1169,7 +1154,6 @@ font-size: 30px;
 .width-fleet-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .fleet-logo, 
 .year-fleet-label, 
 .make-fleet-label, 
@@ -1245,12 +1229,6 @@ font-size: 30px;
 }
 .fleet-warn, .logo-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -1455,7 +1433,6 @@ font-size: 30px;
 .width-fleet-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .fleet-logo, 
 .year-fleet-label, 
 .make-fleet-label, 
@@ -1531,12 +1508,6 @@ font-size: 30px;
 }
 .fleet-warn, .logo-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -1736,7 +1707,6 @@ font-size: 30px;
 .width-fleet-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .fleet-logo, 
 .year-fleet-label, 
 .make-fleet-label, 
@@ -1815,12 +1785,6 @@ font-size: 30px;
 }
 .fleet-warn, .logo-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -1978,7 +1942,6 @@ font-size: 30px;
 .width-fleet-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .fleet-logo, 
 .year-fleet-label, 
 .make-fleet-label, 
@@ -2046,12 +2009,6 @@ font-size: 30px;
 }
 .fleet-warn, .logo-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
