@@ -565,7 +565,6 @@ onChange={(e) => {
   {decalTypeError && <div className="error-message">{decalTypeError}</div>}
 </div>
   <div className="decal-size-input-container">
-    <label className="decal-size-label">Decal Size *</label>
     <label className="decal-width-label">Length *</label>
     <input
       className="decal-length-input"
@@ -774,7 +773,7 @@ onChange={(e) => {
           <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
