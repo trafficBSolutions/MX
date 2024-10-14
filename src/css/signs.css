@@ -96,13 +96,6 @@
     height: auto;
     font-size: 50px;
   }
-  .log-re {
-    margin: 40px;
-    text-align: center;
-    font-size: 50px;
-    width: auto;
-    height: auto;
-  }
 .sign-fill {
     margin: 40px;
     text-align: center;
@@ -1069,12 +1062,6 @@ font-size: 30px;
   margin: 0;
   text-align: center;
 }
-.log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
 .emailphone-sign-label {
   font-size: 24px;
   padding: 0;
@@ -1377,12 +1364,6 @@ font-size: 30px;
 }
 .sign-warn, .logo-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
