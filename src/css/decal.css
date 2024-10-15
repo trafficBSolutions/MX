@@ -2,11 +2,10 @@
 @import url(https://db.onlinewebfonts.com/c/82302682c00aba868f6ae01a375b10ac?family=Moveo+Sans+SemiExt+W00+Bold);
 /* ================================
    ================================
-   TOP OF THE dry
- PAGE
+   TOP OF THE DECAL PAGE
    ================================
    ================================ */
-   .page-dry-container{
+   .page-decal-banner {
     padding: 80px 0 40px 0;
     position: relative;
     overflow: hidden;
@@ -16,7 +15,7 @@
     height: auto;
   }
 
-  .dry-name-container {
+  .decal-name-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -25,7 +24,7 @@
     width: auto;
   }
 
-.dry-description {
+.decal-description {
     color: #000;
     font-family: "Kairos W04 Extended Bold";
     font-size: 110px;
@@ -39,16 +38,11 @@
     PHOTO GALLERY
    ================================
    ================================ */
-   .photo-dry-gal-dry {
+   .photo-decal-gal-decal {
     background-color: #8fafff;
     height: auto;
   }
-  .photo-drywall-mx-note {
-    font-size: 50px;
-    text-align: center;
-    font-family: "Kairos W04 Extended Bold";
-  }
-  .photo-mx-dry-note {
+  .photo-mx-decal-note {
     font-size: 50px;
     text-align: center;
     font-family: "Kairos W04 Extended Bold";
@@ -60,14 +54,14 @@
     ADHESIVE SECTION FORM
    ================================
    ================================ */
-   .dry-form-container {
+   .decal-form-container {
     background-color: #e7e7e7;
     width: auto;
     padding: 0 20px;
     box-sizing: border-box;
     height: auto;
 }
-   .dry-set {
+   .decal-set {
     padding-top: 10px;
     background-color: #e7e7e7;
     display: flex;
@@ -83,12 +77,12 @@
     width: auto;
     height: auto;
 }
-.dry-form-info {
+.decal-form-info {
     margin: 10px;
     width: 100%;
     height: auto;
 }
-  .dry-app-box {
+  .decal-app-box {
     margin-top: 10px;
     text-align: center;
     color: #0f375a;
@@ -96,47 +90,39 @@
     height: auto;
     font-size: 50px;
   }
-.dry-fill {
+.decal-fill {
     margin: 40px;
     text-align: center;
     color: #194fb4;
     font-size: 35px;
     height: auto;
 }
-.dry-notice,.logo-notice {
+.decal-notice,.logo-notice {
     color: #194fb4;
     height: auto;
 }
-.dry-warn {
+.decal-warn {
     font-size: 30px;
     margin: 5%;
     color: #000;
     height: auto;
 }
-.logo-warn {
-    font-size: 30px;
-    margin-top: 0%;
-    color: #000;
-    height: auto;
-}
-.dry-actual {
+.decal-actual {
     width: auto;
     margin: 50px;
     height: auto;
 }
 /* ================================
-   dry Boxed Sections
+   decal Boxed Sections
    ================================ */
-   .name-section-dry,
-   .company-dry-section,
-   .emailphone-dry-section,
-   .address-dry-section,
-   .size-dry-vinyl-section,
-   .placement-dry-section,
-   .door-size-dry-section,
-   .finishing-dry-section,
-   .dry-file-section,
-   .dry-message-container {
+   .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .type-decal-section,
+   .decal-sticker-section,
+   .decal-file-section,
+   .decal-message-container {
     border-color: #000;
   border-width: 4px;
   background-color: #cccbcb;
@@ -151,20 +137,22 @@
   padding: 20px;
   }
   
+
   
 /* ================================
    Larger Labels for Adhesive Section
    ================================ */
-.first-dry-name-label, 
-.dry-company-label, 
-.emailphone-dry-label,
-.address-dry-label,
-.size-dry-label,
-.message-dry-label,
-.place-dry-label,
-.finish-dry-label,
-.dry-file-label,
-.type-dry-label {
+.first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.type-decal-label,
+.decal-sticker-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+.type-decal-label {
   padding: 50px;
   color:#000;
   font-family: "Moveo Sans w00 Bold";
@@ -177,74 +165,79 @@
 /* ================================
    Added Item Label Categories
    ================================ */
-.size-driver-dry-note, .size-passenger-dry-note {
-  font-family: "Moveo Sans w00 bold";
+.added-decal-list, .decal-item {
+  font-family: "Moveo Sans w00 Bold";
   font-style: normal;
-  display: block;
+  margin: 0;
+  color: rgb(30, 255, 0);
   text-align: center;
   font-size: 70px;
   height: auto;
+  text-shadow: 
+    1.3px 1.3px #000,
+    -1.3px 1.3px #000,
+    1.3px -1.3px #000,
+    -1.3px -1.3px #000
+    ;
 }
-.placement-item {
-  font-family: "Kairos W01 Extended Medium";
-  list-style: none;
+.no-added-decals {
   color: #000;
   font-size: 40px;
-}
-.vehicle-vinyl-size-li, 
-.finishing-item {
-  font-size: 70px;
-  list-style: none;
-  color: #000;
-  font-family: "Kairos W01 Extended Medium";
-}
-
-/* ================================
-   Added Items Labels
-   ================================ */
-.added-vehicle-label {
-  font-family: "Moveo Sans w00 Regular";
-  font-style: normal;
+  height: auto;
   margin: 10px;
-  padding-left: 10px;
-  font-size: 50px;
-  height: auto;
-}
-.no-added-vehicles, .no-added-finishings {
-  margin: 50px;
   text-align: center;
-  font-size: 40px;
-  height: auto;
 }
-.dry-vinyl-size-li {
-  font-size: 70px;
+.decal-item {
+    text-decoration: none;
     list-style: none;
-    color: #000;
-    font-family: "Kairos W01 Extended Medium";
+}
+.decal-type-p,
+.decal-size-p,
+.decal-cut-p,
+.decal-quantity-p {
+  text-decoration: none;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  margin: 0;
+  color: rgb(255, 238, 0);
+  text-align: center;
+  font-size: 60px;
+  height: auto;
+  text-shadow:
+    1.3px 1.3px #000,
+    -1.3px 1.3px #000,
+    1.3px -1.3px #000,
+    -1.3px -1.3px #000
+    ;
+}
+.added-decal-b-type,
+.added-decal-b-size,
+.added-decal-b-cut,
+.added-decal-b-quantity {
+    font-family: "Moveo Sans w00 bold";
+    font-style: normal;
+    margin: 0;
+    color: rgb(79, 255, 196);
 }
 /* ================================
    Grouped input sections
    ================================ */
-  .first-dry-dry-input {
+  .first-decal-decal-input {
     margin: 40px;
     display: flex;
     height: auto;
   }
-  .address-dry-input-container, 
-  .size-door-dry-section {
+  .address-decal-input-container, 
+  .size-door-decal-section {
     margin: 10px;
     height: auto;
   }
 
-  .size-dry-section {
-    margin-top: 30px;
-    display: inline-block;
-    height: auto;
-  }
   /* ================================
    Grouped Labels and Input Box Styling
    ================================ */
-   .last-dry-name {
+   .last-decal-name {
     font-family: "Moveo Sans w00 Regular";
     font-style: normal;
     margin: 0;
@@ -252,34 +245,30 @@
     font-size: 20px;
     height: auto;
   }
-  .first-name-dry-input,
-  .emailphone-dry-input,
-  .dry-company-name-input, 
-  .address-dry-input,
-  .email-dry-input,
-  .dry-phone-name-input,
-  .length-dry-section,
-  .length-door-dry-section,
-  .width-dry-section,
-  .place-dry-section, 
-  .finish-dry-section,
-  .file-dry-section,
-  .border-dry-section,
-  .type-dry-section {
+  .first-name-decal-input,
+  .emailphone-decal-input,
+  .decal-company-name-input, 
+  .address-decal-input,
+  .email-decal-input,
+  .decal-phone-name-input,
+  .length-decal-section,
+  .width-decal-section, 
+  .file-decal-section{
     font-family: "Moveo Sans w00 Regular";
     margin: 10px;
     margin-right: 0;
     position: relative;
     padding-left: 15px;
+    display: flex;
     height: auto;
   }
-  .finish-dry-section {
+  .finish-decal-section {
     display: block;
   }
 
-  .address-dry-inputing, 
-  .city-dry-input,
-  .phone-dry {
+  .address-decal-inputing, 
+  .city-decal-input,
+  .phone-decal {
     font-family: "Moveo Sans w00 Regular";
     font-style: normal;
     margin: 0;
@@ -287,8 +276,8 @@
     font-size: 20px;
     height: auto;
   }
-  .state-dry-input,  
-  .zip-dry-input{
+  .state-decal-input,  
+  .zip-decal-input{
     font-family: "Moveo Sans w00 Regular";
     margin: 0px;
     margin-right: 0;
@@ -299,26 +288,21 @@
 /* ================================
    Small Label Styling
    ================================ */
- .first-dry-label-name, 
-  .last-dry-label-name,
-  .company-dry-name,
-  .email-dry-name,
-  .phone-dry-label,
-  .addr-dry-label, 
-  .city-dry-label,
-  .state-dry-label,
-  .zip-dry-label,
-  .length-dry-label, 
-  .width-dry-label,
-  .place-label,
-  .finish-label,
-  .dry-logo,
-  .year-dry-label,
-  .make-dry-label,
-  .model-dry-label,
-  .trim-dry-label,
-  .length-dry-label,
-  .width-dry-label {
+ .first-decal-label-name, 
+  .last-decal-label-name,
+  .company-decal-name,
+  .email-decal-name,
+  .phone-decal-label,
+  .addr-decal-label, 
+  .city-decal-label,
+  .state-decal-label,
+  .zip-decal-label,
+  .decal-type-label, 
+  .decal-size-label, 
+  .decal-cut-unit-label, 
+  .decal-quantity-label,
+  .decal-logo,
+  .decal-length-label, .decal-width-label  {
     font-family: "Highway Gothic Narrow";
     font-style: normal;
     margin: 0;
@@ -332,75 +316,42 @@
 /* ================================
    Input Box Styling
    ================================ */
-   .firstname-dry-name-input,
-   .lastname-dry-name-input, 
-   .company-dry-name-input,
-   .email-dry-box,
-   .phone-dry-box,
-   .address-dry-box, 
-   .city-dry-box,
-   .state-dry-box,
-   .zip-dry-box,
-   .length-dry-box, 
-   .width-dry-box,
-   .border-dry-box,
-   .length-door-dry-box,
-   .width-door-dry-box,
-   .length-dry-select,
-   .width-dry-select, 
-   .place-dry-select,
-   .finish-dry-select,
-   .border-dry-select,
-   .type-dry-box,
-   .year-dry-box,
-   .make-dry-box,
-   .model-dry-box,
-   .length-dry-select,
-   .width-dry-select,
-   .place-dry-selection {
+   .firstname-decal-name-input,
+   .lastname-decal-name-input, 
+   .company-decal-name-input,
+   .email-decal-box,
+   .phone-decal-box,
+   .address-decal-box, 
+   .city-decal-box,
+   .state-decal-box,
+   .zip-decal-box,
+   .decal-type-input, 
+   .decal-size-input,
+   .border-decal-box,
+   .decal-sides-input,
+   .decal-side-select,
+   .decal-length-input,
+   .decal-length-select,
+   .decal-width-input,
+   .decal-width-select,
+   .decal-cut-input,
+   .decal-quantity-input {
      padding: 10px;
      color:#0f375a;
      font-size: 50px;
      margin-bottom: 20px;
      height: auto;
    }
-   .length-dry-box, 
-   .width-dry-box,
-   .length-door-dry-box,
-   .width-door-dry-box {
+   .length-decal-box, 
+   .width-decal-box,
+   .length-door-decal-box,
+   .width-door-decal-box {
     font-size: 80px;
 
    }
-   .type-dry-box,
-   .year-dry-box,
-   .make-dry-box,
-   .model-dry-box {
-    font-size: 40px;
-   }
-   /* ================================
-   Length and Width Display Boxes
-   ================================ */
-   .driver-length-section, 
-   .driver-width-section,
-   .passenger-length-section,
-   .passenger-side-width,
-   .length-door-dry-section,
-   .width-door-dry-section {
-    display: grid;
-    padding-left: 0;
-    margin-top: 0;
-    margin: 0;
-   }
 /* ================================
-   dry Image Section
+   decal Image Section
    ================================ */
-   .place-flex-container {
-    display: flex;
-    justify-content: space-between; /* Adjusts space between items */
-    align-items: center; /* Aligns items vertically */
-    flex-wrap: nowrap; /* Ensures the items stay on one line */
-    height: auto;
-}
 
 .place-img-container {
     flex: 1;
@@ -417,7 +368,7 @@
 /* ================================
    Year Input Box Note Style
    ================================ */
-.year-dry-note {
+.year-decal-note {
 font-size: 20px;
 font-display: flex;
 margin: 10px;
@@ -425,9 +376,9 @@ font-family: "Kairos W01 Extended Medium";
 height: auto;
 }
 /* ================================
-   dry Finishing Image Section
+   decal Finishing Image Section
    ================================ */
-   .dry-finish-img-section {
+   .decal-finish-img-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal columns */
     gap: 20px; /* Adds space between the columns */
@@ -435,7 +386,7 @@ height: auto;
     height: auto;
   }
   
-  .matte-img-dry, .gloss-img-dry, .ra-img-dry {
+  .matte-img-decal, .gloss-img-decal, .ra-img-decal {
     text-align: center; /* Centers the image and text within each div */
     height: auto;
   }
@@ -447,9 +398,9 @@ height: auto;
   
 
   /* ================================
-   dry Message Styling
+   decal Message Styling
    ================================ */
-  .message-dry-note {
+  .message-decal-note {
     font-style: normal;
     text-align: center;
     text-emphasis: none;
@@ -460,7 +411,7 @@ height: auto;
     height: auto;
   }
   
-  .message-dry-text {
+  .message-decal-text {
     font-style: normal;
     text-align: left;
     text-emphasis: none;
@@ -469,34 +420,12 @@ height: auto;
     width: 100%;
     height: 300px;
   }
-
-    
-/* ================================
-   Submit Button Styling
-   ================================ */
-   .submit-dry-size, .submit-finishing,
-   .remove-finishing, .submit-place, .remove-placement {
-    background-color: #0f375a;
-    position: relative;
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 80px;
-    color: #fff;
-    height: auto;
-  }  
-  .submit-vehicle {
-    background-color: #0f375a;
-    color: #fff;
-    margin-bottom: 30px;
-    height: auto;
-  }
   .choose-logo-contain {
     display: flex;
     align-items: center;
     height: auto;
 }
-.file-dry-label, .remove-dry-file-button {
+.file-decal-label, .remove-decal-file-button {
     display: flex;
     background-color: #0f375a;
     color: #fff;
@@ -507,15 +436,17 @@ height: auto;
     cursor: pointer;
     height: auto;
 }
-.file-dry-label input[type=file] {
+.file-decal-label input[type=file] {
     display: none;
 }
-.submit-dry, .submit-vehicle {
+.submit-decals
+ {
   width: 100%;
   font-size: 40px;
   height: auto;
 }
-  .submit-dry, .dry-vinyl-submit-size, .dry-vinyl-remove-submit-size {
+
+  .submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -527,11 +458,15 @@ height: auto;
     color: #fff;
     height: auto;
   }
-  .submit-dry-finishing, .passenger-submit-size, .driver-remove-submit-size,
+  .submit-decal {
+    width: 100%;
+    font-size: 40px;
+    height: auto;
+  }
+  .driver-submit-size, .passenger-submit-size, .driver-remove-submit-size,
   .passenger-remove-submit-size,
   .door-remove-length-submit-size,
-  .door-length-submit-size,
-  .new-dry-logo-button {
+  .door-length-submit-size {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -545,16 +480,14 @@ height: auto;
    }
   .submit-size:hover, 
   .submit-finishing:hover,
-  .submit-dry:hover,
-  .file-dry-label:hover,
+  .submit-decal:hover,
+  .file-decal-label:hover,
   .remove-finishing:hover,
-  .remove-dry-file-button:hover,
-  .new-dry-logo-button:hover,
-  .submit-dry-finishing:hover {
+  .remove-decal-file-button:hover,
+  .new-decal-logo-button:hover {
     background-color: #226daf;
   }
-  .btn-submit, .btn-dry-submit, .dry-vinyl-submit-size,
-  .dry-vinyl-remove-submit-size {
+  .btn-submit, .btn-decal-submit {
     text-decoration: none;
       padding: 20px;
       border-radius: 9px;
@@ -565,7 +498,7 @@ height: auto;
       margin-top: 1rem;
       height: auto;
   }
-  .btn-dry-submit {
+  .btn-decal-submit {
     padding: 0;
     height: auto;
   }
@@ -603,1135 +536,1637 @@ height: auto;
   height: auto;
 }
 @media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
-  .page-dry-container {
-    padding-top: 100px;
-  }
-  .photo-drywall-mx-note {
-    font-size: 2.5rem;
-  }
-  .main-dry-graphics {
-    display: block;
-  }
-  .page-dry-banner {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .dry-description {
-    font-size: 50px; /* Reduce font size */
+  .decal-description {
+    font-size: 7rem; /* Reduce font size */
     padding: 10px; /* Add padding to avoid content touching the edges */
   }
-  .photo-mx-dry-note {
+  .photo-mx-decal-note {
     font-size: 25px; /* Reduce font size */
   }
-  .dry-form-info {
+  .decal-form-info {
     margin: 0;
   }
-  .dry-app-box {
+  .decal-app-box {
     font-size: 37px;
   }
-  .dry-fill {
+  .decal-fill {
     margin: 10px;
     font-size: 18px;
   }
-  .dry-actual {
-    margin: 0;  
+  .decal-actual {
+    margin: 0;
   }
-    .first-dry-name-label, 
-    .address-dry-label, 
-    .size-dry-label,
-    .message-dry-label, 
-    .place-dry-label, 
-    .finish-dry-label, 
-    .dry-file-label, 
-    .type-dry-label {
-    font-size: 60px;
-    padding: 0;
-    }
-    .dry-company-label {
-    font-size: 50px;
-    padding: 0;
-    }
-    .emailphone-dry-label {
-    font-size: 50px;
-    padding: 0;
-    }
-    .dry-file-label {
-    font-size: 27px;
-    padding: 0;
-    }
-    .dry-warn {
-    font-size: 1.5rem;
-    text-align: center;
-    
-    }
-    .message-dry-note {
-    font-size: 1.2rem;
-    text-align: center;
-    }
-    .first-dry-label-name, 
-    .last-dry-label-name, 
-    .company-dry-name, 
-    .email-dry-name,
-    .phone-dry-label, 
-    .addr-dry-label, 
-    .city-dry-label, 
-    .state-dry-label,
-    .zip-dry-label,
-    .length-dry-label, 
-    .width-dry-label, 
-    .place-label, 
-    .finish-label,
-    .dry-logo,
-    .year-dry-label, 
-    .make-dry-label, 
-    .model-dry-label, 
-    .trim-dry-label {
-    font-size: 60px;
-    padding: 0;
-    }
-    .firstname-dry-name-input, 
-    .lastname-dry-name-input, 
-    .company-dry-name-input, 
-    .email-dry-box, 
-    .phone-dry-box,
-    .address-dry-box, 
-    .city-dry-box, 
-    .state-dry-box, 
-    .zip-dry-box, 
-    .length-dry-box, 
-    .width-dry-box,
-    .border-dry-box, 
-    .length-door-dry-box, 
-    .width-door-dry-box, 
-    .length-dry-select, 
-    .width-dry-select, 
-    .place-dry-select, 
-    .finish-dry-select, 
-    .border-dry-select, 
-    .type-dry-box,
-    .year-dry-box, 
-    .make-dry-box, 
-    .model-dry-box, 
-    .length-dry-select, 
-    .width-dry-select {
-    font-size: 1.8rem;
-    }
-    .place-dry-selection {
-    font-size: 1.3rem;
-    }
+  .decal-set {
+    display: block;
+  }
+  .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
 
-    .first-name-dry-input, 
-    .emailphone-dry-input, 
-    .dry-company-name-input, 
-    .address-dry-input, 
-    .email-dry-input, 
-    .dry-phone-name-input, 
-    .length-dry-section, 
-    .length-door-dry-section, 
-    .width-dry-section, 
-    .place-dry-section, 
-    .finish-dry-section, 
-    .file-dry-section, 
-    .last-dry-name, 
-    .dry-company-name-input,
-    .emailphone-dry-input,
-    .phone-dry {
-    padding-left: 0;
-    margin: 0;
-    }
-    .address-dry-input-container {
-    margin: 0;
-    }
-    .dry-vinyl-size-li {
-    font-size: 2rem;
-    }
-
-    .place-img {
-    max-width: 150px;
-    }
-    .submit-dry,
-    .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
-    .submit-place, 
-    .remove-placement,
-    .submit-dry-finishing,
-    .new-dry-logo-button,
-    .file-dry-label,
-    .remove-dry-file-button {
-    font-size: 1.5rem;
-    }
-    .dry-finish-img-section {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      align-items: center;
-      }
-    .placement-item {
-    font-size: 1.6rem;
-    line-height: 2rem;
-    }
+.type-decal-label {
+font-size: 40px;
 }
-@media screen and (max-width: 1200px) and (orientation: landscape) {
-  .dry-set {
-    display: block;
-  }
-  .page-dry-container {
-    padding-top: 100px;
-  }
-  .photo-drywall-mx-note {
-    font-size: 1.5rem;
-  }
-  .main-dry-graphics {
-    display: block;
-  }
-  .page-dry-banner {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .dry-description {
-    font-size: 37px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-dry-note {
-    font-size: 25px; /* Reduce font size */
-  }
-  .dry-form-info {
-    margin: 0;
-  }
-  .dry-app-box {
-    font-size: 37px;
-  }
-  .dry-fill {
-    margin: 10px;
-    font-size: 18px;
-  }
-  .dry-actual {
-    margin: 0;  
-  }
-  .first-dry-dry-input {
-    display: block;
-    margin: 0;
-    }
-    .first-dry-name-label, 
-    .address-dry-label, 
-    .size-dry-label,
-    .message-dry-label, 
-    .place-dry-label, 
-    .finish-dry-label, 
-    .dry-file-label, 
-    .type-dry-label {
-    font-size: 60px;
-    padding: 0;
-    }
-    .dry-company-label {
-    font-size: 50px;
-    padding: 0;
-    }
-    .emailphone-dry-label {
-    font-size: 50px;
-    padding: 0;
-    }
-    .dry-file-label {
-    font-size: 27px;
-    padding: 0;
-    }
-    .dry-warn {
-    font-size: 1.5rem;
-    text-align: center;
-    
-    }
-    .message-dry-note {
-    font-size: 1.2rem;
-    text-align: center;
-    }
-    .first-dry-label-name, 
-    .last-dry-label-name, 
-    .company-dry-name, 
-    .email-dry-name,
-    .phone-dry-label, 
-    .addr-dry-label, 
-    .city-dry-label, 
-    .state-dry-label,
-    .zip-dry-label,
-    .length-dry-label, 
-    .width-dry-label, 
-    .place-label, 
-    .finish-label,
-    .dry-logo,
-    .year-dry-label, 
-    .make-dry-label, 
-    .model-dry-label, 
-    .trim-dry-label {
-    font-size: 25px;
-    padding: 0;
-    }
-    .firstname-dry-name-input, 
-    .lastname-dry-name-input, 
-    .company-dry-name-input, 
-    .email-dry-box, 
-    .phone-dry-box,
-    .address-dry-box, 
-    .city-dry-box, 
-    .state-dry-box, 
-    .zip-dry-box, 
-    .length-dry-box, 
-    .width-dry-box,
-    .border-dry-box, 
-    .length-door-dry-box, 
-    .width-door-dry-box, 
-    .length-dry-select, 
-    .width-dry-select, 
-    .place-dry-select, 
-    .finish-dry-select, 
-    .border-dry-select, 
-    .type-dry-box,
-    .year-dry-box, 
-    .make-dry-box, 
-    .model-dry-box, 
-    .length-dry-select, 
-    .width-dry-select {
-    font-size: 1.8rem;
-    }
-    .place-dry-selection {
-    font-size: 1.3rem;
-    }
-    .name-section-dry, 
-    .company-dry-section,
-    .emailphone-dry-section, 
-    .address-dry-section, 
-    .size-dry-vinyl-section, 
-    .placement-dry-section, 
-    .door-size-dry-section, 
-    .finishing-dry-section, 
-    .dry-file-section, 
-    .dry-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-    }
-    .first-name-dry-input, 
-    .emailphone-dry-input, 
-    .dry-company-name-input, 
-    .address-dry-input, 
-    .email-dry-input, 
-    .dry-phone-name-input, 
-    .length-dry-section, 
-    .length-door-dry-section, 
-    .width-dry-section, 
-    .place-dry-section, 
-    .finish-dry-section, 
-    .file-dry-section, 
-    .last-dry-name, 
-    .dry-company-name-input,
-    .emailphone-dry-input,
-    .phone-dry {
-    padding-left: 0;
-    margin: 0;
-    }
-    .address-dry-input-container {
-    margin: 0;
-    }
-    .dry-vinyl-size-li {
-    font-size: 2rem;
-    }
-    .place-flex-container {
-    display: block;
-    margin: 0;
-    }
-    .place-img {
-    max-width: 150px;
-    }
-    .submit-dry,
-    .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
-    .submit-place, 
-    .remove-placement,
-    .submit-dry-finishing,
-    .new-dry-logo-button,
-    .file-dry-label,
-    .remove-dry-file-button {
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0;
-    }
-    .dry-finish-img-section {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      align-items: center;
-      }
-    .placement-item {
-    font-size: 1.6rem;
-    line-height: 2rem;
-    }
+.decal-sticker-label {
+  font-size: 40px;
+  padding: 0;
 }
-@media screen and (max-width: 1200px) and (orientation: portrait) {
-  .dry-set {
-    display: block;
-  }
-  .page-dry-container {
-    padding-top: 100px;
-  }
-  .photo-drywall-mx-note {
-    font-size: 1.5rem;
-  }
-  .main-dry-graphics {
-    display: block;
-  }
-  .page-dry-banner {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .dry-description {
-    font-size: 37px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-dry-note {
-    font-size: 25px; /* Reduce font size */
-  }
-  .dry-form-info {
-    margin: 0;
-  }
-  .dry-app-box {
-    font-size: 37px;
-  }
-  .dry-fill {
-    margin: 10px;
-    font-size: 18px;
-  }
-  .dry-actual {
-    margin: 0;  
-  }
-  .first-dry-dry-input {
-    display: block;
-    margin: 0;
-    }
-    .first-dry-name-label, 
-    .address-dry-label, 
-    .size-dry-label,
-    .message-dry-label, 
-    .place-dry-label, 
-    .finish-dry-label, 
-    .dry-file-label, 
-    .type-dry-label {
-    font-size: 60px;
-    padding: 0;
-    }
-    .dry-company-label {
-    font-size: 50px;
-    padding: 0;
-    }
-    .emailphone-dry-label {
-    font-size: 50px;
-    padding: 0;
-    }
-    .dry-file-label {
-    font-size: 27px;
-    padding: 0;
-    }
-    .dry-warn {
-    font-size: 1.5rem;
-    text-align: center;
-    
-    }
-    .message-dry-note {
-    font-size: 1.2rem;
-    text-align: center;
-    }
-    .first-dry-label-name, 
-    .last-dry-label-name, 
-    .company-dry-name, 
-    .email-dry-name,
-    .phone-dry-label, 
-    .addr-dry-label, 
-    .city-dry-label, 
-    .state-dry-label,
-    .zip-dry-label,
-    .length-dry-label, 
-    .width-dry-label, 
-    .place-label, 
-    .finish-label,
-    .dry-logo,
-    .year-dry-label, 
-    .make-dry-label, 
-    .model-dry-label, 
-    .trim-dry-label {
-    font-size: 25px;
-    padding: 0;
-    }
-    .firstname-dry-name-input, 
-    .lastname-dry-name-input, 
-    .company-dry-name-input, 
-    .email-dry-box, 
-    .phone-dry-box,
-    .address-dry-box, 
-    .city-dry-box, 
-    .state-dry-box, 
-    .zip-dry-box, 
-    .length-dry-box, 
-    .width-dry-box,
-    .border-dry-box, 
-    .length-door-dry-box, 
-    .width-door-dry-box, 
-    .length-dry-select, 
-    .width-dry-select, 
-    .place-dry-select, 
-    .finish-dry-select, 
-    .border-dry-select, 
-    .type-dry-box,
-    .year-dry-box, 
-    .make-dry-box, 
-    .model-dry-box, 
-    .length-dry-select, 
-    .width-dry-select {
-    font-size: 1.8rem;
-    }
-    .place-dry-selection {
-    font-size: 1.3rem;
-    }
-    .name-section-dry, 
-    .company-dry-section,
-    .emailphone-dry-section, 
-    .address-dry-section, 
-    .size-dry-vinyl-section, 
-    .placement-dry-section, 
-    .door-size-dry-section, 
-    .finishing-dry-section, 
-    .dry-file-section, 
-    .dry-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-    }
-    .first-name-dry-input, 
-    .emailphone-dry-input, 
-    .dry-company-name-input, 
-    .address-dry-input, 
-    .email-dry-input, 
-    .dry-phone-name-input, 
-    .length-dry-section, 
-    .length-door-dry-section, 
-    .width-dry-section, 
-    .place-dry-section, 
-    .finish-dry-section, 
-    .file-dry-section, 
-    .last-dry-name, 
-    .dry-company-name-input,
-    .emailphone-dry-input,
-    .phone-dry {
-    padding-left: 0;
-    margin: 0;
-    }
-    .address-dry-input-container {
-    margin: 0;
-    }
-    .dry-vinyl-size-li {
-    font-size: 2rem;
-    }
-    .place-flex-container {
-    display: block;
-    margin: 0;
-    }
-    .place-img {
-    max-width: 150px;
-    }
-    .submit-dry,
-    .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
-    .submit-place, 
-    .remove-placement,
-    .submit-dry-finishing,
-    .new-dry-logo-button,
-    .file-dry-label,
-    .remove-dry-file-button {
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0;
-    }
-    .dry-finish-img-section {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      align-items: center;
-      }
-    .placement-item {
-    font-size: 1.6rem;
-    line-height: 2rem;
-    }
-}
-@media screen and (min-width: 320px) and (max-width: 600px) and (orientation: portrait) {
-  .dry-set {
-    display: block;
-  }
-  .page-dry-container {
-    padding-top: 100px;
-  }
-  .photo-drywall-mx-note {
-    font-size: 1.5rem;
-  }
-  .main-dry-graphics {
-    display: block;
-  }
-  .page-dry-banner {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .dry-description {
-    font-size: 37px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-dry-note {
-    font-size: 25px; /* Reduce font size */
-  }
-  .dry-form-info {
-    margin: 0;
-  }
-  .dry-app-box {
-    font-size: 37px;
-  }
-  .dry-fill {
-    margin: 10px;
-    font-size: 18px;
-  }
-  .dry-actual {
-    margin: 0;  
-  }
-  .first-dry-dry-input {
-    display: block;
-    margin: 0;
-    }
-    .first-dry-name-label, 
-    .address-dry-label, 
-    .size-dry-label,
-    .message-dry-label, 
-    .place-dry-label, 
-    .finish-dry-label, 
-    .dry-file-label, 
-    .type-dry-label {
-    font-size: 33px;
-    padding: 0;
-    }
-    .dry-company-label {
-    font-size: 19px;
-    padding: 0;
-    }
-    .emailphone-dry-label {
-    font-size: 24px;
-    padding: 0;
-    }
-    .dry-file-label {
-    font-size: 27px;
-    padding: 0;
-    }
-    .dry-warn {
-    font-size: 1rem;
-    text-align: center;
-    
-    }
-    .message-dry-note {
-    font-size: 1.2rem;
-    text-align: center;
-    }
-    .first-dry-label-name, 
-    .last-dry-label-name, 
-    .company-dry-name, 
-    .email-dry-name,
-    .phone-dry-label, 
-    .addr-dry-label, 
-    .city-dry-label, 
-    .state-dry-label,
-    .zip-dry-label,
-    .length-dry-label, 
-    .width-dry-label, 
-    .place-label, 
-    .finish-label,
-    .dry-logo,
-    .year-dry-label, 
-    .make-dry-label, 
-    .model-dry-label, 
-    .trim-dry-label {
-    font-size: 25px;
-    padding: 0;
-    }
-    .firstname-dry-name-input, 
-    .lastname-dry-name-input, 
-    .company-dry-name-input, 
-    .email-dry-box, 
-    .phone-dry-box,
-    .address-dry-box, 
-    .city-dry-box, 
-    .state-dry-box, 
-    .zip-dry-box, 
-    .length-dry-box, 
-    .width-dry-box,
-    .border-dry-box, 
-    .length-door-dry-box, 
-    .width-door-dry-box, 
-    .length-dry-select, 
-    .width-dry-select, 
-    .place-dry-select, 
-    .finish-dry-select, 
-    .border-dry-select, 
-    .type-dry-box,
-    .year-dry-box, 
-    .make-dry-box, 
-    .model-dry-box, 
-    .length-dry-select, 
-    .width-dry-select {
-    font-size: 1.4rem;
-    }
-    .place-dry-selection {
-    font-size: 0.62rem;
-    }
-    .name-section-dry, 
-    .company-dry-section,
-    .emailphone-dry-section, 
-    .address-dry-section, 
-    .size-dry-vinyl-section, 
-    .placement-dry-section, 
-    .door-size-dry-section, 
-    .finishing-dry-section, 
-    .dry-file-section, 
-    .dry-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-    }
-    .first-name-dry-input, 
-    .emailphone-dry-input, 
-    .dry-company-name-input, 
-    .address-dry-input, 
-    .email-dry-input, 
-    .dry-phone-name-input, 
-    .length-dry-section, 
-    .length-door-dry-section, 
-    .width-dry-section, 
-    .place-dry-section, 
-    .finish-dry-section, 
-    .file-dry-section, 
-    .last-dry-name, 
-    .dry-company-name-input,
-    .emailphone-dry-input,
-    .phone-dry {
-    padding-left: 0;
-    margin: 0;
-    }
-    .address-dry-input-container {
-    margin: 0;
-    }
-    .dry-vinyl-size-li {
-    font-size: 2rem;
-    }
-    .place-flex-container {
-    display: block;
-    margin: 0;
-    }
-    .place-img {
-    max-width: 150px;
-    }
-    .submit-dry,
-    .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
-    .submit-place, 
-    .remove-placement,
-    .submit-dry-finishing,
-    .new-dry-logo-button,
-    .file-dry-label,
-    .remove-dry-file-button {
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0;
-    }
-    .dry-finish-img-section {
-    display: block;
-    }
-    .placement-item {
-    font-size: 1.6rem;
-    line-height: 2rem;
-    }
-}
-@media screen and (max-width: 320px) and (orientation: landscape) {
-  .page-dry-container {
-    padding-top: 100px;
-  }
-  .photo-drywall-mx-note {
-    font-size: 1.5rem;
-  }
-  .main-dry-graphics {
-    display: block;
-  }
-  .page-dry-banner {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .dry-description {
-    font-size: 37px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-dry-note {
-    font-size: 25px; /* Reduce font size */
-  }
-  .dry-form-info {
-    margin: 0;
-  }
-  .dry-app-box {
-    font-size: 37px;
-  }
-  .dry-fill {
-    margin: 10px;
-    font-size: 18px;
-  }
-  .dry-actual {
-    margin: 0;
-  }
-  .dry-set {
-    display: block;
-  }
-.first-dry-dry-input {
-display: block;
-margin: 0;
-}
-.first-dry-name-label, 
-.address-dry-label, 
-.size-dry-label,
-.message-dry-label, 
-.place-dry-label, 
-.finish-dry-label, 
-.dry-file-label, 
-.type-dry-label {
-font-size: 33px;
-padding: 0;
-}
-.dry-company-label {
-font-size: 19px;
-padding: 0;
-}
-.emailphone-dry-label {
-font-size: 24px;
-padding: 0;
-}
-.dry-file-label {
-font-size: 27px;
-padding: 0;
-}
-.dry-warn {
-font-size: 1rem;
-text-align: center;
-
-}
-.message-dry-note {
-font-size: 1.2rem;
-text-align: center;
-}
-.first-dry-label-name, 
-.last-dry-label-name, 
-.company-dry-name, 
-.email-dry-name,
-.phone-dry-label, 
-.addr-dry-label, 
-.city-dry-label, 
-.state-dry-label,
-.zip-dry-label,
-.length-dry-label, 
-.width-dry-label, 
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
 .place-label, 
-.finish-label,
-.dry-logo,
-.year-dry-label, 
-.make-dry-label, 
-.model-dry-label, 
-.trim-dry-label {
-font-size: 25px;
-padding: 0;
+.finish-label, 
+.decal-logo, 
+.decal-type-label,
+.decal-size-label, 
+.decal-cut-unit-label,
+.decal-quantity-label,
+.decal-length-label, .decal-width-label  {
+font-size: 40px;
 }
-.firstname-dry-name-input, 
-.lastname-dry-name-input, 
-.company-dry-name-input, 
-.email-dry-box, 
-.phone-dry-box,
-.address-dry-box, 
-.city-dry-box, 
-.state-dry-box, 
-.zip-dry-box, 
-.length-dry-box, 
-.width-dry-box,
-.border-dry-box, 
-.length-door-dry-box, 
-.width-door-dry-box, 
-.length-dry-select, 
-.width-dry-select, 
-.place-dry-select, 
-.finish-dry-select, 
-.border-dry-select, 
-.type-dry-box,
-.year-dry-box, 
-.make-dry-box, 
-.model-dry-box, 
-.length-dry-select, 
-.width-dry-select {
-font-size: 12px;
-}
-.place-dry-selection {
-font-size: 0.36rem;
-}
-.name-section-dry, 
-.company-dry-section,
-.emailphone-dry-section, 
-.address-dry-section, 
-.size-dry-vinyl-section, 
-.placement-dry-section, 
-.door-size-dry-section, 
-.finishing-dry-section, 
-.dry-file-section, 
-.dry-message-container {
-display: block;
-padding: 0;
-margin: 0;
+.decal-message-container {
 margin-top: 10px;
 }
-.first-name-dry-input, 
-.emailphone-dry-input, 
-.dry-company-name-input, 
-.address-dry-input, 
-.email-dry-input, 
-.dry-phone-name-input, 
-.length-dry-section, 
-.length-door-dry-section, 
-.width-dry-section, 
-.place-dry-section, 
-.finish-dry-section, 
-.file-dry-section, 
-.last-dry-name, 
-.dry-company-name-input,
-.emailphone-dry-input,
-.phone-dry {
-padding-left: 0;
-margin: 0;
-}
-.address-dry-input-container {
-margin: 0;
-}
-.dry-vinyl-size-li {
-font-size: 1.7rem;
-}
-.place-flex-container {
-display: block;
-margin: 0;
-}
-.place-img {
-max-width: 150px;
-}
-.submit-dry,
-.submit-dry-size, 
-.submit-finishing, 
-.remove-finishing, 
-.submit-place, 
-.remove-placement,
-.submit-dry-finishing,
-.new-dry-logo-button,
-.file-dry-label,
-.remove-dry-file-button {
-font-size: 1.5rem;
+.message-decal-label {
+margin-bottom: 0;
+margin-top: 10px;
 padding: 0;
-margin: 0;
-}
-.dry-finish-img-section {
-gap: 7.6rem;
-}
-.placement-item {
-font-size: 1.5rem;
-}
-}
-  @media screen and (max-width: 320px) and (orientation: portrait) {
-    .page-dry-container {
-      padding-top: 100px;
-    }
-    .photo-drywall-mx-note {
-      font-size: 1.5rem;
-    }
-    .main-dry-graphics {
-      display: block;
-    }
-    .page-dry-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .dry-description {
-      font-size: 37px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-dry-note {
-      font-size: 25px; /* Reduce font size */
-    }
-    .dry-form-info {
-      margin: 0;
-    }
-    .dry-app-box {
-      font-size: 37px;
-    }
-    .dry-fill {
-      margin: 10px;
-      font-size: 18px;
-    }
-    .dry-actual {
-      margin: 0;
-    }
-    .dry-set {
-      display: block;
-    }
-.first-dry-dry-input {
-  display: block;
-  margin: 0;
-}
-.first-dry-name-label, 
-.address-dry-label, 
-.size-dry-label,
-.message-dry-label, 
-.place-dry-label, 
-.finish-dry-label, 
-.dry-file-label, 
-.type-dry-label {
-  font-size: 33px;
-  padding: 0;
-}
-.dry-company-label {
-  font-size: 19px;
-  padding: 0;
-}
-.emailphone-dry-label {
-  font-size: 24px;
-  padding: 0;
-}
-.dry-file-label {
-  font-size: 27px;
-  padding: 0;
-}
-.dry-warn {
-  font-size: 1rem;
-  text-align: center;
 
 }
-.message-dry-note {
-  font-size: 1.2rem;
-  text-align: center;
+.decal-file-label {
+padding: 0;
+font-size: 40px;
 }
-.first-dry-label-name, 
-.last-dry-label-name, 
-.company-dry-name, 
-.email-dry-name,
-.phone-dry-label, 
-.addr-dry-label, 
-.city-dry-label, 
-.state-dry-label,
-.zip-dry-label,
-.length-dry-label, 
-.width-dry-label, 
-.place-label, 
-.finish-label,
-.dry-logo,
-.year-dry-label, 
-.make-dry-label, 
-.model-dry-label, 
-.trim-dry-label {
-  font-size: 25px;
-  padding: 0;
+
+.last-decal-name {
+padding-left: 0;
 }
-.firstname-dry-name-input, 
-.lastname-dry-name-input, 
-.company-dry-name-input, 
-.email-dry-box, 
-.phone-dry-box,
-.address-dry-box, 
-.city-dry-box, 
-.state-dry-box, 
-.zip-dry-box, 
-.length-dry-box, 
-.width-dry-box,
-.border-dry-box, 
-.length-door-dry-box, 
-.width-door-dry-box, 
-.length-dry-select, 
-.width-dry-select, 
-.place-dry-select, 
-.finish-dry-select, 
-.border-dry-select, 
-.type-dry-box,
-.year-dry-box, 
-.make-dry-box, 
-.model-dry-box, 
-.length-dry-select, 
-.width-dry-select {
-  font-size: 12px;
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.decal-length-select, 
+.decal-width-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.decal-length-input,
+.decal-width-input,
+.decal-type-input,
+.decal-cut-input,
+.decal-quantity-input
+{
+font-size: 20px;
 }
-.place-dry-selection {
-  font-size: 0.36rem;
+.model-decal-box {
+font-size: 6px;
 }
-.name-section-dry, 
-.company-dry-section,
-.emailphone-dry-section, 
-.address-dry-section, 
-.size-dry-vinyl-section, 
-.placement-dry-section, 
-.door-size-dry-section, 
-.finishing-dry-section, 
-.dry-file-section, 
-.dry-message-container {
+.decal-company-label {
+font-size: 40px;
+padding: 0;
+}
+.finish-decal-label {
+font-size: 30px;
+}
+.decal-finish-img-section {
+display: block;
+}
+.finish-decal-select {
+font-size: 7px;
+}
+.decal-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-decal-label {
+font-size: 40px;
+padding: 0;
+}
+.decal-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-decal-input {
+padding-left: 0px;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+font-size: 40px;
+padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-decal-label {
+font-size: 20px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-decal-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-decal {
+margin: 0;
+font-size: 20px;
+width: 100%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-decal-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
+font-size: 20px;
+margin-left: 0;
+}
+.added-decal-list {
+font-size: 60px;
+margin-top: 10px;
+}
+.decal-type-p, .decal-size-p, .decal-cut-p, .decal-quantity-p {
+font-size: 50px;
+}
+.added-decal-b-type, .added-decal-b-size, .added-decal-b-cut, .added-decal-b-quantity {
+font-size: 50px;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+.main-decal-graphics {
+    display: block;
+  }
+  .page-decal-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .decal-description {
+    font-size: 55px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-decal-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .decal-form-info {
+    margin: 0;
+  }
+  .decal-app-box {
+    font-size: 37px;
+  }
+  .decal-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .decal-actual {
+    margin: 0;
+  }
+  .decal-set {
+    display: block;
+  }
+  .name-section-decal,
+ .company-decal-section,
+ .emailphone-decal-section,
+ .address-decal-section,
+ .vehicle-type-decal-section,
+ .vehicle-size-decal-section,
+ .door-size-decal-section,
+ .finishing-decal-section,
+ .decal-file-section,
+ .decal-message-container {
   display: block;
   padding: 0;
   margin: 0;
   margin-top: 10px;
+ }
+  .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+
+.type-decal-label {
+font-size: 40px;
 }
-.first-name-dry-input, 
-.emailphone-dry-input, 
-.dry-company-name-input, 
-.address-dry-input, 
-.email-dry-input, 
-.dry-phone-name-input, 
-.length-dry-section, 
-.length-door-dry-section, 
-.width-dry-section, 
-.place-dry-section, 
-.finish-dry-section, 
-.file-dry-section, 
-.last-dry-name, 
-.dry-company-name-input,
-.emailphone-dry-input,
-.phone-dry {
-  padding-left: 0;
-  margin: 0;
+.decal-sticker-label {
+  font-size: 40px;
+  padding: 0;
 }
-.address-dry-input-container {
-  margin: 0;
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+display: block;
+padding-left: 0;
 }
-.dry-vinyl-size-li {
-  font-size: 1.7rem;
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.place-label, 
+.finish-label, 
+.decal-logo, 
+.decal-type-label,
+.decal-size-label, 
+.decal-cut-unit-label,
+.decal-quantity-label,
+.decal-length-label, .decal-width-label  {
+font-size: 30px;
 }
-.place-flex-container {
+.decal-message-container {
+margin-top: 10px;
+}
+.message-decal-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.decal-file-label {
+padding: 0;
+font-size: 40px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+margin: 0;
+display: block;
+}
+.last-decal-name {
+padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.decal-length-select, 
+.decal-width-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.decal-length-input,
+.decal-width-input,
+.decal-type-input,
+.decal-cut-input,
+.decal-quantity-input
+{
+font-size: 20px;
+}
+.model-decal-box {
+font-size: 6px;
+}
+.decal-company-label {
+font-size: 40px;
+padding: 0;
+}
+.finish-decal-label {
+font-size: 30px;
+}
+.decal-finish-img-section {
+display: block;
+}
+.finish-decal-select {
+font-size: 7px;
+}
+.decal-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-decal-label {
+font-size: 40px;
+padding: 0;
+}
+.decal-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-decal-input {
+padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+margin: 0px;
+display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+font-size: 40px;
+padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-decal-label {
+font-size: 20px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-decal-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-decal {
+margin: 0;
+font-size: 20px;
+width: 100%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-decal-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
+font-size: 20px;
+margin-left: 0;
+}
+.added-decal-list {
+font-size: 24px;
+margin-top: 10px;
+}
+.decal-type-p, .decal-size-p, .decal-cut-p, .decal-quantity-p {
+font-size: 20px;
+}
+.added-decal-b-type, .added-decal-b-size, .added-decal-b-cut, .added-decal-b-quantity {
+font-size: 20px;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: portrait)  {
+  .main-decal-graphics {
+    display: block;
+  }
+  .page-decal-banner {
+    padding-top: 130px; /* Reduce padding */
+  }
+  .decal-description {
+    font-size: 55px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-decal-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .decal-form-info {
+    margin: 0;
+  }
+  .decal-app-box {
+    font-size: 37px;
+  }
+  .decal-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .decal-actual {
+    margin: 0;
+  }
+  .decal-set {
+    display: block;
+  }
+  .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+
+.type-decal-label {
+font-size: 40px;
+}
+.decal-sticker-label {
+  font-size: 40px;
+  padding: 0;
+}
+
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.decal-length-label,
+.decal-width-label,
+.place-label, 
+.finish-label, 
+.decal-logo, 
+.decal-type-label,
+.decal-size-label, 
+.decal-cut-unit-label,
+.decal-quantity-label {
+font-size: 50px;
+}
+.decal-message-container {
+margin-top: 10px;
+}
+.message-decal-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+margin: 0;
+display: block;
+}
+.last-decal-name {
+padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.decal-length-select, 
+.decal-width-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.decal-length-input,
+.decal-width-input,
+.decal-type-input,
+.decal-cut-input,
+.decal-quantity-input
+{
+font-size: 26px;
+}
+.model-decal-box {
+font-size: 6px;
+}
+.decal-company-label {
+font-size: 40px;
+padding: 0;
+}
+.finish-decal-label {
+font-size: 30px;
+}
+.decal-finish-img-section {
+display: block;
+}
+.finish-decal-select {
+font-size: 7px;
+}
+.decal-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-decal-label {
+font-size: 40px;
+padding: 0;
+}
+.decal-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-decal-input {
+padding-left: 0px;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+font-size: 40px;
+padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-decal-label {
+font-size: 20px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-decal-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-decal {
+margin: 0;
+font-size: 20px;
+width: 100%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-decal-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
+font-size: 20px;
+margin-left: 0;
+}
+.added-decal-list {
+font-size: 70px;
+margin-top: 10px;
+}
+.decal-type-p, .decal-size-p, .decal-cut-p, .decal-quantity-p {
+font-size: 50px;
+}
+.added-decal-b-type, .added-decal-b-size, .added-decal-b-cut, .added-decal-b-quantity {
+font-size: 50px;
+}
+}
+@media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) {
+  .main-decal-graphics {
+    display: block;
+  }
+  .page-decal-banner {
+    padding-top: 80px; /* Reduce padding */
+  }
+  .decal-description {
+    font-size: 37px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-decal-note {
+    font-size: 25px; /* Reduce font size */
+  }
+  .decal-form-info {
+    margin: 0;
+  }
+  .decal-app-box {
+    font-size: 37px;
+  }
+  .decal-fill {
+    margin: 10px;
+    font-size: 18px;
+  }
+  .decal-actual {
+    margin: 0;
+  }
+  .decal-set {
+    display: block;
+  }
+  .name-section-decal,
+ .company-decal-section,
+ .emailphone-decal-section,
+ .address-decal-section,
+ .vehicle-type-decal-section,
+ .vehicle-size-decal-section,
+ .door-size-decal-section,
+ .finishing-decal-section,
+ .decal-file-section,
+ .decal-message-container {
   display: block;
-  margin: 0;
-}
-.place-img {
-  max-width: 150px;
-}
-.submit-dry,
-.submit-dry-size, 
-.submit-finishing, 
-.remove-finishing, 
-.submit-place, 
-.remove-placement,
-.submit-dry-finishing,
-.new-dry-logo-button,
-.file-dry-label,
-.remove-dry-file-button {
-  font-size: 1.5rem;
   padding: 0;
   margin: 0;
+  margin-top: 10px;
+ }
+  .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+
+.type-decal-label {
+font-size: 33px;
 }
-.dry-finish-img-section {
-  gap: 35px;
+.decal-sticker-label {
+  font-size: 40px;
+  padding: 0;
 }
-.placement-item {
-  font-size: 1.5rem;
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+display: block;
+padding-left: 0;
+}
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.decal-length-label,
+.decal-width-label,
+.place-label, 
+.finish-label, 
+.decal-logo, 
+.decal-type-label,
+.decal-size-label, 
+.decal-cut-unit-label,
+.decal-quantity-label {
+font-size: 25px;
+}
+.decal-message-container {
+margin-top: 10px;
+}
+.message-decal-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+margin: 0;
+display: block;
+}
+.last-decal-name {
+padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.decal-length-select, 
+.decal-width-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.decal-length-input,
+.decal-width-input,
+.decal-type-input,
+.decal-cut-input,
+.decal-quantity-input
+{
+font-size: 20px;
+}
+.model-decal-box {
+font-size: 6px;
+}
+.decal-company-label {
+font-size: 18px;
+padding: 0;
+}
+.finish-decal-label {
+font-size: 30px;
+}
+.decal-finish-img-section {
+display: block;
+}
+.finish-decal-select {
+font-size: 7px;
+}
+.decal-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-decal-label {
+font-size: 24px;
+padding: 0;
+}
+.decal-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-decal-input {
+padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+margin: 0px;
+display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+font-size: 40px;
+padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-decal-label {
+font-size: 20px;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+font-size: 1rem;
+display: block;
+}
+
+.message-decal-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-decal {
+margin: 0;
+font-size: 20px;
+width: 100%;
+}
+.submit-vehicle {
+font-size: 10px;
+}
+.btn-decal-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
+font-size: 20px;
+margin-left: 0;
+}
+.added-decal-list {
+font-size: 24px;
+margin-top: 10px;
+}
+.decal-type-p, .decal-size-p, .decal-cut-p, .decal-quantity-p {
+font-size: 20px;
+}
+.added-decal-b-type, .added-decal-b-size, .added-decal-b-cut, .added-decal-b-quantity {
+font-size: 20px;
+}
+}
+  @media screen and (max-width: 320px) and (orientation: portrait) {
+    .main-decal-graphics {
+      display: block;
+    }
+    .page-decal-banner {
+      padding-top: 130px; /* Reduce padding */
+    }
+    .decal-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-decal-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .decal-form-info {
+      margin: 0;
+    }
+    .decal-app-box {
+      font-size: 37px;
+    }
+    .decal-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .decal-actual {
+      margin: 0;
+    }
+    .decal-set {
+      display: block;
+    }
+    .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .vehicle-type-decal-section,
+   .vehicle-size-decal-section,
+   .door-size-decal-section,
+   .finishing-decal-section,
+   .decal-file-section,
+   .decal-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+
+.type-decal-label {
+  font-size: 33px;
+}
+.decal-sticker-label {
+  font-size: 23px;
+  padding: 0;
+}
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+  display: block;
+  padding-left: 0;
+}
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.decal-length-label,
+.decal-width-label,
+.place-label, 
+.finish-label, 
+.decal-logo, 
+.decal-type-label,
+.decal-size-label, 
+.decal-cut-unit-label,
+.decal-quantity-label {
+  font-size: 25px;
+}
+.decal-message-container {
+  margin-top: 10px;
+}
+.message-decal-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+  margin: 0;
+  display: block;
+}
+.last-decal-name {
+  padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.decal-length-select, 
+.decal-width-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.decal-length-input,
+.decal-width-input,
+.decal-type-input,
+.decal-cut-input,
+.decal-quantity-input
+ {
+  font-size: 12px;
+}
+.model-decal-box {
+  font-size: 6px;
+}
+.decal-company-label {
+  font-size: 18px;
+  padding: 0;
+}
+.finish-decal-label {
+  font-size: 30px;
+}
+.decal-finish-img-section {
+  display: block;
+}
+.finish-decal-select {
+  font-size: 7px;
+}
+.decal-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-decal-label {
+  font-size: 24px;
+  padding: 0;
+}
+.decal-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-decal-input {
+  padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+  margin: 0px;
+  display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+  padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-decal-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-decal-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-decal {
+  margin: 0;
+  font-size: 20px;
+  width: 100%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-decal-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
+  font-size: 12px;
+  margin-left: 0;
+}
+.added-decal-list {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.decal-type-p, .decal-size-p, .decal-cut-p, .decal-quantity-p {
+  font-size: 20px;
+}
+.added-decal-b-type, .added-decal-b-size, .added-decal-b-cut, .added-decal-b-quantity {
+  font-size: 20px;
 }
   }
+  @media screen and (max-width: 320px) and (orientation: landscape) {
+    .main-decal-graphics {
+      display: block;
+    }
+    .page-decal-banner {
+      padding-top: 80px; /* Reduce padding */
+    }
+    .decal-description {
+      font-size: 37px; /* Reduce font size */
+      padding: 10px; /* Add padding to avoid content touching the edges */
+    }
+    .photo-mx-decal-note {
+      font-size: 25px; /* Reduce font size */
+    }
+    .decal-form-info {
+      margin: 0;
+    }
+    .decal-app-box {
+      font-size: 37px;
+    }
+    .decal-fill {
+      margin: 10px;
+      font-size: 18px;
+    }
+    .decal-actual {
+      margin: 0;
+    }
+    .decal-set {
+      display: block;
+    }
+    .name-section-decal,
+   .company-decal-section,
+   .emailphone-decal-section,
+   .address-decal-section,
+   .vehicle-type-decal-section,
+   .vehicle-size-decal-section,
+   .door-size-decal-section,
+   .finishing-decal-section,
+   .decal-file-section,
+   .decal-message-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+   }
+    .first-decal-name-label, 
+.decal-company-label, 
+.emailphone-decal-label,
+.address-decal-label,
+.size-decal-label,
+.message-decal-label,
+.place-decal-label,
+.finish-decal-label,
+.decal-file-label,
+
+.type-decal-label {
+  font-size: 33px;
+}
+.decal-sticker-label {
+  font-size: 35px;
+  padding: 0;
+}
+.first-name-decal-input, 
+.emailphone-decal-input, 
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.length-door-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section, 
+.type-decal-section {
+  display: block;
+  padding-left: 0;
+}
+.first-decal-label-name, 
+.last-decal-label-name, 
+.company-decal-name, 
+.email-decal-name, 
+.phone-decal-label, 
+.addr-decal-label, 
+.city-decal-label, 
+.state-decal-label, 
+.zip-decal-label, 
+.length-decal-label, 
+.width-decal-label, 
+.decal-length-label,
+.decal-width-label,
+.place-label, 
+.finish-label, 
+.decal-logo, 
+.decal-type-label,
+.decal-size-label, 
+.decal-cut-unit-label,
+.decal-quantity-label {
+  font-size: 25px;
+}
+.decal-message-container {
+  margin-top: 10px;
+}
+.message-decal-label {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0;
+  
+}
+.decal-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-decal-input
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section,
+.size-door-decal-section {
+  margin: 0;
+  display: block;
+}
+.last-decal-name {
+  padding-left: 0;
+}
+.firstname-decal-name-input, 
+.lastname-decal-name-input, 
+.company-decal-name-input, 
+.email-decal-box, 
+.phone-decal-box, 
+.address-decal-box, 
+.city-decal-box, 
+.state-decal-box, 
+.zip-decal-box, 
+.length-decal-box, 
+.width-decal-box, 
+.border-decal-box, 
+.decal-length-select, 
+.decal-width-select, 
+.place-decal-select, 
+.finish-decal-select, 
+.border-decal-select, 
+.type-decal-box,
+.decal-length-input,
+.decal-width-input,
+.decal-type-input,
+.decal-cut-input,
+.decal-quantity-input
+ {
+  font-size: 12px;
+}
+.model-decal-box {
+  font-size: 6px;
+}
+.decal-company-label {
+  font-size: 18px;
+  padding: 0;
+}
+.finish-decal-label {
+  font-size: 30px;
+}
+.decal-finish-img-section {
+  display: block;
+}
+.finish-decal-select {
+  font-size: 7px;
+}
+.decal-warn {
+  font-size: 15px;
+  padding-top: 10%;
+  margin: 0;
+  text-align: center;
+}
+.emailphone-decal-label {
+  font-size: 24px;
+  padding: 0;
+}
+.decal-company-name-input {
+  margin: 10px;
+  padding-left: 0;
+  display: block;
+}
+.company-decal-input {
+  padding-left: 0px;
+}
+.emailphone-decal-input, 
+.address-decal-input-container, 
+.size-decal-section {
+  margin: 0px;
+  display: block;
+}
+.decal-company-name-input, 
+.address-decal-input, 
+.email-decal-input, 
+.decal-phone-name-input, 
+.length-decal-section, 
+.width-decal-section, 
+.place-decal-section, 
+.finish-decal-section, 
+.file-decal-section, 
+.border-decal-section,
+.type-decal-section {
+  margin: 0px;
+  display: block;
+  padding-left: 0;
+}
+.address-decal-inputing, 
+.city-decal-input, 
+.phone-decal {
+  padding-left: 0px;
+}
+
+.address-decal-label, 
+.type-decal-label,
+.size-decal-label {
+  font-size: 30px;
+  padding: 0;
+}
+.size-driver-decal-note, .size-passenger-decal-note {
+  font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-decal-section, 
+.width-door-decal-section {
+  display: block;
+}
+.vehicle-list, 
+.vehicle-driver-size-li, 
+.vehicle-passenger-size-li, 
+.finishing-item,
+.door-list {
+  font-size: 22px;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+  font-size: 15px;
+}
+.size-decal-label {
+  font-size: 20px;
+}
+.submit-size {
+  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.choose-logo-contain {
+  display: block;
+  text-align: center;
+}
+.file-decal-label, .remove-decal-file-button {
+  font-size: 1rem;
+  display: block;
+}
+
+.message-decal-text {
+  margin-left: 0;
+  text-align: center;
+}
+.submit-decal {
+  margin: 0;
+  font-size: 20px;
+  width: 100%;
+}
+.submit-vehicle {
+  font-size: 10px;
+}
+.btn-decal-submit {
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.submit-decals, .remove-decal, .submit-decal, .new-decal-logo-button {
+  font-size: 12px;
+  margin-left: 0;
+}
+.added-decal-list {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.decal-type-p, .decal-size-p, .decal-cut-p, .decal-quantity-p {
+  font-size: 20px;
+}
+.added-decal-b-type, .added-decal-b-size, .added-decal-b-cut, .added-decal-b-quantity {
+  font-size: 20px;
+}
+  }
+ 
