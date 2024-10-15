@@ -1,2 +1,2 @@
 [build]
-  command = "npm install react-photo-gallery@latest && npm run build"
+  command = "npm config set legacy-peer-deps true && npm run build"
