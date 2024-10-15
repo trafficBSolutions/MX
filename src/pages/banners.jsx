@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/banner.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
-import MXBannerGallery from '../components/MXBannerGallery'
+import MXBannerGallery from '../components/photos/MXBannerGallery'
 import Header from '../components/headerviews/HeaderBanner';
 
 const states = [
