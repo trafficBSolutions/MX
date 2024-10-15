@@ -113,12 +113,6 @@
     color: #000;
     height: auto;
 }
-.logo-warn {
-    font-size: 30px;
-    margin-top: 0%;
-    color: #000;
-    height: auto;
-}
 .sign-actual {
     width: auto;
     margin: 50px;
@@ -1056,7 +1050,7 @@ font-size: 30px;
 .finish-sign-select {
   font-size: 7px;
 }
-.sign-warn, .logo-warn {
+.sign-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
@@ -1362,7 +1356,7 @@ font-size: 30px;
 .finish-sign-select {
   font-size: 7px;
 }
-.sign-warn, .logo-warn {
+.sign-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
