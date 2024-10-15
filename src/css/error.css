@@ -53,6 +53,36 @@
 .error-link:hover {
     background-color: #226daf;
 }
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    .NotFound {
+        font-size: 5rem;
+    }
+    .error-link {
+        font-size: 1.5rem;
+    }
+    .error-info {
+        font-size: 1.5rem;
+    }
+    .error-content-inner {
+        max-width: 900px;
+        padding: 0;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
+    .NotFound {
+        font-size: 3rem;
+    }
+    .error-link {
+        font-size: 1.5rem;
+    }
+    .error-info {
+        font-size: 1.5rem;
+    }
+    .error-content-inner {
+        max-width: 900px;
+        padding: 0;
+    }
+}
 @media screen and (max-width: 320px) and (orientation: portrait) {
     .NotFound {
         font-size: 2rem;
