@@ -1,2 +1,2 @@
 [build]
-  command = "npm install --force && npm run build"
+  command = "npm install react-photo-gallery@latest && npm run build"
