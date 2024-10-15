@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/signs.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
-import MXSignGallery from '../components/SignsGal';
+import MXSignGallery from '../components/photos/SignsGal';
 import Header from '../components/headerviews/HeaderSign';
     const states = [
         { abbreviation: 'AL', name: 'Alabama' },
