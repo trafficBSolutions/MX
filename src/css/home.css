@@ -293,18 +293,6 @@ position: relative;
 .section-mx-featured {
     background-color: #8fafff;
 }
-.gallery-mx-navigation-arrow-left, 
-.gallery-mx-navigation-arrow-right {
-    background-color: #0051ff;
-  position: relative;
-  font-size: 60px;
-  margin-bottom: 30px;
-  margin: 0 auto;
-  display: block;
-  width: fit-content;
-  color: #fff;
-  font-family: "Kairos W04 Extended Bold";
-}
 .section-how {
     padding: 10px;
 }
@@ -357,11 +345,6 @@ position: relative;
     align-items: center;
     justify-content: center;
     z-index: 1; /* Ensure this is above the circles */
-}
-.gallery-mx-container {
-    width: 100%; /* Ensure the gallery container is responsive */
-    max-width: 1200px; /* You can set a max width if desired */
-    margin: 0 auto; /* Center the gallery */
 }
 
 /* Ensure that images adjust their size proportionally */
@@ -416,6 +399,49 @@ position: relative;
     padding: 5px;
     background-color: #66b2ff;
 }
+  .gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 20px;
+    max-width: 1000px;
+  }
+  .photo-gal-dry, .photo-gal-window, .photo-gal-fleet, .photo-gal-building, .photo-gal-frost, .photo-gal-sign {
+    background-color: #66b2ff;
+  }
+  .gallery-item {
+    flex: 1;
+    max-width: 45%; /* Adjust to fit two images side-by-side */
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 15px;
+  }
+  
+  .gallery-mx-navigation-arrow-left, 
+  .gallery-mx-navigation-arrow-right {
+      background-color: #0051ff;
+    position: relative;
+    font-size: 60px;
+    margin-bottom: 30px;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    color: #fff;
+    font-family: "Kairos W04 Extended Bold";
+  }
 
 @media screen and (max-width: 320px) and (orientation: portrait) {
     .material-img {
