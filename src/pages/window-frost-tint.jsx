@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/window.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
-import MXWindowGal from '../components/MXWindowGal'
+import MXWindowGal from '../components/photos/MXWindowGal'
 import Header from '../components/headerviews/HeaderWindow';
 
 const states = [
