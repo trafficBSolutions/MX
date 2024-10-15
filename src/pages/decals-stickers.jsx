@@ -3,7 +3,7 @@ import '../css/headerfooter.css';
 import '../css/decal.css';
 import Header from '../components/headerviews/HeaderDecal';
 import axios from 'axios';
-import MXDecalGallery from '../components/MXDecalGal';
+import MXDecalGallery from '../components/photos/MXDecalGal';
 const states = [
     { abbreviation: 'AL', name: 'Alabama' },
     { abbreviation: 'AK', name: 'Alaska' },
