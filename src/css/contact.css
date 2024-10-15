@@ -64,13 +64,6 @@
     height: auto;
     font-size: 50px;
   }
-  .log-re {
-    margin: 40px;
-    text-align: center;
-    font-size: 50px;
-    width: auto;
-    height: auto;
-  }
 .contact-fill {
     margin: 40px;
     text-align: center;
@@ -215,7 +208,6 @@
   .width-contact-label,
   .place-label,
   .finish-label,
-  .border-label,
   .contact-contact,
   .year-contact-label,
   .make-contact-label,
@@ -295,13 +287,6 @@
 /* ================================
    contact Image Section
    ================================ */
-   .place-flex-container {
-    display: flex;
-    justify-content: space-between; /* Adjusts space between items */
-    align-items: center; /* Aligns items vertically */
-    flex-wrap: nowrap; /* Ensures the items stay on one line */
-    height: auto;
-}
 
 .place-img-container {
     flex: 1;
@@ -632,7 +617,6 @@ height: auto;
 .width-contact-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .contact-contact, 
 .year-contact-label, 
 .make-contact-label, 
@@ -691,12 +675,6 @@ font-size: 30px;
 }
 .contact-warn, .contact-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -915,7 +893,6 @@ font-size: 30px;
 .width-contact-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .contact-contact, 
 .year-contact-label, 
 .make-contact-label, 
@@ -991,12 +968,6 @@ font-size: 30px;
 }
 .contact-warn, .contact-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -1240,12 +1211,6 @@ font-size: 30px;
   margin: 0;
   text-align: center;
   }
-  .log-re {
-  font-size: 17px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-  }
   .emailphone-contact-label {
   font-size: 24px;
   padding: 0;
@@ -1485,12 +1450,6 @@ font-size: 30px;
  margin: 0;
  text-align: center;
  }
- .log-re {
- font-size: 17px;
- padding-top: 10%;
- margin: 0;
- text-align: center;
- }
  .emailphone-contact-label {
  font-size: 24px;
  padding: 0;
@@ -1703,7 +1662,6 @@ font-size: 30px;
 .width-contact-label, 
 .place-label, 
 .finish-label, 
-.border-label, 
 .contact-contact, 
 .year-contact-label, 
 .make-contact-label, 
@@ -1778,12 +1736,6 @@ font-size: 30px;
 }
 .contact-warn, .contact-warn {
   font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.log-re {
-  font-size: 17px;
   padding-top: 10%;
   margin: 0;
   text-align: center;
