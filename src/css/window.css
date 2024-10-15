@@ -107,12 +107,6 @@
     color: #000;
     height: auto;
 }
-.logo-warn {
-    font-size: 30px;
-    margin-top: 0%;
-    color: #000;
-    height: auto;
-}
 .window-actual {
     width: auto;
     margin: 50px;
@@ -739,7 +733,7 @@ display: block;
 .finish-window-select {
 font-size: 7px;
 }
-.window-warn, .logo-warn {
+.window-warn {
 font-size: 15px;
 padding-top: 10%;
 margin: 0;
@@ -998,7 +992,7 @@ display: block;
 .finish-window-select {
 font-size: 7px;
 }
-.window-warn, .logo-warn {
+.window-warn {
 font-size: 15px;
 padding-top: 10%;
 margin: 0;
@@ -1265,7 +1259,7 @@ display: block;
 .finish-window-select {
 font-size: 7px;
 }
-.window-warn, .logo-warn {
+.window-warn {
 font-size: 15px;
 padding-top: 10%;
 margin: 0;
@@ -1533,7 +1527,7 @@ display: block;
 .finish-window-select {
 font-size: 7px;
 }
-.window-warn, .logo-warn {
+.window-warn {
 font-size: 15px;
 padding-top: 10%;
 margin: 0;
@@ -1800,7 +1794,7 @@ font-size: 30px;
 .finish-window-select {
   font-size: 7px;
 }
-.window-warn, .logo-warn {
+.window-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
@@ -2074,7 +2068,7 @@ font-size: 30px;
 .finish-window-select {
   font-size: 7px;
 }
-.window-warn, .logo-warn {
+.window-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
