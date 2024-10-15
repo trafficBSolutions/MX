@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MXPhotoGallery from '../components/MXhomegal';
+import MXPhotoGallery from '../components/photos/MXhomegal';
 import Header from '../components/headerviews/HeaderDrop';
 import '../css/headerfooter.css';
 import '../css/home.css';
