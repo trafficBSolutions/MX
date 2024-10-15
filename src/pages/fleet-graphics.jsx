@@ -54,7 +54,7 @@ import {chevroletBoxTruckModels,
   scaniaBoxTruckModels,
   volvoBoxTruckModels} from '../components/Vehicle Models/boxTruckModels';
 import boxTruckVehicles from '../components/Vehicle Types/boxTruckVehicles';
-import MXFleetGallery from '../components/MXFleetGal';
+import MXFleetGallery from '../components/photos/MXFleetGal';
 import axios from 'axios';
 import Header from '../components/headerviews/HeaderFleet';
 const states = [
