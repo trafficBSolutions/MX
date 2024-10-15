@@ -107,12 +107,6 @@
     color: #000;
     height: auto;
 }
-.logo-warn {
-    font-size: 30px;
-    margin-top: 0%;
-    color: #000;
-    height: auto;
-}
 .fleet-actual {
     width: auto;
     margin: 50px;
@@ -948,7 +942,7 @@ font-size: 30px;
 .finish-fleet-select {
   font-size: 7px;
 }
-.fleet-warn, .logo-warn {
+.fleet-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
@@ -1227,7 +1221,7 @@ font-size: 30px;
 .finish-fleet-select {
   font-size: 7px;
 }
-.fleet-warn, .logo-warn {
+.fleet-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
@@ -1506,7 +1500,7 @@ font-size: 30px;
 .finish-fleet-select {
   font-size: 7px;
 }
-.fleet-warn, .logo-warn {
+.fleet-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
@@ -1783,7 +1777,7 @@ font-size: 30px;
 .finish-fleet-select {
   font-size: 13px;
 }
-.fleet-warn, .logo-warn {
+.fleet-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
@@ -2007,7 +2001,7 @@ font-size: 30px;
 .finish-fleet-select {
   font-size: 13px;
 }
-.fleet-warn, .logo-warn {
+.fleet-warn {
   font-size: 15px;
   padding-top: 10%;
   margin: 0;
