@@ -3,7 +3,7 @@ import Header from '../components/headerviews/HeaderShirt';
 import axios from 'axios';
 import '../css/shirt.css';
 import '../css/headerfooter.css';
-import MXShirtGallery from '../components/MXShirtGallery';
+import MXShirtGallery from '../components/photos/MXShirtGallery';
 const states = [
     { abbreviation: 'AL', name: 'Alabama' },
     { abbreviation: 'AK', name: 'Alaska' },
