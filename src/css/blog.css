@@ -27,3 +27,57 @@
     font-size: 50px;
     margin-bottom: 20px;
 }
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    .about-blog-heading {
+        font-size: 6rem;
+    }
+    .social-media-heading {
+        font-size: 2rem;
+    }
+    .social-links {
+        gap: 0;
+    }
+    .facebook-img, .tiktok-img, .insta-img {
+        width: 9rem;
+        height: auto;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
+    .about-blog-heading {
+        font-size: 3.5rem;
+    }
+    .social-media-heading {
+        font-size: 1.7rem;
+    }
+    .social-links {
+        gap: 0;
+    }
+    .facebook-img, .tiktok-img, .insta-img {
+        width: 4.8rem;
+        height: auto;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: landscape) {
+    .about-blog-heading {
+        font-size: 3.5rem;
+    }
+    .social-media-heading {
+        font-size: 1.7rem;
+    }
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: portrait) {
+    .about-blog-heading {
+        font-size: 3rem;
+    }
+    .social-media-heading {
+        font-size: 1.5rem;
+    }
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
