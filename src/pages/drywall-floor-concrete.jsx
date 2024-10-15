@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/dry.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
-import MXDrywallGallery from '../components/DrywallGal';
+import MXDrywallGallery from '../components/photos/DrywallGal';
 import Header from '../components/headerviews/HeaderDry';
 
 const states = [
