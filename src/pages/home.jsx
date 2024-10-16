@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import MXPhotoGallery from '../components/photos/MXhomegal';
+import MXPhotoGallery from '../photogallery/HomeMXgallery';
 import Header from '../components/headerviews/HeaderDrop';
 import '../css/headerfooter.css';
 import '../css/home.css';
-
+import images from '../utils/dynamicImportImages'; // Import the dynamic image loader
 const Home = () => {
   const [isSignDropdownOpen, setIsSignDropdownOpen] = useState(false);
   const [isDecalDropdownOpen, setIsDecalDropdownOpen] = useState(false);
@@ -73,7 +73,7 @@ const Home = () => {
       <Header />
       <main className="material-main">
         <div className="material-image">
-          <img className="material-img" alt="Material WorX logo" src="../public/MX Photos/material worx.png" />
+        <img src={images['../assets/MX Logos/Material WorX.svg'].default} className="material-img" alt="Material WorX logo" />
         </div>
         <div className="material-container">
           <div className="scenes">
@@ -81,7 +81,7 @@ const Home = () => {
           </div>
         <div className="material-video-banner">
             <video className="material-page-video-banner" autoPlay loop muted playsInline>
-    <source src="../public/MX Photos/mx pic.mp4" type="video/mp4"></source></video>
+            <source src={images['../assets/MX Photos/mx pic.mp4'].default} type="video/mp4" /></video>
     <div className="material-name-container">
    
 </div>
@@ -132,7 +132,7 @@ const Home = () => {
 
   <div className="step-img-box">
     <div className="img-btn-container">
-      <img src="../public/MX Photos/btr.jpg" className="step-sign-img" alt="iPhone app preferences selection screen" />
+      <img src={images["../assets/MX Photos/btr.jpg"].default} className="step-sign-img" alt="iPhone app preferences selection screen" />
       <a href="/custom-signs" className="btn btn--full sign-quote">GET A QUOTE FOR SIGNS</a>
     </div>
   </div>
@@ -155,7 +155,7 @@ const Home = () => {
             <div className="step-img-box">
             <div className="img-btn-container">
               <img
-                src="../public/MX Photos/jt.JPG"
+                src={images["../assets/MX Photos/jt.jpg"].default}
                 className="step-decal-img"
                 alt="iPhone app
               meal approving plan screen"
@@ -178,7 +178,7 @@ const Home = () => {
 
   <div className="step-img-box">
     <div className="img-btn-container">
-      <img src="../public/MX Photos/Banner BBQ.JPG" className="step-banner-img" alt="iPhone app preferences selection screen" />
+      <img src={images["../assets/MX Photos/Banner BBQ.jpg"].default} className="step-banner-img" alt="iPhone app preferences selection screen" />
       <a href="/banners" className="btn btn--full banner-quote">GET A QUOTE FOR BANNERS</a>
     </div>
   </div>
@@ -198,7 +198,7 @@ const Home = () => {
 
   <div className="step-img-box">
     <div className="img-btn-container">
-      <img src="../public/MX Photos/jdf shirt.jpg" className="step-shirt-img" alt="iPhone app preferences selection screen" />
+      <img src={images["../assets/MX Photos/jdf shirt.jpg"].default} className="step-shirt-img" alt="iPhone app preferences selection screen" />
       <a href="/t-shirts-sweatshirts-jackets" className="btn btn--full t-shirt-quote">GET A QUOTE FOR APPAREL</a>
     </div>
   </div>
@@ -225,7 +225,7 @@ the aesthetic appeal of various environments. By striking a delicate balance bet
 
   <div className="step-img-box">
     <div className="img-btn-container">
-      <img src="../public/MX Photos/WallAndGlass.jpg" className="step-frost-img" alt="iPhone app preferences selection screen" />
+      <img src={images["../assets/MX Photos/WallAndGlass.jpg"].default} className="step-frost-img" alt="iPhone app preferences selection screen" />
       <a href="/window-frost-tint" className="btn btn--full window-quote">GET A QUOTE FOR FROST/TINTING</a>
     </div>
   </div>
@@ -248,7 +248,7 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
 
   <div className="step-img-box">
     <div className="img-btn-container">
-      <img src="../public/MX Photos/Nance.JPG" className="step-building-img" alt="iPhone app preferences selection screen" />
+      <img src={images["../assets/MX Photos/Nance.jpg"].default} className="step-building-img" alt="iPhone app preferences selection screen" />
       <a href="/window-frost-tint" className="btn btn--full building-quote">GET A QUOTE FOR FROST/TINTING</a>
     </div>
   </div>
@@ -267,7 +267,7 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
 
   <div className="step-img-box">
     <div className="img-btn-container">
-      <img src="../public/MX Photos/box truck.jpg" className="step-fleet-img" alt="iPhone app preferences selection screen" />
+      <img src={images["../assets/MX Photos/box truck.jpg"].default} className="step-fleet-img" alt="iPhone app preferences selection screen" />
       <a href="/fleet-graphics" className="btn btn--full fleet-quote">GET A QUOTE FOR FLEET GRAPHICS</a>
     </div>
   </div>
@@ -292,8 +292,10 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
             </a> or
             <a className="will-email" href="mailto:tbsolutions9@gmail.com">
                 <i className="fas fa-envelope"></i> Email: tbsolutions9@gmail.com
-            </a>
+            </a> or
+            
         </p>
+        <a className="btn home-web-button" href="/new-website">NEW WEBSITE</a>
         <p className="contact-william-info">Material WorX Website Created by William Rowell</p>
     </div>
           </div>
@@ -303,21 +305,21 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
       <footer className="material-footer">
       <div className="social-icons">
                 <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-                    <img className="facebook-img" src="../public/social media/facebook.png" alt="Facebook" />
+                    <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
                 </a>
                 <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-                    <img className="tiktok-img" src="../public/social media/tiktok.png" alt="TikTok" />
+                    <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
                 </a>
                 <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                    <img className="insta-img" src="../public/social media/instagram.png" alt="Instagram" />
+                    <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
                 </a>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-            <img className="mx-img" alt="TBS logo" src="../public/MX Photos/MX-removebg-preview.png" />
+          <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default}/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
@@ -325,7 +327,7 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Photos/MX-removebg-preview.png" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src={images["../assets/MX Logos/MX.svg"].default} alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
