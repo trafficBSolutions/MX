@@ -3,6 +3,7 @@ import Header from '../components/headerviews/HeaderContact'
 import React, {useState} from 'react'
 import axios from 'axios'
 import MapComponent from '../components/GoogleMapComponent'
+import images from '../utils/dynamicImportImages';
 const Contact = () => {
     const [phone, setPhone] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -99,7 +100,7 @@ const Contact = () => {
             <Header/>
     <main className="contact-main">
         <div className="material-image">
-        <img className="material-img" alt="Material WorX logo" src="../public/MX Logos/Material WorX.svg" />
+        <img className="material-img" alt="Material WorX logo" src={images["../assets/MX Logos/Material WorX.svg"].default} />
     </div>
     <h1 className="contact-material">Contact Material WorX</h1>
     <div className="contact-flexi">
@@ -260,7 +261,7 @@ onChange={handlePhoneChange}
 <div className="contact-alternative">
   <div className="phone-number-contacting">
     <img
-      src="../public/service image buttons/phone-call.svg"
+      src={images["../assets/service image buttons/phone-call.svg"].default}
       className="phone-img-contact"
       alt="Phone icon"
     />
@@ -270,7 +271,7 @@ onChange={handlePhoneChange}
   </div>
   <div className="email-contacting">
     <img
-      src="../public/service image buttons/email.svg"
+      src={images["../assets/service image buttons/email.svg"].default}
       className="email-img-contact"
       alt="Email icon"
     />
@@ -282,7 +283,7 @@ onChange={handlePhoneChange}
   </div>
   <div className="address-contacting">
     <img
-      src="../public/service image buttons/address.svg"
+      src={images["../assets/service image buttons/address.svg"].default}
       className="address-img-contact"
       alt="Address icon"
     />
@@ -299,24 +300,24 @@ onChange={handlePhoneChange}
 </div>
 </div>
 </main>
-        <footer className="material-footer">
-      <div className="social-icons">
+<footer className="material-footer">
+                    <div className="social-icons">
                 <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-                    <img className="facebook-img" src="../public/social media/facebook.png" alt="Facebook" />
+                    <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
                 </a>
                 <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-                    <img className="tiktok-img" src="../public/social media/tiktok.png" alt="TikTok" />
+                    <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
                 </a>
                 <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                    <img className="insta-img" src="../public/social media/instagram.png" alt="Instagram" />
+                    <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
                 </a>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
+          <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default}/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link-view" href="">Contact Us</a></li>
             </ul>
@@ -324,7 +325,7 @@ onChange={handlePhoneChange}
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src={images["../assets/MX Logos/MX.svg"].default} alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
