@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../css/dry.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
-import MXDrywallGallery from '../components/photos/DrywallGal';
+import MXDrywallGallery from '../photogallery/DrywallMXgallery';
 import Header from '../components/headerviews/HeaderDry';
-
+import images from '../utils/dynamicImportImages';
 const states = [
     { abbreviation: 'AL', name: 'Alabama' },
     { abbreviation: 'AK', name: 'Alaska' },
@@ -597,23 +597,23 @@ onChange={(e) => {
     </div>
 <div className="place-flex-container">
     <div className="place-img-container">
-        <img src="../public/MX Photos/Nance 2.jpg" alt="Placement=photo" className="place-img"/>
+      <img src={images["../assets/MX Photos/Nance 2.jpg"].default} alt="Placement=photo" className="place-img"/>
         <h3 className="place-img-test">Drywall Graphics</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/thick adhesive vinyls/floor graphics.jpg" alt="Placement=photo" className="place-img"/>
+        <img src={images["../assets/thick adhesive vinyls/floor graphics.jpg"].default} alt="Placement=photo" className="place-img"/>
         <h3 className="place-img-test">Floor Graphics</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/thick adhesive vinyls/concrete graphic.jpg" alt="Placement=photo" className="place-img"/>
+        <img src={images["../assets/thick adhesive vinyls/concrete graphic.jpg"].default} alt="Placement=photo" className="place-img"/>
         <h3 className="place-img-test">Concrete Graphics</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/thick adhesive vinyls/brick graphic.jpg" alt="Placement=photo" className="place-img"/>
+        <img src={images["../assets/thick adhesive vinyls/brick graphic.jpg"].default} alt="Placement=photo" className="place-img"/>
         <h3 className="place-img-test">Brick Wall Graphics</h3>
 </div>
 <div className="place-img-container">
-        <img src="../public/thick adhesive vinyls/cinder graphics.jpg" alt="Placement=photo" className="place-img"/>
+        <img src={images["../assets/thick adhesive vinyls/cinder graphics.jpg"].default} alt="Placement=photo" className="place-img"/>
         <h3 className="place-img-test">Cinder Block Graphics</h3>
 </div>
     </div>
@@ -660,11 +660,11 @@ onChange={(e) => {
       </div>
       <div className="dry-finish-img-section">
   <div className="matte-img-dry">
-    <img className="matte-img" alt="matte" src="../public/vinyls/matte.jpg"/>
+    <img className="matte-img" alt="matte" src={images["../assets/vinyls/matte.jpg"].default}/>
     <h2 className="matte-dry-note">Matte</h2>
   </div>
   <div className="gloss-img-dry">
-    <img className="gloss-img" alt="gloss" src="../public/vinyls/gloss.jpg"/>  
+    <img className="gloss-img" alt="gloss" src={images["../assets/vinyls/gloss.jpg"].default}/>  
     <h2 className="gloss-dry-note">Gloss</h2>
   </div>
 </div>
@@ -773,20 +773,20 @@ and what time you want an MX crew will arrive.</h1>
         </form>
                     </main>
                     <footer className="material-footer">
-      <div className="social-icons">
+                    <div className="social-icons">
                 <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-                    <img className="facebook-img" src="../public/social media/facebook.png" alt="Facebook" />
+                    <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
                 </a>
                 <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-                    <img className="tiktok-img" src="../public/social media/tiktok.png" alt="TikTok" />
+                    <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
                 </a>
                 <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                    <img className="insta-img" src="../public/social media/instagram.png" alt="Instagram" />
+                    <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
                 </a>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
+          <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default}/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
               <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
@@ -797,7 +797,7 @@ and what time you want an MX crew will arrive.</h1>
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src={images["../assets/MX Logos/MX.svg"].default} alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
