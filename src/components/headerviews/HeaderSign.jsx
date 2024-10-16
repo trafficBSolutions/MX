@@ -32,7 +32,7 @@ function Header() {
                     <li>
                         <a className="main-material-nav-link" href="/services">Services</a>
                         <ul className="sub-material-nav-list">
-                            <li><a className="main-material-nav-link" href="/custom-signs">Custom Sign</a></li>
+                            <li><a className="sub-material-nav-list-view" href="">Custom Sign</a></li>
                             <li><a className="main-material-nav-link" href="/decals-stickers">Decals & Stickers</a></li>
                             <li><a className="main-material-nav-link" href="/banners">Banners</a></li>
                             <li><a className="main-material-nav-link" href="/t-shirts-sweatshirts-jackets">T-Shirts, Sweatshirts, Jackets</a></li>
