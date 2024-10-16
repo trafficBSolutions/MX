@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../css/banner.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
-import MXBannerGallery from '../components/photos/MXBannerGallery'
+import MXBannerGallery from '../photogallery/BannerMXgallery'
 import Header from '../components/headerviews/HeaderBanner';
-
+import images from '../utils/dynamicImportImages';
 const states = [
     { abbreviation: 'AL', name: 'Alabama' },
     { abbreviation: 'AK', name: 'Alaska' },
@@ -652,7 +652,7 @@ onChange={(e) => {
     </div>
 <div className="place-flex-container">
 <div className="place-img-container">
-        <img src="../public/banner types/retract.png" alt="Placement=photo" className="place-banner-img"/>
+        <img src={images["../assets/banner types/retract.png"].default} alt="Placement=photo" className="place-banner-img"/>
         <h3 className="place-img-test">Retractable Stand</h3>
         <p className="retract-img-test">Retractable Stands are regular printed banners only they are not worked on by any of the banner types.
           Instead, they are placed on a retractable stand that can be pulled out and retracted when needed and are great for events and trade shows.
@@ -660,7 +660,7 @@ onChange={(e) => {
         </p>
   </div>
   <div className="place-img-container">
-        <img src="../public/banner types/banner types.jpg" alt="Placement=photo" className="place-banner-type-img"/>
+        <img src={images["../assets/banner types/banner types.jpg"].default} alt="Placement=photo" className="place-banner-type-img"/>
         <h3 className="place-img-test">Banner Types</h3>
   </div>
     </div>
@@ -799,20 +799,20 @@ and what time you want an MX crew will arrive.</h1>
         </form>
                     </main>
                     <footer className="material-footer">
-      <div className="social-icons">
+                    <div className="social-icons">
                 <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-                    <img className="facebook-img" src="../public/social media/facebook.png" alt="Facebook" />
+                    <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
                 </a>
                 <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-                    <img className="tiktok-img" src="../public/social media/tiktok.png" alt="TikTok" />
+                    <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
                 </a>
                 <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                    <img className="insta-img" src="../public/social media/instagram.png" alt="Instagram" />
+                    <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
                 </a>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
+          <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default}/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
               <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
@@ -823,7 +823,7 @@ and what time you want an MX crew will arrive.</h1>
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src={images["../assets/MX Logos/MX.svg"].default} alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
