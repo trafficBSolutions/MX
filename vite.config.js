@@ -9,7 +9,7 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, 'public', 'index.html')
+      input: 'index.html',
     }
   }
 })
