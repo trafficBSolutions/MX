@@ -26,4 +26,4 @@ dist-ssr
 # Environment variables
 src/constant/constant.js
 
-.env
+env.js
