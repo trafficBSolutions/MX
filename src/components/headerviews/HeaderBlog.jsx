@@ -44,9 +44,9 @@ function Header() {
                     <li><a className="main-material-nav-link" href="/contact-us">Contact Us</a></li>
                 </ul>
                 <div className="header-worx-links">
-                <a className="header-worx-logo" href="/www.trafficbarriersolutions.com">
-                <img className="material-worx-img" alt="TBS Logo" src={images["../assets/MX Logos/TBS.svg"].default}/>
-                </a>
+                <a className="header-worx-logo" href="https://www.trafficbarriersolutions.com/" target="_blank" rel="noopener noreferrer">
+    <img className="material-worx-img" alt="TBS Logo" src={images["../assets/MX Logos/TBS.svg"].default}/>
+</a>
             </div>
             </nav>
         </header>
