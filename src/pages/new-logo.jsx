@@ -3,6 +3,7 @@ import '../css/logo.css'
 import axios from 'axios';
 import React, {useState} from 'react'
 import MapLogoComponent from '../components/GoogleLogoMaps'
+import images from '../utils/dynamicImportImages';
 const states = [
     { abbreviation: 'AL', name: 'Alabama' },
     { abbreviation: 'AK', name: 'Alaska' },
@@ -444,46 +445,46 @@ Please submit your logo you want redesigned and vectorized. If you have any ques
         please select a job here to film out of one of the printable/plottable options. Once you have submitted this form or
         if you have already submitted one of the following forms, we will contact you within 48 hours.
     </h2>
-    <div className="material-services-buttons">
+    <div className="material-logo-buttons">
           <div className="signs-button">
-            <a href="/custom-signs" className="custom-sign-service-button" type="button">
-                    <img src="../public/service image buttons/sign.svg" alt="Custom Signage Icon" className="sign-icon" />
+            <a href="/custom-signs" className="custom-sign-logo-button" type="button">
+                    <img src={images["../assets/service image buttons/sign.svg"].default} alt="Custom Signage Icon" className="sign-icon" />
                 <span> CUSTOMIZABLE SIGNAGE</span>
             </a>
         </div>
             <div className="decals-stickers-button">
-                <a href="/decals-stickers" className="decals-stickers-service-button">
-                <img src="../public/service image buttons/decal.svg" className="decal-icon"></img>
+                <a href="/decals-stickers" className="decals-stickers-logo-button">
+                <img src={images["../assets/service image buttons/decal.svg"].default} className="decal-icon"></img>
                 <span>DECALS & STICKERS</span>
                 </a>
             </div>
             <div className="banner-button">
-                <a href="/banners" className="banner-service-button">
-                <img src="../public/service image buttons/banner.svg" className="banner-icon"></img>
+                <a href="/banners" className="banner-logo-button">
+                <img src={images["../assets/service image buttons/banner.svg"].default} className="banner-icon"></img>
                 <span>BANNERS</span>
                 </a>
             </div>
             <div className="t-shirt-button">
-                <a href="/t-shirts-sweatshirts-jackets" className="t-shirt-service-button">
-                <img src="../public/service image buttons/t-shirt.svg" className="shirt-icon"></img>
+                <a href="/t-shirts-sweatshirts-jackets" className="t-shirt-logo-button">
+                <img src={images["../assets/service image buttons/t-shirt.svg"].default} className="shirt-icon"></img>
                 <span>T-SHIRTS SWEATSHIRTS JACKETS</span>
                 </a>
             </div>
             <div className="window-button">
-                <a href="/window-frost-tint" className="window-service-button">
-                <img src="../public/service image buttons/window.svg" className="window-icon"></img>
+                <a href="/window-frost-tint" className="window-logo-button">
+                <img src={images["../assets/service image buttons/window.svg"].default} className="window-icon"></img>
                 <span>WINDOW FROSTING & TINTING</span>
                 </a>
             </div>
             <div className="drywall-button">
-                <a href="/drywall-floor-concrete" className="drywall-service-button">
-                <img src="../public/service image buttons/wall.svg" className="drywall-icon"></img>
+                <a href="/drywall-floor-concrete" className="drywall-logo-button">
+                <img src={images["../assets/service image buttons/wall.svg"].default} className="drywall-icon"></img>
                 <span>DRYWALL FLOOR & CONCRETE DECALS</span>
                 </a>
             </div>
             <div className="fleet-graphic-button">
-                <a href="/fleet-graphics" className="fleet-service-button">
-                <img src="../public/service image buttons/box truck.svg" className="fleet-icon"></img>
+                <a href="/fleet-graphics" className="fleet-logo-button">
+                <img src={images["../assets/service image buttons/box truck.svg"].default} className="fleet-icon"></img>
                 <span>VEHICLE FLEET & DECALED GRAPHICS</span></a>
             </div>
           </div>
@@ -528,23 +529,23 @@ we are closed, we will respond the next business day. Please also note that we d
         </form>
         </main>
         <footer className="material-footer">
-      <div className="social-icons">
+                    <div className="social-icons">
                 <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-                    <img className="facebook-img" src="../public/social media/facebook.png" alt="Facebook" />
+                    <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
                 </a>
                 <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-                    <img className="tiktok-img" src="../public/social media/tiktok.png" alt="TikTok" />
+                    <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
                 </a>
                 <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                    <img className="insta-img" src="../public/social media/instagram.png" alt="Instagram" />
+                    <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
                 </a>
             </div>
         <div className="site-material-footer__inner container container--narrow">
           <div className="footer-content">
-          <img className="mx-img" alt="TBS logo" src="../public/MX Logos/MX.svg"/>
+          <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default}/>
             <ul className="footer-navigate">
               <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-              <li><a className="footer-material-nav-link" href="/pay-invoice">Pay Invoice</a></li>
+              <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
               <li><a className="footer-material-nav-link" href="/services">Services</a></li>
               <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
             </ul>
@@ -552,7 +553,7 @@ we are closed, we will respond the next business day. Please also note that we d
           <div className="footer-contact">
             <div className="statement-box">
               <p className="trademark-warning">
-                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src="../public/MX Logos/MX.svg" alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
+                <b className="warning-trade">WARNING:</b><b> Trademark Notice</b><img className="trademark-img" src={images["../assets/MX Logos/MX.svg"].default} alt="TBS Logo"></img> is a registered trademark of Traffic & Barrier Solutions, LLC. 
                 Unauthorized use of this logo is strictly prohibited and may result in legal action. 
                 All other trademarks, logos, and brands are the property of their respective owners.
               </p>
