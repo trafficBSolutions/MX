@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import { Toaster } from 'react-hot-toast';
 
 /* axios.defaults.baseURL = 'https://tbs-server.onrender.com'; */
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'https://mx-server-epo1.onrender.com';
 axios.defaults.withCredentials = true
 function App() {
   return (
