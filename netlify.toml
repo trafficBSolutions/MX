@@ -1,0 +1,3 @@
+[build]
+base = "/build"
+publish = "build"
