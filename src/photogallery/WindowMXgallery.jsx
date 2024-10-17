@@ -4,8 +4,8 @@ import images from '../utils/dynamicImportImages';
 const photos = [
   { src: images['../assets/MX Photos/tint.jpg']?.default || '', height: 4032, width: 3024 },
   { src: images['../assets/MX Photos/tint2.jpg']?.default || '', height: 4032, width: 3024 },
-  { src: images['../assets/MX Photos/tint3.JPG']?.default || '', width: 4032, height: 3024 },
-  { src: images['../assets/MX Photos/tint4.JPG']?.default || '', height: 4032, width: 3024 },
+  { src: images['../assets/MX Photos/tint3.jpg']?.default || '', width: 4032, height: 3024 },
+  { src: images['../assets/MX Photos/tint4.jpg']?.default || '', height: 4032, width: 3024 },
 ];
 
 export default function MXWindowGal() {
