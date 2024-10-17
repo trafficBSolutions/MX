@@ -4,12 +4,11 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  root: path.resolve(__dirname, 'public'),
   build: {
-    outDir: '../dist',
+    outDir: 'build',  // Change this to 'build' to match the Netlify setting
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, 'public', 'index.html')
+      input: path.resolve(__dirname, 'index.html') // Point to the correct index.html
     }
   }
 })
