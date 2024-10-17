@@ -24,6 +24,6 @@ dist-ssr
 *.sw?
 
 # Environment variables
-src/constant/constant.js
+./src/constant/constant.js
 
 .env
