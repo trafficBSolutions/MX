@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route } from 'react-router-dom';
 import { Home, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact, Decal, Shirt, Web, Blog, Error } from './pages';
 import axios from 'axios';
 import Navbar from './components/Navbar';
