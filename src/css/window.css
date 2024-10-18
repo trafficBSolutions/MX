@@ -174,13 +174,6 @@
   height: auto;
 }
 
-.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li,
-.finishing-item, .door-list {
-  font-size: 70px;
-  list-style: none;
-  color: #000;
-  font-family: "Kairos W01 Extended Medium";
-}
 .size-item, .tint-item {
   text-decoration: none;
   list-style: none;
@@ -464,12 +457,6 @@ height: auto;
     color: #fff;
     height: auto;
   }  
-  .submit-vehicle {
-    background-color: #0f375a;
-    color: #fff;
-    margin-bottom: 30px;
-    height: auto;
-  }
   .choose-logo-contain {
     display: flex;
     align-items: center;
@@ -489,7 +476,7 @@ height: auto;
 .file-window-label input[type=file] {
     display: none;
 }
-.submit-window, .submit-vehicle {
+.submit-window {
   width: 100%;
   font-size: 40px;
   height: auto;
@@ -508,8 +495,7 @@ height: auto;
   }
   .driver-submit-size, .passenger-submit-size, .driver-remove-submit-size,
   .remove-size,
-  .remove-tint,
-  .door-length-submit-size, .submit-window-place {
+  .remove-tint, .submit-window-place {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -526,7 +512,7 @@ height: auto;
   .submit-window:hover,
   .file-window-label:hover,
   .remove-finishing:hover,
-  .door-length-submit-size:hover,
+
   .remove-size:hover,
   .remove-tint:hover,
   .submit-window-size:hover,
@@ -785,13 +771,6 @@ font-size: 26px;
 .length-door-window-section, 
 .width-door-window-section {
 display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-font-size: 22px;
 }
 .passenger-submit-size, .passenger-remove-submit-size {
 font-size: 15px;
@@ -1052,13 +1031,6 @@ font-size: 26px;
 .length-door-window-section, 
 .width-door-window-section {
 display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-font-size: 22px;
 }
 .passenger-submit-size, .passenger-remove-submit-size {
 font-size: 15px;
@@ -1321,13 +1293,6 @@ font-size: 26px;
 .width-door-window-section {
 display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
 font-size: 15px;
 }
@@ -1589,13 +1554,6 @@ font-size: 26px;
 .width-door-window-section {
 display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
 font-size: 15px;
 }
@@ -1856,13 +1814,6 @@ font-size: 30px;
 .width-door-window-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1890,9 +1841,6 @@ font-size: 30px;
 .submit-window {
   margin: 0;
   font-size: 16px;
-}
-.submit-vehicle {
-  font-size: 10px;
 }
 .btn-window-submit {
   padding: 0;
@@ -2130,13 +2078,6 @@ font-size: 30px;
 .width-door-window-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -2164,9 +2105,6 @@ font-size: 30px;
 .submit-window {
   margin: 0;
   font-size: 16px;
-}
-.submit-vehicle {
-  font-size: 10px;
 }
 .btn-window-submit {
   padding: 0;
