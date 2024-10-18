@@ -18,8 +18,9 @@
   background-color: #cee1ff; /* Background for better visibility */
   padding: 1rem;
   text-decoration: none;
+  text-align: center;
   flex-direction: column; /* Makes the items appear in a column */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Optional shadow for dropdown */
+  box-shadow: none; /* Optional shadow for dropdown */
   border-radius: 6px; /* Rounded edges for the dropdown */
   z-index: 1000; /* Ensure it's above other content */
   list-style: none;
@@ -42,7 +43,11 @@
   text-decoration: none;
   color: #60aaff;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  padding: 0;
+  text-align: center;
+  box-shadow: none;
+  border: none;
   font-family: Arial, Helvetica, sans-serif;
   transition: all 0.3s;
   list-style: none;
