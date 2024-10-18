@@ -118,9 +118,6 @@ const states = [
   const vehicleType = [
     { name: 'Box Truck', disabled: false },
     { name: 'Car/Pickup Truck/SUV/Van', disabled: false },
-    { name: '18-Wheeler', disabled: false },
-    { name: 'Motorcycle', disabled: false },
-    { name: 'Bus', disabled: false },
     { name: 'Trailer', disabled: false }
   ];
 const FleetGraphics = () => {
@@ -132,6 +129,7 @@ const FleetGraphics = () => {
   const [availableMakes, setAvailableMakes] = useState([]);
   const [availableModels, setAvailableModels] = useState([]);
     const [phone, setPhone] = useState('');
+    const [isTrailerSelected, setIsTrailerSelected] = useState(false); // New state for trailer selection
     const [doorLengthUnit, setDoorLengthUnit] = useState(''); // Default to feet
     const [doorWidthUnit, setDoorWidthUnit] = useState(''); // Default to Feet
     const [addedVehicles, setAddVehicles] = useState([]);
@@ -203,41 +201,49 @@ const FleetGraphics = () => {
       }
     };
     const handleFileChange = (e, fileType) => {
-      const file = e.target.files[0];
-      setFormData({ ...formData, [fileType]: file });
-      
-      // Clear file error message
-      if (fileType === 'img') {
-          setFileError('');  // <--- Clear the file error when a file is selected
-      }
-  };  
-  
-  const handleFileRemove = (fileType) => {
-    setFormData({ ...formData, [fileType]: null });
-  };
-  const handleAddVehicle = () => {
-    // Validate that all fields (year, make, and model) are filled
-    if (selectedYear && selectedMake && selectedModel) {
-        const newVehicle = `${selectedYear} ${selectedMake} ${selectedModel}`;
-        
-        // Append the new vehicle to the existing list of vehicles
-        setAddVehicles([...addedVehicles, newVehicle]);
-        
-        // Clear the form fields to allow adding another vehicle
-        setSelectedYear('');  
-        setSelectedMake('');
-        setSelectedModel('');
-        
-        // Clear vehicle error message
-        setVehicleError('');  // <--- Clear the vehicle error when vehicle is added
-
-        // Clear any previous general error messages
-        setErrorMessage('');   
-    } else {
-        // Set an error message if any field is missing
+      const newFiles = Array.from(e.target.files);
+      setFormData(prevState => ({
+        ...prevState,
+        [fileType]: [...(prevState[fileType] || []), ...newFiles]
+      }));
+      setFileError('');
+    };
+    
+    const handleFileRemove = (fileType) => {
+      setFormData({ ...formData, [fileType]: [] }); // Clear all files in the array
+    };
+    
+    const handleAddVehicle = () => {
+      let newVehicle;
+    
+      // Validate that all fields (year, make, model) are filled for cars/pickup trucks/SUVs/Vans
+      if (selectedVehicleType === 'Trailer') {
+        // If adding a trailer, just specify the type
+        newVehicle = `Trailer`; // You can include more details if needed, such as specific trailer info
+      } else if (selectedYear && selectedMake && selectedModel) {
+        // If it's another type of vehicle, construct the full vehicle description
+        newVehicle = `${selectedYear} ${selectedMake} ${selectedModel}`;
+      } else {
+        // Set an error message if any required field is missing
         setErrorMessage('Please select year, make, and model before adding a vehicle.');
-    }
-};
+        return; // Exit the function if validation fails
+      }
+    
+      // Append the new vehicle to the existing list of vehicles
+      setAddVehicles([...addedVehicles, newVehicle]);
+    
+      // Clear the form fields to allow adding another vehicle
+      setSelectedYear('');  
+      setSelectedMake('');
+      setSelectedModel('');
+      
+      // Clear vehicle error message
+      setVehicleError(''); // Clear the vehicle error when a vehicle is added
+    
+      // Clear any previous general error messages
+      setErrorMessage('');   
+    };
+    
 
   
   // Function to remove a vehicle by index
@@ -361,7 +367,16 @@ const handleTypeChange = (e) => {
   setSelectedYear('');
   setSelectedMake('');
   setSelectedModel('');
-
+  if (vehicleType === 'Trailer') {
+    // When trailer is selected, clear year, make, model, and set trailer selected to true
+    setSelectedYear('');
+    setSelectedMake('');
+    setSelectedModel('');
+    setIsTrailerSelected(true);
+  } else {
+    // Clear the trailer selection if another vehicle type is selected
+    setIsTrailerSelected(false);
+  }
   if (vehicleType === 'Car/Pickup Truck/SUV/Van') {
     setAvailableMakes(vehicleData.filter((make) => !make.disabled));
   } else if (vehicleType === 'Box Truck') {
@@ -941,18 +956,19 @@ onChange={(e) => {
 <div className="vehicle-type-fleet-section">
 <label className="type-fleet-label" htmlFor="vehicleType">Vehicle Type:</label>
 <div className="type-fleet-section">
-      {/* Vehicle Type Dropdown */}
-      
-      <select className="type-fleet-box" value={selectedVehicleType} onChange={handleTypeChange}>
-        <option value="">Select Vehicle Type</option>
-        {vehicleType.map((type) => (
-          <option key={type.name} value={type.name} disabled={type.disabled}>
-            {type.name}
-          </option>
-        ))}
-      </select>
+  {/* Vehicle Type Dropdown */}
+  <select className="type-fleet-box" value={selectedVehicleType} onChange={handleTypeChange}>
+    <option value="">Select Vehicle Type</option>
+    {vehicleType.map((type) => (
+      <option key={type.name} value={type.name} disabled={type.disabled}>
+        {type.name}
+      </option>
+    ))}
+  </select>
 
-      {/* Year Dropdown */}
+  {/* Conditionally Render Year Dropdown */}
+  {!isTrailerSelected && (
+    <>
       <label className="year-fleet-label" htmlFor="year">Year *</label>
       <select className="year-fleet-box" value={selectedYear} onChange={handleYearChange} disabled={!selectedVehicleType}>
         <option value="">Select Year</option>
@@ -976,21 +992,24 @@ onChange={(e) => {
 
       {/* Model Dropdown */}
       <label className="model-fleet-label" htmlFor="model">Model *</label>
-<select
-  className="model-fleet-box"
-  value={selectedModel}
-  onChange={handleModelChange}
-  disabled={!selectedMake}
->
-  <option value="">Select Model</option>
-  {availableModels.map((model) => (
-    <option key={model.name} value={model.name}>
-      {model.name}
-    </option>
-  ))}
-</select>
-    </div>
-    <button className="btn-submit btn--full submit-vehicle" type="button" onClick={handleAddVehicle}>
+      <select
+        className="model-fleet-box"
+        value={selectedModel}
+        onChange={handleModelChange}
+        disabled={!selectedMake}
+      >
+        <option value="">Select Model</option>
+        {availableModels.map((model) => (
+          <option key={model.name} value={model.name}>
+            {model.name}
+          </option>
+        ))}
+      </select>
+    </>
+  )}
+</div>
+
+    <button className="btn -- submit-vehicle" type="button" onClick={handleAddVehicle}>
           ADD VEHICLE
         </button>
 <div className="vehicle-section">
@@ -1001,7 +1020,7 @@ onChange={(e) => {
         <li className="vehicle-list" key={index}>
           {vehicle}
           <button 
-            className="btn-submit btn--full submit-vehicle"
+            className="btn -- submit-vehicle"
             type="button" 
             onClick={() => handleRemoveVehicle(index)}
           >
@@ -1170,7 +1189,7 @@ onChange={(e) => {
 {passengerSizeError && <span className="error-message">{passengerSizeError}</span>}
 </div>
 <div className="door-size-fleet-section">
-<label className="size-fleet-label">Size of Backdoor/Tailgate Side Vehicle:</label>
+<label className="size-fleet-label">Size of Backdoor/Tailgate:</label>
 <div className="size-door-fleet-section">
   <div className="length-door-fleet-section">
     <label className="length-fleet-label" htmlFor="length">Length *</label>
@@ -1215,7 +1234,7 @@ onChange={(e) => {
   </div>
 
   <button
-    className="btn-submit btn--full door-length-submit-size"
+    className="btn -- door-length-submit-size"
     type="button" // Make sure this button doesn't act like a form submit
     onClick={handleAddDoorSize}
   >
@@ -1230,7 +1249,7 @@ onChange={(e) => {
         {doorSize}
         <button
           type="button"
-          className="btn-submit btn--full door-remove-length-submit-size"
+          className="btn -- door-remove-length-submit-size"
           onClick={() => handleRemoveDoorSize(index)} // Handle removing door sizes
         >
           REMOVE BACKDOOR/TAILGATE SIZE
@@ -1314,37 +1333,60 @@ onChange={(e) => {
     We will send you a quote for the logo redesigning and you can choose to accept it or not.
 </p>
 </h2>
+<p className="trailer-note">
+  <b className="trailer-note-1">NOTE:</b> 
+  If you are selecting a trailer, please make sure to take pictures of your
+  trailer and upload your pictures here as well as your logos needed to be on your trailer.
+  Specify your trailer in the message section and how you want your trailer to be designed.
+  </p>
 <div className="file-fleet-section">
 <label htmlFor="logo-select" className="fleet-logo">Logo/Image for Graphics *</label>
+
 <div className="choose-logo-contain">
-    <label className="file-fleet-label">
-    {formData.img ? (
-            <span>{formData.img.name}</span>
-          ) : (
-            <span>Choose Your Logo For Your Vehicle</span>
-          )}
-          <input type="file" name="img" accept=".pdf,.svg,.doc,.png,.jpg,.jpeg" onChange={(e) => handleFileChange(e, 'img')} />
-          </label>
-          {formData.img && (
-            <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
-          )}
-        
-        {fileError && <span className="error-message">{fileError}</span>}
+  <label className="file-fleet-label">
+    {formData.img && formData.img.length > 0 ? (
+      <span>Add More Photos or Logos</span>
+    ) : (
+      <span>Choose Your Logo or Photos for Your Vehicle</span>
+    )}
+    <input
+      type="file"
+      name="img"
+      accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+      onChange={(e) => handleFileChange(e, 'img')}
+      multiple
+      style={{ display: 'none' }}
+      id="logo-select"
+    />
+  </label>
+
+  {formData.img && formData.img.length > 0 && (
+    <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>
+      Remove All
+    </button>
+  )}
+
+  {fileError && <span className="error-message">{fileError}</span>}
+
+  {formData.img && formData.img.length > 0 && (
+    <ul className="selected-fleet-files-list">
+      {formData.img.map((file, index) => (
+        <li key={index}>{file.name}</li>
+      ))}
+    </ul>
+  )}
 </div>
+
 </div>
 </div>
 <div className="fleet-message-container">
 <label className="message-fleet-label">Message: </label>
-<h1 className="message-fleet-note">Tell us about your vehicle fleet/decal job and how you want it designed! Please specify if you need
-  logo redesigning and if there are more specifications about your vehicle like if you want us to 
-  design HOOD Decals, TOP FRONTS of your box truck, door decals on your box truck, etc...
-If you need to drop off your vehicle to have us work on it, please specify here that
-you need to drop off your vehicle. Submit this form first and we will give
-you a call to discuss how we can make your vehicle look like a professional vehicle. We will
-usually respond within 48 hours or less. Our shop is located on
-723 N. Wall St, Calhoun GA, 30701. Please note that we are open Monday-Friday 8:00am-4:00pm EST and once 
-we are closed, we will respond the next business day. Please note that we do not work on Saturdays, Sundays, or Holidays.
-  </h1>
+<h1 className="message-fleet-note">
+  Tell us about your vehicle fleet/decal job and how you want it designed! 
+  You can add photos of your vehicles and trailers to help us understand your needs. 
+  Please specify if you need logo redesigning and any other specifications.
+</h1>
+
 
 <textarea className="message-fleet-text" name="message" type="text" placeholder="Enter Message"
   value={formData.message} onChange={(e) => {
