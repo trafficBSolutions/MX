@@ -180,14 +180,6 @@
   height: auto;
 }
 
-.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li,
-.finishing-item, .door-list {
-  font-size: 70px;
-  list-style: none;
-  color: #000;
-  font-family: "Kairos W01 Extended Medium";
-}
-
 /* ================================
    Added Items Labels
    ================================ */
@@ -481,24 +473,6 @@ height: auto;
 /* ================================
    Submit Button Styling
    ================================ */
-   .submit-finishing,
-   .remove-finishing
-   {
-    background-color: #0f375a;
-    position: relative;
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 80px;
-    color: #fff;
-    height: auto;
-  }  
-  .submit-vehicle {
-    background-color: #0f375a;
-    color: #fff;
-    margin-bottom: 30px;
-    height: auto;
-  }
   .choose-logo-contain {
     display: flex;
     align-items: center;
@@ -518,7 +492,7 @@ height: auto;
 .file-banner-label input[type=file] {
     display: none;
 }
-.submit-banner, .submit-vehicle {
+.submit-banner {
   width: 100%;
   font-size: 40px;
   height: auto;
@@ -708,13 +682,6 @@ display: block;
 .message-banner-text {
 margin-left: 0;
 text-align: center;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-font-size: 12px;
-margin-left: 0;
 }
 }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
@@ -946,13 +913,6 @@ font-size: 26px;
 .width-door-banner-section {
 display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
 font-size: 15px;
 }
@@ -991,13 +951,6 @@ width: 100%;
 padding: 0;
 margin-top: 10px;
 width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-font-size: 12px;
-margin-left: 0;
 }
 }
 @media screen and (max-width: 1200px) and (orientation: portrait) {
@@ -1229,13 +1182,6 @@ font-size: 26px;
 .width-door-banner-section {
 display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
 font-size: 15px;
 }
@@ -1274,13 +1220,6 @@ width: 100%;
 padding: 0;
 margin-top: 10px;
 width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-font-size: 12px;
-margin-left: 0;
 }
 }
 @media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) {
@@ -1512,13 +1451,6 @@ font-size: 26px;
 .width-door-banner-section {
 display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
 font-size: 15px;
 }
@@ -1556,13 +1488,7 @@ padding: 0;
 margin-top: 10px;
 width: 100%;
 }
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-font-size: 12px;
-margin-left: 0;
-}
+
 }
   @media screen and (max-width: 320px) and (orientation: portrait) {
     .main-banner-graphics {
@@ -1792,13 +1718,6 @@ font-size: 30px;
 .width-door-banner-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1829,9 +1748,6 @@ font-size: 30px;
   margin: 0;
   font-size: 20px;
   width: 100%;
-}
-.submit-vehicle {
-  font-size: 10px;
 }
 .btn-banner-submit {
   padding: 0;
@@ -2079,13 +1995,6 @@ font-size: 30px;
 .width-door-banner-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -2116,9 +2025,6 @@ font-size: 30px;
   margin: 0;
   font-size: 20px;
   width: 100%;
-}
-.submit-vehicle {
-  font-size: 10px;
 }
 .btn-banner-submit {
   padding: 0;
