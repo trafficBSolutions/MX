@@ -183,14 +183,6 @@
   height: auto;
 }
 
-.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li,
-.finishing-item, .door-list {
-  font-size: 70px;
-  list-style: none;
-  color: #000;
-  font-family: "Kairos W01 Extended Medium";
-}
-
 /* ================================
    Logo Buttons
    ================================ */
@@ -480,8 +472,7 @@ height: auto;
 /* ================================
    Submit Button Styling
    ================================ */
-   .submit-logo-size, .submit-finishing,
-   .remove-finishing {
+   .submit-logo-size {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -491,12 +482,6 @@ height: auto;
     color: #fff;
     height: auto;
   }  
-  .submit-vehicle {
-    background-color: #0f375a;
-    color: #fff;
-    margin-bottom: 30px;
-    height: auto;
-  }
   .choose-logo-contain {
     display: flex;
     align-items: center;
@@ -516,7 +501,7 @@ height: auto;
 .file-logo-label input[type=file] {
     display: none;
 }
-.submit-logo, .submit-vehicle {
+.submit-logo {
   width: 100%;
   font-size: 40px;
   height: auto;
@@ -549,8 +534,7 @@ height: auto;
   }
   .driver-submit-size, .passenger-submit-size, .driver-remove-submit-size,
   .passenger-remove-submit-size,
-  .door-remove-length-submit-size,
-  .door-length-submit-size {
+  .door-remove-length-submit-size {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -563,10 +547,8 @@ height: auto;
     height: auto;
    }
   .submit-size:hover, 
-  .submit-finishing:hover,
   .submit-logo:hover,
   .file-logo-label:hover,
-  .remove-finishing:hover,
   .remove-logo-file-button:hover {
     background-color: #226daf;
   }
@@ -897,13 +879,6 @@ font-size: 2.3rem;
 .width-door-logo-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -930,20 +905,10 @@ font-size: 2.3rem;
   font-size: 20px;
   width: 110%;
 }
-.submit-vehicle {
-  font-size: 10px;
-}
 .btn-logo-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
   }
   @media screen and (max-width: 1200px) and (orientation: portrait) {
@@ -1258,13 +1223,6 @@ font-size: 2.3rem;
 .width-door-logo-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1276,6 +1234,7 @@ font-size: 2.3rem;
 .choose-logo-contain {
   display: block;
   text-align: center;
+  margin-top: 10px;
 }
 .file-logo-label, .remove-logo-file-button {
   font-size: 1rem;
@@ -1291,20 +1250,10 @@ font-size: 2.3rem;
   font-size: 20px;
   width: 110%;
 }
-.submit-vehicle {
-  font-size: 10px;
-}
 .btn-logo-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
   }
   @media screen and (max-width: 320px) and (orientation: portrait) {
@@ -1537,13 +1486,6 @@ font-size: 30px;
 .width-door-logo-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1573,20 +1515,10 @@ font-size: 30px;
   font-size: 20px;
   width: 110%;
 }
-.submit-vehicle {
-  font-size: 10px;
-}
 .btn-logo-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
 .no-added-vehicles,
 .no-added-finishings {
@@ -1824,13 +1756,6 @@ font-size: 30px;
 .width-door-logo-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1860,20 +1785,10 @@ font-size: 30px;
   font-size: 20px;
   width: 110%;
 }
-.submit-vehicle {
-  font-size: 10px;
-}
 .btn-logo-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
 .no-added-vehicles,
 .no-added-finishings {
