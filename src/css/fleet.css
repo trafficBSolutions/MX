@@ -27,7 +27,7 @@
 .fleet-description {
     color: #000;
     font-family: "Kairos W04 Extended Bold";
-    font-size: 110px;
+    font-size: 5rem;
     width: auto;
     height: auto;
     text-align: center;
@@ -172,14 +172,6 @@
   text-align: center;
   font-size: 70px;
   height: auto;
-}
-
-.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li,
-.finishing-item, .door-list {
-  font-size: 70px;
-  list-style: none;
-  color: #000;
-  font-family: "Kairos W01 Extended Medium";
 }
 
 /* ================================
@@ -533,6 +525,35 @@ height: auto;
     padding: 0;
     height: auto;
   }
+  .trailer-note {
+    font-size: 30px;
+    font-style: normal;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    
+    text-emphasis: none;
+    height: auto;
+  }
+  .trailer-note-1 {
+    color:#194fb4
+  }
+  .selected-fleet-files-list {
+    font-family: "Moveo Sans w00 Bold";
+  font-style: normal;
+  margin: 0;
+  list-style: none;
+  color: rgb(114, 215, 255);
+  text-align: center;
+  font-size: 70px;
+  height: auto;
+  text-shadow: 
+    1.3px 1.3px #000,
+    -1.3px 1.3px #000,
+    1.3px -1.3px #000,
+    -1.3px -1.3px #000
+    ;
+  }
   /* ================================
    Message Styling
    ================================ */
@@ -566,7 +587,15 @@ height: auto;
   width: 100%;
   height: auto;
 }
+.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li,
+.finishing-item, .door-list {
+  font-size: 70px;
+  list-style: none;
+  color: #000;
+  font-family: "Kairos W01 Extended Medium";
+}
 @media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
+
   .page-fleet-banner {
     padding-top: 130px; /* Reduce padding */
   }
@@ -575,75 +604,146 @@ height: auto;
     padding: 10px; /* Add padding to avoid content touching the edges */
   }
   .photo-mx-fleet-note {
-    font-size: 25px; /* Reduce font size */
+    font-size: 30px; /* Reduce font size */
   }
   .fleet-form-info {
     margin: 0;
   }
   .fleet-app-box {
-    font-size: 37px;
+    font-size: 40px;
   }
   .fleet-fill {
     margin: 10px;
-    font-size: 18px;
+    font-size: 22px;
   }
-  .fleet-actual {
-    margin: 0;
-  }
-  .fleet-set {
-    display: block;
-  }
-  .firstname-fleet-name-input, 
-  .lastname-fleet-name-input, 
-  .company-fleet-name-input, 
-  .email-fleet-box, 
-  .phone-fleet-box, 
-  .address-fleet-box, 
-  .city-fleet-box,
-  .state-fleet-box, 
-  .zip-fleet-box, 
-  .length-fleet-box, 
-  .width-fleet-box, 
-  .border-fleet-box,
-  .length-door-fleet-box, 
-  .width-door-fleet-box, 
-  .length-fleet-select, 
-  .width-fleet-select, 
-  .place-fleet-select, 
-  .finish-fleet-select,
-  .border-fleet-select,
-  .type-fleet-box, 
-  .year-fleet-box, 
-  .make-fleet-box, 
-  .model-fleet-box, 
-  .trim-fleet-box 
+
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-fleet-label, 
+.width-fleet-label, 
+.place-label, 
+.finish-label, 
+.fleet-logo, 
+.year-fleet-label, 
+.make-fleet-label, 
+.model-fleet-label, 
+.trim-fleet-label {
+font-size: 35px;
+padding-left: 0;
+}
+.fleet-message-container {
+margin-top: 10px;
+}
+.message-fleet-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-fleet-select, 
+.width-fleet-select, 
+.place-fleet-select, 
+.finish-fleet-select, 
+.border-fleet-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box,
+.width-door-fleet-box
 {
-font-size: 2.5rem;
+font-size: 2.3rem;
 }
-.first-name-fleet-input, 
+.model-fleet-box {
+font-size: 10px;
+}
+
+.finish-fleet-label {
+font-size: 30px;
+}
+.fleet-finish-img-section {
+display: block;
+}
+.finish-fleet-select {
+font-size: 2rem;
+}
+.fleet-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-fleet-label {
+font-size: 3rem;
+padding: 0;
+}
+.fleet-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-fleet-input {
+padding-left: 0px;
+}
 .emailphone-fleet-input, 
-.fleet-company-name-input, 
-.address-fleet-input, 
-.email-fleet-input, 
-.fleet-phone-name-input, 
-.length-fleet-section, 
-.length-door-fleet-section, 
-.width-fleet-section, 
-.place-fleet-section, 
-.finish-fleet-section, 
-.file-fleet-section, 
-.border-fleet-section, 
-.type-fleet-section {
-  display: block;
+.address-fleet-input-container, 
+.size-fleet-section {
+margin: 0px;
+display: block;
 }
-.width-door-fleet-section {
-  display: block;
+
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+padding-left: 0px;
+}
+
+.submit-vehicle {
+  font-size: 2.6rem;
+}
+.size-driver-fleet-note, .size-passenger-fleet-note {
+font-size: 26px;
+}
+
+
+.message-fleet-text {
+margin-left: 0;
+text-align: center;
+}
+
+.btn-fleet-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+
+.fleet-finish-img-section {
+  display: grid;
 }
 }
 @media screen and (max-width: 1200px) and (orientation: portrait) {
   .page-fleet-banner {
   padding-top: 130px; /* Reduce padding */
 }
+
 .fleet-description {
   font-size: 43px; /* Reduce font size */
   padding: 10px; /* Add padding to avoid content touching the edges */
@@ -714,7 +814,10 @@ font-size: 2.5rem;
 }
 }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
-    .page-fleet-banner {
+  .main-fleet-graphics {
+    display: block;
+  }
+  .page-fleet-banner {
     padding-top: 130px; /* Reduce padding */
   }
   .fleet-description {
@@ -722,17 +825,17 @@ font-size: 2.5rem;
     padding: 10px; /* Add padding to avoid content touching the edges */
   }
   .photo-mx-fleet-note {
-    font-size: 25px; /* Reduce font size */
+    font-size: 30px; /* Reduce font size */
   }
   .fleet-form-info {
     margin: 0;
   }
   .fleet-app-box {
-    font-size: 37px;
+    font-size: 40px;
   }
   .fleet-fill {
     margin: 10px;
-    font-size: 18px;
+    font-size: 22px;
   }
   .fleet-actual {
     margin: 0;
@@ -740,48 +843,527 @@ font-size: 2.5rem;
   .fleet-set {
     display: block;
   }
-  .first-name-fleet-input, 
-  .emailphone-fleet-input, 
-  .fleet-company-name-input, 
-  .address-fleet-input, 
-  .email-fleet-input, 
-  .fleet-phone-name-input, 
-  .length-fleet-section, 
-  .length-door-fleet-section, 
-  .width-fleet-section, 
-  .place-fleet-section, 
-  .finish-fleet-section, 
-  .file-fleet-section, 
-  .border-fleet-section, 
-  .type-fleet-section {
+  .name-section-fleet,
+ .company-fleet-section,
+ .emailphone-fleet-section,
+ .address-fleet-section,
+ .vehicle-type-fleet-section,
+ .vehicle-size-fleet-section,
+ .door-size-fleet-section,
+ .finishing-fleet-section,
+ .fleet-file-section,
+ .fleet-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+  .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+font-size: 50px;
+padding: 0;
+}
+.first-name-fleet-input, 
+.emailphone-fleet-input, 
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.length-door-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section, 
+.type-fleet-section {
+display: block;
+padding-left: 0;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-fleet-label, 
+.width-fleet-label, 
+.place-label, 
+.finish-label, 
+.fleet-logo, 
+.year-fleet-label, 
+.make-fleet-label, 
+.model-fleet-label, 
+.trim-fleet-label {
+font-size: 35px;
+padding-left: 0;
+}
+.fleet-message-container {
+margin-top: 10px;
+}
+.message-fleet-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.fleet-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+margin: 0;
+display: block;
+}
+.last-fleet-name {
+padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-fleet-select, 
+.width-fleet-select, 
+.place-fleet-select, 
+.finish-fleet-select, 
+.border-fleet-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box,
+.width-door-fleet-box
+{
+font-size: 2.1rem;
+}
+.model-fleet-box {
+font-size: 10px;
+}
+.fleet-company-label {
+font-size: 3rem;
+padding: 0;
+}
+.finish-fleet-label {
+font-size: 30px;
+}
+.fleet-finish-img-section {
+display: block;
+}
+.finish-fleet-select {
+font-size: 0.8rem;
+}
+.fleet-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-fleet-label {
+font-size: 3rem;
+padding: 0;
+}
+.fleet-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-fleet-input {
+padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+margin: 0px;
+display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+padding-left: 0px;
+}
+
+.address-fleet-label, 
+.type-fleet-label {
+font-size: 3rem;
+padding: 0;
+}
+.submit-vehicle {
+  font-size: 2.6rem;
+}
+.size-driver-fleet-note, .size-passenger-fleet-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-fleet-section, 
+.width-door-fleet-section {
+display: block;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-fleet-label {
+font-size: 3rem;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+font-size: 1rem;
+display: block;
+margin-top: 1rem;
+}
+
+.message-fleet-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-fleet {
+margin: 0;
+font-size: 20px;
+width: 110%;
+}
+.btn-fleet-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 25px;
+margin-left: 0;
+}
+.selected-fleet-files-list {
+  font-size: 3rem;
+}
+.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li, .finishing-item, .door-list {
+  font-size: 3rem;
+}
+.fleet-finish-img-section {
+  display: grid;
+}
+}
+@media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
+  .main-fleet-graphics {
     display: block;
   }
-  .firstname-fleet-name-input, 
-  .lastname-fleet-name-input, 
-  .company-fleet-name-input, 
-  .email-fleet-box, 
-  .phone-fleet-box, 
-  .address-fleet-box, 
-  .city-fleet-box, 
-  .state-fleet-box, 
-  .zip-fleet-box, 
-  .length-fleet-box, 
-  .width-fleet-box, 
-  .border-fleet-box, 
-  .length-door-fleet-box, 
-  .width-door-fleet-box, 
-  .length-fleet-select, 
-  .width-fleet-select, 
-  .place-fleet-select, 
-  .finish-fleet-select, 
-  .border-fleet-select, 
-  .type-fleet-box, 
-  .year-fleet-box, 
-  .make-fleet-box, 
-  .model-fleet-box, 
-  .trim-fleet-box {
-    font-size: 2rem;
+  .page-fleet-banner {
+    padding-top: 130px; /* Reduce padding */
   }
+  .fleet-description {
+    font-size: 43px; /* Reduce font size */
+    padding: 10px; /* Add padding to avoid content touching the edges */
+  }
+  .photo-mx-fleet-note {
+    font-size: 30px; /* Reduce font size */
+  }
+  .fleet-form-info {
+    margin: 0;
+  }
+  .fleet-app-box {
+    font-size: 40px;
+  }
+  .fleet-fill {
+    margin: 10px;
+    font-size: 22px;
+  }
+  .fleet-actual {
+    margin: 0;
+  }
+  .fleet-set {
+    display: block;
+  }
+  .name-section-fleet,
+ .company-fleet-section,
+ .emailphone-fleet-section,
+ .address-fleet-section,
+ .vehicle-type-fleet-section,
+ .vehicle-size-fleet-section,
+ .door-size-fleet-section,
+ .finishing-fleet-section,
+ .fleet-file-section,
+ .fleet-message-container {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+ }
+  .first-fleet-name-label, 
+.fleet-company-label, 
+.emailphone-fleet-label,
+.address-fleet-label,
+.size-fleet-label,
+.message-fleet-label,
+.place-fleet-label,
+.finish-fleet-label,
+.fleet-file-label,
+.type-fleet-label {
+font-size: 50px;
+padding: 0;
+}
+.first-name-fleet-input, 
+.emailphone-fleet-input, 
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.length-door-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section, 
+.type-fleet-section {
+display: block;
+padding-left: 0;
+}
+.first-fleet-label-name, 
+.last-fleet-label-name, 
+.company-fleet-name, 
+.email-fleet-name, 
+.phone-fleet-label, 
+.addr-fleet-label, 
+.city-fleet-label, 
+.state-fleet-label, 
+.zip-fleet-label, 
+.length-fleet-label, 
+.width-fleet-label, 
+.place-label, 
+.finish-label, 
+.fleet-logo, 
+.year-fleet-label, 
+.make-fleet-label, 
+.model-fleet-label, 
+.trim-fleet-label {
+font-size: 35px;
+padding-left: 0;
+}
+.fleet-message-container {
+margin-top: 10px;
+}
+.message-fleet-label {
+margin-bottom: 0;
+margin-top: 10px;
+padding: 0;
+
+}
+.fleet-file-label {
+padding: 0;
+font-size: 30px;
+}
+.first-name-fleet-input
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section,
+.size-door-fleet-section {
+margin: 0;
+display: block;
+}
+.last-fleet-name {
+padding-left: 0;
+}
+.firstname-fleet-name-input, 
+.lastname-fleet-name-input, 
+.company-fleet-name-input, 
+.email-fleet-box, 
+.phone-fleet-box, 
+.address-fleet-box, 
+.city-fleet-box, 
+.state-fleet-box, 
+.zip-fleet-box, 
+.length-fleet-box, 
+.width-fleet-box, 
+.border-fleet-box, 
+.length-fleet-select, 
+.width-fleet-select, 
+.place-fleet-select, 
+.finish-fleet-select, 
+.border-fleet-select, 
+.type-fleet-box,
+.year-fleet-box,
+.make-fleet-box,
+.length-door-fleet-box,
+.width-door-fleet-box
+{
+font-size: 18px;
+}
+.model-fleet-box {
+font-size: 10px;
+}
+.fleet-company-label {
+font-size: 25px;
+padding: 0;
+}
+.finish-fleet-label {
+font-size: 30px;
+}
+.fleet-finish-img-section {
+display: block;
+}
+.finish-fleet-select {
+font-size: 0.8rem;
+}
+.fleet-warn {
+font-size: 15px;
+padding-top: 10%;
+margin: 0;
+text-align: center;
+}
+.emailphone-fleet-label {
+font-size: 24px;
+padding: 0;
+}
+.fleet-company-name-input {
+margin: 10px;
+padding-left: 0;
+display: block;
+}
+.company-fleet-input {
+padding-left: 0px;
+}
+.emailphone-fleet-input, 
+.address-fleet-input-container, 
+.size-fleet-section {
+margin: 0px;
+display: block;
+}
+.fleet-company-name-input, 
+.address-fleet-input, 
+.email-fleet-input, 
+.fleet-phone-name-input, 
+.length-fleet-section, 
+.width-fleet-section, 
+.place-fleet-section, 
+.finish-fleet-section, 
+.file-fleet-section, 
+.border-fleet-section,
+.type-fleet-section {
+margin: 0px;
+display: block;
+padding-left: 0;
+}
+.address-fleet-inputing, 
+.city-fleet-input, 
+.phone-fleet {
+padding-left: 0px;
+}
+
+.address-fleet-label, 
+.type-fleet-label {
+font-size: 30px;
+padding: 0;
+}
+.size-driver-fleet-note, .size-passenger-fleet-note {
+font-size: 26px;
+}
+.driver-length-section, 
+.driver-width-section, 
+.passenger-length-section, 
+.passenger-side-width, 
+.length-door-fleet-section, 
+.width-door-fleet-section {
+display: block;
+}
+.passenger-submit-size, .passenger-remove-submit-size {
+font-size: 15px;
+}
+.size-fleet-label {
+font-size: 33px;
+padding: 0;
+}
+.submit-size {
+margin-left: 0;
+font-size: 15px;
+text-align: center;
+}
+.choose-logo-contain {
+display: block;
+text-align: center;
+}
+.file-fleet-label, .remove-fleet-file-button {
+font-size: 1rem;
+display: block;
+margin-top: 1rem;
+}
+
+.message-fleet-text {
+margin-left: 0;
+text-align: center;
+}
+.submit-fleet {
+margin: 0;
+font-size: 20px;
+width: 110%;
+}
+.submit-vehicle {
+font-size: 20px;
+}
+.btn-fleet-submit {
+padding: 0;
+margin-top: 10px;
+width: 100%;
+}
+.door-length-submit-size, 
+.door-remove-length-submit-size,
+.submit-finishing,
+.remove-finishing {
+font-size: 25px;
+margin-left: 0;
+}
+.selected-fleet-files-list {
+  font-size: 2rem;
+}
+.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li, .finishing-item, .door-list {
+  font-size: 2rem;
+}
 }
   @media screen and (max-width: 320px) and (orientation: portrait) {
     .main-fleet-graphics {
@@ -839,6 +1421,7 @@ font-size: 2.5rem;
 .fleet-file-label,
 .type-fleet-label {
   font-size: 33px;
+  padding: 0;
 }
 .first-name-fleet-input, 
 .emailphone-fleet-input, 
@@ -1004,13 +1587,6 @@ font-size: 30px;
 .width-door-fleet-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1059,6 +1635,12 @@ font-size: 30px;
 .no-added-finishings {
   margin: 0;
   font-size: 20px;
+}
+.selected-fleet-files-list {
+  font-size: 2.5rem;
+}
+.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li, .finishing-item, .door-list {
+  font-size: 1.2rem;
 }
   }
   @media screen and (max-width: 320px) and (orientation: landscape) {
@@ -1117,6 +1699,7 @@ font-size: 30px;
 .fleet-file-label,
 .type-fleet-label {
   font-size: 50px;
+  padding: 0;
 }
 .first-name-fleet-input, 
 .emailphone-fleet-input, 
@@ -1282,13 +1865,6 @@ font-size: 30px;
 .length-door-fleet-section, 
 .width-door-fleet-section {
   display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
 }
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
@@ -1339,794 +1915,10 @@ font-size: 30px;
   margin: 0;
   font-size: 30px;
 }
-  }
-  @media screen and (min-width: 320px) and (max-width: 600px) and (orientation: portrait) {
-    .main-fleet-graphics {
-      display: block;
-    }
-    .page-fleet-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .fleet-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-fleet-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .fleet-form-info {
-      margin: 0;
-    }
-    .fleet-app-box {
-      font-size: 40px;
-    }
-    .fleet-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .fleet-actual {
-      margin: 0;
-    }
-    .fleet-set {
-      display: block;
-    }
-    .name-section-fleet,
-   .company-fleet-section,
-   .emailphone-fleet-section,
-   .address-fleet-section,
-   .vehicle-type-fleet-section,
-   .vehicle-size-fleet-section,
-   .door-size-fleet-section,
-   .finishing-fleet-section,
-   .fleet-file-section,
-   .fleet-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-fleet-name-label, 
-.fleet-company-label, 
-.emailphone-fleet-label,
-.address-fleet-label,
-.size-fleet-label,
-.message-fleet-label,
-.place-fleet-label,
-.finish-fleet-label,
-.fleet-file-label,
-.type-fleet-label {
-  font-size: 50px;
+.selected-fleet-files-list {
+  font-size: 2.5rem;
 }
-.first-name-fleet-input, 
-.emailphone-fleet-input, 
-.fleet-company-name-input, 
-.address-fleet-input, 
-.email-fleet-input, 
-.fleet-phone-name-input, 
-.length-fleet-section, 
-.length-door-fleet-section, 
-.width-fleet-section, 
-.place-fleet-section, 
-.finish-fleet-section, 
-.file-fleet-section, 
-.border-fleet-section, 
-.type-fleet-section {
-  display: block;
-  padding-left: 0;
+.vehicle-list, .vehicle-driver-size-li, .vehicle-passenger-size-li, .finishing-item, .door-list {
+  font-size: 1.2rem;
 }
-.first-fleet-label-name, 
-.last-fleet-label-name, 
-.company-fleet-name, 
-.email-fleet-name, 
-.phone-fleet-label, 
-.addr-fleet-label, 
-.city-fleet-label, 
-.state-fleet-label, 
-.zip-fleet-label, 
-.length-fleet-label, 
-.width-fleet-label, 
-.place-label, 
-.finish-label, 
-.fleet-logo, 
-.year-fleet-label, 
-.make-fleet-label, 
-.model-fleet-label, 
-.trim-fleet-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-.fleet-message-container {
-  margin-top: 10px;
-}
-.message-fleet-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.fleet-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-fleet-input
-.emailphone-fleet-input, 
-.address-fleet-input-container, 
-.size-fleet-section,
-.size-door-fleet-section {
-  margin: 0;
-  display: block;
-}
-.last-fleet-name {
-  padding-left: 0;
-}
-.firstname-fleet-name-input, 
-.lastname-fleet-name-input, 
-.company-fleet-name-input, 
-.email-fleet-box, 
-.phone-fleet-box, 
-.address-fleet-box, 
-.city-fleet-box, 
-.state-fleet-box, 
-.zip-fleet-box, 
-.length-fleet-box, 
-.width-fleet-box, 
-.border-fleet-box, 
-.length-fleet-select, 
-.width-fleet-select, 
-.place-fleet-select, 
-.finish-fleet-select, 
-.border-fleet-select, 
-.type-fleet-box,
-.year-fleet-box,
-.make-fleet-box,
-.length-door-fleet-box,
-.width-door-fleet-box
- {
-  font-size: 18px;
-}
-.model-fleet-box {
-  font-size: 10px;
-}
-.fleet-company-label {
-  font-size: 25px;
-  padding: 0;
-}
-.finish-fleet-label {
-  font-size: 30px;
-}
-.fleet-finish-img-section {
-  display: block;
-}
-.finish-fleet-select {
-  font-size: 7px;
-}
-.fleet-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-fleet-label {
-  font-size: 24px;
-  padding: 0;
-}
-.fleet-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-fleet-input {
-  padding-left: 0px;
-}
-.emailphone-fleet-input, 
-.address-fleet-input-container, 
-.size-fleet-section {
-  margin: 0px;
-  display: block;
-}
-.fleet-company-name-input, 
-.address-fleet-input, 
-.email-fleet-input, 
-.fleet-phone-name-input, 
-.length-fleet-section, 
-.width-fleet-section, 
-.place-fleet-section, 
-.finish-fleet-section, 
-.file-fleet-section, 
-.border-fleet-section,
-.type-fleet-section {
-  margin: 0px;
-  display: block;
-  padding-left: 0;
-}
-.address-fleet-inputing, 
-.city-fleet-input, 
-.phone-fleet {
-  padding-left: 0px;
-}
-
-.address-fleet-label, 
-.type-fleet-label,
-.size-fleet-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-fleet-note, .size-passenger-fleet-note {
-  font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-fleet-section, 
-.width-door-fleet-section {
-  display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-fleet-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-logo-contain {
-  display: block;
-  text-align: center;
-}
-.file-fleet-label, .remove-fleet-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-fleet-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-fleet {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 10px;
-}
-.btn-fleet-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-fleet-graphics {
-      display: block;
-    }
-    .page-fleet-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .fleet-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-fleet-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .fleet-form-info {
-      margin: 0;
-    }
-    .fleet-app-box {
-      font-size: 40px;
-    }
-    .fleet-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .fleet-actual {
-      margin: 0;
-    }
-    .fleet-set {
-      display: block;
-    }
-    .name-section-fleet,
-   .company-fleet-section,
-   .emailphone-fleet-section,
-   .address-fleet-section,
-   .vehicle-type-fleet-section,
-   .vehicle-size-fleet-section,
-   .door-size-fleet-section,
-   .finishing-fleet-section,
-   .fleet-file-section,
-   .fleet-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-fleet-name-label, 
-.fleet-company-label, 
-.emailphone-fleet-label,
-.address-fleet-label,
-.size-fleet-label,
-.message-fleet-label,
-.place-fleet-label,
-.finish-fleet-label,
-.fleet-file-label,
-.type-fleet-label {
-  font-size: 50px;
-}
-.first-name-fleet-input, 
-.emailphone-fleet-input, 
-.fleet-company-name-input, 
-.address-fleet-input, 
-.email-fleet-input, 
-.fleet-phone-name-input, 
-.length-fleet-section, 
-.length-door-fleet-section, 
-.width-fleet-section, 
-.place-fleet-section, 
-.finish-fleet-section, 
-.file-fleet-section, 
-.border-fleet-section, 
-.type-fleet-section {
-  display: block;
-  padding-left: 0;
-}
-.first-fleet-label-name, 
-.last-fleet-label-name, 
-.company-fleet-name, 
-.email-fleet-name, 
-.phone-fleet-label, 
-.addr-fleet-label, 
-.city-fleet-label, 
-.state-fleet-label, 
-.zip-fleet-label, 
-.length-fleet-label, 
-.width-fleet-label, 
-.place-label, 
-.finish-label, 
-.fleet-logo, 
-.year-fleet-label, 
-.make-fleet-label, 
-.model-fleet-label, 
-.trim-fleet-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-.year-fleet-label {
-  font-size: 50px;
-}
-.fleet-message-container {
-  margin-top: 10px;
-}
-.message-fleet-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.fleet-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-fleet-input
-.emailphone-fleet-input, 
-.address-fleet-input-container, 
-.size-fleet-section,
-.size-door-fleet-section {
-  margin: 0;
-  display: block;
-}
-.last-fleet-name {
-  padding-left: 0;
-}
-.firstname-fleet-name-input, 
-.lastname-fleet-name-input, 
-.company-fleet-name-input, 
-.email-fleet-box, 
-.phone-fleet-box, 
-.address-fleet-box, 
-.city-fleet-box, 
-.state-fleet-box, 
-.zip-fleet-box, 
-.length-fleet-box, 
-.width-fleet-box, 
-.border-fleet-box, 
-.length-fleet-select, 
-.width-fleet-select, 
-.place-fleet-select, 
-.finish-fleet-select, 
-.border-fleet-select, 
-.type-fleet-box,
-.year-fleet-box,
-.make-fleet-box,
-.length-door-fleet-box,
-.width-door-fleet-box
- {
-  font-size: 18px;
-}
-.model-fleet-box {
-  font-size: 10px;
-}
-.fleet-company-label {
-  font-size: 30px;
-  padding: 0;
-}
-.finish-fleet-label {
-  font-size: 30px;
-}
-.fleet-finish-img-section {
-  display: block;
-}
-.finish-fleet-select {
-  font-size: 13px;
-}
-.fleet-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-fleet-label {
-  font-size: 30px;
-  padding: 0;
-}
-.fleet-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-fleet-input {
-  padding-left: 0px;
-}
-.emailphone-fleet-input, 
-.address-fleet-input-container, 
-.size-fleet-section {
-  margin: 0px;
-  display: block;
-}
-.fleet-company-name-input, 
-.address-fleet-input, 
-.email-fleet-input, 
-.fleet-phone-name-input, 
-.length-fleet-section, 
-.width-fleet-section, 
-.place-fleet-section, 
-.finish-fleet-section, 
-.file-fleet-section, 
-.border-fleet-section,
-.type-fleet-section {
-  margin: 0px;
-  display: block;
-  padding-left: 0;
-}
-.address-fleet-inputing, 
-.city-fleet-input, 
-.phone-fleet {
-  padding-left: 0px;
-}
-
-.address-fleet-label, 
-.type-fleet-label,
-.size-fleet-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-fleet-note, .size-passenger-fleet-note {
-  font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-fleet-section, 
-.width-door-fleet-section {
-  display: block;
-}
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-fleet-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-logo-contain {
-  display: block;
-  text-align: center;
-}
-.file-fleet-label, .remove-fleet-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-fleet-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-fleet {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 10px;
-}
-.btn-fleet-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 353px) and (max-width: 745px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .main-fleet-graphics {
-      display: block;
-    }
-    .page-fleet-banner {
-      padding-top: 130px; /* Reduce padding */
-    }
-    .fleet-description {
-      font-size: 43px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .photo-mx-fleet-note {
-      font-size: 30px; /* Reduce font size */
-    }
-    .fleet-form-info {
-      margin: 0;
-    }
-    .fleet-app-box {
-      font-size: 40px;
-    }
-    .fleet-fill {
-      margin: 10px;
-      font-size: 22px;
-    }
-    .fleet-actual {
-      margin: 0;
-    }
-    .fleet-set {
-      display: block;
-    }
-  
-
-.first-fleet-label-name, 
-.last-fleet-label-name, 
-.company-fleet-name, 
-.email-fleet-name, 
-.phone-fleet-label, 
-.addr-fleet-label, 
-.city-fleet-label, 
-.state-fleet-label, 
-.zip-fleet-label, 
-.length-fleet-label, 
-.width-fleet-label, 
-.place-label, 
-.finish-label, 
-.fleet-logo, 
-.year-fleet-label, 
-.make-fleet-label, 
-.model-fleet-label, 
-.trim-fleet-label {
-  font-size: 35px;
-  padding-left: 0;
-}
-
-.fleet-message-container {
-  margin-top: 10px;
-}
-.message-fleet-label {
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 0;
-  
-}
-.fleet-file-label {
-padding: 0;
-font-size: 30px;
-}
-
-.last-fleet-name {
-  padding-left: 0;
-}
-.firstname-fleet-name-input, 
-.lastname-fleet-name-input, 
-.company-fleet-name-input, 
-.email-fleet-box, 
-.phone-fleet-box, 
-.address-fleet-box, 
-.city-fleet-box, 
-.state-fleet-box, 
-.zip-fleet-box, 
-.length-fleet-box, 
-.width-fleet-box, 
-.border-fleet-box, 
-.length-fleet-select, 
-.width-fleet-select, 
-.place-fleet-select, 
-.finish-fleet-select, 
-.border-fleet-select, 
-.type-fleet-box,
-.year-fleet-box,
-.make-fleet-box,
-.length-door-fleet-box,
-.width-door-fleet-box
- {
-  font-size: 19px;
-}
-.model-fleet-box {
-  font-size: 19px;
-}
-.fleet-company-label {
-  font-size: 30px;
-  padding: 0;
-}
-.finish-fleet-label {
-  font-size: 30px;
-}
-
-.finish-fleet-select {
-  font-size: 13px;
-}
-.fleet-warn {
-  font-size: 15px;
-  padding-top: 10%;
-  margin: 0;
-  text-align: center;
-}
-.emailphone-fleet-label {
-  font-size: 30px;
-  padding: 0;
-}
-.fleet-company-name-input {
-  margin: 10px;
-  padding-left: 0;
-  display: block;
-}
-.company-fleet-input {
-  padding-left: 0px;
-}
-.emailphone-fleet-input, 
-.address-fleet-input-container, 
-.size-fleet-section {
-  margin: 0px;
-  display: grid;
-}
-.first-fleet-name-label {
-  font-size: 50px;
-}
-.fleet-company-name-input, 
-.address-fleet-input, 
-.email-fleet-input, 
-.fleet-phone-name-input, 
-.length-fleet-section, 
-.width-fleet-section, 
-.place-fleet-section, 
-.finish-fleet-section, 
-.file-fleet-section, 
-.border-fleet-section,
-.type-fleet-section {
-  margin: 0px;
-  display: grid;
-  padding-left: 0;
-}
-.address-fleet-inputing, 
-.city-fleet-input, 
-.phone-fleet {
-  padding-left: 0px;
-}
-
-.address-fleet-label, 
-.type-fleet-label,
-.size-fleet-label {
-  font-size: 30px;
-  padding: 0;
-}
-.size-driver-fleet-note, .size-passenger-fleet-note {
-  font-size: 26px;
-}
-
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
-.size-fleet-label {
-  font-size: 35px;
-}
-.submit-size {
-  margin-left: 0;
-  font-size: 15px;
-  text-align: center;
-}
-.choose-logo-contain {
-  display: block;
-  text-align: center;
-}
-.file-fleet-label, .remove-fleet-file-button {
-  font-size: 1rem;
-  display: block;
-}
-
-.message-fleet-text {
-  margin-left: 0;
-  text-align: center;
-}
-.submit-fleet {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
-.submit-vehicle {
-  font-size: 30px;
-}
-.btn-fleet-submit {
-  padding: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 20px;
-  margin-left: 0;
-}
-  }
-  @media screen and (min-width: 1080px) and (max-width: 1920px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    .fleet-description {
-      font-size: 85px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
-    }
-    .first-name-fleet-input {
-      display: flex;
-      margin: 40px;
-    }
-    .size-fleet-section, .size-door-fleet-section {
-      margin: 0;
-
-    }
-    .submit-fleet, .submit-vehicle {
-      width: 100%;
-      font-size: 40px;
-      height: auto;
-    }
   }
