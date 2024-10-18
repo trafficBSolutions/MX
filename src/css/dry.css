@@ -113,12 +113,6 @@
     color: #000;
     height: auto;
 }
-.logo-warn {
-    font-size: 30px;
-    margin-top: 0%;
-    color: #000;
-    height: auto;
-}
 .dry-actual {
     width: auto;
     margin: 50px;
@@ -474,8 +468,7 @@ height: auto;
 /* ================================
    Submit Button Styling
    ================================ */
-   .submit-dry-size, .submit-finishing,
-   .remove-finishing, .submit-place, .remove-placement {
+   .submit-dry-size, .submit-place, .remove-placement {
     background-color: #0f375a;
     position: relative;
     font-size: 30px;
@@ -485,12 +478,6 @@ height: auto;
     color: #fff;
     height: auto;
   }  
-  .submit-vehicle {
-    background-color: #0f375a;
-    color: #fff;
-    margin-bottom: 30px;
-    height: auto;
-  }
   .choose-logo-contain {
     display: flex;
     align-items: center;
@@ -510,7 +497,7 @@ height: auto;
 .file-dry-label input[type=file] {
     display: none;
 }
-.submit-dry, .submit-vehicle {
+.submit-dry {
   width: 100%;
   font-size: 40px;
   height: auto;
@@ -530,7 +517,6 @@ height: auto;
   .submit-dry-finishing, .passenger-submit-size, .driver-remove-submit-size,
   .passenger-remove-submit-size,
   .door-remove-length-submit-size,
-  .door-length-submit-size,
   .new-dry-logo-button {
     background-color: #0f375a;
     position: relative;
@@ -544,7 +530,6 @@ height: auto;
     height: auto;
    }
   .submit-size:hover, 
-  .submit-finishing:hover,
   .submit-dry:hover,
   .file-dry-label:hover,
   .remove-finishing:hover,
@@ -750,8 +735,6 @@ height: auto;
     }
     .submit-dry,
     .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
     .submit-place, 
     .remove-placement,
     .submit-dry-finishing,
@@ -943,8 +926,6 @@ height: auto;
     }
     .submit-dry,
     .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
     .submit-place, 
     .remove-placement,
     .submit-dry-finishing,
@@ -1138,8 +1119,6 @@ height: auto;
     }
     .submit-dry,
     .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
     .submit-place, 
     .remove-placement,
     .submit-dry-finishing,
@@ -1333,8 +1312,6 @@ height: auto;
     }
     .submit-dry,
     .submit-dry-size, 
-    .submit-finishing, 
-    .remove-finishing, 
     .submit-place, 
     .remove-placement,
     .submit-dry-finishing,
@@ -1525,8 +1502,6 @@ max-width: 150px;
 }
 .submit-dry,
 .submit-dry-size, 
-.submit-finishing, 
-.remove-finishing, 
 .submit-place, 
 .remove-placement,
 .submit-dry-finishing,
@@ -1716,8 +1691,6 @@ font-size: 1.5rem;
 }
 .submit-dry,
 .submit-dry-size, 
-.submit-finishing, 
-.remove-finishing, 
 .submit-place, 
 .remove-placement,
 .submit-dry-finishing,
