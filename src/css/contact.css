@@ -735,13 +735,6 @@ font-size: 30px;
 .width-door-contact-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -771,20 +764,10 @@ font-size: 30px;
   font-size: 20px;
   width: 110%;
 }
-.submit-vehicle {
-  font-size: 10px;
-}
 .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
 .no-added-vehicles,
 .no-added-finishings {
@@ -1028,13 +1011,6 @@ font-size: 30px;
 .width-door-contact-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1064,20 +1040,10 @@ font-size: 30px;
   font-size: 20px;
   width: 110%;
 }
-.submit-vehicle {
-  font-size: 10px;
-}
 .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
 .no-added-vehicles,
 .no-added-finishings {
@@ -1267,13 +1233,7 @@ font-size: 30px;
   .width-door-contact-section {
   display: block;
   }
-  .vehicle-list, 
-  .vehicle-driver-size-li, 
-  .vehicle-passenger-size-li, 
-  .finishing-item,
-  .door-list {
-  font-size: 22px;
-  }
+
   .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
   }
@@ -1303,20 +1263,10 @@ font-size: 30px;
   font-size: 20px;
   width: 110%;
   }
-  .submit-vehicle {
-  font-size: 10px;
-  }
   .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-  }
-  .door-length-submit-size, 
-  .door-remove-length-submit-size,
-  .submit-finishing,
-  .remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
   }
   .no-added-vehicles,
   .no-added-finishings {
@@ -1506,13 +1456,6 @@ font-size: 30px;
  .width-door-contact-section {
  display: block;
  }
- .vehicle-list, 
- .vehicle-driver-size-li, 
- .vehicle-passenger-size-li, 
- .finishing-item,
- .door-list {
- font-size: 22px;
- }
  .passenger-submit-size, .passenger-remove-submit-size {
  font-size: 15px;
  }
@@ -1542,20 +1485,10 @@ font-size: 30px;
  font-size: 20px;
  width: 110%;
  }
- .submit-vehicle {
- font-size: 10px;
- }
  .btn-contact-submit {
  padding: 0;
  margin-top: 10px;
  width: 100%;
- }
- .door-length-submit-size, 
- .door-remove-length-submit-size,
- .submit-finishing,
- .remove-finishing {
- font-size: 12px;
- margin-left: 0;
  }
  .no-added-vehicles,
  .no-added-finishings {
@@ -1796,13 +1729,6 @@ font-size: 30px;
 .width-door-contact-section {
   display: block;
 }
-.vehicle-list, 
-.vehicle-driver-size-li, 
-.vehicle-passenger-size-li, 
-.finishing-item,
-.door-list {
-  font-size: 22px;
-}
 .passenger-submit-size, .passenger-remove-submit-size {
   font-size: 15px;
 }
@@ -1832,20 +1758,10 @@ font-size: 30px;
   font-size: 20px;
   width: 110%;
 }
-.submit-vehicle {
-  font-size: 10px;
-}
 .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.door-length-submit-size, 
-.door-remove-length-submit-size,
-.submit-finishing,
-.remove-finishing {
-  font-size: 12px;
-  margin-left: 0;
 }
 .no-added-vehicles,
 .no-added-finishings {
