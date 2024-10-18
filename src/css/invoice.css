@@ -6,6 +6,38 @@
 .invoice-main {
     background-color: #e7e7e7;
 }
+.invoice-actual {
+    border-color: #000;
+  border-width: 4px;
+  background-color: #cccbcb;
+  border-style: solid;
+  border-radius: 10px;
+}
+.invoice-displays {
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.map-invoice-container  {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #003366;
+    padding: 5px;
+    background-color: #66b2ff;
+}
+.google-map-invoice {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 120%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 1rem;
+}
 .about-invoice-heading {
     color: #2f2f2f;
     font-family: "Kairos W04 Extended Bold";
@@ -17,40 +49,51 @@
     text-align: center;
     font-size: 80px;
     padding: 10px;
-
 }
 .invoice-form {
-    border-color: #000;
-    border-width: 4px;
-    background-color: #cccbcb;
-    border-style: solid;
-    border-radius: 10px;
-    margin: 10px;
     width: auto;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+    margin: 50px;
+    height: auto;
 }
 .name-invoice, 
 .company-invoice,
 .email-phone-invoice {
-    background-color: #cccbcb;
-    margin: 10px;
-    width: auto;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+    border-color: #000;
+  border-width: 4px;
+  background-color: #cccbcb;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  padding: 20px;
 }
-.name-invoice-label, 
-.company-invoice-label,
-.email-invoice-label {
+.invoice-statement-description {
+    color: #000;
+    font-size: 50px;
+}
+.invoice-statement-description2 {
+    color: #000;
+    margin-top: 5px;
+    font-size: 25px;
+}
+.invoice-statement-description3 {
+    color: #000;
+    margin-top: 5px;
+    font-size: 25px;
+}
+.invoice-warn {
+    color: #194fb4;
+    height: auto;
+}
+.name-invoice-label {
     padding: 50px;
     color: #000;
     font-family: "Moveo Sans w00 Bold";
+    display: block;
     text-align: center;
     font-size: 80px;
     font-style: inherit;
@@ -80,7 +123,10 @@
 .last-invoice-label-name, 
 .company-invoice-label-name,
 .email-invoice-label-name,
-.phone-invoice-label-name {
+.phone-invoice-label-name,
+.name-card-label,
+.expiration-invoice-label,
+.cvv-invoice-label {
     font-family: "Highway Gothic Narrow";
     font-style: normal;
     margin: 0;
@@ -92,7 +138,10 @@
 .last-invoice-input, 
 .company-invoice-input,
 .email-invoice-input,
-.phone-invoice-input {
+.phone-invoice-input,
+.card-input-name,
+.cvv-invoice-input,
+.expiration-invoice-input {
     padding: 10px;
     color: #0f375a;
     font-size: 50px;
