@@ -93,14 +93,7 @@ const Home = () => {
           sweatshirts, and jackets. 
           Utilizing high-quality vinyl and Aluminum Composite Panels, we bring your vision to life with precision and creativity.
           Our diverse range of services extends beyond signage and apparel to include expert window frosting and tinting, ensuring privacy, style, 
-          and functionality for your space. Whether you're looking to enhance your storefront with 
-          eye-catching banners or add a personalized touch to your vehicle with custom decals, our team is dedicated to exceeding your expectations.
-          At Material WorX, innovation meets craftsmanship, as we combine cutting-edge technology with skilled artistry to deliver 
-          unmatched quality in every project. From concept to completion, we collaborate closely with our clients to understand
-          their unique needs and deliver tailor-made solutions that leave a lasting impression.
-          Experience the difference with Material WorX, where creativity knows no bounds, and excellence is our standard. 
-          Visit us today to explore our wide range of custom signage and apparel options, 
-          and let us bring your ideas to life with style and sophistication.</h2>
+          and functionality for your space.</h2>
           </div>
           <section className="section-mx-featured">
           <div className="container">
@@ -123,10 +116,8 @@ const Home = () => {
     <p className="step-number">01</p>
     <h3 className="heading-tertiary">CUSTOMIZABLE SIGNAGE</h3>
     <p className="step-description">
-      Custom signage refers to personalized or bespoke signs that are uniquely designed and crafted to meet the specific needs and preferences of an individual or business. 
-      Unlike pre-made or standard signs, custom signage allows for greater flexibility in terms of design, size, shape, color, and messaging. 
-      These signs can be made from a variety of materials such as vinyl, aluminum composite panels, wood, acrylic, or metal, depending on the desired aesthetic and functionality. 
-      Custom signage can serve a wide range of purposes, including branding, advertising, wayfinding, informational, or decorative purposes.
+    Stand out with custom signage tailored to your business. From design to color, size, and messaging, we create unique signs that
+     reflect your brand and vision. Get your personalized sign with a custom quote today! 
     </p>
   </div>
 
@@ -142,14 +133,8 @@ const Home = () => {
               <p className="step-number">02</p>
               <h3 className="heading-tertiary">DECALS & STICKERS</h3>
               <p className="step-description">
-              Our wide range of decals includes custom Football Helmet Decals, Vehicle Decals, Chrome Decals, and Window Decals, all crafted from high-quality, 
-              durable materials. Football Helmet Decals are designed to withstand the tough conditions of gameplay, 
-              with weatherproof and UV-resistant vinyl that adheres securely while maintaining vibrant colors. 
-              Vehicle Decals offer the perfect way to personalize cars, trucks, or motorcycles, made to endure outdoor elements and available in a variety of styles and sizes. 
-              For a sleek, high-end look, our Chrome Decals provide a bold, reflective metallic finish that’s scratch-resistant and easy to apply, 
-              ideal for vehicles and home decor. Window Decals are perfect for glass surfaces, whether for decorative purposes, branding, or privacy, 
-              featuring transparent or opaque designs that let light in while remaining weatherproof and residue-free when removed. 
-              No matter the application, our decals deliver long-lasting quality and visual impact.
+              Get noticed with custom decals for any surface—vehicles, helmets, windows, and more. Made from high-quality, 
+              durable materials, our decals are built to last and make an impact. Contact us for your custom quote today!
               </p>
             </div>
             <div className="step-img-box">
@@ -169,10 +154,8 @@ const Home = () => {
     <p className="step-number">03</p>
     <h3 className="heading-tertiary">BANNERS</h3>
     <p className="step-description">
-    Banners are graphical displays typically made of fabric, vinyl, paper, or other durable materials, featuring text, images, or 
-    both, designed to convey a message or promote a product, event, or idea. They come in various shapes and sizes, ranging from small handheld signs 
-    to large-scale installations. Banners are commonly used in advertising, marketing, and event signage due to their versatility, portability, and ability to attract attention. 
-    They can be hung or displayed in indoor or outdoor settings, making them an effective tool for conveying information and capturing the interest of passersby.
+    Make a statement with custom banners that stand out. Whether it's for an event, promotion, or announcement, we offer durable materials like vinyl or fabric in any size. 
+    Bold graphics and crisp text ensure your message gets noticed. Request your custom quote today!
     </p>
   </div>
 
@@ -188,11 +171,8 @@ const Home = () => {
     <p className="step-number">04</p>
     <h3 className="heading-tertiary">T-SHIRTS SWEATSHIRTS JACKETS</h3>
     <p className="step-description">
-    T-shirts are transformed through a process known as heat pressing, wherein designs, graphics, or text are applied with precision and durability. 
-    Utilizing cutting-edge technology, such as the Roland TrueVis VG3-540 for printing and the Graphtec FC-9000-140 for plotting, intricate designs are meticulously 
-    transferred onto transfer paper or vinyl. 
-    These designs are then seamlessly bonded to the fabric of the T-shirt using heat and pressure, resulting in vibrant, 
-    long-lasting creations that stand out with exceptional quality.
+    Bring your ideas to life with custom T-shirts and other apparels made to last. Whether it's a logo, graphic, or text,
+      we can ensure your apparel stands out with top-tier quality. Get your custom quote today!
     </p>
   </div>
 
@@ -208,18 +188,9 @@ const Home = () => {
     <p className="step-number">05</p>
     <h3 className="heading-tertiary">WINDOW FROSTING VINYL FOR PRIVACY</h3>
     <p className="step-description">
-    Window frosting vinyl serves as a crucial tool for enhancing privacy in diverse settings such as offices, schools, shower doors, and beyond. By applying this 
-    specialized vinyl to glass surfaces, it creates an opaque or translucent effect, obstructing the view from the outside while still allowing natural light to 
-    permeate through. This pivotal balance between privacy and illumination is essential for fostering a comfortable and secure environment.
-In offices, window frosting vinyl provides discrete divisions within the workspace, delineating areas such as meeting rooms or private offices. This ensures 
-confidentiality during sensitive discussions and meetings while simultaneously adding a sophisticated aesthetic touch to the interior design.
-Within educational institutions, window frosting vinyl on classroom windows, administrative offices, or library partitions serves to minimize distractions and
- promote focused learning environments. Students can engage in lessons without external disruptions, thereby optimizing their educational experience.
-In residential spaces, the application of window frosting vinyl on shower doors or bathroom windows grants individuals the privacy they require without 
-compromising on the influx of natural light. This creates a serene and tranquil atmosphere conducive to relaxation and personal rejuvenation.
-Overall, the significance of window frosting vinyl lies in its multifaceted ability to safeguard privacy, facilitate focused activities, and contribute to 
-the aesthetic appeal of various environments. By striking a delicate balance between seclusion and illumination, it emerges as an indispensable solution for
- ensuring comfort and functionality across diverse settings.
+    Enhance privacy without sacrificing natural light with custom window frosting vinyl. Perfect for 
+    offices, schools, and homes, it adds a sleek, professional touch while creating private spaces. 
+    Ideal for meeting rooms, classrooms, or shower doors—get your privacy solution with a custom quote today!
     </p>
   </div>
 
@@ -235,21 +206,17 @@ the aesthetic appeal of various environments. By striking a delicate balance bet
     <p className="step-number">06</p>
     <h3 className="heading-tertiary">DYYWALLS FLOORS CONTRETE GRAPHICS</h3>
     <p className="step-description">
-    Floor Vinyls: Printable vinyl for floors typically includes options such as vinyl plank flooring or vinyl sheet flooring. These are often designed to be durable, 
-    water-resistant, and scratch-resistant, making them suitable for high-traffic areas. Printable vinyl flooring can come in a variety of styles, including wood-look, 
-    stone-look, or abstract patterns.
-Concrete Vinyls: For concrete surfaces, printable vinyl may include options such as vinyl wraps or decals specifically designed for use on concrete. 
-These vinyls are often formulated to adhere well to concrete surfaces and withstand outdoor conditions. They may be used for decorative purposes, 
-such as adding graphics or signage to concrete walls or floors.
-Drywall Vinyls: Printable vinyl for drywall applications can include options such as printable wallpaper or wall decals. These vinyls are designed to adhere well to drywall 
-surfaces and can be used for decorative purposes, branding, or creating custom designs on walls.
+    Transform any surface with custom vinyl solutions. From durable, water-resistant floor 
+    vinyls to concrete wraps and drywall decals, we offer versatile options for high-traffic areas, outdoor surfaces, 
+    and indoor walls. 
+    Add unique designs, branding, or graphics that stand out. Request your custom quote today!
     </p>
   </div>
 
   <div className="step-img-box">
     <div className="img-btn-container">
       <img src={images["../assets/MX Photos/Nance.jpg"].default} className="step-building-img" alt="iPhone app preferences selection screen" />
-      <a href="/window-frost-tint" className="btn btn--full building-quote">GET A QUOTE FOR FROST/TINTING</a>
+      <a href="/window-frost-tint" className="btn btn--full building-quote">GET A QUOTE FOR DYYWALLS FLOORS CONTRETE GRAPHICS </a>
     </div>
   </div>
 </div>
@@ -258,10 +225,9 @@ surfaces and can be used for decorative purposes, branding, or creating custom d
     <p className="step-number">07</p>
     <h3 className="heading-tertiary">VEHICLE FLEET AND DECALED GRAPHICS</h3>
     <p className="step-description">
-    Vehicle fleet graphics are vinyl decals or wraps meticulously designed to transform vehicles into impactful marketing tools. Whether adorning business trucks, 
-    delivery vans, or even personal vehicles, these graphics serve as dynamic canvases for brand messaging, logos, and eye-catching designs.
-     By applying vinyl graphics, businesses can effortlessly promote their brand identity and convey key messages to audiences on the move. From sleek logos to elaborate designs, 
-    vehicle fleet graphics offer a customizable and durable solution for businesses seeking to enhance their visibility and professionalism on the road.
+    Turn your vehicles into moving billboards with custom fleet graphics.
+     Whether for trucks, vans, or cars, our durable vinyl wraps and decals showcase your brand with bold designs and logos. 
+    Boost your visibility and professionalism on the road—get your custom quote today!
     </p>
   </div>
 
