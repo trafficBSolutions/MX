@@ -1077,7 +1077,7 @@ width: 100%;
 .door-remove-length-submit-size,
 .submit-finishing,
 .remove-finishing {
-font-size: 25px;
+font-size: 23px;
 margin-left: 0;
 }
 .selected-fleet-files-list {
@@ -1355,7 +1355,7 @@ width: 100%;
 .door-remove-length-submit-size,
 .submit-finishing,
 .remove-finishing {
-font-size: 25px;
+font-size: 1rem;
 margin-left: 0;
 }
 .selected-fleet-files-list {
