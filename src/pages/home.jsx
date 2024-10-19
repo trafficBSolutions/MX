@@ -216,7 +216,7 @@ const Home = () => {
   <div className="step-img-box">
     <div className="img-btn-container">
       <img src={images["../assets/MX Photos/Nance.jpg"].default} className="step-building-img" alt="iPhone app preferences selection screen" />
-      <a href="/window-frost-tint" className="btn btn--full building-quote">GET A QUOTE FOR DYYWALLS FLOORS CONTRETE GRAPHICS </a>
+      <a href="/drywall-floor-concrete" className="btn btn--full building-quote">GET A QUOTE FOR DYYWALLS FLOORS CONTRETE GRAPHICS </a>
     </div>
   </div>
 </div>
