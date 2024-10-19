@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { GOOGLE_MAPS_API_KEY } from '../constant/constant';
+import { REACT_APP_GOOGLE_MAPS_API_KEY } from '../constant/constant';
 
 const MapInvoiceComponent = (props) => {
   const [map, setMap] = useState(null);
@@ -14,7 +14,7 @@ const MapInvoiceComponent = (props) => {
   const loadGoogleMapsScript = () => {
     if (!window.google || !window.google.maps) {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=geometry,places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,places`;
       script.async = true;
       script.onload = () => {
         setGeocoder(new window.google.maps.Geocoder()); // Initialize Geocoder only once the script is loaded
@@ -91,7 +91,7 @@ const MapInvoiceComponent = (props) => {
 
   return (
     <div>
-      <div className="map-invoice-container" ref={mapContainerRef} style={{ width: '100%', height: '700px', overflow: 'visible' }}></div>
+      <div className="map-home-container" ref={mapContainerRef} style={{ width: '100%', height: '489px', overflow: 'visible' }}></div>
     </div>
   );
 };
