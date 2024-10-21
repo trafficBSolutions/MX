@@ -26,7 +26,7 @@ export default function MXDrywallGallery() {
 
   return (
     <div className="mx-gallery-container">
-      <h2 className="photo-mx-dry-note">MX DRYWALL FLOOR CONCRETE GRAPHIC PHOTO GALLERY</h2>
+      <h2 className="photo-mx-dry-note">MX WALL FLOOR CONCRETE GRAPHIC PHOTO GALLERY</h2>
       <div className="gallery">
         {visiblePhotos.map((photo, index) => (
           <div className="gallery-item" key={index}>
