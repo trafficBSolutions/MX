@@ -340,7 +340,6 @@ const handleSubmit = async (e) => {
             </div>
             <div className="decal-actual">
             <div className="name-section-decal">
-<label className="first-decal-name-label">Name: </label>
 <div className="first-name-decal-input">
 
   <div className="first-decal-name">
@@ -388,8 +387,6 @@ const handleSubmit = async (e) => {
 </div>
 </div>
 <div className="company-decal-section">
-<label className="decal-company-label">Company/Excavator: </label>
-
 <div className="company-decal-input">
   <div className="company-decal">
     <div className="decal-company-name-input">
@@ -415,7 +412,6 @@ const handleSubmit = async (e) => {
   </div>
 </div>
 <div className="emailphone-decal-section">
-<label className="emailphone-decal-label">Email/Phone Number:</label>
 <div className="emailphone-decal-input">
   <div className="email-decal">
     <div className="email-decal-input">
@@ -460,7 +456,6 @@ const handleSubmit = async (e) => {
 </div>
 </div>
 <div className="address-decal-section">
-<label className="address-decal-label">Company Address: </label>
 <div className="address-decal-input-container">
 <div className="address-decal-input">
 <div className="address-decal-container">
@@ -543,9 +538,8 @@ onChange={(e) => {
 </div>
 </div>
 <div className="decal-sticker-section">
-<label className="decal-sticker-label">Decal/Sticker:</label>
+<label className="decal-sticker-label">Decal/Sticker *</label>
     <div className="decal-type-input-container">
-    <label className="decal-type-label">Decal Type *</label>
     <select 
     className="decal-type-input" 
     name="decal-type"
@@ -609,6 +603,19 @@ onChange={(e) => {
     </div>
     <div className="decal-cut-unit-container">
         <label className="decal-cut-unit-label">Cut Type *</label>
+        <p className="decal-cut-unit-text">
+        <b>Transfer-Cut</b> is a cut type that involves 
+          cutting the letters or numbers and then placed 
+          on transfer tape to be applied to your surface.
+        </p>
+        <p className="decal-cut-unit-text">
+          <b>Kiss-Cut</b> is a cut type that 
+          involves cutting the decal perfect to peal off the backing.
+        </p>
+        <p className="decal-cut-unit-text">
+        <b>Die-Cut</b> is a cut type that involves a complete cut through meaning pop out 
+          decals. This is not the same as Kiss-Cut.</p>
+
         <select 
     className="decal-cut-input" 
     name="decal-cut"
@@ -679,14 +686,14 @@ onChange={(e) => {
 
 </div>
 <div className="decal-file-section">
-<label className="decal-file-label">Logo/Image:</label>
+<label className="decal-file-label">Logo/Image *</label>
 <h2 className="decal-warn"><b className="decal-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
     <p className="log-re">Logo Redesigning(Optional)</p>
     <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo" className="btn -- new-decal-logo-button">NEW LOGO</a>
+    here: <a href="/new-logo">NEW LOGO</a>.
     We will send you a quote for the logo redesigning and you can choose to accept it or not.
 </p>
 </h2>
@@ -719,7 +726,7 @@ onChange={(e) => {
 </div>
 </div>
 <div className="decal-message-container">
-<label className="message-decal-label">Message: </label>
+<label className="message-decal-label">Message *</label>
 <h1 className="message-decal-note">Tell us about your decals and how you want it designed! Please Specify Logo Redesigning if you submitted
     a logo redesigning from our logo redesigning page and your new logo will be on the decals. If you need to specify
     how you want your decals cut with whatever cut type you selected(Transfer Cut, Die-Cut, Kiss-Cut) like outlines,
@@ -794,6 +801,10 @@ onChange={(e) => {
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
     </div>
   )
 }
