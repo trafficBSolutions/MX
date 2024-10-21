@@ -184,7 +184,6 @@ const states = [
 </div>
 <div className="web-actual">
 <div className="name-section-web">
-    <label className="first-web-name-label">Name: </label>
       <div className="first-name-web-input">
 
   <div className="first-web-name">
@@ -236,7 +235,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="company-web-section">
-<label className="web-company-label">Company/Excavator: </label>
 <div className="company-web-input">
   <div className="company-web">
     <div className="web-company-name-input">
@@ -257,7 +255,6 @@ onChange={(e) => {
   </div>
   </div>
   <div className="emailphone-web-section">
-  <label className="emailphone-web-label">Email/Phone Number:</label>
 <div className="emailphone-web-input">
   <div className="email-web">
     <div className="email-web-input">
@@ -306,7 +303,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="address-web-section">
-<label className="address-web-label">Company Address: </label>
 <div className="address-web-input-container">
 <div className="address-web-input">
 <div className="address-web-container">
@@ -390,7 +386,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="web-domain">
-    <label className="web-domain-label">Web Domain:</label>
     <div className="web-domain-input-container">
         <h2 className="web-domain-name-text">If you have a current domain, it will be easier 
             to see what your current website looks like. If you don't have a domain and you're just starting out a new website,
@@ -402,7 +397,7 @@ onChange={(e) => {
             and it is ready to go live.
         </h2>
         <div className="web-domain-input">
-            <label className="web-domain-name">Web Domain: </label>
+            <label className="web-domain-name">Web Domain *</label>
             <input
                 name="domain"  // Update this to "domain" to match the formData field name
                 type="text"
@@ -418,7 +413,7 @@ onChange={(e) => {
 </div>
 
       <div className="web-message-container">
-<label className="message-web-label">Message: </label>
+<label className="message-web-label">Message *</label>
 <h1 className="message-web-note">Tell us about your website and how you want it designed! Please specify if you need
   more specifications about your website like if you want us to 
   design it with new CSS Styling, or if you want us to add a Backend to your website.
@@ -445,7 +440,7 @@ we are closed, we will respond the next business day. Please also note that we d
 )}
 
   </div>
-  <button type="submit" className="btn-web-submit btn--full submit-web" onClick={handleSubmit}>SUBMIT WEBSITE DESIGN</button>
+  <button type="submit" className="btn -- submit-web" onClick={handleSubmit}>SUBMIT WEBSITE DESIGN</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
@@ -493,6 +488,10 @@ we are closed, we will respond the next business day. Please also note that we d
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
                 </div>
             )
 }
