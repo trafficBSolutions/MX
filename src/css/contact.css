@@ -64,13 +64,6 @@
     height: auto;
     font-size: 50px;
   }
-.contact-fill {
-    margin: 40px;
-    text-align: center;
-    color: #194fb4;
-    font-size: 35px;
-    height: auto;
-}
 .contact-notice,.contact-notice {
     color: #194fb4;
     height: auto;
@@ -195,33 +188,19 @@
 /* ================================
    Small Label Styling
    ================================ */
- .first-contact-label-name, 
-  .last-contact-label-name,
-  .company-contact-name,
-  .email-contact-name,
-  .phone-contact-label,
-  .addr-contact-label, 
-  .city-contact-label,
-  .state-contact-label,
-  .zip-contact-label,
-  .length-contact-label, 
-  .width-contact-label,
-  .place-label,
-  .finish-label,
-  .contact-contact,
-  .year-contact-label,
-  .make-contact-label,
-  .model-contact-label,
-  .trim-contact-label {
-    font-family: "Highway Gothic Narrow";
-    font-style: normal;
-    margin: 0;
-    color:#226daf;
-    font-size: 40px;
-    height: auto;
-  }
   
-
+   .contact-app-box {
+    font-size: 32px;
+    color: #0f375a;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.contact-fill {
+  font-size: 20px;
+  color: #194fb4;
+  text-align: center;
+  margin-bottom: 30px;
+}
 /* ================================
    Input Box Styling
    ================================ */
@@ -294,12 +273,6 @@
     height: auto;
 }
 
-.place-img {
-    width: 330px;
-    height: auto;
-    object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
-}
-
 /* ================================
    Year Input Box Note Style
    ================================ */
@@ -363,17 +336,17 @@ height: auto;
 
   .submit-contact {
     background-color: #0f375a;
-    position: relative;
-    font-size: 30px;
+    color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
     text-align: center;
-    color: #fff;
-    margin: 5 auto;
-    display: block;
-    width: 100%;
-    color: #fff;
-    height: auto;
+    font-size: 1rem;
+    cursor: pointer;
   }
-  .btn-submit, .btn-contact-submit {
+  .btn-contact-submit {
     text-decoration: none;
       padding: 20px;
       border-radius: 9px;
@@ -396,36 +369,6 @@ height: auto;
     width: 100%;
     height: auto;
   }
-.error-message {
-  color: red;
-    font-size: 20px;
-    text-align: center;
-    align-items: center;
-    font-family: "Kairos W04 Extended Bold";
-    margin-bottom: 10px;
-    height: auto;
-}
-
-.submission-error-message {
-  color: red;
-  font-family: "Kairos W04 Extended Bold";
-  font-size: large;
-  font-style: bold;
-  text-align: center;
-  margin-bottom: 30px;
-  width: 100%;
-  height: auto;
-}
-.submission-message {
-  color: rgb(38, 173, 38);
-  font-family: "Kairos W04 Extended Bold";
-  font-size: large;
-  font-style: bold;
-  text-align: center;
-  margin-bottom: 30px;
-  width: 100%;
-  height: auto;
-}
 /* ================================
    Regular Contact Styling
    ================================ */
@@ -604,26 +547,6 @@ height: auto;
   padding-left: 0;
   text-align: center;
 }
-.first-contact-label-name, 
-.last-contact-label-name, 
-.company-contact-name, 
-.email-contact-name, 
-.phone-contact-label, 
-.addr-contact-label, 
-.city-contact-label, 
-.state-contact-label, 
-.zip-contact-label, 
-.length-contact-label, 
-.width-contact-label, 
-.place-label, 
-.finish-label, 
-.contact-contact, 
-.year-contact-label, 
-.make-contact-label, 
-.model-contact-label, 
-.trim-contact-label {
-  font-size: 2rem;
-}
 .contact-message-container {
   margin-top: 10px;
 }
@@ -735,9 +658,6 @@ font-size: 30px;
 .width-door-contact-section {
   display: block;
 }
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
 .size-contact-label {
   font-size: 20px;
 }
@@ -759,20 +679,10 @@ font-size: 30px;
   margin-left: 0;
   text-align: center;
 }
-.submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
 .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.no-added-vehicles,
-.no-added-finishings {
-  margin: 0;
-  font-size: 20px;
 }
   }
 
@@ -862,26 +772,6 @@ font-size: 30px;
   display: block;
   padding-left: 0;
   text-align: center;
-}
-.first-contact-label-name, 
-.last-contact-label-name, 
-.company-contact-name, 
-.email-contact-name, 
-.phone-contact-label, 
-.addr-contact-label, 
-.city-contact-label, 
-.state-contact-label, 
-.zip-contact-label, 
-.length-contact-label, 
-.width-contact-label, 
-.place-label, 
-.finish-label, 
-.contact-contact, 
-.year-contact-label, 
-.make-contact-label, 
-.model-contact-label, 
-.trim-contact-label {
-  font-size: 2rem;
 }
 .contact-message-container {
   margin-top: 10px;
@@ -1011,9 +901,6 @@ font-size: 30px;
 .width-door-contact-section {
   display: block;
 }
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
 .size-contact-label {
   font-size: 20px;
 }
@@ -1035,20 +922,10 @@ font-size: 30px;
   margin-left: 0;
   text-align: center;
 }
-.submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
 .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-}
-.no-added-vehicles,
-.no-added-finishings {
-  margin: 0;
-  font-size: 20px;
 }
   }
   
@@ -1233,10 +1110,6 @@ font-size: 30px;
   .width-door-contact-section {
   display: block;
   }
-
-  .passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-  }
   .size-contact-label {
   font-size: 20px;
   }
@@ -1258,20 +1131,10 @@ font-size: 30px;
   margin-left: 0;
   text-align: center;
   }
-  .submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-  }
   .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
-  }
-  .no-added-vehicles,
-  .no-added-finishings {
-  margin: 0;
-  font-size: 20px;
   }
   }
   
@@ -1456,9 +1319,6 @@ font-size: 30px;
  .width-door-contact-section {
  display: block;
  }
- .passenger-submit-size, .passenger-remove-submit-size {
- font-size: 15px;
- }
  .size-contact-label {
  font-size: 20px;
  }
@@ -1480,20 +1340,11 @@ font-size: 30px;
  margin-left: 0;
  text-align: center;
  }
- .submit-contact {
- margin: 0;
- font-size: 20px;
- width: 110%;
- }
+
  .btn-contact-submit {
  padding: 0;
  margin-top: 10px;
  width: 100%;
- }
- .no-added-vehicles,
- .no-added-finishings {
- margin: 0;
- font-size: 20px;
  }
  }
   @media screen and (max-width: 320px) and (orientation: portrait) {
@@ -1581,26 +1432,6 @@ font-size: 30px;
 .type-contact-section {
   display: block;
   padding-left: 0;
-}
-.first-contact-label-name, 
-.last-contact-label-name, 
-.company-contact-name, 
-.email-contact-name, 
-.phone-contact-label, 
-.addr-contact-label, 
-.city-contact-label, 
-.state-contact-label, 
-.zip-contact-label, 
-.length-contact-label, 
-.width-contact-label, 
-.place-label, 
-.finish-label, 
-.contact-contact, 
-.year-contact-label, 
-.make-contact-label, 
-.model-contact-label, 
-.trim-contact-label {
-  font-size: 25px;
 }
 .contact-message-container {
   margin-top: 10px;
@@ -1729,9 +1560,6 @@ font-size: 30px;
 .width-door-contact-section {
   display: block;
 }
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
 .size-contact-label {
   font-size: 20px;
 }
@@ -1753,19 +1581,10 @@ font-size: 30px;
   margin-left: 0;
   text-align: center;
 }
-.submit-contact {
-  margin: 0;
-  font-size: 20px;
-  width: 110%;
-}
 .btn-contact-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
 }
-.no-added-vehicles,
-.no-added-finishings {
-  margin: 0;
-  font-size: 20px;
-}
+
 }
