@@ -19,19 +19,22 @@ const Service = () => {
           <h1 className="service-page-heading">SERVICES</h1>
           </div>
           </div>
-          <div className="service-note-container">
-            <div className="service-note">
-  <h1 className="service-question">Looking for Highly Experienced Sign Services?</h1>
-  <p className="service-description">
-    At Material WorX, we have brought over 200 jobs of expertise in crafting high-quality, custom signage solutions. 
-    Whether you need eye-catching outdoor signs, impactful indoor displays, or specialized decals, our team ensures precision, durability,
-    and vibrant designs that reflect your brand's vision. Trust us to deliver on time, every time, with 
-    a commitment to excellence and customer satisfaction.
-  </p>
-  <p className="service-contact">Click any of the buttons to learn more about our sign shop services.
-    Please contact us if you have any questions or concerns at <a href="tel:+17062630175">(706) 263-0175</a> or <a href="mailto:tbsolutions1999@gmail.com">tbsolutions1999@gmail.com</a>
-  </p>
-  <div className="material-services-buttons">
+          <div className="section-container service-note-container">
+  <div className="section-text">
+    <h1 className="service-question">Looking for Highly Experienced Sign Services?</h1>
+    <p className="service-description">
+      At Material WorX, we bring expertise in crafting custom signage solutions.
+      From outdoor signs to decals, we ensure precision, durability, and vibrant designs. 
+      Trust us to deliver on time with a commitment to excellence.
+    </p>
+    <p className="service-contact">
+      Contact us at <a href="tel:+17062630175">(706) 263-0175</a> or <a href="mailto:tbsolutions1999@gmail.com">tbsolutions1999@gmail.com</a>
+    </p>
+  </div>
+  <img className="service-img" src={images["../assets/MX Photos/calhoun.jpg"].default} alt="Material WorX" />
+</div>
+<div className="material-services-buttons">
+  <h1 className="service-button-heading">CHOOSE YOUR CUSTOM SIGN SHOP ITEM</h1>
           <div className="signs-button">
             <a href="/custom-signs" className="custom-sign-service-button" type="button">
                     <img src={images["../assets/service image buttons/sign.svg"].default} alt="Custom Signage Icon" className="sign-icon" />
@@ -74,54 +77,28 @@ const Service = () => {
                 <span>VEHICLE FLEET & DECALED GRAPHICS</span></a>
             </div>
           </div>
+<div className="section-container logo-design-section">
+  <img src={images["../assets/service image buttons/new logo symbol.svg"].default} className="new-logo-img"alt="Logo Design" />
+  <div className="section-text">
+    <h1 className="logo-new">Need a New Logo?</h1>
+    <p className="new-logo-description">
+      Our team creates unique logos that represent your brand’s identity. Let us design a logo that captures your brand's vision.
+    </p>
+    <a href="/new-logo" className="action-button">Get a New Logo</a>
   </div>
-  <section className="image-service-section">
-    <div className="working-img-two">
-      <img alt="services" className="working-two" src={images["../assets/MX Photos/calhoun.jpg"].default} />
-    </div>
-  </section>
 </div>
-<section className="logo-design-section">
-<div className="new-logo-img-container">
-      <img alt="services" className="new-logo-img" src={images["../assets/service image buttons/new logo symbol.svg"].default} />
-    </div>
-<div className="new-logo-para">
-<h1 className="logo-new">Need a New Logo?</h1>
-        <p className="new-logo-description">
-        Our team can 
-      create a unique and memorable logo that represents your brand's identity.
-      We offer a range of logo design services, including custom logo design, logo revisions, and logo branding.
-      Our team will work closely with you to understand your brand's values and goals, and create a logo that reflects your brand's personality and message.
-      We use the latest design tools and techniques to create a logo that is both visually appealing and effective in representing your brand.
-        </p>
-        <div className="new-logo-button-container">
-    <a href="/new-logo" className="new-logo-button">New Logo</a>
-    </div>
-    </div>
-</section>
-<section className="web-design-section">
-      <div className="web-design-container">
-        <div className="web-design-text">
-          <h1 className="web-design-title">Need a New Website?</h1>
-          <p className="web-design-description">
-            Our web developer and graphic designer: William Rowell can create a custom website that is tailored to your business's needs and goals.
-            We offer a range of website design services, including website design, website development, and website maintenance.
-            Our team will work closely with you to understand your business's needs and goals, and create a website that is both visually appealing and effective in representing your business.
-            We use the latest design tools and techniques to create a website that is both visually appealing and effective in representing your business.
-            </p>
-            <p className="web-wix-tease">Tired of a simple bland Wix website with not many user friendly features?
-              We can upgrade your website from Wix to a hard coded and better CSS styled website that is more user friendly with coded Backend Programming and has more features than Wix.
-              If you have a Wix website and want to upgrade it to what websites were meant to be before Wix came out, contact us today!
-            </p>
-            </div>
-            <div className="web-design-button-container">
-              <a href="/new-website" className="web-design-button">Get a New Website</a>
-              </div>
-      </div>
-      <div className="web-design-img-container">
-        <img alt="services" className="web-design-img" src={images["../assets/service image buttons/mern.svg"].default} />
-      </div>
-      </section>
+
+<div className="section-container web-design-section">
+  <div className="section-text">
+    <h1 className="web-design-title">Need a New Website?</h1>
+    <p className="web-design-description">
+      We create custom websites tailored to your business. Tired of Wix? Upgrade to a fully-coded site with more features.
+    </p>
+    <a href="/new-website" className="action-button">Get a New Website</a>
+  </div>
+  <img src={images["../assets/service image buttons/mern.svg"].default} alt="Web Design" />
+</div>
+
             </main>
             
             <footer className="material-footer">
@@ -161,6 +138,10 @@ const Service = () => {
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
       </div>
     )
 }
