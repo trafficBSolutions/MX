@@ -334,7 +334,6 @@ const states = [
             </div>
                 <div className="apparel-actual">
                 <div className="name-section-apparel">
-<label className="first-apparel-name-label">Name: </label>
 <div className="first-name-apparel-input">
 
   <div className="first-apparel-name">
@@ -382,12 +381,10 @@ const states = [
 </div>
 </div>
 <div className="company-apparel-section">
-<label className="apparel-company-label">Company/Excavator: </label>
-
 <div className="company-apparel-input">
   <div className="company-apparel">
     <div className="apparel-company-name-input">
-      <label className="company-apparel-name">Company *</label>
+    <label className="company-apparel-name">Company *</label>
       <input
   name="company-apparel-name-input"
   type="text"
@@ -407,7 +404,6 @@ const states = [
   </div>
 </div>
 <div className="emailphone-apparel-section">
-<label className="emailphone-apparel-label">Email/Phone Number:</label>
 <div className="emailphone-apparel-input">
   <div className="email-apparel">
     <div className="email-apparel-input">
@@ -452,7 +448,6 @@ const states = [
 </div>
 </div>
 <div className="address-apparel-section">
-<label className="address-apparel-label">Company Address: </label>
 <div className="address-apparel-input-container">
 <div className="address-apparel-input">
 <div className="address-apparel-container">
@@ -535,7 +530,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="apparel-input-container">
-    <label className="apparel-large-type-label">Apparel: </label>
     <div className="apparel-type-input-container">
         <label className="apparel-type-label">Apparel Type *</label>
         <select
@@ -620,7 +614,7 @@ onChange={(e) => {
 />
 {quantityErrorMessage && <div className="error-message">{quantityErrorMessage}</div>}          
     </div>
-    <button className="btn btn--full submit-apparels" type="button" onClick={HandleAddApparel}>
+    <button className="btn -- submit-apparels" type="button" onClick={HandleAddApparel}>
     ADD APPAREL
   </button> 
   <div className="apparel-list">
@@ -631,10 +625,10 @@ onChange={(e) => {
       <li className="apparel-item" key={index}>
         <p className="apparel-type-p"><b className="added-apparel-b-type">Type:</b> {apparel.type}</p>
         <p className="apparel-size-p"><b className="added-apparel-b-size">Size:</b> {apparel.size}</p>
-        <p className="apparel-cut-p"><b className="added-apparel-b-cut">Color:</b> {apparel.color}</p>
+        <p className="apparel-color-p"><b className="added-apparel-b-cut">Color:</b> {apparel.color}</p>
         <p className="apparel-quantity-p"><b className="added-apparel-b-quantity">Quantity:</b> {apparel.quantity}</p>
         <button
-          className="btn btn--full remove-apparel"
+          className="btn -- remove-apparel"
           onClick={() => handleRemoveApparel(index)}
         >
           REMOVE APPAREL
@@ -650,21 +644,20 @@ onChange={(e) => {
 
     </div>
     <div className="apparel-file-section">
-<label className="apparel-file-label">Logo/Image:</label>
+<label className="apparel-file-label">Logo/Image *</label>
 <h2 className="apparel-warn"><b className="apparel-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
     <p className="log-re">Logo Redesigning(Optional)</p>
     <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo" className="btn -- new-apparel-logo-button">NEW LOGO</a>
+    here: <a href="/new-logo">NEW LOGO</a>.
     We will send you a quote for the logo redesigning and you can choose to accept it or not.
 </p>
 </h2>
 <div className="file-apparel-section">
-<label htmlFor="logo-select" className="apparel-logo">Logo/Image for Apparel *</label>
 <div className="choose-logo-contain">
-    <label className="file-apparel-label">
+    <label className="btn -- file-apparel-label">
     {formData.img ? (
             <span>{formData.img.name}</span>
           ) : (
@@ -683,14 +676,14 @@ onChange={(e) => {
 />
 </label>
 {formData.img && (
-            <button type="button" className="remove-apparel-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
+            <button type="button" className="btn -- remove-apparel-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
           )}
  {imgErrorMessage && <span className="error-message">{imgErrorMessage}</span>}
 </div>
 </div>
 </div>
 <div className="apparel-message-container">
-<label className="message-apparel-label">Message: </label>
+<label className="message-apparel-label">Message *</label>
 <h1 className="message-apparel-note">Tell us about your apparel and how you want it designed! Please Specify Logo Redesigning if you submitted
     a logo redesigning from our logo redesigning page and your new logo will be on the apparel. If you need to specify
     how you want your apparel made with where ever you need on, please specify it here. If you need to specify anything else, please specify it here.
@@ -764,6 +757,10 @@ onChange={(e) => {
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
     </div>
   )
   }
