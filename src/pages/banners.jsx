@@ -376,7 +376,6 @@ const Banner = () => {
                 </div>
                 <div className="banner-actual">
                   <div className="name-section-banner">
-<label className="first-banner-name-label">Name: </label>
 <div className="first-name-banner-input">
 
   <div className="first-banner-name">
@@ -428,7 +427,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="company-banner-section">
-<label className="banner-company-label">Company/Excavator: </label>
 <div className="company-banner-input">
   <div className="company-banner">
     <div className="banner-company-name-input">
@@ -449,7 +447,6 @@ onChange={(e) => {
   </div>
 </div>
 <div className="emailphone-banner-section">
-<label className="emailphone-banner-label">Email/Phone Number:</label>
 <div className="emailphone-banner-input">
   <div className="email-banner">
     <div className="email-banner-input">
@@ -498,7 +495,6 @@ onChange={(e) => {
 </div>
 </div>
 <div  className="address-banner-section">
-<label className="address-banner-label">Company Address: </label>
 <div className="address-banner-input-container">
 <div className="address-banner-input">
 <div className="address-banner-container">
@@ -582,10 +578,9 @@ onChange={(e) => {
 </div>
 </div>
 <div className="size-banner-vinyl-section">
-<label className="size-banner-label">Size of Banner:</label>
 <div className="size-banner-section">
   <div className="length-banner-section">
-    <label className="length-banner-label" htmlFor="length">Length *</label>
+    <label className="length-banner-label" htmlFor="length">Banner Length *</label>
     <input
       className="length-banner-box"
       type="number"
@@ -606,7 +601,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-banner-section">
-    <label className="width-banner-label" htmlFor="width">Width *</label>
+    <label className="width-banner-label" htmlFor="width">Banner Width *</label>
     <input
       className="width-banner-box"
       type="number"
@@ -626,14 +621,14 @@ onChange={(e) => {
     </select>
   </div>
 
-  <button className="btn btn--full submit-banner-size" type="button" onClick={handleAddSize}>ADD SIZE</button>
+  <button className="btn -- submit-banner-size" type="button" onClick={handleAddSize}>ADD SIZE</button>
   <div className="size-banner-list">
   <ul>
     {addedSizes.length > 0 ? (
       addedSizes.map((size, index) => (
         <li className="size-banner-item" key={index}>
           Length: {size.length}, Width: {size.width}
-          <button className="btn btn--full remove-size" onClick={() => handleRemoveSize(index)}>REMOVE SIZE</button>
+          <button className="btn -- remove-size" onClick={() => handleRemoveSize(index)}>REMOVE SIZE</button>
         </li>
       ))
     ) : (
@@ -645,13 +640,12 @@ onChange={(e) => {
 </div>
 </div>
 <div className="placement-banner-section">
-<label className="place-banner-label">Types of Banner Placements:</label>
 <div className="placement-imgs">
-    <div className="place-img-container">
+    <div className="place-banner-flex-container">
         <h1 className="place-examples">Placement Examples</h1>
     </div>
-<div className="place-flex-container">
-<div className="place-img-container">
+<div className="place-banner-flex-container">
+<div className="place-banner-flex-container">
         <img src={images["../assets/banner types/retract.png"].default} alt="Placement=photo" className="place-banner-img"/>
         <h3 className="place-img-test">Retractable Stand</h3>
         <p className="retract-img-test">Retractable Stands are regular printed banners only they are not worked on by any of the banner types.
@@ -659,7 +653,7 @@ onChange={(e) => {
           You can close the banner up and store it in a bag when not in use and move it around easily.
         </p>
   </div>
-  <div className="place-img-container">
+  <div className="place-banner-flex-containerr">
         <img src={images["../assets/banner types/banner types.jpg"].default} alt="Placement=photo" className="place-banner-type-img"/>
         <h3 className="place-img-test">Banner Types</h3>
   </div>
@@ -680,14 +674,14 @@ onChange={(e) => {
           ))}
         </select>
       </div>
-      <button className="btn btn--full submit-banner-place" type="button" onClick={handleAddPlacement}>ADD PLACEMENT</button>
+      <button className="btn -- submit-banner-place" type="button" onClick={handleAddPlacement}>ADD PLACEMENT</button>
       <div className="place-banner-list">
   <ul>
     {addedPlaces.length > 0 ? (
       addedPlaces.map((hang, index) => (
         <li className="hang-item" key={index}>
           {hang.hang}
-          <button className="btn btn--full remove-banner-place" onClick={() => handleRemovePlace(index)}>REMOVE PLACEMENT</button>
+          <button className="btn -- remove-banner-place" onClick={() => handleRemovePlace(index)}>REMOVE PLACEMENT</button>
         </li>
       ))
     ) : (
@@ -698,7 +692,6 @@ onChange={(e) => {
           {errors.hang && <span className="error-message">{errors.hang}</span>}
           </div>
           <div className="finishing-banner-section">
-      <label className="finish-banner-label">Finishing Touch:</label>
       <div className="finish-banner-section">
         <label className="finish-label" htmlFor="finish">Finishing *</label>
         <select
@@ -714,14 +707,14 @@ onChange={(e) => {
           ))}
         </select>
       </div>
-      <button className="btn btn--full submit-banner-finish" type="button" onClick={handleAddFinish}>ADD FINISHING</button>
+      <button className="btn -- submit-banner-finish" type="button" onClick={handleAddFinish}>ADD FINISHING</button>
       <div className="finish-banner-list">
   <ul>
     {addedFinishes.length > 0 ? (
       addedFinishes.map((finish, index) => (
         <li className="finish-item" key={index}>
           {finish.name}
-          <button className="btn btn--full remove-banner-finish" onClick={() => handleRemoveFinish(index)}>REMOVE FINISHING</button>
+          <button className="btn -- remove-banner-finish" onClick={() => handleRemoveFinish(index)}>REMOVE FINISHING</button>
         </li>
       ))
     ) : (
@@ -732,25 +725,24 @@ onChange={(e) => {
           {errors.finishing && <span className="error-message">{errors.finishing}</span>}
           </div>
           <div className="banner-file-section">
-<label className="banner-file-label">Logo/Image:</label>
+<label className="banner-file-label">Logo/Image *</label>
 <h2 className="banner-warn"><b className="banner-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
     <p className="log-re">Logo Redesigning(Optional)</p>
     <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo" className="btn -- new-banner-logo-button">NEW LOGO</a>
+    here: <a href="/new-logo">NEW LOGO</a>.
     We will send you a quote for the logo redesigning and you can choose to accept it or not.
 </p>
 </h2>
 <div className="file-banner-section">
-<label htmlFor="logo-select" className="banner-logo">Logo/Image for Graphics *</label>
 <div className="choose-logo-contain">
-    <label className="file-banner-label">
+    <label className="btn -- file-banner-label">
     {formData.img ? (
             <span>{formData.img.name}</span>
           ) : (
-            <span>Choose Your Logo For Your Graphics</span>
+            <span>Choose Your Logo For Banner</span>
           )}
           <input type="file" name="img" accept=".pdf,.svg,.doc,.png,.jpg,.jpeg" onChange={(e) => {
     handleFileChange(e, 'img');
@@ -760,7 +752,7 @@ onChange={(e) => {
   }} />
           </label>
           {formData.img && (
-            <button type="button" className="remove-banner-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
+            <button type="button" className="btn -- remove-banner-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
           )}
         
         {errors.img && <span className="error-message">{errors.img}</span>}
@@ -768,7 +760,7 @@ onChange={(e) => {
 </div>
 </div>
 <div className="banner-message-container">
-<label className="message-banner-label">Message: </label>
+<label className="message-banner-label">Message *</label>
 <h1 className="message-banner-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
      and the Quantity of graphics needed. If you need
 to request a crew to help install your banners, please specify where the location is, when 
@@ -835,6 +827,10 @@ and what time you want an MX crew will arrive.</h1>
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
                 </div>
             );
 };
