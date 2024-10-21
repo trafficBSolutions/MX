@@ -41,7 +41,7 @@ export default function MXDecalGallery() {
 
   return (
     <div className="mx-gallery-container">
-    <h2 className="photo-mx-note">MX DECALS & STICKERS PHOTO GALLERY</h2>
+    <h2 className="photo-decal-mx-note">MX DECALS & STICKERS PHOTO GALLERY</h2>
     <div className="gallery">
       {visiblePhotos.map((photo, index) => (
         <div className="gallery-item" key={index}>
