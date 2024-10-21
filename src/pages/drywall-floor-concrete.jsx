@@ -275,9 +275,9 @@ const Adhesive = () => {
               setAddedFinishing([]);
               setErrors({});
               setPhone('');
-              setSubmissionMessage('Drywall/Floor/Concrete Graphics Request Submitted! We will be with you within 48 hours!');
+              setSubmissionMessage('Wall/Floor/Concrete Graphics Request Submitted! We will be with you within 48 hours!');
             } catch (error) {
-              console.error('Error submitting Drywall/Floor/Concrete Graphics Job:', error);
+              console.error('Error submitting Wall/Floor/Concrete Graphics Job:', error);
             }
           };
         
@@ -287,7 +287,7 @@ const Adhesive = () => {
                     <main>
                         <div className="page-dry-container">
                         <div className="dry-name-container">
-                        <h1 className="dry-description">DRYWALL FLOOR CONCRETE GRAPHICS</h1>
+                        <h1 className="dry-description">WALL FLOOR CONCRETE GRAPHICS</h1>
                             </div>
                         </div>
                         <div className="photo-gal-dry">
@@ -297,7 +297,7 @@ const Adhesive = () => {
             <div className="dry-form-container container--narrow page-section">
                 <div className="dry-form-info">
                     <h1 className="dry-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
-                    <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Drywall/Floor/Concrete Graphics
+                    <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Wall/Floor/Concrete Graphics
                         Information to get an Inquiry or Quote.</h2>
                 </div>
                 <div className="dry-actual">
@@ -736,7 +736,7 @@ onChange={(e) => {
 <label className="message-dry-label">Message *</label>
 <h1 className="message-dry-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
      and the Quantity of graphics needed. If you need
-to request a crew to help install your drywall/concrete/floor graphics, please specify where the location is, when 
+to request a crew to help install your wall/concrete/floor graphics, please specify where the location is, when 
 and what time you want an MX crew will arrive.</h1>
 
 <textarea className="message-dry-text" name="message" type="text" placeholder="Enter Message"
@@ -752,7 +752,7 @@ and what time you want an MX crew will arrive.</h1>
 <div className="submission-message">{submissionMessage}</div>
 )}
   </div>
-  <button type="button" className="btn btn--full submit-dry" onClick={handleSubmit}>SUBMIT CUSTOM DRYWALL FLOOR CONCRETE GRAPHICS</button>
+  <button type="button" className="btn btn--full submit-dry" onClick={handleSubmit}>SUBMIT CUSTOM WALL FLOOR CONCRETE GRAPHICS</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
