@@ -557,9 +557,6 @@ padding-top: 30px; /* Reduce padding */
 .width-door-sign-section {
   display: block;
 }
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
 .size-sign-label {
   font-size: 20px;
 }
@@ -773,9 +770,6 @@ padding-top: 30px; /* Reduce padding */
 .length-door-sign-section, 
 .width-door-sign-section {
   display: block;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
 }
 .size-sign-label {
   font-size: 20px;
