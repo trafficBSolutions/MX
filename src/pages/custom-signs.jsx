@@ -817,8 +817,7 @@ onChange={(e) => {
   signType === 'Colored Acrylic') && (
   <>
     {/* Length and Width Fields */}
-    <label className="sign-size-label">Sign Size *</label>
-    <label className="sign-length-label">Length *</label>
+    <label className="sign-length-label">Sign Length *</label>
     <input
       className="sign-length-input"
       type="number"
@@ -839,7 +838,7 @@ onChange={(e) => {
     </select>
     {lengthError && <div className="error-message">{lengthError}</div>}
 
-    <label className="sign-width-label">Width *</label>
+    <label className="sign-width-label">Sign Width *</label>
     <input
       className="sign-width-input"
       type="number"
@@ -1049,19 +1048,18 @@ onChange={(e) => {
 {errors.type && <div className="error-message">{errors.type}</div>}
 </div>
 <div className="sign-file-section">
-<label className="sign-file-label">Logo/Image:</label>
+<label className="sign-file-label">Logo/Image *</label>
 <h2 className="sign-warn"><b className="sign-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
     <p className="log-re">Logo Redesigning(Optional)</p>
     <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo" className="btn -- new-sign-logo-button">NEW LOGO</a>
+    here: <a href="/new-logo">NEW LOGO</a>.
     We will send you a quote for the logo redesigning and you can choose to accept it or not.
 </p>
 </h2>
 <div className="file-sign-section">
-<label htmlFor="logo-select" className="sign-logo">Logo/Image for Sign *</label>
 <div className="choose-logo-contain">
     <label className="file-sign-label">
     {formData.img ? (
@@ -1089,7 +1087,7 @@ onChange={(e) => {
 </div>
 </div>
 <div className="sign-message-container">
-<label className="message-sign-label">Message: </label>
+<label className="message-sign-label">Message *</label>
 <h1 className="message-sign-note">Tell us about your sign and how you want it designed! Please Specify Logo Redesigning,
     Single-sided or Double-Sided Signs, and the Quantity of signs needed. If you need
 to request a crew to help install your signs, please specify where the location is, when 
@@ -1164,6 +1162,10 @@ and what time you want an MX crew will arrive.</h1>
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p classname-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX - 
+        Website Created & Deployed by William Rowell - All Rights Reserved.</p>
+    </div>
         </div>
     )
 }
