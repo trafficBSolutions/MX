@@ -507,7 +507,7 @@ position: relative;
     margin-top: 20px;
     max-width: 1000px;
   }
-  .photo-gal-dry, .photo-gal-window, .photo-gal-fleet, .photo-gal-building, .photo-gal-frost, .photo-gal-sign {
+  .website-img-container, .photo-gal-dry, .photo-gal-apparel, .photo-gal-window, .photo-fleet-gal-fleet, .mx-banner-gallery-container, .photo-gal-building, .photo-gal-frost, .photo-gal-sign, .photo-gal-decal {
     background-color: #66b2ff;
   }
   .gallery-item {
@@ -936,7 +936,10 @@ position: relative;
     max-width: 100vw; /* Ensure no overflow on wide landscape screens */
     margin: 0 auto; /* Center the gallery */
 }
-
+.material-name-container {
+    max-width: 475px;
+    width: 100%;
+}
 /* If needed, adjust heights or paddings */
 .gallery-mx-container {
     padding: 0 10px;
