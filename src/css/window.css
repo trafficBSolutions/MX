@@ -5,842 +5,233 @@
    TOP OF THE window PAGE
    ================================
    ================================ */
-   .page-window-container {
-    padding: 80px 0 40px 0;
-    position: relative;
-    overflow: hidden;
-    width: auto;
-    padding-top: 300px;
-    background-color: #b4feff;
-    height: auto;
-  }
-
-  .window-name-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: auto;
-    width: auto;
-  }
+  /* Form Container */
+.window-form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 900px;
+}
+.photo-window-mx-note {
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Moveo Sans w00 Bold";
+}
 
 .window-description {
-    color: #000;
-    font-family: "Kairos W04 Extended Bold";
-    font-size: 110px;
-    width: auto;
-    height: auto;
-    text-align: center;
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  /* ================================
-   ================================
-    PHOTO GALLERY
-   ================================
-   ================================ */
-   .photo-window-gal-window {
-    background-color: #8fafff;
-    height: auto;
-  }
-  .photo-mx-window-note {
-    font-size: 50px;
-    text-align: center;
-    font-family: "Kairos W04 Extended Bold";
-    height: auto;
-  }
+  font-size: 4rem;
+  color: #000000;
+  text-align: center;
+  font-family: "Moveo Sans w00 Bold";
+  margin-bottom: 30px;
+}
+/* Section Headers */
+.window-app-box {
+  font-size: 32px;
+  color: #0f375a;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-  /* ================================
-   ================================
-    ADHESIVE SECTION FORM
-   ================================
-   ================================ */
-   .window-form-container {
-    background-color: #e7e7e7;
-    width: auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    height: auto;
-}
-   .window-set {
-    padding-top: 10px;
-    background-color: #e7e7e7;
-    display: flex;
-    width: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-  }
-
-  .page-section {
-    padding-bottom: 3.5rem;
-    width: auto;
-    height: auto;
-}
-.window-form-info {
-    margin: 10px;
-    width: 100%;
-    height: auto;
-}
-  .window-app-box {
-    margin-top: 10px;
-    text-align: center;
-    color: #0f375a;
-    width: auto;
-    height: auto;
-    font-size: 50px;
-  }
 .window-fill {
-    margin: 40px;
-    text-align: center;
-    color: #194fb4;
-    font-size: 35px;
-    height: auto;
+  font-size: 20px;
+  color: #194fb4;
+  text-align: center;
+  margin-bottom: 30px;
 }
-.window-notice,.logo-notice {
-    color: #194fb4;
-    height: auto;
+
+/* Input Fields */
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
-.window-warn {
-    font-size: 30px;
-    margin: 5%;
-    color: #000;
-    height: auto;
-}
-.window-actual {
-    width: auto;
-    margin: 50px;
-    height: auto;
-}
-/* ================================
-   window Boxed Sections
-   ================================ */
-   .name-section-window,
-   .company-window-section,
-   .emailphone-window-section,
-   .address-window-section,
-   .window-type-window-section,
-   .window-size-section,
-   .window-stand-section,
-   .finishing-window-section,
-   .window-file-section,
-   .window-message-container {
-    border-color: #000;
-  border-width: 4px;
-  background-color: #cccbcb;
-  border-style: solid;
-  border-radius: 10px;
-  margin: 10px;
-  width: auto;
+
+/* Label Styling */
+
+/* Buttons */
+.submit-windows, .remove-window, .file-window-label,
+.remove-window-file-button {
+  background-color: #0f375a;
+  color: #ffffff;
+  border: none;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  padding: 20px;
-  }
-  
-  
-/* ================================
-   Larger Labels for Adhesive Section
-   ================================ */
-.first-window-name-label, 
-.window-company-label, 
-.emailphone-window-label,
-.address-window-label,
-.size-window-label,
-.message-window-label,
-.place-window-label,
-.finish-window-label,
-.window-file-label,
-.type-window-label {
-  padding: 50px;
-  color:#000;
-  font-family: "Moveo Sans w00 Bold";
+  padding: 15px 20px;
   text-align: center;
-  font-size: 80px;
-  font-style: inherit;
-  height: auto;
-}
-
-/* ================================
-   Added Item Label Categories
-   ================================ */
-.size-driver-window-note, .size-passenger-window-note {
-  font-family: "Moveo Sans w00 bold";
-  font-style: normal;
-  display: block;
-  text-align: center;
-  font-size: 70px;
-  height: auto;
-}
-
-.size-item, .tint-item {
-  text-decoration: none;
-  list-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    margin: 0;
-    color: rgb(255, 238, 0);
-    text-align: center;
-    font-size: 60px;
-    height: auto;
-    text-shadow: 1.3px 1.3px #000, -1.3px 1.3px #000, 1.3px -1.3px #000, -1.3px -1.3px #000;
-}
-
-/* ================================
-   Added Items Labels
-   ================================ */
-.added-vehicle-label {
-  font-family: "Moveo Sans w00 Regular";
-  font-style: normal;
-  margin: 10px;
-  padding-left: 10px;
-  font-size: 50px;
-  height: auto;
-}
-.no-added-vehicles, .no-added-finishings {
-  margin: 50px;
-  text-align: center;
-  font-size: 40px;
-  height: auto;
-}
-/* ================================
-   Grouped input sections
-   ================================ */
-  .first-window-window-input {
-    margin: 40px;
-    display: flex;
-    height: auto;
-  }
-  .address-window-input-container, 
-  .size-door-window-section {
-    margin: 10px;
-    height: auto;
-  }
-
-  .size-window-section {
-    margin-top: 30px;
-    display: inline-block;
-    height: auto;
-  }
-  /* ================================
-   Grouped Labels and Input Box Styling
-   ================================ */
-   .last-window-name {
-    font-family: "Moveo Sans w00 Regular";
-    font-style: normal;
-    margin: 0;
-    padding-left: 10px;
-    font-size: 20px;
-    height: auto;
-  }
-  .first-name-window-input,
-  .emailphone-window-input,
-  .window-company-name-input, 
-  .address-window-input,
-  .email-window-input,
-  .window-phone-name-input,
-  .length-window-section,
-  .length-door-window-section,
-  .width-window-section,
-  .place-window-section, 
-  .finish-window-section,
-  .file-window-section,
-  .border-window-section,
-  .type-window-section {
-    font-family: "Moveo Sans w00 Regular";
-    margin: 10px;
-    margin-right: 0;
-    position: relative;
-    padding-left: 15px;
-    display: flex;
-    height: auto;
-  }
-  .finish-window-section {
-    display: block;
-  }
-
-  .address-window-inputing, 
-  .city-window-input,
-  .phone-window {
-    font-family: "Moveo Sans w00 Regular";
-    font-style: normal;
-    margin: 0;
-    padding-left: 10px;
-    font-size: 20px;
-    height: auto;
-  }
-  .state-window-input,  
-  .zip-window-input{
-    font-family: "Moveo Sans w00 Regular";
-    margin: 0px;
-    margin-right: 0;
-    position: relative;
-    height: auto;
-  }
-
-/* ================================
-   Small Label Styling
-   ================================ */
- .first-window-label-name, 
-  .last-window-label-name,
-  .company-window-name,
-  .email-window-name,
-  .phone-window-label,
-  .addr-window-label, 
-  .city-window-label,
-  .state-window-label,
-  .zip-window-label,
-  .length-window-label, 
-  .width-window-label,
-  .place-label,
-  .finish-label,
-  .border-label,
-  .window-logo,
-  .year-window-label,
-  .make-window-label,
-  .model-window-label,
-  .trim-window-label,
-  .length-window-label,
-  .width-window-label {
-    font-family: "Highway Gothic Narrow";
-    font-style: normal;
-    margin: 0;
-    color:#226daf;
-    padding-left: 10px;
-    font-size: 70px;
-    height: auto;
-  }
-  
-
-/* ================================
-   Input Box Styling
-   ================================ */
-   .firstname-window-name-input,
-   .lastname-window-name-input, 
-   .company-window-name-input,
-   .email-window-box,
-   .phone-window-box,
-   .address-window-box, 
-   .city-window-box,
-   .state-window-box,
-   .zip-window-box,
-   .length-window-box, 
-   .width-window-box,
-   .border-window-box,
-   .width-door-window-box,
-   .length-window-select,
-   .width-window-select, 
-   .place-select,
-   .finish-window-select,
-   .border-select,
-   .make-window-box,
-   .model-window-box,
-   .trim-window-box {
-     padding: 10px;
-     color:#0f375a;
-     font-size: 50px;
-     margin-bottom: 20px;
-     height: auto;
-   }
-   .length-window-box, 
-   .width-window-box,
-   .length-door-window-box,
-   .width-door-window-box {
-    font-size: 80px;
-
-   }
-   .type-window-box,
-   .year-window-box,
-   .make-window-box,
-   .model-window-box {
-    font-size: 40px;
-   }
-   /* ================================
-   Length and Width Display Boxes
-   ================================ */
-   .driver-length-section, 
-   .driver-width-section,
-   .passenger-length-section,
-   .passenger-side-width,
-   .length-door-window-section,
-   .width-door-window-section {
-    display: grid;
-    padding-left: 0;
-    margin-top: 0;
-    margin: 0;
-   }
-/* ================================
-   window Image Section
-   ================================ */
-
-.place-img-container {
-    flex: 1;
-    text-align: center; /* Centers the text under each image */
-    height: auto;
-}
-
-.place-img {
-    width: 330px;
-    height: auto;
-    object-fit: contain; /* Fits the image inside the box without cropping, leaving empty space if necessary */
-}
-
-/* ================================
-   Year Input Box Note Style
-   ================================ */
-.year-window-note {
-font-size: 20px;
-font-display: flex;
-margin: 10px;
-font-family: "Kairos W01 Extended Medium";
-height: auto;
-}
-/* ================================
-   window Finishing Image Section
-   ================================ */
-   .window-finish-img-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-    gap: 20px; /* Adds space between the columns */
-    padding: 10px;
-    height: auto;
-  }
-  
-  .matte-img-window, .gloss-img-window, .ra-img-window {
-    text-align: center; /* Centers the image and text within each div */
-    height: auto;
-  }
-  
-  .matte-img, .gloss-img, .ORAFOL-img {
-    max-width: 100%; /* Ensures the images do not exceed their container's width */
-    height: auto; /* Maintains the image's aspect ratio */
-  }
-  
-
-  /* ================================
-   window Message Styling
-   ================================ */
-  .message-window-note {
-    font-style: normal;
-    text-align: center;
-    text-emphasis: none;
-    margin: 0px;
-    font-size: 20px;
-    font-family: "Moveo Sans W00 Regular";
-    padding-top: 30px;
-    height: auto;
-  }
-  
-  .message-window-text {
-    font-style: normal;
-    text-align: left;
-    text-emphasis: none;
-    font-size: 20px;
-    font-family: "Moveo Sans W00 Regular";
-    width: 100%;
-    height: 300px;
-  }
-
-    
-/* ================================
-   Submit Button Styling
-   ================================ */
-   .submit-window-size, .submit-finishing,
-   .remove-finishing {
-    background-color: #0f375a;
-    position: relative;
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 80px;
-    color: #fff;
-    height: auto;
-  }  
-  .choose-logo-contain {
-    display: flex;
-    align-items: center;
-    height: auto;
-}
-.file-window-label, .remove-window-file-button {
-    display: flex;
-    background-color: #0f375a;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    height: auto;
-}
-.file-window-label input[type=file] {
-    display: none;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
 }
 .submit-window {
-  width: 100%;
-  font-size: 40px;
-  height: auto;
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
 }
-  .submit-window {
-    background-color: #0f375a;
-    position: relative;
-    font-size: 30px;
-    text-align: center;
-    color: #fff;
-    margin: 5 auto;
-    display: block;
-    width: 100%;
-    color: #fff;
-    height: auto;
-  }
-  .driver-submit-size, .passenger-submit-size, .driver-remove-submit-size,
-  .remove-size,
-  .remove-tint, .submit-window-place {
-    background-color: #0f375a;
-    position: relative;
-    font-size: 30px;
-    text-align: center;
-    color: #fff;
-    margin: 5 auto;
-    display: block;
-    width: 100%;
-    color: #fff;
-    height: auto;
-   }
-  .submit-size:hover, 
-  .submit-finishing:hover,
-  .submit-window:hover,
-  .file-window-label:hover,
-  .remove-finishing:hover,
-
-  .remove-size:hover,
-  .remove-tint:hover,
-  .submit-window-size:hover,
-  .remove-window-file-button:hover,
-  .submit-window-place:hover {
-    background-color: #226daf;
-  }
-  .btn-submit, .btn-window-submit {
-    text-decoration: none;
-      padding: 20px;
-      border-radius: 9px;
-      border: none;
-      cursor: pointer;
-      font-family: "Kairos W01 Extended Medium";
-      transition: all .3s;
-      margin-top: 1rem;
-      height: auto;
-  }
-  .btn-window-submit {
-    padding: 0;
-    height: auto;
-  }
-  /* ================================
-   Message Styling
-   ================================ */
-.error-message {
-  color: red;
-    font-size: 20px;
-    text-align: center;
-    align-items: center;
-    font-family: "Kairos W04 Extended Bold";
-    margin-bottom: 10px;
-    height: auto;
+.submit-s:hover, .remove-window:hover {
+  background-color: #226daf;
 }
-
-.submission-error-message {
-  color: red;
-  font-family: "Kairos W04 Extended Bold";
-  font-size: large;
-  font-style: bold;
+.window-warn {
+  font-size: 15px;
+  margin: 0;
   text-align: center;
-  margin-bottom: 30px;
-  width: 100%;
-  height: auto;
+}
+.window-notice {
+  color: #194fb4;
+}
+/* Error and Success Messages */
+.error-message, .submission-error-message {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+}
+.message-window-note {
+  font-size: 1rem
+}
+.message-window-text {
+  font-size: 1rem;
+  height: 20rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .submission-message {
-  color: rgb(38, 173, 38);
-  font-family: "Kairos W04 Extended Bold";
-  font-size: large;
-  font-style: bold;
+  color: green;
+  font-size: 18px;
   text-align: center;
-  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+/* Input Group Styling */
+.name-section-window,
+.company-window-section,
+.emailphone-window-section,
+.address-window-section,
+.window-file-section,
+.window-message-container,
+.vehicle-type-window-section,
+.vehicle-size-window-section,
+.window-size-section,
+.window-stand-section,
+.finishing-window-section {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.518);
+}
+
+.window-file-label, .remove-window-file-button {
+  border: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.file-window-label input[type=file] {
+  display: none;
+}
+.photo-window-mx-note {
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Moveo Sans w00 Bold";
+}
+.window-finish-img-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 20px; /* Adds space between the columns */
+  padding: 10px;
+  height: auto;
+}
+.submit-vehicle, .driver-submit-,
+.driver-remove-submit-size,
+.driver-submit-size,
+.passenger-submit-size, .passenger-remove-submit-size,
+.door-length-submit-size,
+.door-remove-length-submit-size,
+.remove-finishing,
+.submit-finishing, 
+.submit-window{
+  background-color: #0f375a;
+    color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.photo-window-mx-note {
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Moveo Sans w00 Bold";
+}
+.window-img-container {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: 2fr 2fr 2fr;
+  height: auto;
+}
+.window-text-container {
+  text-align: center;
+}
+.place-window-section {
+  margin: 20px;
+}
+.submit-window-place, .remove-tint,
+.submit-window-size {
+  background-color: #0f375a;
+  color: #fff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.tint-item,.size-item {
+  list-style: none;
+    padding: 0;
+    font-size: 1.52rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+.place-img {
   width: 100%;
   height: auto;
 }
 @media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
-  .main-window-graphics {
+  .first-name-window-input, 
+  .emailphone-window-input, 
+  .window-company-name-input, 
+  .address-window-input, 
+  .email-window-input, 
+  .window-phone-name-input, 
+  .length-window-section, 
+  .width-window-section, 
+  .file-window-section {
     display: block;
   }
-  .page-window-container {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .window-description {
-    font-size: 55px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-window-note {
-    font-size: 30px; /* Reduce font size */
-  }
-  .window-form-info {
-    margin: 0;
-  }
-  .window-app-box {
-    font-size: 40px;
-  }
-  .window-fill {
-    margin: 10px;
-    font-size: 22px;
-  }
-  .window-actual {
-    margin: 0;
-  }
-  .window-set {
-    display: block;
-  }
-  .name-section-window,
- .company-window-section,
- .emailphone-window-section,
- .address-window-section,
- .vehicle-type-window-section,
- .vehicle-size-window-section,
- .door-size-window-section,
- .finishing-window-section,
- .window-file-section,
- .window-message-container {
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
- }
-  .first-window-name-label, 
-.window-company-label, 
-.emailphone-window-label,
-.address-window-label,
-.size-window-label,
-.message-window-label,
-.place-window-label,
-.finish-window-label,
-.window-file-label,
-.type-window-label {
-font-size: 70px;
-}
-.first-window-label-name, 
-.last-window-label-name, 
-.company-window-name, 
-.email-window-name, 
-.phone-window-label, 
-.addr-window-label, 
-.city-window-label, 
-.state-window-label, 
-.zip-window-label, 
-.length-window-label, 
-.width-window-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.window-logo, 
-.year-window-label, 
-.make-window-label, 
-.model-window-label, 
-.trim-window-label {
-font-size: 40px;
-padding-left: 0;
-}
-.window-message-container {
-margin-top: 10px;
-}
-.message-window-label {
-margin-bottom: 0;
-margin-top: 10px;
-padding: 0;
-
-}
-.window-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-window-input
-.emailphone-window-input, 
-.address-window-input-container, 
-.size-window-section,
-.size-door-window-section {
-margin: 0;
-display: block;
-}
-.last-window-name {
-padding-left: 0;
-}
-.firstname-window-name-input, 
-.lastname-window-name-input, 
-.company-window-name-input, 
-.email-window-box, 
-.phone-window-box, 
-.address-window-box, 
-.city-window-box, 
-.state-window-box, 
-.zip-window-box, 
-.length-window-box, 
-.width-window-box, 
-.border-window-box, 
-.length-window-select, 
-.width-window-select, 
-.place-select, 
-.border-select, 
-.type-window-box,
-.year-window-box,
-.make-window-box,
-.length-door-window-box,
-.width-door-window-box
-{
-font-size: 24px;
-}
-.company-window-input {
-font-family: "Moveo Sans w00 Regular";
-    margin: 10px;
-    margin-right: 0;
-    position: relative;
-    padding-left: 15px;
-    display: flex;
-    height: auto;
-}
-.model-window-box {
-font-size: 10px;
-}
-.window-company-label {
-font-size: 50px;
-padding: 0;
-}
-.finish-window-label {
-font-size: 30px;
-}
-.window-finish-img-section {
-display: block;
-}
-.finish-window-select {
-font-size: 7px;
-}
-.window-warn {
-font-size: 15px;
-padding-top: 10%;
-margin: 0;
-text-align: center;
-}
-.emailphone-window-label {
-font-size: 50px;
-padding: 0;
-}
-.window-company-name-input {
-margin: 10px;
-padding-left: 0;
-display: block;
-}
-.window-company-name-input, 
-.address-window-input, 
-.email-window-input, 
-.window-phone-name-input, 
-.length-window-section, 
-.width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section,
-.type-window-section {
-margin: 0px;
-display: block;
-padding-left: 0;
-}
-.address-window-inputing, 
-.city-window-input, 
-.phone-window {
-padding-left: 0px;
-}
-
-.address-window-label, 
-.type-window-label,
-.size-window-label {
-font-size: 50px;
-padding: 0;
-}
-.size-driver-window-note, .size-passenger-window-note {
-font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-window-section, 
-.width-door-window-section {
-display: block;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-font-size: 15px;
-}
-.size-window-label {
-font-size: 35px;
-}
-.submit-size {
-margin-left: 0;
-font-size: 15px;
-text-align: center;
-}
-.choose-logo-contain {
-display: block;
-text-align: center;
-}
-.file-window-label, .remove-window-file-button {
-font-size: 1rem;
-display: block;
-}
-
-.message-window-text {
-margin-left: 0;
-text-align: center;
-}
-.submit-window {
-margin: 0;
-font-size: 20px;
-}
-.btn-window-submit {
-padding: 0;
-margin-top: 10px;
-width: 100%;
-}
-.submit-window-size, .remove-size, .submit-window-place, .remove-tint {
-font-size: 30px;
-margin-left: 0;
-}
 }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
-  .main-window-graphics {
-    display: block;
-  }
-  .page-window-container {
-    padding-top: 130px; /* Reduce padding */
-  }
   .window-description {
-    font-size: 43px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-window-note {
-    font-size: 30px; /* Reduce font size */
-  }
-  .window-form-info {
-    margin: 0;
-  }
-  .window-app-box {
-    font-size: 40px;
-  }
-  .window-fill {
-    margin: 10px;
-    font-size: 22px;
-  }
-  .window-actual {
-    margin: 0;
-  }
-  .window-set {
-    display: block;
-  }
-  .name-section-window,
+  font-size: 4rem;
+}
+.photo-window-mx-note {
+  font-size: 2.2rem;
+}
+.name-section-window,
  .company-window-section,
  .emailphone-window-section,
  .address-window-section,
@@ -851,21 +242,18 @@ margin-left: 0;
  .window-file-section,
  .window-message-container {
   display: block;
-  padding: 0;
-  margin: 0;
   margin-top: 10px;
  }
-  .first-window-name-label, 
-.window-company-label, 
-.emailphone-window-label,
-.address-window-label,
-.size-window-label,
-.message-window-label,
-.place-window-label,
-.finish-window-label,
-.window-file-label,
-.type-window-label {
-font-size: 70px;
+.first-name-window-input, 
+.emailphone-window-input, 
+.window-company-name-input, 
+.address-window-input, 
+.email-window-input, 
+.window-phone-name-input, 
+.length-window-section, 
+.width-window-section, 
+.file-window-section {
+display: block;
 }
 .first-name-window-input, 
 .emailphone-window-input, 
@@ -874,259 +262,80 @@ font-size: 70px;
 .email-window-input, 
 .window-phone-name-input, 
 .length-window-section, 
-.length-door-window-section, 
 .width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section, 
-.type-window-section {
-display: block;
+.file-window-section {
 padding-left: 0;
 }
-.first-window-label-name, 
-.last-window-label-name, 
-.company-window-name, 
-.email-window-name, 
-.phone-window-label, 
-.addr-window-label, 
-.city-window-label, 
-.state-window-label, 
-.zip-window-label, 
-.length-window-label, 
-.width-window-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.window-logo, 
-.year-window-label, 
-.make-window-label, 
-.model-window-label, 
-.trim-window-label {
-font-size: 40px;
-padding-left: 0;
-}
-.window-message-container {
-margin-top: 10px;
-}
-.message-window-label {
-margin-bottom: 0;
-margin-top: 10px;
-padding: 0;
 
-}
-.window-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-window-input
-.emailphone-window-input, 
-.address-window-input-container, 
-.size-window-section,
-.size-door-window-section {
+.window-form-info {
 margin: 0;
-display: block;
 }
-.last-window-name {
-padding-left: 0;
+.window-app-box {
+font-size: 1.9rem;
 }
-.firstname-window-name-input, 
-.lastname-window-name-input, 
-.company-window-name-input, 
-.email-window-box, 
-.phone-window-box, 
-.address-window-box, 
-.city-window-box, 
-.state-window-box, 
-.zip-window-box, 
-.length-window-box, 
-.width-window-box, 
-.border-window-box, 
-.length-window-select, 
-.width-window-select, 
-.place-select, 
-.finish-window-select, 
-.border-select, 
-.type-window-box,
-.year-window-box,
-.make-window-box,
-.length-door-window-box,
-.width-door-window-box
-{
-font-size: 24px;
-}
-.model-window-box {
-font-size: 10px;
-}
-.window-company-label {
-font-size: 50px;
-padding: 0;
-}
-.finish-window-label {
-font-size: 30px;
-}
-.window-finish-img-section {
-display: block;
-}
-.finish-window-select {
-font-size: 7px;
-}
-.window-warn {
-font-size: 15px;
-padding-top: 10%;
-margin: 0;
-text-align: center;
-}
-.emailphone-window-label {
-font-size: 50px;
-padding: 0;
-}
-.window-company-name-input {
+.window-fill {
 margin: 10px;
-padding-left: 0;
+      font-size: 1rem;
+}
+.window-set {
 display: block;
 }
-.company-window-input {
-padding-left: 0px;
-}
-.emailphone-window-input, 
-.address-window-input-container, 
-.size-window-section {
-margin: 0px;
-}
-.window-company-name-input, 
-.address-window-input, 
-.email-window-input, 
-.window-phone-name-input, 
-.length-window-section, 
-.width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section,
-.type-window-section {
-margin: 0px;
-display: block;
-padding-left: 0;
-}
-.address-window-inputing, 
-.city-window-input, 
-.phone-window {
-padding-left: 0px;
-}
-
-.address-window-label, 
-.type-window-label,
-.size-window-label {
-font-size: 50px;
-padding: 0;
-}
-.size-driver-window-note, .size-passenger-window-note {
-font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-window-section, 
-.width-door-window-section {
-display: block;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-font-size: 15px;
-}
-.size-window-label {
-font-size: 35px;
-}
-.submit-size {
-margin-left: 0;
-font-size: 15px;
-text-align: center;
-}
-.choose-logo-contain {
-display: block;
-text-align: center;
-}
-.file-window-label, .remove-window-file-button {
-font-size: 1rem;
-display: block;
-}
-
-.message-window-text {
-margin-left: 0;
-text-align: center;
-}
-.submit-window {
+.window-actual {
 margin: 0;
-font-size: 20px;
 }
-.btn-window-submit {
-padding: 0;
-margin-top: 10px;
-width: 100%;
+.added-window-list {
+  font-size: 1.6rem;
 }
-.submit-window-size, .remove-size, .submit-window-place, .remove-tint {
-font-size: 40px;
-margin-left: 0;
+.added-windows-li {
+  list-style: none;
+}
+.window-type-p,  
+.window-size-p, 
+.window-side-p,
+.window-finish-p, 
+.window-quantity-p, 
+.window-acrylic-color-p,
+.window-acm-color-p, 
+.window-thickness-p {
+font-size: 1.2rem;
+
+}
+.window-img-contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  flex: 1;
+}
+.page-window-banner {
+padding-top: 30px; /* Reduce padding */
+}
+
+.place-img-test {
+  font-size: 0.8rem;
 }
 }
-@media screen and (max-width: 1200px) and (orientation: portrait) {
-  .main-window-graphics {
-    display: block;
+  @media screen and (max-width: 1200px) and (orientation: portrait) {
+    .window-description {
+    font-size: 2.2rem;
   }
-  .page-window-container {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .window-description {
-    font-size: 43px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-window-note {
-    font-size: 30px; /* Reduce font size */
-  }
-  .window-form-info {
-    margin: 0;
-  }
-  .window-app-box {
-    font-size: 40px;
-  }
-  .window-fill {
-    margin: 10px;
-    font-size: 22px;
-  }
-  .window-actual {
-    margin: 0;
-  }
-  .window-set {
-    display: block;
+  .photo-window-mx-note {
+    font-size: 2rem;
   }
   .name-section-window,
- .company-window-section,
- .emailphone-window-section,
- .address-window-section,
- .vehicle-type-window-section,
- .vehicle-size-window-section,
- .door-size-window-section,
- .finishing-window-section,
- .window-file-section,
- .window-message-container {
-  display: block;
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
- }
-  .first-window-name-label, 
-.window-company-label, 
-.emailphone-window-label,
-.address-window-label,
-.size-window-label,
-.message-window-label,
-.place-window-label,
-.finish-window-label,
-.window-file-label,
-.type-window-label {
-font-size: 70px;
-}
+   .company-window-section,
+   .emailphone-window-section,
+   .address-window-section,
+   .vehicle-type-window-section,
+   .vehicle-size-window-section,
+   .door-size-window-section,
+   .finishing-window-section,
+   .window-file-section,
+   .window-message-container {
+    display: block;
+    margin-top: 10px;
+   }
 .first-name-window-input, 
 .emailphone-window-input, 
 .window-company-name-input, 
@@ -1134,62 +343,11 @@ font-size: 70px;
 .email-window-input, 
 .window-phone-name-input, 
 .length-window-section, 
-.length-door-window-section, 
 .width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section, 
-.type-window-section {
-display: block;
-padding-left: 0;
+.file-window-section {
+  display: block;
 }
-.first-window-label-name, 
-.last-window-label-name, 
-.company-window-name, 
-.email-window-name, 
-.phone-window-label, 
-.addr-window-label, 
-.city-window-label, 
-.state-window-label, 
-.zip-window-label, 
-.length-window-label, 
-.width-window-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.window-logo, 
-.year-window-label, 
-.make-window-label, 
-.model-window-label, 
-.trim-window-label {
-font-size: 50px;
-padding-left: 0;
-}
-.window-message-container {
-margin-top: 10px;
-}
-.message-window-label {
-margin-bottom: 0;
-margin-top: 10px;
-padding: 0;
 
-}
-.window-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-window-input
-.emailphone-window-input, 
-.address-window-input-container, 
-.size-window-section,
-.size-door-window-section {
-margin: 0;
-display: block;
-}
-.last-window-name {
-padding-left: 0;
-}
 .firstname-window-name-input, 
 .lastname-window-name-input, 
 .company-window-name-input, 
@@ -1199,194 +357,21 @@ padding-left: 0;
 .city-window-box, 
 .state-window-box, 
 .zip-window-box, 
-.length-window-box, 
-.width-window-box, 
-.border-window-box, 
-.length-window-select, 
-.width-window-select, 
-.place-select, 
-.finish-window-select, 
-.border-select, 
-.type-window-box,
-.year-window-box,
-.make-window-box,
-.length-door-window-box,
-.width-door-window-box
-{
-font-size: 50px;
-}
-.model-window-box {
-font-size: 10px;
-}
-.window-company-label {
-font-size: 50px;
-padding: 0;
-}
-.finish-window-label {
-font-size: 30px;
-}
-.window-finish-img-section {
-display: block;
-}
-.finish-window-select {
-font-size: 7px;
-}
-.window-warn {
-font-size: 15px;
-padding-top: 10%;
-margin: 0;
-text-align: center;
-}
-.emailphone-window-label {
-font-size: 50px;
-padding: 0;
-}
-.window-company-name-input {
-margin: 10px;
-padding-left: 0;
-display: block;
-}
-.company-window-input {
-padding-left: 0px;
-}
-.emailphone-window-input, 
-.address-window-input-container, 
-.size-window-section {
-margin: 0px;
-
-}
-.window-company-name-input, 
-.address-window-input, 
-.email-window-input, 
-.window-phone-name-input, 
-.length-window-section, 
-.width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section,
-.type-window-section {
-margin: 0px;
-display: block;
-padding-left: 0;
-}
-.address-window-inputing, 
-.city-window-input, 
-.phone-window {
-padding-left: 0px;
-}
-
-.address-window-label, 
-.type-window-label,
-.size-window-label {
-font-size: 50px;
-padding: 0;
-}
-.size-driver-window-note, .size-passenger-window-note {
-font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-window-section, 
-.width-door-window-section {
-display: block;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-font-size: 15px;
-}
-.size-window-label {
-font-size: 50px;
-}
-.submit-size {
-margin-left: 0;
-font-size: 15px;
-text-align: center;
-}
-.choose-logo-contain {
-display: block;
-text-align: center;
-}
-.file-window-label, .remove-window-file-button {
-font-size: 1rem;
-display: block;
-}
-
-.message-window-text {
-margin-left: 0;
-text-align: center;
-}
-.submit-window {
-margin: 0;
-font-size: 40px;
-}
-.btn-window-submit {
-padding: 0;
-margin-top: 10px;
-width: 100%;
-}
-.submit-window-size, .remove-size, .submit-window-place, .remove-tint {
-font-size: 40px;
-margin-left: 0;
-}
-}
-@media screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) {
-  .main-window-graphics {
-    display: block;
-  }
-  .page-window-container {
-    padding-top: 130px; /* Reduce padding */
-  }
-  .window-description {
-    font-size: 43px; /* Reduce font size */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-  }
-  .photo-mx-window-note {
-    font-size: 30px; /* Reduce font size */
-  }
-  .window-form-info {
-    margin: 0;
-  }
-  .window-app-box {
-    font-size: 40px;
-  }
-  .window-fill {
-    margin: 10px;
-    font-size: 22px;
-  }
-  .window-actual {
-    margin: 0;
-  }
-  .window-set {
-    display: block;
-  }
-  .name-section-window,
- .company-window-section,
- .emailphone-window-section,
- .address-window-section,
- .vehicle-type-window-section,
- .vehicle-size-window-section,
- .door-size-window-section,
- .finishing-window-section,
- .window-file-section,
- .window-message-container {
-  display: block;
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
- }
-  .first-window-name-label, 
-.window-company-label, 
-.emailphone-window-label,
-.address-window-label,
-.size-window-label,
-.message-window-label,
-.place-window-label,
-.finish-window-label,
-.window-file-label,
-.type-window-label {
-font-size: 50px;
+.window-type-input, 
+.window-size-input, 
+.border-window-box,
+.window-sides-input, 
+.window-side-select, 
+.window-length-input, 
+.window-length-select, 
+.window-width-input, 
+.window-width-select, 
+.finish-window-select,
+.window-thickness-select, 
+.window-acm-color-select, 
+.window-acrylic-color-select, 
+.window-quantity-input {
+  font-size: 1.1rem;
 }
 .first-name-window-input, 
 .emailphone-window-input, 
@@ -1395,226 +380,79 @@ font-size: 50px;
 .email-window-input, 
 .window-phone-name-input, 
 .length-window-section, 
-.length-door-window-section, 
 .width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section, 
-.type-window-section {
-display: block;
-padding-left: 0;
+.file-window-section {
+  padding-left: 0;
 }
-.first-window-label-name, 
-.last-window-label-name, 
-.company-window-name, 
-.email-window-name, 
-.phone-window-label, 
-.addr-window-label, 
-.city-window-label, 
-.state-window-label, 
-.zip-window-label, 
-.length-window-label, 
-.width-window-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.window-logo, 
-.year-window-label, 
-.make-window-label, 
-.model-window-label, 
-.trim-window-label {
-font-size: 35px;
-padding-left: 0;
-}
-.window-message-container {
-margin-top: 10px;
-}
-.message-window-label {
-margin-bottom: 0;
-margin-top: 10px;
-padding: 0;
-
-}
-.window-file-label {
-padding: 0;
-font-size: 30px;
-}
-.first-name-window-input
-.emailphone-window-input, 
-.address-window-input-container, 
-.size-window-section,
-.size-door-window-section {
-margin: 0;
-display: block;
-}
-.last-window-name {
-padding-left: 0;
-}
-.firstname-window-name-input, 
-.lastname-window-name-input, 
-.company-window-name-input, 
-.email-window-box, 
-.phone-window-box, 
-.address-window-box, 
-.city-window-box, 
-.state-window-box, 
-.zip-window-box, 
-.length-window-box, 
-.width-window-box, 
-.border-window-box, 
-.length-window-select, 
-.width-window-select, 
-.place-select, 
-.finish-window-select, 
-.border-select, 
-.type-window-box,
-.year-window-box,
-.make-window-box,
-.length-door-window-box,
-.width-door-window-box
-{
-font-size: 18px;
-}
-.model-window-box {
-font-size: 10px;
-}
-.window-company-label {
-font-size: 25px;
-padding: 0;
-}
-.finish-window-label {
-font-size: 30px;
-}
-.window-finish-img-section {
-display: block;
-}
+.window-type-input,
 .finish-window-select {
-font-size: 7px;
+  font-size: 12px;
+}
+.window-form-info {
+  margin: 0;
+}
+.window-app-box {
+  font-size: 1.5rem;
+}
+.window-fill {
+  margin: 10px;
+        font-size:1rem;
+}
+.window-set {
+  display: block;
 }
 .window-warn {
-font-size: 15px;
-padding-top: 10%;
-margin: 0;
-text-align: center;
+  font-size: 0.8rem;
 }
-.emailphone-window-label {
-font-size: 24px;
-padding: 0;
+.window-actual {
+  margin: 0;
 }
-.window-company-name-input {
-margin: 10px;
-padding-left: 0;
-display: block;
+.added-window-list {
+  font-size: 1.2rem;
 }
-.company-window-input {
-padding-left: 0px;
+.window-type-p, 
+.window-size-p, 
+.window-side-p,
+.window-finish-p, 
+.window-quantity-p, 
+.window-acrylic-color-p,
+.window-acm-color-p, 
+.window-thickness-p {
+  font-size: 1.1rem;
 }
-.emailphone-window-input, 
-.address-window-input-container, 
-.size-window-section {
-margin: 0px;
-display: block;
+.page-window-banner {
+  padding-top: 20px; /* Reduce padding */
 }
-.window-company-name-input, 
-.address-window-input, 
-.email-window-input, 
-.window-phone-name-input, 
-.length-window-section, 
-.width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section,
-.type-window-section {
-margin: 0px;
-display: block;
-padding-left: 0;
+.message-window-note {
+  font-size: 0.8rem;
+  text-align: center;
 }
-.address-window-inputing, 
-.city-window-input, 
-.phone-window {
-padding-left: 0px;
-}
-
-.address-window-label, 
-.type-window-label,
-.size-window-label {
-font-size: 30px;
-padding: 0;
-}
-.size-driver-window-note, .size-passenger-window-note {
-font-size: 26px;
-}
-.driver-length-section, 
-.driver-width-section, 
-.passenger-length-section, 
-.passenger-side-width, 
-.length-door-window-section, 
-.width-door-window-section {
-display: block;
-}
-.passenger-submit-size, .passenger-remove-submit-size {
-font-size: 15px;
-}
-.size-window-label {
-font-size: 35px;
-}
-.submit-size {
-margin-left: 0;
-font-size: 15px;
-text-align: center;
-}
-.choose-logo-contain {
-display: block;
-text-align: center;
-}
-.file-window-label, .remove-window-file-button {
-font-size: 1rem;
-display: block;
-}
-
-.message-window-text {
-margin-left: 0;
-text-align: center;
-}
-.submit-window {
-margin: 0;
-font-size: 22px;
-}
-.btn-window-submit {
-padding: 0;
-margin-top: 10px;
-width: 100%;
-}
-.submit-window-size, .remove-size, .submit-window-place, .remove-tint {
-font-size: 30px;
-margin-left: 0;
+.window-finish-img-section {
+  display: block;
 }
 }
   @media screen and (max-width: 320px) and (orientation: portrait) {
     .main-window-graphics {
       display: block;
     }
-    .page-window-container {
-      padding-top: 130px; /* Reduce padding */
+    .page-window-banner {
+      padding-top: 10px; /* Reduce padding */
     }
     .window-description {
-      font-size: 37px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
+      font-size: 1.5rem; /* Reduce font size */
+      padding: 0px; /* Add padding to avoid content touching the edges */
+      margin: 0;
     }
-    .photo-mx-window-note {
-      font-size: 25px; /* Reduce font size */
-    }
+    
     .window-form-info {
       margin: 0;
     }
     .window-app-box {
-      font-size: 37px;
+      font-size: 1rem;
     }
     .window-fill {
       margin: 10px;
-      font-size: 18px;
+      font-size: 0.6rem;
     }
     .window-actual {
       margin: 0;
@@ -1622,70 +460,35 @@ margin-left: 0;
     .window-set {
       display: block;
     }
-    .name-section-window,
-   .company-window-section,
-   .emailphone-window-section,
-   .address-window-section,
-   .vehicle-type-window-section,
-   .vehicle-size-window-section,
-   .door-size-window-section,
-   .finishing-window-section,
-   .window-file-section,
-   .window-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-window-name-label, 
-.window-company-label, 
-.emailphone-window-label,
-.address-window-label,
-.size-window-label,
-.message-window-label,
-.place-window-label,
-.finish-window-label,
-.window-file-label,
-.type-window-label {
-  font-size: 33px;
+    .type-window-section {
+      padding: 0;
+    }
+    .added-windows-li {
+      list-style: none;
+    }
+.window-type-input {
+  font-size: 0.5rem;
 }
-.first-name-window-input, 
-.emailphone-window-input, 
-.window-company-name-input, 
-.address-window-input, 
-.email-window-input, 
-.window-phone-name-input, 
-.length-window-section, 
-.length-door-window-section, 
-.width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section, 
-.type-window-section {
-  display: block;
-  padding-left: 0;
+.added-window-list {
+  font-size: 1rem;
+  
 }
-.first-window-label-name, 
-.last-window-label-name, 
-.company-window-name, 
-.email-window-name, 
-.phone-window-label, 
-.addr-window-label, 
-.city-window-label, 
-.state-window-label, 
-.zip-window-label, 
-.length-window-label, 
-.width-window-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.window-logo, 
-.year-window-label, 
-.make-window-label, 
-.model-window-label, 
-.trim-window-label {
-  font-size: 25px;
+.window-type-p, 
+.window-size-p, 
+.window-side-p,
+.window-finish-p, 
+.window-quantity-p, 
+.window-acrylic-color-p,
+.window-acm-color-p, 
+.window-thickness-p {
+  font-size: 0.7rem;
+  margin: auto;
+}
+.submit-windows, 
+.remove-window, 
+.submit-window,
+.new-window-logo-button {
+  font-size: 1rem;
 }
 .window-message-container {
   margin-top: 10px;
@@ -1695,10 +498,6 @@ margin-left: 0;
   margin-top: 10px;
   padding: 0;
   
-}
-.window-file-label {
-padding: 0;
-font-size: 30px;
 }
 .first-name-window-input
 .emailphone-window-input, 
@@ -1714,25 +513,24 @@ font-size: 30px;
 .firstname-window-name-input, 
 .lastname-window-name-input, 
 .company-window-name-input, 
-.email-window-box, 
-.phone-window-box, 
+.email-window-box, .phone-window-box, 
 .address-window-box, 
 .city-window-box, 
-.state-window-box, 
-.zip-window-box, 
-.length-window-box, 
-.width-window-box, 
+.state-window-box,
+.zip-window-box,
+.window-size-input, 
 .border-window-box, 
-.length-window-select, 
-.width-window-select, 
-.place-select, 
+.window-sides-input, 
+.window-side-select, 
+.window-length-input, 
+.window-length-select, 
+.window-width-input, 
+.window-width-select, 
 .finish-window-select, 
-.border-select, 
-.type-window-box,
-.year-window-box,
-.make-window-box,
-.length-door-window-box,
-.width-door-window-box
+.window-thickness-select, 
+.window-acm-color-select, 
+.window-acrylic-color-select, 
+.window-quantity-input 
  {
   font-size: 12px;
 }
@@ -1743,9 +541,6 @@ font-size: 30px;
   font-size: 18px;
   padding: 0;
 }
-.finish-window-label {
-  font-size: 30px;
-}
 .window-finish-img-section {
   display: block;
 }
@@ -1753,7 +548,7 @@ font-size: 30px;
   font-size: 7px;
 }
 .window-warn {
-  font-size: 15px;
+  font-size: 0.6rem;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -1814,9 +609,6 @@ font-size: 30px;
 .width-door-window-section {
   display: block;
 }
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
 .size-window-label {
   font-size: 20px;
 }
@@ -1839,46 +631,48 @@ font-size: 30px;
   text-align: center;
 }
 .submit-window {
-  margin: 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 .btn-window-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
 }
-.submit-window-size, .remove-size, .submit-window-place, .remove-tint {
-  font-size: 12px;
-  margin-left: 0;
+.photo-window-mx-note {
+  font-size: 1rem;
 }
-.size-item, .tint-item  {
-  max-width: 150px;
-  font-size: 20px;
+.message-window-note {
+  font-size: 0.6rem;
+}
+.window-img-container {
+  display: block;
+}
+.tint-item, .size-item {
+  font-size: 1rem;
 }
   }
   @media screen and (max-width: 320px) and (orientation: landscape) {
     .main-window-graphics {
       display: block;
     }
-    .page-window-container {
-      padding-top: 130px; /* Reduce padding */
+    .page-window-banner {
+      padding-top: 10px; /* Reduce padding */
     }
     .window-description {
-      font-size: 37px; /* Reduce font size */
-      padding: 10px; /* Add padding to avoid content touching the edges */
+      font-size: 1.5rem; /* Reduce font size */
+      padding: 0px; /* Add padding to avoid content touching the edges */
+      margin: 0;
     }
-    .photo-mx-window-note {
-      font-size: 25px; /* Reduce font size */
-    }
+    
     .window-form-info {
       margin: 0;
     }
     .window-app-box {
-      font-size: 37px;
+      font-size: 1rem;
     }
     .window-fill {
       margin: 10px;
-      font-size: 18px;
+      font-size: 0.6rem;
     }
     .window-actual {
       margin: 0;
@@ -1886,70 +680,35 @@ font-size: 30px;
     .window-set {
       display: block;
     }
-    .name-section-window,
-   .company-window-section,
-   .emailphone-window-section,
-   .address-window-section,
-   .vehicle-type-window-section,
-   .vehicle-size-window-section,
-   .door-size-window-section,
-   .finishing-window-section,
-   .window-file-section,
-   .window-message-container {
-    display: block;
-    padding: 0;
-    margin: 0;
-    margin-top: 10px;
-   }
-    .first-window-name-label, 
-.window-company-label, 
-.emailphone-window-label,
-.address-window-label,
-.size-window-label,
-.message-window-label,
-.place-window-label,
-.finish-window-label,
-.window-file-label,
-.type-window-label {
-  font-size: 33px;
+    .type-window-section {
+      padding: 0;
+    }
+    .added-windows-li {
+      list-style: none;
+    }
+.window-type-input {
+  font-size: 0.5rem;
 }
-.first-name-window-input, 
-.emailphone-window-input, 
-.window-company-name-input, 
-.address-window-input, 
-.email-window-input, 
-.window-phone-name-input, 
-.length-window-section, 
-.length-door-window-section, 
-.width-window-section, 
-.place-window-section, 
-.finish-window-section, 
-.file-window-section, 
-.border-window-section, 
-.type-window-section {
-  display: block;
-  padding-left: 0;
+.added-window-list {
+  font-size: 1rem;
+  
 }
-.first-window-label-name, 
-.last-window-label-name, 
-.company-window-name, 
-.email-window-name, 
-.phone-window-label, 
-.addr-window-label, 
-.city-window-label, 
-.state-window-label, 
-.zip-window-label, 
-.length-window-label, 
-.width-window-label, 
-.place-label, 
-.finish-label, 
-.border-label, 
-.window-logo, 
-.year-window-label, 
-.make-window-label, 
-.model-window-label, 
-.trim-window-label {
-  font-size: 25px;
+.window-type-p, 
+.window-size-p, 
+.window-side-p,
+.window-finish-p, 
+.window-quantity-p, 
+.window-acrylic-color-p,
+.window-acm-color-p, 
+.window-thickness-p {
+  font-size: 0.7rem;
+  margin: auto;
+}
+.submit-windows, 
+.remove-window, 
+.submit-window,
+.new-window-logo-button {
+  font-size: 1rem;
 }
 .window-message-container {
   margin-top: 10px;
@@ -1959,10 +718,6 @@ font-size: 30px;
   margin-top: 10px;
   padding: 0;
   
-}
-.window-file-label {
-padding: 0;
-font-size: 30px;
 }
 .first-name-window-input
 .emailphone-window-input, 
@@ -1978,25 +733,24 @@ font-size: 30px;
 .firstname-window-name-input, 
 .lastname-window-name-input, 
 .company-window-name-input, 
-.email-window-box, 
-.phone-window-box, 
+.email-window-box, .phone-window-box, 
 .address-window-box, 
 .city-window-box, 
-.state-window-box, 
-.zip-window-box, 
-.length-window-box, 
-.width-window-box, 
+.state-window-box,
+.zip-window-box,
+.window-size-input, 
 .border-window-box, 
-.length-window-select, 
-.width-window-select, 
-.place-select, 
+.window-sides-input, 
+.window-side-select, 
+.window-length-input, 
+.window-length-select, 
+.window-width-input, 
+.window-width-select, 
 .finish-window-select, 
-.border-select, 
-.type-window-box,
-.year-window-box,
-.make-window-box,
-.length-door-window-box,
-.width-door-window-box
+.window-thickness-select, 
+.window-acm-color-select, 
+.window-acrylic-color-select, 
+.window-quantity-input 
  {
   font-size: 12px;
 }
@@ -2007,9 +761,6 @@ font-size: 30px;
   font-size: 18px;
   padding: 0;
 }
-.finish-window-label {
-  font-size: 30px;
-}
 .window-finish-img-section {
   display: block;
 }
@@ -2017,7 +768,7 @@ font-size: 30px;
   font-size: 7px;
 }
 .window-warn {
-  font-size: 15px;
+  font-size: 0.6rem;
   padding-top: 10%;
   margin: 0;
   text-align: center;
@@ -2078,9 +829,6 @@ font-size: 30px;
 .width-door-window-section {
   display: block;
 }
-.passenger-submit-size, .passenger-remove-submit-size {
-  font-size: 15px;
-}
 .size-window-label {
   font-size: 20px;
 }
@@ -2103,21 +851,24 @@ font-size: 30px;
   text-align: center;
 }
 .submit-window {
-  margin: 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 .btn-window-submit {
   padding: 0;
   margin-top: 10px;
   width: 100%;
 }
-.submit-window-size, .remove-size, .submit-window-place, .remove-tint {
-  font-size: 12px;
-  margin-left: 0;
+.photo-window-mx-note {
+  font-size: 1rem;
 }
-.size-item, .tint-item  {
-  max-width: 150px;
-  font-size: 20px;
+.message-window-note {
+  font-size: 0.6rem;
+}
+.window-img-container {
+  display: block;
+}
+.tint-item, .size-item {
+  font-size: 1rem;
 }
   }
   
