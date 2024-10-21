@@ -1,35 +1,142 @@
-.service-page-heading {
-    color: #2f2f2f;
-    font-family: "Kairos W04 Extended Bold";
-    font-size: 150px;
-    text-align: center;
-}
-.service {
-    background-color: aqua;
-}
 .service-main {
-    background-color: #e7e7e7;
-}
-.service-para {
-    font-family: "Moveo Sans w00 Regular";
-    font-size: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  .service-page-heading {
+    font-size: 3rem;
     text-align: center;
-    margin: 60px;
-    width: auto;
-}
-
-.material-worx-service {
-    color:#7aebff;
-    font-size: 60px;
-    padding: 30px;
+    color: #2f2f2f;
     font-family: "Moveo Sans w00 Bold";
-}
-.material-services-buttons {
+  }
+  /* Two-column section layout */
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+  }
+  
+  .section-container img {
+    width: 50%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  /* Text section styling */
+  .section-text {
+    width: 45%;
+    font-family: "Moveo Sans w00 Regular", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .section-text h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-text p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-text .action-button {
+    background-color: #0044c3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: "Kairos W04 Extended Bold", sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .section-text .action-button:hover {
+    background-color: #002a7f;
+  }
+  
+  /* Service Note Section */
+  .service-note-container {
+    background-color: #fff;
+  }
+  
+  .service-question {
+    font-size: 2rem;
+  }
+  
+  .service-description {
+    font-size: 1rem;
+  }
+  
+  .service-contact {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* Button layout */
+  .material-services-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .material-services-buttons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #81c4ff;
+    color: #0044c3;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: "Kairos W04 Extended Bold", sans-serif;
+    width: 150px;
+  }
+  
+  .material-services-buttons a:hover {
+    background-color: #3b87c9;
+  }
+  .logo-design-section {
+    background-color: #2f2f2f;
+    padding: 20px;
+  }
+  .logo-new, .new-logo-description {
+    color: #c2b9b9;
+  }
+  .new-logo-img {
+    width: 50%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: fill;
+    border: 5px solid #0c68c4;
+    padding: 4px;
+    background-color: #c7ced4;
+  }
+  .web-design-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  .material-services-buttons {
     display: flex;
     gap: 1rem; /* Space between buttons */
     flex-wrap: wrap; /* Ensures buttons wrap to a new row if the screen size is smaller */
     margin: 40px;
+    align-items: center;
     justify-content: space-around; /* Distributes buttons evenly */
+}
+.service-button-heading {
+    font-family: "Moveo Sans w00 Bold";
+    font-weight: bold;
+    font-size: 1.8rem;
 }
 .custom-sign-service-button,
 .decals-stickers-service-button,
@@ -94,445 +201,13 @@
     line-height: 1.2;
     font-size: 15px;
 }
-.service-note-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: flex-start; /* Align items to the top-left */
-    justify-content: flex-start;
-    width: 100%;
-    background-color: #c2b9b9;
-    box-sizing: border-box;
-}
-.service-note {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.service-question {
-    font-size: 5rem; /* Adjust font size */
-    font-family: "Moveo Sans W00 Bold";
-    text-align: center;
-    margin-bottom: 2rem; /* Add space between the question and the image */
-}
-.service-contact {
-    font-family: "Moveo Sans W00 Regular";
-    font-size: 40px;
-    margin: 50px;
-}
-.service-description {
-    font-size: 2.4rem; /* Adjust font size to fit under the image */
-    font-family: "Moveo Sans W00 Regular";
-    text-align: left;
-    max-width: 70%; /* Limit the width of the paragraph */
-    margin-top: 2.5rem; /* Add space between the image and the paragraph */
-}
-
-.image-service-section {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start; /* Align image to the left */
-    width: 100%;
-    text-align: center;
-}
-
-.working-img-two {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 120%; /* Adjust to fit the layout */
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-    margin-bottom: 1rem; /* Add space between the image and the paragraph */
-}
-.new-logo-img-container {
-    width: 100%;
-    
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-.working-two {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover;
-    border: 5px solid #003366; /* Inner border - darker blue */
-    padding: 5px; /* Space between inner and outer border */
-    background-color: #66b2ff; /* Outer border - lighter blue */
-}
-.logo-design-section {
-    display: grid;
-    padding: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    width: 100%;
-    background-color: #2f2f2f;
-    box-sizing: border-box;
-}
-.logo-new, .web-design-title {
-    font-size: 60px;
-    font-family: "Moveo Sans W00 Bold";
-    text-align: center;
-    color: #c2b9b9;
-}
-.web-design-title {
-    color: #000;
-}
-.new-logo-description, .web-design-description {
-    font-size: 2rem; /* Adjust font size to fit under the image */
-    font-family: "Moveo Sans W00 Regular";
-    text-align: center;
-    max-width: 100%; /* Limit the width of the paragraph */
-    margin-top: 4rem; /* Add space between the image and the paragraph */
-    color: #c2b9b9;
-}
-.web-design-description, .web-wix-tease {
-    font-size: 1.4rem; /* Adjust font size to fit under the image */
-    font-family: "Moveo Sans W00 Regular";
-    text-align: center;
-    margin: 50px;
-    max-width: 100%; /* Limit the width of the paragraph */
-    margin-top: 2rem; /* Add space between the image and the paragraph */
-    color: #000;
-}
-.new-logo-button, .web-design-button {
-    background-color: #4d7faa;
-    position: relative;
-    font-size: 5rem; /* Adjust size as needed */
-    color: #ffffff;
-    padding: 3rem 3rem; /* Adjust padding for a better fit */
-    text-align: center;
-    width: fit-content;
-    border-radius: 5px;
-    font-family: "Kairos W04 Extended Bold";
-    cursor: pointer;
-}
-.web-design-button {
-    background-color: #4d7faa;
-    position: relative;
-    font-size: 5rem; /* Adjust size as needed */
-    color: #ffffff;
-    padding: 1rem 2rem; /* Adjust padding for a better fit */
-    text-align: center;
-    width: fit-content;
-    border-radius: 5px;
-    font-family: "Kairos W04 Extended Bold";
-    cursor: pointer;
-}
-.new-logo-button:hover, .web-design-button:hover {
-    background-color: #8fcbff;
-}
-.new-logo-img {
-    width: 50%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: fill;
-    border: 5px solid #0c68c4; /* Inner border - darker blue */
-    padding: 4px; /* Space between inner and outer border */
-    background-color: #c7ced4; /* Outer border - lighter blue */
-}
-.new-logo-button-container, .web-design-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem; /* Adjust as needed */
-}
-.web-design-section {
-    display: grid;
-    padding: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    width: 100%;
-    background-color: #d1cccc;
-    box-sizing: border-box;
-}
-.web-design-img-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-.custom-sign-service-button, 
-.decals-stickers-service-button, 
-.banner-service-button, 
-.t-shirt-service-button, 
-.window-service-button, 
-.drywall-service-button, 
-.fleet-service-button {
-width: 12rem;
-height: 14rem;
-}
 @media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
-.service-page-heading {
-    font-size: 6rem;
-}
-    .service-question {
-    font-size: 3rem;
-    margin-bottom: 0rem;
-}
-.material-services-buttons {
-    margin: 0;
-    gap: 0.03rem;
-    margin-bottom: 20px;
-}
-.custom-sign-service-button, 
-.decals-stickers-service-button, 
-.banner-service-button, 
-.t-shirt-service-button,
-.window-service-button, 
-.drywall-service-button, 
-.fleet-service-button {
-    width: 7.5rem;
-    height: 9.5rem;
-    }
-    
-.decals-stickers-service-button span,
-.banner-service-button span,
-.t-shirt-service-button span,
-.window-service-button span,
-.drywall-service-button span,
-.fleet-service-button span {
-    font-size: 13px;
-    line-height: 1.2;
-}
-.custom-sign-service-button span {
-    line-height: 1.2;
-    font-size: 12px;
-}
-.service-description {
-    font-size: 1.3rem;
-    margin-top: 1rem;
-}
-.service-contact {
-    font-size: 1.3rem;
-    margin-top: 1rem;
-}
-.new-logo-img {
-    width: 100%;
-    height: 100%;
-    max-width: 600px;
-}
-.new-logo-description,  .web-design-description {
-    font-size: 1.8rem;
-    margin-top: 1rem;
-}
-.web-design-img {
-    max-width: 600px;
-}
-}
-@media screen and (max-width: 1200px) and (orientation: landscape) {
-    .service-page-heading {
-        font-size: 3rem;
-    }
-    .service-note {
-        max-width: 400px;
-    }
-    .service-question {
-        font-size: 1.5rem;
-        margin-bottom: 0rem;
-    }
-    .service-description {
-        font-size: 0.7rem;
-        margin-top: 1rem;
-        max-width: 80%;
-    }
-    .service-contact {
-        font-size: 0.7rem;
-        margin-top: 1rem;
-        margin: 10px;
-    }
-    .working-img-two {
-        width: 100%;
-        max-width: 1000px;
-        
-    }
-    .material-services-buttons {
-        margin: 0;
-        gap: 0.03rem;
-        margin-bottom: 20px;
-    }
-    .new-logo-img {
-        width: 100%;
-  
-    }
-    .logo-new, .web-design-title {
-        font-size: 1.8rem;
-        
-    }
-    .new-logo-description, .web-design-description {
-        font-size: 0.8rem;
-        margin-top: 0;
-        margin: 0;
-    }
-    .new-logo-button, .web-design-button {
-        font-size: 2rem;
-        padding: 1rem 2rem;
-    }
-    .web-design-description, .web-wix-tease {
-        font-size: 0.7rem;
-        padding-top: 1.5rem;
-        margin: 0;
-    }
-    .web-design-img-container {
-        margin: 0 auto;
-    }
-    .web-design-img {
-        width: 100%;
-        max-width: 400px;
-        margin: 1rem;
-        height: auto;
-    }
-    .custom-sign-service-button, 
-    .decals-stickers-service-button, 
-    .banner-service-button, 
-    .t-shirt-service-button, 
-    .window-service-button, 
-    .drywall-service-button, 
-    .fleet-service-button {
-        width: 3.4rem;
-        height: 4.5rem;
-    }
-    /* Adjust button content alignment */
-    .custom-sign-service-button img,
-    .decals-stickers-service-button img,
-    .banner-service-button img,
-    .t-shirt-service-button img,
-    .window-service-button img,
-    .drywall-service-button img,
-    .fleet-service-button img {
-        width: 15px; /* Consistent icon size */
-        height: 15px;
-        margin-bottom: 10px; /* Space between icon and text */
-    }
-
-    .custom-sign-service-button span,
-    .decals-stickers-service-button span,
-    .banner-service-button span,
-    .t-shirt-service-button span,
-    .window-service-button span,
-    .drywall-service-button span,
-    .fleet-service-button span {
-        font-size: 0.31rem; /* Adjust font size for smaller screens */
-    }
-}
-@media screen and (max-width: 1200px) and (orientation: portrait) {
-    .service-page-heading {
-        font-size: 3rem;
-    }
-    
-    .service-note-container {
-        display: block;
-    }
-    .service-question {
-        font-size: 2.2rem;
-        order: 1;
-    }
-    .service-description {
-        font-size: 1rem;
-    }
-    .service-contact {
-        font-size: 1rem;
-    }
-    .web-design-section, .logo-design-section {
-        display: block;
-    }
-    .service-note {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .working-img-two {
-        order: 2; /* Move image between h1 and p */
-        margin-top: 1rem; /* Adjust margin if needed */
-        width: 100%; /* Make sure the image is responsive */
-    }
-
-    .service-description, .service-contact {
-        order: 3;
+    .section-text .action-button {
         font-size: 1.2rem;
     }
-
-    .working-two {
-        width: 100%; /* Ensure the image fits within the container */
-        max-width: 100%; /* Prevent the image from exceeding container width */
-        height: auto;
+    .service-button-heading {
+        font-size: 1.3rem;
     }
-    
-    .new-logo-img {
-        width: 100%;
-    }
-    .logo-new, .web-design-title {
-        font-size: 2.8rem;
-        
-    }
-    .new-logo-description, .web-design-description {
-        font-size: 1.2rem;
-        margin-top: 0;
-        margin: 0;
-    }
-    .new-logo-button, .web-design-button {
-        font-size: 2rem;
-        padding: 1rem 2rem;
-    }
-    .web-design-description, .web-wix-tease {
-        font-size: 1.2rem;
-        padding-top: 1.5rem;
-        margin: 0;
-    }
-    .web-design-img-container {
-        margin: 0 auto;
-    }
-    .web-design-img {
-        width: 100%;
-        margin: 1rem;
-        height: auto;
-    }
-}
-/* Media query for 320px - 600px portrait screen */
-@media screen and (min-width: 320px) and (max-width: 600px) and (orientation: portrait) {
-    .service-page-heading {
-        font-size: 3rem; /* Scale down from 150px */
-        text-align: center;
-        color: #2f2f2f;
-        font-family: "Kairos W04 Extended Bold";
-    }
-    
-    .service {
-        background-color: aqua;
-    }
-
-    .service-main {
-        background-color: #e7e7e7;
-    }
-
-    .service-para {
-        font-size: 1.5rem; /* Scale down from 30px */
-        text-align: center;
-        margin: 20px;
-        font-family: "Moveo Sans w00 Regular";
-        width: auto;
-    }
-
-    .material-worx-service {
-        color: #7aebff;
-        font-size: 2rem; /* Scale down from 60px */
-        padding: 10px;
-        font-family: "Moveo Sans w00 Bold";
-    }
-
-    .material-services-buttons {
-        display: flex;
-        flex-direction: column; /* Stack buttons vertically for smaller screens */
-        gap: 1rem;
-        justify-content: center; /* Center buttons on smaller screens */
-        margin: 20px;
-    }
-
     .custom-sign-service-button,
     .decals-stickers-service-button,
     .banner-service-button,
@@ -540,13 +215,47 @@ height: 14rem;
     .window-service-button,
     .drywall-service-button,
     .fleet-service-button {
-        width: 100%; /* Make buttons take up full width */
-        height: auto; /* Let height adjust to content */
-        padding: 15px;
-        font-size: 1rem; /* Scale down text size */
-        text-align: center;
+      width: 100px;
     }
-
+    .material-services-buttons a {
+        width: 80px;
+        height: 100px;
+    }
+    .custom-sign-service-button img, 
+    .decals-stickers-service-button img, 
+    .banner-service-button img, 
+    .t-shirt-service-button img, 
+    .window-service-button img, 
+    .drywall-service-button img, 
+    .fleet-service-button img {
+        width: 30px;
+        height: 30px;
+    }
+    .custom-sign-service-button span, 
+    .decals-stickers-service-button span, 
+    .banner-service-button span, 
+    .t-shirt-service-button span, 
+    .window-service-button span, 
+    .drywall-service-button span, 
+    .fleet-service-button span {
+        font-size: 0.5rem;
+    }
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    .section-text .action-button {
+        font-size: 0.9rem;
+    }
+    .custom-sign-service-button,
+    .decals-stickers-service-button,
+    .banner-service-button,
+    .t-shirt-service-button,
+    .window-service-button,
+    .drywall-service-button,
+    .fleet-service-button {
+      width: 7.5rem;
+      height: 9.5rem;
+    }
+  
     .custom-sign-service-button img,
     .decals-stickers-service-button img,
     .banner-service-button img,
@@ -554,81 +263,62 @@ height: 14rem;
     .window-service-button img,
     .drywall-service-button img,
     .fleet-service-button img {
-        width: 40px; /* Scale down icon size */
-        height: 40px;
-        margin-bottom: 10px;
+      width: 40px; /* Adjust icon size for smaller screens */
+      height: 40px;
     }
-
-    .service-note-container {
-        display: grid;
-        grid-template-columns: 1fr; /* Make it a single-column layout for smaller screens */
-        align-items: flex-start;
-        width: 100%;
-        background-color: #c2b9b9;
-        padding: 20px;
+  
+    .custom-sign-service-button span,
+    .decals-stickers-service-button span,
+    .banner-service-button span,
+    .t-shirt-service-button span,
+    .window-service-button span,
+    .drywall-service-button span,
+    .fleet-service-button span {
+      font-size: 13px;
+      line-height: 1.2;
     }
-
-    .service-question {
-        font-size: 2rem; /* Scale down from 5rem */
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-family: "Moveo Sans W00 Bold";
+}
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+    .section-text .action-button {
+        font-size: 1.2rem;
     }
-
-    .service-description {
-        font-size: 1.2rem; /* Scale down text size */
-        font-family: "Moveo Sans W00 Regular";
-        text-align: left;
-    
-        margin-top: 1.5rem;
+    .service-button-heading {
+        font-size: 0.7rem;
     }
-
-    .service-contact {
-        font-size: 1.2rem; /* Scale down from 40px */
-        margin: 30px;
-        font-family: "Moveo Sans W00 Regular";
+    .custom-sign-service-button,
+    .decals-stickers-service-button,
+    .banner-service-button,
+    .t-shirt-service-button,
+    .window-service-button,
+    .drywall-service-button,
+    .fleet-service-button {
+      width: 100px;
     }
-
-    .image-service-section {
-        display: flex;
-        flex-direction: column; /* Stack image section in column on smaller screens */
-        align-items: center;
-        width: 100%;
+    .material-services-buttons {
+        gap: 0;
     }
-
-    .working-img-two {
-        width: 100%; /* Make image full width */
-        padding: 15px;
-        margin-bottom: 1rem;
+    .material-services-buttons a {
+        width: 60px;
+        height: 100px;
     }
-
-    .working-two {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #003366; /* Adjust border size for smaller screens */
-        padding: 3px;
-        background-color: #66b2ff;
+    .custom-sign-service-button img, 
+    .decals-stickers-service-button img, 
+    .banner-service-button img, 
+    .t-shirt-service-button img, 
+    .window-service-button img, 
+    .drywall-service-button img, 
+    .fleet-service-button img {
+        width: 25px;
+        height: 25px;
     }
-
-    .new-logo-img {
-        width: 80%; /* Adjust image size for smaller screens */
-    }
-
-    .new-logo-button, .web-design-button {
-        font-size: 2rem; /* Adjust button text size */
-        padding: 1.5rem; /* Adjust padding */
-    }
-
-    .logo-new, .web-design-title {
-        font-size: 3rem; /* Adjust title font size */
-    }
-
-    .new-logo-description, .web-design-description {
-        font-size: 1.2rem; /* Adjust description font size */
-        margin-top: 1.5rem;
+    .custom-sign-service-button span, 
+    .decals-stickers-service-button span, 
+    .banner-service-button span, 
+    .t-shirt-service-button span, 
+    .window-service-button span, 
+    .drywall-service-button span, 
+    .fleet-service-button span {
+        font-size: 0.35rem;
     }
 }
 
@@ -639,71 +329,39 @@ height: 14rem;
     .service-note-container {
         display: block;
     }
-    .service-question {
-        font-size: 2rem;
-        order: 1;
+    .section-text {
+        width: auto;
+        margin-bottom: 1rem;
     }
-    .service-description {
+    .section-text h1 {
         font-size: 1rem;
+        text-align: center;
+        margin-bottom: 0;
     }
-    .service-contact {
+    .service-description, .service-contact {
+        font-size: 0.6rem;
+    }
+    .section-container img {
+        width: 100%;
+    }
+    .material-services-buttons  {
+        margin: 0;
+    }
+    .service-button-heading {
         font-size: 1rem;
+        text-align: center;
     }
     .web-design-section, .logo-design-section {
         display: block;
     }
-    .service-note {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .working-img-two {
-        order: 2; /* Move image between h1 and p */
-        margin-top: 1rem; /* Adjust margin if needed */
-        width: 100%; /* Make sure the image is responsive */
-    }
-
-
-    .service-description, .service-contact {
-        order: 3;
-    }
-
-    .working-two {
-        width: 100%; /* Ensure the image fits within the container */
-        max-width: 100%; /* Prevent the image from exceeding container width */
-        height: auto;
-    }
-    .new-logo-img {
-        width: 100%;
-    }
-    .logo-new, .web-design-title {
-        font-size: 2.3rem;
-        
-    }
     .new-logo-description, .web-design-description {
-        font-size: 1rem;
-        margin-top: 0;
-        margin: 0;
+        font-size: 0.6rem;
+        padding-top: 0;
     }
-    .new-logo-button, .web-design-button {
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
+    .section-text .action-button {
+        font-size: 0.6rem;
     }
-    .web-design-description, .web-wix-tease {
-        font-size: 1rem;
-        padding-top: 1.5rem;
-        margin: 0;
-    }
-    .web-design-img-container {
-        margin: 0 auto;
-    }
-    .web-design-img {
-        width: 100%;
-        margin: 1rem;
-        height: auto;
-    }
- }
+}
 @media screen and (max-width: 320px) and (orientation: portrait) {
     .service-page-heading {
         font-size: 2rem;
@@ -711,67 +369,36 @@ height: 14rem;
     .service-note-container {
         display: block;
     }
-    .service-question {
-        font-size: 2rem;
-        order: 1;
+    .section-text {
+        width: auto;
+        margin-bottom: 1rem;
     }
-    .service-description {
+    .section-text h1 {
         font-size: 1rem;
+        text-align: center;
+        margin-bottom: 0;
     }
-    .service-contact {
+    .service-description, .service-contact {
+        font-size: 0.6rem;
+    }
+    .section-container img {
+        width: 100%;
+    }
+    .material-services-buttons  {
+        margin: 0;
+    }
+    .service-button-heading {
         font-size: 1rem;
+        text-align: center;
     }
     .web-design-section, .logo-design-section {
         display: block;
     }
-    .service-note {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .working-img-two {
-        order: 2; /* Move image between h1 and p */
-        margin-top: 1rem; /* Adjust margin if needed */
-        width: 100%; /* Make sure the image is responsive */
-    }
-
-    .service-description, .service-contact {
-        order: 3;
-    }
-
-    .working-two {
-        width: 100%; /* Ensure the image fits within the container */
-        max-width: 100%; /* Prevent the image from exceeding container width */
-        height: auto;
-    }
-    .new-logo-img {
-        width: 100%;
-    }
-    .logo-new, .web-design-title {
-        font-size: 2.3rem;
-        
-    }
     .new-logo-description, .web-design-description {
-        font-size: 1rem;
-        margin-top: 0;
-        margin: 0;
+        font-size: 0.6rem;
+        padding-top: 0;
     }
-    .new-logo-button, .web-design-button {
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
-    }
-    .web-design-description, .web-wix-tease {
-        font-size: 1rem;
-        padding-top: 1.5rem;
-        margin: 0;
-    }
-    .web-design-img-container {
-        margin: 0 auto;
-    }
-    .web-design-img {
-        width: 100%;
-        margin: 1rem;
-        height: auto;
+    .section-text .action-button {
+        font-size: 0.6rem;
     }
 }
