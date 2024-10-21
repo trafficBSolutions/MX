@@ -45,7 +45,7 @@ export default function MXSignGallery() {
 
   return (
     <div className="mx-gallery-container">
-    <h2 className="photo-mx-note">MX CUSTOMIZABLE SIGNAGE PHOTO GALLERY</h2>
+    <h2 className="photo-sign-mx-note">MX CUSTOMIZABLE SIGNAGE PHOTO GALLERY</h2>
     <div className="gallery">
       {visiblePhotos.map((photo, index) => (
         <div className="gallery-item" key={index}>
