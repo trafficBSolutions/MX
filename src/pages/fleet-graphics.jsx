@@ -748,7 +748,6 @@ const handleSubmit = async (e) => {
 </div>
 <div className="fleet-actual">
   <div className="name-section-fleet">
-    <label className="first-fleet-name-label">Name: </label>
       <div className="first-name-fleet-input">
 
   <div className="first-fleet-name">
@@ -800,7 +799,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="company-fleet-section">
-<label className="fleet-company-label">Company/Excavator: </label>
 <div className="company-fleet-input">
   <div className="company-fleet">
     <div className="fleet-company-name-input">
@@ -821,7 +819,6 @@ onChange={(e) => {
   </div>
   </div>
   <div className="emailphone-fleet-section">
-  <label className="emailphone-fleet-label">Email/Phone Number:</label>
 <div className="emailphone-fleet-input">
   <div className="email-fleet">
     <div className="email-fleet-input">
@@ -870,7 +867,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="address-fleet-section">
-<label className="address-fleet-label">Company Address: </label>
 <div className="address-fleet-input-container">
 <div className="address-fleet-input">
 <div className="address-fleet-container">
@@ -954,7 +950,7 @@ onChange={(e) => {
 </div>
 </div>
 <div className="vehicle-type-fleet-section">
-<label className="type-fleet-label" htmlFor="vehicleType">Vehicle Type:</label>
+<label className="type-fleet-label" htmlFor="vehicleType">Vehicle Type *</label>
 <div className="type-fleet-section">
   {/* Vehicle Type Dropdown */}
   <select className="type-fleet-box" value={selectedVehicleType} onChange={handleTypeChange}>
@@ -1040,10 +1036,9 @@ onChange={(e) => {
 <label className="size-fleet-label">Size of Vehicle:</label>
 {/* Driver Size Section */}
 <div className="size-fleet-section">
-  <label className="size-driver-fleet-note">Driver Side:</label>
   <div className="driver-side-section">
     <div className="driver-length-section">
-    <label className="length-fleet-label" htmlFor="driver-length">Length *</label>
+    <label className="length-fleet-label" htmlFor="driver-length">Driver Side Length *</label>
     <input
       className="length-fleet-box"
       type="number"
@@ -1064,7 +1059,7 @@ onChange={(e) => {
     </select>
 </div>
     <div className="driver-width-section">
-    <label className="width-fleet-label" htmlFor="driver-width">Width *</label>
+    <label className="width-fleet-label" htmlFor="driver-width">Driver Side Width *</label>
     <input
       className="width-fleet-box"
       type="number"
@@ -1083,13 +1078,20 @@ onChange={(e) => {
       <option value="feet">Feet</option>
       <option value="inches">Inches</option>
     </select>
+    <button
+      type="button"
+      className="btn -- driver-submit-size"
+      onClick={handleAddDriverSize}
+    >
+      ADD DRIVER SIZE
+    </button>
     {/* Added Driver Sizes */}
     {addedDriverSizes.length > 0 ? (
       addedDriverSizes.map((size, index) => (
         <li className="vehicle-driver-size-li" key={index}>
           {size}
           <button
-            className="btn-submit btn--full driver-remove-submit-size"
+            className="btn -- driver-remove-submit-size"
             type="button"
             onClick={() => handleRemoveDriverSize(index)}
           >
@@ -1101,23 +1103,15 @@ onChange={(e) => {
       <p className="no-added-vehicles">No Driver sizes added yet.</p>
     )}
   </div>
-  <button
-      type="button"
-      className="btn-submit btn--full driver-submit-size"
-      onClick={handleAddDriverSize}
-    >
-      ADD DRIVER SIZE
-    </button>
 </div>
 </div>
 {driverSizeError && <span className="error-message">{driverSizeError}</span>}
 
 {/* Passenger Size Section */}
 <div className="size-fleet-section">
-  <label className="size-passenger-fleet-note">Passenger Side:</label>
   <div className="passenger-side-section">
     <div className="passenger-length-section">
-    <label className="length-fleet-label" htmlFor="passenger-length">Length *</label>
+    <label className="length-fleet-label" htmlFor="passenger-length">Passenger Side Length *</label>
     <input
       className="length-fleet-box"
       type="number"
@@ -1138,7 +1132,7 @@ onChange={(e) => {
     </select>
 </div>
 <div className="passenger-side-width">
-    <label className="width-fleet-label" htmlFor="passenger-width">Width *</label>
+    <label className="width-fleet-label" htmlFor="passenger-width">Passenger Side Width *</label>
     <input
       className="width-fleet-box"
       type="number"
@@ -1160,7 +1154,7 @@ onChange={(e) => {
 </div>
     <button
       type="button"
-      className="btn-submit btn--full passenger-submit-size"
+      className="btn -- passenger-submit-size"
       onClick={handleAddPassengerSize}
     >
       ADD PASSENGER SIZE
@@ -1172,7 +1166,7 @@ onChange={(e) => {
         <li className="vehicle-passenger-size-li" key={index}>
           {passengerSize}
           <button
-            className="btn-submit btn--full passenger-remove-submit-size"
+            className="btn -- passenger-remove-submit-size"
             type="button"
             onClick={() => handleRemovePassengerSize(index)}
           >
@@ -1189,10 +1183,9 @@ onChange={(e) => {
 {passengerSizeError && <span className="error-message">{passengerSizeError}</span>}
 </div>
 <div className="door-size-fleet-section">
-<label className="size-fleet-label">Size of Backdoor/Tailgate:</label>
 <div className="size-door-fleet-section">
   <div className="length-door-fleet-section">
-    <label className="length-fleet-label" htmlFor="length">Length *</label>
+    <label className="length-fleet-label" htmlFor="length">Backdoor/Tailgate Length *</label>
     <input
       className="length-door-fleet-box"
       type="number"
@@ -1213,7 +1206,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-door-fleet-section">
-    <label className="width-fleet-label" htmlFor="width">Width *</label>
+    <label className="width-fleet-label" htmlFor="width">Backdoor/Tailgate Width *</label>
     <input
       className="width-door-fleet-box"
       type="number"
@@ -1264,7 +1257,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="finishing-fleet-section">
-<label className="finish-fleet-label">Finishing Touch:</label>
 <div className="fleet-finish-img-section">
   <div className="matte-img-fleet">
     <img className="matte-img" alt="matte" src={images["../assets/vinyls/matte.jpg"].default}/>
@@ -1296,17 +1288,16 @@ onChange={(e) => {
       </option>
     ))}
   </select>
-  <button className="btn btn--full submit-finishing" type="button" onClick={handleAddFinishing}>
+  <button className="btn -- submit-finishing" type="button" onClick={handleAddFinishing}>
     ADD FINISHING
   </button>
-  <div className="finishing-list">
   <ul>
   {addedFinishing.length > 0 ? (
     addedFinishing.map((finishing, index) => (
       <li className="finishing-item" key={index}>
         {finishing}
         <button
-          className="btn btn--full remove-finishing"
+          className="btn -- remove-finishing"
           onClick={() => handleRemoveFinishing(index)}
         >
           REMOVE FINISHING
@@ -1320,16 +1311,15 @@ onChange={(e) => {
 {finishingError && <span className="error-message">{finishingError}</span>}
   </div>
 </div>
-</div>
 <div className="fleet-file-section">
-<label className="fleet-file-label">Logo/Image:</label>
+<label className="fleet-file-label">Logo/Image *</label>
 <h2 className="fleet-warn"><b className="fleet-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
     <p className="log-re">Logo Redesigning(Optional)</p>
     <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo" className="btn -- new-fleet-logo-button">NEW LOGO</a>
+    here: <a href="/new-logo">NEW LOGO</a>.
     We will send you a quote for the logo redesigning and you can choose to accept it or not.
 </p>
 </h2>
@@ -1340,7 +1330,7 @@ onChange={(e) => {
   Specify your trailer in the message section and how you want your trailer to be designed.
   </p>
 <div className="file-fleet-section">
-<label htmlFor="logo-select" className="fleet-logo">Logo/Image for Graphics *</label>
+
 
 <div className="choose-logo-contain">
   <label className="file-fleet-label">
@@ -1380,7 +1370,7 @@ onChange={(e) => {
 </div>
 </div>
 <div className="fleet-message-container">
-<label className="message-fleet-label">Message: </label>
+<label className="message-fleet-label">Message *</label>
 <h1 className="message-fleet-note">
   Tell us about your vehicle fleet/decal job and how you want it designed! 
   You can add photos of your vehicles and trailers to help us understand your needs. 
@@ -1406,7 +1396,7 @@ onChange={(e) => {
 )}
 
   </div>
-  <button type="submit" className="btn-fleet-submit btn--full submit-fleet" onClick={handleSubmit}>SUBMIT VEHICLE FLEET/DECAL GRAPHICS</button>
+  <button type="submit" className="btn -- submit-fleet" onClick={handleSubmit}>SUBMIT VEHICLE FLEET/DECAL GRAPHICS</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
@@ -1454,6 +1444,10 @@ onChange={(e) => {
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
         </div>
         
     )
