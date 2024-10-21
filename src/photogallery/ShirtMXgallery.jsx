@@ -40,7 +40,7 @@ export default function MXShirtGallery() {
   const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 2);
   return (
     <div className="mx-gallery-container">
-      <h2 className="photo-mx-note">MX T-SHIRT SWEATSHIRT JACKET PHOTO GALLERY</h2>
+      <h2 className="photo-mx-apparel-note">MX T-SHIRT SWEATSHIRT JACKET PHOTO GALLERY</h2>
       <div className="gallery">
         {visiblePhotos.map((photo, index) => (
           <div className="gallery-item" key={index}>
