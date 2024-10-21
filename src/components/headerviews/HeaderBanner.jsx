@@ -37,7 +37,7 @@ function Header() {
                             <li><a className="sub-material-nav-list-view" href="">Banners</a></li>
                             <li><a className="main-material-nav-link" href="/t-shirts-sweatshirts-jackets">T-Shirts, Sweatshirts, Jackets</a></li>
                             <li><a className="main-material-nav-link" href="/window-frost-tint">Window Frosting & Tinting</a></li>
-                            <li><a className="main-material-nav-link" href="/drywall-floor-concrete">Drywall, Floor & Concrete Vinyl</a></li>
+                            <li><a className="main-material-nav-link" href="/drywall-floor-concrete">Wall, Floor & Concrete Vinyl</a></li>
                             <li><a className="main-material-nav-link" href="/fleet-graphics">Fleet Graphics</a></li>
                         </ul>
                     </li>
