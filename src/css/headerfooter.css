@@ -377,9 +377,16 @@
 .warning-trade {
   color: red;
 }
-.trademark-img {
-  width: 100px;
-  margin: auto;
+.footer-copyright {
+  background-color: #07344e;
+  color: #fff;
+  text-align: center;
+}
+.footer-copy-p {
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
 }
 @media screen and (min-width: 1200px) and (max-width: 1920px) and (orientation: portrait)  {
   .main-material-nav {
@@ -471,6 +478,7 @@
           font-family: "Kairos W04 Extended Bold";
           transition: all .3s;
           display: flex;
+          max-width: 200px;
           padding-top: 10px;
           align-items: center;
           background-color: #efad76;
