@@ -294,7 +294,6 @@ const Window = () => {
                 </div>
                 <div className="window-actual">
                   <div className="name-section-window">
-<label className="first-window-name-label">Name: </label>
 <div className="first-name-window-input">
 
   <div className="first-window-name">
@@ -349,8 +348,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="company-window-section">
-<label className="window-company-label">Company/Excavator: </label>
-
 <div className="company-window-input">
   <div className="company-window">
     <div className="window-company-name-input">
@@ -372,7 +369,6 @@ onChange={(e) => {
   </div>
 </div>
 <div className="emailphone-window-section">
-<label className="emailphone-window-label">Email/Phone Number:</label>
 <div className="emailphone-window-input">
   <div className="email-window">
     <div className="email-window-input">
@@ -422,7 +418,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="address-window-section">
-<label className="address-window-label">Company Address: </label>
 <div className="address-window-input-container">
 <div className="address-window-input">
 <div className="address-window-container">
@@ -506,10 +501,9 @@ onChange={(e) => {
 </div>
 </div>
 <div className="window-size-section">
-<label className="size-window-label">Size of Window:</label>
 <div className="size-window-section">
   <div className="length-window-section">
-    <label className="length-window-label" htmlFor="length">Length *</label>
+    <label className="length-window-label" htmlFor="length">Window Length *</label>
     <input
   className="length-window-box"
   type="number"
@@ -530,7 +524,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-window-section">
-    <label className="width-window-label" htmlFor="width">Width *</label>
+    <label className="width-window-label" htmlFor="width">Window Width *</label>
     <input
   className="width-window-box"
   type="number"
@@ -551,7 +545,7 @@ onChange={(e) => {
   </div>
   </div>
   <div className="border-window-section">
-  <label className="border-label" htmlFor="border">Border Radius*</label>
+  <label className="border-label" htmlFor="border">Border Radius *</label>
   <input
   className="border-window-box"
   type="number"
@@ -574,7 +568,7 @@ onChange={(e) => {
 </div>
 
 
-<button className="btn btn--full submit-window-size" type="button" onClick={handleAddSize}>
+<button className="btn -- submit-window-size" type="button" onClick={handleAddSize}>
   ADD SIZE
 </button>
 {errors.windowSize && <div className="error-message">{errors.windowSize}</div>}
@@ -585,7 +579,7 @@ onChange={(e) => {
         <li className="size-item" key={index}>
           Length: {size.length}, Width: {size.width}, Border: {size.border}
           <button
-            className="btn btn--full remove-size"
+            className="btn -- remove-size"
             onClick={() => handleRemoveSize(index)}
           >
             REMOVE SIZE
@@ -601,33 +595,32 @@ onChange={(e) => {
 
 </div>
 <div className="window-stand-section">
-<label className="place-window-label">Types of Frost/Tint:</label>
 <div className="tint-imgs">
-    <div className="place-img-container">
+    <div className="window-text-container">
         <h1 className="place-examples">Frost/Tint Examples</h1>
     </div>
-<div className="place-flex-container">
-    <div className="place-img-container">
+<div className="window-img-container">
+    <div className="window-img-contain">
         <img src={images["../assets/window tinting types/black out.png"].default} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Black Out</h3>
 </div>
-<div className="place-img-container">
+<div className="window-img-contain">
         <img src={images["../assets/window tinting types/white out.png"].default} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">White Out</h3>
 </div>
-<div className="place-img-container">
+<div className="window-img-contain">
         <img src={images["../assets/window tinting types/white frost.png"].default} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">White Frost</h3>
 </div>
-<div className="place-img-container">
+<div className="window-img-contain">
         <img src={images["../assets/window tinting types/reflective.png"].default} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Reflective</h3>
 </div>
-<div className="place-img-container">
+<div className="window-img-contain">
         <img src={images["../assets/window tinting types/Panashield.png"].default} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Panashield</h3>
 </div>
-<div className="place-img-container">
+<div className="window-img-contain">
         <img src={images["../assets/window tinting types/sputterd bronze.png"].default} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Sputtered Bronze</h3>
 </div>
@@ -648,7 +641,7 @@ onChange={(e) => {
           ))}
         </select>
       </div>
-      <button className="btn btn--full submit-window-place" type="button" onClick={handleAddTint}>
+      <button className="btn -- submit-window-place" type="button" onClick={handleAddTint}>
   ADD TINT
 </button>
 {errors.tint && <div className="error-message">{errors.tint}</div>}
@@ -659,7 +652,7 @@ onChange={(e) => {
         <li className="tint-item" key={index}>
           {tint}
           <button
-            className="btn btn--full remove-tint"
+            className="btn -- remove-tint"
             onClick={() => handleRemoveTint(index)}
           >
             REMOVE FROST/TINT
@@ -673,7 +666,7 @@ onChange={(e) => {
   </div>
       </div>
 <div className="window-message-container">
-<label className="message-window-label">Message: </label>
+<label className="message-window-label">Message *</label>
 <h1 className="message-window-note">Tell us about your window frost/tinting job and how you want it designed! Is your frost/tint going
     into your home, office building, etc...? If you need
 to request a crew to help install your Window Frosting/Tinting, please specify where the location is, when 
@@ -740,6 +733,10 @@ and what time you want an MX crew will arrive.</h1>
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
                 </div>
             );
 };
