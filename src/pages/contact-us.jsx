@@ -111,9 +111,10 @@ const Contact = () => {
     <div className="contact-flexi">
     <form className="contact-set"
         onSubmit={handleSubmit}>
+          <h1 className="contact-app-box">SEND A MESSAGE TO MX</h1>
+          <h2 className="contact-fill">Please Fill Out the Form Below to Submit Your Message.</h2>
 <div className="contact-actual">
   <div className="name-section-contact">
-    <label className="first-contact-name-label">Name: </label>
       <div className="first-name-contact-input">
 
   <div className="first-contact-name">
@@ -163,7 +164,6 @@ const Contact = () => {
 </div>
 </div>
 <div className="company-contact-section">
-<label className="contact-company-label">Company/Excavator: </label>
 <div className="company-contact-input">
   <div className="company-contact">
     <div className="contact-company-name-input">
@@ -184,7 +184,6 @@ const Contact = () => {
   </div>
   </div>
   <div className="emailphone-contact-section">
-  <label className="emailphone-contact-label">Email/Phone Number:</label>
 <div className="emailphone-contact-input">
   <div className="email-contact">
     <div className="email-contact-input">
@@ -231,7 +230,7 @@ onChange={handlePhoneChange}
 </div>
 </div>
 <div className="contact-message-container">
-<label className="message-contact-label">Message: </label>
+<label className="message-contact-labe">Message *</label>
 <textarea className="message-contact-text" name="message" type="text" placeholder="Enter Message"
   value={formData.message} onChange={(e) => {
     setFormData({ ...formData, message: e.target.value });
@@ -250,7 +249,7 @@ onChange={handlePhoneChange}
 )}
 
   </div>
-  <button type="submit" className="btn-contact-submit btn--full submit-contact" onClick={handleSubmit}>SUBMIT MESSAGE</button>
+  <button type="submit" className="btn -- submit-contact" onClick={handleSubmit}>SUBMIT MESSAGE</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
@@ -342,6 +341,10 @@ onChange={handlePhoneChange}
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
       </div>
     )
 }
