@@ -46,7 +46,7 @@ export default function MXFleetGallery() {
 
   return (
     <div className="mx-gallery-container">
-      <h2 className="photo-mx-note">MX FLEET GRAPHICS PHOTO GALLERY</h2>
+      <h2 className="photo-fleet-mx-note">MX FLEET GRAPHICS PHOTO GALLERY</h2>
       <div className="gallery">
         {visiblePhotos.map((photo, index) => (
           <div className="gallery-item" key={index}>
