@@ -201,7 +201,6 @@ const Logo = () => {
 </div>
 <div className="logo-actual">
   <div className="name-section-logo">
-    <label className="first-logo-name-label">Name: </label>
       <div className="first-name-logo-input">
 
   <div className="first-logo-name">
@@ -253,7 +252,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="company-logo-section">
-<label className="logo-company-label">Company/Excavator: </label>
 <div className="company-logo-input">
   <div className="company-logo">
     <div className="logo-company-name-input">
@@ -274,7 +272,6 @@ onChange={(e) => {
   </div>
   </div>
   <div className="emailphone-logo-section">
-  <label className="emailphone-logo-label">Email/Phone Number:</label>
 <div className="emailphone-logo-input">
   <div className="email-logo">
     <div className="email-logo-input">
@@ -323,7 +320,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="address-logo-section">
-<label className="address-logo-label">Company Address: </label>
 <div className="address-logo-input-container">
 <div className="address-logo-input">
 <div className="address-logo-container">
@@ -407,7 +403,7 @@ onChange={(e) => {
 </div>
 </div>
 <div className="logo-file-section">
-<label className="logo-file-label">Logo/Image:</label>
+<label className="logo-file-label">Logo/Image *</label>
 <h2 className="logo-warn"><b className="logo-notice">NOTICE</b>: 
 Please submit your logo you want redesigned and vectorized. If you have any questions or concerns,
  please call or text Carson Speer at <a href="tel:+17065814465">(706) 581-4465 </a>
@@ -420,9 +416,8 @@ Please submit your logo you want redesigned and vectorized. If you have any ques
 </div>
 <h1 className="logo-logo-label">You can submit jpeg, jpg, png, pdf, and svg files:</h1>
 <div className="file-logo-section">
-<label htmlFor="logo-select" className="logo-logo">Logo/Image for Redesigning *</label>
 <div className="choose-logo-contain">
-    <label className="file-logo-label">
+    <label className="btn -- file-logo-label">
     {formData.img ? (
             <span>{formData.img.name}</span>
           ) : (
@@ -432,7 +427,7 @@ Please submit your logo you want redesigned and vectorized. If you have any ques
           />
           </label>
           {formData.img && (
-            <button type="button" className="remove-logo-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
+            <button type="button" className="btn -- remove-logo-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
           )}
         
         {errors.img && <span className="error-message">{errors.img}</span>}
@@ -490,7 +485,7 @@ Please submit your logo you want redesigned and vectorized. If you have any ques
           </div>
 </div>
 <div className="logo-message-container">
-<label className="message-logo-label">Message: </label>
+<label className="message-logo-label">Message *</label>
 <h1 className="message-logo-note">Tell us about your logo and how you want it designed! Please specify if you need
   more specifications about your logo like if you want us to 
   design it with new colors, traces, shapes, icons, etc...,
@@ -517,7 +512,7 @@ we are closed, we will respond the next business day. Please also note that we d
 )}
 
   </div>
-  <button type="submit" className="btn-logo-submit btn--full submit-logo" onClick={handleSubmit}>SUBMIT NEW LOGO</button>
+  <button type="submit" className="btn -- submit-logo" onClick={handleSubmit}>SUBMIT NEW LOGO</button>
   {submissionErrorMessage &&
             <div className="submission-error-message">{submissionErrorMessage}</div>
           }
@@ -565,6 +560,10 @@ we are closed, we will respond the next business day. Please also note that we d
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
         </div>
     )
 }
