@@ -302,7 +302,6 @@ const Adhesive = () => {
                 </div>
                 <div className="dry-actual">
                   <div className="name-section-dry">
-<label className="first-dry-name-label">Name: </label>
 <div className="first-dry-dry-input">
 
   <div className="first-dry-name">
@@ -355,8 +354,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="company-dry-section">
-<label className="dry-company-label">Company/Excavator: </label>
-
 <div className="company-dry-input">
   <div className="company-dry">
     <div className="dry-company-name-input">
@@ -378,7 +375,6 @@ onChange={(e) => {
   </div>
   </div>
   <div className="emailphone-dry-section">
-<label className="emailphone-dry-label">Email/Phone Number:</label>
 <div className="emailphone-dry-input">
   <div className="email-dry">
     <div className="email-dry-input">
@@ -427,7 +423,6 @@ onChange={(e) => {
 </div>
 </div>
 <div className="address-dry-section">
-<label className="address-dry-label">Company Address: </label>
 <div className="address-dry-input-container">
 <div className="address-dry-input">
 <div className="address-dry-container">
@@ -511,10 +506,9 @@ onChange={(e) => {
 </div>
 </div>
 <div className="size-dry-vinyl-section">
-<label className="size-dry-label">Size of Vinyl:</label>
 <div className="size-dry-section">
   <div className="length-dry-section">
-    <label className="length-dry-label" htmlFor="length">Length *</label>
+    <label className="length-dry-label" htmlFor="length">Vinyl Length *</label>
     <input
       className="length-dry-box"
       type="number"
@@ -535,7 +529,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-dry-section">
-    <label className="width-dry-label" htmlFor="width">Width *</label>
+    <label className="width-dry-label" htmlFor="width">Vinyl Width *</label>
     <input
       className="width-dry-box"
       type="number"
@@ -558,7 +552,7 @@ onChange={(e) => {
   {/* Add button to add the size */}
   <button
     type="button"
-    className="dry-vinyl-submit-size btn--full"
+    className="btn -- dry-vinyl-submit-size"
     onClick={handleAddVinylSize}
   >
     ADD VINYL SIZE
@@ -571,7 +565,7 @@ onChange={(e) => {
         <li className="dry-vinyl-size-li" key={index}>
           {size}
           <button
-            className="dry-vinyl-remove-submit-size btn--full"
+            className="btn -- dry-vinyl-remove-submit-size"
             type="button"
             onClick={() => handleRemoveVinylSize(index)}
           >
@@ -585,17 +579,16 @@ onChange={(e) => {
   </ul>
 
   {/* Show error messages if any */}
-  {errorMessage && <p className="error-message">{errorMessage}</p>}
+  {errors.vinylSize && <p className="error-message">{errors.vinylSize}</p>}
 </div>
 
 </div>
 <div className="placement-dry-section">
-<label className="place-dry-label">Placement and Finishing:</label>
 <div className="placement-imgs">
     <div className="place-img-container">
         <h1 className="place-examples">Placement Examples</h1>
     </div>
-<div className="place-flex-container">
+<div className="place-img-dry-container">
     <div className="place-img-container">
       <img src={images["../assets/MX Photos/Nance 2.jpg"].default} alt="Placement=photo" className="place-img"/>
         <h3 className="place-img-test">Drywall Graphics</h3>
@@ -633,7 +626,7 @@ onChange={(e) => {
   ))}
 </select>
 
-        <button className="btn btn--full submit-place" type="button" onClick={handleAddPlacement}>
+        <button className="btn -- submit-place" type="button" onClick={handleAddPlacement}>
     ADD PLACEMENT
   </button>
   <div className="placement-list">
@@ -643,7 +636,7 @@ onChange={(e) => {
       <li className="placement-item" key={index}>
         {placement}
         <button
-          className="btn btn--full remove-placement"
+          className="btn -- remove-placement"
           onClick={() => handleRemovePlacement(index)}
         >
           REMOVE PLACEMENT
@@ -668,7 +661,6 @@ onChange={(e) => {
     <h2 className="gloss-dry-note">Gloss</h2>
   </div>
 </div>
-      <label className="finish-dry-label">Finishing Touch:</label>
       <div className="finish-fleet-section">
   <label className="finish-label" htmlFor="finishing">Finishing *</label>
   <select
@@ -685,7 +677,7 @@ onChange={(e) => {
       </option>
     ))}
   </select>
-  <button className="btn btn--full submit-dry-finishing" type="button" onClick={handleAddFinishing}>
+  <button className="btn -- submit-dry-finishing" type="button" onClick={handleAddFinishing}>
     ADD FINISHING
   </button>
   <div className="finishing-list">
@@ -695,7 +687,7 @@ onChange={(e) => {
       <li className="finishing-item" key={index}>
         {finishing}
         <button
-          className="btn btn--full remove-finishing"
+          className="btn -- remove-finishing"
           onClick={() => handleRemoveFinishing(index)}
         >
           REMOVE FINISHING
@@ -711,19 +703,18 @@ onChange={(e) => {
 </div>
       </div>
 <div className="dry-file-section">
-<label className="dry-file-label">Logo/Image:</label>
+<label className="dry-file-label">Logo/Image *</label>
 <h2 className="dry-warn"><b className="dry-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
     how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
     These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
     JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
     <p className="log-re">Logo Redesigning(Optional)</p>
     <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo" className="btn -- new-dry-logo-button">NEW LOGO</a>
+    here: <a href="/new-logo">NEW LOGO</a>.
     We will send you a quote for the logo redesigning and you can choose to accept it or not.
 </p>
 </h2>
 <div className="file-dry-section">
-<label htmlFor="logo-select" className="dry-logo">Logo/Image for Graphics *</label>
 <div className="choose-logo-contain">
     <label className="file-dry-label">
     {formData.img ? (
@@ -742,7 +733,7 @@ onChange={(e) => {
 </div>
 </div>
 <div className="dry-message-container">
-<label className="message-dry-label">Message: </label>
+<label className="message-dry-label">Message *</label>
 <h1 className="message-dry-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
      and the Quantity of graphics needed. If you need
 to request a crew to help install your drywall/concrete/floor graphics, please specify where the location is, when 
@@ -809,6 +800,10 @@ and what time you want an MX crew will arrive.</h1>
     </div>
   </div>
 </footer>
+<div className="footer-copyright">
+      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
+        This website was created by William Rowell. All rights reserved.</p>
+    </div>
                 </div>
             );
 };
