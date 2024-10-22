@@ -20,16 +20,16 @@ function App() {
         
         {/* Nested routes under the "/services" path */}
         <Route path="/services" element={<Service />}>
-          <Route path="custom-signs" element={<Signs />} />
-          <Route path="decals-stickers" element={<Decal />} />
-          <Route path="banners" element={<Banner />} />
-          <Route path="t-shirts-sweatshirts-jackets" element={<Shirt />} />
-          <Route path="drywall-floor-concrete" element={<Adhesive />} />
-          <Route path="window-frost-tint" element={<Window />} />
-          <Route path="fleet-graphics" element={<FleetGraphics />} />
-          <Route path="new-logo" element={<Logo />} />
-          <Route path="pay-invoice" element={<Invoice />} />
-          <Route path="new-website" element={<Web />} />
+          <Route path="/custom-signs" element={<Signs />} />
+          <Route path="/decals-stickers" element={<Decal />} />
+          <Route path="/banners" element={<Banner />} />
+          <Route path="/t-shirts-sweatshirts-jackets" element={<Shirt />} />
+          <Route path="/drywall-floor-concrete" element={<Adhesive />} />
+          <Route path="/window-frost-tint" element={<Window />} />
+          <Route path="/fleet-graphics" element={<FleetGraphics />} />
+          <Route path="/new-logo" element={<Logo />} />
+          <Route path="/pay-invoice" element={<Invoice />} />
+          <Route path="/new-website" element={<Web />} />
         </Route>
 
         <Route path="/contact-us" element={<Contact />} />
