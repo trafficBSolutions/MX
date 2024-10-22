@@ -13,28 +13,24 @@ function App() {
     <>
       <Navbar />
       <Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
-        
-        {/* Nested routes under the "/services" path */}
-        <Route path="/services" element={<Service />}>
-          <Route path="custom-signs" element={<Signs />} />
-          <Route path="decals-stickers" element={<Decal />} />
-          <Route path="banners" element={<Banner />} />
-          <Route path="t-shirts-sweatshirts-jackets" element={<Shirt />} />
-          <Route path="drywall-floor-concrete" element={<Adhesive />} />
-          <Route path="window-frost-tint" element={<Window />} />
-          <Route path="fleet-graphics" element={<FleetGraphics />} />
-          <Route path="new-logo" element={<Logo />} />
-          <Route path="pay-invoice" element={<Invoice />} />
-          <Route path="new-website" element={<Web />} />
-        </Route>
-
-        <Route path="/contact-us" element={<Contact />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+<Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="*" element={<Error/>}/>
+      <Route path="/custom-signs" element={<Signs/>}/>
+      <Route path="/drywall-floor-concrete" element={<Adhesive/>}/>
+      <Route path="/banners" element={<Banner/>}/>
+      <Route path="/window-frost-tint" element={<Window/>}/>
+      <Route path="/fleet-graphics" element={<FleetGraphics/>}/>
+      <Route path="/about-us" element={<About/>}/>
+      <Route path="/pay-invoice" element={<Invoice/>}/>
+      <Route path="/services" element={<Service/>}/>
+      <Route path="/new-logo" element={<Logo/>}/>
+      <Route path="/contact-us" element={<Contact/>}/>
+      <Route path="/decals-stickers" element={<Decal/>}/>
+      <Route path="/t-shirts-sweatshirts-jackets" element={<Shirt/>}/>
+      <Route path="/new-website" element={<Web/>}/>
+      <Route path="/blog" element={<Blog/>}/>
+     </Routes>
     </>
   );
 }
