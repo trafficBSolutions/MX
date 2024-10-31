@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
   {
-    src: images:['../assets/MX Photos/Sign Sample.svg']?.default || '',
+    src: images['../assets/MX Photos/Sign Sample.svg']?.default || '',
     width: 4032,
     height: 3024
   },
