@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
   {
-    src: images['../assets/MX Photos/tbs shirts.jpg']?.default || '',
+    src: images['../assets/MX Logos/Fairway Construction.svg']?.default || '',
     width: 1226,
     height: 2653
   },
