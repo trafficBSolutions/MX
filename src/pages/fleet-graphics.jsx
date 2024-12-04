@@ -738,13 +738,20 @@ const handleSubmit = async (e) => {
 <div className="photo-fleet-gal-fleet">
   <MXFleetGallery />
         </div>
+              <div className="material-type-container">
+        <h1 className="sign-app-box">MATERIALS AVAILABLE FOR FLEET & DECALED GRAPHICS</h1>
+  <div className="material-container">
+    <img className="orafol-img" src={images["../assets/MX Logos/Orafol-Logo.svg"].default}></img>
+    <img className="substance-img" src={images["../assets/MX Logos/substance-logo.svg"].default}></img>
+</div>
+</div>
         <form className="fleet-set -- box"
         onSubmit={handleSubmit}
         >
             <div className="fleet-form-container container--narrow page-section">
         <div className="fleet-form-info">
         <h1 className="fleet-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
-<h2 className="fleet-fill">Please Fill Out the Form Below to Submit Your FLEET GRAPHICS Information to get an Inquiry or Quote.</h2>
+<h2 className="fleet-fill">Please Fill Out the Form Below to Submit Your FLEET & DECALED GRAPHICS Information to get an Inquiry or Quote.</h2>
 </div>
 <div className="fleet-actual">
   <div className="name-section-fleet">
