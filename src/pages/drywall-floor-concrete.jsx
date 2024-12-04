@@ -293,6 +293,13 @@ const Adhesive = () => {
                         <div className="photo-gal-dry">
         <MXDrywallGallery /> {/* Render the photo gallery here */}
         </div>
+                        <div className="material-type-container">
+        <h1 className="sign-app-box">MATERIALS AVAILABLE FOR WALL FLOOR CONCRETE GRAPHICS</h1>
+  <div className="material-container">
+    <img className="orafol-img" src={images["../assets/MX Logos/Orafol-Logo.svg"].default}></img>
+    <img className="substance-img" src={images["../assets/MX Logos/substance-logo.svg"].default}></img>
+</div>
+</div>
         <form className="dry-set -- box" onSubmit={handleSubmit}>
             <div className="dry-form-container container--narrow page-section">
                 <div className="dry-form-info">
