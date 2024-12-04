@@ -388,6 +388,24 @@
   text-align: center;
   padding: 10px 0;
 }
+.material-type-container {
+background-color: #eeeeee;
+}
+.material-container {
+  display: grid;
+  margin: 0 auto;
+  justify-content: center;
+  grid-template-columns: repeat(2, 0.22fr);
+  gap: 0px;
+  padding: 20px;
+}
+.orafol-img, .substance-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 @media screen and (min-width: 1200px) and (max-width: 1920px) and (orientation: portrait)  {
   .main-material-nav {
     gap: 1rem;
