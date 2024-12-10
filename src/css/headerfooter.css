@@ -473,7 +473,6 @@ background-color: #ffffff;
       position: relative;
           display: flex;
           align-items: center;
-          background-color: #1dd2ff;
           height: 50px;
           padding: 0 10px;
     }
@@ -511,7 +510,7 @@ background-color: #ffffff;
           top: 100%;
           left: 0;
           width: 100%;
-          background-color: #a0f4ff;
+          background-color: #000000;
           border-radius: 5px;
           transition: opacity .3s ease;
           z-index: 1;
@@ -571,13 +570,13 @@ background-color: #ffffff;
   }
   .main-material-nav-link {
     text-decoration: none;
-    color: #000;
+    color: #60daff;
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #000000;
+    border: 1px solid #60daff;
     border-radius: 5px;
   }
   .main-material-nav-link-view {
@@ -654,7 +653,6 @@ background-color: #ffffff;
       position: relative;
           display: flex;
           align-items: center;
-          background-color: #1dd2ff;
           height: 50px;
           padding: 0 10px;
     }
@@ -696,7 +694,7 @@ background-color: #ffffff;
           top: 100%;
           left: 0;
           width: 100%;
-          background-color: #a0f4ff;
+          background-color: #000000;
           border-radius: 5px;
           transition: opacity .3s ease;
           z-index: 1;
@@ -753,13 +751,13 @@ background-color: #ffffff;
   }
   .main-material-nav-link {
     text-decoration: none;
-    color: #000;
+    color: #60daff;
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #000000;
+    border: 1px solid #60daff;
     border-radius: 5px;
   }
   .main-material-nav-link-view {
@@ -845,7 +843,6 @@ background-color: #ffffff;
       position: relative;
           display: flex;
           align-items: center;
-          background-color: #1dd2ff;
           height: 50px;
           padding: 0 10px;
     }
@@ -873,7 +870,7 @@ background-color: #ffffff;
           top: 100%;
           left: 0;
           width: 100%;
-          background-color: #a0f4ff;
+          background-color: #000000;
           border-radius: 5px;
           transition: opacity .3s ease;
           z-index: 1;
@@ -930,13 +927,13 @@ background-color: #ffffff;
   }
   .main-material-nav-link {
     text-decoration: none;
-    color: #000;
+    color: #60daff;
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #000000;
+    border: 1px solid #60daff;
     border-radius: 5px;
   }
   .main-material-nav-link-view {
@@ -1018,7 +1015,6 @@ background-color: #ffffff;
     position: relative;
         display: flex;
         align-items: center;
-        background-color: #1dd2ff;
         height: 50px;
         padding: 0 10px;
   }
@@ -1055,7 +1051,7 @@ width: 100%;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #a0f4ff;
+        background-color: #000000;
         border-radius: 5px;
         transition: opacity .3s ease;
         z-index: 1;
@@ -1115,13 +1111,13 @@ width: 100%;
 }
 .main-material-nav-link {
   text-decoration: none;
-  color: #000;
+  color: #60daff;
   font-weight: 500;
   font-size: 20px;
   transition: all .3s;
   padding: 5px 10px;
   line-height: 1.5;
-  border: 1px solid #000000;
+  border: 1px solid #60daff;
   border-radius: 5px;
 }
 .main-material-nav-link-view {
@@ -1197,7 +1193,6 @@ width: 100%;
       position: relative;
           display: flex;
           align-items: center;
-          background-color: #1dd2ff;
           height: 50px;
           padding: 0 10px;
     }
@@ -1234,7 +1229,7 @@ width: 100%;
           top: 100%;
           left: 0;
           width: 100%;
-          background-color: #a0f4ff;
+          background-color: #000000;
           border-radius: 5px;
           transition: opacity .3s ease;
           z-index: 1;
@@ -1294,13 +1289,13 @@ width: 100%;
   }
   .main-material-nav-link {
     text-decoration: none;
-    color: #000;
+    color: #60daff;
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #000000;
+    border: 1px solid #60daff;
     border-radius: 5px;
   }
   .main-material-nav-link-view {
