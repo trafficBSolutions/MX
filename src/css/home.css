@@ -330,7 +330,7 @@ position: relative;
     font-family: "Kairos W04 Extended Bold";
 }
 .section-mx-featured {
-    background-color: #8fafff;
+    background-color: #e2ebff;
 }
 .section-how {
     position: relative;
@@ -498,29 +498,32 @@ position: relative;
     padding: 5px;
     background-color: #66b2ff;
 }
-  .gallery {
+.gallery {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 10rem; /* Adjust this value to increase/decrease spacing */
     margin: 0 auto;
     align-items: center;
-    margin-top: 20px;
     max-width: 1000px;
-  }
+}
+
   .website-img-container, .photo-gal-dry, .photo-gal-apparel, .photo-gal-window, .photo-fleet-gal-fleet, .mx-banner-gallery-container, .photo-gal-building, .photo-gal-frost, .photo-gal-sign, .photo-gal-decal {
-    background-color: #66b2ff;
+    background-color: #e9e9e9;;
   }
   .gallery-item {
     flex: 1;
-    max-width: 45%; /* Adjust to fit two images side-by-side */
-  }
-  
+    max-width: 45%;
+    margin: 10px; /* Adjust this for more or less spacing */
+}
+
   .gallery-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    max-height: 400px; /* Set the maximum height for alignment */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Crop the image if necessary to fit within the height */
     border-radius: 8px;
-  }
+    display: block;
+    margin: 0 auto; /* Center align the image within the container */
+}
   
   .navigation-buttons {
     display: flex;
@@ -532,14 +535,14 @@ position: relative;
   .gallery-mx-navigation-arrow-left, 
   .gallery-mx-navigation-arrow-right {
       background-color: #0051ff;
-    position: relative;
-    font-size: 60px;
-    margin-bottom: 30px;
-    margin: 0 auto;
-    display: block;
-    width: fit-content;
-    color: #fff;
-    font-family: "Kairos W04 Extended Bold";
+      position: relative;
+      font-size: 60px;
+      margin-bottom: 30px;
+      margin: 0 auto;
+      display: block;
+      width: fit-content;
+      color: #fff;
+      font-family: "Kairos W04 Extended Bold";
   }
   .contacting-container {
     width: 100%;
