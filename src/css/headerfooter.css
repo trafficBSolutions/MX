@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    background-color: #436b75;
+    background-color: #000000;
     height: 9.6rem;
     justify-content: space-between; /* Space all contents */
     padding: 0 1.6rem;
@@ -134,14 +134,14 @@
 
 .material-worx-phone-header:hover
  {
-  background-color: #7b9dfa;
+  background-color: #4e4e4e;
 }
 .google-header:hover {
   background-color: #ffffff;
 }
 .material-worx-phone-header-link, .google-header-link {
   text-decoration: none;
-  color: rgb(239, 193, 49); /* Your original text color */
+  color: rgb(118, 216, 255); /* Your original text color */
   font-weight: 500;
   font-size: 2.7rem; /* Adjust font size */
   transition: all 0.3s;
@@ -149,11 +149,6 @@
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   align-items: center; /* Ensure image and text align vertically inside the link */
-  text-shadow: 
-    -1px -1px 0 #000, /* Top-left */
-    1px -1px 0 #000,  /* Top-right */
-    -1px 1px 0 #000,  /* Bottom-left */
-    1px 1px 0 #000;   /* Bottom-right */
 }
 .google-header-link { 
   transition: all 0.3s;
@@ -389,7 +384,7 @@
   padding: 10px 0;
 }
 .material-type-container {
-background-color: #eeeeee;
+background-color: #ffffff;
 }
 .material-container {
   display: grid;
