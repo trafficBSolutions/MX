@@ -20,7 +20,7 @@ function Header() {
             <img alt="TBS logo" className="tbs-logo-img" src={images["../assets/MX Logos/MX.svg"].default}/>
             </a>
             <div className="material-worx-phone-header">
-            <a className="material-worx-phone-header-link" href="tel:+17062630175"><img className="header-phone-img" src={images["../assets/service image buttons/phone-call.svg"].default}></img>(706) 263-0175</a>
+            <a className="material-worx-phone-header-link" href="tel:+17062630175"><img className="header-phone-img" src={images["../assets/service image buttons/Phone-Call Blue.svg"].default}></img>(706) 263-0175</a>
             </div>
             <div className="google-header">
                 <a className="google-header-link" href="https://www.google.com/maps/place/Traffic+%26+Barrier+Solutions%2FMaterial+WorX+Sign+Shop/@34.5029371,-84.9243756,10362m/data=!3m1!1e3!4m6!3m5!1s0x886007df83843f3b:0x84510d87790af625!8m2!3d34.5117917!4d-84.948025!16s%2Fg%2F11l28zhlzt?entry=ttu&g_ep=EgoyMDI0MDkyNS4wIKXMDSoASAFQAw%3D%3D" 
