@@ -24,6 +24,16 @@ const photos = [
     height: 3024
   },
   {
+    src: images['../assets/MX Photos/cone decals.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cones & stick decals.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+  {
     src: images['../assets/MX Photos/Nance.jpg']?.default || '',
     width: 2048,
     height: 1536
@@ -89,6 +99,11 @@ const photos = [
     height: 3024
   },
   {
+    src: images['../assets/MX Photos/signs and barrels.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
     src: images['../assets/MX Photos/trinity.jpg']?.default || '',
     width: 4032,
     height: 3024
@@ -109,10 +124,25 @@ const photos = [
     height: 702
   },
   {
+    src: images['../assets/MX Photos/unified trailer.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+  {
+    src: images['../assets/MX Photos/hood wrap.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+  {
+    src: images['../assets/MX Photos/dirt bike.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+  {
     src: images['../assets/MX Photos/jdf shirt.jpg']?.default || '',
     width: 4032,
     height: 3024
-  },
+  }
 ];
 
 export default function MXPhotoGallery() {
