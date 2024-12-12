@@ -34,6 +34,11 @@ const photos = [
     height: 702
   },
   {
+    src: images['../assets/MX Photos/el cubano decals.jpg']?.default || '',
+    height: 4032,
+    width: 3024
+  },
+  {
     src: images['../assets/MX Photos/Nance.jpg']?.default || '',
     width: 2048,
     height: 1536
