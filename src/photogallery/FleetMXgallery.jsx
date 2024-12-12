@@ -28,6 +28,21 @@ const photos = [
     height: 4032,
     width: 3024
   },
+  {
+    src: images['../assets/MX Photos/unified trailer.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+  {
+    src: images['../assets/MX Photos/hood wrap.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+  {
+    src: images['../assets/MX Photos/dirt bike.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
 ];
 
 export default function MXFleetGallery() {
