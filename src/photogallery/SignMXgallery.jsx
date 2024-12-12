@@ -32,6 +32,11 @@ const photos = [
     width: 4032,
     height: 3024
   },
+  {
+    src: images['../assets/MX Photos/signs & barrels.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
 ];
 
 export default function MXSignGallery() {
