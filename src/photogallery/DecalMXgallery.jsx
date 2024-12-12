@@ -23,6 +23,21 @@ const photos = [
     width: 4032,
     height: 3024
   },
+   {
+    src: images['../assets/MX Photos/el cubano decals.jpg']?.default || '',
+    height: 4032,
+    width: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cones & stick decals.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cone decals.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
 ];
 
 export default function MXDecalGallery() {
