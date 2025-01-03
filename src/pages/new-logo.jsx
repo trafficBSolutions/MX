@@ -561,8 +561,8 @@ we are closed, we will respond the next business day. Please also note that we d
   </div>
 </footer>
 <div className="footer-copyright">
-      <p className-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX. 
-        This website was created by William Rowell. All rights reserved.</p>
+      <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
+        Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
         </div>
     )
