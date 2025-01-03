@@ -1171,8 +1171,8 @@ and what time you want an MX crew will arrive.</h1>
   </div>
 </footer>
 <div className="footer-copyright">
-      <p classname-="footer-copy-p">&copy; 2024 Traffic & Barrier Solutions, LLC/Material WorX - 
-        Website Created & Deployed by William Rowell - All Rights Reserved.</p>
+      <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
+        Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
         </div>
     )
