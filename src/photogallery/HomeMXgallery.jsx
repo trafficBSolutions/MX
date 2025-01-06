@@ -10,11 +10,7 @@ const photos = [
         },
   { src: images['../assets/MX Photos/jcmural2.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
   { src: images['../assets/MX Photos/jcmural3.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
-  {
-    src: images['../assets/MX Photos/Banner BBQ.jpg']?.default || '',
-    width: 960,
-    height: 720
-  },
+
         {
     src: images['../assets/MX Photos/bike.jpg']?.default || '',
     width: 1599,
@@ -74,6 +70,11 @@ const photos = [
     src: images['../assets/MX Photos/cubano2.jpg']?.default || '',
     width: 4032,
     height: 3024
+  },
+   {
+    src: images['../assets/MX Photos/Banner BBQ.jpg']?.default || '',
+    width: 960,
+    height: 720
   },
   {
     src: images['../assets/MX Photos/mallory.jpg']?.default || '',
