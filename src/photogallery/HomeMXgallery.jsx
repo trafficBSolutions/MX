@@ -90,7 +90,6 @@ const photos = [
     width: 4032,
     height: 3024
   },
-      {
   {
     src: images['../assets/MX Photos/Nance.jpg']?.default || '',
     width: 2048,
