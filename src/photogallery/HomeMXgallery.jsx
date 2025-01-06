@@ -103,6 +103,26 @@ const photos = [
     width: 4032,
     height: 3024
   },
+          {
+    src: images['../assets/MX Photos/sky.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+          {
+    src: images['../assets/MX Photos/sky3.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+          {
+    src: images['../assets/MX Photos/sky4.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+          {
+    src: images['../assets/MX Photos/sky5.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
   {
     src: images['../assets/MX Photos/church table.jpg']?.default || '',
     width: 4032,
