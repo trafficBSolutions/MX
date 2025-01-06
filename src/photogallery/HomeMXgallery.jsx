@@ -108,6 +108,11 @@ const photos = [
     width: 4032,
     height: 3024
   },
+      {
+    src: images['../assets/MX Photos/sky2.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
   {
     src: images['../assets/MX Photos/btr.jpg']?.default || '',
     width: 4032,
