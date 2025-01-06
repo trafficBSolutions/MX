@@ -23,6 +23,16 @@ const photos = [
     width: 4032,
     height: 3024
   },
+      {
+    src: images['../assets/MX Photos/bike.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+      {
+    src: images['../assets/MX Photos/bike2.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
   {
     src: images['../assets/MX Photos/cone decals.jpg']?.default || '',
     width: 4032,
