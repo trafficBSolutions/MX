@@ -33,7 +33,7 @@ const photos = [
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/signs & barrels.jpg']?.default || '',
+    src: images['../assets/MX Photos/signs and barrels.jpg']?.default || '',
     width: 4032,
     height: 3024
   },
