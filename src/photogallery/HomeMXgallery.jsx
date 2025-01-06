@@ -43,11 +43,6 @@ const photos = [
     width: 1599,
     height: 702
   },
-  {
-    src: images['../assets/MX Photos/el cubano decals.jpg']?.default || '',
-    height: 4032,
-    width: 3024
-  },
       {
     src: images['../assets/MX Photos/cubano.jpg']?.default || '',
     width: 4032,
