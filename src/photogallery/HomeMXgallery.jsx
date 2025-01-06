@@ -38,6 +38,16 @@ const photos = [
     height: 4032,
     width: 3024
   },
+      {
+    src: images['../assets/MX Photos/cubano.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+      {
+    src: images['../assets/MX Photos/cubano2.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
   {
     src: images['../assets/MX Photos/Nance.jpg']?.default || '',
     width: 2048,
