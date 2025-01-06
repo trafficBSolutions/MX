@@ -69,11 +69,11 @@ const photos = [
     height: 1536
   },
   { 
-    src: images['../assets/MX Photos/jcmural.jpg']?.default || '', 
+        src: images['../assets/MX Photos/jcmural.jpg']?.default || '', 
         height: 4032, 
         width: 3024, 
-        alt: 'Cinderblock' },
-  { src: images['../assets/MX Photos/jcmural2.jpg'?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
+        },
+  { src: images['../assets/MX Photos/jcmural2.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
   { src: images['../assets/MX Photos/jcmural3.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
   {
     src: images['../assets/MX Photos/jt.jpg']?.default || '',
