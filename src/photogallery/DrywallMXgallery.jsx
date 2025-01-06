@@ -6,9 +6,9 @@ const photos = [
   { src: images['../assets/MX Photos/Nance.jpg']?.default || '', height: 4032, width: 3024, alt: 'Nance' },
   { src: images['../assets/MX Photos/Nance 2.jpg']?.default || '', height: 4032, width: 3024, alt: 'Nance 2' },
   { src: images['../assets/MX Photos/concrete (2).jpg']?.default || '', height: 4032, width: 3024, alt: 'Concrete' },
-  { src: images['../assets/MX Photos/jcmural.jpg]?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
-  { src: images['../assets/MX Photos/jcmural2.jpg]?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
-  { src: images['../assets/MX Photos/jcmural3.jpg]?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
+  { src: images['../assets/MX Photos/jcmural.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
+  { src: images['../assets/MX Photos/jcmural2.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
+  { src: images['../assets/MX Photos/jcmural3.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
 ];
 
 export default function MXDrywallGallery() {
