@@ -43,6 +43,16 @@ const photos = [
     width: 1599,
     height: 702
   },
+    {
+    src: images['../assets/MX Photos/bike.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+      {
+    src: images['../assets/MX Photos/bike2.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
 ];
 
 export default function MXFleetGallery() {
