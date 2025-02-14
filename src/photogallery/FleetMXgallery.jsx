@@ -2,6 +2,31 @@ import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
+     {
+    src: images['../assets/MX Photos/fleet.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+{
+    src: images['../assets/MX Photos/fleet2.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+   {
+    src: images['../assets/MX Photos/fleet3.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+        {
+    src: images['../assets/MX Photos/bike.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
+      {
+    src: images['../assets/MX Photos/bike2.jpg']?.default || '',
+    width: 1599,
+    height: 702
+  },
   {
     src: images['../assets/MX Photos/A Plus.jpg']?.default || '',
     width: 4032,
