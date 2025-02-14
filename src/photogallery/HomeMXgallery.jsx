@@ -10,7 +10,31 @@ const photos = [
         },
   { src: images['../assets/MX Photos/jcmural2.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
   { src: images['../assets/MX Photos/jcmural3.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
-
+   {
+    src: images['../assets/MX Photos/fleet.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+{
+    src: images['../assets/MX Photos/fleet2.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+   {
+    src: images['../assets/MX Photos/fleet3.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+   {
+    src: images['../assets/MX Photos/tint5.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+   {
+    src: images['../assets/MX Photos/tint6.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
         {
     src: images['../assets/MX Photos/bike.jpg']?.default || '',
     width: 1599,
