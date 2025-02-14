@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
+  { src: images['../assets/MX Photos/tint5.jpg']?.default || '', width: 4032, height: 3024},
+  {src: images['../assets/MX Photos/tint6.jpg']?.default || '', width: 4032, height: 3024},
   { src: images['../assets/MX Photos/tint.jpg']?.default || '', height: 4032, width: 3024 },
   { src: images['../assets/MX Photos/tint2.jpg']?.default || '', height: 4032, width: 3024 },
   { src: images['../assets/MX Photos/tint3.jpg']?.default || '', width: 4032, height: 3024 },
