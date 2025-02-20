@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
+      {
+    src: images['../assets/MX Photos/yancey.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
      {
     src: images['../assets/MX Photos/fleet.jpg']?.default || '',
     width: 4032,
