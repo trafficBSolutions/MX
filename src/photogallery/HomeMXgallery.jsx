@@ -3,6 +3,72 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 
 const photos = [
+    { 
+        src: images['../assets/MX Photos/cnc.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/cnc2.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/cnc3.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/cnc4.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/cnc5.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/cola.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/peel.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   
+   { 
+        src: images['../assets/MX Photos/peel2.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/peel3.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+    { 
+        src: images['../assets/MX Photos/complete.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+    { 
+        src: images['../assets/MX Photos/complete2.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+    { 
+        src: images['../assets/MX Photos/complete3.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+   { 
+        src: images['../assets/MX Photos/yancey.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
    { 
         src: images['../assets/MX Photos/jcmural.jpg']?.default || '', 
         height: 4032, 
