@@ -8,6 +8,66 @@ const photos = [
     height: 3024
   },
   {
+    src: images['../assets/MX Photos/cnc.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cnc2.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cnc3.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cnc4.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cnc5.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/cola.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/peel.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/peel2.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/peel3.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/complete.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/complete2.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['../assets/MX Photos/complete3.jpg']?.default || '',
+    width: 4032,
+    height: 3024
+  },
+  {
     src: images['../assets/MX Photos/church table.jpg']?.default || '',
     width: 4032,
     height: 3024
