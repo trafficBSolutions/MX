@@ -7,6 +7,36 @@ const photos = [
     width: 4032,
     height: 3024
   },
+   { 
+        src: images['../assets/MX Photos/peel4.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+      { 
+        src: images['../assets/MX Photos/ch.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+    { 
+        src: images['../assets/MX Photos/ch2.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+    { 
+        src: images['../assets/MX Photos/ch3.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+    { 
+        src: images['../assets/MX Photos/ch4.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+    { 
+        src: images['../assets/MX Photos/ch5.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
   {
     src: images['../assets/MX Photos/cnc.jpg']?.default || '',
     width: 4032,
