@@ -337,41 +337,40 @@ const photos = [
     height: 3024
   }
 ];
+
 export default function MXPhotoGallery() {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-
-  const handlePrevious = () => {
-    setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - 2));
+     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+    const handlePrevious = () => {
+      setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - (window.innerWidth <= 320 ? 1 : 4)));
   };
-
+  
   const handleNext = () => {
-    setCurrentPhotoIndex((prevIndex) => Math.min(photos.length - 1, prevIndex + 2));
+      setCurrentPhotoIndex((prevIndex) => Math.min(photos.length - 1, prevIndex + (window.innerWidth <= 320 ? 1 : 4)));
   };
-
-  const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 2);
-
-  return (
-    <div className="mx-gallery-container">
-      <h2 className="photo-mx-note">PHOTO GALLERY</h2>
-      <div className="gallery">
-        {visiblePhotos.map((photo, index) => (
-          <div className="gallery-item" key={index}>
-            <img src={photo.src} alt={`Photo ${index}`} />
-          </div>
-        ))}
+  
+      const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 6);
+    return (
+        <div className="mx-gallery-container">
+        <h2 className="photo-mx-note">PHOTO GALLERY</h2>
+        <div className="gallery">
+          {visiblePhotos.map((photo, index) => (
+            <div className="gallery-item" key={index}>
+              <img src={photo.src} alt={`Photo ${index}`} />
+            </div>
+          ))}
+        </div>
+        <div className="navigation-buttons">
+          {currentPhotoIndex > 0 && (
+            <button className="gallery-mx-navigation-arrow-left" onClick={handlePrevious}>
+              <FaArrowLeft />
+            </button>
+          )}
+          {currentPhotoIndex + 2 < photos.length && (
+            <button className="gallery-mx-navigation-arrow-right" onClick={handleNext}>
+              <FaArrowRight />
+            </button>
+          )}
+        </div>
       </div>
-      <div className="navigation-buttons">
-        {currentPhotoIndex > 0 && (
-          <button className="gallery-mx-navigation-arrow-left" onClick={handlePrevious}>
-            <FaArrowLeft />
-          </button>
-        )}
-        {currentPhotoIndex + 2 < photos.length && (
-          <button className="gallery-mx-navigation-arrow-right" onClick={handleNext}>
-            <FaArrowRight />
-          </button>
-        )}
-      </div>
-    </div>
-  );
+          );
 }
