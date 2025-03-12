@@ -348,7 +348,7 @@ export default function MXPhotoGallery() {
       setCurrentPhotoIndex((prevIndex) => Math.min(photos.length - 1, prevIndex + (window.innerWidth <= 320 ? 1 : 4)));
   };
   
-      const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 6);
+      const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 4);
     return (
         <div className="mx-gallery-container">
         <h2 className="photo-mx-note">PHOTO GALLERY</h2>
