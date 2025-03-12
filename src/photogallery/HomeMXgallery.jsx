@@ -337,7 +337,6 @@ const photos = [
     height: 3024
   }
 ];
-import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function MXPhotoGallery({ photos }) {
