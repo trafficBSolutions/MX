@@ -4,6 +4,26 @@ import images from '../utils/dynamicImportImages';
 
 const photos = [
       { 
+        src: images['../assets/MX Photos/peel5.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+      { 
+        src: images['../assets/MX Photos/peel6.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+      { 
+        src: images['../assets/MX Photos/peel7.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+      { 
+        src: images['../assets/MX Photos/peel8.jpg']?.default || '', 
+        height: 4032, 
+        width: 3024, 
+        },
+      { 
         src: images['../assets/MX Photos/peel4.jpg']?.default || '', 
         height: 4032, 
         width: 3024, 
