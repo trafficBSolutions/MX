@@ -337,8 +337,6 @@ const photos = [
     height: 3024
   }
 ];
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
 export default function MXPhotoGallery({ photos }) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const photosPerPage = 4; // Show 4 photos at a time
