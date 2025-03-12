@@ -337,19 +337,22 @@ const photos = [
     height: 3024
   }
 ];
+import { useState } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-export default function MXPhotoGallery() {
+export default function MXPhotoGallery({ photos }) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const photosPerPage = 4; // Show 4 photos at a time
 
   const handlePrevious = () => {
-    setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - 2));
+    setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - photosPerPage));
   };
 
   const handleNext = () => {
-    setCurrentPhotoIndex((prevIndex) => Math.min(photos.length - 1, prevIndex + 2));
+    setCurrentPhotoIndex((prevIndex) => Math.min(photos.length - 1, prevIndex + photosPerPage));
   };
 
-  const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 2);
+  const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + photosPerPage);
 
   return (
     <div className="mx-gallery-container">
@@ -357,7 +360,7 @@ export default function MXPhotoGallery() {
       <div className="gallery">
         {visiblePhotos.map((photo, index) => (
           <div className="gallery-item" key={index}>
-            <img src={photo.src} alt={`Photo ${index}`} />
+            <img src={photo.src} alt={`Photo ${currentPhotoIndex + index + 1}`} />
           </div>
         ))}
       </div>
@@ -367,7 +370,7 @@ export default function MXPhotoGallery() {
             <FaArrowLeft />
           </button>
         )}
-        {currentPhotoIndex + 2 < photos.length && (
+        {currentPhotoIndex + photosPerPage < photos.length && (
           <button className="gallery-mx-navigation-arrow-right" onClick={handleNext}>
             <FaArrowRight />
           </button>
