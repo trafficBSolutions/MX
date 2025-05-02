@@ -2,61 +2,10 @@ import React, {useState} from 'react';
 import Header from '../components/headerviews/HeaderShirt';
 import axios from 'axios';
 import '../css/shirt.css';
-import '../css/headerfooter.css';
+import '../css/header.css';
+import '../css/footer.css';
 import MXShirtGallery from '../photogallery/ShirtMXgallery';
 import images from '../utils/dynamicImportImages';
-const states = [
-    { abbreviation: 'AL', name: 'Alabama' },
-    { abbreviation: 'AK', name: 'Alaska' },
-    { abbreviation: 'AZ', name: 'Arizona' },
-    { abbreviation: 'AR', name: 'Arkansas' },
-    { abbreviation: 'CA', name: 'California' },
-    { abbreviation: 'CO', name: 'Colorado' },
-    { abbreviation: 'CT', name: 'Connecticut' },
-    { abbreviation: 'DE', name: 'Delaware' },
-    { abbreviation: 'FL', name: 'Florida' },
-    { abbreviation: 'GA', name: 'Georgia' },
-    { abbreviation: 'HI', name: 'Hawaii' },
-    { abbreviation: 'ID', name: 'Idaho' },
-    { abbreviation: 'IL', name: 'Illinois' },
-    { abbreviation: 'IN', name: 'Indiana' },
-    { abbreviation: 'IA', name: 'Iowa' },
-    { abbreviation: 'KS', name: 'Kansas' },
-    { abbreviation: 'KY', name: 'Kentucky' },
-    { abbreviation: 'LA', name: 'Louisiana' },
-    { abbreviation: 'ME', name: 'Maine' },
-    { abbreviation: 'MD', name: 'Maryland' },
-    { abbreviation: 'MA', name: 'Massachusetts' },
-    { abbreviation: 'MI', name: 'Michigan' },
-    { abbreviation: 'MN', name: 'Minnesota' },
-    { abbreviation: 'MS', name: 'Mississippi' },
-    { abbreviation: 'MO', name: 'Missouri' },
-    { abbreviation: 'MT', name: 'Montana' },
-    { abbreviation: 'NE', name: 'Nebraska' },
-    { abbreviation: 'NV', name: 'Nevada' },
-    { abbreviation: 'NH', name: 'New Hampshire' },
-    { abbreviation: 'NJ', name: 'New Jersey' },
-    { abbreviation: 'NM', name: 'New Mexico' },
-    { abbreviation: 'NY', name: 'New York' },
-    { abbreviation: 'NC', name: 'North Carolina' },
-    { abbreviation: 'ND', name: 'North Dakota' },
-    { abbreviation: 'OH', name: 'Ohio' },
-    { abbreviation: 'OK', name: 'Oklahoma' },
-    { abbreviation: 'OR', name: 'Oregon' },
-    { abbreviation: 'PA', name: 'Pennsylvania' },
-    { abbreviation: 'RI', name: 'Rhode Island' },
-    { abbreviation: 'SC', name: 'South Carolina' },
-    { abbreviation: 'SD', name: 'South Dakota' },
-    { abbreviation: 'TN', name: 'Tennessee' },
-    { abbreviation: 'TX', name: 'Texas' },
-    { abbreviation: 'UT', name: 'Utah' },
-    { abbreviation: 'VT', name: 'Vermont' },
-    { abbreviation: 'VA', name: 'Virginia' },
-    { abbreviation: 'WA', name: 'Washington' },
-    { abbreviation: 'WV', name: 'West Virginia' },
-    { abbreviation: 'WI', name: 'Wisconsin' },
-    { abbreviation: 'WY', name: 'Wyoming' }
-  ];
   const apparelTypes = [
     { name: 'T-Shirts', disabled: false },
     { name: 'Sweatshirts', disabled: false },
@@ -69,7 +18,8 @@ const states = [
     { name: 'L', disabled: false },
     { name: 'XL', disabled: false },
     { name: 'XXL', disabled: false },
-    { name: 'XXXL', disabled: false }
+    { name: 'XXXL', disabled: false },
+    { name: 'XXXXL', disabled: false }
   ];
   const apparelColors = [
     { name: 'Black', disabled: false },
@@ -103,28 +53,27 @@ const states = [
     const [apparelSize, setApparelSize] = useState('');
     const [apparelColor, setApparelColor] = useState('');
     const [quantity, setQuantity] = useState('');
-    const [imgErrorMessage, setImgErrorMessage] = useState(''); // For image error
     const [typeErrorMessage, setTypeErrorMessage] = useState(''); // For type error
     const [sizeErrorMessage, setSizeErrorMessage] = useState(''); // For size error
     const [colorErrorMessage, setColorErrorMessage] = useState(''); // For color error
     const [quantityErrorMessage, setQuantityErrorMessage] = useState(''); // For quantity error
     const [errors, setErrors] = useState({});
+    const [termsAccepted, setTermsAccepted] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
     const [apparelErrorMessage, setApparelErrorMessage] = useState(''); // For apparel error
     const [addedApparel, setAddedApparel] = useState([]);
-    const [formData,  setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-        img: null,
-        message: ''
-    }); 
+    const [formData, setFormData] = useState({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      apparel: [],
+      img: [], // ← Change from null to array
+      message: '',
+      terms: false
+    });    
     const HandleAddApparel = () => {
         let isValid = true;
 
@@ -194,16 +143,7 @@ const states = [
         } else {
           setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
         }
-      };
-      const handleFileChange = (e, fileType) => {
-        const file = e.target.files[0];
-        setFormData({ ...formData, [fileType]: file });
-    
-        // Clear the image error message if a file is selected
-        if (file) {
-            setImgErrorMessage('');
-        }
-    };
+      };   
     const handleZipChange = (event) => {
       const input = event.target.value;
       const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
@@ -218,102 +158,106 @@ const states = [
       }
     };
     
-    const handleFileRemove = (fileType) => {
-      setFormData({ ...formData, [fileType]: null });
+    const handleFileRemove = (indexToRemove) => {
+      const updatedFiles = formData.img.filter((_, idx) => idx !== indexToRemove);
+      setFormData((prev) => ({ ...prev, img: updatedFiles }));
     };
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        let hasError = false;
-        if (!addedApparel.length === 0) {
-            setErrorMessage('Please add at least one apparel.');
-            hasError = true;
+      e.preventDefault();
+    
+      const requiredFields = ['name', 'company', 'email', 'img', 'phone', 'message', 'terms'];
+      const newErrors = {};
+      let hasError = false;
+    
+      requiredFields.forEach((field) => {
+        let value = field === 'phone' ? phone : formData[field];
+        const isMissing =
+          value === '' ||
+          value === null ||
+          (Array.isArray(value) && value.length === 0);
+    
+        if (isMissing) {
+          let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+          if (field === 'name') fieldLabel = 'Name';
+          if (field === 'company') fieldLabel = 'Company';
+          if (field === 'email') fieldLabel = 'Email';
+          if (field === 'phone') fieldLabel = 'Phone Number';
+          if (field === 'img') fieldLabel = 'Logo';
+          if (field === 'message') fieldLabel = 'Message';
+          if (field === 'terms') fieldLabel = 'Terms & Conditions';
+          newErrors[field] = `${fieldLabel} is required!`;
+          hasError = true;
         }
-        if (!formData.img) {
-            setImgErrorMessage('You must select a logo/image for the apparel.');
-            hasError = true;
-        } else {
-            setImgErrorMessage('');
-        }
-          // Field validation for required form fields (like first name, last name, etc.)
-    const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
-    const newErrors = {};
-  
-    requiredFields.forEach(field => {
-      if (!formData[field]) {
-        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-        if (field === 'first') fieldLabel = 'First Name';
-        if (field === 'last') fieldLabel = 'Last Name';
-        if (field === 'company') fieldLabel = 'Company Name';
-        if (field === 'phone') fieldLabel = 'Phone Number';
-        if (field === 'address') fieldLabel = 'Address';
-        if (field === 'city') fieldLabel = 'City';
-        if (field === 'state') fieldLabel = 'State';
-        if (field === 'zip') fieldLabel = 'Zip Code';
-        if (field === 'img') fieldLabel = 'Logo';
-        newErrors[field] = `${fieldLabel} is required!`;
+      });
+    
+      // ✅ Apparel validation (included in main error handling)
+      if (addedApparel.length === 0) {
+        setApparelErrorMessage('Please add at least one apparel item');
+        hasError = true;
+      } else {
+        setApparelErrorMessage('');
       }
-    });
-    setErrors(newErrors);
-    if (Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.');
-      setErrors(newErrors);
-      return;
-    }
-    if (hasError) {
-      return;
-    }
-     // Proceed with form submission logic if there are no errors
-     try {
-        // Create FormData instance to handle file upload
+    
+      if (hasError) {
+        setErrors(newErrors);
+        setErrorMessage('Required fields are missing.');
+        return;
+      }
+    
+      // 🧠 Only run this if validation passed
+      try {
         const formDataToSend = new FormData();
-        formDataToSend.append('first', formData.first);
-        formDataToSend.append('last', formData.last);
+        formDataToSend.append('name', formData.name);
         formDataToSend.append('company', formData.company);
         formDataToSend.append('email', formData.email);
         formDataToSend.append('phone', formData.phone);
-        formDataToSend.append('address', formData.address);
-        formDataToSend.append('city', formData.city);
-        formDataToSend.append('state', formData.state);
-        formDataToSend.append('zip', formData.zip);
         formDataToSend.append('message', formData.message);
     
-        // Append the image file (logo)
-        if (formData.img) {
-          formDataToSend.append('img', formData.img);
+        if (formData.img?.length > 0) {
+          formData.img.forEach((file) => {
+            formDataToSend.append('img', file);
+          });
         }
-    
-        // Append added shirts
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
         formDataToSend.append('apparels', JSON.stringify(addedApparel));
-    const response = await axios.post('/t-shirts-sweatshirts-jackets', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
-        },
-      });
-    console.log(response.data);
-      setSubmissionMessage('T-Shirt/Sweatshirt/Jacket Request Submitted!');
-  
-      // Reset form fields after successful submission
-      setFormData({
-        first: '',
-        last: '',
-        company: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-        img: null,
-        message: ''
-      });
-      setAddedApparel([]);
-      setErrors({});
-      setPhone('');
-    } catch (error) {
-      console.error('Error submitting custom T-Shirt/Sweatshirt/Jacket Form', error);
-      setSubmissionErrorMessage('There was an error submitting your request. Please try again.');
-    }
-  };
+    
+        const response = await axios.post('/t-shirts-sweatshirts-jackets', formDataToSend, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+    
+        console.log(response.data);
+        setSubmissionMessage('T-Shirt/Sweatshirt/Jacket Request Submitted!');
+    
+        // Reset form
+        setFormData({
+          name: '',
+          company: '',
+          email: '',
+          phone: '',
+          apparel: '',
+          img: '',
+          message: '',
+          terms: ''
+        });
+        setAddedApparel([]);
+        setErrors({});
+        setPhone('');
+      } catch (error) {
+        console.error('Submission error:', error);
+        setSubmissionErrorMessage('There was an error submitting your request. Please try again.');
+      }
+    };
+    
   return(
     <div>
         <Header/>
@@ -339,71 +283,44 @@ const states = [
   <div className="first-apparel-name">
     <div className="firstname-apparel-input">
     <div className="input-first-apparel-container">
-<label className="first-apparel-label-name">First Name *</label>
+<label className="first-apparel-label-name">Name *</label>
 <input
-  name="first"
+  name="name"
   type="text"
   className="firstname-apparel-name-input"
-  placeholder="Enter First Name"
-  value={formData.first}
+  placeholder="Enter First & Last Name"
+  value={formData.name}
   onChange={(e) => {
-    setFormData({ ...formData, first: e.target.value });
+    setFormData({ ...formData, name: e.target.value });
     if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+      setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
     }
   }}
 />
-{errors.first && <div className="error-message">{errors.first}</div>}
-</div>
-    </div>
-  </div>
-  <div className="last-apparel-name">
-    <div className="last-apparel-input">
-    <div className="last-apparel-input-container">
-<label className="last-apparel-label-name">Last Name *</label>
-<input
-  name="last"
-  type="text"
-  className="lastname-apparel-name-input"
-  placeholder="Enter Last Name"
-  value={formData.last}
-  onChange={(e) => {
-    setFormData({ ...formData, last: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
+{errors.name && <div className="error-message">{errors.name}</div>}
+<label className="project-control-label">Company Name *</label>
+<p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
+  <input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      setFormData({ ...formData, company: e.target.value });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
     }
-  }}
-/>
-{errors.last && <div className="error-message">{errors.last}</div>}
-</div>
-    </div>
-  </div>
-</div>
-</div>
-<div className="company-apparel-section">
-<div className="company-apparel-input">
-  <div className="company-apparel">
-    <div className="apparel-company-name-input">
-    <label className="company-apparel-name">Company *</label>
-      <input
-  name="company-apparel-name-input"
-  type="text"
-  className="company-apparel-name-input"
-  placeholder="Enter Company Name"
-  value={formData.company}
-  onChange={(e) => {
-    setFormData({ ...formData, company: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
     }
-  }}
-/>
-{errors.company && <span className="error-message">{errors.company}</span>}
+  />
+{errors.company && <div className="error-message">{errors.company}</div>}
+</div>
     </div>
   </div>
-  </div>
 </div>
-<div className="emailphone-apparel-section">
 <div className="emailphone-apparel-input">
   <div className="email-apparel">
     <div className="email-apparel-input">
@@ -447,91 +364,13 @@ const states = [
   </div>
 </div>
 </div>
-<div className="address-apparel-section">
-<div className="address-apparel-input-container">
-<div className="address-apparel-input">
-<div className="address-apparel-container">
-  <div className="address-apparel-inputing">
-<label className="addr-apparel-label">Address *</label>
-<input
-  name="address-box"
-  type="text"
-  className="address-apparel-box"
-  placeholder="Enter Address"
-  value={formData.address}
-  onChange={(e) => {
-    setFormData({ ...formData, address: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
-    }
-  }}
-/>
-{errors.address && <span className="error-message">{errors.address}</span>}
-</div>
-<div className="city-apparel-input">
-<label className="city-apparel-label">City *</label>
-
-<input
-name="city-input"
-type="text"
-className="city-apparel-box"
-text="city--input"
-placeholder="City"
-value={formData.city}
-onChange={(e) => {
-  setFormData({ ...formData, city: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
-  }
-}}
-/>
-{errors.city && <span className="error-message">{errors.city}</span>}
-</div>
-</div>
-<div className="city-apparel-state">
-<div className="state-apparel-input">
-<label className="state-apparel-label">State *</label>
-<select
-      name="state"
-      className="state-apparel-box"
-      
-      value={formData.state}
-      onChange={(e) => {
-        setFormData({ ...formData, state: e.target.value });
-        if (e.target.value) {
-          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
-        }
-      }}
-    >
-      <option value="">Select State</option>
-      {states.map(state => (
-        <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
-      ))}
-    </select>
-    {errors.state && <span className="error-message">{errors.state}</span>}
-    </div>
-    <div className="zip-apparel-input">
-  <label className="zip-apparel-label">Zip Code *</label>
-  <input
-    name="zip"
-    type="text"
-    className="zip-apparel-box"
-    value={formData.zip}
-    onChange={(e) => handleZipChange(e)}
-    placeholder="Zip Code"
-    maxLength={5}
-    pattern="\d{5}"
-    title="Zip code must be 5 digits"
-  />
-  {errors.zip && <span className="error-message">{errors.zip}</span>}
-</div>
-</div>
-</div>
-</div>
-</div>
 <div className="apparel-input-container">
     <div className="apparel-type-input-container">
         <label className="apparel-type-label">Apparel Type *</label>
+        <p className="apparel-multi-note">
+  <strong>IMPORTANT:</strong> If you need multiple sizes or colors, please add each variation separately with the correct quantity. <br />
+  Example: Add 10 Large Black shirts, then add 5 XL Blue shirts, or same color just different size and quantity, etc.
+</p>
         <select
         className="apparel-type-input"
         name="apparel-type"
@@ -617,6 +456,7 @@ onChange={(e) => {
     <button className="btn -- submit-apparels" type="button" onClick={HandleAddApparel}>
     ADD APPAREL
   </button> 
+  {errors.apparel && <div className="error-message">{errors.apparel}</div>}
   <div className="apparel-list">
   <h3 className="added-apparel-list">Added Apparel:</h3>
   <ul>
@@ -641,52 +481,103 @@ onChange={(e) => {
 </ul>
 {apparelErrorMessage && <div className="error-message">{apparelErrorMessage}</div>}
 </div>     
-
-    </div>
+  </div>
     <div className="apparel-file-section">
-<label className="apparel-file-label">Logo/Image *</label>
-<h2 className="apparel-warn"><b className="apparel-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
-    how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
-    These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
-    JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <p className="log-re">Logo Redesigning(Optional)</p>
-    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo">NEW LOGO</a>.
-    We will send you a quote for the logo redesigning and you can choose to accept it or not.
-</p>
-</h2>
-<div className="file-apparel-section">
-<div className="choose-logo-contain">
-    <label className="btn -- file-apparel-label">
-    {formData.img ? (
-            <span>{formData.img.name}</span>
-          ) : (
-            <span>Choose Your Logo For Your Apparel</span>
-          )}
+  <label className="apparel-file-label">Logo/Image *</label>
+  <h2 className="apparel-warn">
+    <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
+    <p className="log-re">Need a new logo?</p>
+    <p className="logo-warn">
+      <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
+    </p>
+  </h2>
+  <div className="file-apparel-section">
+    <div className="choose-logo-contain">
+      {/* Initial file selection button - only show when no files are selected */}
+      {(!formData.img || formData.img.length === 0) && (
+        <label className="btn -- file-apparel-label">
+          <span>Choose Image File(s)</span>
           <input
-  type="file"
-  name="img"
-  accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-  onChange={(e) => {
-    handleFileChange(e, 'img');
-    if (e.target.files[0]) {
-      setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
-    }
-  }}
-/>
-</label>
-{formData.img && (
-            <button type="button" className="btn -- remove-apparel-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
-          )}
- {imgErrorMessage && <span className="error-message">{imgErrorMessage}</span>}
-</div>
-</div>
+            type="file"
+            name="img"
+            accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+            multiple
+            onChange={(e) => {
+              const selectedFiles = Array.from(e.target.files);
+              setFormData((prevData) => ({
+                ...prevData,
+                img: [...(prevData.img || []), ...selectedFiles]
+              }));
+              if (selectedFiles.length > 0) {
+                setErrors((prevErrors) => ({ ...prevErrors, img: '' }));
+              }
+            }}
+          />
+        </label>
+      )}
+      
+      {/* Select more files button - only show when files are already selected */}
+      {formData.img && formData.img.length > 0 && (
+        <button
+          type="button"
+          className="btn -- select-more-files"
+          onClick={() => document.querySelector('input[name="img"]').click()}
+        >
+          Select More Files
+        </button>
+      )}
+      
+      {/* Hidden input for "Select More Files" button */}
+      {formData.img && formData.img.length > 0 && (
+        <input
+          type="file"
+          name="img"
+          accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+          multiple
+          style={{ display: 'none' }}
+          onChange={(e) => {
+            const selectedFiles = Array.from(e.target.files);
+            setFormData((prevData) => ({
+              ...prevData,
+              img: [...(prevData.img || []), ...selectedFiles]
+            }));
+          }}
+        />
+      )}
+    </div>
+    
+    {formData.img && formData.img.length > 0 && (
+      <div className="selected-files-list">
+        <h4>Selected Files:</h4>
+        <ul>
+          {formData.img.map((file, idx) => (
+            <li key={idx} className="selected-file-item">
+              {file.name}
+              <button
+                type="button"
+                className="btn -- remove-single-file"
+                onClick={() => handleFileRemove(idx)}
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+        <button
+          type="button"
+          className="btn -- remove-all-files"
+          onClick={() => setFormData(prev => ({ ...prev, img: [] }))}
+        >
+          Remove All Files
+        </button>
+      </div>
+    )}
+  </div>
+  {errors.img && <span className="error-message">{errors.img}</span>}
 </div>
 <div className="apparel-message-container">
 <label className="message-apparel-label">Message *</label>
-<h1 className="message-apparel-note">Tell us about your apparel and how you want it designed! Please Specify Logo Redesigning if you submitted
-    a logo redesigning from our logo redesigning page and your new logo will be on the apparel. If you need to specify
-    how you want your apparel made with where ever you need on, please specify it here. If you need to specify anything else, please specify it here.
+<h1 className="message-apparel-note">Tell us about your apparel and how you want it designed!
 </h1>
 
 <textarea
@@ -702,6 +593,27 @@ onChange={(e) => {
   }}
 />
 {errors.message && <span className="error-message">{errors.message}</span>}
+<div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
   <button type="button" className="btn btn--full submit-sign" onClick={handleSubmit}>SUBMIT CUSTOM APPAREL</button>
 
