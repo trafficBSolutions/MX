@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Header from '../components/headerviews/HeaderShirt';
 import axios from 'axios';
 import '../css/shirt.css';
+import '../css/headerfooter.css';
 import MXShirtGallery from '../photogallery/ShirtMXgallery';
 import images from '../utils/dynamicImportImages';
   const apparelTypes = [
