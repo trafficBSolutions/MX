@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/fleet.css';
-import '../css/header.css';
-import '../css/footer.css';
+import '../css/headerfooter.css';
 import vehicleData from '../components/Vehicle Types/regularVehicles';
 import { acuraModels, 
   AlfaRomeoModels, 
