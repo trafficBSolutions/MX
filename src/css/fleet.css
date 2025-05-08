@@ -53,6 +53,23 @@ input[type="text"], input[type="number"], select, textarea {
 }
 
 /* Label Styling */
+.checkbox-finish-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 10px;
+}
+
+.finish-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  background-color: #f7f7f7;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
 
 /* Buttons */
 .submit-fleets, .remove-fleet, .file-fleet-label,
@@ -824,4 +841,3 @@ padding-top: 30px; /* Reduce padding */
   font-size: 0.6rem;
 }
   }
-  
