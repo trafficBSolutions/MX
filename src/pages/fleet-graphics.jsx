@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/fleet.css';
-import '../css/headerfooter.css';
+import '../css/header.css';
+import '../css/footer.css';
 import vehicleData from '../components/Vehicle Types/regularVehicles';
 import { acuraModels, 
   AlfaRomeoModels, 
@@ -58,62 +59,10 @@ import MXFleetGallery from '../photogallery/FleetMXgallery';
 import axios from 'axios';
 import Header from '../components/headerviews/HeaderFleet';
 import images from '../utils/dynamicImportImages';
-const states = [
-    { abbreviation: 'AL', name: 'Alabama' },
-    { abbreviation: 'AK', name: 'Alaska' },
-    { abbreviation: 'AZ', name: 'Arizona' },
-    { abbreviation: 'AR', name: 'Arkansas' },
-    { abbreviation: 'CA', name: 'California' },
-    { abbreviation: 'CO', name: 'Colorado' },
-    { abbreviation: 'CT', name: 'Connecticut' },
-    { abbreviation: 'DE', name: 'Delaware' },
-    { abbreviation: 'FL', name: 'Florida' },
-    { abbreviation: 'GA', name: 'Georgia' },
-    { abbreviation: 'HI', name: 'Hawaii' },
-    { abbreviation: 'ID', name: 'Idaho' },
-    { abbreviation: 'IL', name: 'Illinois' },
-    { abbreviation: 'IN', name: 'Indiana' },
-    { abbreviation: 'IA', name: 'Iowa' },
-    { abbreviation: 'KS', name: 'Kansas' },
-    { abbreviation: 'KY', name: 'Kentucky' },
-    { abbreviation: 'LA', name: 'Louisiana' },
-    { abbreviation: 'ME', name: 'Maine' },
-    { abbreviation: 'MD', name: 'Maryland' },
-    { abbreviation: 'MA', name: 'Massachusetts' },
-    { abbreviation: 'MI', name: 'Michigan' },
-    { abbreviation: 'MN', name: 'Minnesota' },
-    { abbreviation: 'MS', name: 'Mississippi' },
-    { abbreviation: 'MO', name: 'Missouri' },
-    { abbreviation: 'MT', name: 'Montana' },
-    { abbreviation: 'NE', name: 'Nebraska' },
-    { abbreviation: 'NV', name: 'Nevada' },
-    { abbreviation: 'NH', name: 'New Hampshire' },
-    { abbreviation: 'NJ', name: 'New Jersey' },
-    { abbreviation: 'NM', name: 'New Mexico' },
-    { abbreviation: 'NY', name: 'New York' },
-    { abbreviation: 'NC', name: 'North Carolina' },
-    { abbreviation: 'ND', name: 'North Dakota' },
-    { abbreviation: 'OH', name: 'Ohio' },
-    { abbreviation: 'OK', name: 'Oklahoma' },
-    { abbreviation: 'OR', name: 'Oregon' },
-    { abbreviation: 'PA', name: 'Pennsylvania' },
-    { abbreviation: 'RI', name: 'Rhode Island' },
-    { abbreviation: 'SC', name: 'South Carolina' },
-    { abbreviation: 'SD', name: 'South Dakota' },
-    { abbreviation: 'TN', name: 'Tennessee' },
-    { abbreviation: 'TX', name: 'Texas' },
-    { abbreviation: 'UT', name: 'Utah' },
-    { abbreviation: 'VT', name: 'Vermont' },
-    { abbreviation: 'VA', name: 'Virginia' },
-    { abbreviation: 'WA', name: 'Washington' },
-    { abbreviation: 'WV', name: 'West Virginia' },
-    { abbreviation: 'WI', name: 'Wisconsin' },
-    { abbreviation: 'WY', name: 'Wyoming' }
-  ];
   const finishOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false },
-    { name: 'ORAFOL 5600RA (Reflective Fleet Graphics)', disabled: false }
+    { name: 'Reflective Fleet Graphics', disabled: false }
   ];
   const vehicleType = [
     { name: 'Box Truck', disabled: false },
@@ -125,47 +74,27 @@ const FleetGraphics = () => {
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedMake, setSelectedMake] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [selectedVehicleType, setSelectedVehicleType] = useState(''); // New state for vehicle type
   const [availableMakes, setAvailableMakes] = useState([]);
   const [availableModels, setAvailableModels] = useState([]);
     const [phone, setPhone] = useState('');
     const [isTrailerSelected, setIsTrailerSelected] = useState(false); // New state for trailer selection
-    const [doorLengthUnit, setDoorLengthUnit] = useState(''); // Default to feet
-    const [doorWidthUnit, setDoorWidthUnit] = useState(''); // Default to Feet
     const [addedVehicles, setAddVehicles] = useState([]);
-    const [addedDriverSizes, setAddedDriverSizes] = useState([]);
-    const [addedPassengerSizes, setAddedPassengerSizes] = useState([]);
-    const [driverLengthUnit, setDriverLengthUnit] = useState('');
-    const [driverWidthUnit, setDriverWidthUnit] = useState('');
-    const [passengerLengthUnit, setPassengerLengthUnit] = useState('');
-    const [passengerWidthUnit, setPassengerWidthUnit] = useState('');
-    const [addedDoors, setAddedDoors] = useState([]);
-    const [selectedFinishing, setSelectedFinishing] = useState('');
-    const [addedFinishing, setAddedFinishing] = useState([]);
     const [fileError, setFileError] = useState('');
-    const [finishingError, setFinishingError] = useState('');
+    const [addedFinishing, setAddedFinishing] = useState([]);
     const [vehicleError, setVehicleError] = useState('');
-    const [doorSizeError, setDoorSizeError] = useState('');
-    const [driverSizeError, setDriverSizeError] = useState('');
-    const [passengerSizeError, setPassengerSizeError] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
-      first: '',
-      last: '',
+      name: '',
       company: '',
       email: '',
       phone: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: '',
       vehicle: '',
-      driverSize: { length: '', width: '' },
-      passengerSize: { length: '', width: '' },
-      doorSize: { length: '', width: '' },
-      finishing: '',
+      finishing: [],
       img: null,
-      message: ''
+      message: '',
+      terms: false,
     });
     
     const [errors, setErrors] = useState({});
@@ -187,19 +116,6 @@ const FleetGraphics = () => {
         setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
       }
     };
-    const handleZipChange = (event) => {
-      const input = event.target.value;
-      const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-    
-      setFormData({ ...formData, zip: rawInput });
-    
-      // Check if the input has 5 digits and clear the error if it does
-      if (rawInput.length === 5) {
-        setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-      } else {
-        setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
-      }
-    };
     const handleFileChange = (e, fileType) => {
       const newFiles = Array.from(e.target.files);
       setFormData(prevState => ({
@@ -208,7 +124,26 @@ const FleetGraphics = () => {
       }));
       setFileError('');
     };
+    const handleFinishChange = (e) => {
+      const { value, checked } = e.target;
+      let updatedFinishing = [...formData.finishing];
     
+      if (checked) {
+        // Add if not already included
+        if (!updatedFinishing.includes(value)) {
+          updatedFinishing.push(value);
+        }
+      } else {
+        // Remove if unchecked
+        updatedFinishing = updatedFinishing.filter(item => item !== value);
+      }
+    
+      setFormData({ ...formData, finishing: updatedFinishing });
+    
+      if (updatedFinishing.length > 0) {
+        setErrors((prev) => ({ ...prev, finishing: '' }));
+      }
+    };
     const handleFileRemove = (fileType) => {
       setFormData({ ...formData, [fileType]: [] }); // Clear all files in the array
     };
@@ -243,123 +178,11 @@ const FleetGraphics = () => {
       // Clear any previous general error messages
       setErrorMessage('');   
     };
-    
-
-  
   // Function to remove a vehicle by index
   const handleRemoveVehicle = (index) => {
     const updatedVehicles = addedVehicles.filter((_, i) => i !== index); // Remove vehicle at index
     setAddVehicles(updatedVehicles);
   };
-  
-  // Function to handle adding a vehicle size
-  const handleAddDriverSize = () => {
-    if (formData.driverSize && formData.driverSize.length && formData.driverSize.width) {
-        const newDriverSize = `${formData.driverSize.length} ${driverLengthUnit} x ${formData.driverSize.width} ${driverWidthUnit}`;
-        setAddedDriverSizes([...addedDriverSizes, newDriverSize]);
-
-        // Clear driver size error message
-        setDriverSizeError('');  // <--- Clear the driver size error when size is added
-
-        // Clear the form
-        setFormData((prevState) => ({
-            ...prevState,
-            driverSize: { length: '', width: '' }
-        }));
-        setDriverLengthUnit('');
-        setDriverWidthUnit('');
-    } else {
-        setErrorMessage('Please enter both driver length and width.');
-    }
-};
-
-  
-const handleAddPassengerSize = () => {
-  if (formData.passengerSize && formData.passengerSize.length && formData.passengerSize.width) {
-      const newPassengerSize = `${formData.passengerSize.length} ${passengerLengthUnit} x ${formData.passengerSize.width} ${passengerWidthUnit}`;
-      setAddedPassengerSizes([...addedPassengerSizes, newPassengerSize]);
-
-      // Clear passenger size error message
-      setPassengerSizeError('');  // <--- Clear the passenger size error when size is added
-
-      // Clear the form
-      setFormData((prevState) => ({
-          ...prevState,
-          passengerSize: { length: '', width: '' }
-      }));
-      setPassengerLengthUnit('');
-      setPassengerWidthUnit('');
-  } else {
-      setErrorMessage('Please enter both passenger length and width.');
-  }
-};
-
-  
-  const handleRemoveDriverSize = (index) => {
-    const updatedDriverSizes = addedDriverSizes.filter((_, i) => i !== index);
-    setAddedDriverSizes(updatedDriverSizes);
-  };
-  const handleRemovePassengerSize = (index) => {
-    const updatedPassengerSizes = addedPassengerSizes.filter((_, i) => i !== index);
-    setAddedPassengerSizes(updatedPassengerSizes);
-  };
-  
-  const handleSizeChange = (type, field, value) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [type]: {
-        ...prevState[type],
-        [field]: value
-      }
-    }));
-  };
-
-
-// Function to handle adding a door size
-const handleAddDoorSize = () => {
-  if (formData.doorSize.length && formData.doorSize.width) {
-      const newDoorSize = `${formData.doorSize.length} ${doorLengthUnit} x ${formData.doorSize.width} ${doorWidthUnit}`;
-      setAddedDoors([...addedDoors, newDoorSize]);
-
-      // Clear door size error message
-      setDoorSizeError('');  // <--- Clear the door size error when size is added
-
-      // Clear the form
-      setFormData({
-          ...formData,
-          doorSize: { length: '', width: '' }
-      });
-      setDoorLengthUnit('');
-      setDoorWidthUnit('');
-  } else {
-      setErrorMessage('Please enter both door length and width.');
-  }
-};
-
-
-// Function to remove a door size
-const handleRemoveDoorSize = (index) => {
-  const updatedDoor = addedDoors.filter((_, i) => i !== index);
-  setAddedDoors(updatedDoor);
-};
-
-const handleAddFinishing = () => {
-  if (selectedFinishing && addedFinishing.length < 3) {
-      setAddedFinishing([...addedFinishing, selectedFinishing]);
-      setSelectedFinishing('');
-      
-      // Clear finishing error message
-      setFinishingError('');  // <--- Clear the finishing error when finishing is added
-  } else {
-      setErrorMessage('Please select a finishing option.');
-  }
-};
-
-// Function to remove a finishing
-const handleRemoveFinishing = (index) => {
-  const updatedFinishing = addedFinishing.filter((_, i) => i !== index);
-  setAddedFinishing(updatedFinishing);
-};
 // Handle Vehicle Type Change
 const handleTypeChange = (e) => {
   const vehicleType = e.target.value;
@@ -599,36 +422,31 @@ const handleSubmit = async (e) => {
 
   // Reset error messages
   setFileError('');
-  setFinishingError('');
   setVehicleError('');
-  setDoorSizeError('');
-  setDriverSizeError('');
-  setPassengerSizeError('');
   setErrorMessage('');  // Clear the general error message at the start
 
   let hasError = false; // Flag to track if there's any error
 
-  const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
+  const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
   const newErrors = {};
 
   // Check required fields
   requiredFields.forEach(field => {
     if (!formData[field]) {
       let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-      if (field === 'first') fieldLabel = 'First Name';
-      if (field === 'last') fieldLabel = 'Last Name';
+      if (field === 'name') fieldLabel = 'Name';
       if (field === 'company') fieldLabel = 'Company Name';
+      if (field === 'email') fieldLabel = 'Email';
       if (field === 'phone') fieldLabel = 'Phone Number';
-      if (field === 'address') fieldLabel = 'Address';
-      if (field === 'city') fieldLabel = 'City';
-      if (field === 'state') fieldLabel = 'State';
-      if (field === 'zip') fieldLabel = 'Zip Code';
       if (field === 'img') fieldLabel = 'Logo';
+      if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
       hasError = true;
     }
   });
-
+  if (formData.finishing.length === 0) {
+    newErrors.finishing = 'Please select at least one finishing.';
+  }
   // Check if file (logo/image) is added
   if (!formData.img) {
     setFileError('Logo/Image is required.');
@@ -640,31 +458,6 @@ const handleSubmit = async (e) => {
     setVehicleError('Please add at least one vehicle.');
     hasError = true;
   }
-
-  // Check if at least one finishing option is added
-  if (addedFinishing.length === 0) {
-    setFinishingError('Please select at least one finishing option.');
-    hasError = true;
-  }
-
-  // Check if at least one driver size is added
-  if (addedDriverSizes.length === 0) {
-    setDriverSizeError('Please add the driver size.');
-    hasError = true;
-  }
-
-  // Check if at least one passenger size is added
-  if (addedPassengerSizes.length === 0) {
-    setPassengerSizeError('Please add the passenger size.');
-    hasError = true;
-  }
-
-  // Check if at least one door size is added
-  if (addedDoors.length === 0) {
-    setDoorSizeError('Please add the backdoor/tailgate size.');
-    hasError = true;
-  }
-
   // If there are any errors, set the error message and do not proceed with the form submission
   if (hasError) {
     setErrorMessage('Required fields are missing.'); // Only show error if validation fails
@@ -676,15 +469,31 @@ const handleSubmit = async (e) => {
   setErrorMessage('');  // Clear the error message when all validations pass
 
   try {
-    const formDataToSubmit = {
-      ...formData,
-      vehicle: addedVehicles.join(', '), // Convert the vehicle array to a comma-separated string
-      driverSize: addedDriverSizes.join(', '),
-      passengerSize: addedPassengerSizes.join(', '),
-      doorSize: addedDoors.join(', '),
-      finishing: addedFinishing.join(', '),
-    };
+    const formDataToSubmit = new FormData();
+formDataToSubmit.append('name', formData.name.split(' ')[0] || '');
+formDataToSubmit.append('company', formData.company);
+formDataToSubmit.append('email', formData.email);
+formDataToSubmit.append('phone', formData.phone);
+formDataToSubmit.append('vehicle', addedVehicles.join(', '));
+formDataToSubmit.append('finishing', formData.finishing.join(', '));
+formDataToSubmit.append('message', formData.message);
+formDataToSubmit.append('terms', termsAccepted);
 
+// Append files
+if (formData.img && formData.img.length > 0) {
+  formData.img.forEach((file) => {
+    formDataToSubmit.append('img', file); // 👈 must match `name` from multer
+  });
+};
+    if (!termsAccepted) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        terms: 'You must agree to pay upon job completion.'
+      }));
+      setErrorMessage('You must accept the terms and conditions.');
+      setIsSubmitting(false);
+      return;
+    }  
     const response = await axios.post('/fleet-graphics', formDataToSubmit, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -696,26 +505,16 @@ const handleSubmit = async (e) => {
 
     // Clear form fields after successful submission
     setFormData({
-      first: '',
-      last: '',
+      name: '',
       company: '',
       email: '',
       phone: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: '',
       vehicle: '',
-      driverSize: { length: '', width: '' },
-      passengerSize: { length: '', width: '' },
-      doorSize: { length: '', width: '' },
-      finishing: '',
+      finishing: [],
       img: null,
-      message: ''
+      message: '',
+      terms: ''
     });
-    setAddedDriverSizes([]);
-    setAddedPassengerSizes([]);
-    setAddedDoors([]);
     setAddedFinishing([]);
     setErrors({});
     setPhone('');
@@ -738,94 +537,59 @@ const handleSubmit = async (e) => {
 <div className="photo-fleet-gal-fleet">
   <MXFleetGallery />
         </div>
-              <div className="material-type-container">
-        <h1 className="sign-app-box">MATERIALS AVAILABLE FOR FLEET & DECALED GRAPHICS</h1>
-  <div className="material-container">
-    <img className="orafol-img" src={images["../assets/MX Logos/Orafol-Logo.svg"].default}></img>
-    <img className="substance-img" src={images["../assets/MX Logos/substance-logo.svg"].default}></img>
-</div>
-</div>
         <form className="fleet-set -- box"
         onSubmit={handleSubmit}
         >
             <div className="fleet-form-container container--narrow page-section">
         <div className="fleet-form-info">
         <h1 className="fleet-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
-<h2 className="fleet-fill">Please Fill Out the Form Below to Submit Your FLEET & DECALED GRAPHICS Information to get an Inquiry or Quote.</h2>
+<h2 className="fleet-fill">Please Fill Out the Form Below to Submit Your FLEET GRAPHICS Information to get an Inquiry or Quote.</h2>
 </div>
 <div className="fleet-actual">
-  <div className="name-section-fleet">
-      <div className="first-name-fleet-input">
+<div className="name-section-apparel">
+<div className="first-name-apparel-input">
 
-  <div className="first-fleet-name">
-    <div className="firstname-fleet-input">
-    <div className="input-first-fleet-container">
-<label className="first-fleet-label-name">First Name *</label>
+  <div className="first-apparel-name">
+    <div className="firstname-apparel-input">
+    <div className="input-first-apparel-container">
+<label className="first-apparel-label-name">Name *</label>
 <input
-name="first"
-type="text"
-className="firstname-fleet-name-input"
-text="first-name--input"
-placeholder="Enter First Name"
-
-value={formData.first}
-onChange={(e) => {
-  setFormData({ ...formData, first: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
-  }
-}}
+  name="name"
+  type="text"
+  className="firstname-apparel-name-input"
+  placeholder="Enter First & Last Name"
+  value={formData.name}
+  onChange={(e) => {
+    setFormData({ ...formData, name: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
+    }
+  }}
 />
-{errors.first && <div className="error-message">{errors.first}</div>}
-</div>
-    </div>
-  </div>
-  <div className="last-fleet-name">
-    <div className="last-fleet-input">
-    <div className="last-fleet-input-container">
-<label className="last-fleet-label-name">Last Name *</label>
-<input
-name="last"
-type="text"
-className="lastname-fleet-name-input"
-text="last-name--input"
-placeholder="Enter Last Name"
-
-value={formData.last}
-onChange={(e) => {
-  setFormData({ ...formData, last: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
-  }
-}}
-/>
-{errors.last && <div className="error-message">{errors.last}</div>}
+{errors.name && <div className="error-message">{errors.name}</div>}
+<label className="project-control-label">Company Name *</label>
+<p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
+  <input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      setFormData({ ...formData, company: e.target.value });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
+    }
+    }
+  />
+{errors.company && <div className="error-message">{errors.company}</div>}
 </div>
     </div>
   </div>
 </div>
-</div>
-<div className="company-fleet-section">
-<div className="company-fleet-input">
-  <div className="company-fleet">
-    <div className="fleet-company-name-input">
-    <div className="fleet-input-container">
-      <label className="company-fleet-name">Company *</label>
-      <input name="company-fleet-name-input" type="text" className="company-fleet-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => {
-          setFormData({ ...formData, company: e.target.value });
-          if (e.target.value) {
-            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
-          }
-        }}
-        />
-        {errors.company && <span className="error-message">{errors.company}</span>}
-        </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div className="emailphone-fleet-section">
 <div className="emailphone-fleet-input">
   <div className="email-fleet">
     <div className="email-fleet-input">
@@ -871,89 +635,6 @@ onChange={(e) => {
 </div>
     </div>
   </div>
-</div>
-</div>
-<div className="address-fleet-section">
-<div className="address-fleet-input-container">
-<div className="address-fleet-input">
-<div className="address-fleet-container">
-  <div className="address-fleet-inputing">
-<label className="addr-fleet-label">Address *</label>
-<input
-name="address-box"
-type="text"
-className="address-fleet-box"
-text="address--input"
-placeholder="Enter Address"
-value={formData.address}
-onChange={(e) => {
-  setFormData({ ...formData, address: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
-  }
-}}
-/>
-{errors.address && <span className="error-message">{errors.address}</span>}
-</div>
-<div className="city-fleet-input">
-<label className="city-fleet-label">City *</label>
-
-<input
-name="city-input"
-type="text"
-className="city-fleet-box"
-text="city--input"
-placeholder="City"
-value={formData.city}
-onChange={(e) => {
-  setFormData({ ...formData, city: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
-  }
-}}
-/>
-{errors.city && <span className="error-message">{errors.city}</span>}
-</div>
-</div>
-<div className="city-fleet-state">
-<div className="state-fleet-input">
-<label className="state-fleet-label">State *</label>
-<select
-      name="state"
-      className="state-fleet-box"
-      
-      value={formData.state}
-      onChange={(e) => {
-        setFormData({ ...formData, state: e.target.value });
-        if (e.target.value) {
-          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
-        }
-      }}
-    >
-      <option value="">Select State</option>
-      {states.map(state => (
-        <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
-      ))}
-    </select>
-    {errors.state && <span className="error-message">{errors.state}</span>}
-    </div>
-    <div className="zip-fleet-input">
-<label className="zip-fleet-label">Zip Code *</label>
-<input
-        name="zip"
-        type="text"
-        className="zip-fleet-box"
-        value={formData.zip}
-        onChange={(e) => handleZipChange(e)}
-        placeholder="Zip Code"
-        maxLength={5}
-        pattern="\d{5}"
-        title="Zip code must be 5 digits"
-      />
-      {errors.zip && <span className="error-message">{errors.zip}</span>}
-</div>
-</div>
-</div>
 </div>
 </div>
 <div className="vehicle-type-fleet-section">
@@ -1039,303 +720,35 @@ onChange={(e) => {
 </div>
 {errors.vehicle && <span className="error-message">{errors.vehicle}</span>}
 </div>
-<div className="vehicle-size-fleet-section">
-<label className="size-fleet-label">Size of Vehicle:</label>
-{/* Driver Size Section */}
-<div className="size-fleet-section">
-  <div className="driver-side-section">
-    <div className="driver-length-section">
-    <label className="length-fleet-label" htmlFor="driver-length">Driver Side Length *</label>
-    <input
-      className="length-fleet-box"
-      type="number"
-      name="driver-length"
-      value={formData.driverSize.length} // Tied to driverSize state
-      onChange={(e) => handleSizeChange('driverSize', 'length', e.target.value)} // Correct type and field
-      placeholder="Enter driver length"
-    />
-
-    <select
-      className="length-fleet-select"
-      value={driverLengthUnit}
-      onChange={(e) => setDriverLengthUnit(e.target.value)}
-    >
-      <option value="" disabled>Select Measurement</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-</div>
-    <div className="driver-width-section">
-    <label className="width-fleet-label" htmlFor="driver-width">Driver Side Width *</label>
-    <input
-      className="width-fleet-box"
-      type="number"
-      name="driver-width"
-      value={formData.driverSize.width}
-      onChange={(e) => handleSizeChange('driverSize', 'width', e.target.value)}
-      placeholder="Enter driver width"
-    />
-
-    <select
-      className="length-fleet-select"
-      value={driverWidthUnit}
-      onChange={(e) => setDriverWidthUnit(e.target.value)}
-    >
-      <option value="" disabled>Select Measurement</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-    <button
-      type="button"
-      className="btn -- driver-submit-size"
-      onClick={handleAddDriverSize}
-    >
-      ADD DRIVER SIZE
-    </button>
-    {/* Added Driver Sizes */}
-    {addedDriverSizes.length > 0 ? (
-      addedDriverSizes.map((size, index) => (
-        <li className="vehicle-driver-size-li" key={index}>
-          {size}
-          <button
-            className="btn -- driver-remove-submit-size"
-            type="button"
-            onClick={() => handleRemoveDriverSize(index)}
-          >
-            REMOVE DRIVER SIZE
-          </button>
-        </li>
-      ))
-    ) : (
-      <p className="no-added-vehicles">No Driver sizes added yet.</p>
-    )}
-  </div>
-</div>
-</div>
-{driverSizeError && <span className="error-message">{driverSizeError}</span>}
-
-{/* Passenger Size Section */}
-<div className="size-fleet-section">
-  <div className="passenger-side-section">
-    <div className="passenger-length-section">
-    <label className="length-fleet-label" htmlFor="passenger-length">Passenger Side Length *</label>
-    <input
-      className="length-fleet-box"
-      type="number"
-      name="passenger-length"
-      value={formData.passengerSize.length} // Tied to passengerSize state
-      onChange={(e) => handleSizeChange('passengerSize', 'length', e.target.value)}
-      placeholder="Enter passenger length"
-    />
-
-    <select
-      className="length-fleet-select"
-      value={passengerLengthUnit}
-      onChange={(e) => setPassengerLengthUnit(e.target.value)}
-    >
-      <option value="" disabled>Select Measurement</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-</div>
-<div className="passenger-side-width">
-    <label className="width-fleet-label" htmlFor="passenger-width">Passenger Side Width *</label>
-    <input
-      className="width-fleet-box"
-      type="number"
-      name="passenger-width"
-      value={formData.passengerSize.width}
-      onChange={(e) => handleSizeChange('passengerSize', 'width', e.target.value)}
-      placeholder="Enter passenger width"
-    />
-
-    <select
-      className="length-fleet-select"
-      value={passengerWidthUnit}
-      onChange={(e) => setPassengerWidthUnit(e.target.value)}
-    >
-      <option value="" disabled>Select Measurement</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-</div>
-    <button
-      type="button"
-      className="btn -- passenger-submit-size"
-      onClick={handleAddPassengerSize}
-    >
-      ADD PASSENGER SIZE
-    </button>
-
-    {/* Added Passenger Sizes */}
-    {addedPassengerSizes.length > 0 ? (
-      addedPassengerSizes.map((passengerSize, index) => (
-        <li className="vehicle-passenger-size-li" key={index}>
-          {passengerSize}
-          <button
-            className="btn -- passenger-remove-submit-size"
-            type="button"
-            onClick={() => handleRemovePassengerSize(index)}
-          >
-            REMOVE PASSENGER SIZE
-          </button>
-        </li>
-      ))
-    ) : (
-      <p className="no-added-vehicles">No Passenger sizes added yet.</p>
-    )}
-  </div>
-</div>
-
-{passengerSizeError && <span className="error-message">{passengerSizeError}</span>}
-</div>
-<div className="door-size-fleet-section">
-<div className="size-door-fleet-section">
-  <div className="length-door-fleet-section">
-    <label className="length-fleet-label" htmlFor="length">Backdoor/Tailgate Length *</label>
-    <input
-      className="length-door-fleet-box"
-      type="number"
-      name="length"
-      value={formData.doorSize.length} // Refers to the doorSize state
-      onChange={(e) => handleSizeChange('doorSize', 'length', e.target.value)} // Handle door size changes
-      placeholder="Enter length"
-    />
-    <select
-      className="length-fleet-select"
-      value={doorLengthUnit}
-      onChange={(e) => setDoorLengthUnit(e.target.value)} // Set unit for length
-    >
-      <option value="" disabled>Select Measurement</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-  </div>
-
-  <div className="width-door-fleet-section">
-    <label className="width-fleet-label" htmlFor="width">Backdoor/Tailgate Width *</label>
-    <input
-      className="width-door-fleet-box"
-      type="number"
-      name="width"
-      value={formData.doorSize.width} // Refers to the doorSize state
-      onChange={(e) => handleSizeChange('doorSize', 'width', e.target.value)} // Handle door size changes
-      placeholder="Enter width"
-    />
-    <select
-      className="width-fleet-select"
-      value={doorWidthUnit}
-      onChange={(e) => setDoorWidthUnit(e.target.value)} // Set unit for width
-    >
-      <option value="" disabled>Select Measurement</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-  </div>
-
-  <button
-    className="btn -- door-length-submit-size"
-    type="button" // Make sure this button doesn't act like a form submit
-    onClick={handleAddDoorSize}
-  >
-    ADD BACKDOOR/TAILGATE SIZE
-  </button>
-
-  {/* Display added door sizes */}
-  <ul>
-  {addedDoors.length > 0 ? (
-    addedDoors.map((doorSize, index) => (
-      <li className="door-list" key={index}>
-        {doorSize}
-        <button
-          type="button"
-          className="btn -- door-remove-length-submit-size"
-          onClick={() => handleRemoveDoorSize(index)} // Handle removing door sizes
-        >
-          REMOVE BACKDOOR/TAILGATE SIZE
-        </button>
-      </li>
-    ))
-  ) : (
-    <p className="no-added-vehicles">No Back Door/Tailgate sizes added yet.</p>
-  )}
-</ul>
-{doorSizeError && <span className="error-message">{doorSizeError}</span>}
-</div>
-</div>
 <div className="finishing-fleet-section">
-<div className="fleet-finish-img-section">
-  <div className="matte-img-fleet">
-    <img className="matte-img" alt="matte" src={images["../assets/vinyls/matte.jpg"].default}/>
-    <h2 className="matte-fleet-note">Matte</h2>
-  </div>
-  <div className="gloss-img-fleet">
-    <img className="gloss-img" alt="gloss" src={images["../assets/vinyls/gloss.jpg"].default}/>  
-    <h2 className="gloss-fleet-note">Gloss</h2>
-  </div>
-  <div className="ra-img-fleet">
-    <img className="ORAFOL-img" alt="orafol" src={images["../assets/vinyls/orafol 5600.jpg"].default}/>  
-    <h2 className="orafol-fleet-note">ORALITE 5600RA(Fleet Graphics)</h2>
-  </div>
-</div>
-
+  <label className="finish-label">Finishing Options *</label>
 <div className="finish-fleet-section">
-  <label className="finish-label" htmlFor="finishing">Finishing *</label>
-  <select
-    name="finishing"
-    className="finish-fleet-select"
-    value={selectedFinishing}
-    onChange={(e) => setSelectedFinishing(e.target.value)}
-    disabled={addedFinishing.length === 3}
-  >
-    <option value="">Select Finishing Type</option>
-    {finishOptions.map((option, index) => (
-      <option key={index} value={option.name}>
-        {option.name}
-      </option>
-    ))}
-  </select>
-  <button className="btn -- submit-finishing" type="button" onClick={handleAddFinishing}>
-    ADD FINISHING
-  </button>
-  <ul>
-  {addedFinishing.length > 0 ? (
-    addedFinishing.map((finishing, index) => (
-      <li className="finishing-item" key={index}>
-        {finishing}
-        <button
-          className="btn -- remove-finishing"
-          onClick={() => handleRemoveFinishing(index)}
-        >
-          REMOVE FINISHING
-        </button>
-      </li>
-    ))
-  ) : (
-    <p className="no-added-vehicles">No Finishing items added yet.</p>
-  )}
-</ul>
-{finishingError && <span className="error-message">{finishingError}</span>}
+<div className="checkbox-finish-options">
+  {finishOptions.map((option, index) => (
+    <div key={index} className="finish-checkbox-item">
+     <input
+  type="checkbox"
+  id={`finish-${index}`}
+  value={option.name}
+  checked={formData.finishing.includes(option.name)}
+  onChange={handleFinishChange}
+/>
+      <label htmlFor={`finish-${index}`}>{option.name}</label>
+    </div>
+  ))}
+</div>
+{errors.finishing && <div className="error-message">{errors.finishing}</div>}
   </div>
 </div>
 <div className="fleet-file-section">
 <label className="fleet-file-label">Logo/Image *</label>
-<h2 className="fleet-warn"><b className="fleet-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
-    how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
-    These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
-    JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <p className="log-re">Logo Redesigning(Optional)</p>
-    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo">NEW LOGO</a>.
-    We will send you a quote for the logo redesigning and you can choose to accept it or not.
-</p>
-</h2>
-<p className="trailer-note">
-  <b className="trailer-note-1">NOTE:</b> 
-  If you are selecting a trailer, please make sure to take pictures of your
-  trailer and upload your pictures here as well as your logos needed to be on your trailer.
-  Specify your trailer in the message section and how you want your trailer to be designed.
-  </p>
+<h2 className="apparel-warn">
+    <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
+    <p className="log-re">Need a new logo?</p>
+    <p className="logo-warn">
+      <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
+    </p>
+  </h2>
 <div className="file-fleet-section">
 
 
@@ -1347,14 +760,12 @@ onChange={(e) => {
       <span>Choose Your Logo or Photos for Your Vehicle</span>
     )}
     <input
-      type="file"
-      name="img"
-      accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-      onChange={(e) => handleFileChange(e, 'img')}
-      multiple
-      style={{ display: 'none' }}
-      id="logo-select"
-    />
+  type="file"
+  name="img" // ✅ This is correct
+  accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+  onChange={(e) => handleFileChange(e, 'img')}
+  multiple
+/>
   </label>
 
   {formData.img && formData.img.length > 0 && (
@@ -1380,8 +791,6 @@ onChange={(e) => {
 <label className="message-fleet-label">Message *</label>
 <h1 className="message-fleet-note">
   Tell us about your vehicle fleet/decal job and how you want it designed! 
-  You can add photos of your vehicles and trailers to help us understand your needs. 
-  Please specify if you need logo redesigning and any other specifications.
 </h1>
 
 
@@ -1394,6 +803,27 @@ onChange={(e) => {
   }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
+  <div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
   {submissionMessage && (
   <div className="submission-message">{submissionMessage}</div>
 )}
@@ -1455,7 +885,7 @@ onChange={(e) => {
       <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
-        </div>
+    </div>
         
     )
 };
