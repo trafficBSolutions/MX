@@ -5,58 +5,6 @@ import axios from 'axios';
 import MXSignGallery from '../photogallery/SignMXgallery';
 import Header from '../components/headerviews/HeaderSign';
 import images from '../utils/dynamicImportImages';
-    const states = [
-        { abbreviation: 'AL', name: 'Alabama' },
-        { abbreviation: 'AK', name: 'Alaska' },
-        { abbreviation: 'AZ', name: 'Arizona' },
-        { abbreviation: 'AR', name: 'Arkansas' },
-        { abbreviation: 'CA', name: 'California' },
-        { abbreviation: 'CO', name: 'Colorado' },
-        { abbreviation: 'CT', name: 'Connecticut' },
-        { abbreviation: 'DE', name: 'Delaware' },
-        { abbreviation: 'FL', name: 'Florida' },
-        { abbreviation: 'GA', name: 'Georgia' },
-        { abbreviation: 'HI', name: 'Hawaii' },
-        { abbreviation: 'ID', name: 'Idaho' },
-        { abbreviation: 'IL', name: 'Illinois' },
-        { abbreviation: 'IN', name: 'Indiana' },
-        { abbreviation: 'IA', name: 'Iowa' },
-        { abbreviation: 'KS', name: 'Kansas' },
-        { abbreviation: 'KY', name: 'Kentucky' },
-        { abbreviation: 'LA', name: 'Louisiana' },
-        { abbreviation: 'ME', name: 'Maine' },
-        { abbreviation: 'MD', name: 'Maryland' },
-        { abbreviation: 'MA', name: 'Massachusetts' },
-        { abbreviation: 'MI', name: 'Michigan' },
-        { abbreviation: 'MN', name: 'Minnesota' },
-        { abbreviation: 'MS', name: 'Mississippi' },
-        { abbreviation: 'MO', name: 'Missouri' },
-        { abbreviation: 'MT', name: 'Montana' },
-        { abbreviation: 'NE', name: 'Nebraska' },
-        { abbreviation: 'NV', name: 'Nevada' },
-        { abbreviation: 'NH', name: 'New Hampshire' },
-        { abbreviation: 'NJ', name: 'New Jersey' },
-        { abbreviation: 'NM', name: 'New Mexico' },
-        { abbreviation: 'NY', name: 'New York' },
-        { abbreviation: 'NC', name: 'North Carolina' },
-        { abbreviation: 'ND', name: 'North Dakota' },
-        { abbreviation: 'OH', name: 'Ohio' },
-        { abbreviation: 'OK', name: 'Oklahoma' },
-        { abbreviation: 'OR', name: 'Oregon' },
-        { abbreviation: 'PA', name: 'Pennsylvania' },
-        { abbreviation: 'RI', name: 'Rhode Island' },
-        { abbreviation: 'SC', name: 'South Carolina' },
-        { abbreviation: 'SD', name: 'South Dakota' },
-        { abbreviation: 'TN', name: 'Tennessee' },
-        { abbreviation: 'TX', name: 'Texas' },
-        { abbreviation: 'UT', name: 'Utah' },
-        { abbreviation: 'VT', name: 'Vermont' },
-        { abbreviation: 'VA', name: 'Virginia' },
-        { abbreviation: 'WA', name: 'Washington' },
-        { abbreviation: 'WV', name: 'West Virginia' },
-        { abbreviation: 'WI', name: 'Wisconsin' },
-        { abbreviation: 'WY', name: 'Wyoming' }
-      ];
       const sizeAluminumBlankOptions = [
         {name: '12"x6"', disabled: false},
         {name: '18"x6"'},
@@ -135,6 +83,7 @@ import images from '../utils/dynamicImportImages';
           const [acrylicColorError, setAcrylicColorError] = useState('');
           const [signThicknessError, setSignThicknessError] = useState('');
           const [quantityError, setQuantityError] = useState('');
+          const [fileError, setFileError] = useState('');
           const [widthError, setWidthError] = useState('');
           const [signType, setSignType] = useState(''); // Sign type selected by user
           const [customLength, setCustomLength] = useState(''); // Custom length for sign
@@ -148,6 +97,7 @@ import images from '../utils/dynamicImportImages';
           const [signThicknessValue, setSignThicknessValue] = useState('');
           const [signSidesValue, setSignSidesValue] = useState('');
           const [errors, setErrors] = useState({});
+          const [termsAccepted, setTermsAccepted] = useState(false);
           const [errorMessage, setErrorMessage] = useState('');
           const [submissionMessage, setSubmissionMessage] = useState('');
           const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
@@ -169,7 +119,8 @@ import images from '../utils/dynamicImportImages';
     state: '',
     zip: '',
     img: null,
-    message: ''
+    message: '',
+    terms: false,
   });
   const handleAddSigns = () => {
     let isValid = true;
@@ -263,7 +214,13 @@ import images from '../utils/dynamicImportImages';
     // Construct the new sign object with custom length, width, and units for non-Aluminum signs
     const newSign = {
       signType,
-      signSize: signType === 'Yard Signs' ? '18"x24"' : `${customLength} ${lengthUnit} x ${customWidth} ${widthUnit}`,
+      signSize:
+      signType === 'Yard Signs'
+    ? '18"x24"'
+    : signType === 'Aluminum Sign Blank'
+    ? signSize
+    : `${customLength} ${lengthUnit} x ${customWidth} ${widthUnit}`,
+
       signSides: signSidesValue, // Add this line to include sides for all sign types
       finishing: selectedFinishing,
       thickness:
@@ -317,29 +274,17 @@ import images from '../utils/dynamicImportImages';
                 setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
               }
             };
-            const handleFileChange = (e, fileType) => {
-              const file = e.target.files[0];
-              setFormData({ ...formData, [fileType]: file });
-            };
-          const handleZipChange = (event) => {
-            const input = event.target.value;
-            const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-          
-            setFormData({ ...formData, zip: rawInput });
-          
-            // Check if the input has 5 digits and clear the error if it does
-            if (rawInput.length === 5) {
-              setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-            } else {
-              setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
-            }
-          };
-          
+    const handleFileChange = (e, fileType) => {
+      const newFiles = Array.from(e.target.files);
+      setFormData(prevState => ({
+        ...prevState,
+        [fileType]: [...(prevState[fileType] || []), ...newFiles]
+      }));
+      setFileError('');
+    };
           const handleFileRemove = (fileType) => {
             setFormData({ ...formData, [fileType]: null });
           };
-
-
           const handleSubmit = async (e) => {
             e.preventDefault();
           
@@ -354,21 +299,17 @@ import images from '../utils/dynamicImportImages';
             }
           
             // Field validation for required form fields (like first name, last name, etc.)
-            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
+            const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
             const newErrors = {};
           
             requiredFields.forEach(field => {
               if (!formData[field]) {
                 let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                if (field === 'first') fieldLabel = 'First Name';
-                if (field === 'last') fieldLabel = 'Last Name';
+                if (field === 'name') fieldLabel = 'First & Last Name';
                 if (field === 'company') fieldLabel = 'Company Name';
                 if (field === 'phone') fieldLabel = 'Phone Number';
-                if (field === 'address') fieldLabel = 'Address';
-                if (field === 'city') fieldLabel = 'City';
-                if (field === 'state') fieldLabel = 'State';
-                if (field === 'zip') fieldLabel = 'Zip Code';
                 if (field === 'img') fieldLabel = 'Logo';
+                if (field === 'terms') fieldLabel = 'Terms & Conditions';
                 newErrors[field] = `${fieldLabel} is required!`;
               }
             });
@@ -387,21 +328,27 @@ import images from '../utils/dynamicImportImages';
             try {
               // Create FormData instance to handle file upload
               const formDataToSend = new FormData();
-              formDataToSend.append('first', formData.first);
-              formDataToSend.append('last', formData.last);
+              formDataToSend.append('name', formData.name);
               formDataToSend.append('company', formData.company);
               formDataToSend.append('email', formData.email);
               formDataToSend.append('phone', formData.phone);
-              formDataToSend.append('address', formData.address);
-              formDataToSend.append('city', formData.city);
-              formDataToSend.append('state', formData.state);
-              formDataToSend.append('zip', formData.zip);
               formDataToSend.append('message', formData.message);
           
               // Append the image file (logo)
-              if (formData.img) {
-                formDataToSend.append('img', formData.img);
-              }
+        if (formData.img?.length > 0) {
+          formData.img.forEach((file) => {
+            formDataToSend.append('img', file);
+          });
+        }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
           
               // Append added signs
               formDataToSend.append('signs', JSON.stringify(addedSigns));
@@ -417,17 +364,13 @@ import images from '../utils/dynamicImportImages';
           
               // Reset form fields after successful submission
               setFormData({
-                first: '',
-                last: '',
+                name: '',
                 company: '',
                 email: '',
                 phone: '',
-                address: '',
-                city: '',
-                state: '',
-                zip: '',
                 img: null,
-                message: ''
+                message: '',
+                terms: '',
               });
               setAddedSigns([]);
               setErrors({});
@@ -478,53 +421,33 @@ import images from '../utils/dynamicImportImages';
   <div className="first-sign-name">
     <div className="firstname-sign-input">
     <div className="input-first-sign-container">
-<label className="first-sign-label-name">First Name *</label>
+<label className="first-sign-label-name">Name *</label>
 <input
   name="first"
   type="text"
   className="firstname-sign-name-input"
-  placeholder="Enter First Name"
-  value={formData.first}
+  placeholder="Enter First & Last Name"
+  value={formData.name}
   onChange={(e) => {
-    setFormData({ ...formData, first: e.target.value });
+    setFormData({ ...formData, name: e.target.value });
     if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+      setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
     }
   }}
 />
-{errors.first && <div className="error-message">{errors.first}</div>}
-</div>
-    </div>
-  </div>
-  <div className="last-sign-name">
-    <div className="last-sign-input">
-    <div className="last-sign-input-container">
-<label className="last-sign-label-name">Last Name *</label>
-<input
-  name="last"
-  type="text"
-  className="lastname-sign-name-input"
-  placeholder="Enter Last Name"
-  value={formData.last}
-  onChange={(e) => {
-    setFormData({ ...formData, last: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
-    }
-  }}
-/>
-{errors.last && <div className="error-message">{errors.last}</div>}
+{errors.name && <div className="error-message">{errors.name}</div>}
 </div>
     </div>
   </div>
 </div>
-</div>
-<div className="company-sign-section">
 <div className="company-sign-input">
   <div className="company-sign">
     <div className="sign-company-name-input">
     <div className="sign-input-container">
       <label className="company-sign-name">Company *</label>
+      <p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
       <input
   name="company-sign-name-input"
   type="text"
@@ -543,8 +466,6 @@ import images from '../utils/dynamicImportImages';
     </div>
   </div>
   </div>
-</div>
-<div className="emailphone-sign-section">
 <div className="emailphone-sign-input">
   <div className="email-sign">
     <div className="email-sign-input">
@@ -586,88 +507,6 @@ import images from '../utils/dynamicImportImages';
 </div>
     </div>
   </div>
-</div>
-</div>
-<div className="address-sign-section">
-<div className="address-sign-input-container">
-<div className="address-sign-input">
-<div className="address-sign-container">
-  <div className="address-sign-inputing">
-<label className="addr-sign-label">Address *</label>
-<input
-  name="address-box"
-  type="text"
-  className="address-sign-box"
-  placeholder="Enter Address"
-  value={formData.address}
-  onChange={(e) => {
-    setFormData({ ...formData, address: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
-    }
-  }}
-/>
-{errors.address && <span className="error-message">{errors.address}</span>}
-</div>
-<div className="city-sign-input">
-<label className="city-sign-label">City *</label>
-
-<input
-name="city-input"
-type="text"
-className="city-sign-box"
-text="city--input"
-placeholder="City"
-value={formData.city}
-onChange={(e) => {
-  setFormData({ ...formData, city: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
-  }
-}}
-/>
-{errors.city && <span className="error-message">{errors.city}</span>}
-</div>
-</div>
-<div className="city-sign-state">
-<div className="state-sign-input">
-<label className="state-sign-label">State *</label>
-<select
-      name="state"
-      className="state-sign-box"
-      
-      value={formData.state}
-      onChange={(e) => {
-        setFormData({ ...formData, state: e.target.value });
-        if (e.target.value) {
-          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
-        }
-      }}
-    >
-      <option value="">Select State</option>
-      {states.map(state => (
-        <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
-      ))}
-    </select>
-    {errors.state && <span className="error-message">{errors.state}</span>}
-    </div>
-    <div className="zip-sign-input">
-  <label className="zip-sign-label">Zip Code *</label>
-  <input
-    name="zip"
-    type="text"
-    className="zip-sign-box"
-    value={formData.zip}
-    onChange={(e) => handleZipChange(e)}
-    placeholder="Zip Code"
-    maxLength={5}
-    pattern="\d{5}"
-    title="Zip code must be 5 digits"
-  />
-  {errors.zip && <span className="error-message">{errors.zip}</span>}
-</div>
-</div>
-</div>
 </div>
 </div>
 {/* Sign Type Selection */}
@@ -1055,43 +894,51 @@ onChange={(e) => {
 </div>
 {errors.type && <div className="error-message">{errors.type}</div>}
 </div>
-<div className="sign-file-section">
-<label className="sign-file-label">Logo/Image *</label>
-<h2 className="sign-warn"><b className="sign-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
-    how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
-    These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
-    JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <p className="log-re">Logo Redesigning(Optional)</p>
-    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo">NEW LOGO</a>.
-    We will send you a quote for the logo redesigning and you can choose to accept it or not.
-</p>
-</h2>
-<div className="file-sign-section">
+      <div className="fleet-file-section">
+<label className="fleet-file-label">Logo/Image *</label>
+<h2 className="apparel-warn">
+    <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
+    <p className="log-re">Need a new logo?</p>
+    <p className="logo-warn">
+      <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
+    </p>
+  </h2>
+<div className="file-fleet-section">
+
+
 <div className="choose-logo-contain">
-    <label className="file-sign-label">
-    {formData.img ? (
-            <span>{formData.img.name}</span>
-          ) : (
-            <span>Choose Your Logo For Your Sign</span>
-          )}
-          <input
+  <label className="file-fleet-label">
+    {formData.img && formData.img.length > 0 ? (
+      <span>Add More Photos or Logos</span>
+    ) : (
+      <span>Choose Your Logo or Photos for Your Vehicle</span>
+    )}
+    <input
   type="file"
-  name="img"
+  name="img" // ✅ This is correct
   accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-  onChange={(e) => {
-    handleFileChange(e, 'img');
-    if (e.target.files[0]) {
-      setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
-    }
-  }}
+  onChange={(e) => handleFileChange(e, 'img')}
+  multiple
 />
-</label>
-{formData.img && (
-            <button type="button" className="remove-sign-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
-          )}
-{errors.img && <span className="error-message">{errors.img}</span>}
+  </label>
+
+  {formData.img && formData.img.length > 0 && (
+    <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>
+      Remove All
+    </button>
+  )}
+
+  {fileError && <span className="error-message">{fileError}</span>}
+
+  {formData.img && formData.img.length > 0 && (
+    <ul className="selected-fleet-files-list">
+      {formData.img.map((file, index) => (
+        <li key={index}>{file.name}</li>
+      ))}
+    </ul>
+  )}
 </div>
+
 </div>
 </div>
 <div className="sign-message-container">
@@ -1114,6 +961,27 @@ and what time you want an MX crew will arrive.</h1>
   }}
 />
 {errors.message && <span className="error-message">{errors.message}</span>}
+<div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom signs and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
   <button type="button" className="btn btn--full submit-sign" onClick={handleSubmit}>SUBMIT CUSTOM SIGN</button>
 
@@ -1174,7 +1042,7 @@ and what time you want an MX crew will arrive.</h1>
       <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
-        </div>
+    </div>
     )
 }
 export default Signs;
