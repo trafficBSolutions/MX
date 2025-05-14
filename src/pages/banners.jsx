@@ -1,62 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../css/banner.css';
 import '../css/headerfooter.css';
+import '../css/toaster.css'
 import axios from 'axios';
 import MXBannerGallery from '../photogallery/BannerMXgallery'
 import Header from '../components/headerviews/HeaderBanner';
 import images from '../utils/dynamicImportImages';
-const states = [
-    { abbreviation: 'AL', name: 'Alabama' },
-    { abbreviation: 'AK', name: 'Alaska' },
-    { abbreviation: 'AZ', name: 'Arizona' },
-    { abbreviation: 'AR', name: 'Arkansas' },
-    { abbreviation: 'CA', name: 'California' },
-    { abbreviation: 'CO', name: 'Colorado' },
-    { abbreviation: 'CT', name: 'Connecticut' },
-    { abbreviation: 'DE', name: 'Delaware' },
-    { abbreviation: 'FL', name: 'Florida' },
-    { abbreviation: 'GA', name: 'Georgia' },
-    { abbreviation: 'HI', name: 'Hawaii' },
-    { abbreviation: 'ID', name: 'Idaho' },
-    { abbreviation: 'IL', name: 'Illinois' },
-    { abbreviation: 'IN', name: 'Indiana' },
-    { abbreviation: 'IA', name: 'Iowa' },
-    { abbreviation: 'KS', name: 'Kansas' },
-    { abbreviation: 'KY', name: 'Kentucky' },
-    { abbreviation: 'LA', name: 'Louisiana' },
-    { abbreviation: 'ME', name: 'Maine' },
-    { abbreviation: 'MD', name: 'Maryland' },
-    { abbreviation: 'MA', name: 'Massachusetts' },
-    { abbreviation: 'MI', name: 'Michigan' },
-    { abbreviation: 'MN', name: 'Minnesota' },
-    { abbreviation: 'MS', name: 'Mississippi' },
-    { abbreviation: 'MO', name: 'Missouri' },
-    { abbreviation: 'MT', name: 'Montana' },
-    { abbreviation: 'NE', name: 'Nebraska' },
-    { abbreviation: 'NV', name: 'Nevada' },
-    { abbreviation: 'NH', name: 'New Hampshire' },
-    { abbreviation: 'NJ', name: 'New Jersey' },
-    { abbreviation: 'NM', name: 'New Mexico' },
-    { abbreviation: 'NY', name: 'New York' },
-    { abbreviation: 'NC', name: 'North Carolina' },
-    { abbreviation: 'ND', name: 'North Dakota' },
-    { abbreviation: 'OH', name: 'Ohio' },
-    { abbreviation: 'OK', name: 'Oklahoma' },
-    { abbreviation: 'OR', name: 'Oregon' },
-    { abbreviation: 'PA', name: 'Pennsylvania' },
-    { abbreviation: 'RI', name: 'Rhode Island' },
-    { abbreviation: 'SC', name: 'South Carolina' },
-    { abbreviation: 'SD', name: 'South Dakota' },
-    { abbreviation: 'TN', name: 'Tennessee' },
-    { abbreviation: 'TX', name: 'Texas' },
-    { abbreviation: 'UT', name: 'Utah' },
-    { abbreviation: 'VT', name: 'Vermont' },
-    { abbreviation: 'VA', name: 'Virginia' },
-    { abbreviation: 'WA', name: 'Washington' },
-    { abbreviation: 'WV', name: 'West Virginia' },
-    { abbreviation: 'WI', name: 'Wisconsin' },
-    { abbreviation: 'WY', name: 'Wyoming' }
-  ];
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
   const bannerOptions = [ 
     { name: 'Retractable Stand', disabled: false },
     { name: 'Grommet Pressed', disabled: false },
@@ -67,8 +18,6 @@ const states = [
     { name: 'Webbing Ringed', disabled: false },
     { name: 'Roped', disabled: false },
   ];
-
-  
   const finishOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false }
@@ -79,20 +28,19 @@ const Banner = () => {
             const [addedSizes, setAddedSizes] = useState([]);
             const [addedFinishes, setAddedFinishes] = useState([]);
             const [addedPlaces, setAddedPlaces] = useState([]);
+            const [company, setCompany] = useState('');
             const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
             const [widthUnit, setWidthUnit] = useState(''); // Default to feet
+            const [fileError, setFileError] = useState(''); 
+            const [isSubmitting, setIsSubmitting] = useState(false);
+            const [termsAccepted, setTermsAccepted] = useState(false);
             const [availablefinishOptions] = useState(finishOptions);
             const [errorMessage, setErrorMessage] = useState('');
             const [formData, setFormData] = useState({
-              first: '',
-              last: '',
+              name: '',
               company: '',
               email: '',
               phone: '',
-              address: '',
-              city: '',
-              state: '',
-              zip: '',
               bannerSize: { length: '', width: '' },
               hang: '',
               finishing: '',
@@ -174,11 +122,14 @@ const Banner = () => {
                 setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
               }
             };
-            const handleFileChange = (e, fileType) => {
-              const file = e.target.files[0];
-              setFormData({ ...formData, [fileType]: file });
-              setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear image error
-            };
+    const handleFileChange = (e, fileType) => {
+      const newFiles = Array.from(e.target.files);
+      setFormData(prevState => ({
+        ...prevState,
+        [fileType]: [...(prevState[fileType] || []), ...newFiles]
+      }));
+      setFileError('');
+    };
           const handleFileRemove = (fileType) => {
             setFormData({ ...formData, [fileType]: null });
           };
@@ -199,10 +150,9 @@ const Banner = () => {
           const handleOptionChange = (type, value) => {
             setFormData({ ...formData, [type]: value });
           };
-
-          const handleSubmit = async (e) => {
-            e.preventDefault();
-            let hasErrors = false;
+      const handleSubmit = async (e) => {
+    e.preventDefault();
+    let hasErrors = false;
           
             // Validate size
             if (addedSizes.length === 0) {
@@ -217,23 +167,7 @@ const Banner = () => {
                 bannerSize: '',
               }));
             }
-          
-            // Validate placement
-            if (addedPlaces.length === 0) {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                hang: 'Please add at least one banner placement.',
-              }));
-              hasErrors = true;
-            } else {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                hang: '',
-              }));
-            }
-          
-            // Validate finishing
-            if (addedFinishes.length === 0) {
+                        if (addedFinishes.length === 0) {
               setErrors((prevErrors) => ({
                 ...prevErrors,
                 finishing: 'Please add at least one banner finishing option.',
@@ -246,67 +180,55 @@ const Banner = () => {
               }));
             }
           
-            // Validate image
-            if (!formData.img) {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                img: 'Please select an image/PDF/SVG file for your banner.',
-              }));
-              hasErrors = true;
-            } else {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                img: '',
-              }));
-            }
-          
-            // Validate other required fields (as you already do)
-            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
-            const newErrors = {};
-            requiredFields.forEach((field) => {
-              if (!formData[field]) {
-                let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                if (field === 'first') fieldLabel = 'First Name';
-                if (field === 'last') fieldLabel = 'Last Name';
-                if (field === 'company') fieldLabel = 'Company Name';
-                if (field === 'phone') fieldLabel = 'Phone Number';
-                if (field === 'address') fieldLabel = 'Address';
-                if (field === 'city') fieldLabel = 'City';
-                if (field === 'state') fieldLabel = 'State';
-                if (field === 'zip') fieldLabel = 'Zip Code';
-                newErrors[field] = `${fieldLabel} is required!`;
-              }
-            });
-          
-            if (Object.keys(newErrors).length > 0) {
-              setErrors((prevErrors) => ({ ...prevErrors, ...newErrors }));
-              return;
-            }
-          
-            if (hasErrors) {
-              return;
-            }
-          
-            try {
-              // Create FormData instance to handle file upload
-              const formDataToSend = new FormData();
-              formDataToSend.append('first', formData.first);
-              formDataToSend.append('last', formData.last);
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
+    const newErrors = {};
+  
+  requiredFields.forEach(field => {
+    if (!formData[field]) {
+      let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+      if (field === 'name') fieldLabel = 'Name';
+      if (field === 'company') fieldLabel = 'Company Name';
+      if (field === 'email') fieldLabel = 'Email';
+      if (field === 'phone') fieldLabel = 'Phone Number';
+      if (field === 'img') fieldLabel = 'Logo';
+      if (field === 'terms') fieldLabel = 'Terms & Conditions';
+      newErrors[field] = `${fieldLabel} is required!`;
+      hasError = true;
+    }
+  });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.'); // Set the general error message
+      setErrors(newErrors);
+      return;
+    }
+const formDataToSend = new FormData();
+              formDataToSend.append('name', formData.name);
               formDataToSend.append('company', formData.company);
               formDataToSend.append('email', formData.email);
               formDataToSend.append('phone', formData.phone);
-              formDataToSend.append('address', formData.address);
-              formDataToSend.append('city', formData.city);
-              formDataToSend.append('state', formData.state);
-              formDataToSend.append('zip', formData.zip);
               formDataToSend.append('message', formData.message);
           
               // Append the image file (logo)
-              if (formData.img) {
-                formDataToSend.append('img', formData.img);
-              }
-          
-              // Append banner size as a formatted string like "2 feet x 2 feet"
+        if (formData.img?.length > 0) {
+          formData.img.forEach((file) => {
+            formDataToSend.append('img', file);
+          });
+        }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
+
+
+         // Append banner size as a formatted string like "2 feet x 2 feet"
               const formattedSizes = addedSizes.map((size) => `${size.length} x ${size.width}`).join(', ');
               formDataToSend.append('bannerSize', formattedSizes);
           
@@ -317,44 +239,42 @@ const Banner = () => {
               // Append finishing as a single string (assuming there's only one finishing)
               const formattedFinishing = addedFinishes.map((finish) => finish.name).join(', ');
               formDataToSend.append('finishing', formattedFinishing);
-          
+          setIsSubmitting(true);
               const response = await axios.post('/banners', formDataToSend, {
                 headers: {
                   'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
                 },
               });
-          
-              console.log(response.data);
-              setSubmissionMessage('Banner Request Submitted!');
-          
-              // Reset form fields after successful submission
-              setFormData({
-                first: '',
-                last: '',
+      console.log(response.data); // Now this works
+           
+      setFormData({
+                name: '',
                 company: '',
                 email: '',
                 phone: '',
-                address: '',
-                city: '',
-                state: '',
-                zip: '',
                 bannerSize: {length: '', width: ''},
                 hang: '',
                 finishing: '',
                 img: null,
-                message: ''
-              });
+                message: '',
+                terms: false
+      });
               setAddedSizes([]);
               setErrors({});
               setPhone('');
               setAddedPlaces([]);
               setAddedFinishes([]);
-            } catch (error) {
-              console.error('Error submitting Banner Request:', error);
-              setSubmissionErrorMessage('There was an error submitting your request. Please try again.');
-            }
-          };
-          
+      setSubmissionMessage(
+        '✅ Banner Request Submitted!'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("There was an error submitting your request. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
+  };
             return (
                 <div>
                     <Header />
@@ -373,6 +293,7 @@ const Banner = () => {
                     <h1 className="banner-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
                     <h2 className="banner-fill">Please Fill Out the Form Below to Submit Your Custom Banner
                         Information to get an Inquiry or Quote.</h2>
+                        <h3 className="fill-info">Fields marked with * are required.</h3>
                 </div>
                 <div className="banner-actual">
                   <div className="name-section-banner">
@@ -381,72 +302,54 @@ const Banner = () => {
   <div className="first-banner-name">
     <div className="firstname-banner-input">
     <div className="input-first-banner-container">
-<label className="first-banner-label-name">First Name *</label>
+<label className="first-banner-label-name">Name *</label>
 <input
 name="first"
 type="text"
 className="firstname-banner-name-input"
 text="first-name--input"
-placeholder="Enter First Name"
+placeholder="Enter First & Name"
 
-value={formData.first}
+value={formData.name}
 onChange={(e) => {
-  setFormData({ ...formData, first: e.target.value });
+  setFormData({ ...formData, name: e.target.value });
   if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+    setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
   }
 }}
 />
-{errors.first && <div className="error-message">{errors.first}</div>}
-</div>
-    </div>
-  </div>
-  <div className="last-banner-name">
-    <div className="last-banner-input">
-    <div className="last-banner-input-container">
-<label className="last-banner-label-name">Last Name *</label>
-<input
-name="last"
-type="text"
-className="lastname-banner-name-input"
-text="last-name--input"
-placeholder="Enter Last Name"
-
-value={formData.last}
-onChange={(e) => {
-  setFormData({ ...formData, last: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
-  }
-}}
-/>
-{errors.last && <div className="error-message">{errors.last}</div>}
+{errors.name && <div className="error-message">{errors.name}</div>}
 </div>
     </div>
   </div>
 </div>
-</div>
-<div className="company-banner-section">
 <div className="company-banner-input">
   <div className="company-banner">
     <div className="banner-company-name-input">
     <div className="banner-input-container">
       <label className="company-banner-name">Company *</label>
-      <input name="company-banner-name-input" type="text" className="company-banner-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => {
-          setFormData({ ...formData, company: e.target.value });
-          if (e.target.value) {
-            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
-          }
-        }}
-        />
+  <input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
+    }
+    }
+  />
         {errors.company && <span className="error-message">{errors.company}</span>}
         </div>
     </div>
   </div>
   </div>
-</div>
-<div className="emailphone-banner-section">
 <div className="emailphone-banner-input">
   <div className="email-banner">
     <div className="email-banner-input">
@@ -494,93 +397,11 @@ onChange={(e) => {
   </div>
 </div>
 </div>
-<div  className="address-banner-section">
-<div className="address-banner-input-container">
-<div className="address-banner-input">
-<div className="address-banner-container">
-  <div className="address-banner-inputing">
-<label className="addr-banner-label">Address *</label>
-<input
-name="address-box"
-type="text"
-className="address-banner-box"
-text="address--input"
-placeholder="Enter Address"
-value={formData.address}
-onChange={(e) => {
-  setFormData({ ...formData, address: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
-  }
-}}
-/>
-{errors.address && <span className="error-message">{errors.address}</span>}
-</div>
-<div className="city-banner-input">
-<label className="city-banner-label">City *</label>
-
-<input
-name="city-input"
-type="text"
-className="city-banner-box"
-text="city--input"
-placeholder="City"
-value={formData.city}
-onChange={(e) => {
-  setFormData({ ...formData, city: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
-  }
-}}
-/>
-{errors.city && <span className="error-message">{errors.city}</span>}
-</div>
-</div>
-<div className="city-banner-state">
-<div className="state-banner-input">
-<label className="state-banner-label">State *</label>
-<select
-      name="state"
-      className="state-banner-box"
-      
-      value={formData.state}
-      onChange={(e) => {
-        setFormData({ ...formData, state: e.target.value });
-        if (e.target.value) {
-          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
-        }
-      }}
-    >
-      <option value="">Select State</option>
-      {states.map(state => (
-        <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
-      ))}
-    </select>
-    {errors.state && <span className="error-message">{errors.state}</span>}
-    </div>
-    <div className="zip-banner-input">
-<label className="zip-banner-label">Zip Code *</label>
-<input
-        name="zip"
-        type="text"
-        className="zip-banner-box"
-        value={formData.zip}
-        onChange={(e) => handleZipChange(e)}
-        placeholder="Zip Code"
-        maxLength={5}
-        pattern="\d{5}"
-        title="Zip code must be 5 digits"
-      />
-      {errors.zip && <span className="error-message">{errors.zip}</span>}
-</div>
-</div>
-</div>
-</div>
-</div>
 <div className="size-banner-vinyl-section">
 <div className="size-banner-section">
+  <label className="size-banner-label">Banner Size *</label>
   <div className="length-banner-section">
-    <label className="length-banner-label" htmlFor="length">Banner Length *</label>
+    <label className="length-banner-label" htmlFor="length">Banner Length</label>
     <input
       className="length-banner-box"
       type="number"
@@ -601,7 +422,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-banner-section">
-    <label className="width-banner-label" htmlFor="width">Banner Width *</label>
+    <label className="width-banner-label" htmlFor="width">Banner Width</label>
     <input
       className="width-banner-box"
       type="number"
@@ -638,8 +459,6 @@ onChange={(e) => {
 </div>
       {errors.bannerSize && <span className="error-message">{errors.bannerSize}</span>}
 </div>
-</div>
-<div className="placement-banner-section">
 <div className="placement-imgs">
     <div className="place-banner-flex-container">
         <h1 className="place-examples">Placement Examples</h1>
@@ -690,8 +509,6 @@ onChange={(e) => {
   </ul>
 </div>
           {errors.hang && <span className="error-message">{errors.hang}</span>}
-          </div>
-          <div className="finishing-banner-section">
       <div className="finish-banner-section">
         <label className="finish-label" htmlFor="finish">Finishing *</label>
         <select
@@ -724,39 +541,51 @@ onChange={(e) => {
 </div>
           {errors.finishing && <span className="error-message">{errors.finishing}</span>}
           </div>
-          <div className="banner-file-section">
-<label className="banner-file-label">Logo/Image *</label>
-<h2 className="banner-warn"><b className="banner-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
-    how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
-    These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
-    JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <p className="log-re">Logo Redesigning(Optional)</p>
-    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo">NEW LOGO</a>.
-    We will send you a quote for the logo redesigning and you can choose to accept it or not.
-</p>
-</h2>
-<div className="file-banner-section">
+      <div className="fleet-file-section">
+<label className="fleet-file-label">Logo/Image *</label>
+<h2 className="apparel-warn">
+    <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
+    <p className="log-re">Need a new logo?</p>
+    <p className="logo-warn">
+      <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
+    </p>
+  </h2>
+<div className="file-fleet-section">
+
+
 <div className="choose-logo-contain">
-    <label className="btn -- file-banner-label">
-    {formData.img ? (
-            <span>{formData.img.name}</span>
-          ) : (
-            <span>Choose Your Logo For Banner</span>
-          )}
-          <input type="file" name="img" accept=".pdf,.svg,.doc,.png,.jpg,.jpeg" onChange={(e) => {
-    handleFileChange(e, 'img');
-    if (e.target.files[0]) {
-      setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
-    }
-  }} />
-          </label>
-          {formData.img && (
-            <button type="button" className="btn -- remove-banner-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
-          )}
-        
-        {errors.img && <span className="error-message">{errors.img}</span>}
+  <label className="file-fleet-label">
+    {formData.img && formData.img.length > 0 ? (
+      <span>Add More Photos or Logos</span>
+    ) : (
+      <span>Choose Your Logo or Photos for Your Vehicle</span>
+    )}
+    <input
+  type="file"
+  name="img" // ✅ This is correct
+  accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+  onChange={(e) => handleFileChange(e, 'img')}
+  multiple
+/>
+  </label>
+
+  {formData.img && formData.img.length > 0 && (
+    <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>
+      Remove All
+    </button>
+  )}
+
+  {fileError && <span className="error-message">{fileError}</span>}
+
+  {formData.img && formData.img.length > 0 && (
+    <ul className="selected-fleet-files-list">
+      {formData.img.map((file, index) => (
+        <li key={index}>{file.name}</li>
+      ))}
+    </ul>
+  )}
 </div>
+
 </div>
 </div>
 <div className="banner-message-container">
@@ -775,17 +604,52 @@ and what time you want an MX crew will arrive.</h1>
   }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
-  {submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
-)}
+  <div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom signs and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
-  <button type="button" className="btn btn--full submit-banner" onClick={handleSubmit}>SUBMIT CUSTOM BANNER</button>
-  {submissionErrorMessage &&
-            <div className="submission-error-message">{submissionErrorMessage}</div>
-          }
-          {errorMessage &&
-            <div className="submission-error-message">{errorMessage}</div>
-          }
+  <div className="submit-button-wrapper">
+    <button
+    type="submit"
+    className="btn btn--full submit-sign"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? (
+      <div className="spinner-button">
+        <span className="spinner"></span> Submitting...
+      </div>
+    ) : (
+      'SUBMIT CUSTOM BANNER'
+    )}
+  </button>
+  {submissionMessage && (
+    <div className="custom-toast success">{submissionMessage}</div>
+  )}
+  {submissionErrorMessage && (
+    <div className="custom-toast error">{submissionErrorMessage}</div>
+  )}
+  {errorMessage && (
+    <div className="custom-toast error">{errorMessage}</div>
+  )}
+         </div> 
 </div>
         </div>
         </form>
@@ -831,7 +695,7 @@ and what time you want an MX crew will arrive.</h1>
       <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
-                </div>
+    </div>
             );
 };
 export default Banner;
