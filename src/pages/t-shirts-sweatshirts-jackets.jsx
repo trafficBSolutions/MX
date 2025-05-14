@@ -255,6 +255,7 @@ setAddedApparel([]);
             <div className="apparel-form-info">
         <h1 className="apparel-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
         <h2 className="apparel-fill">Please Fill Out the Form Below to Submit Your Custom Apparel Information to get an Inquiry or Quote.</h2>
+              <h3 className="fill-info">Fields marked with * are required.</h3>
             </div>
                 <div className="apparel-actual">
                 <div className="name-section-apparel">
