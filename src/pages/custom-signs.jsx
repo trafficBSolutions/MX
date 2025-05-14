@@ -999,7 +999,7 @@ and what time you want an MX crew will arrive.</h1>
         <span className="spinner"></span> Submitting...
       </div>
     ) : (
-      'SUBMIT WINDOW FROSTING/TINTING'
+      'SUBMIT CUSTOM SIGN(S)'
     )}
   </button>
   {submissionMessage && (
