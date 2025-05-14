@@ -3,6 +3,7 @@ import Header from '../components/headerviews/HeaderShirt';
 import axios from 'axios';
 import '../css/shirt.css';
 import '../css/headerfooter.css';
+import '../css/toaster.css';
 import MXShirtGallery from '../photogallery/ShirtMXgallery';
 import { ToastContainer, toast } from 'react-toastify';
 import images from '../utils/dynamicImportImages';
