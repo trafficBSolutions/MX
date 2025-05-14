@@ -7,6 +7,7 @@ import MXSignGallery from '../photogallery/SignMXgallery';
 import Header from '../components/headerviews/HeaderSign';
 import images from '../utils/dynamicImportImages';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
       const sizeAluminumBlankOptions = [
         {name: '12"x6"', disabled: false},
         {name: '18"x6"'},
@@ -113,15 +114,10 @@ import { ToastContainer, toast } from 'react-toastify';
           const [finishingError, setFinishingError] = useState(''); // Error for finishing
 
   const [formData, setFormData] = useState({
-    first: '',
-    last: '',
+    name: '',
     company: '',
     email: '',
     phone: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
     img: null,
     message: '',
     terms: false,
