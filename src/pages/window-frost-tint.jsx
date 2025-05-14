@@ -1,62 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../css/window.css';
 import '../css/headerfooter.css';
+import '../css/toaster.css';
 import axios from 'axios';
 import MXWindowGal from '../photogallery/WindowMXgallery';
 import Header from '../components/headerviews/HeaderWindow';
 import images from '../utils/dynamicImportImages';
-const states = [
-    { abbreviation: 'AL', name: 'Alabama' },
-    { abbreviation: 'AK', name: 'Alaska' },
-    { abbreviation: 'AZ', name: 'Arizona' },
-    { abbreviation: 'AR', name: 'Arkansas' },
-    { abbreviation: 'CA', name: 'California' },
-    { abbreviation: 'CO', name: 'Colorado' },
-    { abbreviation: 'CT', name: 'Connecticut' },
-    { abbreviation: 'DE', name: 'Delaware' },
-    { abbreviation: 'FL', name: 'Florida' },
-    { abbreviation: 'GA', name: 'Georgia' },
-    { abbreviation: 'HI', name: 'Hawaii' },
-    { abbreviation: 'ID', name: 'Idaho' },
-    { abbreviation: 'IL', name: 'Illinois' },
-    { abbreviation: 'IN', name: 'Indiana' },
-    { abbreviation: 'IA', name: 'Iowa' },
-    { abbreviation: 'KS', name: 'Kansas' },
-    { abbreviation: 'KY', name: 'Kentucky' },
-    { abbreviation: 'LA', name: 'Louisiana' },
-    { abbreviation: 'ME', name: 'Maine' },
-    { abbreviation: 'MD', name: 'Maryland' },
-    { abbreviation: 'MA', name: 'Massachusetts' },
-    { abbreviation: 'MI', name: 'Michigan' },
-    { abbreviation: 'MN', name: 'Minnesota' },
-    { abbreviation: 'MS', name: 'Mississippi' },
-    { abbreviation: 'MO', name: 'Missouri' },
-    { abbreviation: 'MT', name: 'Montana' },
-    { abbreviation: 'NE', name: 'Nebraska' },
-    { abbreviation: 'NV', name: 'Nevada' },
-    { abbreviation: 'NH', name: 'New Hampshire' },
-    { abbreviation: 'NJ', name: 'New Jersey' },
-    { abbreviation: 'NM', name: 'New Mexico' },
-    { abbreviation: 'NY', name: 'New York' },
-    { abbreviation: 'NC', name: 'North Carolina' },
-    { abbreviation: 'ND', name: 'North Dakota' },
-    { abbreviation: 'OH', name: 'Ohio' },
-    { abbreviation: 'OK', name: 'Oklahoma' },
-    { abbreviation: 'OR', name: 'Oregon' },
-    { abbreviation: 'PA', name: 'Pennsylvania' },
-    { abbreviation: 'RI', name: 'Rhode Island' },
-    { abbreviation: 'SC', name: 'South Carolina' },
-    { abbreviation: 'SD', name: 'South Dakota' },
-    { abbreviation: 'TN', name: 'Tennessee' },
-    { abbreviation: 'TX', name: 'Texas' },
-    { abbreviation: 'UT', name: 'Utah' },
-    { abbreviation: 'VT', name: 'Vermont' },
-    { abbreviation: 'VA', name: 'Virginia' },
-    { abbreviation: 'WA', name: 'Washington' },
-    { abbreviation: 'WV', name: 'West Virginia' },
-    { abbreviation: 'WI', name: 'Wisconsin' },
-    { abbreviation: 'WY', name: 'Wyoming' }
-  ];
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
   const sizeOptions = [
     { name: 'Select Measurement', disabled: true }, // Add this default option
     { name: 'Feet', disabled: false },
@@ -80,19 +31,18 @@ const Window = () => {
             const [addedSizes, setAddedSizes] = useState([]);  // To store multiple sizes
             const [addedTint, setAddedTint] = useState([]);  // To store multiple tint/frost selections
             const [errorMessage, setErrorMessage] = useState('');
+            const [isSubmitting, setIsSubmitting] = useState(false); 
+            const [termsAccepted, setTermsAccepted] = useState(false);
+            const [company, setCompany] = useState('');
             const [formData, setFormData] = useState({
-              first: '',
-              last: '',
+              name: '',
               company: '',
               email: '',
               phone: '',
-              address: '',
-              city: '',
-              state: '',
-              zip: '',
               windowSize: { length: '', width: '', border: '' },
               tint: '',
-              message: ''
+              message: '',
+              terms: false
             });
             const [errors, setErrors] = useState({});
             const [submissionMessage, setSubmissionMessage] = useState('');
@@ -178,37 +128,25 @@ const Window = () => {
               const updatedTints = addedTint.filter((_, i) => i !== index);  // Remove the selected tint
               setAddedTint(updatedTints);
             };
-          
-            // Function to handle form submission
+            
             const handleSubmit = async (e) => {
-              e.preventDefault();
-            
-              // Reset messages before validation
-              setSubmissionErrorMessage('');
-              setSubmissionMessage('');
-            
-              // Required fields
-              const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
-            
-              // Prepare newErrors object to track missing fields
-              const newErrors = {};
-            
-              // Loop through required fields and check if they are missing
-              requiredFields.forEach((field) => {
-                if (!formData[field] || formData[field].trim() === '') {
-                  let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                  if (field === 'first') fieldLabel = 'First Name';
-                  if (field === 'last') fieldLabel = 'Last Name';
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];;
+    const newErrors = {};
+
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+                  if (field === 'name') fieldLabel = 'First & Last Name';
                   if (field === 'company') fieldLabel = 'Company Name';
                   if (field === 'phone') fieldLabel = 'Phone Number';
-                  if (field === 'address') fieldLabel = 'Address';
-                  if (field === 'city') fieldLabel = 'City';
-                  if (field === 'state') fieldLabel = 'State';
-                  if (field === 'zip') fieldLabel = 'Zip Code';
-                  newErrors[field] = `${fieldLabel} is required!`;
-                }
-              });
-            
+                  if (field === 'email') fieldLabel = 'Email';
+                  if (field === 'terms') fieldLabel = 'Terms & Conditions';
+        newErrors[field] = `${fieldLabel} is required!`;
+      }
+    });
               // Validate window size and tint options
               if (addedSizes.length === 0) {
                 newErrors.windowSize = 'Please add at least one window size (Length, Width, and Border).';
@@ -216,63 +154,60 @@ const Window = () => {
               if (addedTint.length === 0) {
                 newErrors.tint = 'Please add at least one frost/tint option.';
               }
-            
-              // If there are errors, set error messages and stop form submission
-              if (Object.keys(newErrors).length > 0) {
-                setErrorMessage('Required fields are missing.');
-                setErrors(newErrors);
-                return;
-              }
-            
-              // If no errors, clear the error message
-              setErrorMessage('');
-              setErrors({});
-            
-              // Convert addedSizes array to a formatted string for submission
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.'); // Set the general error message
+      setErrors(newErrors);
+      return;
+    }
+    if (!termsAccepted) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        terms: 'You must agree to pay upon job completion.'
+      }));
+      setErrorMessage('You must accept the terms and conditions.');
+      setIsSubmitting(false);
+      return;
+    }     
               const formattedWindowSize = addedSizes
                 .map(size => `Length: ${size.length}, Width: ${size.width}, Border: ${size.border}`)
                 .join(' | ');
-            
-              // If no errors, proceed with submission
-              try {
                 const formDataToSend = {
                   ...formData,
                   windowSize: formattedWindowSize, // Join the added sizes array into a string
                   tint: addedTint.join(', '),      // Join the added tints array into a string
                 };
-            
-                const response = await axios.post('/window-frost-tint', formDataToSend, {
-                  headers: {
-                    'Content-Type': 'application/json', // Make sure the Content-Type is correct
-                  },
-                });
-            
-                // Reset form after successful submission
-                console.log(response.data);
-                setFormData({
-                  first: '',
-                  last: '',
-                  company: '',
-                  email: '',
-                  phone: '',
-                  address: '',
-                  city: '',
-                  state: '',
-                  zip: '',
-                  windowSize: { length: '', width: '', border: '' },
-                  tint: '',
-                  message: '',
-                });
-                setAddedSizes([]);  // Clear added sizes
-                setAddedTint([]);   // Clear added tints
-                setErrors({});
-                setPhone('');
-                setSubmissionMessage('Window Frost/Tinting Request Submitted! We will be with you within 48 hours!');
-              } catch (error) {
-                console.log('Submission Error:', error);
-                setSubmissionErrorMessage('There was an error submitting your request. Please try again later.');
-              }
-            };
+          setIsSubmitting(true);
+      const response = await axios.post('/window-frost-tint', formDataToSend, {
+        headers: {
+          'Content-Type': 'application/json'
+      }})
+      console.log(response.data); // Now this works
+           
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        windowSize: { length: '', width: '', border: '' },
+        tint: '',
+        message: '',
+        terms: ''
+      });
+      setAddedSizes([]);  // Clear added sizes
+      setAddedTint([]);   // Clear added tints
+      setErrors({});
+      setPhone('');
+      setSubmissionMessage(
+        '✅ Your window job has been submitted! We will be with you as soon as possible.'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("Something went wrong.");
+      } finally {
+        setIsSubmitting(false);
+      }
+  };
             return (
                 <div>
                     <Header />
@@ -291,6 +226,7 @@ const Window = () => {
                     <h1 className="window-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
                     <h2 className="window-fill">Please Fill Out the Form Below to Submit Your Custom Window Frost or Tinting
                         Information to get an Inquiry or Quote.</h2>
+                        <h3 className="fill-info">Fields marked with * are required.</h3>
                 </div>
                 <div className="window-actual">
                   <div className="name-section-window">
@@ -299,76 +235,59 @@ const Window = () => {
   <div className="first-window-name">
     <div className="firstname-window-input">
     <div className="input-first-window-container">
-<label className="first-window-label-name">First Name *</label>
+<label className="first-window-label-name">Name *</label>
 <input
-name="first"
+name="name"
 type="text"
 className="firstname-window-name-input"
 text="first-name--input"
-placeholder="Enter First Name"
+placeholder="Enter First & Last Name"
 
-value={formData.first}
+value={formData.name}
 onChange={(e) => {
-  setFormData({ ...formData, first: e.target.value });
+  setFormData({ ...formData, name: e.target.value });
   if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+    setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
   }
 }}
 
 />
-{errors.first && <div className="error-message">{errors.first}</div>}
+{errors.name && <div className="error-message">{errors.name}</div>}
 
 </div>
     </div>
   </div>
-  <div className="last-window-name">
-    <div className="last-window-input">
-    <div className="last-window-input-container">
-<label className="last-window-label-name">Last Name *</label>
-<input
-name="last"
-type="text"
-className="lastname-window-name-input"
-text="last-name--input"
-placeholder="Enter Last Name"
-
-value={formData.last}
-onChange={(e) => {
-  setFormData({ ...formData, last: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
-  }
-}}
-
-/>
-{errors.last && <div className="error-message">{errors.last}</div>}
 </div>
-    </div>
-  </div>
-</div>
-</div>
-<div className="company-window-section">
 <div className="company-window-input">
   <div className="company-window">
     <div className="window-company-name-input">
     <div className="window-input-container">
       <label className="company-window-name">Company *</label>
-      <input name="company-window-name-input" type="text" className="company-window-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => {
-          setFormData({ ...formData, company: e.target.value });
-          if (e.target.value) {
-            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
-          }
-        }}
-
-        />
+      <p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
+  <input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
+    }
+    }
+  />
         {errors.company && <div className="error-message">{errors.company}</div>}
         </div>
     </div>
   </div>
   </div>
-</div>
-<div className="emailphone-window-section">
 <div className="emailphone-window-input">
   <div className="email-window">
     <div className="email-window-input">
@@ -417,93 +336,11 @@ onChange={(e) => {
   </div>
 </div>
 </div>
-<div className="address-window-section">
-<div className="address-window-input-container">
-<div className="address-window-input">
-<div className="address-window-container">
-  <div className="address-window-inputing">
-<label className="addr-window-label">Address *</label>
-<input
-name="address-box"
-type="text"
-className="address-window-box"
-text="address--input"
-placeholder="Enter Address"
-value={formData.address}
-onChange={(e) => {
-  setFormData({ ...formData, address: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
-  }
-}}
-/>
-{errors.address && <div className="error-message">{errors.address}</div>}
-</div>
-<div className="city-window-input">
-<label className="city-window-label">City *</label>
-
-<input
-name="city-input"
-type="text"
-className="city-window-box"
-text="city--input"
-placeholder="City"
-value={formData.city}
-onChange={(e) => {
-  setFormData({ ...formData, city: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
-  }
-}}
-/>
-{errors.city && <div className="error-message">{errors.city}</div>}
-</div>
-</div>
-<div className="city-window-state">
-<div className="state-window-input">
-<label className="state-window-label">State *</label>
-<select
-      name="state"
-      className="state-window-box"
-      
-      value={formData.state}
-      onChange={(e) => {
-        setFormData({ ...formData, state: e.target.value });
-        if (e.target.value) {
-          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
-        }
-      }}
-    >
-      <option value="">Select State</option>
-      {states.map(state => (
-        <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
-      ))}
-    </select>
-    {errors.state && <div className="error-message">{errors.state}</div>}
-    </div>
-    <div className="zip-window-input">
-<label className="zip-window-label">Zip Code *</label>
-<input
-        name="zip"
-        type="text"
-        className="zip-window-box"
-        value={formData.zip}
-        onChange={(e) => handleZipChange(e)}
-        placeholder="Zip Code"
-        maxLength={5}
-        pattern="\d{5}"
-        title="Zip code must be 5 digits"
-      />
-      {errors.zip && <div className="error-message">{errors.zip}</div>}
-</div>
-</div>
-</div>
-</div>
-</div>
 <div className="window-size-section">
 <div className="size-window-section">
   <div className="length-window-section">
-    <label className="length-window-label" htmlFor="length">Window Length *</label>
+    <label>Window Specifications *</label>
+    <label className="length-window-label" htmlFor="length">Window Length</label>
     <input
   className="length-window-box"
   type="number"
@@ -524,7 +361,7 @@ onChange={(e) => {
   </div>
 
   <div className="width-window-section">
-    <label className="width-window-label" htmlFor="width">Window Width *</label>
+    <label className="width-window-label" htmlFor="width">Window Width</label>
     <input
   className="width-window-box"
   type="number"
@@ -545,7 +382,7 @@ onChange={(e) => {
   </div>
   </div>
   <div className="border-window-section">
-  <label className="border-label" htmlFor="border">Border Radius *</label>
+  <label className="border-label" htmlFor="border">Border Radius</label>
   <input
   className="border-window-box"
   type="number"
@@ -593,8 +430,7 @@ onChange={(e) => {
 </div>
 
 
-</div>
-<div className="window-stand-section">
+
 <div className="tint-imgs">
     <div className="window-text-container">
         <h1 className="place-examples">Frost/Tint Examples</h1>
@@ -681,17 +517,52 @@ and what time you want an MX crew will arrive.</h1>
   }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
-  {submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
-)}
+<div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
-  <button type="button" className="btn btn--full submit-window" onClick={handleSubmit}>SUBMIT WINDOW FROSTING TINTING</button>
-  {submissionErrorMessage &&
-            <div className="submission-error-message">{submissionErrorMessage}</div>
-          }
-          {errorMessage &&
-            <div className="submission-error-message">{errorMessage}</div>
-          }
+  <div className="submit-button-wrapper">
+    <button
+    type="submit"
+    className="btn btn--full submit-window"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? (
+      <div className="spinner-button">
+        <span className="spinner"></span> Submitting...
+      </div>
+    ) : (
+      'SUBMIT WINDOW FROSTING/TINTING'
+    )}
+  </button>
+  {submissionMessage && (
+    <div className="custom-toast success">{submissionMessage}</div>
+  )}
+  {submissionErrorMessage && (
+    <div className="custom-toast error">{submissionErrorMessage}</div>
+  )}
+  {errorMessage && (
+    <div className="custom-toast error">{errorMessage}</div>
+  )}
+         </div> 
 </div>
         </div>
         </form>
@@ -737,7 +608,7 @@ and what time you want an MX crew will arrive.</h1>
       <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
-                </div>
+    </div>
             );
 };
 export default Window;
