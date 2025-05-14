@@ -5,62 +5,11 @@ import Header from '../components/headerviews/HeaderDecal';
 import axios from 'axios';
 import MXDecalGallery from '../photogallery/DecalMXgallery';
 import images from '../utils/dynamicImportImages';
-const states = [
-    { abbreviation: 'AL', name: 'Alabama' },
-    { abbreviation: 'AK', name: 'Alaska' },
-    { abbreviation: 'AZ', name: 'Arizona' },
-    { abbreviation: 'AR', name: 'Arkansas' },
-    { abbreviation: 'CA', name: 'California' },
-    { abbreviation: 'CO', name: 'Colorado' },
-    { abbreviation: 'CT', name: 'Connecticut' },
-    { abbreviation: 'DE', name: 'Delaware' },
-    { abbreviation: 'FL', name: 'Florida' },
-    { abbreviation: 'GA', name: 'Georgia' },
-    { abbreviation: 'HI', name: 'Hawaii' },
-    { abbreviation: 'ID', name: 'Idaho' },
-    { abbreviation: 'IL', name: 'Illinois' },
-    { abbreviation: 'IN', name: 'Indiana' },
-    { abbreviation: 'IA', name: 'Iowa' },
-    { abbreviation: 'KS', name: 'Kansas' },
-    { abbreviation: 'KY', name: 'Kentucky' },
-    { abbreviation: 'LA', name: 'Louisiana' },
-    { abbreviation: 'ME', name: 'Maine' },
-    { abbreviation: 'MD', name: 'Maryland' },
-    { abbreviation: 'MA', name: 'Massachusetts' },
-    { abbreviation: 'MI', name: 'Michigan' },
-    { abbreviation: 'MN', name: 'Minnesota' },
-    { abbreviation: 'MS', name: 'Mississippi' },
-    { abbreviation: 'MO', name: 'Missouri' },
-    { abbreviation: 'MT', name: 'Montana' },
-    { abbreviation: 'NE', name: 'Nebraska' },
-    { abbreviation: 'NV', name: 'Nevada' },
-    { abbreviation: 'NH', name: 'New Hampshire' },
-    { abbreviation: 'NJ', name: 'New Jersey' },
-    { abbreviation: 'NM', name: 'New Mexico' },
-    { abbreviation: 'NY', name: 'New York' },
-    { abbreviation: 'NC', name: 'North Carolina' },
-    { abbreviation: 'ND', name: 'North Dakota' },
-    { abbreviation: 'OH', name: 'Ohio' },
-    { abbreviation: 'OK', name: 'Oklahoma' },
-    { abbreviation: 'OR', name: 'Oregon' },
-    { abbreviation: 'PA', name: 'Pennsylvania' },
-    { abbreviation: 'RI', name: 'Rhode Island' },
-    { abbreviation: 'SC', name: 'South Carolina' },
-    { abbreviation: 'SD', name: 'South Dakota' },
-    { abbreviation: 'TN', name: 'Tennessee' },
-    { abbreviation: 'TX', name: 'Texas' },
-    { abbreviation: 'UT', name: 'Utah' },
-    { abbreviation: 'VT', name: 'Vermont' },
-    { abbreviation: 'VA', name: 'Virginia' },
-    { abbreviation: 'WA', name: 'Washington' },
-    { abbreviation: 'WV', name: 'West Virginia' },
-    { abbreviation: 'WI', name: 'Wisconsin' },
-    { abbreviation: 'WY', name: 'Wyoming' }
-  ];
 
   const decalTypeOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false },
+    { name: 'Perforated Window', disabled: false },
     { name: 'Chrome', disabled: false },
     { name: 'Football Helmet Gloss', disabled: false },
     { name: 'Football Helmet Chrome', disabled: false },
@@ -76,12 +25,16 @@ const Decal = () => {
     const [decalType, setDecalType] = useState('');
     const [decalSize, setDecalSize] = useState('');
     const [decalCut, setDecalCut] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [fileError, setFileError] = useState(''); 
+    const [company, setCompany] = useState('');
     const [decalErrorMessage, setDecalErrorMessage] = useState(''); // For decal error
     const [imgErrorMessage, setImgErrorMessage] = useState(''); // For image error
     const [widthError, setWidthError] = useState('');
     const [lengthError, setLengthError] = useState('');
     const [quantityError, setQuantityError] = useState('');
     const [decalTypeError, setDecalTypeError] = useState('');
+    const [termsAccepted, setTermsAccepted] = useState(false);
     const [decalCutTypeError, setDecalCutTypeError] = useState('');
     const [decalCutType, setDecalCutType] = useState('');
     const [decalSizeError, setDecalSizeError] = useState('');
@@ -100,10 +53,6 @@ const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
     img: null,
     message: ''
   });
@@ -189,15 +138,14 @@ const [formData, setFormData] = useState({
       setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
     }
   };
-  const handleFileChange = (e, fileType) => {
-    const file = e.target.files[0];
-    setFormData({ ...formData, [fileType]: file });
-
-    // Clear the image error message if a file is selected
-    if (file) {
-        setImgErrorMessage('');
-    }
-};
+    const handleFileChange = (e, fileType) => {
+      const newFiles = Array.from(e.target.files);
+      setFormData(prevState => ({
+        ...prevState,
+        [fileType]: [...(prevState[fileType] || []), ...newFiles]
+      }));
+      setFileError('');
+    };
 const handleZipChange = (event) => {
   const input = event.target.value;
   const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
@@ -215,111 +163,98 @@ const handleZipChange = (event) => {
 const handleFileRemove = (fileType) => {
   setFormData({ ...formData, [fileType]: null });
 };
-const handleSubmit = async (e) => {
+      const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    let hasErrors = false;
-  
-    // Check if there are no added decals
-    if (addedDecals.length === 0) {
-        setDecalErrorMessage('You must add at least one decal before submitting.');
-        hasErrors = true;
-    } else {
-        setDecalErrorMessage('');
-    }
-
-    // Check if an image is not selected
-    if (!formData.img) {
-        setImgErrorMessage('You must select a logo/image for the decals.');
-        hasErrors = true;
-    } else {
-        setImgErrorMessage('');
-    }
-  
-    // Field validation for required form fields (like first name, last name, etc.)
-    const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
     const newErrors = {};
+    let hasError = false;
   
-    requiredFields.forEach(field => {
-      if (!formData[field]) {
-        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-        if (field === 'first') fieldLabel = 'First Name';
-        if (field === 'last') fieldLabel = 'Last Name';
-        if (field === 'company') fieldLabel = 'Company Name';
-        if (field === 'phone') fieldLabel = 'Phone Number';
-        if (field === 'address') fieldLabel = 'Address';
-        if (field === 'city') fieldLabel = 'City';
-        if (field === 'state') fieldLabel = 'State';
-        if (field === 'zip') fieldLabel = 'Zip Code';
-        if (field === 'img') fieldLabel = 'Logo';
-        newErrors[field] = `${fieldLabel} is required!`;
-      }
-    });
-  
-    setErrors(newErrors);
+  requiredFields.forEach(field => {
+    if (!formData[field]) {
+      let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+      if (field === 'name') fieldLabel = 'Name';
+      if (field === 'company') fieldLabel = 'Company Name';
+      if (field === 'email') fieldLabel = 'Email';
+      if (field === 'phone') fieldLabel = 'Phone Number';
+      if (field === 'img') fieldLabel = 'Logo';
+      if (field === 'terms') fieldLabel = 'Terms & Conditions';
+      newErrors[field] = `${fieldLabel} is required!`;
+      hasError = true;
+    }
+  });
+
     if (Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.');
+      setErrorMessage('Required fields are missing.'); // Set the general error message
       setErrors(newErrors);
       return;
     }
-    if (hasErrors) {
-      return;
+    if (addedDecals.length === 0) {
+        setDecalErrorMessage('You must add at least one decal before submitting.');
+        hasError = true;
+    } else {
+        setDecalErrorMessage('');
     }
-  
-    // Proceed with form submission logic if there are no errors
-    try {
-      // Create FormData instance to handle file upload
-      const formDataToSend = new FormData();
-      formDataToSend.append('first', formData.first);
-      formDataToSend.append('last', formData.last);
-      formDataToSend.append('company', formData.company);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('phone', formData.phone);
-      formDataToSend.append('address', formData.address);
-      formDataToSend.append('city', formData.city);
-      formDataToSend.append('state', formData.state);
-      formDataToSend.append('zip', formData.zip);
-      formDataToSend.append('message', formData.message);
-  
-      // Append the image file (logo)
-      if (formData.img) {
-        formDataToSend.append('img', formData.img);
-      }
-  
-      // Append added decals
-      formDataToSend.append('decals', JSON.stringify(addedDecals));
-  
-      const response = await axios.post('/decals-stickers', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
-        },
-      });
-  
-      console.log(response.data);
-      setSubmissionMessage('Decals & Stickers Request Submitted!');
-  
-      // Reset form fields after successful submission
+const formDataToSend = new FormData();
+              formDataToSend.append('name', formData.name);
+              formDataToSend.append('company', formData.company);
+              formDataToSend.append('email', formData.email);
+              formDataToSend.append('phone', formData.phone);
+              formDataToSend.append('message', formData.message);
+          
+              // Append the image file (logo)
+        if (formData.img?.length > 0) {
+          formData.img.forEach((file) => {
+            formDataToSend.append('img', file);
+          });
+        }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
+
+
+        
+  setIsSubmitting(true);
+              formDataToSend.append('decals', JSON.stringify(addedDecals));
+          
+              const response = await axios.post('/decals-stickers', formDataToSend, {
+                headers: {
+                  'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
+                },
+              });
+      console.log(response.data); // Now this works
+           
       setFormData({
-        first: '',
-        last: '',
-        company: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-        img: null,
-        message: ''
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      img: null,
+      message: '',
+      terms: '',
       });
       setAddedDecals([]);
       setErrors({});
       setPhone('');
-    } catch (error) {
-      console.error('Error submitting custom decals & stickers', error);
-      setSubmissionErrorMessage('There was an error submitting your request. Please try again.');
-    }
+      setSubmissionMessage(
+        '✅ Decals & Stickers Request Submitted!'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("There was an error submitting your request. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
   };
+
   return (
     <div>
         <Header />
@@ -344,6 +279,7 @@ const handleSubmit = async (e) => {
         <div className="decal-form-info">
         <h1 className="decal-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
         <h2 className="decal-fill">Please Fill Out the Form Below to Submit Your Decals & Stickers Information to get an Inquiry or Quote.</h2>
+        <h3 className="fill-info">Fields marked with * are required.</h3>
             </div>
             <div className="decal-actual">
             <div className="name-section-decal">
@@ -352,73 +288,51 @@ const handleSubmit = async (e) => {
   <div className="first-decal-name">
     <div className="firstname-decal-input">
     <div className="input-first-decal-container">
-<label className="first-decal-label-name">First Name *</label>
+<label className="first-decal-label-name">Name *</label>
 <input
-  name="first"
+  name="name"
   type="text"
   className="firstname-decal-name-input"
-  placeholder="Enter First Name"
-  value={formData.first}
+  placeholder="Enter First & Last Name"
+  value={formData.name}
   onChange={(e) => {
-    setFormData({ ...formData, first: e.target.value });
+    setFormData({ ...formData, name: e.target.value });
     if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+      setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
     }
   }}
 />
-{errors.first && <div className="error-message">{errors.first}</div>}
+{errors.name && <div className="error-message">{errors.name}</div>}
 </div>
     </div>
   </div>
-  <div className="last-decal-name">
-    <div className="last-decal-input">
-    <div className="last-decal-input-container">
-<label className="last-decal-label-name">Last Name *</label>
-<input
-  name="last"
-  type="text"
-  className="lastname-decal-name-input"
-  placeholder="Enter Last Name"
-  value={formData.last}
-  onChange={(e) => {
-    setFormData({ ...formData, last: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
-    }
-  }}
-/>
-{errors.last && <div className="error-message">{errors.last}</div>}
-</div>
-    </div>
-  </div>
-</div>
-</div>
-<div className="company-decal-section">
 <div className="company-decal-input">
   <div className="company-decal">
     <div className="decal-company-name-input">
     <div className="decal-input-container">
       <label className="company-decal-name">Company *</label>
-      <input
-  name="company-decal-name-input"
-  type="text"
-  className="company-decal-name-input"
-  placeholder="Enter Company Name"
-  value={formData.company}
-  onChange={(e) => {
-    setFormData({ ...formData, company: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
+  <input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
     }
-  }}
-/>
+    }
+  />
 {errors.company && <span className="error-message">{errors.company}</span>}
         </div>
     </div>
   </div>
   </div>
-</div>
-<div className="emailphone-decal-section">
 <div className="emailphone-decal-input">
   <div className="email-decal">
     <div className="email-decal-input">
@@ -462,91 +376,11 @@ const handleSubmit = async (e) => {
   </div>
 </div>
 </div>
-<div className="address-decal-section">
-<div className="address-decal-input-container">
-<div className="address-decal-input">
-<div className="address-decal-container">
-  <div className="address-decal-inputing">
-<label className="addr-decal-label">Address *</label>
-<input
-  name="address-box"
-  type="text"
-  className="address-decal-box"
-  placeholder="Enter Address"
-  value={formData.address}
-  onChange={(e) => {
-    setFormData({ ...formData, address: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
-    }
-  }}
-/>
-{errors.address && <span className="error-message">{errors.address}</span>}
-</div>
-<div className="city-decal-input">
-<label className="city-decal-label">City *</label>
-
-<input
-name="city-input"
-type="text"
-className="city-decal-box"
-text="city--input"
-placeholder="City"
-value={formData.city}
-onChange={(e) => {
-  setFormData({ ...formData, city: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
-  }
-}}
-/>
-{errors.city && <span className="error-message">{errors.city}</span>}
-</div>
-</div>
-<div className="city-decal-state">
-<div className="state-decal-input">
-<label className="state-decal-label">State *</label>
-<select
-      name="state"
-      className="state-decal-box"
-      
-      value={formData.state}
-      onChange={(e) => {
-        setFormData({ ...formData, state: e.target.value });
-        if (e.target.value) {
-          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
-        }
-      }}
-    >
-      <option value="">Select State</option>
-      {states.map(state => (
-        <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
-      ))}
-    </select>
-    {errors.state && <span className="error-message">{errors.state}</span>}
-    </div>
-    <div className="zip-decal-input">
-  <label className="zip-decal-label">Zip Code *</label>
-  <input
-    name="zip"
-    type="text"
-    className="zip-decal-box"
-    value={formData.zip}
-    onChange={(e) => handleZipChange(e)}
-    placeholder="Zip Code"
-    maxLength={5}
-    pattern="\d{5}"
-    title="Zip code must be 5 digits"
-  />
-  {errors.zip && <span className="error-message">{errors.zip}</span>}
-</div>
-</div>
-</div>
-</div>
 </div>
 <div className="decal-sticker-section">
 <label className="decal-sticker-label">Decal/Sticker *</label>
     <div className="decal-type-input-container">
+      <label>Type</label>
     <select 
     className="decal-type-input" 
     name="decal-type"
@@ -567,7 +401,7 @@ onChange={(e) => {
   {decalTypeError && <div className="error-message">{decalTypeError}</div>}
 </div>
   <div className="decal-size-input-container">
-    <label className="decal-width-label">Length *</label>
+    <label className="decal-width-label">Length</label>
     <input
       className="decal-length-input"
       type="number"
@@ -587,7 +421,7 @@ onChange={(e) => {
       <option value="inches">Inches</option>
     </select>
     {lengthError && <div className="error-message">{lengthError}</div>}
-    <label className="decal-width-label">Width *</label>
+    <label className="decal-width-label">Width</label>
     <input
       className="decal-width-input"
       type="number"
@@ -609,7 +443,7 @@ onChange={(e) => {
     {widthError && <div className="error-message">{widthError}</div>}
     </div>
     <div className="decal-cut-unit-container">
-        <label className="decal-cut-unit-label">Cut Type *</label>
+        <label className="decal-cut-unit-label">Cut Type</label>
         <p className="decal-cut-unit-text">
         <b>Transfer-Cut</b> is a cut type that involves 
           cutting the letters or numbers and then placed 
@@ -643,7 +477,7 @@ onChange={(e) => {
   {decalCutTypeError && <div className="error-message">{decalCutTypeError}</div>}
     </div>
     <div className="decal-quantity-input-container">
-    <label className="decal-quantity-label">Quantity *</label>
+    <label className="decal-quantity-label">Quantity</label>
     <input
   type="number"
   className="decal-quantity-input"
@@ -692,44 +526,51 @@ onChange={(e) => {
 </div>
 
 </div>
-<div className="decal-file-section">
-<label className="decal-file-label">Logo/Image *</label>
-<h2 className="decal-warn"><b className="decal-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
-    how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
-    These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
-    JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <p className="log-re">Logo Redesigning(Optional)</p>
-    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo">NEW LOGO</a>.
-    We will send you a quote for the logo redesigning and you can choose to accept it or not.
-</p>
-</h2>
-<div className="file-decal-section">
-<label htmlFor="logo-select" className="decal-logo">Logo/Image for Decals *</label>
+      <div className="fleet-file-section">
+<label className="fleet-file-label">Logo/Image *</label>
+<h2 className="apparel-warn">
+    <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
+    <p className="log-re">Need a new logo?</p>
+    <p className="logo-warn">
+      <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
+    </p>
+  </h2>
+<div className="file-fleet-section">
+
+
 <div className="choose-logo-contain">
-    <label className="file-decal-label">
-    {formData.img ? (
-            <span>{formData.img.name}</span>
-          ) : (
-            <span>Choose Your Logo For Your Decals</span>
-          )}
-          <input
+  <label className="file-fleet-label">
+    {formData.img && formData.img.length > 0 ? (
+      <span>Add More Photos or Logos</span>
+    ) : (
+      <span>Choose Your Logo or Photos for Your Vehicle</span>
+    )}
+    <input
   type="file"
-  name="img"
+  name="img" // ✅ This is correct
   accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-  onChange={(e) => {
-    handleFileChange(e, 'img');
-    if (e.target.files[0]) {
-      setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
-    }
-  }}
+  onChange={(e) => handleFileChange(e, 'img')}
+  multiple
 />
-</label>
-{formData.img && (
-            <button type="button" className="remove-decal-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
-          )}
- {imgErrorMessage && <span className="error-message">{imgErrorMessage}</span>}
+  </label>
+
+  {formData.img && formData.img.length > 0 && (
+    <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>
+      Remove All
+    </button>
+  )}
+
+  {fileError && <span className="error-message">{fileError}</span>}
+
+  {formData.img && formData.img.length > 0 && (
+    <ul className="selected-fleet-files-list">
+      {formData.img.map((file, index) => (
+        <li key={index}>{file.name}</li>
+      ))}
+    </ul>
+  )}
 </div>
+
 </div>
 </div>
 <div className="decal-message-container">
@@ -753,20 +594,52 @@ onChange={(e) => {
   }}
 />
 {errors.message && <span className="error-message">{errors.message}</span>}
+<div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom signs and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
-  <button type="button" className="btn btn--full submit-sign" onClick={handleSubmit}>SUBMIT DECALS & STICKERS</button>
-
-<div className="error-messages-container">
+  <div className="submit-button-wrapper">
+    <button
+    type="submit"
+    className="btn btn--full submit-sign"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? (
+      <div className="spinner-button">
+        <span className="spinner"></span> Submitting...
+      </div>
+    ) : (
+      'SUBMIT DECALS & STICKERS'
+    )}
+  </button>
+  {submissionMessage && (
+    <div className="custom-toast success">{submissionMessage}</div>
+  )}
   {submissionErrorMessage && (
-    <div className="submission-error-message">{submissionErrorMessage}</div>
+    <div className="custom-toast error">{submissionErrorMessage}</div>
   )}
   {errorMessage && (
-    <div className="submission-error-message">{errorMessage}</div>
+    <div className="custom-toast error">{errorMessage}</div>
   )}
-</div>
-{submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
-)}
+         </div> 
             </div>
             </div>
             </form>
