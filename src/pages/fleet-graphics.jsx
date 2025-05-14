@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/fleet.css';
 import '../css/headerfooter.css';
+import '../css/toaster.css';
 import vehicleData from '../components/Vehicle Types/regularVehicles';
 import { acuraModels, 
   AlfaRomeoModels, 
@@ -57,6 +58,7 @@ import boxTruckVehicles from '../components/Vehicle Types/boxTruckVehicles';
 import MXFleetGallery from '../photogallery/FleetMXgallery';
 import axios from 'axios';
 import Header from '../components/headerviews/HeaderFleet';
+import {toast } from 'react-toastify';
 import images from '../utils/dynamicImportImages';
   const finishOptions = [
     { name: 'Matte', disabled: false },
@@ -77,12 +79,14 @@ const FleetGraphics = () => {
   const [selectedVehicleType, setSelectedVehicleType] = useState(''); // New state for vehicle type
   const [availableMakes, setAvailableMakes] = useState([]);
   const [availableModels, setAvailableModels] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false); 
     const [phone, setPhone] = useState('');
     const [isTrailerSelected, setIsTrailerSelected] = useState(false); // New state for trailer selection
     const [addedVehicles, setAddVehicles] = useState([]);
     const [fileError, setFileError] = useState('');
     const [addedFinishing, setAddedFinishing] = useState([]);
     const [vehicleError, setVehicleError] = useState('');
+    const [company, setCompany] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
       name: '',
@@ -414,22 +418,13 @@ const handleModelChange = (e) => {
   const selectedModel = e.target.value;
   setSelectedModel(selectedModel); // Update selected model
 };
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setSubmissionErrorMessage('');
-  setSubmissionMessage('');
-
-  // Reset error messages
-  setFileError('');
-  setVehicleError('');
-  setErrorMessage('');  // Clear the general error message at the start
-
-  let hasError = false; // Flag to track if there's any error
-
-  const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
-  const newErrors = {};
-
-  // Check required fields
+      const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
+    const newErrors = {};
+let hasError = false;
   requiredFields.forEach(field => {
     if (!formData[field]) {
       let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
@@ -443,67 +438,49 @@ const handleSubmit = async (e) => {
       hasError = true;
     }
   });
-  if (formData.finishing.length === 0) {
-    newErrors.finishing = 'Please select at least one finishing.';
-  }
-  // Check if file (logo/image) is added
-  if (!formData.img) {
-    setFileError('Logo/Image is required.');
-    hasError = true;
-  }
 
-  // Check if at least one vehicle is added
-  if (addedVehicles.length === 0) {
-    setVehicleError('Please add at least one vehicle.');
-    hasError = true;
-  }
-  // If there are any errors, set the error message and do not proceed with the form submission
-  if (hasError) {
-    setErrorMessage('Required fields are missing.'); // Only show error if validation fails
-    setErrors(newErrors);
-    return;
-  }
-
-  // If no errors, clear the error message and submit the form
-  setErrorMessage('');  // Clear the error message when all validations pass
-
-  try {
-    const formDataToSubmit = new FormData();
-formDataToSubmit.append('name', formData.name.split(' ')[0] || '');
-formDataToSubmit.append('company', formData.company);
-formDataToSubmit.append('email', formData.email);
-formDataToSubmit.append('phone', formData.phone);
-formDataToSubmit.append('vehicle', addedVehicles.join(', '));
-formDataToSubmit.append('finishing', formData.finishing.join(', '));
-formDataToSubmit.append('message', formData.message);
-formDataToSubmit.append('terms', termsAccepted);
-
-// Append files
-if (formData.img && formData.img.length > 0) {
-  formData.img.forEach((file) => {
-    formDataToSubmit.append('img', file); // 👈 must match `name` from multer
-  });
-};
-    if (!termsAccepted) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        terms: 'You must agree to pay upon job completion.'
-      }));
-      setErrorMessage('You must accept the terms and conditions.');
-      setIsSubmitting(false);
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.'); // Set the general error message
+      setErrors(newErrors);
       return;
-    }  
-    const response = await axios.post('/fleet-graphics', formDataToSubmit, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
+const formDataToSend = new FormData();
 
-    setSubmissionMessage('Fleet/Decal Vehicle Graphics Request Submitted! We will be with you within 48 hours!');
-    console.log(response.data);
+if (formData.img?.length > 0) {
+  formData.img.forEach((file) => {
+    formDataToSend.append('img', file);
+  });
+}
 
-    // Clear form fields after successful submission
-    setFormData({
+formDataToSend.append('name', formData.name);
+formDataToSend.append('company', formData.company);
+formDataToSend.append('email', formData.email);
+formDataToSend.append('phone', formData.phone);
+formDataToSend.append('vehicle', addedVehicles.join(', '));
+formDataToSend.append('message', formData.message);
+formDataToSend.append('terms', termsAccepted);
+formDataToSend.append('finishing', formData.finishing.join(', ')); // ✅ correctly from formData.finishing
+
+
+        
+  setIsSubmitting(true);
+      const response = await axios.post('/fleet-graphics', formDataToSend, {
+  headers: {
+    'Content-Type': 'multipart/form-data'
+  }
+});
+      console.log(response.data); // Now this works
+           
+      setFormData({
       name: '',
       company: '',
       email: '',
@@ -513,17 +490,21 @@ if (formData.img && formData.img.length > 0) {
       img: null,
       message: '',
       terms: ''
-    });
-    setAddedFinishing([]);
-    setErrors({});
-    setPhone('');
-  } catch (error) {
-    console.error('Error submitting Fleet/Decal Vehicle Graphics job:', error);
-    setSubmissionErrorMessage('An error occurred while submitting. Please try again.');
-  }
-};
-
-
+      });
+        setAddedFinishing([]);
+        setErrors({});
+        setPhone('');
+      setSubmissionMessage(
+        '✅ Fleet/Decal Vehicle Graphics Request Submitted!'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("There was an error submitting your request. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
+  };
     return (
         <div>
             <Header/>
@@ -576,7 +557,10 @@ if (formData.img && formData.img.length > 0) {
     placeholder="Enter Company Name"
     value={formData.company}
     onChange={(e) => {
-      setFormData({ ...formData, company: e.target.value });
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
         setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
@@ -823,22 +807,31 @@ onChange={(e) => {
 </p>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
-  {submissionMessage && (
-  <div className="submission-message">{submissionMessage}</div>
-)}
-
-{submissionErrorMessage && (
-  <div className="submission-error-message">{submissionErrorMessage}</div>
-)}
-
   </div>
-  <button type="submit" className="btn -- submit-fleet" onClick={handleSubmit}>SUBMIT VEHICLE FLEET/DECAL GRAPHICS</button>
-  {submissionErrorMessage &&
-            <div className="submission-error-message">{submissionErrorMessage}</div>
-          }
-          {errorMessage &&
-            <div className="submission-error-message">{errorMessage}</div>
-          }
+  <div className="submit-button-wrapper">
+    <button
+    type="submit"
+    className="btn -- submit-fleet"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? (
+      <div className="spinner-button">
+        <span className="spinner"></span> Submitting...
+      </div>
+    ) : (
+      'SUBMIT VEHICLE FLEET/DECAL GRAPHICS'
+    )}
+  </button>
+  {submissionMessage && (
+    <div className="custom-toast success">{submissionMessage}</div>
+  )}
+  {submissionErrorMessage && (
+    <div className="custom-toast error">{submissionErrorMessage}</div>
+  )}
+  {errorMessage && (
+    <div className="custom-toast error">{errorMessage}</div>
+  )}
+         </div> 
 </div>
 </div>
         </form>
