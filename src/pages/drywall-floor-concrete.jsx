@@ -5,58 +5,7 @@ import axios from 'axios';
 import MXDrywallGallery from '../photogallery/DrywallMXgallery';
 import Header from '../components/headerviews/HeaderDry';
 import images from '../utils/dynamicImportImages';
-const states = [
-    { abbreviation: 'AL', name: 'Alabama' },
-    { abbreviation: 'AK', name: 'Alaska' },
-    { abbreviation: 'AZ', name: 'Arizona' },
-    { abbreviation: 'AR', name: 'Arkansas' },
-    { abbreviation: 'CA', name: 'California' },
-    { abbreviation: 'CO', name: 'Colorado' },
-    { abbreviation: 'CT', name: 'Connecticut' },
-    { abbreviation: 'DE', name: 'Delaware' },
-    { abbreviation: 'FL', name: 'Florida' },
-    { abbreviation: 'GA', name: 'Georgia' },
-    { abbreviation: 'HI', name: 'Hawaii' },
-    { abbreviation: 'ID', name: 'Idaho' },
-    { abbreviation: 'IL', name: 'Illinois' },
-    { abbreviation: 'IN', name: 'Indiana' },
-    { abbreviation: 'IA', name: 'Iowa' },
-    { abbreviation: 'KS', name: 'Kansas' },
-    { abbreviation: 'KY', name: 'Kentucky' },
-    { abbreviation: 'LA', name: 'Louisiana' },
-    { abbreviation: 'ME', name: 'Maine' },
-    { abbreviation: 'MD', name: 'Maryland' },
-    { abbreviation: 'MA', name: 'Massachusetts' },
-    { abbreviation: 'MI', name: 'Michigan' },
-    { abbreviation: 'MN', name: 'Minnesota' },
-    { abbreviation: 'MS', name: 'Mississippi' },
-    { abbreviation: 'MO', name: 'Missouri' },
-    { abbreviation: 'MT', name: 'Montana' },
-    { abbreviation: 'NE', name: 'Nebraska' },
-    { abbreviation: 'NV', name: 'Nevada' },
-    { abbreviation: 'NH', name: 'New Hampshire' },
-    { abbreviation: 'NJ', name: 'New Jersey' },
-    { abbreviation: 'NM', name: 'New Mexico' },
-    { abbreviation: 'NY', name: 'New York' },
-    { abbreviation: 'NC', name: 'North Carolina' },
-    { abbreviation: 'ND', name: 'North Dakota' },
-    { abbreviation: 'OH', name: 'Ohio' },
-    { abbreviation: 'OK', name: 'Oklahoma' },
-    { abbreviation: 'OR', name: 'Oregon' },
-    { abbreviation: 'PA', name: 'Pennsylvania' },
-    { abbreviation: 'RI', name: 'Rhode Island' },
-    { abbreviation: 'SC', name: 'South Carolina' },
-    { abbreviation: 'SD', name: 'South Dakota' },
-    { abbreviation: 'TN', name: 'Tennessee' },
-    { abbreviation: 'TX', name: 'Texas' },
-    { abbreviation: 'UT', name: 'Utah' },
-    { abbreviation: 'VT', name: 'Vermont' },
-    { abbreviation: 'VA', name: 'Virginia' },
-    { abbreviation: 'WA', name: 'Washington' },
-    { abbreviation: 'WV', name: 'West Virginia' },
-    { abbreviation: 'WI', name: 'Wisconsin' },
-    { abbreviation: 'WY', name: 'Wyoming' }
-  ];
+import { ToastContainer, toast } from 'react-toastify';
   const placeOptions = [
     { name: 'Drywall Graphics (Examples: Homes and Office Buildings)', disabled: false },
     { name: 'Floor Graphics', disabled: false },
@@ -64,7 +13,6 @@ const states = [
     { name: 'Brick Wall Graphics', disabled: false },
     { name: 'Cinder Block Wall Graphics (School Cinder Block Graphics)', disabled: false }
   ];
-  
   const finishOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false }
@@ -75,25 +23,24 @@ const Adhesive = () => {
             const [vinylLengthUnit, setVinylLengthUnit] = useState('');
             const [vinylWidthUnit, setVinylWidthUnit] = useState('');
             const [selectedPlacement, setSelectedPlacement] = useState('');
+            const [fileError, setFileError] = useState('');
+            const [company, setCompany] = useState('');
             const [addedPlacement, setAddedPlacement] = useState([]);
-            const [selectedFinishing, setSelectedFinishing] = useState('');
+            const [termsAccepted, setTermsAccepted] = useState(false);
+            const [isSubmitting, setIsSubmitting] = useState(false); 
             const [addedFinishing, setAddedFinishing] = useState([]);
             const [errorMessage, setErrorMessage] = useState('');
             const [formData, setFormData] = useState({
-              first: '',
-              last: '',
+              name: '',
               company: '',
               email: '',
               phone: '',
-              address: '',
-              city: '',
-              state: '',
-              zip: '',
               vinylSize: { length: '', width: '' },
               placement: '',
               finishing: '',
               img: null,
-              message: ''
+              message: '',
+              terms: false
             });
             const [errors, setErrors] = useState({});
             const [submissionMessage, setSubmissionMessage] = useState('');
@@ -113,20 +60,25 @@ const Adhesive = () => {
                 setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
               }
             };
-            const handleAddFinishing = () => {
-              if (selectedFinishing && addedFinishing.length < 2) {
-                setAddedFinishing([...addedFinishing, selectedFinishing]);
-                setSelectedFinishing('');
-                setErrors((prevErrors) => ({ ...prevErrors, finishing: '' }));
-              } else {
-                setErrorMessage('Please select a finishing option.');
-              }
-            };
-            // Function to remove a finishing
-            const handleRemoveFinishing = (index) => {
-              const updatedFinishing = addedFinishing.filter((_, i) => i !== index);
-              setAddedFinishing(updatedFinishing);
-            };
+const handleFinishChange = (e) => {
+  const { value, checked } = e.target;
+  let updated = [...addedFinishing];
+
+  if (checked) {
+    if (!updated.includes(value)) {
+      updated.push(value);
+    }
+  } else {
+    updated = updated.filter((item) => item !== value);
+  }
+
+  setAddedFinishing(updated);
+  setFormData((prev) => ({ ...prev, finishing: updated })); // Still used for checkbox state
+
+  if (updated.length > 0) {
+    setErrors((prev) => ({ ...prev, finishing: '' }));
+  }
+};
             const handleAddPlacement = () => {
               if (selectedPlacement && addedPlacement.length < 5) {
                 setAddedPlacement([...addedPlacement, selectedPlacement]);
@@ -170,141 +122,130 @@ const Adhesive = () => {
               const updatedVinylSizes = addedvinylSizes.filter((_, i) => i !== index);
               setAddedvinylSizes(updatedVinylSizes);
             };
-            const handleZipChange = (event) => {
-              const input = event.target.value;
-              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-            
-              setFormData({ ...formData, zip: rawInput });
-            
-              // Check if the input has 5 digits and clear the error if it does
-              if (rawInput.length === 5) {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-              } else {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
-              }
-            };
             const handleFileChange = (e, fileType) => {
-            const file = e.target.files[0];
-            setFormData({ ...formData, [fileType]: file });
-            if (file) {
-              setErrors((prevErrors) => ({ ...prevErrors, img: '' }));
-          }
-          };
-          
-          const handleFileRemove = (fileType) => {
-            setFormData({ ...formData, [fileType]: null });
-          };
-
-          const handleSubmit = async (e) => {
-            e.preventDefault();
-            setSubmissionErrorMessage('');
-            setSubmissionMessage('');
-            
-            const requiredFields = ['first', 'last', 'company', 'email', 'phone', 'address', 'city', 'state', 'zip', 'message'];
-            const newErrors = {};
-          
-            // Validation for required fields
-            requiredFields.forEach(field => {
-              if (!formData[field]) {
-                let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                if (field === 'first') fieldLabel = 'First Name';
-                if (field === 'last') fieldLabel = 'Last Name';
-                if (field === 'company') fieldLabel = 'Company Name';
-                if (field === 'phone') fieldLabel = 'Phone Number';
-                if (field === 'address') fieldLabel = 'Address';
-                if (field === 'city') fieldLabel = 'City';
-                if (field === 'state') fieldLabel = 'State';
-                if (field === 'zip') fieldLabel = 'Zip Code';
-                if (field === 'img') fieldLabel = 'Logo';
-                newErrors[field] = `${fieldLabel} is required!`;
-              }
-            });
-        // Check if file (logo/image) is added
-  if (!formData.img) {
-    newErrors.img = 'Logo/Image is required.';
-  }
-            // Ensure vinyl sizes, placement, and finishing are also checked
-            if (!addedPlacement.length) {
+              const newFiles = Array.from(e.target.files);
+              setFormData(prevState => ({
+                ...prevState,
+                [fileType]: [...(prevState[fileType] || []), ...newFiles]
+              }));
+              setFileError('');
+            };
+            const handleFileRemove = (fileType) => {
+              setFormData({ ...formData, [fileType]: [] }); // Clear all files in the array
+            };
+      const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name','company', 'email', 'phone','message', 'terms'];
+    const newErrors = {};
+let hasError = false;
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+          if (field === 'name') fieldLabel = 'First & Last Name';
+          if (field === 'company') fieldLabel = 'Company Name';
+          if (field === 'phone') fieldLabel = 'Phone Number';
+          if (field === 'img') fieldLabel = 'Logo';
+          if (field === 'terms') fieldLabel = 'Terms & Conditions';
+        newErrors[field] = `${fieldLabel} is required!`;
+      }
+    });
+ if (!addedPlacement.length) {
               newErrors.placement = 'At least one placement is required.';
             }
-            if (!addedFinishing.length) {
-              newErrors.finishing = 'At least one finishing option is required.';
+            if (formData.finishing.length === 0) {
+              newErrors.finishing = 'Please select at least one finishing.';
             }
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.'); // Set the general error message
+      setErrors(newErrors);
+      return;
+    }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
+              const formDataToSend = new FormData(); 
+              if (formData.img?.length > 0) {
+          formData.img.forEach((file) => {
+            formDataToSend.append('img', file);
+          });
+        }
+formDataToSend.append('name', formData.name);
+formDataToSend.append('company', formData.company);
+formDataToSend.append('email', formData.email);
+formDataToSend.append('phone', formData.phone);
+formDataToSend.append('message', formData.message);
+formDataToSend.append('terms', formData.terms);
+formDataToSend.append('vinylSize', addedvinylSizes.join(', '));
+formDataToSend.append('placement', addedPlacement.join(', '));
+if (addedFinishing.length === 0) {
+  newErrors.finishing = 'Please select at least one finishing.';
+} else {
+  formDataToSend.append('finishing', addedFinishing.join(', '));
+}
+
         
-            // Show errors if they exist
-            if (Object.keys(newErrors).length > 0) {
-              setErrorMessage('Required fields are missing.');
-              setErrors(newErrors);
-              return;
-            }
-        
-            // If no errors, proceed with form submission
-            try {
-              const formDataToSend = {
-                ...formData,
-                vinylSize: addedvinylSizes.join(', '),
-                placement: addedPlacement.join(', '),
-                finishing: addedFinishing.join(', ')
-              };
-          
-              const response = await axios.post('/drywall-floor-concrete', formDataToSend, {
-                headers: {
-                  'Content-Type': 'multipart/form-data'
-                }
-              });
-              console.log(response.data);
-              // Clear form on success
-              setFormData({
-                first: '',
-                last: '',
-                company: '',
-                email: '',
-                phone: '',
-                address: '',
-                city: '',
-                state: '',
-                zip: '',
-                vinylSize: { length: '', width: '' },
-                placement: '',
-                finishing: '',
-                img: null,
-                message: ''
-              });
-              setAddedvinylSizes([]);
-              setAddedPlacement([]);
-              setAddedFinishing([]);
-              setErrors({});
-              setPhone('');
-              setSubmissionMessage('Wall/Floor/Concrete Graphics Request Submitted! We will be with you within 48 hours!');
-            } catch (error) {
-              console.error('Error submitting Wall/Floor/Concrete Graphics Job:', error);
-            }
-          };
-        
+  setIsSubmitting(true);
+      const response = await axios.post('/drywall-floor-concrete', formDataToSend, {
+  headers: {
+    'Content-Type': 'multipart/form-data'
+  }
+});
+      console.log(response.data); // Now this works
+           
+      setFormData({
+          name: '',
+          company: '',
+          email: '',
+          phone: '',
+          vinylSize: { length: '', width: '' },
+          placement: '',
+          finishing: '',
+          img: null,
+          message: '',
+          terms: ''
+      });
+        setAddedvinylSizes([]);
+        setAddedPlacement([]);
+        setAddedFinishing([]);
+        setErrors({});
+        setPhone('');
+      setSubmissionMessage(
+        '✅ Drywall/Floor/Concrete Graphics Request Submitted!'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("There was an error submitting your request. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
+  };
             return (
                 <div>
                     <Header />
                     <main>
                         <div className="page-dry-container">
                         <div className="dry-name-container">
-                        <h1 className="dry-description">WALL FLOOR CONCRETE GRAPHICS</h1>
+                        <h1 className="dry-description">DRYWALL FLOOR CONCRETE GRAPHICS</h1>
                             </div>
                         </div>
                         <div className="photo-gal-dry">
         <MXDrywallGallery /> {/* Render the photo gallery here */}
         </div>
-                        <div className="material-type-container">
-        <h1 className="sign-app-box">MATERIALS AVAILABLE FOR WALL FLOOR CONCRETE GRAPHICS</h1>
-  <div className="material-container">
-    <img className="orafol-img" src={images["../assets/MX Logos/Orafol-Logo.svg"].default}></img>
-    <img className="substance-img" src={images["../assets/MX Logos/substance-logo.svg"].default}></img>
-</div>
-</div>
         <form className="dry-set -- box" onSubmit={handleSubmit}>
             <div className="dry-form-container container--narrow page-section">
                 <div className="dry-form-info">
                     <h1 className="dry-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
-                    <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Wall/Floor/Concrete Graphics
+                    <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Drywall/Floor/Concrete Graphics
                         Information to get an Inquiry or Quote.</h2>
                 </div>
                 <div className="dry-actual">
@@ -314,74 +255,57 @@ const Adhesive = () => {
   <div className="first-dry-name">
     <div className="firstname-dry-input">
     <div className="input-first-dry-container">
-<label className="first-dry-label-name">First Name *</label>
+<label className="first-dry-label-name">Name *</label>
 <input
-name="first"
+name="name"
 type="text"
 className="firstname-dry-name-input"
 text="first-name--input"
-placeholder="Enter First Name"
+placeholder="Enter First & Last Name"
 
-value={formData.first}
+value={formData.name}
 onChange={(e) => {
-  setFormData({ ...formData, first: e.target.value });
+  setFormData({ ...formData, name: e.target.value });
   if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
+    setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
   }
 }}
 />
-{errors.first && <div className="error-message">{errors.first}</div>}
-</div>
-    </div>
-  </div>
-  <div className="last-dry-name">
-    <div className="last-dry-input">
-    <div className="last-dry-input-container">
-<label className="last-dry-label-name">Last Name *</label>
-<input
-name="last"
-type="text"
-className="lastname-dry-name-input"
-text="last-name--input"
-placeholder="Enter Last Name"
-
-value={formData.last}
-onChange={(e) => {
-  setFormData({ ...formData, last: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
-  }
-}}
-
-/>
-{errors.last && <div className="error-message">{errors.last}</div>}
+{errors.name && <div className="error-message">{errors.name}</div>}
 </div>
     </div>
   </div>
 </div>
-</div>
-<div className="company-dry-section">
 <div className="company-dry-input">
   <div className="company-dry">
     <div className="dry-company-name-input">
     <div className="dry-input-container">
-      <label className="company-dry-name">Company *</label>
-      <input name="company-dry-name-input" type="text" className="company-dry-name-input" text="company--input" placeholder="Enter Company Name"
-        value={formData.company} onChange={(e) => {
-          setFormData({ ...formData, company: e.target.value });
-          if (e.target.value) {
-            setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
-          }
-        }}
-
-        />
-        {errors.company && <span className="error-message">{errors.company}</span>}
+    <label className="project-control-label">Company Name *</label>
+<p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
+<input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
+    }
+    }
+  />
+  {errors.company && <div className="error-message">{errors.company}</div>}
         </div>
     </div>
   </div>
   </div>
-  </div>
-  <div className="emailphone-dry-section">
 <div className="emailphone-dry-input">
   <div className="email-dry">
     <div className="email-dry-input">
@@ -429,90 +353,8 @@ onChange={(e) => {
   </div>
 </div>
 </div>
-<div className="address-dry-section">
-<div className="address-dry-input-container">
-<div className="address-dry-input">
-<div className="address-dry-container">
-  <div className="address-dry-inputing">
-<label className="addr-dry-label">Address *</label>
-<input
-name="address-box"
-type="text"
-className="address-dry-box"
-text="address--input"
-placeholder="Enter Address"
-value={formData.address}
-onChange={(e) => {
-  setFormData({ ...formData, address: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, address: '' })); // Clear the error
-  }
-}}
-/>
-{errors.address && <span className="error-message">{errors.address}</span>}
-</div>
-<div className="city-dry-input">
-<label className="city-dry-label">City *</label>
-
-<input
-name="city-input"
-type="text"
-className="city-dry-box"
-text="city--input"
-placeholder="City"
-value={formData.city}
-onChange={(e) => {
-  setFormData({ ...formData, city: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, city: '' })); // Clear the error
-  }
-}}
-/>
-{errors.city && <span className="error-message">{errors.city}</span>}
-</div>
-</div>
-<div className="city-dry-state">
-<div className="state-dry-input">
-<label className="state-dry-label">State *</label>
-<select
-      name="state"
-      className="state-dry-box"
-      
-      value={formData.state}
-      onChange={(e) => {
-        setFormData({ ...formData, state: e.target.value });
-        if (e.target.value) {
-          setErrors((prevErrors) => ({ ...prevErrors, state: '' })); // Clear the error
-        }
-      }}
-    >
-      <option value="">Select State</option>
-      {states.map(state => (
-        <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
-      ))}
-    </select>
-    {errors.state && <span className="error-message">{errors.state}</span>}
-    </div>
-    <div className="zip-dry-input">
-<label className="zip-dry-label">Zip Code *</label>
-<input
-        name="zip"
-        type="text"
-        className="zip-dry-box"
-        value={formData.zip}
-        onChange={(e) => handleZipChange(e)}
-        placeholder="Zip Code"
-        maxLength={5}
-        pattern="\d{5}"
-        title="Zip code must be 5 digits"
-      />
-      {errors.zip && <span className="error-message">{errors.zip}</span>}
-</div>
-</div>
-</div>
-</div>
-</div>
 <div className="size-dry-vinyl-section">
+  <h2 className="size-dry-label">Job Details</h2>
 <div className="size-dry-section">
   <div className="length-dry-section">
     <label className="length-dry-label" htmlFor="length">Vinyl Length *</label>
@@ -588,13 +430,7 @@ onChange={(e) => {
   {/* Show error messages if any */}
   {errors.vinylSize && <p className="error-message">{errors.vinylSize}</p>}
 </div>
-
-</div>
-<div className="placement-dry-section">
 <div className="placement-imgs">
-    <div className="place-img-container">
-        <h1 className="place-examples">Placement Examples</h1>
-    </div>
 <div className="place-img-dry-container">
     <div className="place-img-container">
       <img src={images["../assets/MX Photos/Nance 2.jpg"].default} alt="Placement=photo" className="place-img"/>
@@ -659,91 +495,79 @@ onChange={(e) => {
   </div>
       </div>
       <div className="dry-finish-img-section">
-  <div className="matte-img-dry">
-    <img className="matte-img" alt="matte" src={images["../assets/vinyls/matte.jpg"].default}/>
-    <h2 className="matte-dry-note">Matte</h2>
-  </div>
-  <div className="gloss-img-dry">
-    <img className="gloss-img" alt="gloss" src={images["../assets/vinyls/gloss.jpg"].default}/>  
-    <h2 className="gloss-dry-note">Gloss</h2>
-  </div>
+      <label className="finish-label">Finishing Options *</label>
+
+<div className="finish-fleet-section">
+<div className="checkbox-finish-options">
+  {finishOptions.map((option, index) => (
+    <div key={index} className="finish-checkbox-item">
+     <input
+  type="checkbox"
+  id={`finish-${index}`}
+  value={option.name}
+  checked={formData.finishing.includes(option.name)}
+  onChange={handleFinishChange}
+/>
+      <label htmlFor={`finish-${index}`}>{option.name}</label>
+    </div>
+  ))}
 </div>
-      <div className="finish-fleet-section">
-  <label className="finish-label" htmlFor="finishing">Finishing *</label>
-  <select
-    name="finishing"
-    className="finish-dry-select"
-    value={selectedFinishing}
-    onChange={(e) => setSelectedFinishing(e.target.value)}
-    disabled={addedFinishing.length === 3}
-  >
-    <option value="">Select Finishing Type</option>
-    {finishOptions.map((option, index) => (
-      <option key={index} value={option.name}>
-        {option.name}
-      </option>
-    ))}
-  </select>
-  <button className="btn -- submit-dry-finishing" type="button" onClick={handleAddFinishing}>
-    ADD FINISHING
-  </button>
-  <div className="finishing-list">
-  <ul>
-  {addedFinishing.length > 0 ? (
-    addedFinishing.map((finishing, index) => (
-      <li className="finishing-item" key={index}>
-        {finishing}
-        <button
-          className="btn -- remove-finishing"
-          onClick={() => handleRemoveFinishing(index)}
-        >
-          REMOVE FINISHING
-        </button>
-      </li>
-    ))
-  ) : (
-    <p className="no-added-vehicles">No Finishing items added yet.</p>
-  )}
-</ul>
-    {errors.finishing && <span className="error-message">{errors.finishing}</span>}
+{errors.finishing && <div className="error-message">{errors.finishing}</div>}
   </div>
 </div>
       </div>
-<div className="dry-file-section">
-<label className="dry-file-label">Logo/Image *</label>
-<h2 className="dry-warn"><b className="dry-notice">NOTICE</b>: If you're submitting a PNG, JPG, or any file that has PIXELATED Images, there will be a vectorizing fee to vectorize your logo depending on 
-    how long it takes us to vectorize. If you want to avoid the vectorization fee, it is better to submit PDFs or SVGs that already have vectorization inside. 
-    These PDF/SVG files cannot have any PNGs or JPGs inside because the PDF/SVG have been exported or saved as a PDF/SVG but has a JPG/PNG file inside making it much worse to vectorize. 
-    JPG/PNG files are compressed Image files making them Blurry and Pixelated. That is why vectorization plays an important role in order for your items to not print blurry or pixelated.
-    <p className="log-re">Logo Redesigning(Optional)</p>
-    <p className="logo-warn"><b className="logo-notice">NOTICE</b>: If you need us to design a new logo for you, you can submit your old logo on
-    here: <a href="/new-logo">NEW LOGO</a>.
-    We will send you a quote for the logo redesigning and you can choose to accept it or not.
-</p>
-</h2>
-<div className="file-dry-section">
+      <div className="fleet-file-section">
+<label className="fleet-file-label">Logo/Image *</label>
+<h2 className="apparel-warn">
+    <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
+    <p className="log-re">Need a new logo?</p>
+    <p className="logo-warn">
+      <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
+    </p>
+  </h2>
+<div className="file-fleet-section">
+
+
 <div className="choose-logo-contain">
-    <label className="file-dry-label">
-    {formData.img ? (
-            <span>{formData.img.name}</span>
-          ) : (
-            <span>Choose Your Logo For Your Graphics</span>
-          )}
-          <input type="file" name="img" accept=".pdf,.svg,.doc,.png,.jpg,.jpeg" onChange={(e) => handleFileChange(e, 'img')} />
-          </label>
-          {formData.img && (
-            <button type="button" className="remove-dry-file-button" onClick={() => handleFileRemove('img')}>Remove</button>
-          )}
-        
-        {errors.img && <span className="error-message">{errors.img}</span>}
+  <label className="file-fleet-label">
+    {formData.img && formData.img.length > 0 ? (
+      <span>Add More Photos or Logos</span>
+    ) : (
+      <span>Choose Your Logo or Photos for Your Vehicle</span>
+    )}
+    <input
+  type="file"
+  name="img" // ✅ This is correct
+  accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+  onChange={(e) => handleFileChange(e, 'img')}
+  multiple
+/>
+  </label>
+
+  {formData.img && formData.img.length > 0 && (
+    <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>
+      Remove All
+    </button>
+  )}
+
+  {fileError && <span className="error-message">{fileError}</span>}
+
+  {formData.img && formData.img.length > 0 && (
+    <ul className="selected-fleet-files-list">
+      {formData.img.map((file, index) => (
+        <li key={index}>{file.name}</li>
+      ))}
+    </ul>
+  )}
 </div>
+
 </div>
 </div>
 <div className="dry-message-container">
 <label className="message-dry-label">Message *</label>
 <h1 className="message-dry-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
      and the Quantity of graphics needed. If you need
-to request a crew to help install your wall/concrete/floor graphics, please specify where the location is, when 
+to request a crew to help install your drywall/concrete/floor graphics, please specify where the location is, when 
 and what time you want an MX crew will arrive.</h1>
 
 <textarea className="message-dry-text" name="message" type="text" placeholder="Enter Message"
@@ -758,14 +582,52 @@ and what time you want an MX crew will arrive.</h1>
   {submissionMessage && (
 <div className="submission-message">{submissionMessage}</div>
 )}
+<div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
-  <button type="button" className="btn btn--full submit-dry" onClick={handleSubmit}>SUBMIT CUSTOM WALL FLOOR CONCRETE GRAPHICS</button>
-  {submissionErrorMessage &&
-            <div className="submission-error-message">{submissionErrorMessage}</div>
-          }
-          {errorMessage &&
-            <div className="submission-error-message">{errorMessage}</div>
-          }
+    <div className="submit-button-wrapper">
+    <button
+    type="submit"
+    className="btn btn--full submit-dry"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? (
+      <div className="spinner-button">
+        <span className="spinner"></span> Submitting...
+      </div>
+    ) : (
+      'SUBMIT CUSTOM DRYWALL FLOOR CONCRETE GRAPHICS'
+    )}
+  </button>
+  {submissionMessage && (
+    <div className="custom-toast success">{submissionMessage}</div>
+  )}
+  {submissionErrorMessage && (
+    <div className="custom-toast error">{submissionErrorMessage}</div>
+  )}
+  {errorMessage && (
+    <div className="custom-toast error">{errorMessage}</div>
+  )}
+         </div> 
 </div>
         </div>
         </form>
@@ -811,7 +673,7 @@ and what time you want an MX crew will arrive.</h1>
       <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
-                </div>
+    </div>
             );
 };
 export default Adhesive;
