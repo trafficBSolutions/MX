@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import '../css/headerfooter.css';
 import '../css/decal.css';
+import '../css/toaster.css';
 import Header from '../components/headerviews/HeaderDecal';
 import axios from 'axios';
 import MXDecalGallery from '../photogallery/DecalMXgallery';
 import images from '../utils/dynamicImportImages';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
   const decalTypeOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false },
