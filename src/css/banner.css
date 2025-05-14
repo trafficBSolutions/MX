@@ -54,10 +54,11 @@ input[type="text"], input[type="number"], select, textarea {
 
 /* Label Styling */
 label {
-  font-size: 18px;
-  color: #0f375a;
-  margin-bottom: 5px;
-  display: block;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    color: #333;
 }
 
 /* Buttons */
