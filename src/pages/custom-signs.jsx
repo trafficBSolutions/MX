@@ -92,6 +92,7 @@ import images from '../utils/dynamicImportImages';
           const [widthUnit, setWidthUnit] = useState('feet'); // Width measurement unit
           const [selectedFinishing, setSelectedFinishing] = useState('');
           const [addedFinishing, setAddedFinishing] = useState([]);
+          const [isSubmitting, setIsSubmitting] = useState(false); 
           const [acmColor, setAcmColor] = useState('');
           const [acrylicColor, setAcrylicColor] = useState('');
           const [signThicknessValue, setSignThicknessValue] = useState('');
@@ -106,6 +107,7 @@ import images from '../utils/dynamicImportImages';
           const [signTypeError, setSignTypeError] = useState(''); // Error for sign type
           const [signSizeError, setSignSizeError] = useState(''); // Error for sign size
           const [signSidesError, setSignSidesError] = useState(''); // Error for sign sides
+          const [company, setCompany] = useState('');
           const [finishingError, setFinishingError] = useState(''); // Error for finishing
 
   const [formData, setFormData] = useState({
@@ -285,49 +287,42 @@ import images from '../utils/dynamicImportImages';
           const handleFileRemove = (fileType) => {
             setFormData({ ...formData, [fileType]: null });
           };
-          const handleSubmit = async (e) => {
-            e.preventDefault();
-          
-            let hasErrors = false;
-          
-            // Check if there are no added signs
-            if (addedSigns.length === 0) {
-              setSubmissionErrorMessage('You must add at least one sign before submitting.');
-              hasErrors = true;
-            } else {
-              setSubmissionErrorMessage('');
-            }
-          
-            // Field validation for required form fields (like first name, last name, etc.)
-            const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
-            const newErrors = {};
-          
-            requiredFields.forEach(field => {
-              if (!formData[field]) {
-                let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-                if (field === 'name') fieldLabel = 'First & Last Name';
-                if (field === 'company') fieldLabel = 'Company Name';
-                if (field === 'phone') fieldLabel = 'Phone Number';
-                if (field === 'img') fieldLabel = 'Logo';
-                if (field === 'terms') fieldLabel = 'Terms & Conditions';
-                newErrors[field] = `${fieldLabel} is required!`;
-              }
-            });
-          
-            setErrors(newErrors);
-            if (Object.keys(newErrors).length > 0) {
-              setErrorMessage('Required fields are missing.');
-              setErrors(newErrors);
-              return;
-            }
-            if (hasErrors) {
-              return;
-            }
-          
-            // Proceed with form submission logic if there are no errors
-            try {
-              // Create FormData instance to handle file upload
-              const formDataToSend = new FormData();
+      const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
+    const newErrors = {};
+let hasError = false;
+  requiredFields.forEach(field => {
+    if (!formData[field]) {
+      let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+      if (field === 'name') fieldLabel = 'Name';
+      if (field === 'company') fieldLabel = 'Company Name';
+      if (field === 'email') fieldLabel = 'Email';
+      if (field === 'phone') fieldLabel = 'Phone Number';
+      if (field === 'img') fieldLabel = 'Logo';
+      if (field === 'terms') fieldLabel = 'Terms & Conditions';
+      newErrors[field] = `${fieldLabel} is required!`;
+      hasError = true;
+    }
+  });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.'); // Set the general error message
+      setErrors(newErrors);
+      return;
+    }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
+const formDataToSend = new FormData();
               formDataToSend.append('name', formData.name);
               formDataToSend.append('company', formData.company);
               formDataToSend.append('email', formData.email);
@@ -349,7 +344,10 @@ import images from '../utils/dynamicImportImages';
           setIsSubmitting(false);
           return;
         }  
-          
+
+
+        
+  setIsSubmitting(true);
               // Append added signs
               formDataToSend.append('signs', JSON.stringify(addedSigns));
           
@@ -358,32 +356,34 @@ import images from '../utils/dynamicImportImages';
                   'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
                 },
               });
-          
-              console.log(response.data);
-              setSubmissionMessage('Customizable Signage Request Submitted!');
-          
-              // Reset form fields after successful submission
-              setFormData({
-                name: '',
-                company: '',
-                email: '',
-                phone: '',
-                img: null,
-                message: '',
-                terms: '',
-              });
+      console.log(response.data); // Now this works
+           
+      setFormData({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      img: null,
+      message: '',
+      terms: '',
+      });
               setAddedSigns([]);
               setErrors({});
               setPhone('');
               setAcmColor('');
               setAcrylicColor('');
               setSignThicknessValue('');
-            } catch (error) {
-              console.error('Error submitting custom sign:', error);
-              setSubmissionErrorMessage('There was an error submitting your request. Please try again.');
-            }
-          };
-          
+      setSubmissionMessage(
+        '✅ Customizable Signage Request Submitted!'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("There was an error submitting your request. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
+  };
     return (
         <div>
         <Header />
@@ -413,6 +413,7 @@ import images from '../utils/dynamicImportImages';
         <div className="sign-form-info">
         <h1 className="sign-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
 <h2 className="sign-fill">Please Fill Out the Form Below to Submit Your Custom Sign Information to get an Inquiry or Quote.</h2>
+<h3 className="fill-info">Fields marked with * are required.</h3>
 </div>
 <div className="sign-actual">
   <div className="name-section-sign">
@@ -448,19 +449,23 @@ import images from '../utils/dynamicImportImages';
       <p className="project-company-input-label">
   If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
 </p>
-      <input
-  name="company-sign-name-input"
-  type="text"
-  className="company-sign-name-input"
-  placeholder="Enter Company Name"
-  value={formData.company}
-  onChange={(e) => {
-    setFormData({ ...formData, company: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, company: '' })); // Clear the error
+  <input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
     }
-  }}
-/>
+    }
+  />
 {errors.company && <span className="error-message">{errors.company}</span>}
         </div>
     </div>
@@ -983,19 +988,30 @@ and what time you want an MX crew will arrive.</h1>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
-  <button type="button" className="btn btn--full submit-sign" onClick={handleSubmit}>SUBMIT CUSTOM SIGN</button>
-
-<div className="error-messages-container">
+  <div className="submit-button-wrapper">
+    <button
+    type="submit"
+    className="btn btn--full submit-sign"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? (
+      <div className="spinner-button">
+        <span className="spinner"></span> Submitting...
+      </div>
+    ) : (
+      'SUBMIT WINDOW FROSTING/TINTING'
+    )}
+  </button>
+  {submissionMessage && (
+    <div className="custom-toast success">{submissionMessage}</div>
+  )}
   {submissionErrorMessage && (
-    <div className="submission-error-message">{submissionErrorMessage}</div>
+    <div className="custom-toast error">{submissionErrorMessage}</div>
   )}
   {errorMessage && (
-    <div className="submission-error-message">{errorMessage}</div>
+    <div className="custom-toast error">{errorMessage}</div>
   )}
-</div>
-{submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
-)}
+         </div> 
 </div>
 
       </div>
@@ -1044,5 +1060,5 @@ and what time you want an MX crew will arrive.</h1>
     </div>
     </div>
     )
-}
+  };
 export default Signs;
