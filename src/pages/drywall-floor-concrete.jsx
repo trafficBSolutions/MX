@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/dry.css';
 import '../css/headerfooter.css';
+import '../css/toaster.css';
 import axios from 'axios';
 import MXDrywallGallery from '../photogallery/DrywallMXgallery';
 import Header from '../components/headerviews/HeaderDry';
