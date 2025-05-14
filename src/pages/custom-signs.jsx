@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../css/signs.css';
 import '../css/headerfooter.css';
+import '../css/toaster.css';
 import axios from 'axios';
 import MXSignGallery from '../photogallery/SignMXgallery';
 import Header from '../components/headerviews/HeaderSign';
 import images from '../utils/dynamicImportImages';
+import { ToastContainer, toast } from 'react-toastify';
       const sizeAluminumBlankOptions = [
         {name: '12"x6"', disabled: false},
         {name: '18"x6"'},
