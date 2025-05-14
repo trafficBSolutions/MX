@@ -524,6 +524,7 @@ formDataToSend.append('finishing', formData.finishing.join(', ')); // ✅ correc
         <div className="fleet-form-info">
         <h1 className="fleet-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
 <h2 className="fleet-fill">Please Fill Out the Form Below to Submit Your FLEET GRAPHICS Information to get an Inquiry or Quote.</h2>
+          <h3 className="fill-info">Fields marked with * are required.</h3>
 </div>
 <div className="fleet-actual">
 <div className="name-section-apparel">
