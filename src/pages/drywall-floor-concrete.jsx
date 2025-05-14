@@ -248,6 +248,7 @@ if (addedFinishing.length === 0) {
                     <h1 className="dry-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
                     <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Drywall/Floor/Concrete Graphics
                         Information to get an Inquiry or Quote.</h2>
+                  <h3 className="fill-info">Fields marked with * are required.</h3>
                 </div>
                 <div className="dry-actual">
                   <div className="name-section-dry">
