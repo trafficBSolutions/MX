@@ -195,7 +195,7 @@ const Banner = () => {
       if (field === 'img') fieldLabel = 'Logo';
       if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
-      hasError = true;
+      hasErrors = true;
     }
   });
 
