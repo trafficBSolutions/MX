@@ -621,7 +621,8 @@ onChange={(e) => {
 </div>
 </div>
 <div className="vehicle-type-fleet-section">
-<label className="type-fleet-label" htmlFor="vehicleType">Vehicle Type *</label>
+  <label className="vehicle-fleet-label">Vehicle Specifications *</label>
+<label className="type-fleet-label" htmlFor="vehicleType">Vehicle Type</label>
 <div className="type-fleet-section">
   {/* Vehicle Type Dropdown */}
   <select className="type-fleet-box" value={selectedVehicleType} onChange={handleTypeChange}>
@@ -636,7 +637,7 @@ onChange={(e) => {
   {/* Conditionally Render Year Dropdown */}
   {!isTrailerSelected && (
     <>
-      <label className="year-fleet-label" htmlFor="year">Year *</label>
+      <label className="year-fleet-label" htmlFor="year">Year</label>
       <select className="year-fleet-box" value={selectedYear} onChange={handleYearChange} disabled={!selectedVehicleType}>
         <option value="">Select Year</option>
         {Array.from({ length: currentYear - 1990 + 1 }, (_, i) => 1990 + i).map((year) => (
@@ -647,7 +648,7 @@ onChange={(e) => {
       </select>
 
       {/* Make Dropdown */}
-      <label className="make-fleet-label" htmlFor="make">Make *</label>
+      <label className="make-fleet-label" htmlFor="make">Make</label>
       <select className="make-fleet-box" value={selectedMake} onChange={handleMakeChange} disabled={!selectedYear}>
         <option value="">Select Make</option>
         {availableMakes.map((make) => (
@@ -658,7 +659,7 @@ onChange={(e) => {
       </select>
 
       {/* Model Dropdown */}
-      <label className="model-fleet-label" htmlFor="model">Model *</label>
+      <label className="model-fleet-label" htmlFor="model">Model</label>
       <select
         className="model-fleet-box"
         value={selectedModel}
