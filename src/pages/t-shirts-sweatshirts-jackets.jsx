@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../css/shirt.css';
 import '../css/headerfooter.css';
 import MXShirtGallery from '../photogallery/ShirtMXgallery';
+import { ToastContainer, toast } from 'react-toastify';
 import images from '../utils/dynamicImportImages';
   const apparelTypes = [
     { name: 'T-Shirts', disabled: false },
@@ -52,12 +53,14 @@ import images from '../utils/dynamicImportImages';
     const [apparelSize, setApparelSize] = useState('');
     const [apparelColor, setApparelColor] = useState('');
     const [quantity, setQuantity] = useState('');
+    const [company, setCompany] = useState('');
     const [typeErrorMessage, setTypeErrorMessage] = useState(''); // For type error
     const [sizeErrorMessage, setSizeErrorMessage] = useState(''); // For size error
     const [colorErrorMessage, setColorErrorMessage] = useState(''); // For color error
     const [quantityErrorMessage, setQuantityErrorMessage] = useState(''); // For quantity error
     const [errors, setErrors] = useState({});
     const [termsAccepted, setTermsAccepted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false); 
     const [errorMessage, setErrorMessage] = useState('');
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
@@ -143,40 +146,20 @@ import images from '../utils/dynamicImportImages';
           setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
         }
       };   
-    const handleZipChange = (event) => {
-      const input = event.target.value;
-      const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-    
-      setFormData({ ...formData, zip: rawInput });
-    
-      // Check if the input has 5 digits and clear the error if it does
-      if (rawInput.length === 5) {
-        setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-      } else {
-        setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
-      }
-    };
-    
     const handleFileRemove = (indexToRemove) => {
       const updatedFiles = formData.img.filter((_, idx) => idx !== indexToRemove);
       setFormData((prev) => ({ ...prev, img: updatedFiles }));
     };
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-    
-      const requiredFields = ['name', 'company', 'email', 'img', 'phone', 'message', 'terms'];
-      const newErrors = {};
-      let hasError = false;
-    
-      requiredFields.forEach((field) => {
-        let value = field === 'phone' ? phone : formData[field];
-        const isMissing =
-          value === '' ||
-          value === null ||
-          (Array.isArray(value) && value.length === 0);
-    
-        if (isMissing) {
-          let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+      const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name', 'company', 'email', 'img', 'phone', 'message', 'terms'];;
+    const newErrors = {};
+let hasError = false;
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
           if (field === 'name') fieldLabel = 'Name';
           if (field === 'company') fieldLabel = 'Company';
           if (field === 'email') fieldLabel = 'Email';
@@ -184,12 +167,9 @@ import images from '../utils/dynamicImportImages';
           if (field === 'img') fieldLabel = 'Logo';
           if (field === 'message') fieldLabel = 'Message';
           if (field === 'terms') fieldLabel = 'Terms & Conditions';
-          newErrors[field] = `${fieldLabel} is required!`;
-          hasError = true;
-        }
-      });
-    
-      // ✅ Apparel validation (included in main error handling)
+        newErrors[field] = `${fieldLabel} is required!`;
+      }
+    });
       if (addedApparel.length === 0) {
         setApparelErrorMessage('Please add at least one apparel item');
         hasError = true;
@@ -197,14 +177,11 @@ import images from '../utils/dynamicImportImages';
         setApparelErrorMessage('');
       }
     
-      if (hasError) {
-        setErrors(newErrors);
-        setErrorMessage('Required fields are missing.');
-        return;
-      }
-    
-      // 🧠 Only run this if validation passed
-      try {
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.'); // Set the general error message
+      setErrors(newErrors);
+      return;
+    }
         const formDataToSend = new FormData();
         formDataToSend.append('name', formData.name);
         formDataToSend.append('company', formData.company);
@@ -227,18 +204,15 @@ import images from '../utils/dynamicImportImages';
           return;
         }  
         formDataToSend.append('apparels', JSON.stringify(addedApparel));
-    
-        const response = await axios.post('/t-shirts-sweatshirts-jackets', formDataToSend, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-    
-        console.log(response.data);
-        setSubmissionMessage('T-Shirt/Sweatshirt/Jacket Request Submitted!');
-    
-        // Reset form
-        setFormData({
+  setIsSubmitting(true);
+      const response = await axios.post('/t-shirts-sweatshirts-jackets', formDataToSend, {
+  headers: {
+    'Content-Type': 'multipart/form-data'
+  }
+});
+      console.log(response.data); // Now this works
+           
+      setFormData({
           name: '',
           company: '',
           email: '',
@@ -247,16 +221,22 @@ import images from '../utils/dynamicImportImages';
           img: '',
           message: '',
           terms: ''
-        });
-        setAddedApparel([]);
+      });
+setAddedApparel([]);
         setErrors({});
         setPhone('');
-      } catch (error) {
-        console.error('Submission error:', error);
-        setSubmissionErrorMessage('There was an error submitting your request. Please try again.');
+      setSubmissionMessage(
+        '✅ T-Shirt/Sweatshirt/Jacket Request Submitted!'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("There was an error submitting your request. Please try again.");
+      } finally {
+        setIsSubmitting(false);
       }
-    };
-    
+  };
+
   return(
     <div>
         <Header/>
@@ -307,7 +287,10 @@ import images from '../utils/dynamicImportImages';
     placeholder="Enter Company Name"
     value={formData.company}
     onChange={(e) => {
-      setFormData({ ...formData, company: e.target.value });
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
         setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
@@ -614,19 +597,30 @@ import images from '../utils/dynamicImportImages';
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
-  <button type="button" className="btn btn--full submit-sign" onClick={handleSubmit}>SUBMIT CUSTOM APPAREL</button>
-
-<div className="error-messages-container">
+  <div className="submit-button-wrapper">
+    <button
+    type="submit"
+    className="btn btn--full submit-sign"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? (
+      <div className="spinner-button">
+        <span className="spinner"></span> Submitting...
+      </div>
+    ) : (
+      'SUBMIT CUSTOM APPAREL'
+    )}
+  </button>
+  {submissionMessage && (
+    <div className="custom-toast success">{submissionMessage}</div>
+  )}
   {submissionErrorMessage && (
-    <div className="submission-error-message">{submissionErrorMessage}</div>
+    <div className="custom-toast error">{submissionErrorMessage}</div>
   )}
   {errorMessage && (
-    <div className="submission-error-message">{errorMessage}</div>
+    <div className="custom-toast error">{errorMessage}</div>
   )}
-</div>
-{submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
-)}
+         </div> 
                     </div>
             </div>
             </form>
