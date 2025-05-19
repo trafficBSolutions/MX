@@ -313,6 +313,9 @@ const formDataToSend = new FormData();
     <div className="decal-company-name-input">
     <div className="decal-input-container">
       <label className="company-decal-name">Company *</label>
+      <p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
   <input
     className="project-company-input"
     type="text"
