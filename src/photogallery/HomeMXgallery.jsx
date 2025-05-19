@@ -337,40 +337,59 @@ const photos = [
     height: 3024
   }
 ];
-
 export default function MXPhotoGallery() {
-     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-    const handlePrevious = () => {
-      setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - (window.innerWidth <= 320 ? 1 : 4)));
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState(null);
+
+  const handlePrevious = () => {
+    setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - (window.innerWidth <= 320 ? 1 : 4)));
   };
-  
+
   const handleNext = () => {
-      setCurrentPhotoIndex((prevIndex) => Math.min(photos.length - 1, prevIndex + (window.innerWidth <= 320 ? 1 : 4)));
+    setCurrentPhotoIndex((prevIndex) =>
+      Math.min(photos.length - 1, prevIndex + (window.innerWidth <= 320 ? 1 : 4))
+    );
   };
-  
-      const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 4);
-    return (
-        <div className="mx-gallery-container">
-        <h2 className="photo-mx-note">PHOTO GALLERY</h2>
-        <div className="gallery">
-          {visiblePhotos.map((photo, index) => (
-            <div className="gallery-item" key={index}>
-              <img src={photo.src} alt={`Photo ${index}`} />
-            </div>
-          ))}
-        </div>
-        <div className="navigation-buttons">
-          {currentPhotoIndex > 0 && (
-            <button className="gallery-mx-navigation-arrow-left" onClick={handlePrevious}>
-              <FaArrowLeft />
-            </button>
-          )}
-          {currentPhotoIndex + 2 < photos.length && (
-            <button className="gallery-mx-navigation-arrow-right" onClick={handleNext}>
-              <FaArrowRight />
-            </button>
-          )}
-        </div>
+
+  const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 4);
+
+  return (
+    <div className="mx-gallery-container">
+      <h2 className="photo-mx-note">PHOTO GALLERY</h2>
+      <div className="gallery">
+        {visiblePhotos.map((photo, index) => (
+          <div className="gallery-item" key={index} onClick={() => {
+            setModalImage(photo.src);
+            setIsModalOpen(true);
+          }}>
+            <img src={photo.src} alt={`Photo ${index}`} />
+          </div>
+        ))}
       </div>
-          );
+
+      <div className="navigation-buttons">
+        {currentPhotoIndex > 0 && (
+          <button className="gallery-mx-navigation-arrow-left" onClick={handlePrevious}>
+            <FaArrowLeft />
+          </button>
+        )}
+        {currentPhotoIndex + 2 < photos.length && (
+          <button className="gallery-mx-navigation-arrow-right" onClick={handleNext}>
+            <FaArrowRight />
+          </button>
+        )}
+      </div>
+
+      {/* Modal Fullscreen View */}
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={modalImage} alt="Full View" />
+            <button className="close-button" onClick={() => setIsModalOpen(false)}>×</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
