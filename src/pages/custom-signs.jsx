@@ -289,7 +289,7 @@ import 'react-toastify/dist/ReactToastify.css';
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
-    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
     const newErrors = {};
 let hasError = false;
   requiredFields.forEach(field => {
@@ -907,22 +907,24 @@ const formDataToSend = new FormData();
     </p>
   </h2>
 <div className="file-fleet-section">
-
-
 <div className="choose-logo-contain">
   <label className="file-fleet-label">
     {formData.img && formData.img.length > 0 ? (
       <span>Add More Photos or Logos</span>
     ) : (
-      <span>Choose Your Logo or Photos for Your Vehicle</span>
+      <span>Choose File(s)</span>
     )}
     <input
   type="file"
   name="img" // ✅ This is correct
   accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-  onChange={(e) => handleFileChange(e, 'img')}
-  multiple
-/>
+  onChange={(e) => {
+                        handleFileChange(e, 'img');
+                          if (e.target.files[0]) {
+                            setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
+                          }}}
+                          multiple
+                          />
   </label>
 
   {formData.img && formData.img.length > 0 && (
@@ -941,7 +943,7 @@ const formDataToSend = new FormData();
     </ul>
   )}
 </div>
-
+{errors.img && <div className="error-message">{errors.img}</div>}
 </div>
 </div>
 <div className="sign-message-container">
