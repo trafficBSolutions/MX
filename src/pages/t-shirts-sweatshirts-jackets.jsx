@@ -62,6 +62,7 @@ import images from '../utils/dynamicImportImages';
     const [errors, setErrors] = useState({});
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false); 
+    const [fileError, setFileError] = useState(''); 
     const [errorMessage, setErrorMessage] = useState('');
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
@@ -73,7 +74,7 @@ import images from '../utils/dynamicImportImages';
       email: '',
       phone: '',
       apparel: [],
-      img: [], // ← Change from null to array
+      img: null,
       message: '',
       terms: false
     });    
@@ -147,15 +148,22 @@ import images from '../utils/dynamicImportImages';
           setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
         }
       };   
-    const handleFileRemove = (indexToRemove) => {
-      const updatedFiles = formData.img.filter((_, idx) => idx !== indexToRemove);
-      setFormData((prev) => ({ ...prev, img: updatedFiles }));
+      const handleFileChange = (e, fileType) => {
+      const newFiles = Array.from(e.target.files);
+      setFormData(prevState => ({
+        ...prevState,
+        [fileType]: [...(prevState[fileType] || []), ...newFiles]
+      }));
+      setFileError('');
     };
+const handleFileRemove = (fileType) => {
+                setFormData({ ...formData, [fileType]: null });
+              };
       const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
-    try { const requiredFields = ['name', 'company', 'email', 'img', 'phone', 'message', 'terms'];;
+    try { const requiredFields = ['name', 'company', 'email','phone', 'message', 'terms', 'img'];
     const newErrors = {};
 let hasError = false;
     requiredFields.forEach(field => {
@@ -255,7 +263,7 @@ setAddedApparel([]);
             <div className="apparel-form-info">
         <h1 className="apparel-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
         <h2 className="apparel-fill">Please Fill Out the Form Below to Submit Your Custom Apparel Information to get an Inquiry or Quote.</h2>
-              <h3 className="fill-info">Fields marked with * are required.</h3>
+        <h3 className="fill-info">Fields marked with * are required.</h3>
             </div>
                 <div className="apparel-actual">
                 <div className="name-section-apparel">
@@ -466,8 +474,8 @@ setAddedApparel([]);
 {apparelErrorMessage && <div className="error-message">{apparelErrorMessage}</div>}
 </div>     
   </div>
-    <div className="apparel-file-section">
-  <label className="apparel-file-label">Logo/Image *</label>
+      <div className="fleet-file-section">
+<label className="fleet-file-label">Logo/Image *</label>
   <h2 className="apparel-warn">
     <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
     <p className="log-re">Need a new logo?</p>
@@ -475,89 +483,45 @@ setAddedApparel([]);
       <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
     </p>
   </h2>
-  <div className="file-apparel-section">
-    <div className="choose-logo-contain">
-      {/* Initial file selection button - only show when no files are selected */}
-      {(!formData.img || formData.img.length === 0) && (
-        <label className="btn -- file-apparel-label">
-          <span>Choose Image File(s)</span>
-          <input
-            type="file"
-            name="img"
-            accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-            multiple
-            onChange={(e) => {
-              const selectedFiles = Array.from(e.target.files);
-              setFormData((prevData) => ({
-                ...prevData,
-                img: [...(prevData.img || []), ...selectedFiles]
-              }));
-              if (selectedFiles.length > 0) {
-                setErrors((prevErrors) => ({ ...prevErrors, img: '' }));
-              }
-            }}
-          />
-        </label>
-      )}
-      
-      {/* Select more files button - only show when files are already selected */}
-      {formData.img && formData.img.length > 0 && (
-        <button
-          type="button"
-          className="btn -- select-more-files"
-          onClick={() => document.querySelector('input[name="img"]').click()}
-        >
-          Select More Files
-        </button>
-      )}
-      
-      {/* Hidden input for "Select More Files" button */}
-      {formData.img && formData.img.length > 0 && (
-        <input
-          type="file"
-          name="img"
-          accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-          multiple
-          style={{ display: 'none' }}
-          onChange={(e) => {
-            const selectedFiles = Array.from(e.target.files);
-            setFormData((prevData) => ({
-              ...prevData,
-              img: [...(prevData.img || []), ...selectedFiles]
-            }));
-          }}
-        />
-      )}
-    </div>
-    
-    {formData.img && formData.img.length > 0 && (
-      <div className="selected-files-list">
-        <h4>Selected Files:</h4>
-        <ul>
-          {formData.img.map((file, idx) => (
-            <li key={idx} className="selected-file-item">
-              {file.name}
-              <button
-                type="button"
-                className="btn -- remove-single-file"
-                onClick={() => handleFileRemove(idx)}
-              >
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
-        <button
-          type="button"
-          className="btn -- remove-all-files"
-          onClick={() => setFormData(prev => ({ ...prev, img: [] }))}
-        >
-          Remove All Files
-        </button>
-      </div>
+<div className="file-fleet-section">
+<div className="choose-logo-contain">
+  <label className="file-fleet-label">
+    {formData.img && formData.img.length > 0 ? (
+      <span>Add More Photos or Logos</span>
+    ) : (
+      <span>Choose Image File(s)</span>
     )}
-  </div>
-  {errors.img && <span className="error-message">{errors.img}</span>}
+    <input
+  type="file"
+  name="img" // ✅ This is correct
+  accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
+  onChange={(e) => {
+                        handleFileChange(e, 'img');
+                          if (e.target.files[0]) {
+                            setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
+                          }}}
+                          multiple
+                          />
+  </label>
+
+  {formData.img && formData.img.length > 0 && (
+    <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>
+      Remove All
+    </button>
+  )}
+
+  {fileError && <span className="error-message">{fileError}</span>}
+
+  {formData.img && formData.img.length > 0 && (
+    <ul className="selected-fleet-files-list">
+      {formData.img.map((file, index) => (
+        <li key={index}>{file.name}</li>
+      ))}
+    </ul>
+  )}
+</div>
+{errors.img && <div className="error-message">{errors.img}</div>}
+</div>
 </div>
 <div className="apparel-message-container">
 <label className="message-apparel-label">Message *</label>
