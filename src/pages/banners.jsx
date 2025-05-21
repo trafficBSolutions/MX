@@ -182,7 +182,7 @@ const Banner = () => {
           
     if (isSubmitting) return;
     setIsSubmitting(true);
-    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms'];
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
     const newErrors = {};
   
   requiredFields.forEach(field => {
@@ -328,6 +328,9 @@ onChange={(e) => {
     <div className="banner-company-name-input">
     <div className="banner-input-container">
       <label className="company-banner-name">Company *</label>
+      <p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
   <input
     className="project-company-input"
     type="text"
@@ -543,7 +546,7 @@ onChange={(e) => {
           </div>
       <div className="fleet-file-section">
 <label className="fleet-file-label">Logo/Image *</label>
-<h2 className="apparel-warn">
+  <h2 className="apparel-warn">
     <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
     <p className="log-re">Need a new logo?</p>
     <p className="logo-warn">
@@ -551,22 +554,24 @@ onChange={(e) => {
     </p>
   </h2>
 <div className="file-fleet-section">
-
-
 <div className="choose-logo-contain">
   <label className="file-fleet-label">
     {formData.img && formData.img.length > 0 ? (
       <span>Add More Photos or Logos</span>
     ) : (
-      <span>Choose Your Logo or Photos for Your Vehicle</span>
+      <span>Choose File(s)</span>
     )}
     <input
   type="file"
   name="img" // ✅ This is correct
   accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-  onChange={(e) => handleFileChange(e, 'img')}
-  multiple
-/>
+  onChange={(e) => {
+                        handleFileChange(e, 'img');
+                          if (e.target.files[0]) {
+                            setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
+                          }}}
+                          multiple
+                          />
   </label>
 
   {formData.img && formData.img.length > 0 && (
@@ -585,7 +590,7 @@ onChange={(e) => {
     </ul>
   )}
 </div>
-
+{errors.img && <div className="error-message">{errors.img}</div>}
 </div>
 </div>
 <div className="banner-message-container">
