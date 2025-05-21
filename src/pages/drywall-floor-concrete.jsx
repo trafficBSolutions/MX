@@ -138,7 +138,7 @@ const handleFinishChange = (e) => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
-    try { const requiredFields = ['name','company', 'email', 'phone','message', 'terms'];
+    try { const requiredFields = ['name','company', 'email', 'phone','message', 'terms', 'img'];
     const newErrors = {};
 let hasError = false;
     requiredFields.forEach(field => {
@@ -248,7 +248,7 @@ if (addedFinishing.length === 0) {
                     <h1 className="dry-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
                     <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Drywall/Floor/Concrete Graphics
                         Information to get an Inquiry or Quote.</h2>
-                  <h3 className="fill-info">Fields marked with * are required.</h3>
+                        <h3 className="fill-info">Fields marked with * are required.</h3>
                 </div>
                 <div className="dry-actual">
                   <div className="name-section-dry">
@@ -528,22 +528,24 @@ onChange={(e) => {
     </p>
   </h2>
 <div className="file-fleet-section">
-
-
 <div className="choose-logo-contain">
   <label className="file-fleet-label">
     {formData.img && formData.img.length > 0 ? (
       <span>Add More Photos or Logos</span>
     ) : (
-      <span>Choose Your Logo or Photos for Your Vehicle</span>
+      <span>Choose Image File(s)</span>
     )}
     <input
   type="file"
   name="img" // ✅ This is correct
   accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
-  onChange={(e) => handleFileChange(e, 'img')}
-  multiple
-/>
+  onChange={(e) => {
+                        handleFileChange(e, 'img');
+                          if (e.target.files[0]) {
+                            setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
+                          }}}
+                          multiple
+                          />
   </label>
 
   {formData.img && formData.img.length > 0 && (
@@ -562,7 +564,7 @@ onChange={(e) => {
     </ul>
   )}
 </div>
-
+{errors.img && <div className="error-message">{errors.img}</div>}
 </div>
 </div>
 <div className="dry-message-container">
