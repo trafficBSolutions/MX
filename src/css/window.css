@@ -29,14 +29,14 @@
 /* Section Headers */
 .window-app-box {
   font-size: 32px;
-  color: #0f375a;
+  color: rgb(66, 57, 31);
   text-align: center;
   margin-bottom: 10px;
 }
 
 .window-fill {
   font-size: 20px;
-  color: #194fb4;
+  color: rgb(141, 126, 91);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -57,7 +57,7 @@ input[type="text"], input[type="number"], select, textarea {
 /* Buttons */
 .submit-windows, .remove-window, .file-window-label,
 .remove-window-file-button {
-  background-color: #0f375a;
+  background-color: rgb(117, 112, 100);
   color: #ffffff;
   border: none;
   display: flex;
@@ -157,7 +157,7 @@ input[type="text"], input[type="number"], select, textarea {
 .remove-finishing,
 .submit-finishing, 
 .submit-window{
-  background-color: #0f375a;
+  background-color: rgb(117, 112, 100);
     color: #fff;
     border: none;
     display: flex;
@@ -188,7 +188,7 @@ input[type="text"], input[type="number"], select, textarea {
 }
 .submit-window-place, .remove-tint,
 .submit-window-size {
-  background-color: #0f375a;
+  background-color: rgb(117, 112, 100);
   color: #fff;
   border: none;
   display: flex;
@@ -871,4 +871,3 @@ padding-top: 30px; /* Reduce padding */
   font-size: 1rem;
 }
   }
-  
