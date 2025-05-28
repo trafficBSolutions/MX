@@ -14,4 +14,5 @@ import Shirt from './t-shirts-sweatshirts-jackets'
 import Web from './new-website'
 import Blog from './blog'
 import Error from './error'
-export { Home, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact, Decal, Shirt, Web, Blog, Error }
+import Shop from './shop-items'
+export { Home, Shop, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact, Decal, Shirt, Web, Blog, Error }
