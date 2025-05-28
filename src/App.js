@@ -1,19 +1,17 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import { Home, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact, Decal, Shirt, Web, Blog, Error } from './pages';
+import { Routes, Route, Link} from 'react-router-dom'
+import { Home, Shop, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact, Decal, Shirt, Web, Blog, Error } from './pages';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import { Toaster } from 'react-hot-toast';
 
-/* axios.defaults.baseURL = 'https://tbs-server.onrender.com'; */
 axios.defaults.baseURL = 'https://mx-server-epo1.onrender.com';
-axios.defaults.withCredentials = true;
-
+axios.defaults.withCredentials = true
 function App() {
   return (
     <>
-      <Navbar />
-      <Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
-<Routes>
+     <Navbar />
+     <Toaster position='bottom-right' toastOptions={{duration: 2000}} />
+     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="*" element={<Error/>}/>
       <Route path="/custom-signs" element={<Signs/>}/>
@@ -26,12 +24,14 @@ function App() {
       <Route path="/services" element={<Service/>}/>
       <Route path="/new-logo" element={<Logo/>}/>
       <Route path="/contact-us" element={<Contact/>}/>
+      <Route path="/shop-items" element={<Shop/>}/>
       <Route path="/decals-stickers" element={<Decal/>}/>
       <Route path="/t-shirts-sweatshirts-jackets" element={<Shirt/>}/>
       <Route path="/new-website" element={<Web/>}/>
       <Route path="/blog" element={<Blog/>}/>
      </Routes>
     </>
-  );
+  )
 }
+
 export default App;
