@@ -190,14 +190,14 @@
    ================================ */
   
    .contact-app-box {
-    font-size: 32px;
-    color: #0f375a;
-    text-align: center;
-    margin-bottom: 10px;
+  font-size: 32px;
+  color: rgb(66, 57, 31);
+  text-align: center;
+  margin-bottom: 10px;
 }
 .contact-fill {
   font-size: 20px;
-  color: #194fb4;
+  color: rgb(141, 126, 91);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -335,7 +335,7 @@ height: auto;
    ================================ */
 
   .submit-contact {
-    background-color: #0f375a;
+    background-color: rgb(117, 112, 100);
     color: #fff;
     border: none;
     display: flex;
