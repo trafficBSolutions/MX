@@ -29,14 +29,14 @@
 /* Section Headers */
 .sign-app-box {
   font-size: 32px;
-  color: #0f375a;
+  color: rgb(66, 57, 31);
   text-align: center;
   margin-bottom: 10px;
 }
 
 .sign-fill {
   font-size: 20px;
-  color: #194fb4;
+  color: rgb(141, 126, 91);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -53,17 +53,10 @@ input[type="text"], input[type="number"], select, textarea {
 }
 
 /* Label Styling */
-label {
-  font-size: 18px;
-  color: #0f375a;
-  margin-bottom: 5px;
-  display: block;
-}
-
 /* Buttons */
 .submit-signs, .remove-sign, .file-sign-label,
 .remove-sign-file-button {
-  background-color: #0f375a;
+  background-color: rgb(117, 112, 100);
   color: #ffffff;
   border: none;
   display: flex;
@@ -80,9 +73,6 @@ label {
   display: flex;
   font-size: 1rem;
   justify-content: center;
-}
-.submit-s:hover, .remove-sign:hover {
-  background-color: #226daf;
 }
 .sign-warn {
   font-size: 15px;
