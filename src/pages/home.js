@@ -45,7 +45,6 @@ const Home = () => {
   const closeTShirtDropdown = () => {
     setIsTShirtDropdownOpen(false);
   };
-
   const toggleWindowFrostDropdown = () => {
     setIsWindowFrostDropdownOpen(!isWindowFrostDropdownOpen);
   };
@@ -76,20 +75,110 @@ const Home = () => {
         <div className="material-image">
           <div className="material-video-banner">
     <video className="material-page-video-banner" autoPlay loop muted playsInline>
-        <source src={images['../assets/MX Photos/mx pic.mp4'].default} type="video/mp4" />
+        <source src={images['mx pic.mp4']} type="video/mp4" />
     </video>
     <div className="material-name-container">
-        <img src={images['../assets/MX Logos/Material WorX.svg'].default} alt="Material WorX Logo" />
+        <img src={images['Material WorX Tan White.svg']} alt="Material WorX Logo" />
     </div>
 </div>
-          <div className="material-page-banner">
-          <h1 className="material-slogan">Where Ideas Meet Ingenuity: Where We Can Make It Happen!</h1>
-          <h2 className="material-descript">At Material WorX, 
-            we bring your vision to life with custom signs, decals, 
-            stickers, and apparel like t-shirts, jackets, and more. Our high-quality materials, including durable vinyl and Aluminum Composite Panels, ensure every project is built to last. We also offer professional window frosting and tinting to enhance both privacy and style. Let us handle your next project with creativity, precision, and fast, 
-            reliable service. Ready to make your idea happen? Contact us today!</h2>
+<section className="section-home-service">
+          <div className="main-material-container">
+            <span className="subheading"> SHOP SERVICES</span>
+            <h2 className="heading-secondary">
+            Request a quote for your next shop project.
+            </h2>
+<div className="material-logo-buttons">
+  <div className="signs-button">
+    <a href="/custom-signs" className="custom-sign-logo-button">
+      <img src={images["sign.svg"]} alt="Custom Signage Icon" />
+      <span>Signs</span>
+      <p>Create indoor & outdoor signage for your business.</p>
+    </a>
+  </div>
+
+  <div className="decals-stickers-button">
+    <a href="/decals-stickers" className="decals-stickers-logo-button">
+      <img src={images["decal.svg"]} />
+      <span>Decals & Stickers</span>
+      <p>Custom designs for windows, cars, laptops & more.</p>
+    </a>
+  </div>
+
+  <div className="banner-button">
+    <a href="/banners" className="banner-logo-button">
+      <img src={images["banner.svg"]} />
+      <span>Banners</span>
+      <p>Large promotional banners for events or sales.</p>
+    </a>
+  </div>
+
+  <div className="t-shirt-button">
+    <a href="/t-shirts-sweatshirts-jackets" className="t-shirt-logo-button">
+      <img src={images["t-shirt.svg"]} />
+      <span>Apparel Printing</span>
+      <p>Custom tees, sweatshirts & jackets for any group.</p>
+    </a>
+  </div>
+
+  <div className="window-button">
+    <a href="/window-frost-tint" className="window-logo-button">
+      <img src={images["window.svg"]} />
+      <span>Window Tint & Frost</span>
+      <p>Decorative or privacy film for home or office windows.</p>
+    </a>
+  </div>
+
+  <div className="drywall-button">
+    <a href="/drywall-floor-concrete" className="drywall-logo-button">
+      <img src={images["wall.svg"]} />
+      <span>Wall & Floor Graphics</span>
+      <p>Durable decals for drywall, floors, and concrete.</p>
+    </a>
+  </div>
+
+  <div className="fleet-graphic-button">
+    <a href="/fleet-graphics" className="fleet-logo-button">
+      <img src={images["box truck.svg"]} />
+      <span>Fleet Graphics</span>
+      <p>Wraps & decals for cars, trucks, and trailers.</p>
+    </a>
+  </div>
+</div>
           </div>
-          
+<div className="logo-container">
+  <h3 className="logo-text">Logo Redesign</h3>
+  <div className="logo-container-content">
+    <h4 className="logo-subheading">Need us to design a logo or create a new one?</h4>
+  <p className="logo-home-description">We offer custom logo design services tailored to your brand. Whether it's a refresh or something new, we've got you covered.</p>
+<img src={images["new logo symbol.svg"]} className="new-logo-img-home"alt="Logo Design" />
+</div>
+  <a href="/new-logo" className="logo-link">New Logo</a>
+</div>
+</section>
+<div className="material-website-container">
+  <h1 className="contact-materialX">Need a Website That Works?</h1>
+  <p className="contact-descript">
+    Stop renting from Wix. Get a fast, custom website that’s fully yours with no limits, and no fluff. Request edits or updates anytime after publication.
+  </p>
+
+  <div className="will-contact-link">
+    <h2 className="will-contact">Talk to William Rowell</h2>
+    <p className="contact-info">
+      <a className="will-phone" href="tel:+17068790106">
+        📞 Call/Text: (706) 879-0106
+      </a>
+      <br />
+      <a className="will-email" href="mailto:tbsolutions9@gmail.com">
+        📧 Email: tbsolutions9@gmail.com
+      </a>
+    </p>
+
+    <a className="home-web-button" href="/new-website">Start Your Website</a>
+    <a className="home-web-button" href="https://william-rowell.netlify.app/" target="_blank" rel="noopener noreferrer">
+      View My Work
+    </a>
+  </div>
+</div>
           <section className="section-mx-featured">
           <div className="container">
             <div className="gallery-mx-container">
@@ -97,60 +186,37 @@ const Home = () => {
             </div>
           </div>
         </section>
-          <div className="main-material-container">
-        <div className="material-background">
-          <section className="section-how" id="how">
-          <div className="container">
-            <span className="subheading">SERVICES</span>
-            <h2 className="heading-secondary">
-            You can choose from what we do.
-            </h2>
+        <div className="jobs-done-container">
+          <div className="job-year-content">
+            <h1 className="established-year">
+              2023
+              </h1>
+              <h1 className="established-year-text">
+                Year Established
+                </h1>
           </div>
-          <div className="material-logo-buttons">
-          <div className="signs-button">
-            <a href="/custom-signs" className="custom-sign-logo-button" type="button">
-                    <img src={images["../assets/service image buttons/sign.svg"].default} alt="Custom Signage Icon" className="sign-icon" />
-                <span> CUSTOMIZABLE SIGNAGE</span>
-            </a>
-        </div>
-            <div className="decals-stickers-button">
-                <a href="/decals-stickers" className="decals-stickers-logo-button">
-                <img src={images["../assets/service image buttons/decal.svg"].default} className="decal-icon"></img>
-                <span>DECALS & STICKERS</span>
-                </a>
+          <div className="sign-content">
+            <h1 className="sign-established">
+              5000+
+            </h1>
+            <h1 className="sign-established-text">
+              Signs Printed</h1>
             </div>
-            <div className="banner-button">
-                <a href="/banners" className="banner-logo-button">
-                <img src={images["../assets/service image buttons/banner.svg"].default} className="banner-icon"></img>
-                <span>BANNERS</span>
-                </a>
-            </div>
-            <div className="t-shirt-button">
-                <a href="/t-shirts-sweatshirts-jackets" className="t-shirt-logo-button">
-                <img src={images["../assets/service image buttons/t-shirt.svg"].default} className="shirt-icon"></img>
-                <span>T-SHIRTS SWEATSHIRTS JACKETS</span>
-                </a>
-            </div>
-            <div className="window-button">
-                <a href="/window-frost-tint" className="window-logo-button">
-                <img src={images["../assets/service image buttons/window.svg"].default} className="window-icon"></img>
-                <span>WINDOW FROSTING & TINTING</span>
-                </a>
-            </div>
-            <div className="drywall-button">
-                <a href="/drywall-floor-concrete" className="drywall-logo-button">
-                <img src={images["../assets/service image buttons/wall.svg"].default} className="drywall-icon"></img>
-                <span>DRYWALL FLOOR & CONCRETE DECALS</span>
-                </a>
-            </div>
-            <div className="fleet-graphic-button">
-                <a href="/fleet-graphics" className="fleet-logo-button">
-                <img src={images["../assets/service image buttons/box truck.svg"].default} className="fleet-icon"></img>
-                <span>VEHICLE FLEET & DECALED GRAPHICS</span></a>
-            </div>
-          </div>
-        </section>
-        </div>
+            <div className="decal-content">
+              <h1 className="decal-established">
+                20,000+
+                </h1>
+                <h1 className="decal-established-text">
+                  Decals Printed</h1>
+                  </div>
+                              <div className="decal-content">
+              <h1 className="decal-established">
+                500+
+                </h1>
+                <h1 className="decal-established-text">
+                  CNC Cuts</h1>
+                  </div>
+</div> 
         <div className="material-installation">
     <h2>Installation & Maintenance</h2>
     <div className="services">
@@ -177,80 +243,51 @@ const Home = () => {
         </div>
     </div>
 </div>
-
-<div className="contacting-container">
-<div className="material-flexing">
-  <h1 className="contact-materialX">Let's Build Your Dream Website!</h1>
-  <p className="contact-descript">
-    Looking for a modern, responsive website? Let's collaborate and bring your vision to life.
-  </p>
-  <div className="will-contact-link">
-    <h2 className="will-contact">Contact William Rowell</h2>
-    <p className="contact-info">
-      <a className="will-phone" href="tel:+17068790106">
-        <i className="fas fa-phone"></i> Call or Text: 706-879-0106
-      </a>
-      <span> or </span>
-      <a className="will-email" href="mailto:tbsolutions9@gmail.com">
-        <i className="fas fa-envelope"></i> Email: tbsolutions9@gmail.com
-      </a>
-    </p>
-    <a className="btn home-web-button" href="/new-website">Get Started</a>
-  </div>
-</div>
-<div className="google-map-home">
-<MapInvoiceComponent/>
-</div>
-</div>
-          </div>
         </div>
       </main>
       <footer className="material-footer">
   <div className="site-material-footer__inner">
-    <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default} />
-    
+    <img className="mx-img" alt="TBS logo" src={images["MX Tan.svg"]} />
     <div className="footer-navigation-content">
       <h2 className="footer-title">Navigation</h2>
-      <ul className="footer-navigate">
-        <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-        <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
-        <li><a className="footer-material-nav-link" href="/services">Services</a></li>
-        <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
-      </ul>
+    <ul className="footer-navigate">
+      <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
+      <li><a className="footer-material-nav-link" href="/new-logo">New Logos</a></li>
+      <li><a className="footer-material-nav-link" href="/services">Services</a></li>
+      <li><a className="footer-material-nav-link" href="/new-website">Websites</a></li>
+      <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
+    </ul>
     </div>
-    
     <div className="footer-contact">
       <h2 className="footer-title">Contact</h2>
       <p className="contact-info">
-        <a className="will-phone" href="tel:+17062630175">Call: 706-263-0175</a>
+        <a className="will-phone" href="tel:+17062630175">Call: (706) 263-0175</a>
         <a className="will-email" href="mailto: tbsolutions1999@gmail.com">Email: tbsolutions1999@gmail.com</a>
         <a className="will-address" href="https://www.google.com/maps/place/Traffic+%26+Barrier+Solutions%2FMaterial+WorX+Sign+Shop/@34.5115302,-84.9476215,94m/data=!3m1!1e3!4m6!3m5!1s0x886007df83843f3b:0x84510d87790af625!8m2!3d34.5117917!4d-84.948025!16s%2Fg%2F11l28zhlzt?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D"
-        >
-          723 N. Wall St, Calhoun, GA, 30701</a>
+      >
+        723 N. Wall St, Calhoun, GA, 30701</a>
       </p>
     </div>
-    
+
     <div className="social-icons">
       <h2 className="footer-title">Follow Us</h2>
       <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-        <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
+        <img className="facebook-img" src={images["facebook.png"]} alt="Facebook" />
       </a>
       <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-        <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
+        <img className="tiktok-img" src={images["tiktok.png"]} alt="TikTok" />
       </a>
       <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-        <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
+        <img className="insta-img" src={images["instagram.png"]} alt="Instagram" />
       </a>
     </div>
   </div>
-  
 </footer>
 <div className="footer-copyright">
       <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
     </div>
-  );
-};
-
+    )
+  };
 export default Home;
