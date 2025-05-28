@@ -59,11 +59,11 @@ body {
     line-height: 1.6;
     margin: 0;
 }
-.btn, .btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited, .logo-link, .home-web-button {
     text-decoration: none;
     padding: 1rem 2rem;
     border-radius: 5px;
-    background-color: #0f375a;
+    background-color: rgb(117, 112, 100);
     color: #fff;
     text-align: center;
     display: inline-block;
@@ -73,7 +73,7 @@ body {
     cursor: pointer;
 }
 .btn:hover {
-    background-color: #226daf;
+    background-color: rgb(163, 156, 136);
 }
 .btn--full {
     width: 100%;
@@ -83,66 +83,166 @@ body {
 .material-main {
     width: 100%;
 }
-.main-material-container {
+.section-home-service {
+        background-color: #fdf2e9;
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+.section-mx-featured {
+    display: flex;
     align-items: center;
-    background-color: #000;
-}
-.sign-quote, 
-.decal-quote, 
-.banner-quote, 
-.t-shirt-quote, 
-.window-quote,
-.building-quote,
-.fleet-quote {
-    background-color: #0f375a;
-    position: relative;
-    font-size: 2rem; /* Adjust size as needed */
-    color: #fff;
-    padding: 1rem 2rem; /* Adjust padding for a better fit */
+    justify-content: center;
     text-align: center;
-    width: fit-content;
-    border-radius: 5px;
-    font-family: "Kairos W04 Extended Bold";
-    cursor: pointer;
 }
-.sign-quote:hover, 
-.decal-quote:hover, 
-.banner-quote:hover, 
-.t-shirt-quote:hover, 
-.window-quote:hover,
-.building-quote:hover,
-.fleet-quote:hover {
-    background-color: #226daf;
+.material-website-container {
+    background-color: #b9b1ab;
+}
+.logo-subheading {
+  font-size: 1.2rem;
+  color: #29201a;
+}
+.material-logo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-self:center ;
+    justify-content: space-around;
+   }
+   .custom-sign-logo-button, .decals-stickers-logo-button, 
+   .banner-logo-button, .t-shirt-logo-button, .window-logo-button, .drywall-logo-button, .fleet-logo-button 
+    {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(214,204,179);
+      color: rgb(87, 80, 63);
+      text-align: center;
+      border-radius: 5px;
+      border-color: #000;
+      border-style: solid;
+      text-decoration: none;
+      font-family: "Moveo Sans W00 Bold";
+      cursor: pointer;
+      transition: all 0.3s;
+      height: 160px;
+      padding: 1rem;
+      width: 100%;
+      max-width: 140px;
+      box-sizing: border-box;
+  }
+  .custom-sign-logo-button img, .decals-stickers-logo-button img, 
+  .banner-logo-button img, .t-shirt-logo-button img, .window-logo-button img, .drywall-logo-button img, .fleet-logo-button img {
+    width: 35px;
+
+    margin-bottom: 10px;
+  }
+  .custom-sign-logo-button:hover, .decals-stickers-logo-button:hover,
+  .banner-logo-button:hover, .t-shirt-logo-button:hover, .window-logo-button:hover, .drywall-logo-button:hover, .fleet-logo-button:hover {
+    background-color: rgb(246, 235, 206);
+  }
+  .custom-sign-logo-button span,
+  .decals-stickers-logo-button span,
+  .banner-logo-button span,
+  .t-shirt-logo-button span,
+  .window-logo-button span,
+  .drywall-logo-button span,
+  .fleet-logo-button span {
+    line-height: 1.2;
+    font-size: 0.9rem;
+}
+.custom-sign-logo-button p,
+.decals-stickers-logo-button p,
+.banner-logo-button p,
+.t-shirt-logo-button p,
+.window-logo-button p,
+.drywall-logo-button p,
+.fleet-logo-button p {
+  font-size: 0.67rem;
+  color: #333;
+  margin-top: 5px;
+  line-height: 1.3;
+}
+.logo-text {
+  font-size: 2rem;
+  color: #29201a;
+}
+.logo-home-description {
+  font-size: 1rem;
+  color: #333;
+}
+
+.main-material-container {
+width: 100%;
+    padding: 0 10px;
+    border: none;
+    text-align: center;
+    flex: 1;
+    background-color: #999999;
+}
+.logo-container {
+    flex: 1;
+    width: 100%;
+    padding: 0 10px;
+    border: none;
+    text-align: center;
 }
 .container {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
+    background-color: #f8f8f8;
 }
-.contact-info a:hover {
-    color: #226daf;
-  }
-  
-  .home-web-button {
-    background-color: #07476d;
-    color: #fff;
-    font-size: 1.5rem;
-    padding: 15px 30px;
-    border-radius: 5px;
+.map-home-container {
+    width: 100%;
+    height: 200px;
     border: none;
-    display: inline-block;
-    margin-top: 20px;
-    cursor: pointer;
+    overflow: visible;
+}
+.jobs-done-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #ccc;
+    padding: 50px;
+}
+.job-year-content, .sign-content, .decal-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.established-year, .sign-established, .decal-established {
+        font-size: 6rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    color: rgb(101, 93, 70);
+    text-align: center;
+    margin-bottom: 1.6rem;
+}
+.sign-established-text, .decal-established-text, .established-year-text {
+        font-size: 3rem;
+    line-height: 1.8;
+    text-align: center;
+}
+  .logo-container-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 800px;
   }
-  
-  .home-web-button:hover {
-    background-color: #0051ff;
+  .new-logo-img-home {
+        width: 20%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: fill;
+    border: 5px solid #29201a;
+    padding: 4px;
+    background-color: #ffddc8;
   }
 .subheading {
     font-size: 2rem;
-    margin-bottom: 10px;
     color: #ffffff;
 }
 .material-box {
@@ -179,14 +279,14 @@ body {
 }
 
 .custom-sign-button-arrow-down {
-    background-color: #b4feff;
+    background-color: #757064;
     position: relative;
     font-size: 60px;
     margin-bottom: 30px;
     display: block; /* Ensure block-level element */
     border-radius: 5px;
     border-color: #fff;
-    color: #07476D;
+    color: #fff;
     font-family: "Kairos W04 Extended Bold";
     padding: 20px;
     text-align: center;
@@ -203,12 +303,19 @@ body {
 
 .material-video-banner {    
 position: relative;
+    padding: 300px 0 40px;
+    overflow: hidden;
 }
 
 .material-page-video-banner {
-    position: relative;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 100%;
-    height: 45rem;
+    height: 100%;
     object-fit: cover;
     z-index: 0;
 }
@@ -224,16 +331,6 @@ position: relative;
     max-width: 900px;
     width: 100%;
     height: auto;
-}
-.scenes {
-    background-color: aqua;
-
-}
-.material-page-heading {
-    color: #2f2f2f;
-    font-family: "Kairos W04 Extended Bold";
-    font-size: clamp(24px, 5vw, 80px);
-    text-align: center;
 }
 
 .material-decal-video-banner {  
@@ -251,24 +348,11 @@ position: relative;
     z-index: 0;
     overflow: hidden;
 }
-.material-page-banner {
-    background-color: rgb(163, 213, 247);
-}
 .window-frost-example-container {
     margin: auto;
     margin-top: 40px;
     margin-bottom: 40px;
 }
-.material-flexing {
-    border-color: #000;
-  border-width: 4px;
-  background-color: #ffffff;
-  border-style: solid;
-  border-radius: 10px;
-  width: auto;
-  height: 100%;
-}
-
 .google-map-home {
     width: 100%;
     border: none;
@@ -282,30 +366,11 @@ position: relative;
     width: auto;
 
 }
-  .contact-materialX {
-    font-family: "Kairos W04 Extended Bold", Arial, sans-serif;
-    font-size: 2.5rem;
-    color: #07476d;
-    margin-bottom: 10px;
-  }
   .contact-descript {
     font-family: Arial, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #333;
     margin-bottom: 20px;
-  }
-.bryson-contact-link {
-    font-family: "Kairos W04 Extended Bold";
-    font-size: 10px;
-    color: #042370;
-    margin-top: 20px;
-    text-align: center;
-}
-.will-contact {
-    font-family: "Moveo Sans W00 Bold", Arial, sans-serif;
-    font-size: 1.5rem;
-    color: #07476d;
-    margin-bottom: 10px;
   }
 .grid {
     display: grid;
@@ -317,48 +382,11 @@ position: relative;
     grid-column: 1 / -1; /* Spans both columns */
     justify-self: center;
   }
-.contact-william-info {
-    font-family: "Moveo Sans W00 Bold";
-    font-size: 40px;
-    color: #1841aa;
-    margin-top: 20px;
+.photo-mx-note, .map-home-note {
     text-align: center;
+    font-size: 3rem;
 }
-.photo-mx-note {
-    font-size: 50px;
-    text-align: center;
-    font-family: "Kairos W04 Extended Bold";
-}
-.section-mx-featured {
-    background-color: #e2ebff;
-}
-.section-how {
-    position: relative;
-    padding: 30px 0;
-    text-align: center;
-    z-index: 1;
-  }
-  .section-how::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/MX Photos/btr.jpg'); /* Background image */
-    background-size: cover;
-    background-position: center;
-    background-color: #000;
-    opacity: 0.5; /* Set opacity for the background image */
-    z-index: -1; /* Ensure the background is behind the content */
-  }
 
-.step-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #07476D;
-    margin-bottom: 10px;
-}
 .heading-tertiary {
     font-size: 3rem;
     line-height: 1.2;
@@ -528,7 +556,7 @@ position: relative;
     transition: transform 0.3s ease;
     cursor: pointer;
   }
-  .navigation-buttons {
+  .navigation-buttons, .modal-buttons {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -549,10 +577,22 @@ position: relative;
 
 .modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 35%;
 }
-
+.modal-download-button {
+    background-color: #757064;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px 10px;
+    border-radius: 5%;
+    color: #fff;
+    transition: background-color .3s;
+  }
+.modal-download-button:hover {
+    background-color: #a39c88;
+    cursor: pointer;
+  }
 .modal-content img {
   width: 100%;
   height: auto;
@@ -571,26 +611,40 @@ position: relative;
   cursor: pointer;
   padding: 0.2em 0.5em;
 }
-
   .gallery-mx-navigation-arrow-left, 
-  .gallery-mx-navigation-arrow-right {
-      background-color: #0051ff;
-      position: relative;
-      font-size: 60px;
-      margin-bottom: 30px;
-      margin: 0 auto;
-      display: block;
-      width: fit-content;
-      color: #fff;
-      font-family: "Kairos W04 Extended Bold";
+  .gallery-mx-navigation-arrow-right,
+  .modal-nav-button {
+      background-color: #757064;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+    transition: background-color .3s;
+  }
+  .gallery-mx-navigation-arrow-left:hover, 
+  .gallery-mx-navigation-arrow-right:hover,
+  .modal-nav-button:hover {
+    background-color: #a39c88;
+    cursor: pointer;
   }
   .contacting-container {
     width: 100%;
+    background-color: #fdf2e9;
     display: flex;
   }
-  @media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
-    .material-img {
+  @media screen and (min-width: 1200px) and (max-width: 1800px) {
+ .material-img {
         width: 100%;
+    }
+    .material-main {
+        width: auto;
+    }
+
+    .material-video-banner {
+        width: 100%;
+        height: 10vh;
     }
     .material-page-heading {
         font-size: 30px;
@@ -611,119 +665,138 @@ position: relative;
     }
     .main-material-container {
         width: 100%;
+        padding: 0.5rem 0.8rem;
     }
     .material-box {
         width: 90%;
     }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 20px;
+    .subheading {
+        font-size: 2rem;
     }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
+    .heading-secondary {
+        font-size: 1rem;
+        margin-bottom: 0;
     }
-    .custom-sign-img, .custom-decal-img, .custom-banner-img {
-        width: 70%;
-        margin: 5px;
+    .custom-sign-logo-button, 
+    .decals-stickers-logo-button, 
+    .banner-logo-button, 
+    .t-shirt-logo-button, 
+    .window-logo-button, 
+    .drywall-logo-button, 
+    .fleet-logo-button {
+        max-width: 90px;
+        height: 220px;
     }
-    .step-sign-img, .step-banner-img, .step-shirt-img, .step-window-img, .step-fleet-img  {
-        width: 110%;
-        padding: 20px;
-        border: 30px solid #c7eef8;;
-        display: block;
-    }
-    .step-decal-img {
-        width: 107%;
-        padding: 20px;
-        border: 35px solid #c7eef8;
-        display: block;
-    }
-    
-    .step-frost-img, .step-building-img {
-        width: 110%;
-        padding: 20px;
-        border: 35px solid #c7eef8;
-        display: block;
-    }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .photo-mx-note {
-        font-size: 30px;
-    }
-    .section-mx-featured {
-        margin: 0 auto;
-        align-items: center;
-    }
-.container {
-    padding: 0;
-}
-.subheading {
-    margin: 0;
-    font-size: 40px;
-}
-.home-web-button {
-    font-size: 20px;
-    padding: 0;
-}
-.step-text-box {
-    width: 100%;
-    display: block;
-    text-align: center;
-}
-.step-number {
-    font-size: 120px;
-}
-.custom-signage, .decals-stickers-home, .custom-banner, .custom-t-shirts, .custom-windowing, .custom-building-graphics, .custom-fleet-graphics {
-    display: block;
-}
-.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
-    font-size: 15px;
-    padding: 0px;
-}
-.step-description {
-    font-size: 20px;
-    line-height: 1;
-}
-.heading-primary, .heading-tertiary {
-    font-size: 30px;
-    margin-bottom: auto;
-}
-.heading-secondary {
-    font-size: 22px;
-}
-.section-how {
+ .custom-sign-logo-button img, 
+ .decals-stickers-logo-button img, 
+ .banner-logo-button img, 
+ .t-shirt-logo-button img, 
+ .window-logo-button img, 
+ .drywall-logo-button img, 
+ .fleet-logo-button img {
+    width: 35px;
+ }
+ .custom-sign-logo-button span, 
+ .decals-stickers-logo-button span, 
+ .banner-logo-button span, 
+ .t-shirt-logo-button span, 
+ .window-logo-button span, 
+ .drywall-logo-button span, 
+ .fleet-logo-button span {
+    font-size: 0.95rem;
+ }
+ .custom-sign-logo-button p, 
+ .decals-stickers-logo-button p, 
+ .banner-logo-button p, 
+ .t-shirt-logo-button p, 
+ .window-logo-button p, 
+ .drywall-logo-button p, 
+ .fleet-logo-button p  {
+    font-size: 0.7rem;
+ }
+ .logo-text {
+    font-size: 1.8rem;
+ }
+ .logo-subheading  {
+    font-size: 1.2rem;
+ }
+ .logo-home-description {
+    font-size: 0.9rem;
+ }
+ .logo-link, .home-web-button {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+ }
+ .logo-container-content {
+    max-width: 600px;
+ }
+ .jobs-done-container {
     padding: 10px;
-}
-.contact-materialX {
-    font-size: 35px;
-}
-.contacting-container {
-    display: block;
+ }
+ .contact-materialX {
+    font-size: 1.5rem;
+ }
+ .contact-descript {
+    font-size: 1rem;
+ }
+ .contact-info {
+    margin-top: 0;
+    font-size: 0;
+ }
+ .new-logo-img-home  {
+    width: 30%;
+ }
+ .photo-mx-note {
+    font-size: 2rem;
+ }
+.established-year, .sign-established, .decal-established {
+            font-size: 3rem;
+        margin: 0 auto;
+ }
+ .sign-established-text, .decal-established-text, .established-year-text {
+    font-size: 1.2rem;
+ }
+ .material-installation h2 {
+    font-size: 1.5rem;
+    padding: 10px;
+ }
+ .modal-content {
+    width: 37%;
+    max-width: fit-content;
+ }
+ .container {
+    padding: 0.3rem;
+ }
+ .material-installation {
+    padding: 0.5rem;
+ }
+ .installation h3, .maintenance h3 {
+    font-size: 1.1rem;
+ }
+ .installation p, .maintenance p {
+    font-size: 0.8rem;
+ }
+ .installation ul li, .maintenance ul li {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+ }
+ .installation, .maintenance {
+    padding: 0.5rem 0.9rem;
+ }
   }
-  .material-name-container {
-    max-width:450px;
-    width: 100%;
-}
-}
-  @media screen and (max-width: 1138px) and (orientation: portrait){
+  @media screen and (max-width: 1200px) {
     .material-img {
         width: 100%;
+    }
+    .material-main {
+        width: auto;
+    }
+
+    .material-video-banner {
+        width: 100%;
+        height: 5vh;
+        padding:   100px 0;
     }
     .material-page-heading {
         font-size: 30px;
@@ -748,656 +821,397 @@ position: relative;
     .material-box {
         width: 90%;
     }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 20px;
+    .subheading {
+        font-size: 1.5rem;
     }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
+    .heading-secondary {
+        font-size: 0.8rem;
+        margin-bottom: 0;
     }
-    .custom-sign-img, .custom-decal-img, .custom-banner-img {
-        width: 70%;
-        margin: 5px;
+    .custom-sign-logo-button, 
+    .decals-stickers-logo-button, 
+    .banner-logo-button, 
+    .t-shirt-logo-button, 
+    .window-logo-button, 
+    .drywall-logo-button, 
+    .fleet-logo-button {
+        max-width: 50px;
+        height: 150px;
     }
-
-
-    
-    .step-frost-img, .step-building-img {
-        width: 110%;
-        padding: 20px;
-        border: 35px solid #c7eef8;
-        display: block;
-    }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .photo-mx-note {
-        font-size: 30px;
-    }
-    .section-mx-featured {
-        margin: 0 auto;
-        align-items: center;
-    }
-.container {
-    padding: 0;
-}
-.subheading {
-    margin: 0;
-    font-size: 40px;
-}
-.home-web-button {
-    font-size: 20px;
-    padding: 0;
-}
-.step-text-box {
-    width: 100%;
-    display: block;
-    text-align: center;
-}
-.step-number {
-    font-size: 120px;
-}
-
-.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
-    font-size: 15px;
-    padding: 0px;
-}
-.step-description {
-    font-size: 20px;
-    line-height: 1;
-}
-.heading-primary, .heading-tertiary {
-    font-size: 30px;
-    margin-bottom: auto;
-}
-.heading-secondary {
-    font-size: 22px;
-}
-.section-how {
+ .custom-sign-logo-button img, 
+ .decals-stickers-logo-button img, 
+ .banner-logo-button img, 
+ .t-shirt-logo-button img, 
+ .window-logo-button img, 
+ .drywall-logo-button img, 
+ .fleet-logo-button img {
+    width: 20px;
+ }
+ .custom-sign-logo-button span, 
+ .decals-stickers-logo-button span, 
+ .banner-logo-button span, 
+ .t-shirt-logo-button span, 
+ .window-logo-button span, 
+ .drywall-logo-button span, 
+ .fleet-logo-button span {
+    font-size: 0.6rem;
+ }
+ .custom-sign-logo-button p, 
+ .decals-stickers-logo-button p, 
+ .banner-logo-button p, 
+ .t-shirt-logo-button p, 
+ .window-logo-button p, 
+ .drywall-logo-button p, 
+ .fleet-logo-button p  {
+    font-size: 0.48rem;
+ }
+ .logo-text {
+    font-size: 1.5rem;
+ }
+ .logo-subheading  {
+    font-size: 0.8rem;
+ }
+ .logo-home-description {
+    font-size: 0.6rem;
+ }
+ .logo-link, .home-web-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+ }
+ .logo-container-content {
+    max-width: 400px;
+ }
+ .jobs-done-container {
     padding: 10px;
-}
-.contact-materialX {
-    font-size: 35px;
-}
-.react-photo-gallery--gallery {
-    display: block;
-}
-
-/* Ensure the container adapts well to landscape mode */
-.gallery-mx-container {
-    width: 100%; /* Full width of the parent container */
-    max-width: 100vw; /* Ensure no overflow on wide landscape screens */
-    margin: 0 auto; /* Center the gallery */
-}
-
-/* If needed, adjust heights or paddings */
-.gallery-mx-container {
-    padding: 0 10px;
-}
-}
-  @media screen  and (max-width: 1200px) and (orientation: portrait) {
-    .material-img {
-        width: 100%;
-    }
-    .material-page-heading {
-        font-size: 30px;
-    }
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .material-slogan {
-        font-size: 20px;
-        padding: 10px;
-        width: 100%;
-    }
-    .material-descript {
-        text-align: center;
-        font-size: 15px;
-        line-height: 20px;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 90%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img, .custom-decal-img, .custom-banner-img {
-        width: 70%;
-        margin: 5px;
-    }
-
-    .step-sign-img,
-    .step-decal-img,
-    .step-banner-img, 
-    .step-shirt-img, 
-    .step-window-img, 
-    .step-frost-img, 
-    .step-building-img,
-    .step-fleet-img,
-    .step-frost-img, .step-building-img {
-        width: 100%;
-        padding: 20px;
-        border: 35px solid #c7eef8;
-        display: block;
-    }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .photo-mx-note {
-        font-size: 30px;
-    }
-    .section-mx-featured {
+ }
+ .contact-materialX {
+    font-size: 1.5rem;
+ }
+ .contact-descript {
+    font-size: 1rem;
+ }
+ .contact-info {
+    margin-top: 0;
+    font-size: 0;
+ }
+ .new-logo-img-home  {
+    width: 30%;
+ }
+ .photo-mx-note {
+    font-size: 2rem;
+ }
+.established-year, .sign-established, .decal-established {
+            font-size: 2.5rem;
         margin: 0 auto;
-        align-items: center;
-    }
-.container {
-    padding: 0;
-}
-.subheading {
-    margin: 0;
-    font-size: 40px;
-}
-.home-web-button {
-    font-size: 20px;
-    padding: 0;
-}
-.step-text-box {
-    width: 100%;
-    display: block;
-    text-align: center;
-}
-.step-number {
-    font-size: 120px;
-}
-
-.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
-    font-size: 15px;
-    padding: 0px;
-}
-.step-description {
-    font-size: 20px;
-    line-height: 1;
-}
-.heading-primary, .heading-tertiary {
-    font-size: 30px;
-    margin-bottom: auto;
-}
-.heading-secondary {
-    font-size: 22px;
-}
-.section-how {
+ }
+ .sign-established-text, .decal-established-text, .established-year-text {
+    font-size: 1rem;
+ }
+ .material-installation h2 {
+    font-size: 1.5rem;
     padding: 10px;
-}
-.contact-materialX {
-    font-size: 35px;
-}
-.react-photo-gallery--gallery {
-    display: block;
-}
-
-/* Ensure the container adapts well to landscape mode */
-.gallery-mx-container {
-    width: 100%; /* Full width of the parent container */
-    max-width: 100vw; /* Ensure no overflow on wide landscape screens */
-    margin: 0 auto; /* Center the gallery */
-}
-.material-name-container {
+ }
+ .modal-content {
+    width: 90%;
+    max-width: fit-content;
+ }
+ .container {
+    padding: 0.3rem;
+ }
+ .material-installation {
+    padding: 0.5rem;
+ }
+ .installation h3, .maintenance h3 {
+    font-size: 1.1rem;
+ }
+ .installation p, .maintenance p {
+    font-size: 0.8rem;
+ }
+ .installation ul li, .maintenance ul li {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+ }
+ .installation, .maintenance {
+    padding: 0.5rem 0.9rem;
+ }
+ .material-name-container {
     max-width: 475px;
-    width: 100%;
+    width: 80%;
+ }
 }
-/* If needed, adjust heights or paddings */
-.gallery-mx-container {
-    padding: 0 10px;
-}
-}
-  @media screen and (max-width: 1200px) and (orientation: landscape) {
-    .material-img {
-        width: 100%;
+@media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
+        .material-video-banner {
+        padding: 90px;
     }
-    .material-page-heading {
-        font-size: 30px;
-    }
-    .material-page-video-banner {
-        width: 100%;
-        height: 60vh;
-    }
-    .material-slogan {
-        font-size: 30px;
-        padding: 10px;
-        width: 100%;
-    }
-    .material-descript {
-        text-align: center;
-        font-size: 20px;
-        line-height: 30px;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 90%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img, .custom-decal-img, .custom-banner-img {
-        width: 70%;
-        margin: 5px;
-    }
-
-    .step-sign-img,
-    .step-decal-img,
-    .step-banner-img, 
-    .step-shirt-img, 
-    .step-window-img, 
-    .step-frost-img, 
-    .step-building-img,
-    .step-fleet-img,
-    .step-frost-img, .step-building-img {
-        width: 100%;
-        padding: 20px;
-        border: 35px solid #c7eef8;
+    .section-home-service {
         display: block;
     }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+    .logo-container-content {
+        display: block;
     }
-    .photo-mx-note {
-        font-size: 30px;
+    .subheading {
+        font-size: 1.5rem;
     }
-    .section-mx-featured {
-        margin: 0 auto;
-        align-items: center;
+    .heading-secondary {
+        font-size: 1rem;
     }
-.container {
-    padding: 0;
-}
-.subheading {
-    margin: 0;
-    font-size: 40px;
-}
-.home-web-button {
-    font-size: 20px;
-    padding: 0;
-}
-.step-text-box {
+    .material-logo-buttons {
+        gap: 10px;
+    }
+    .custom-sign-logo-button, .decals-stickers-logo-button, .banner-logo-button, .t-shirt-logo-button, .window-logo-button, .drywall-logo-button, .fleet-logo-button {
+        max-width: 120px;
+    }
+    .custom-sign-logo-button img, .decals-stickers-logo-button img, .banner-logo-button img, .t-shirt-logo-button img, .window-logo-button img, .drywall-logo-button img, .fleet-logo-button img {
+        width: 37%;
+    }
+     .custom-sign-logo-button span, 
+ .decals-stickers-logo-button span, 
+ .banner-logo-button span, 
+ .t-shirt-logo-button span, 
+ .window-logo-button span, 
+ .drywall-logo-button span, 
+ .fleet-logo-button span {
+    font-size: 0.8rem;
+ }
+ .custom-sign-logo-button p, 
+ .decals-stickers-logo-button p, 
+ .banner-logo-button p, 
+ .t-shirt-logo-button p, 
+ .window-logo-button p, 
+ .drywall-logo-button p, 
+ .fleet-logo-button p  {
+    font-size: 0.6rem;
+ }
+ .main-material-container {
+    padding: 0.5rem 0.7rem;
+ }
+    .material-name-container img {
+        max-width: fit-content;
+    }
+    .material-page-video-banner {
+        height: 100%;
+    }
+.gallery-item {
     width: 100%;
-    display: block;
-    text-align: center;
+    height: auto;
+    max-width: 100%;
 }
-.step-number {
-    font-size: 120px;
+.modal-content {
+    width: 90%;
+    max-width: fit-content;
 }
-
-.sign-quote, .decal-quote, .banner-quote, .t-shirt-quote, .window-quote, .building-quote, .fleet-quote {
-    font-size: 15px;
-    padding: 0px;
+.jobs-done-container {
+           padding: 0;
+        display: block;
 }
-.step-description {
-    font-size: 20px;
-    line-height: 1;
+.job-year-content, .sign-content, .decal-content  {
+            display: block;
+        padding: 15px;
 }
-.heading-primary, .heading-tertiary {
-    font-size: 30px;
-    margin-bottom: auto;
+.established-year, .sign-established, .decal-established {
+            font-size: 3rem;
+        margin: 0;
 }
-.heading-secondary {
-    font-size: 22px;
+.sign-established-text, .decal-established-text, .established-year-text {
+    font-size: 1rem;
 }
-.section-how {
-    padding: 10px;
+.material-installation h2 {
+    font-size: 1.5rem;
 }
-.contact-materialX {
-    font-size: 35px;
-}
-.react-photo-gallery--gallery {
-    display: block;
-}
-
-/* Ensure the container adapts well to landscape mode */
-.gallery-mx-container {
-    width: 100%; /* Full width of the parent container */
-    max-width: 100vw; /* Ensure no overflow on wide landscape screens */
-    margin: 0 auto; /* Center the gallery */
-}
-
-/* If needed, adjust heights or paddings */
-.gallery-mx-container {
-    padding: 0 10px;
-}
-.material-name-container {
-    max-width:475px;
+.modal-buttons {
     width: 100%;
+}
+.close-button {
+    font-size: 1rem;
+    top: -10px;
 }
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
-    .material-img {
-        width: 100%;
-    }
+.material-video-banner {
+    padding: 90px;
+}
+.section-home-service {
+    display: block;
+}
+.logo-container-content {
+    display: block;
+}
+.subheading {
+    font-size: 1.5rem;
+}
+.heading-secondary {
+    font-size: 1rem;
+}
+.material-logo-buttons {
+    gap: 10px;
+}
+.custom-sign-logo-button, .decals-stickers-logo-button, .banner-logo-button, .t-shirt-logo-button, .window-logo-button, .drywall-logo-button, .fleet-logo-button {
 
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 90%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img, .custom-decal-img, .custom-banner-img {
-        width: 70%;
-        margin: 5px;
-    }
-    .step-sign-img, .step-banner-img, .step-shirt-img, .step-window-img, .step-fleet-img  {
-        width: 120%;
-        padding: 5px;
-        border: 20px solid #c7eef8;
+    max-width: 120px;
+}
+.custom-sign-logo-button img, .decals-stickers-logo-button img, .banner-logo-button img, .t-shirt-logo-button img, .window-logo-button img, .drywall-logo-button img, .fleet-logo-button img {
+    width: 37%;
+    height: auto;
+}
+.logo-text {
+    font-size: 1.5rem;
+}
+.logo-subheading {
+    font-size: 1rem;
+}
+.logo-home-description {
+    font-size: 0.8rem;
+}
+.new-logo-img-home {
+    width: 70%;
+    height: auto;
+}
+.contact-materialX {
+    font-size: 1.2rem;
+}
+.contact-descript {
+    font-size: 0.8rem;
+}
+.will-contact {
+    font-size: 1rem;
+}
+.contact-info {
+    font-size: 0.8rem;
+    margin: 0
+}
+.btn, .btn:link, .btn:visited {
+    font-size: 1rem;
+}
+.gallery {
+    flex-direction: column;
+}
+.gallery-item {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+.modal-content {
+    width: 70%;
+    max-width: fit-content;
+}
+.jobs-done-container {
+           padding: 0;
         display: block;
-    }
-    .step-decal-img, .step-frost-img, .step-building-img {
-        width: 100%;
-        padding: 5px;
-        border: 20px solid #c7eef8;
-        display: block;
-    }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .photo-mx-note {
-        font-size: 30px;
-    }
-    .section-mx-featured {
-        display: flex;
-        margin: 0 auto;
-        align-items: center;
-    }
-    .container {
-        padding: 0;
-    }
-    .subheading {
+}
+.job-year-content, .sign-content, .decal-content  {
+            display: block;
+        padding: 15px;
+}
+.established-year, .sign-established, .decal-established {
+            font-size: 3rem;
         margin: 0;
-        font-size: 36px;
-    }
-    .home-web-button {
-        font-size: 20px;
-        padding: 0;
-    }
-    .step-text-box {
-        width: 100%;
-        display: block;
-        text-align: center;
-    }
-    .step-number {
-        font-size: 100px;
-    }
-    .custom-signage, 
-    .decals-stickers-home, 
-    .custom-banner, 
-    .custom-t-shirts, 
-    .custom-windowing, 
-    .custom-building-graphics, 
-    .custom-fleet-graphics {
-        display: block;
-    }
-    .sign-quote, 
-    .decal-quote, 
-    .banner-quote, 
-    .t-shirt-quote, 
-    .window-quote, 
-    .building-quote, 
-    .fleet-quote {
-        font-size: 12px;
-        padding: 0px;
-    }
-    .step-description {
-        font-size: 17px;
-        line-height: 1;
-    }
-    .heading-primary, 
-    .heading-tertiary {
-        font-size: 25px;
-        margin-bottom: auto;
-    }
-    .heading-secondary {
-        font-size: 20px;
-    }
-    .section-how {
-        padding: 10px;
-    }
-    .contact-materialX {
-        font-size: 1.4rem;
-    }
-    .contact-descript {
-        font-size: 1rem;
-    }
-    .material-name-container {
-        max-width:200px;
-        width: 100%;
-    }
-    
-    .will-contact {
-        font-size: 1.3rem;
-    }
-    .contacting-container {
-        display: block;
-      }
+}
+.sign-established-text, .decal-established-text, .established-year-text {
+    font-size: 1rem;
+}
+.material-installation h2 {
+    font-size: 1.5rem;
+}
+.modal-buttons {
+    width: 100%;
+}
+.close-button {
+    font-size: 1rem;
+    top: -10px;
+}
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
-    .material-img {
-        width: 100%;
-    }
+.material-video-banner {
+    padding: 90px;
+}
+.section-home-service {
+    display: block;
+}
+.logo-container-content {
+    display: block;
+}
+.subheading {
+    font-size: 1.5rem;
+}
+.heading-secondary {
+    font-size: 1rem;
+}
+.material-logo-buttons {
+    gap: 10px;
+}
+.custom-sign-logo-button, .decals-stickers-logo-button, .banner-logo-button, .t-shirt-logo-button, .window-logo-button, .drywall-logo-button, .fleet-logo-button {
 
-    .material-page-video-banner {
-        width: 100%;
-        height: auto;
-    }
-    .main-material-container {
-        width: 100%;
-    }
-    .material-box {
-        width: 90%;
-    }
-    .custom-sign-h1, 
-    .custom-decal-h1, 
-    .custom-banner-h1, 
-    .custom-tshirts-h1, 
-    .custom-window-frost-h1, 
-    .custom-drywall-h1, 
-    .custom-graphic-h1 {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-    .custom-sign-h2, 
-    .custom-decal-h2, 
-    .custom-banner-h2, 
-    .custom-tshirts-h2, 
-    .custom-window-frost-h2, 
-    .custom-drywall-h2, 
-    .custom-graphic-h2 {
-        font-size: 20px;
-    }
-    .custom-sign-img, .custom-decal-img, .custom-banner-img {
-        width: 70%;
-        margin: 5px;
-    }
-    .step-sign-img, .step-banner-img, .step-shirt-img, .step-window-img, .step-fleet-img  {
-        width: 120%;
-        padding: 5px;
-        border: 20px solid #c7eef8;
+    max-width: 120px;
+}
+.custom-sign-logo-button img, .decals-stickers-logo-button img, .banner-logo-button img, .t-shirt-logo-button img, .window-logo-button img, .drywall-logo-button img, .fleet-logo-button img {
+    width: 37%;
+    height: auto;
+}
+.logo-text {
+    font-size: 1.5rem;
+}
+.logo-subheading {
+    font-size: 1rem;
+}
+.logo-home-description {
+    font-size: 0.8rem;
+}
+.new-logo-img-home {
+    width: 70%;
+    height: auto;
+}
+.contact-materialX {
+    font-size: 1.2rem;
+}
+.contact-descript {
+    font-size: 0.8rem;
+}
+.will-contact {
+    font-size: 1rem;
+}
+.contact-info {
+    font-size: 0.8rem;
+    margin: 0
+}
+.btn, .btn:link, .btn:visited {
+    font-size: 1rem;
+}
+.gallery {
+    flex-direction: column;
+}
+.gallery-item {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+.modal-content {
+    width: 35%;
+    max-width: fit-content;
+}
+.jobs-done-container {
+           padding: 0;
         display: block;
-    }
-    .step-decal-img, .step-frost-img, .step-building-img {
-        width: 100%;
-        padding: 5px;
-        border: 20px solid #c7eef8;
-        display: block;
-    }
-    .custom-sign-button-arrow-down, .custom-sign-button-arrow-up {
-        font-size: 60px;
-        padding: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    .photo-mx-note {
-        font-size: 30px;
-    }
-    .section-mx-featured {
-        display: flex;
-        margin: 0 auto;
-        align-items: center;
-    }
-    .container {
-        padding: 0;
-    }
-    .subheading {
+}
+.job-year-content, .sign-content, .decal-content  {
+            display: block;
+        padding: 15px;
+}
+.established-year, .sign-established, .decal-established {
+            font-size: 3rem;
         margin: 0;
-        font-size: 36px;
-    }
-    .home-web-button {
-        font-size: 20px;
-        padding: 0;
-    }
-    .step-text-box {
-        width: 100%;
-        display: block;
-        text-align: center;
-    }
-    .step-number {
-        font-size: 100px;
-    }
-    .custom-signage, 
-    .decals-stickers-home, 
-    .custom-banner, 
-    .custom-t-shirts, 
-    .custom-windowing, 
-    .custom-building-graphics, 
-    .custom-fleet-graphics {
-        display: block;
-    }
-    .sign-quote, 
-    .decal-quote, 
-    .banner-quote, 
-    .t-shirt-quote, 
-    .window-quote, 
-    .building-quote, 
-    .fleet-quote {
-        font-size: 12px;
-        padding: 0px;
-    }
-    .step-description {
-        font-size: 17px;
-        line-height: 1;
-    }
-    .heading-primary, 
-    .heading-tertiary {
-        font-size: 25px;
-        margin-bottom: auto;
-    }
-    .heading-secondary {
-        font-size: 20px;
-    }
-    .section-how {
-        padding: 10px;
-    }
-    .contact-materialX {
-        font-size: 1.4rem;
-    }
-    .contact-descript {
-        font-size: 1rem;
-    }
-    .material-name-container {
-        max-width:200px;
-        width: 100%;
-    }
-    
-    .will-contact {
-        font-size: 1.3rem;
-    }
-    .contacting-container {
-        display: block;
-      }
-      .gallery {
-        margin: 0 auto;
-        max-width: 1000px;
-    }
+}
+.sign-established-text, .decal-established-text, .established-year-text {
+    font-size: 1rem;
+}
+.material-installation h2 {
+    font-size: 1.5rem;
+}
+.modal-buttons {
+    width: 100%;
+}
+.close-button {
+    font-size: 1rem;
+    top: -10px;
+}
 }
