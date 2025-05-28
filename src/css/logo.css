@@ -24,61 +24,19 @@
 /* ================================
    Logo Buttons
    ================================ */
-   .material-logo-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin: 40px;
-    justify-content: space-around;
-   }
-   .custom-sign-logo-button, .decals-stickers-logo-button, 
-   .banner-logo-button, .t-shirt-logo-button, .window-logo-button, .drywall-logo-button, .fleet-logo-button 
-    {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: #81c4ff;
-      color: #0044c3;
-      text-align: center;
-      border-radius: 5px;
-      border-color: #000;
-      border-style: solid;
-      padding: 10px;
-      text-decoration: none;
-      font-family: "Kairos W04 Extended Bold";
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 1rem;
-      height: 180px;
-      width: 150px;
-      box-sizing: border-box;
-  }
-  .custom-sign-logo-button img, .decals-stickers-logo-button img, 
-  .banner-logo-button img, .t-shirt-logo-button img, .window-logo-button img, .drywall-logo-button img, .fleet-logo-button img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-  }
-  .custom-sign-logo-button:hover, .decals-stickers-logo-button:hover,
-  .banner-logo-button:hover, .t-shirt-logo-button:hover, .window-logo-button:hover, .drywall-logo-button:hover, .fleet-logo-button:hover {
-    background-color: #3b87c9;
-  }
-  .custom-sign-logo-button span {
-    line-height: 1.2;
-    font-size: 15px;
-}
+   
+
 /* Section Headers */
 .logo-app-box {
   font-size: 32px;
-  color: #0f375a;
+  color: rgb(66, 57, 31);
   text-align: center;
   margin-bottom: 10px;
 }
 
 .logo-fill {
   font-size: 20px;
-  color: #194fb4;
+  color: rgb(141, 126, 91);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -99,7 +57,7 @@ input[type="text"], input[type="number"], select, textarea {
 /* Buttons */
 .submit-logos, .remove-logo, .file-logo-label,
 .remove-logo-file-button {
-  background-color: #0f375a;
+  background-color: rgb(117, 112, 100);
     color: #fff;
     border: none;
     display: flex;
@@ -652,9 +610,6 @@ padding-top: 30px; /* Reduce padding */
 .message-logo-note {
   font-size: 0.6rem;
 }
-.material-logo-buttons  {
- margin: 0;
-}
 .logo-logo-label {
   width: auto;
 }
@@ -875,4 +830,3 @@ padding-top: 30px; /* Reduce padding */
   font-size: 0.6rem;
 }
   }
-  
