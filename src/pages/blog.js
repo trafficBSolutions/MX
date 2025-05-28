@@ -1,6 +1,7 @@
 import '../css/blog.css';
 import Header from '../components/headerviews/HeaderBlog';
 import images from '../utils/dynamicImportImages';
+import '../css/headerfooter.css';
 const Blog = () => {
     return (
         <div>
@@ -8,10 +9,10 @@ const Blog = () => {
             <main className="blog-main">
             <div className="material-video-banner">
     <video className="material-page-video-banner" autoPlay loop muted playsInline>
-        <source src={images['../assets/MX Photos/mx pic.mp4'].default} type="video/mp4" />
+        <source src={images['mx pic.mp4']} type="video/mp4" />
     </video>
     <div className="material-name-container">
-        <img src={images['../assets/MX Logos/Material WorX.svg'].default} alt="Material WorX Logo" />
+        <img src={images['Material WorX.svg']} alt="Material WorX Logo" />
     </div>
 </div>
                 <div className="material-blog-container">
@@ -32,15 +33,15 @@ const Blog = () => {
                         <div className="social-links">
                             {/* Facebook */}
                             <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-                                <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
+                                <img className="facebook-img" src={images["facebook.png"]} alt="Facebook" />
                             </a>
                             {/* TikTok */}
                             <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-                                <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
+                                <img className="tiktok-img" src={images["tiktok.png"]} alt="TikTok" />
                             </a>
                             {/* Instagram */}
                             <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                                <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
+                                <img className="insta-img" src={images["instagram.png"]} alt="Instagram" />
                             </a>
                         </div>
                     </div>
@@ -48,7 +49,7 @@ const Blog = () => {
             </main>
             <footer className="material-footer">
   <div className="site-material-footer__inner">
-    <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default} />
+    <img className="mx-img" alt="TBS logo" src={images["MX.svg"]} />
     <div className="footer-navigation-content">
       <h2 className="footer-title">Navigation</h2>
     <ul className="footer-navigate">
@@ -72,13 +73,13 @@ const Blog = () => {
     <div className="social-icons">
       <h2 className="footer-title">Follow Us</h2>
       <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-        <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
+        <img className="facebook-img" src={images["facebook.png"]} alt="Facebook" />
       </a>
       <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-        <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
+        <img className="tiktok-img" src={images["tiktok.png"]} alt="TikTok" />
       </a>
       <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-        <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
+        <img className="insta-img" src={images["instagram.png"]} alt="Instagram" />
       </a>
     </div>
   </div>
@@ -87,7 +88,7 @@ const Blog = () => {
       <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
-        </div>
+    </div>
     );
 }
 
