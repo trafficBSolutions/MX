@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    background-color: #000000;
+    background-color: rgb(34, 29, 15);
     height: 9.6rem;
-    justify-content: space-between; /* Space all contents */
+    justify-content: center; /* Space all contents */
     padding: 0 1.6rem;
     position: relative;
     padding: 10px 20px; /* Adjust padding as needed */
@@ -15,7 +15,7 @@
   position: absolute; /* Makes the dropdown appear over the content */
   top: 100%; /* Position below the parent */
   left: 0; /* Align with the parent */
-  background-color: #cee1ff; /* Background for better visibility */
+  background-color: rgb(245, 233, 204);; /* Background for better visibility */
   padding: 1rem;
   line-height: 1.8rem;
   text-decoration: none;
@@ -42,7 +42,7 @@
 
 .sub-material-nav-list li a {
   text-decoration: none;
-  color: #60aaff;
+  color: rgb(121, 115, 100);
   font-weight: 500;
   font-size: 1.3rem;
   padding: 0;
@@ -55,8 +55,8 @@
 }
 
 .sub-material-nav-list li a:hover {
-  background-color: #008db1;
-  color: #b6f3fb; /* Change color on hover */
+  background-color: rgb(66, 63, 55);
+  color: rgb(214,204,179);; /* Change color on hover */
   border: #000;
 }
 
@@ -69,7 +69,6 @@
 }
 .header-worx-logo {
   text-decoration: none;
-  color: #a4f7ff;
   font-weight: 500;
   font-size: 1.3rem;
   font-family: "Kairos W04 Extended Bold";
@@ -86,7 +85,7 @@
 }
 .main-material-nav-link-view {
   text-decoration: none;
-  color: #dfdfdf;;
+  color: rgb(214, 210, 200);
   font-weight: 500;
   font-size: 1.6rem; /* Adjust font size */
   transition: all 0.3s;
@@ -123,56 +122,12 @@
   width: 15rem;
   height: auto;
 }
-.material-worx-phone-header
- {
-  display: flex;
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Align items horizontally */
-  gap: 10px; /* Space between the phone icon and number */
-  height: auto;
-  list-style: none;
-}
 
-.material-worx-phone-header:hover
- {
-  background-color: #4e4e4e;
-}
-.google-header:hover {
-  background-color: #ffffff;
-}
-.material-worx-phone-header-link, .google-header-link {
-  text-decoration: none;
-  color: rgb(118, 216, 255); /* Your original text color */
-  font-weight: 500;
-  font-size: 2.7rem; /* Adjust font size */
-  transition: all 0.3s;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  align-items: center; /* Ensure image and text align vertically inside the link */
-}
-.google-header-link { 
-  transition: all 0.3s;
-  display: flex;
-  align-items: center; /* Ensure image and text align vertically inside the link */
-  max-width: 400px;
-}
-
-.header-phone-img {
-  max-width: 50px; /* Set a fixed size for the icon */
-  height: auto;
-  margin-right: 10px; /* Add some space between the image and the number */
-}
-.google-header-img {
-  width: 100%;
-  height: auto;
-}
   .header-material-logo:hover {
-    background-color: #a0f4ff;
+    background-color: rgb(117, 112, 100);;
   }
-
   .material-footer {
-    background-color: #0ecfff;
+    background-color: rgb(141, 126, 91);;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
@@ -199,7 +154,7 @@
     transition: all 0.3s;
 }
 .footer-material-nav-link-view {
-  color: #008db1;
+  color: rgb(214, 210, 200);
   text-align: center;
     display: inline-block;
     text-decoration: none;
@@ -209,7 +164,7 @@
 }
 
 .footer-material-nav-link:hover {
-  color: #018698;
+  color: rgb(214, 210, 200);
 }
 
 .main-material-nav-list {
@@ -222,7 +177,7 @@
 .main-material-nav-link {
   text-decoration: none;
   list-style: none;
-    color: #60daff;
+    color: rgb(255, 250, 238);
     font-weight: 500;
     font-size: 1.6rem; /* Adjust font size */
     transition: all 0.3s;
@@ -231,11 +186,11 @@
 }
 
 .main-material-nav-link:hover {
-  color: #c1d8db
+  color: rgb(163, 156, 136);
 }
 
 .mobile-material-nav {
-  background-color: #018698;
+  background-color: rgb(117, 112, 100);
   color: #fff;
   border: none;
   text-align: center;
@@ -309,7 +264,7 @@
   text-decoration: none;
 }
 .footer-material-nav-link:hover {
-  color: #0051ff;
+  color: #d6ccb3
 }
 
 .footer-contact {
@@ -330,7 +285,7 @@
 }
 .contact-info a {
   display: block;
-  color: #07476D;
+  color: #333;
   text-decoration: none;
   font-size: 1.4rem;
   margin-bottom: 5px;
@@ -338,7 +293,7 @@
 }
 
 .contact-info a:hover {
-  color: #008db1;
+  color: rgb(215, 206, 178);
 }
 
 
@@ -361,20 +316,11 @@
   margin-bottom: 20px;
   display: inline-block;
 }
-.trademark-warning {
-  font-size: 30px;
-  margin-bottom: 10px;
-  color: #000;
-  font-family: "Highway Gothic Narrow";
-}
 .footer-number {
   font-size: 2.5rem;
 }
-.warning-trade {
-  color: red;
-}
 .footer-copyright {
-  background-color: #07344e;
+  background-color: rgb(34, 29, 15);
   color: #fff;
   text-align: center;
 }
@@ -403,7 +349,7 @@ background-color: #ffffff;
   margin: 0 auto;
 }
 .footer-face {
-  color: #34c3e7;
+  color: #d6ccb3
 }
 .footer-face:hover {
   color: #ffffff;
@@ -417,9 +363,6 @@ background-color: #ffffff;
   }
   .main-material-nav {
     gap: 3rem;
-  }
-  .main-material-nav-link-view {
-    font-size: 2rem;
   }
   .header-material-logo {
     width: 300%;
@@ -441,8 +384,30 @@ background-color: #ffffff;
   width: 9rem;
   height: auto;
 }
+ .sub-material-nav-list {
+  padding: 0.5rem;
+  line-height: 1;
+ }
+ .sub-material-nav-list li a {
+  font-size: 1.2rem;
 }
-@media screen and (max-width: 1200px) and (orientation: portrait)  {
+.main-material-nav-link, .main-material-nav-link-view {
+  font-size: 1.2rem;
+}
+.footer-navigate {
+  gap: 10px;
+}
+.footer-material-nav-link, .footer-material-nav-link-view {
+  font-size: 1rem;  
+}
+.contact-info a {
+  font-size: 1rem;
+}
+.footer-copy-p {
+  font-size: 1rem;
+}
+}
+@media screen and (max-width: 1200px) {
     /* HEADER */
     .main-material-nav {
       gap: 1rem;
@@ -462,9 +427,9 @@ background-color: #ffffff;
     }
  .main-material-nav-list {
   font-size: 1.6rem;
-  gap: 0.5rem;
+  gap: 1.5rem;
  }
- .main-material-nav-link {
+ .main-material-nav-link, .main-material-nav-link-view {
   font-size: 0.8rem;
  }
  .header-phone-img {
@@ -486,148 +451,61 @@ background-color: #ffffff;
  .material-worx-img {
   width: 5.5rem;
  }
+ .sub-material-nav-list {
+  padding: 0.1rem;
+  line-height: 1;
+ }
+ .sub-material-nav-list li a {
+  font-size: 0.8rem;
+}
     /* FOOTER */
-    .material-footer {
+  .material-footer {
       padding: 10px; /* Reduce padding in footer */
       flex-direction: column; /* Stack items vertically */
     }
-  
+
     .footer-material-nav-link, .footer-material-nav-link-view {
-      font-size: 1.4rem; /* Decrease font size */
+      font-size: 1rem; /* Decrease font size */
     }
-  
+
     .social-icons {
       gap: 5px; /* Reduce gap between icons */
     }
-  
+
     .footer-navigate {
       flex-direction: column; /* Stack footer navigation */
     }
-  
+
     .footer-contact {
       flex: none;
     }
-  
-    .statement, .trademark-warning, .footer-number {
-      font-size: 1.5rem; /* Reduce text size */
-    }
-    .social-icons {
-      display: block;
-      padding: 0;
-    }
+
     .footer-navigate {
       display: block;
     }
     .mx-img {
       width: 100%; /* Scale down images */
       max-width: 100px;
-      margin: 10px auto;
-    }
-    .trademark-img {
-      width: 150px; /* Scale down images */
-      margin: 10px auto;
-    }
-}
-@media screen and (max-width: 1200px) and (orientation: landscape)  {
-   /* HEADER */
-    .main-material-nav {
-      gap: 1rem;
-    }
-    .header-material-worx {
-      height: 6rem;
-      justify-content: center;
-    }
-    .header-material-logo {
-      width: 100%;
-      max-width: fit-content;
-    }
-    .google-header-link {
-      max-width: 100px;
-    }
-    .material-worx-phone-header-link  {
-      font-size: 1rem;
-    }
- .main-material-nav-list {
-  font-size: 1.6rem;
-  gap: 0.5rem;
- }
- .main-material-nav-link {
-  font-size: 1.1rem;
- }
- .header-phone-img {
-  max-width: 30px;
- }
- .header-material-logo img {
-    width: 7rem;
- }
- .header-material-logo {
-  width: 7rem;
-  height: auto;
- }
- .material-worx-phone-header {
-  font-size: 1.1rem;
- }
- .header-worx-logo {
-    height: auto;
- }
- .material-worx-img {
-  width: 7rem;
- }
-    /* FOOTER */
-    .material-footer {
-      padding: 10px; /* Reduce padding in footer */
-      flex-direction: column; /* Stack items vertically */
-    }
-  
-    .footer-material-nav-link, .footer-material-nav-link-view {
-      font-size: 1.6rem; /* Decrease font size */
-    }
-  
-    .social-icons {
-      flex-direction: column; /* Stack social icons */
-      gap: 5px; /* Reduce gap between icons */
-    }
-  
-    .footer-navigate {
-      display: block;
-      text-align: center;
     }
     .contact-info a {
-      font-size: 1rem;
-  
+      font-size: 1rem; /* Decrease font size */
     }
-    .footer-contact {
-      flex: none;
-      margin: 10px 0; /* Add spacing between sections */
+    .footer-copy-p {
+      font-size: 0.75rem; /* Decrease font size */
     }
-  
-    .statement, .trademark-warning, .footer-number {
-      font-size: 1.5rem; /* Reduce text size */
-    }
-  
-    .mx-img, .trademark-img {
-      width: 100%; /* Scale down images */
-      margin: 0 auto;
-      justify-content: center;
-      display: flex;
-      text-align: center;
-      max-width: 200px;
+    .footer-title {
+      font-size: 1.1rem;
     }
     .site-material-footer__inner {
-      display: block;
-  }
-  .footer-title {
-    font-size: 2rem;
-  }
-  .contact-info a {
-    font-size: 1.5rem;
-  }
-  
+      gap: 10px;
+      max-width: 200px;
+      justify-content: center;
+      align-items: start;
+    }
 }
 @media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait)  {
   .mobile-material-nav {
     display: block;
-    width: 100%;
     height: auto;
   }
     .mobile-material-nav-icon {
@@ -680,31 +558,19 @@ background-color: #ffffff;
       gap: 0.5rem; /* Reduce gap between nav items */
     }
     .header-material-logo img {
-    max-width: 100%;
+      max-width: 100%;
+      width: 200px;
+      text-align: center;
     height: auto;
   }
     .header-material-logo {
       width: 100%;
           height: auto;
     }
-    .main-material-nav-link {
+    .main-material-nav-link, .main-material-nav-link-view {
       font-size: 1.2rem; /* Reduce font size */
     }
   
-    .mobile-material-nav {
-      background-color: #018698;
-      color: #fff;
-      border: none;
-      text-align: center;
-      padding: 5px 10px;
-      font-size: 12px;
-      font-family: "Kairos W04 Extended Bold";
-      display: block;
-      width: 60px;
-      height: 30px;
-      border-radius: 6px;
-      margin-left: 0;
-    }
     .main-material-nav.active {
       display: flex;
       flex-direction: column;
@@ -726,24 +592,24 @@ background-color: #ffffff;
   }
   .main-material-nav-link {
     text-decoration: none;
-    color: #60daff;
+    color: rgb(214,204,179);
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #60daff;
+    border: 1px solid rgb(214,204,179);
     border-radius: 5px;
   }
   .main-material-nav-link-view {
     text-decoration: none;
-    color: #008db1;
+    color: rgb(214, 210, 200);
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #008db1;
+    border: 1px solid rgb(214, 210, 200);
     border-radius: 5px;
   }
   .material-worx-phone-header {
@@ -756,12 +622,12 @@ background-color: #ffffff;
     }
   
     .footer-material-nav-link, .footer-material-nav-link-view {
-      font-size: 1.6rem; /* Decrease font size */
+      font-size: 1rem; /* Decrease font size */
     }
   
     .social-icons {
-      flex-direction: column; /* Stack social icons */
       gap: 5px; /* Reduce gap between icons */
+      justify-content: center;
     }
   
     .footer-navigate {
@@ -776,30 +642,32 @@ background-color: #ffffff;
       flex: none;
       margin: 10px 0; /* Add spacing between sections */
     }
-  
-    .statement, .trademark-warning, .footer-number {
-      font-size: 1.5rem; /* Reduce text size */
-    }
-  
-    .mx-img, .trademark-img {
-      width: 100%; /* Scale down images */
+    .mx-img {
+      width: 40%; /* Scale down images */
       margin: 10px auto;
+      max-width: none;
     }
     .site-material-footer__inner {
       display: block;
+      max-width: none;
+      text-align: center;
   }
   .footer-title {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
   .contact-info a {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
-  
+  .footer-copy-p {
+    font-size: 0.57rem;
+  }
+  .social-icon {
+    margin-right: 0;
+  }
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
 .mobile-material-nav {
   display: block;
-  width: 100%;
   height: auto;
 }
   .mobile-material-nav-icon {
@@ -868,23 +736,8 @@ width: 100%;
     width: 100%;
         height: auto;
   }
-  .main-material-nav-link {
+  .main-material-nav-link, .main-material-nav-link-view {
     font-size: 1.2rem; /* Reduce font size */
-  }
-
-  .mobile-material-nav {
-    background-color: #018698;
-    color: #fff;
-    border: none;
-    text-align: center;
-    padding: 5px 10px;
-    font-size: 12px;
-    font-family: "Kairos W04 Extended Bold";
-    display: block;
-    width: 60px;
-    height: 30px;
-    border-radius: 6px;
-    margin-left: 0;
   }
   .main-material-nav.active {
     display: flex;
@@ -910,25 +763,28 @@ width: 100%;
 }
 .main-material-nav-link {
   text-decoration: none;
-  color: #60daff;
+  color: rgb(214,204,179);
   font-weight: 500;
   font-size: 20px;
   transition: all .3s;
   padding: 5px 10px;
   line-height: 1.5;
-  border: 1px solid #60daff;
+  border: 1px solid rgb(214,204,179);
   border-radius: 5px;
 }
 .main-material-nav-link-view {
   text-decoration: none;
-  color: #008db1;
+  color: rgb(214, 210, 200);
   font-weight: 500;
   font-size: 20px;
   transition: all .3s;
   padding: 5px 10px;
   line-height: 1.5;
-  border: 1px solid #008db1;
+  border: 1px solid rgb(214, 210, 200);
   border-radius: 5px;
+}
+.sub-material-nav-list li a {
+  font-size: 1rem;
 }
 .material-worx-phone-header {
   display: block;
@@ -940,7 +796,7 @@ width: 100%;
   }
 
   .footer-material-nav-link, .footer-material-nav-link-view {
-    font-size: 1.6rem; /* Decrease font size */
+    font-size: 1.1rem; /* Decrease font size */
   }
 
   .social-icons {
@@ -965,19 +821,21 @@ width: 100%;
     font-size: 1.5rem; /* Reduce text size */
   }
 
-  .mx-img, .trademark-img {
-    width: 100%; /* Scale down images */
+  .mx-img {
+    max-width: fit-content;
     margin: 10px auto;
   }
   .site-material-footer__inner {
     display: block;
+}
+.footer-copy-p {
+  font-size: 0.5rem;
 }
 }
 
 @media screen and (max-width: 320px) and (orientation: landscape) {
   .mobile-material-nav {
     display: block;
-    width: 100%;
     height: auto;
   }
     .mobile-material-nav-icon {
@@ -1001,26 +859,12 @@ width: 100%;
     .main-material-nav {
       gap: 5px;
     }
-    .header-worx-logo {
-      text-decoration: none;
-          color: #a4f7ff;
-          font-weight: 500;
-          font-size: 10px;
-          font-family: "Kairos W04 Extended Bold";
-          transition: all .3s;
-          display: flex;
-          padding-top: 10px;
-          align-items: center;
-          background-color: #efad76;
-          border-radius: 5px;
-          padding: 5px 10px;
-          margin-left: auto;
-          width: 100%;
-          height: auto;
-    }
     .material-worx-img {
   width: 100%;
   }
+  .sub-material-nav-list li a {
+  font-size: 1rem;
+}
   .main-material-nav {
     list-style: none;
           display: none;
@@ -1049,21 +893,6 @@ width: 100%;
     .main-material-nav-link {
       font-size: 1.2rem; /* Reduce font size */
     }
-  
-    .mobile-material-nav {
-      background-color: #018698;
-      color: #fff;
-      border: none;
-      text-align: center;
-      padding: 5px 10px;
-      font-size: 12px;
-      font-family: "Kairos W04 Extended Bold";
-      display: block;
-      width: 60px;
-      height: 30px;
-      border-radius: 6px;
-      margin-left: 0;
-    }
     .main-material-nav.active {
       display: flex;
       flex-direction: column;
@@ -1088,24 +917,24 @@ width: 100%;
   }
   .main-material-nav-link {
     text-decoration: none;
-    color: #60daff;
+    color: rgb(214,204,179);
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #60daff;
+    border: 1px solid rgb(214,204,179);
     border-radius: 5px;
   }
   .main-material-nav-link-view {
     text-decoration: none;
-    color: #008db1;
+    color: rgb(214, 210, 200);
     font-weight: 500;
     font-size: 20px;
     transition: all .3s;
     padding: 5px 10px;
     line-height: 1.5;
-    border: 1px solid #008db1;
+    border: 1px solid rgb(214, 210, 200);
     border-radius: 5px;
   }
   .material-worx-phone-header {
