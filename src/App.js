@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home, Shop, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Logo, Contact, Decal, Shirt, Web, Blog, Error } from './pages';
+import { Home, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error } from './pages';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import { Toaster } from 'react-hot-toast';
@@ -19,15 +19,11 @@ function App() {
       <Route path="/banners" element={<Banner/>}/>
       <Route path="/window-frost-tint" element={<Window/>}/>
       <Route path="/fleet-graphics" element={<FleetGraphics/>}/>
-      <Route path="/about-us" element={<About/>}/>
-      <Route path="/pay-invoice" element={<Invoice/>}/>
       <Route path="/new-logo" element={<Logo/>}/>
       <Route path="/contact-us" element={<Contact/>}/>
-      <Route path="/shop-items" element={<Shop/>}/>
       <Route path="/decals-stickers" element={<Decal/>}/>
       <Route path="/t-shirts-sweatshirts-jackets" element={<Shirt/>}/>
       <Route path="/new-website" element={<Web/>}/>
-      <Route path="/blog" element={<Blog/>}/>
      </Routes>
     </>
   )
