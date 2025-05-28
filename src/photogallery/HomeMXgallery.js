@@ -4,335 +4,335 @@ import images from '../utils/dynamicImportImages';
 
 const photos = [
       { 
-        src: images['../assets/MX Photos/peel5.jpg']?.default || '', 
+        src: images['peel5.jpg'], 
         height: 4032, 
         width: 3024, 
         },
       { 
-        src: images['../assets/MX Photos/peel6.jpg']?.default || '', 
+        src: images['peel6.jpg'], 
         height: 4032, 
         width: 3024, 
         },
       { 
-        src: images['../assets/MX Photos/peel7.jpg']?.default || '', 
+        src: images['peel7.jpg'], 
         height: 4032, 
         width: 3024, 
         },
       { 
-        src: images['../assets/MX Photos/peel8.jpg']?.default || '', 
+        src: images['peel8.jpg'], 
         height: 4032, 
         width: 3024, 
         },
       { 
-        src: images['../assets/MX Photos/peel4.jpg']?.default || '', 
+        src: images['peel4.jpg'], 
         height: 4032, 
         width: 3024, 
         },
       { 
-        src: images['../assets/MX Photos/ch.jpg']?.default || '', 
+        src: images['ch.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/ch2.jpg']?.default || '', 
+        src: images['ch2.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/ch3.jpg']?.default || '', 
+        src: images['ch3.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/ch4.jpg']?.default || '', 
+        src: images['ch4.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/ch5.jpg']?.default || '', 
+        src: images['ch5.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/cnc.jpg']?.default || '', 
+        src: images['cnc.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/cnc2.jpg']?.default || '', 
+        src: images['cnc2.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/cnc3.jpg']?.default || '', 
+        src: images['cnc3.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/cnc4.jpg']?.default || '', 
+        src: images['cnc4.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/cnc5.jpg']?.default || '', 
+        src: images['cnc5.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/cola.jpg']?.default || '', 
+        src: images['cola.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/peel.jpg']?.default || '', 
+        src: images['peel.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    
    { 
-        src: images['../assets/MX Photos/peel2.jpg']?.default || '', 
+        src: images['peel2.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/peel3.jpg']?.default || '', 
+        src: images['peel3.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/complete.jpg']?.default || '', 
+        src: images['complete.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/complete2.jpg']?.default || '', 
+        src: images['complete2.jpg'], 
         height: 4032, 
         width: 3024, 
         },
     { 
-        src: images['../assets/MX Photos/complete3.jpg']?.default || '', 
+        src: images['complete3.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/yancey.jpg']?.default || '', 
+        src: images['yancey.jpg'], 
         height: 4032, 
         width: 3024, 
         },
    { 
-        src: images['../assets/MX Photos/jcmural.jpg']?.default || '', 
+        src: images['jcmural.jpg'], 
         height: 4032, 
         width: 3024, 
         },
-  { src: images['../assets/MX Photos/jcmural2.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
-  { src: images['../assets/MX Photos/jcmural3.jpg']?.default || '', height: 4032, width: 3024, alt: 'Cinderblock' },
+  { src: images['jcmural2.jpg'], height: 4032, width: 3024, alt: 'Cinderblock' },
+  { src: images['jcmural3.jpg'], height: 4032, width: 3024, alt: 'Cinderblock' },
    {
-    src: images['../assets/MX Photos/fleet.jpg']?.default || '',
+    src: images['fleet.jpg'],
     width: 4032,
     height: 3024
   },
 {
-    src: images['../assets/MX Photos/fleet2.jpg']?.default || '',
+    src: images['fleet2.jpg'],
     width: 4032,
     height: 3024
   },
    {
-    src: images['../assets/MX Photos/fleet3.jpg']?.default || '',
+    src: images['fleet3.jpg'],
     width: 4032,
     height: 3024
   },
    {
-    src: images['../assets/MX Photos/tint5.jpg']?.default || '',
+    src: images['tint5.jpg'],
     width: 4032,
     height: 3024
   },
    {
-    src: images['../assets/MX Photos/tint6.jpg']?.default || '',
+    src: images['tint6.jpg'],
     width: 4032,
     height: 3024
   },
         {
-    src: images['../assets/MX Photos/bike.jpg']?.default || '',
+    src: images['bike.jpg'],
     width: 1599,
     height: 702
   },
       {
-    src: images['../assets/MX Photos/bike2.jpg']?.default || '',
+    src: images['bike2.jpg'],
     width: 1599,
     height: 702
   },
     {
-    src: images['../assets/MX Photos/cone decals.jpg']?.default || '',
+    src: images['cone decals.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/cones & stick decals.jpg']?.default || '',
+    src: images['cones & stick decals.jpg'],
     width: 1599,
     height: 702
   },
    {
-    src: images['../assets/MX Photos/sky.jpg']?.default || '',
+    src: images['sky.jpg'],
     width: 1599,
     height: 702
   },
           {
-    src: images['../assets/MX Photos/sky3.jpg']?.default || '',
+    src: images['sky3.jpg'],
     width: 1599,
     height: 702
   },
           {
-    src: images['../assets/MX Photos/sky4.jpg']?.default || '',
+    src: images['sky4.jpg'],
     width: 1599,
     height: 702
   },
           {
-    src: images['../assets/MX Photos/sky5.jpg']?.default || '',
+    src: images['sky5.jpg'],
     width: 1599,
     height: 702
   },
   {
-    src: images['../assets/MX Photos/sky2.jpg']?.default || '',
+    src: images['sky2.jpg'],
     width: 4032,
     height: 3024
   },
     {
-    src: images['../assets/MX Photos/dirt bike.jpg']?.default || '',
+    src: images['dirt bike.jpg'],
     width: 1599,
     height: 702
   },
         {
-    src: images['../assets/MX Photos/cubano.jpg']?.default || '',
+    src: images['cubano.jpg'],
     width: 4032,
     height: 3024
   },
       {
-    src: images['../assets/MX Photos/cubano2.jpg']?.default || '',
+    src: images['cubano2.jpg'],
     width: 4032,
     height: 3024
   },
    {
-    src: images['../assets/MX Photos/Banner BBQ.jpg']?.default || '',
+    src: images['Banner BBQ.jpg'],
     width: 960,
     height: 720
   },
   {
-    src: images['../assets/MX Photos/mallory.jpg']?.default || '',
+    src: images['mallory.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/mallory2.jpg']?.default || '',
+    src: images['mallory2.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/danco Trailer.jpg']?.default || '',
+    src: images['danco Trailer.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/Nance.jpg']?.default || '',
+    src: images['Nance.jpg'],
     width: 2048,
     height: 1536
   },
   {
-    src: images['../assets/MX Photos/Nance 2.jpg']?.default || '',
+    src: images['Nance 2.jpg'],
     width: 2048,
     height: 1536
   },
   {
-    src: images['../assets/MX Photos/jt.jpg']?.default || '',
+    src: images['jt.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/magnets.jpg']?.default || '',
+    src: images['magnets.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/mr.jpg']?.default || '',
+    src: images['mr.jpg'],
     width: 2048,
     height: 1536
   },
   {
-    src: images['../assets/MX Photos/mr2.jpg']?.default || '',
+    src: images['mr2.jpg'],
     width: 2048,
     height: 1536
   },
   {
-    src: images['../assets/MX Photos/mr3.jpg']?.default || '',
+    src: images['mr3.jpg'],
     width: 2048,
     height: 1536
   },
   {
-    src: images['../assets/MX Photos/homesolution.jpg']?.default || '',
+    src: images['homesolution.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/box truck.jpg']?.default || '',
+    src: images['box truck.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/church table.jpg']?.default || '',
+    src: images['church table.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/church signs.jpg']?.default || '',
+    src: images['church signs.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/shaw.jpg']?.default || '',
+    src: images['shaw.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/btr.jpg']?.default || '',
+    src: images['btr.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/signs and barrels.jpg']?.default || '',
+    src: images['signs and barrels.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/trinity.jpg']?.default || '',
+    src: images['trinity.jpg'],
     width: 4032,
     height: 3024
   },
   {
-    src: images['../assets/MX Photos/muse.jpg']?.default || '',
+    src: images['muse.jpg'],
     width: 1599,
     height: 702
   },
   {
-    src: images['../assets/MX Photos/muse2.jpg']?.default || '',
+    src: images['muse2.jpg'],
     width: 1599,
     height: 702
   },
   {
-    src: images['../assets/MX Photos/muse3.jpg']?.default || '',
+    src: images['muse3.jpg'],
     width: 1599,
     height: 702
   },
   {
-    src: images['../assets/MX Photos/unified trailer.jpg']?.default || '',
+    src: images['unified trailer.jpg'],
     width: 1599,
     height: 702
   },
   {
-    src: images['../assets/MX Photos/hood wrap.jpg']?.default || '',
+    src: images['hood wrap.jpg'],
     width: 1599,
     height: 702
   },
   {
-    src: images['../assets/MX Photos/jdf shirt.jpg']?.default || '',
+    src: images['jdf shirt.jpg'],
     width: 4032,
     height: 3024
   }
@@ -357,6 +357,7 @@ export default function MXPhotoGallery() {
   return (
     <div className="mx-gallery-container">
       <h2 className="photo-mx-note">PHOTO GALLERY</h2>
+
       <div className="gallery">
         {visiblePhotos.map((photo, index) => (
           <div className="gallery-item" key={index} onClick={() => {
@@ -382,14 +383,53 @@ export default function MXPhotoGallery() {
       </div>
 
       {/* Modal Fullscreen View */}
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img src={modalImage} alt="Full View" />
-            <button className="close-button" onClick={() => setIsModalOpen(false)}>×</button>
-          </div>
-        </div>
-      )}
+{isModalOpen && (
+  <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <img src={modalImage} alt="Full View" />
+
+      {/* Navigation buttons inside modal */}
+      <div className="modal-buttons">
+        <button
+          className="modal-nav-button left"
+          onClick={() => {
+            const currentIndex = photos.findIndex((p) => p.src === modalImage);
+            if (currentIndex > 0) {
+              setModalImage(photos[currentIndex - 1].src);
+            }
+          }}
+        >
+          <FaArrowLeft />
+        </button>
+
+        {/* Optional download button */}
+        <a
+          href={modalImage}
+          download
+          className="modal-download-button"
+        >
+          Download
+        </a>
+        <button
+          className="modal-nav-button right"
+          onClick={() => {
+            const currentIndex = photos.findIndex((p) => p.src === modalImage);
+            if (currentIndex < photos.length - 1) {
+              setModalImage(photos[currentIndex + 1].src);
+            }
+          }}
+        >
+          <FaArrowRight />
+        </button>
+        {/* Close button */}
+        <button className="close-button" onClick={() => setIsModalOpen(false)}>
+          ×
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
