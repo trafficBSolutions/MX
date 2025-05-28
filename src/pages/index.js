@@ -6,7 +6,6 @@ import Window from './window-frost-tint'
 import FleetGraphics from './fleet-graphics'
 import About from './about-us'
 import Invoice from './pay-invoice'
-import Service from './services'
 import Logo from './new-logo'
 import Contact from './contact-us'
 import Decal from  './decals-stickers'
@@ -15,4 +14,4 @@ import Web from './new-website'
 import Blog from './blog'
 import Error from './error'
 import Shop from './shop-items'
-export { Home, Shop, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Service, Logo, Contact, Decal, Shirt, Web, Blog, Error }
+export { Home, Shop, Signs, Adhesive, Banner, Window, FleetGraphics, About, Invoice, Logo, Contact, Decal, Shirt, Web, Blog, Error }
