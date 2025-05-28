@@ -1,7 +1,11 @@
-// src/utils/dynamicImportImages.js
+function importAll(r) {
+  let images = {};
+  r.keys().forEach((key) => {
+    images[key.replace('./', '')] = r(key);
+  });
+  return images;
+}
 
-const images = import.meta.glob('../assets/**/*.{png,jpg,jpeg,svg,mp4,pdf}', { eager: true });
-
-console.log(images); // Log the keys to see the paths Vite generates
+const images = importAll(require.context('../assets', true, /\.(png|jpe?g|svg|mp4|pdf)$/));
 
 export default images;
