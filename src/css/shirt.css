@@ -29,14 +29,14 @@
 /* Section Headers */
 .apparel-app-box {
   font-size: 32px;
-  color: #0f375a;
+  color: rgb(66, 57, 31);
   text-align: center;
   margin-bottom: 10px;
 }
 
 .apparel-fill {
   font-size: 20px;
-  color: #194fb4;
+  color: rgb(141, 126, 91);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -59,9 +59,6 @@ input[type="text"], input[type="number"], select, textarea {
   display: flex;
   font-size: 1rem;
   justify-content: center;
-}
-.submit-s:hover, .remove-apparel:hover {
-  background-color: #226daf;
 }
 .apparel-warn {
   font-size: 15px;
@@ -111,7 +108,7 @@ input[type="text"], input[type="number"], select, textarea {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.518);
 }
 
-.apparel-file-label, .remove-apparel-file-button {
+.apparel-file-label, .remove-apparel-file-button, .select-more-files {
   border: none;
   margin-top: 10px;
   display: inline-block;
@@ -132,8 +129,32 @@ input[type="text"], input[type="number"], select, textarea {
   padding: 10px;
   height: auto;
 }
-.submit-apparels, .remove-apparel, .file-apparel-label, .remove-apparel-file-button{
-  background-color: #0f375a;
+.selected-file-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 5px 1rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  background-color: #d3d3d3;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.3rem;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+}
+.apparel-multi-note {
+  font-size: 1.2rem;
+  color: #333;
+  background-color: #fff9db;
+  border-left: 4px solid #ffc107;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+.submit-apparels, .remove-apparel, .file-apparel-label, .select-more-files, .remove-apparel-file-button, .remove-single-file, .remove-all-files{
+  background-color: rgb(117, 112, 100);
     color: #fff;
     border: none;
     display: flex;
