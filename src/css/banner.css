@@ -29,14 +29,14 @@
 /* Section Headers */
 .banner-app-box {
   font-size: 32px;
-  color: #0f375a;
+  color: rgb(66, 57, 31);
   text-align: center;
   margin-bottom: 10px;
 }
 
 .banner-fill {
   font-size: 20px;
-  color: #194fb4;
+  color: rgb(141, 126, 91);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -54,16 +54,16 @@ input[type="text"], input[type="number"], select, textarea {
 
 /* Label Styling */
 label {
-    display: block;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    color: #333;
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  color: #333;
 }
 
 /* Buttons */
 .submit-banners, .remove-banner{
-  background-color: #0f375a;
+  background-color: rgb(117, 112, 100);
   color: #ffffff;
   border: none;
   display: flex;
@@ -82,7 +82,7 @@ label {
   justify-content: center;
 }
 .submit-s:hover, .remove-banner:hover {
-  background-color: #226daf;
+  background-color: rgb(163, 156, 136);
 }
 .banner-warn {
   font-size: 15px;
@@ -139,26 +139,12 @@ label {
 .file-banner-label input[type=file] {
   display: none;
 }
-.file-banner-label,
-.remove-banner-file-button {
-  background-color: #0f375a;
-    color: #ffffff;
-    border: none;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 20px;
-    text-align: center;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-}
 .submit-banner-size, .remove-size,
 .submit-banner-place,
 .remove-banner-place,
 .submit-banner-finish,
 .remove-banner-finish {
-  background-color: #0f375a;
+  background-color: rgb(117, 112, 100);
   color: #fff;
   border: none;
   display: flex;
@@ -184,7 +170,6 @@ label {
 .photo-banner-mx-note {
     font-size: 50px;
     text-align: center;
-    font-family: "Kairos W04 Extended Bold";
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1800px) and (orientation: landscape) {
@@ -867,4 +852,3 @@ padding-top: 30px; /* Reduce padding */
   font-size: 0.6rem;
 }
   }
-  
