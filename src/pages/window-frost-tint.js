@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../css/window.css';
 import '../css/headerfooter.css';
 import '../css/toaster.css';
@@ -6,13 +6,8 @@ import axios from 'axios';
 import MXWindowGal from '../photogallery/WindowMXgallery';
 import Header from '../components/headerviews/HeaderWindow';
 import images from '../utils/dynamicImportImages';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-  const sizeOptions = [
-    { name: 'Select Measurement', disabled: true }, // Add this default option
-    { name: 'Feet', disabled: false },
-    { name: 'Inches', disabled: false },
-  ];
   const windowOptions = [
     { name: 'Black Out', disabled: false },
     { name: 'White Out', disabled: false },
@@ -60,19 +55,6 @@ const Window = () => {
                 setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
               } else {
                 setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
-              }
-            };
-            const handleZipChange = (event) => {
-              const input = event.target.value;
-              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-            
-              setFormData({ ...formData, zip: rawInput });
-            
-              // Check if the input has 5 digits and clear the error if it does
-              if (rawInput.length === 5) {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-              } else {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
               }
             };
             const handleOptionChange = (type, value) => {
@@ -437,27 +419,27 @@ onChange={(e) => {
     </div>
 <div className="window-img-container">
     <div className="window-img-contain">
-        <img src={images["../assets/window tinting types/black out.png"].default} alt="tint=photo" className="place-img"/>
+        <img src={images["black out.png"]} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Black Out</h3>
 </div>
 <div className="window-img-contain">
-        <img src={images["../assets/window tinting types/white out.png"].default} alt="tint=photo" className="place-img"/>
+        <img src={images["white out.png"]} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">White Out</h3>
 </div>
 <div className="window-img-contain">
-        <img src={images["../assets/window tinting types/white frost.png"].default} alt="tint=photo" className="place-img"/>
+        <img src={images["white frost.png"]} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">White Frost</h3>
 </div>
 <div className="window-img-contain">
-        <img src={images["../assets/window tinting types/reflective.png"].default} alt="tint=photo" className="place-img"/>
+        <img src={images["reflective.png"]} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Reflective</h3>
 </div>
 <div className="window-img-contain">
-        <img src={images["../assets/window tinting types/Panashield.png"].default} alt="tint=photo" className="place-img"/>
+        <img src={images["Panashield.png"]} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Panashield</h3>
 </div>
 <div className="window-img-contain">
-        <img src={images["../assets/window tinting types/sputterd bronze.png"].default} alt="tint=photo" className="place-img"/>
+        <img src={images["sputterd bronze.png"]} alt="tint=photo" className="place-img"/>
         <h3 className="place-img-test">Sputtered Bronze</h3>
 </div>
     </div>
@@ -567,22 +549,23 @@ and what time you want an MX crew will arrive.</h1>
         </div>
         </form>
                     </main>
-                    <footer className="material-footer">
+      <footer className="material-footer">
   <div className="site-material-footer__inner">
-    <img className="mx-img" alt="TBS logo" src={images["../assets/MX Logos/MX.svg"].default} />
+    <img className="mx-img" alt="TBS logo" src={images["MX Tan.svg"]} />
     <div className="footer-navigation-content">
       <h2 className="footer-title">Navigation</h2>
     <ul className="footer-navigate">
       <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
-      <li><a className="footer-material-nav-link" href="/blog">Blog</a></li>
+      <li><a className="footer-material-nav-link" href="/new-logo">New Logos</a></li>
       <li><a className="footer-material-nav-link" href="/services">Services</a></li>
+      <li><a className="footer-material-nav-link" href="/new-website">Websites</a></li>
       <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
     </ul>
     </div>
     <div className="footer-contact">
       <h2 className="footer-title">Contact</h2>
       <p className="contact-info">
-        <a className="will-phone" href="tel:+17062630175">Call: 706-263-0175</a>
+        <a className="will-phone" href="tel:+17062630175">Call: (706) 263-0175</a>
         <a className="will-email" href="mailto: tbsolutions1999@gmail.com">Email: tbsolutions1999@gmail.com</a>
         <a className="will-address" href="https://www.google.com/maps/place/Traffic+%26+Barrier+Solutions%2FMaterial+WorX+Sign+Shop/@34.5115302,-84.9476215,94m/data=!3m1!1e3!4m6!3m5!1s0x886007df83843f3b:0x84510d87790af625!8m2!3d34.5117917!4d-84.948025!16s%2Fg%2F11l28zhlzt?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D"
       >
@@ -593,13 +576,13 @@ and what time you want an MX crew will arrive.</h1>
     <div className="social-icons">
       <h2 className="footer-title">Follow Us</h2>
       <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-        <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
+        <img className="facebook-img" src={images["facebook.png"]} alt="Facebook" />
       </a>
       <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-        <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
+        <img className="tiktok-img" src={images["tiktok.png"]} alt="TikTok" />
       </a>
       <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-        <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
+        <img className="insta-img" src={images["instagram.png"]} alt="Instagram" />
       </a>
     </div>
   </div>
@@ -609,6 +592,6 @@ and what time you want an MX crew will arrive.</h1>
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
     </div>
-            );
-};
+    )
+  };
 export default Window;
