@@ -22,10 +22,10 @@ function Header() {
                 <ul className="main-material-nav-list">
                     <li><a className="main-material-nav-link" href="/new-logo">New Logos</a></li>
                     <li>
-                       <a className="main-material-nav-link">Sign Shop Services</a>
+                        <p className="main-material-nav-link">Sign Shop Services</p>
                         <ul className="sub-material-nav-list">
                             <li><a className="main-material-nav-link" href="/custom-signs">Custom Signs</a></li>
-                            <li><a className="main-material-nav-link-view" href="">Decals & Stickers</a></li>
+                            <li><a className="main-material-nav-link-view" href="/decals-stickers">Decals & Stickers</a></li>
                             <li><a className="main-material-nav-link" href="/banners">Banners</a></li>
                             <li><a className="main-material-nav-link" href="/t-shirts-sweatshirts-jackets">Custom Apparel</a></li>
                             <li><a className="main-material-nav-link" href="/window-frost-tint">Window Frosting & Tinting</a></li>
