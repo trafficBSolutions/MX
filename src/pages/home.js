@@ -35,7 +35,7 @@ const Home = () => {
 
   <div className="decals-stickers-button">
     <a href="/decals-stickers" className="decals-stickers-logo-button">
-      <img src={images["decal.svg"]} />
+      <img src={images["decal.svg"]} alt="Decals & Stickers Icon" />
       <span>Decals & Stickers</span>
       <p>Custom designs for windows, cars, laptops & more.</p>
     </a>
@@ -43,7 +43,7 @@ const Home = () => {
 
   <div className="banner-button">
     <a href="/banners" className="banner-logo-button">
-      <img src={images["banner.svg"]} />
+      <img src={images["banner.svg"]} alt="Banner Icon"/>
       <span>Banners</span>
       <p>Large promotional banners for events or sales.</p>
     </a>
@@ -51,7 +51,7 @@ const Home = () => {
 
   <div className="t-shirt-button">
     <a href="/t-shirts-sweatshirts-jackets" className="t-shirt-logo-button">
-      <img src={images["t-shirt.svg"]} />
+      <img src={images["t-shirt.svg"]} alt="Apparel Icon"/>
       <span>Apparel Printing</span>
       <p>Custom tees, sweatshirts & jackets for any group.</p>
     </a>
@@ -59,7 +59,7 @@ const Home = () => {
 
   <div className="window-button">
     <a href="/window-frost-tint" className="window-logo-button">
-      <img src={images["window.svg"]} />
+      <img src={images["window.svg"]} alt="Window Icon"/>
       <span>Window Tint & Frost</span>
       <p>Decorative or privacy film for home or office windows.</p>
     </a>
@@ -67,7 +67,7 @@ const Home = () => {
 
   <div className="drywall-button">
     <a href="/drywall-floor-concrete" className="drywall-logo-button">
-      <img src={images["wall.svg"]} />
+      <img src={images["wall.svg"]} alt="Wall Logo" />
       <span>Wall & Floor Graphics</span>
       <p>Durable decals for drywall, floors, and concrete.</p>
     </a>
@@ -75,7 +75,7 @@ const Home = () => {
 
   <div className="fleet-graphic-button">
     <a href="/fleet-graphics" className="fleet-logo-button">
-      <img src={images["box truck.svg"]} />
+      <img src={images["box truck.svg"]} alt ="Fleet Icon" />
       <span>Fleet Graphics</span>
       <p>Wraps & decals for cars, trucks, and trailers.</p>
     </a>
