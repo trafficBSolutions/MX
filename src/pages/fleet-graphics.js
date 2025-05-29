@@ -374,13 +374,11 @@ else if (selectedMake === 'International') {
       setAvailableModels(mitsubishiFusoBoxTruckModels.filter((model) => !model.disabled)); // Show regular Mitsubishi Fuso models
   }
 } else if (selectedMake === 'Nissan') {
-  // Check if the vehicleType is "Box Truck"
   if (selectedVehicleType === 'Box Truck') {
-      setAvailableModels(nissanBoxTruckModels.filter((model) => !model.disabled)); // Show Nissan box truck models
-{
-      setAvailableModels(nissanModels.filter((model) => !model.disabled)); // Show regular Nissan models
+    setAvailableModels(nissanBoxTruckModels.filter((model) => !model.disabled));
+  } else {
+    setAvailableModels(nissanModels.filter((model) => !model.disabled));
   }
-}
 } else if (selectedMake === 'Peterbilt') {
   // Check if the vehicleType is "Box Truck"
   if (selectedVehicleType === 'Box Truck') {
