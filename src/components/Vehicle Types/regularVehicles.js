@@ -34,6 +34,6 @@ const regularVehicleData = [
     { name: 'Tesla', disabled: false },     // 32
     { name: 'Toyota', disabled: false }, // 33
     { name: 'Volkswagen', disabled: false }, // 34
-    { name: 'Volvo', disabled: false }, // 35
+    { name: 'Volvo', disabled: false } // 35
   ];
     export default regularVehicleData;
