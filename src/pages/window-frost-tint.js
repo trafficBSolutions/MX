@@ -551,24 +551,34 @@ and what time you want an MX crew will arrive.</h1>
   <div className="site-material-footer__inner">
     <img className="mx-img" alt="TBS logo" src={images["MX Tan.svg"]} />
     <div className="footer-navigation-content">
-      <h2 className="footer-title">Navigation</h2>
+      <h2 className="footer-title">Digital Services</h2>
     <ul className="footer-navigate">
-      <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
       <li><a className="footer-material-nav-link" href="/new-logo">New Logos</a></li>
-      <li><a className="footer-material-nav-link" href="/services">Services</a></li>
       <li><a className="footer-material-nav-link" href="/new-website">Websites</a></li>
-      <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
     </ul>
+    </div>
+    <div className="footer-shop">
+          <h2 className="footer-title">Sign Shop Services</h2>
+        <ul className="footer-navigate">
+            <li><a className="footer-material-nav-link" href="/custom-signs">Custom Signs</a></li>
+            <li><a className="footer-material-nav-link" href="/decals-stickers">Decals & Stickers</a></li>
+            <li><a className="footer-material-nav-link" href="/banners">Banners</a></li>
+            <li><a className="footer-material-nav-link" href="/t-shirts-sweatshirts-jackets">Custom Apparel</a></li>
+            <li><a className="footer-material-nav-link-view" href="/window-frost-tint">Window Frosting & Tinting</a></li>
+            <li><a className="footer-material-nav-link" href="/drywall-floor-concrete">Wall & Floor Decals</a></li>
+            <li><a className="footer-material-nav-link" href="/fleet-graphics">Fleet Graphics</a></li>
+            </ul>
     </div>
     <div className="footer-contact">
       <h2 className="footer-title">Contact</h2>
-      <p className="contact-info">
-        <a className="will-phone" href="tel:+17062630175">Call: (706) 263-0175</a>
-        <a className="will-email" href="mailto: tbsolutions1999@gmail.com">Email: tbsolutions1999@gmail.com</a>
-        <a className="will-address" href="https://www.google.com/maps/place/Traffic+%26+Barrier+Solutions%2FMaterial+WorX+Sign+Shop/@34.5115302,-84.9476215,94m/data=!3m1!1e3!4m6!3m5!1s0x886007df83843f3b:0x84510d87790af625!8m2!3d34.5117917!4d-84.948025!16s%2Fg%2F11l28zhlzt?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D"
+      <ul className="footer-navigate">
+      <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
+        <li><a className="footer-material-nav-link" href="tel:+17062630175">Call: (706) 263-0175</a></li>
+        <li><a className="footer-material-nav-link" href="mailto: tbsolutions1999@gmail.com">Email: tbsolutions1999@gmail.com</a></li>
+        <li><a className="footer-material-nav-link" href="https://www.google.com/maps/place/Traffic+%26+Barrier+Solutions%2FMaterial+WorX+Sign+Shop/@34.5115302,-84.9476215,94m/data=!3m1!1e3!4m6!3m5!1s0x886007df83843f3b:0x84510d87790af625!8m2!3d34.5117917!4d-84.948025!16s%2Fg%2F11l28zhlzt?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D"
       >
-        723 N. Wall St, Calhoun, GA, 30701</a>
-      </p>
+        723 N. Wall St, Calhoun, GA, 30701</a></li>
+      </ul>
     </div>
 
     <div className="social-icons">
