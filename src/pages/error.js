@@ -1,4 +1,3 @@
-import React from 'react';
 import '../css/error.css';
 import '../css/headerfooter.css';
 import Header from '../components/headerviews/HeaderError';
