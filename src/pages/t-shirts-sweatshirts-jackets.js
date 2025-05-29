@@ -54,7 +54,6 @@ import images from '../utils/dynamicImportImages';
     const [apparelSize, setApparelSize] = useState('');
     const [apparelColor, setApparelColor] = useState('');
     const [quantity, setQuantity] = useState('');
-    const [company, setCompany] = useState('');
     const [typeErrorMessage, setTypeErrorMessage] = useState(''); // For type error
     const [sizeErrorMessage, setSizeErrorMessage] = useState(''); // For size error
     const [colorErrorMessage, setColorErrorMessage] = useState(''); // For color error
@@ -185,12 +184,13 @@ let hasError = false;
       } else {
         setApparelErrorMessage('');
       }
-    
-    if (Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.'); // Set the general error message
-      setErrors(newErrors);
-      return;
-    }
+if (Object.keys(newErrors).length > 0 || hasError) {
+  setErrorMessage('Required fields are missing.');
+  setErrors(newErrors);
+  setIsSubmitting(false);
+  return;
+}
+
         const formDataToSend = new FormData();
         formDataToSend.append('name', formData.name);
         formDataToSend.append('company', formData.company);
@@ -299,7 +299,6 @@ setAddedApparel([]);
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
