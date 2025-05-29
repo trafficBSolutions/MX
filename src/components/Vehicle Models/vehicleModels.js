@@ -60,7 +60,7 @@ const audiModels = [
     { name: 'SQ8', disabled: false },
     { name: 'TT', disabled: false },
     { name: 'TT RS', disabled: false },
-    { name: 'TTS', disabled: false },
+    { name: 'TTS', disabled: false }
 ]
 const bmwModels = [
     { name: 'Select Model', disabled: true },
@@ -188,7 +188,7 @@ const bmwModels = [
         { name: 'Trax Premier' },
         { name: 'Suburban' },
         { name: 'Tahoe' },
-        { name: 'Volt' },
+        { name: 'Volt' }
     ];
     const chryslerModels = [
         { name: 'Select Model', disabled: true },
@@ -226,7 +226,7 @@ const bmwModels = [
         { name: 'Stratus' },
         { name: 'Nitro' },
         { name: 'Grand Caravan' },
-        { name: 'SRT-4' },
+        { name: 'SRT-4' }
     ];
     const fiatModels = [ 
         { name: 'Select Model', disabled: true },
@@ -425,7 +425,7 @@ const bmwModels = [
         { name: 'Odyssey' },
     
         // Other
-        { name: 'Crosstour' },  // A crossover variant of the Accord (2010–2015)
+        { name: 'Crosstour' }  // A crossover variant of the Accord (2010–2015)
     ];
     const hyundaiModels = [
         { name: 'Select Model', disabled: true },
@@ -461,7 +461,7 @@ const bmwModels = [
         { name: 'Starex' },  // Popular in some markets
     
         // Performance Models
-        { name: 'Nexo' },  // Hydrogen fuel cell vehicle
+        { name: 'Nexo' }  // Hydrogen fuel cell vehicle
     ];
     const infinitiModels = [
         { name: 'Select Model', disabled: true },
@@ -482,7 +482,7 @@ const bmwModels = [
         { name: 'QX80' },
     
         // Notable models (discontinued or concept)
-        { name: 'QX56' },     // Predecessor to QX80
+        { name: 'QX56' }    // Predecessor to QX80
         // Placeholder names removed; these do not correspond to actual models
     ];
     const jaguarModels = [
@@ -503,7 +503,7 @@ const bmwModels = [
         // Notable models (discontinued or concept)
         { name: 'X-Type' },  // Predecessor to XF
         { name: 'S-Type' },   // Mid-size sedan (1999-2008)
-        { name: 'XJ220' },    // Supercar (1992-1994)
+        { name: 'XJ220' }   // Supercar (1992-1994)
     ];
     const jeepModels = [
         { name: 'Select Model', disabled: true },
@@ -521,7 +521,7 @@ const bmwModels = [
     
         // Luxury SUVs
         { name: 'Grand Wagoneer' },  // Luxury SUV
-        { name: 'Grand Wagoneer L' },  // Long-wheelbase version
+        { name: 'Grand Wagoneer L' }  // Long-wheelbase version
     ];
     const kiaModels = [
         { name: 'Select Model', disabled: true },
@@ -548,7 +548,7 @@ const bmwModels = [
         { name: 'Carnival' },  // Minivan (formerly Sedona)
     
         // Discontinued Models
-        { name: 'Cadenza' },   // Full-size sedan (2017-2020)
+        { name: 'Cadenza' }   // Full-size sedan (2017-2020)
     ];
     const landRoverModels = [
         { name: 'Select Model', disabled: true },
@@ -565,7 +565,7 @@ const bmwModels = [
         // Notable Models (discontinued or historical)
         { name: 'LR2' },          // Compact luxury SUV (2007-2015)
         { name: 'LR4' },          // Mid-size SUV (2009-2016)
-        { name: 'Range Rover Classic' }, // Original Range Rover model
+        { name: 'Range Rover Classic' } // Original Range Rover model
     ];
     const lexusModels = [
         { name: 'Select Model', disabled: true },
@@ -594,7 +594,7 @@ const bmwModels = [
         { name: 'LS Hybrid' },
         { name: 'UX Hybrid' },
         { name: 'LC Hybrid' },
-        { name: 'RZ' },         // All-electric luxury SUV (introduced in 2022)
+        { name: 'RZ' }         // All-electric luxury SUV (introduced in 2022)
     ];
     const lincolnModels = [
         { name: 'Select Model', disabled: true },
@@ -613,7 +613,7 @@ const bmwModels = [
         { name: 'Aviator' },      // Mid-size luxury SUV (reintroduced in 2020)
     
         // Concept and Special Models
-        { name: 'Lincoln MKX' },  // Mid-size luxury crossover (discontinued, rebranded as Nautilus)
+        { name: 'Lincoln MKX' }  // Mid-size luxury crossover (discontinued, rebranded as Nautilus)
     ];
     const mazdaModels = [
         { name: 'Select Model', disabled: true },
@@ -637,7 +637,7 @@ const bmwModels = [
         { name: 'RX-8' },         // Sports car (discontinued)
 
         // Pickup Trucks
-        { name: 'B-Series' },    // Compact pickup truck (discontinued) 
+        { name: 'B-Series' }    // Compact pickup truck (discontinued) 
     ];
     const mercedesBenzModels = [
         { name: 'Select Model', disabled: true },
@@ -672,7 +672,7 @@ const bmwModels = [
         { name: 'EQS' },         // Full-size luxury electric sedan
         { name: 'EQC' },         // Compact luxury electric SUV
         { name: 'EQS SUV' },     // Full-size luxury electric SUV
-        { name: 'EQB' },         // Compact luxury electric SUV
+        { name: 'EQB' }       // Compact luxury electric SUV
     ];
     const miniModels = [
         { name: 'Select Model', disabled: true },
@@ -696,7 +696,7 @@ const bmwModels = [
         // Discontinued Models
         { name: 'Mini Clubman' },         // Wagon version (still produced but evolved)
         { name: 'Mini Roadster' },        // Two-seater convertible (discontinued)
-        { name: 'Mini Coupe' },           // Two-door coupe (discontinued)
+        { name: 'Mini Coupe' }           // Two-door coupe (discontinued)
     ];
     const mitsubishiModels = [
         { name: 'Select Model', disabled: true },
@@ -723,7 +723,7 @@ const bmwModels = [
 
         // Pickup Truck Models
         { name: 'D-Max' },           // Pickup truck
-        { name: 'Raider'},
+        { name: 'Raider'}
     ];
     const nissanModels = [
         { name: 'Select Model', disabled: true },
@@ -755,7 +755,7 @@ const bmwModels = [
         { name: 'Altima Coupe' },       // Sporty variant of the Altima (discontinued)
         { name: 'Rogue Select' },       // Older version of the Rogue (discontinued)
         { name: 'Xterra' },             // Compact SUV (discontinued)
-        { name: 'Pathfinder Armada' },  // Larger version of the Pathfinder (discontinued)
+        { name: 'Pathfinder Armada' }  // Larger version of the Pathfinder (discontinued)
     ];
     const paganiModels = [
         { name: 'Select Model', disabled: true },
@@ -771,7 +771,7 @@ const bmwModels = [
         { name: 'Zonda C12' },          // The first production model
         { name: 'Zonda F' },            // Notable variant of the Zonda
         { name: 'Zonda R' },            // Track-focused variant of the Zonda
-        { name: 'Zonda Cinque' },       // Limited edition variant of the Zonda
+        { name: 'Zonda Cinque' }       // Limited edition variant of the Zonda
     ];
     const porscheModels = [
         { name: 'Select Model', disabled: true },
@@ -795,7 +795,7 @@ const bmwModels = [
         { name: 'Porsche 944' },         // Sports car (discontinued in 1991)
         { name: 'Porsche 968' },         // Sports car (discontinued in 1995)
         { name: 'Porsche 928' },         // Luxury sports coupe (discontinued in 1995)
-        { name: 'Porsche Carrera GT' },  // Limited production supercar (discontinued)
+        { name: 'Porsche Carrera GT' }  // Limited production supercar (discontinued)
     ];
     const subaruModels = [
         { name: 'Select Model', disabled: true },
@@ -817,7 +817,7 @@ const bmwModels = [
         { name: 'Tribeca' },             // Mid-size SUV (discontinued)
         { name: 'Alcyone SVX' },         // Sports coupe (discontinued)
         { name: 'Justy' },               // Subcompact car (discontinued)
-        { name: 'Legacy GT' },           // Performance variant of the Legacy (discontinued)
+        { name: 'Legacy GT' }           // Performance variant of the Legacy (discontinued)
     ];
     const teslaModels = [
         { name: 'Select Model', disabled: true },
@@ -836,7 +836,7 @@ const bmwModels = [
         { name: 'Model S Plaid' },        // High-performance variant of the Model S
         { name: 'Model X Plaid' },        // High-performance variant of the Model X
         { name: 'Model 3 Performance' },  // Sporty variant of the Model 3
-        { name: 'Model Y Performance' },  // Sporty variant of the Model Y
+        { name: 'Model Y Performance' }  // Sporty variant of the Model Y
     ];
     const toyotaModels = [
         { name: 'Select Model', disabled: true },
@@ -871,7 +871,7 @@ const bmwModels = [
         { name: 'Scion xB' },            // Compact car (discontinued)
         { name: 'Scion tC' },            // Sport compact (discontinued)
         { name: 'Celica' },              // Compact sports car (discontinued)
-        { name: 'MR2' },                 // Sports car (discontinued)
+        { name: 'MR2' }                 // Sports car (discontinued)
     ];
     const volkswagenModels = [
         { name: 'Select Model', disabled: true },
@@ -898,7 +898,7 @@ const bmwModels = [
         // Discontinued Models
         { name: 'Phaeton' },              // Luxury sedan (discontinued)
         { name: 'Scirocco' },             // Sport compact (discontinued)
-        { name: 'Touareg' },              // Full-size luxury SUV (replaced by the Atlas in some markets)
+        { name: 'Touareg' }              // Full-size luxury SUV (replaced by the Atlas in some markets)
     ];
     const volvoModels = [
         { name: 'Select Model', disabled: true },
@@ -923,7 +923,7 @@ const bmwModels = [
         { name: 'V70' },                  // Mid-size wagon (discontinued)
         { name: 'S40' },                  // Compact sedan (discontinued)
         { name: 'C70' },                  // Convertible/coupe (discontinued)
-        { name: '850' },                  // Mid-size sedan/wagon (discontinued)
+        { name: '850' }                  // Mid-size sedan/wagon (discontinued)
     ];
     
 export { acuraModels, 
