@@ -15,6 +15,6 @@ const boxTruckVehicles = [
     { name: 'Peterbilt', disabled: false },
     { name: 'Ram', disabled: false },
     { name: 'Scania', disabled: false },
-    { name: 'Volvo', disabled: false },
+    { name: 'Volvo', disabled: false }
 ];
 export default boxTruckVehicles;
