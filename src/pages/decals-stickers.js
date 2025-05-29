@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import '../css/headerfooter.css';
 import '../css/decal.css';
 import '../css/toaster.css';
@@ -6,7 +6,7 @@ import Header from '../components/headerviews/HeaderDecal';
 import axios from 'axios';
 import MXDecalGallery from '../photogallery/DecalMXgallery';
 import images from '../utils/dynamicImportImages';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
   const decalTypeOptions = [
     { name: 'Matte', disabled: false },
@@ -25,21 +25,16 @@ import 'react-toastify/dist/ReactToastify.css';
 const Decal = () => {
     const [phone, setPhone] = useState('')
     const [decalType, setDecalType] = useState('');
-    const [decalSize, setDecalSize] = useState('');
     const [decalCut, setDecalCut] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [fileError, setFileError] = useState(''); 
-    const [company, setCompany] = useState('');
     const [decalErrorMessage, setDecalErrorMessage] = useState(''); // For decal error
-    const [imgErrorMessage, setImgErrorMessage] = useState(''); // For image error
     const [widthError, setWidthError] = useState('');
     const [lengthError, setLengthError] = useState('');
     const [quantityError, setQuantityError] = useState('');
     const [decalTypeError, setDecalTypeError] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [decalCutTypeError, setDecalCutTypeError] = useState('');
-    const [decalCutType, setDecalCutType] = useState('');
-    const [decalSizeError, setDecalSizeError] = useState('');
     const [customLength, setCustomLength] = useState(''); // Custom length for Decal
     const [customWidth, setCustomWidth] = useState(''); // Custom width for Decal
     const [lengthUnit, setLengthUnit] = useState('feet'); // Length measurement unit
@@ -62,7 +57,6 @@ const [formData, setFormData] = useState({
     let isValid = true;
 
     // Reset decal-related errors
-    setDecalSizeError('');
     setDecalTypeError('');
     setDecalCutTypeError('');
     setWidthError('');
@@ -148,20 +142,6 @@ const [formData, setFormData] = useState({
       }));
       setFileError('');
     };
-const handleZipChange = (event) => {
-  const input = event.target.value;
-  const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-
-  setFormData({ ...formData, zip: rawInput });
-
-  // Check if the input has 5 digits and clear the error if it does
-  if (rawInput.length === 5) {
-    setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-  } else {
-    setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
-  }
-};
-
 const handleFileRemove = (fileType) => {
   setFormData({ ...formData, [fileType]: null });
 };
@@ -171,7 +151,6 @@ const handleFileRemove = (fileType) => {
     setIsSubmitting(true);
     try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
     const newErrors = {};
-    let hasError = false;
   
   requiredFields.forEach(field => {
     if (!formData[field]) {
@@ -183,7 +162,6 @@ const handleFileRemove = (fileType) => {
       if (field === 'img') fieldLabel = 'Logo';
       if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
-      hasError = true;
     }
   });
 
@@ -324,7 +302,6 @@ const formDataToSend = new FormData();
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
