@@ -1,73 +1,10 @@
-import React, { useState } from 'react';
+
 import MXPhotoGallery from '../photogallery/HomeMXgallery';
 import Header from '../components/headerviews/HeaderDrop';
 import '../css/headerfooter.css';
 import '../css/home.css';
-import MapInvoiceComponent from '../components/GoogleMaps';
 import images from '../utils/dynamicImportImages'; // Import the dynamic image loader
 const Home = () => {
-  const [isSignDropdownOpen, setIsSignDropdownOpen] = useState(false);
-  const [isDecalDropdownOpen, setIsDecalDropdownOpen] = useState(false);
-  const [isBannerDropdownOpen, setIsBannerDropdownOpen] = useState(false);
-  const [isTShirtDropdownOpen, setIsTShirtDropdownOpen] = useState(false);
-  const [isWindowFrostDropdownOpen, setIsWindowFrostDropdownOpen] = useState(false);
-  const [isDrywallDropdownOpen, setIsDrywallDropdownOpen] = useState(false);
-  const [isFleetDropdownOpen, setIsFleetDropdownOpen] = useState(false);
-
-  const toggleSignDropdown = () => {
-    setIsSignDropdownOpen(!isSignDropdownOpen);
-  };
-
-  const closeSignDropdown = () => {
-    setIsSignDropdownOpen(false);
-  };
-
-  const toggleDecalDropdown = () => {
-    setIsDecalDropdownOpen(!isDecalDropdownOpen);
-  };
-
-  const closeDecalDropdown = () => {
-    setIsDecalDropdownOpen(false);
-  };
-
-  const toggleBannerDropdown = () => {
-    setIsBannerDropdownOpen(!isBannerDropdownOpen);
-  };
-
-  const closeBannerDropdown = () => {
-    setIsBannerDropdownOpen(false);
-  };
-
-  const toggleTShirtDropdown = () => {
-    setIsTShirtDropdownOpen(!isTShirtDropdownOpen);
-  };
-
-  const closeTShirtDropdown = () => {
-    setIsTShirtDropdownOpen(false);
-  };
-  const toggleWindowFrostDropdown = () => {
-    setIsWindowFrostDropdownOpen(!isWindowFrostDropdownOpen);
-  };
-
-  const closeWindowFrostDropdown = () => {
-    setIsWindowFrostDropdownOpen(false);
-  };
-
-  const toggleDrywallDropdown = () => {
-    setIsDrywallDropdownOpen(!isDrywallDropdownOpen);
-  };
-
-  const closeDrywallDropdown = () => {
-    setIsDrywallDropdownOpen(false);
-  };
-  const toggleFleetDropdown = () => {
-    setIsFleetDropdownOpen(!isFleetDropdownOpen);
-  };
-  const closeFleetDropdown = () => {
-    setIsFleetDropdownOpen(false);
-  };
-
-
   return (
     <div>
       <Header />
