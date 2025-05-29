@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
@@ -36,7 +36,7 @@ export default function MXWindowGal() {
             setModalImage(photo.src);
             setIsModalOpen(true);
           }}>
-            <img src={photo.src} alt={`Photo ${index}`} />
+            <img src={photo.src} alt={`Window tint result ${index + 1}`} />
           </div>
         ))}
       </div>
