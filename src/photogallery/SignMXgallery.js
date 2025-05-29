@@ -1,7 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
+     { 
+        src: images['gccoc.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+             { 
+        src: images['gccoc2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
    { 
         src: images['peel4.jpg'], 
         height: 4032, 
