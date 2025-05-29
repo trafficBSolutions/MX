@@ -2,10 +2,10 @@ import Header from '../components/headerviews/HeaderLogo'
 import '../css/logo.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
-import React, {useState} from 'react'
+import {useState} from 'react'
 import MapLogoComponent from '../components/GoogleLogoMaps'
 import images from '../utils/dynamicImportImages';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Logo = () => {
     const [phone, setPhone] = useState('');
@@ -54,7 +54,6 @@ const handleFileChange = (e, fileType) => {
               };
       const handleSubmit = async (e) => {
     e.preventDefault();
-    let hasErrors = false;  
     if (isSubmitting) return;
     setIsSubmitting(true);
     try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
@@ -70,7 +69,6 @@ const handleFileChange = (e, fileType) => {
       if (field === 'img') fieldLabel = 'Logo';
       if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
-      hasErrors = true;
     }
   });
 
