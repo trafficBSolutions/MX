@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import Header from '../components/headerviews/HeaderWeb';
 import '../css/web.css';
 import '../css/headerfooter.css';
 import axios from 'axios';
 import images from '../utils/dynamicImportImages';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
   const Web = () => {
     const [phone, setPhone] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -51,11 +51,15 @@ const handleSubmit = async (e) => {
       hasErrors = true;
     }
   });
-
-  if (!termsAccepted) {
-    newErrors.terms = 'You must agree to the terms and conditions.';
-    hasErrors = true;
-  }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
 
   if (hasErrors) {
     setErrorMessage('Required fields are missing.');
