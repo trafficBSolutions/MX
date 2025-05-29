@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../css/banner.css';
 import '../css/headerfooter.css';
 import '../css/toaster.css'
@@ -6,7 +6,7 @@ import axios from 'axios';
 import MXBannerGallery from '../photogallery/BannerMXgallery'
 import Header from '../components/headerviews/HeaderBanner';
 import images from '../utils/dynamicImportImages';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
   const bannerOptions = [ 
     { name: 'Retractable Stand', disabled: false },
@@ -24,11 +24,9 @@ import 'react-toastify/dist/ReactToastify.css';
   ];
 const Banner = () => {
     const [phone, setPhone] = useState('');
-            const [selectedSize, setSelectedSize] = useState('');
             const [addedSizes, setAddedSizes] = useState([]);
             const [addedFinishes, setAddedFinishes] = useState([]);
             const [addedPlaces, setAddedPlaces] = useState([]);
-            const [company, setCompany] = useState('');
             const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
             const [widthUnit, setWidthUnit] = useState(''); // Default to feet
             const [fileError, setFileError] = useState(''); 
@@ -109,19 +107,6 @@ const Banner = () => {
                 setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
               }
             };
-            const handleZipChange = (event) => {
-              const input = event.target.value;
-              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-            
-              setFormData({ ...formData, zip: rawInput });
-            
-              // Check if the input has 5 digits and clear the error if it does
-              if (rawInput.length === 5) {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-              } else {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
-              }
-            };
     const handleFileChange = (e, fileType) => {
       const newFiles = Array.from(e.target.files);
       setFormData(prevState => ({
@@ -152,7 +137,6 @@ const Banner = () => {
           };
       const handleSubmit = async (e) => {
     e.preventDefault();
-    let hasErrors = false;
           
             // Validate size
             if (addedSizes.length === 0) {
@@ -160,7 +144,6 @@ const Banner = () => {
                 ...prevErrors,
                 bannerSize: 'Please add at least one banner size.',
               }));
-              hasErrors = true;
             } else {
               setErrors((prevErrors) => ({
                 ...prevErrors,
@@ -172,7 +155,6 @@ const Banner = () => {
                 ...prevErrors,
                 finishing: 'Please add at least one banner finishing option.',
               }));
-              hasErrors = true;
             } else {
               setErrors((prevErrors) => ({
                 ...prevErrors,
@@ -195,7 +177,6 @@ const Banner = () => {
       if (field === 'img') fieldLabel = 'Logo';
       if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
-      hasErrors = true;
     }
   });
 
@@ -339,7 +320,6 @@ onChange={(e) => {
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
