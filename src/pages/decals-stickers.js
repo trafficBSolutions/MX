@@ -172,7 +172,6 @@ const handleFileRemove = (fileType) => {
     }
     if (addedDecals.length === 0) {
         setDecalErrorMessage('You must add at least one decal before submitting.');
-        hasError = true;
     } else {
         setDecalErrorMessage('');
     }
