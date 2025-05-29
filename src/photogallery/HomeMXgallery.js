@@ -1,8 +1,49 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 
 const photos = [
+          {
+    src: images['van.jpg'],
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['van2.jpg'],
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['van3.jpg'],
+    width: 4032,
+    height: 3024
+  },
+    {
+    src: images['miniTruck.jpg'],
+    width: 4032,
+    height: 3024
+  },
+      {
+    src: images['miniTruck2.jpg'],
+    width: 4032,
+    height: 3024
+  },
+   { 
+        src: images['gccoc.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+             { 
+        src: images['gccoc2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { src: images['gccoc3.jpg'], height: 4032, width: 3024, alt: 'CrossFit Chrome' },
+   { 
+        src: images['peel4.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
       { 
         src: images['peel5.jpg'], 
         height: 4032, 
