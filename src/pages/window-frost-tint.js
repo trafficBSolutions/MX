@@ -28,7 +28,6 @@ const Window = () => {
             const [errorMessage, setErrorMessage] = useState('');
             const [isSubmitting, setIsSubmitting] = useState(false); 
             const [termsAccepted, setTermsAccepted] = useState(false);
-            const [company, setCompany] = useState('');
             const [formData, setFormData] = useState({
               name: '',
               company: '',
@@ -256,7 +255,6 @@ onChange={(e) => {
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
