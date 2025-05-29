@@ -72,7 +72,7 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
 }
-.btn:hover {
+.btn:hover, .home-web-button:hover, .logo-link {
     background-color: rgb(163, 156, 136);
 }
 .btn--full {
