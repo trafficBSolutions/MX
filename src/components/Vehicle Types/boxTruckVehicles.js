@@ -2,7 +2,7 @@ const boxTruckVehicles = [
     { name: 'Select Vehicle', disabled: true },
     { name: 'Chevrolet', disabled: false },
     { name: 'Ford', disabled: false },
-    { name: 'Freightliner',  disabled: false },,
+    { name: 'Freightliner',  disabled: false },
     { name: 'GMC', disabled: false },
     { name: 'Hino', disabled: false },
     { name: 'International', disabled: false },
