@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import { useState } from 'react'; 
 import images  from '../../utils/dynamicImportImages';
 function Header() {
     const [isNavOpen, setIsNavOpen] = useState(false);
