@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState} from 'react';
 import '../css/fleet.css';
 import '../css/headerfooter.css';
 import '../css/toaster.css';
@@ -84,9 +84,7 @@ const FleetGraphics = () => {
     const [isTrailerSelected, setIsTrailerSelected] = useState(false); // New state for trailer selection
     const [addedVehicles, setAddVehicles] = useState([]);
     const [fileError, setFileError] = useState('');
-    const [addedFinishing, setAddedFinishing] = useState([]);
     const [vehicleError, setVehicleError] = useState('');
-    const [company, setCompany] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
       name: '',
@@ -424,7 +422,6 @@ const handleModelChange = (e) => {
     setIsSubmitting(true);
     try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
     const newErrors = {};
-let hasError = false;
   requiredFields.forEach(field => {
     if (!formData[field]) {
       let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
@@ -435,7 +432,6 @@ let hasError = false;
       if (field === 'img') fieldLabel = 'Logo';
       if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
-      hasError = true;
     }
   });
 
@@ -491,7 +487,6 @@ formDataToSend.append('finishing', formData.finishing.join(', ')); // ✅ correc
       message: '',
       terms: ''
       });
-        setAddedFinishing([]);
         setErrors({});
         setPhone('');
       setSubmissionMessage(
@@ -560,7 +555,6 @@ formDataToSend.append('finishing', formData.finishing.join(', ')); // ✅ correc
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
