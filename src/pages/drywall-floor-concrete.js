@@ -234,7 +234,7 @@ if (addedFinishing.length === 0) {
                     <main>
                         <div className="page-dry-container">
                         <div className="dry-name-container">
-                        <h1 className="dry-description">DRYWALL FLOOR CONCRETE GRAPHICS</h1>
+                        <h1 className="dry-description">WALL & FLOOR GRAPHICS</h1>
                             </div>
                         </div>
                         <div className="photo-gal-dry">
