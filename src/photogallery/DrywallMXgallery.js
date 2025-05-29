@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
+  { src: images['gccoc3.jpg'], height: 4032, width: 3024, alt: 'CrossFit Chrome' },
   { src: images['CrossFit Chrome.jpg'], height: 4032, width: 3024, alt: 'CrossFit Chrome' },
   { src: images['Nance.jpg'], height: 4032, width: 3024, alt: 'Nance' },
   { src: images['Nance 2.jpg'], height: 4032, width: 3024, alt: 'Nance 2' },
