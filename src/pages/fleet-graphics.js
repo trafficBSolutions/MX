@@ -799,7 +799,7 @@ onChange={(e) => {
   />
 <p className="terms-text">
   <strong>PLEASE READ AND CHECK:</strong><br />
-  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
+  You agree to pay for all fleet graphics and labor once production begins. No cancellations after materials are ordered or work has started.
 </p>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
