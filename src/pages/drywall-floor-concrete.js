@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../css/dry.css';
 import '../css/headerfooter.css';
 import '../css/toaster.css';
@@ -6,7 +6,7 @@ import axios from 'axios';
 import MXDrywallGallery from '../photogallery/DrywallMXgallery';
 import Header from '../components/headerviews/HeaderDry';
 import images from '../utils/dynamicImportImages';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
   const placeOptions = [
     { name: 'Drywall Graphics (Examples: Homes and Office Buildings)', disabled: false },
     { name: 'Floor Graphics', disabled: false },
@@ -25,7 +25,6 @@ const Adhesive = () => {
             const [vinylWidthUnit, setVinylWidthUnit] = useState('');
             const [selectedPlacement, setSelectedPlacement] = useState('');
             const [fileError, setFileError] = useState('');
-            const [company, setCompany] = useState('');
             const [addedPlacement, setAddedPlacement] = useState([]);
             const [termsAccepted, setTermsAccepted] = useState(false);
             const [isSubmitting, setIsSubmitting] = useState(false); 
@@ -140,7 +139,6 @@ const handleFinishChange = (e) => {
     setIsSubmitting(true);
     try { const requiredFields = ['name','company', 'email', 'phone','message', 'terms', 'img'];
     const newErrors = {};
-let hasError = false;
     requiredFields.forEach(field => {
       if (!formData[field]) {
         let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
@@ -294,7 +292,6 @@ onChange={(e) => {
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
