@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState} from 'react';
 import '../css/signs.css';
 import '../css/headerfooter.css';
 import '../css/toaster.css';
@@ -6,7 +6,7 @@ import axios from 'axios';
 import MXSignGallery from '../photogallery/SignMXgallery';
 import Header from '../components/headerviews/HeaderSign';
 import images from '../utils/dynamicImportImages';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
       const sizeAluminumBlankOptions = [
         {name: '12"x6"', disabled: false},
@@ -56,10 +56,6 @@ import 'react-toastify/dist/ReactToastify.css';
         { name: 'Single-Sided', disabled: false },
         { name: 'Double-Sided', disabled: false }
       ];
-      const sizeOptions = [
-        { name: 'Feet', disabled: false },
-        { name: 'Inches', disabled: false },
-      ];
       const acmColors = [
         { name: 'White', disabled: false },
         { name: 'Black', disabled: false },
@@ -94,7 +90,6 @@ import 'react-toastify/dist/ReactToastify.css';
           const [lengthUnit, setLengthUnit] = useState('feet'); // Length measurement unit
           const [widthUnit, setWidthUnit] = useState('feet'); // Width measurement unit
           const [selectedFinishing, setSelectedFinishing] = useState('');
-          const [addedFinishing, setAddedFinishing] = useState([]);
           const [isSubmitting, setIsSubmitting] = useState(false); 
           const [acmColor, setAcmColor] = useState('');
           const [acrylicColor, setAcrylicColor] = useState('');
@@ -110,7 +105,6 @@ import 'react-toastify/dist/ReactToastify.css';
           const [signTypeError, setSignTypeError] = useState(''); // Error for sign type
           const [signSizeError, setSignSizeError] = useState(''); // Error for sign size
           const [signSidesError, setSignSidesError] = useState(''); // Error for sign sides
-          const [company, setCompany] = useState('');
           const [finishingError, setFinishingError] = useState(''); // Error for finishing
 
   const [formData, setFormData] = useState({
@@ -291,7 +285,6 @@ import 'react-toastify/dist/ReactToastify.css';
     setIsSubmitting(true);
     try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
     const newErrors = {};
-let hasError = false;
   requiredFields.forEach(field => {
     if (!formData[field]) {
       let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
@@ -302,7 +295,6 @@ let hasError = false;
       if (field === 'img') fieldLabel = 'Logo';
       if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
-      hasError = true;
     }
   });
 
@@ -455,7 +447,6 @@ const formDataToSend = new FormData();
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
@@ -633,7 +624,6 @@ const formDataToSend = new FormData();
           setSelectedFinishing(e.target.value);
           if (e.target.value) setFinishingError(''); // Clear error when valid value is selected
       }}
-      disabled={addedFinishing.length === 3}
     >
       <option value="">Select Finishing Type</option>
       {finishOptions.map((option, index) => (
@@ -834,7 +824,6 @@ const formDataToSend = new FormData();
         setSelectedFinishing(e.target.value);
         if (e.target.value) setFinishingError(''); // Clear error when valid value is selected
       }}
-      disabled={addedFinishing.length === 3}
     >
       <option value="">Select Finishing Type</option>
       {finishOptions.map((option, index) => (
