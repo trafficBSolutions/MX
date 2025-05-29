@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { REACT_APP_GOOGLE_MAPS_API_KEY } from '../constant/constant';
+import { GOOGLE_MAPS_API_KEY } from '../constant/constant';
 
 const MapInvoiceComponent = () => {
   const [map, setMap] = useState(null);
@@ -35,7 +35,7 @@ const MapInvoiceComponent = () => {
   useEffect(() => {
     if (!window.google || !window.google.maps) {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY }&libraries=geometry,places`;
       script.async = true;
       script.onload = () => {
         setGeocoder(new window.google.maps.Geocoder());
