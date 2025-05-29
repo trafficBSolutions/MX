@@ -19,7 +19,7 @@ const chevroletBoxTruckModels = [
     { name: 'Chevrolet 5500HD (Concrete Truck)', disabled: false, type: 'Concrete Truck' },
     { name: 'Chevrolet 6500HD (Utility Truck)', disabled: false, type: 'Utility Truck' },
     { name: 'Chevrolet 7500HD (Dump Truck)', disabled: false, type: 'Dump Truck' },
-    { name: 'Chevrolet 8500HD (Heavy Duty Truck)', disabled: false, type: 'Heavy Duty Truck' },
+    { name: 'Chevrolet 8500HD (Heavy Duty Truck)', disabled: false, type: 'Heavy Duty Truck' }
 ];
 const fordBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -32,7 +32,7 @@ const fordBoxTruckModels = [
     { name: 'Ford F-750 (Heavy Duty Truck)', disabled: false, type: 'Heavy Duty Truck' },
     { name: 'Ford E-450 (Box Truck/Box)', disabled: false, type: 'Van/Box Truck' },
     { name: 'Ford Low Cab Forward (Box Truck)', disabled: false, type: 'Box Truck' },
-    { name: 'Ford Super Duty (Utility Truck)', disabled: false, type: 'Utility Truck' },
+    { name: 'Ford Super Duty (Utility Truck)', disabled: false, type: 'Utility Truck' }
 ];
 const freightlinerBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -43,7 +43,7 @@ const freightlinerBoxTruckModels = [
     { name: 'Freightliner 7500 (Heavy Duty Truck)', disabled: false, type: 'Heavy Duty Truck' },
     { name: 'Freightliner 8500 (Heavy Duty Truck)', disabled: false, type: 'Heavy Duty Truck' },
     { name: 'Freightliner 4500HD (Dump Truck)', disabled: false, type: 'Dump Truck' },
-    { name: 'Freightliner 5500HD (Concrete Truck)', disabled: false, type: 'Concrete Truck' },
+    { name: 'Freightliner 5500HD (Concrete Truck)', disabled: false, type: 'Concrete Truck' }
 ];
 const gmcBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -53,7 +53,7 @@ const gmcBoxTruckModels = [
     { name: 'GMC Topkick C4500 (Box Truck)', disabled: false, type: 'Box Truck' },
     { name: 'GMC Topkick C5500 (Dump Truck)', disabled: false, type: 'Dump Truck' },
     { name: 'GMC Sierra 2500 (Flatbed Truck)', disabled: false, type: 'Flatbed Truck' },
-    { name: 'GMC Sierra 1500 (Utility Truck)', disabled: false, type: 'Utility Truck' },
+    { name: 'GMC Sierra 1500 (Utility Truck)', disabled: false, type: 'Utility Truck' }
 ];
 const hinoBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -65,7 +65,7 @@ const hinoBoxTruckModels = [
     { name: 'Hino 195h (Hybrid Box Truck)', disabled: false, type: 'Box Truck', year: 2017 },
     { name: 'Hino XL Series (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
     { name: 'Hino 500 Series (Box Truck)', disabled: false, type: 'Box Truck', year: 2023 },
-    { name: 'Hino 300 Series (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 },
+    { name: 'Hino 300 Series (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 }
 ];
 const internationalBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -77,7 +77,7 @@ const internationalBoxTruckModels = [
     { name: 'International DuraStar (Box Truck)', disabled: false, type: 'Box Truck', year: 2015 },
     { name: 'International MV Series (Box Truck)', disabled: false, type: 'Box Truck', year: 2018 },
     { name: 'International HV Series (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
-    { name: 'International eMV Series (Electric Box Truck)', disabled: false, type: 'Box Truck', year: 2023 },
+    { name: 'International eMV Series (Electric Box Truck)', disabled: false, type: 'Box Truck', year: 2023 }
 ];
 const IsuzuBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -90,7 +90,7 @@ const IsuzuBoxTruckModels = [
     { name: 'Isuzu N-Series Diesel (Box Truck)', disabled: false, type: 'Box Truck', year: 2015 },
     { name: 'Isuzu FTR 33,000 lbs. (Box Truck)', disabled: false, type: 'Box Truck', year: 2018 },
     { name: 'Isuzu NPR-HD (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
-    { name: 'Isuzu NRR Diesel (Box Truck)', disabled: false, type: 'Box Truck', year: 2023 },
+    { name: 'Isuzu NRR Diesel (Box Truck)', disabled: false, type: 'Box Truck', year: 2023 }
 ];
 const kenworthBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -103,7 +103,7 @@ const kenworthBoxTruckModels = [
     { name: 'Kenworth T680 (Box Truck)', disabled: false, type: 'Box Truck', year: 2018 },
     { name: 'Kenworth T880 (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
     { name: 'Kenworth W900 (Box Truck)', disabled: false, type: 'Box Truck', year: 2023 },
-    { name: 'Kenworth K270 (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 },
+    { name: 'Kenworth K270 (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 }
 ];
 const mackBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -117,7 +117,7 @@ const mackBoxTruckModels = [
     { name: 'Mack LR (Box Truck)', disabled: false, type: 'Box Truck', year: 2018 },
     { name: 'Mack Granite MHD (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
     { name: 'Mack MD Series (Box Truck)', disabled: false, type: 'Box Truck', year: 2023 },
-    { name: 'Mack MD6 (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 },
+    { name: 'Mack MD6 (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 }
 ];
 const mercedesBenzBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -129,7 +129,7 @@ const mercedesBenzBoxTruckModels = [
     { name: 'Mercedes-Benz Actros (Box Truck)', disabled: false, type: 'Box Truck', year: 2015 },
     { name: 'Mercedes-Benz Antos (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
     { name: 'Mercedes-Benz eActros (Box Truck)', disabled: false, type: 'Box Truck', year: 2023 },
-    { name: 'Mercedes-Benz Atego L (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 },
+    { name: 'Mercedes-Benz Atego L (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 }
 ];
 const mitsubishiFusoBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -141,7 +141,7 @@ const mitsubishiFusoBoxTruckModels = [
     { name: 'Mitsubishi Fuso Canter (Box Truck)', disabled: false, type: 'Box Truck', year: 2015 },
     { name: 'Mitsubishi Fuso Canter Eco Hybrid (Box Truck)', disabled: false, type: 'Hybrid Box Truck', year: 2020 },
     { name: 'Mitsubishi Fuso eCanter (Electric Box Truck)', disabled: false, type: 'Electric Box Truck', year: 2023 },
-    { name: 'Mitsubishi Fuso Canter Guts (Light Duty Box Truck)', disabled: false, type: 'Light Duty Box Truck', year: 2025 },
+    { name: 'Mitsubishi Fuso Canter Guts (Light Duty Box Truck)', disabled: false, type: 'Light Duty Box Truck', year: 2025 }
 ];
 const nissanBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -153,7 +153,7 @@ const nissanBoxTruckModels = [
     { name: 'Nissan UD 2600 (Box Truck)', disabled: false, type: 'Box Truck', year: 2015 },
     { name: 'Nissan UD 3300 (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
     { name: 'Nissan NV3500 HD (Box Truck)', disabled: false, type: 'Box Truck', year: 2023 },
-    { name: 'Nissan NT500 (Heavy Duty Box Truck)', disabled: false, type: 'Heavy Duty Box Truck', year: 2025 },
+    { name: 'Nissan NT500 (Heavy Duty Box Truck)', disabled: false, type: 'Heavy Duty Box Truck', year: 2025 }
 ];
 const peterbiltBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
@@ -165,7 +165,7 @@ const peterbiltBoxTruckModels = [
     { name: 'Peterbilt 365 (Box Truck)', disabled: false, type: 'Box Truck', year: 2015 },
     { name: 'Peterbilt 520 (Box Truck)', disabled: false, type: 'Box Truck', year: 2020 },
     { name: 'Peterbilt 567 (Heavy Duty Box Truck)', disabled: false, type: 'Heavy Duty Box Truck', year: 2023 },
-    { name: 'Peterbilt 579 (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 },
+    { name: 'Peterbilt 579 (Box Truck)', disabled: false, type: 'Box Truck', year: 2025 }
 ];
 const ramBoxTruckModels = [
     { name: 'Select Model', disabled: true, type: null },
