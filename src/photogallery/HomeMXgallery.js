@@ -364,7 +364,7 @@ export default function MXPhotoGallery() {
             setModalImage(photo.src);
             setIsModalOpen(true);
           }}>
-            <img src={photo.src} alt={`Photo ${index}`} />
+            <img src={photo.src} alt={`Home result ${index + 1}`} />
           </div>
         ))}
       </div>
