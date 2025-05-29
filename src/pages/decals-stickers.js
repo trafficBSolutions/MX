@@ -249,8 +249,8 @@ const formDataToSend = new FormData();
         <div className="material-type-container">
         <h1 className="sign-app-box">MATERIALS AVAILABLE FOR DECALS & STICKERS</h1>
   <div className="material-container">
-    <img className="orafol-img" src={images["Orafol-Logo.svg"]}></img>
-    <img className="substance-img" src={images["substance-logo.svg"]}></img>
+<img className="orafol-img" alt="orafol" src={images["Orafol-Logo.svg"]} />
+    <img className="substance-img" alt="substance" src={images["substance-logo.svg"]} />
 </div>
 </div>
         <form onSubmit={handleSubmit} className="decal-set -- box">
