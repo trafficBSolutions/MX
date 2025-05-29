@@ -47,7 +47,7 @@ export default function MXBannerGallery() {
             setModalImage(photo.src);
             setIsModalOpen(true);
           }}>
-            <img src={photo.src} alt={`Photo ${index}`} />
+            <img src={photo.src} alt={`Banner result ${index + 1}`} />
           </div>
         ))}
       </div>
