@@ -367,6 +367,34 @@ padding-top: 30px; /* Reduce padding */
   text-align: center;
 }
 }
+@media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
+  .decal-description {
+    font-size: 2.5rem; /* Reduce font size */
+    padding: 0px; /* Add padding to avoid content touching the edges */
+    margin: 0;
+  }
+  .decal-app-box {
+    font-size: 1.5rem;
+  }
+  .decal-fill {
+    margin: 10px;
+    font-size: 1rem;
+  }
+  .decal-warn, .decal-cut-unit-text {
+    font-size: 0.8rem;
+  }
+  .added-decal-list {
+    font-size: 1rem;
+  }
+      .decal-type-p, 
+      .decal-size-p, .decal-cut-p, .decal-side-p, .decal-finish-p, .decal-quantity-p {
+        font-size: 0.8rem;
+      }
+      .message-decal-note {
+        font-size: 0.8rem;
+        text-align: center;
+      }
+}
   @media screen and (max-width: 320px) and (orientation: portrait) {
     .main-decal-graphics {
       display: block;
@@ -784,3 +812,4 @@ padding-top: 30px; /* Reduce padding */
   font-size: 0.6rem;
 }
   }
+  
