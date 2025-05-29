@@ -22,7 +22,7 @@ function Header() {
                 <ul className="main-material-nav-list">
                     <li><a className="main-material-nav-link" href="/new-logo">New Logos</a></li>
                     <li>
-                        <a className="main-material-nav-link">Sign Shop Services</a>
+                        <p className="main-material-nav-link">Sign Shop Services</p>
                         <ul className="sub-material-nav-list">
                             <li><a className="main-material-nav-link" href="/custom-signs">Custom Signs</a></li>
                             <li><a className="main-material-nav-link" href="/decals-stickers">Decals & Stickers</a></li>
@@ -34,7 +34,7 @@ function Header() {
                         </ul>
                     </li>
                     <li><a className="main-material-nav-link" href="/new-website">Websites</a></li>
-                    <li><a className="main-material-nav-link-view" href="">Contact Us</a></li>
+                    <li><a className="main-material-nav-link-view" href="/contact-us">Contact Us</a></li>
                 </ul>
                 <div className="header-worx-links">
                 <a className="header-worx-logo" href="https://www.trafficbarriersolutions.com/" target="_blank" rel="noopener noreferrer">
