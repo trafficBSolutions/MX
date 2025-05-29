@@ -1,7 +1,32 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
+        {
+    src: images['van.jpg'],
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['van2.jpg'],
+    width: 4032,
+    height: 3024
+  },
+  {
+    src: images['van3.jpg'],
+    width: 4032,
+    height: 3024
+  },
+    {
+    src: images['miniTruck.jpg'],
+    width: 4032,
+    height: 3024
+  },
+      {
+    src: images['miniTruck2.jpg'],
+    width: 4032,
+    height: 3024
+  },
       {
     src: images['yancey.jpg'],
     width: 4032,
