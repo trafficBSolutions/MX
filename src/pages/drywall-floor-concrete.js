@@ -616,7 +616,7 @@ and what time you want an MX crew will arrive.</h1>
         <span className="spinner"></span> Submitting...
       </div>
     ) : (
-      'SUBMIT CUSTOM DRYWALL FLOOR CONCRETE GRAPHICS'
+      'SUBMIT CUSTOM WALL & FLOOR GRAPHICS'
     )}
   </button>
   {submissionMessage && (
