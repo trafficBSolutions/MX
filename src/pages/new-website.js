@@ -317,7 +317,7 @@ onChange={(e) => {
     </div>
     </form>
                     </main>
-      <footer className="material-footer">
+           <footer className="material-footer">
   <div className="site-material-footer__inner">
     <img className="mx-img" alt="TBS logo" src={images["MX Tan.svg"]} />
     <div className="footer-navigation-content">
@@ -326,7 +326,7 @@ onChange={(e) => {
       <li><a className="footer-material-nav-link" href="/about-us">About Us</a></li>
       <li><a className="footer-material-nav-link" href="/new-logo">New Logos</a></li>
       <li><a className="footer-material-nav-link" href="/services">Services</a></li>
-      <li><a className="footer-material-nav-link-view" href="">Websites</a></li>
+      <li><a className="footer-material-nav-link-view" href="/new-website">Websites</a></li>
       <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
     </ul>
     </div>
