@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 //import Gallery from 'react-photo-gallery';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
