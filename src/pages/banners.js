@@ -575,8 +575,8 @@ onChange={(e) => {
 </div>
 <div className="banner-message-container">
 <label className="message-banner-label">Message *</label>
-<h1 className="message-banner-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
-     and the Quantity of graphics needed. If you need
+<h1 className="message-banner-note">Tell us about your banner and how you want it designed! Please Specify Logo Redesigning,
+     and the Quantity of banners needed. If you need
 to request a crew to help install your banners, please specify where the location is, when 
 and what time you want an MX crew will arrive.</h1>
 
