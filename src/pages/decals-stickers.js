@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
   const decalTypeOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false },
+    { name: 'Transparent', disabled: false },
     { name: 'Perforated Window', disabled: false },
     { name: 'Chrome', disabled: false },
     { name: 'Football Helmet Gloss', disabled: false },
