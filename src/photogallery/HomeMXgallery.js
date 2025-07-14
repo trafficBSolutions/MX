@@ -47,11 +47,7 @@ const photos = [
     src: images['window.jpg'],
     height: 4032,
     width: 3024
-  },    {
-    src: images['window2.jpg'],
-    height: 4032,
-    width: 3024
-  },
+  },  
       {
     src: images['family2.jpg'],
     height: 4032,
