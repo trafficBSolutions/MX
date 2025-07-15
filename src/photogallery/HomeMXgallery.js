@@ -3,6 +3,21 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 
 const photos = [
+  { 
+        src: images['acrylic.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+ { 
+        src: images['acrylic2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+           { 
+        src: images['acrylic3.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
     { 
         src: images['hangsign.jpg'], 
         height: 4032, 
@@ -47,7 +62,11 @@ const photos = [
     src: images['window.jpg'],
     height: 4032,
     width: 3024
-  },  
+  },    {
+    src: images['window2.jpg'],
+    height: 4032,
+    width: 3024
+  },
       {
     src: images['family2.jpg'],
     height: 4032,
