@@ -2,6 +2,54 @@ import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import images from '../utils/dynamicImportImages';
 const photos = [
+ { 
+        src: images['noah.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['noah2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['baps.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['baps2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['baps3.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['ladyjackets.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+  { 
+        src: images['furs by farrow.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+  { 
+        src: images['therising.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['therising2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['therising3.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
    { 
         src: images['acrylic.jpg'], 
         height: 4032, 
