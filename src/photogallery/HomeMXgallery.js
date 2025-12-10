@@ -4,6 +4,164 @@ import images from '../utils/dynamicImportImages';
 
 const photos = [
   { 
+        src: images['example.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example3.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example4.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example5.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example6.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example7.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example8.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example9.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example10.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example11.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example12.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example13.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example14.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example15.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example16.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example17.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example18.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example19.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example20.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['example21.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['example22.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['noah.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['noah2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['baps.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['baps2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },{ 
+        src: images['baps3.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['ladyjackets.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['papa.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['papa2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['rocket.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['rocket2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['furs by farrow.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['therising.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['therising2.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+        { 
+        src: images['therising3.jpg'], 
+        height: 4032, 
+        width: 3024, 
+        },
+  { 
         src: images['acrylic.jpg'], 
         height: 4032, 
         width: 3024, 
