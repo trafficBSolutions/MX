@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { GOOGLE_MAPS_API_KEY } from '../constants/constant';
+import { GOOGLE_MAPS_API_KEY } from '../constant/constant';
 
 const MapComponent = () => {
   const [map, setMap] = useState(null);
