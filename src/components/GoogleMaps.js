@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { GOOGLE_MAPS_API_KEY } from '../constant/constant';
+import { GOOGLE_MAPS_API_KEY } from '../constants/constant';
 
-const MapInvoiceComponent = () => {
+const MapComponent = () => {
   const [map, setMap] = useState(null);
   const mapContainerRef = useRef(null);
   const [geocoder, setGeocoder] = useState(null);
@@ -86,4 +86,4 @@ const MapInvoiceComponent = () => {
   );
 };
 
-export default MapInvoiceComponent;
+export default MapComponent;
