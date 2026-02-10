@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error } from './pages';
+import { Home, Signs, ApplyNow, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error } from './pages';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import { Toaster } from 'react-hot-toast';
@@ -24,6 +24,7 @@ function App() {
       <Route path="/decals-stickers" element={<Decal/>}/>
       <Route path="/t-shirts-sweatshirts-jackets" element={<Shirt/>}/>
       <Route path="/new-website" element={<Web/>}/>
+  <Route path="/apply-now" element={<ApplyNow/>}/>
      </Routes>
     </>
   )
