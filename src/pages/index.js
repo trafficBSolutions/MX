@@ -10,4 +10,6 @@ import Decal from  './decals-stickers'
 import Shirt from './t-shirts-sweatshirts-jackets'
 import Web from './new-website'
 import Error from './error'
-export { Home, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error }
+import ApplyNow from './apply-now'
+export { Home, ApplyNow, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error }
+
