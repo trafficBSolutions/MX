@@ -116,6 +116,13 @@ const Home = () => {
     </a>
   </div>
 </div>
+<div className="material-website-container" style={{background: 'linear-gradient(135deg, #1dd2ff 0%, #0ea5d1 100%)', color: '#000'}}>
+  <h1 className="contact-materialX">We're Hiring!</h1>
+  <p className="contact-descript">
+    Join the Material WorX team! We're looking for talented individuals to fill receptionist and installer positions.
+  </p>
+  <a className="home-web-button" href="/apply-now" style={{background: '#000', color: '#1dd2ff', border: '2px solid #000'}}>Apply Now</a>
+</div>
           <section className="section-mx-featured">
           <div className="container">
             <div className="gallery-mx-container">
@@ -231,7 +238,7 @@ const Home = () => {
   </div>
 </footer>
 <div className="footer-copyright">
-      <p className="footer-copy-p">&copy; 2026 Traffic & Barrier Solutions, LLC/Material WorX - 
+      <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
     </div>
