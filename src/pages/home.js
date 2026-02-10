@@ -116,12 +116,12 @@ const Home = () => {
     </a>
   </div>
 </div>
-<div className="material-website-container" style={{background: 'rgb(253, 242, 233);', color: '#000'}}>
+<div className="material-website-container" style={{background: '#999;', color: '#000'}}>
   <h1 className="contact-materialX">We're Hiring!</h1>
   <p className="contact-descript">
     Join the Material WorX team! We're looking for talented individuals to fill receptionist and installer positions.
   </p>
-  <a className="home-web-button" href="/apply-now" style={{background: '#000', color: '#1dd2ff', border: '2px solid #000'}}>Apply Now</a>
+  <a className="home-web-button" href="/apply-now" style={{background: '#999', color: '#999', border: '2px solid #000'}}>Apply Now</a>
 </div>
           <section className="section-mx-featured">
           <div className="container">
