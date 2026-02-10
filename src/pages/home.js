@@ -121,7 +121,7 @@ const Home = () => {
   <p className="contact-descript">
     Join the Material WorX team! We're looking for talented individuals to fill receptionist and installer positions.
   </p>
-  <a className="home-web-button" href="/apply-now" style={{background: '#999', color: '#999', border: '2px solid #000'}}>Apply Now</a>
+  <a className="home-web-button" href="/apply-now" style={{background: '#999', color: '#ffffff', border: '2px solid #000'}}>Apply Now</a>
 </div>
           <section className="section-mx-featured">
           <div className="container">
