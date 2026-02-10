@@ -116,7 +116,7 @@ const Home = () => {
     </a>
   </div>
 </div>
-<div className="material-website-container" style={{background: 'linear-gradient(135deg, #1dd2ff 0%, #0ea5d1 100%)', color: '#000'}}>
+<div className="material-website-container" style={{background: 'rgb(253, 242, 233);', color: '#000'}}>
   <h1 className="contact-materialX">We're Hiring!</h1>
   <p className="contact-descript">
     Join the Material WorX team! We're looking for talented individuals to fill receptionist and installer positions.
