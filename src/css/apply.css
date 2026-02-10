@@ -1,0 +1,135 @@
+@import url(https://db.onlinewebfonts.com/c/82baa4951eee7df05175ada4cb171e35?family=Moveo+Sans+W00+Bold);
+@import url(https://db.onlinewebfonts.com/c/82302682c00aba868f6ae01a375b10ac?family=Moveo+Sans+SemiExt+W00+Bold);
+
+/* Form Container */
+.apply-form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.apply-description {
+  font-size: 4rem;
+  color: #000000;
+  text-align: center;
+  font-family: "Moveo Sans w00 Bold";
+  margin-bottom: 30px;
+}
+
+/* Section Headers */
+.apply-app-box {
+  font-size: 32px;
+  color: rgb(66, 57, 31);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.apply-fill {
+  font-size: 20px;
+  color: rgb(141, 126, 91);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.submit-apply {
+  background-color: rgb(117, 112, 100);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Input Group Styling */
+.name-section-apply,
+.company-apply-section,
+.emailphone-apply-section,
+.apply-message-container {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.518);
+}
+
+.message-apply-text {
+  font-size: 1rem;
+  height: 15rem;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  .apply-description {
+    font-size: 4rem;
+  }
+  .apply-app-box {
+    font-size: 1.9rem;
+  }
+  .apply-fill {
+    margin: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+  .apply-description {
+    font-size: 2.2rem;
+  }
+  .apply-app-box {
+    font-size: 1.5rem;
+  }
+  .apply-fill {
+    margin: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) and (orientation: portrait) {
+  .apply-description {
+    font-size: 1.5rem;
+    padding: 0px;
+    margin: 0;
+  }
+  .apply-app-box {
+    font-size: 1rem;
+  }
+  .apply-fill {
+    margin: 10px;
+    font-size: 0.6rem;
+  }
+  .submit-apply {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) and (orientation: landscape) {
+  .apply-description {
+    font-size: 1.5rem;
+    padding: 0px;
+    margin: 0;
+  }
+  .apply-app-box {
+    font-size: 1rem;
+  }
+  .apply-fill {
+    margin: 10px;
+    font-size: 0.6rem;
+  }
+  .submit-apply {
+    font-size: 1rem;
+  }
+}
