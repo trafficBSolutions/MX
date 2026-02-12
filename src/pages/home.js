@@ -99,20 +99,20 @@ const Home = () => {
   </p>
 
   <div className="will-contact-link">
-    <h2 className="will-contact">Talk to William Rowell</h2>
-    <p className="contact-info">
-      <a className="will-phone" href="tel:+17068790106">
-        📞 Call/Text: (706) 879-0106
+    <h2 className="will-contact">Contact Us for a Quote</h2>
+    <p className="contact-web-info">
+      <a className="will-phone" href="tel:+17062630175">
+        📞 Call/Text: (706) 263-0175
       </a>
       <br />
-      <a className="will-email" href="mailto:tbsolutions9@gmail.com">
-        📧 Email: tbsolutions9@gmail.com
+      <a className="will-email" href="mailto:tbsolutions1999@gmail.com">
+        📧 Email: tbsolutions1999@gmail.com
       </a>
     </p>
 
-    <a className="home-web-button" href="/new-website">Start Your Website</a>
+    <a className="home-web-button" href="https://www.material-worx.com/new-website">Get a Website Quote</a>
     <a className="home-web-button" href="https://william-rowell.netlify.app/" target="_blank" rel="noopener noreferrer">
-      View My Work
+      View Some Work
     </a>
   </div>
 </div>
@@ -245,3 +245,4 @@ const Home = () => {
     )
   };
 export default Home;
+
