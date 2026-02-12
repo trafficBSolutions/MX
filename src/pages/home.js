@@ -100,7 +100,7 @@ const Home = () => {
 
   <div className="will-contact-link">
     <h2 className="will-contact">Contact Us for a Quote</h2>
-    <p className="contact-web-info">
+    <p className="contact-info">
       <a className="will-phone" href="tel:+17062630175">
         📞 Call/Text: (706) 263-0175
       </a>
@@ -245,4 +245,5 @@ const Home = () => {
     )
   };
 export default Home;
+
 
