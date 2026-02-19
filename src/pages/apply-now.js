@@ -179,7 +179,7 @@ const jobDetailsByPosition = {
                 <div className="contact-flexi">
                     <form className="contact-set" onSubmit={handleSubmit}>
                         <h1 className="contact-app-box">APPLY NOW</h1>
-                        <h2 className="contact-fill">We're Hiring: Receptionist & Installer Positions</h2>
+                        <h2 className="contact-fill">We're Hiring: Receptionist, Installer, and Print & Graphics Positions</h2>
                         <h3 className="fill-info">Fields marked with * are required.</h3>
                         <div className="contact-actual">
                             <div className="name-section-contact">
