@@ -277,7 +277,7 @@ const jobDetailsByPosition = {
                                                 <label className="company-contact-name">Position *</label>
                                                 <select 
   name="position" 
-  className="company-contact-name-input"
+  className="company-contact-input"
   value={formData.position}
   onChange={(e) => {
     setFormData({ ...formData, position: e.target.value });
