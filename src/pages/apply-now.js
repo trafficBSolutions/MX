@@ -20,7 +20,83 @@ const ApplyNow = () => {
     const [errors, setErrors] = useState({});
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
+const jobDetailsByPosition = {
+  "Receptionist": {
+    requirements: [
+        "High School Diploma or General Education Development(GED)",
+      "Reliable attendance and punctuality",
+      "Professional communication (phone, email, in-person)",
+      "Basic computer skills (typing, email, scheduling)",
+      "Ability to multitask and stay organized",
+      "Customer-service mindset"
+    ],
+    duties: [
+      "Answer phones, take messages, and route calls",
+      "Greet customers and help with basic questions",
+      "Schedule appointments / take job details",
+      "Create or update customer/job information",
+      "Support the team with simple admin tasks"
+    ],
+    skills: [
+      "Clear communication",
+      "Organization",
+      "Attention to detail",
+      "Friendly, calm under pressure",
+      "Problem-solving"
+    ]
+  },
 
+  "Installer - Vehicle Wraps & Fleet Graphics": {
+    requirements: [
+    "High School Diploma or General Education Development(GED)",
+      "Must be able to lift 50 lbs",
+      "Valid driver’s license (recommended if you do onsite work)",
+      "Comfortable working with hand tools and ladders (as needed)",
+      "Able to work carefully and follow install instructions",
+      "Good attitude and willingness to learn"
+    ],
+    duties: [
+      "Install vehicle wraps, decals, and fleet graphics",
+      "Prep surfaces (cleaning, measuring, masking)",
+      "Apply vinyl with proper alignment and finish",
+      "Help with post-install cleanup and quality checks",
+      "Assist with shop production when needed"
+    ],
+    skills: [
+      "Steady hands and precision",
+      "Measuring and layout",
+      "Vinyl application (wet/dry methods)",
+      "Attention to detail",
+      "Teamwork"
+    ]
+  },
+
+  "Large Format Print & Graphics Production Specialist": {
+    requirements: [
+        "High School Diploma or General Education Development(GED)",
+      "Must be able to lift 50 lbs (vinyl rolls/materials)",
+      "Experience with printing/cutting workflows (preferred)",
+      "Comfortable with weekly printer maintenance (manual cleanings, ink mixing)",
+      "Able to follow quality standards and hit deadlines",
+      "Basic design/RIP software experience (FlexiSign preferred)"
+    ],
+    duties: [
+      "Print signs, banners, decals, and heat-transfer apparel graphics",
+      "Load vinyl/media on printer, laminator, and plotter",
+      "Laminate prints and trim/finish products",
+      "Set up contour cuts, registration marks, and cut files in FlexiSign",
+      "Maintain equipment: manual cleanings, ink mixing, and routine checks",
+      "Keep materials clean (dust-free) before printing and lamination"
+    ],
+    skills: [
+      "FlexiSign / RIP & cut workflow",
+      "Contour cutting + registration marks",
+      "Material handling + finishing (lamination, trimming)",
+      "Quality control (color, alignment, banding checks)",
+      "Troubleshooting printers/cutters"
+    ]
+  }
+};
     const handlePhoneChange = (event) => {
         const input = event.target.value;
         const rawInput = input.replace(/\D/g, '');
@@ -199,21 +275,53 @@ const ApplyNow = () => {
                                             <div className="contact-input-container">
                                                 <label className="company-contact-name">Position *</label>
                                                 <select 
-                                                    name="position" 
-                                                    className="company-contact-name-input"
-                                                    value={formData.position}
-                                                    onChange={(e) => {
-                                                        setFormData({ ...formData, position: e.target.value });
-                                                        if (e.target.value) {
-                                                            setErrors((prevErrors) => ({ ...prevErrors, position: '' }));
-                                                        }
-                                                    }}
-                                                >
-                                                    <option value="">Select Position</option>
-                                                    <option value="Receptionist">Receptionist</option>
-                                                    <option value="Installer">Installer - Vehicle Wraps & Fleet Graphics</option>
-                                                </select>
+  name="position" 
+  className="company-contact-name-input"
+  value={formData.position}
+  onChange={(e) => {
+    setFormData({ ...formData, position: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, position: '' }));
+    }
+  }}
+>
+  <option value="">Select Position</option>
+  <option value="Receptionist">Receptionist</option>
+  <option value="Installer - Vehicle Wraps & Fleet Graphics">
+  Installer - Vehicle Wraps & Fleet Graphics
+</option>
+<option value="Large Format Print & Graphics Production Specialist">
+  Large Format Print & Graphics Production Specialist
+</option>
+</select>
                                                 {errors.position && <div className="error-message">{errors.position}</div>}
+                                                {formData.position && jobDetailsByPosition[formData.position] && (
+  <div className="job-details-box">
+    <h2 className="job-details-title">Job Details</h2>
+
+    <h3 className="job-details-heading">Job Requirements</h3>
+    <ul className="job-details-list">
+      {jobDetailsByPosition[formData.position].requirements.map((item, idx) => (
+        <li key={`req-${idx}`}>{item}</li>
+      ))}
+    </ul>
+
+    <h3 className="job-details-heading">Job Duties</h3>
+    <ul className="job-details-list">
+      {jobDetailsByPosition[formData.position].duties.map((item, idx) => (
+        <li key={`duty-${idx}`}>{item}</li>
+      ))}
+    </ul>
+
+    <h3 className="job-details-heading">Skills Required</h3>
+    <ul className="job-details-list">
+      {jobDetailsByPosition[formData.position].skills.map((item, idx) => (
+        <li key={`skill-${idx}`}>{item}</li>
+      ))}
+    </ul>
+  </div>
+)}
+
                                             </div>
                                         </div>
                                     </div>
