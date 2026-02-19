@@ -78,7 +78,7 @@ const jobDetailsByPosition = {
       "Experience with printing/cutting workflows (preferred)",
       "Comfortable with weekly printer maintenance (manual cleanings, ink mixing)",
       "Able to follow quality standards and hit deadlines",
-      "Basic design/RIP software experience (FlexiSign preferred)"
+      "Basic design/RIP software experience (FlexiSign and VersaWorks preferred)"
     ],
     duties: [
       "Print signs, banners, decals, and heat-transfer apparel graphics",
@@ -90,6 +90,7 @@ const jobDetailsByPosition = {
     ],
     skills: [
       "FlexiSign / RIP & cut workflow",
+      "VersaWorks Print and RIP workflow",
       "Contour cutting + registration marks",
       "Material handling + finishing (lamination, trimming)",
       "Quality control (color, alignment, banding checks)",
