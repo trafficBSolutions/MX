@@ -117,7 +117,7 @@ const jobDetailsByPosition = {
     skills: [
       "VCarve toolpath setup (profile, pocket, drill)",
       "Measuring/layout (tape measure, square, calipers helpful)",
-      "Material knowledge (PVC, ACM, acrylic, wood, etc.)",
+      "Material knowledge (PVC, ACM, acrylic, corrugated plastic, wood, etc.)",
       "Safe machine operation mindset",
       "Basic troubleshooting and mechanical awareness"
     ]
