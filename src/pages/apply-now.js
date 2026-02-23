@@ -96,6 +96,31 @@ const jobDetailsByPosition = {
       "Quality control (color, alignment, banding checks)",
       "Troubleshooting printers/cutters"
     ]
+  },
+    "CNC Routing & Fabrication Technician": {
+    requirements: [
+      "High School Diploma or General Education Development(GED)",
+      "Must be able to lift 50 lbs (materials/sheets)",
+      "Basic computer skills and willingness to learn new software",
+      "Comfortable working around machinery and following safety rules",
+      "Attention to detail and ability to measure accurately",
+      "Willing to learn CNC machine maintenance (cleaning, lubrication, checks)"
+    ],
+    duties: [
+      "Set up CNC jobs using VCarve (toolpaths, bits, feeds/speeds as trained)",
+      "Load and secure materials to the CNC bed (vacuum or clamps)",
+      "Operate CNC router for cutting signs, letters, and custom parts",
+      "Change bits/tools and verify zeroing/starting positions (as trained)",
+      "Clean and maintain CNC work area (dust collection, spoilboard, cleanup)",
+      "Perform routine maintenance: cleaning rails, checking belts, basic lubrication, and reporting issues"
+    ],
+    skills: [
+      "VCarve toolpath setup (profile, pocket, drill)",
+      "Measuring/layout (tape measure, square, calipers helpful)",
+      "Material knowledge (PVC, ACM, acrylic, wood, etc.)",
+      "Safe machine operation mindset",
+      "Basic troubleshooting and mechanical awareness"
+    ]
   }
 };
     const handlePhoneChange = (event) => {
@@ -293,6 +318,9 @@ const jobDetailsByPosition = {
 </option>
 <option value="Large Format Print & Graphics Production Specialist">
   Large Format Print & Graphics Production Specialist
+</option>
+<option value="CNC Routing & Fabrication Technician">
+  CNC Routing & Fabrication Technician (VCarve)
 </option>
 </select>
                                                 {errors.position && <div className="error-message">{errors.position}</div>}
