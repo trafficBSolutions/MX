@@ -1,1501 +1,640 @@
-import React, { useState } from 'react';
-import '../css/apply.css';
-import '../css/header.css';
-import '../css/footer.css';
+import { useState } from 'react';
+import '../css/banner.css';
+import '../css/headerfooter.css';
+import '../css/toaster.css'
 import axios from 'axios';
-import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import images from '../utils/tbsImages';
-import Header from '../components/headerviews/HeaderApply'
-const states = [
-  { abbreviation: 'AL', name: 'Alabama' },
-  { abbreviation: 'AK', name: 'Alaska' },
-  { abbreviation: 'AZ', name: 'Arizona' },
-  { abbreviation: 'AR', name: 'Arkansas' },
-  { abbreviation: 'CA', name: 'California' },
-  { abbreviation: 'CO', name: 'Colorado' },
-  { abbreviation: 'CT', name: 'Connecticut' },
-  { abbreviation: 'DE', name: 'Delaware' },
-  { abbreviation: 'FL', name: 'Florida' },
-  { abbreviation: 'GA', name: 'Georgia' },
-  { abbreviation: 'HI', name: 'Hawaii' },
-  { abbreviation: 'ID', name: 'Idaho' },
-  { abbreviation: 'IL', name: 'Illinois' },
-  { abbreviation: 'IN', name: 'Indiana' },
-  { abbreviation: 'IA', name: 'Iowa' },
-  { abbreviation: 'KS', name: 'Kansas' },
-  { abbreviation: 'KY', name: 'Kentucky' },
-  { abbreviation: 'LA', name: 'Louisiana' },
-  { abbreviation: 'ME', name: 'Maine' },
-  { abbreviation: 'MD', name: 'Maryland' },
-  { abbreviation: 'MA', name: 'Massachusetts' },
-  { abbreviation: 'MI', name: 'Michigan' },
-  { abbreviation: 'MN', name: 'Minnesota' },
-  { abbreviation: 'MS', name: 'Mississippi' },
-  { abbreviation: 'MO', name: 'Missouri' },
-  { abbreviation: 'MT', name: 'Montana' },
-  { abbreviation: 'NE', name: 'Nebraska' },
-  { abbreviation: 'NV', name: 'Nevada' },
-  { abbreviation: 'NH', name: 'New Hampshire' },
-  { abbreviation: 'NJ', name: 'New Jersey' },
-  { abbreviation: 'NM', name: 'New Mexico' },
-  { abbreviation: 'NY', name: 'New York' },
-  { abbreviation: 'NC', name: 'North Carolina' },
-  { abbreviation: 'ND', name: 'North Dakota' },
-  { abbreviation: 'OH', name: 'Ohio' },
-  { abbreviation: 'OK', name: 'Oklahoma' },
-  { abbreviation: 'OR', name: 'Oregon' },
-  { abbreviation: 'PA', name: 'Pennsylvania' },
-  { abbreviation: 'RI', name: 'Rhode Island' },
-  { abbreviation: 'SC', name: 'South Carolina' },
-  { abbreviation: 'SD', name: 'South Dakota' },
-  { abbreviation: 'TN', name: 'Tennessee' },
-  { abbreviation: 'TX', name: 'Texas' },
-  { abbreviation: 'UT', name: 'Utah' },
-  { abbreviation: 'VT', name: 'Vermont' },
-  { abbreviation: 'VA', name: 'Virginia' },
-  { abbreviation: 'WA', name: 'Washington' },
-  { abbreviation: 'WV', name: 'West Virginia' },
-  { abbreviation: 'WI', name: 'Wisconsin' },
-  { abbreviation: 'WY', name: 'Wyoming' }
-];
-const startMonths = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-]
-const endMonths = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-]
-const misdemeanorCharges = [
-  "Failure to Appear",
-  "Hit and Run(Property Damage)",
-  "Reckless Driving",
-  "Driving with a Suspended/Revoked License",
-  "Driving without insurance",
-  "Driving with an expired registration/license",
-  "Public Intoxication",
-  "Disorderly Conduct",
-  "Trespassing",
-  "Vandalism",
-  "Simple Assault",
-  "Simple Stalking",
-  "Petty Theft",
-  "Prostitution",
-  "Possession of Small Amounts of Controlled Substances",
-  "Other (Please Explain the Misdemeanor)",
-];
-
-const felonyCharges = [
-  "Murder",
-  "Attempted Murder",
-  "Manslaughter",
-  "Hit and Run(DUI, Caused Injury, or Death)",
-  "Domestic Violence",
-  "Criminal Damage to Property",
-  "Possession of Controlled Substances(Felony Conviction)",
-  "Failure to Register as a Sex Offender",
-  "Aggravated Assault/Battery",
-  "Aggravated Stalking",
-  "Child Molestation",
-  "Child Pornography",
-  "Child Endangerment",
-  "Extortion",
-  "Sexual Assault",
-  "Illegal Possession of Firearm",
-  "Kidnapping",
-  "Drug Trafficking",
-  "Arson",
-  "Embezzlement",
-  "Identity Theft",
-  "Money Laundering",
-  "Burglary",
-  "Robbery",
-  "Parole Violation",
-  "Other (Please Explain the Felony)",
-];
-
-const selectLanguages = [
-  {name: "English(Inglés)", disabled: false},
-  {name: "Spanish(Español)", disabled: false},
-  {name: "Both(English & Spanish)", disabled: false}
-]
-const Apply = () => {
-  const [phone, setPhone] = useState('');
-  const navigate = useNavigate();
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [errors, setErrors] = useState({});
-  const [school, setSchool] = useState('');
-  const [startMonth, setStartMonth] = useState('');
-  const [startYear, setStartYear] = useState('');
-  const [endMonth, setEndMonth] = useState('');
-  const [endYear, setEndYear] = useState('');
-  const [addedEd, setAddedEd] = useState([]);
-  const [workError, setWorkError] = useState(""); // Yes or No selection
-  const [educationError, setEducationError] = useState(""); // Yes or No selection
-  const [backgroundError, setBackgroundError] = useState(""); 
-  const [convictions, setConvictions] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); 
-  const [newConviction, setNewConviction] = useState({
-    type: "Misdemeanor",
-    charge: "",
-    date: "",
-    explanation: "",
-  });
-  const [employmentEntries, setEmploymentEntries] = useState([]);
-  const [newEmploy, setNewEmploy] = useState({
-  employerName: "",
-  address: "",
-  city: "",
-  state: "",
-  zip: "",
-  phone: "",
-  duties: "",
-  currentlyEmployed: false,
-  reasonForLeaving: "",
-  mayContact: "",
-});
-  const [wantsDriver, setWantsDriver] = useState('');
-  const [drivingRecord, setDrivingRecord] = useState({ speedingTickets: '', trafficViolations: '', duis: '', otherViolations: '' });
-  const [data, formData] = useState({
-    first: '',
-    last: '',
-    email: '',
-    phone: '',
-    education: '',
-    position: '',
-    location: '',
-    background: '',
-    languages: '',
-    skills: '',
-    workHistory: '',
-    resume: '',
-    cover: '',
-    message: ''
-  });
-  const [submissionMessage, setSubmissionMessage] = useState('');
-  const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
-
-  const toggleMenu = () => {
-    setIsNavOpen(!isNavOpen);
-};
-      const handleAdminClick = () => {
-        if (isAdmin) {
-            // Logging out
-            localStorage.removeItem('adminUser');
-            setIsAdmin(false);
-            navigate('/admin-login');
-        } else {
-            // Navigate to login
-            navigate('/admin-login');
-        }
+import MXBannerGallery from '../photogallery/BannerMXgallery'
+import Header from '../components/headerviews/HeaderBanner';
+import images from '../utils/dynamicImportImages';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  const bannerOptions = [ 
+    { name: 'Retractable Stand', disabled: false },
+    { name: 'Grommet Pressed', disabled: false },
+    { name: 'Reinforced Hemmed', disabled: false },
+    { name: 'Pole Pockets', disabled: false },
+    { name: 'Wind Slits', disabled: false },
+    { name: 'Velcro Taped', disabled: false },
+    { name: 'Webbing Ringed', disabled: false },
+    { name: 'Roped', disabled: false },
+  ];
+  const finishOptions = [
+    { name: 'Matte', disabled: false },
+    { name: 'Gloss', disabled: false }
+  ];
+const Banner = () => {
+    const [phone, setPhone] = useState('');
+            const [selectedSize, setSelectedSize] = useState('');
+            const [addedSizes, setAddedSizes] = useState([]);
+            const [addedFinishes, setAddedFinishes] = useState([]);
+            const [addedPlaces, setAddedPlaces] = useState([]);
+            const [company, setCompany] = useState('');
+            const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
+            const [widthUnit, setWidthUnit] = useState(''); // Default to feet
+            const [fileError, setFileError] = useState(''); 
+            const [isSubmitting, setIsSubmitting] = useState(false);
+            const [termsAccepted, setTermsAccepted] = useState(false);
+            const [availablefinishOptions] = useState(finishOptions);
+            const [errorMessage, setErrorMessage] = useState('');
+            const [formData, setFormData] = useState({
+              name: '',
+              company: '',
+              email: '',
+              phone: '',
+              bannerSize: { length: '', width: '' },
+              hang: '',
+              finishing: '',
+              img: null,
+              message: ''
+            });
+            const [errors, setErrors] = useState({});
+            const [submissionMessage, setSubmissionMessage] = useState('');
+            const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
+            const handleAddSize = () => {
+              if (formData.length && formData.width && lengthUnit && widthUnit) {
+                const newSize = {
+                  length: `${formData.length} ${lengthUnit}`,
+                  width: `${formData.width} ${widthUnit}`,
+                };
+                setAddedSizes([...addedSizes, newSize]); // Add new size to the state
+                setFormData({ ...formData, length: '', width: '' }); // Clear input fields
+                setErrors((prevErrors) => ({ ...prevErrors, bannerSize: '' })); // Clear size error
+              } else {
+                setErrorMessage('Please provide valid length, width, and measurement units.');
+              }
+            };
+            const handleRemoveSize = (index) => {
+              const updatedSizes = addedSizes.filter((_, i) => i !== index);
+              setAddedSizes(updatedSizes); // Update state after removing the size
+            };
+            const handleAddPlacement = () => {
+              if (formData.hang) {
+                setAddedPlaces([...addedPlaces, { hang: formData.hang }]); // Add placement
+                setFormData({ ...formData, hang: '' }); // Clear the selection
+                setErrors((prevErrors) => ({ ...prevErrors, hang: '' })); // Clear placement error
+              } else {
+                setErrorMessage('Please select a placement type.');
+              }
+            };
+            const handleRemovePlace = (index) => {
+              const updatedPlaces = addedPlaces.filter((_, i) => i !== index);
+              setAddedPlaces(updatedPlaces); // Update state after removing the placement
+            };
+            const handleAddFinish = () => {
+              if (formData.finishing) {
+                setAddedFinishes([...addedFinishes, { name: formData.finishing }]); // Add finish
+                setFormData({ ...formData, finishing: '' }); // Clear the selection
+                setErrors((prevErrors) => ({ ...prevErrors, finishing: '' })); // Clear finishing error
+              } else {
+                setErrorMessage('Please select a finishing option.');
+              }
+            };
+            const handleRemoveFinish = (index) => {
+              const updatedFinishes = addedFinishes.filter((_, i) => i !== index);
+              setAddedFinishes(updatedFinishes); // Update state after removing the finish
+            };
+            
+            const handlePhoneChange = (event) => {
+              const input = event.target.value;
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+              const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+              
+              setPhone(formatted);
+              setFormData({ ...formData, phone: formatted });
+            
+              // Check if the input has 10 digits and clear the error if it does
+              if (rawInput.length === 10) {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
+              }
+            };
+            const handleZipChange = (event) => {
+              const input = event.target.value;
+              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+            
+              setFormData({ ...formData, zip: rawInput });
+            
+              // Check if the input has 5 digits and clear the error if it does
+              if (rawInput.length === 5) {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
+              }
+            };
+    const handleFileChange = (e, fileType) => {
+      const newFiles = Array.from(e.target.files);
+      setFormData(prevState => ({
+        ...prevState,
+        [fileType]: [...(prevState[fileType] || []), ...newFiles]
+      }));
+      setFileError('');
     };
-const handleAddEducation = () => {
-  let isValid = true;
-
-  if (!school) {
-    setErrors((prevErrors) => ({ ...prevErrors, school: "School name is required" }));
-    isValid = false;
-  }
-  if (!startMonth) {
-    setErrors((prevErrors) => ({ ...prevErrors, startMonth: "Start month is required" }));
-    isValid = false;
-  }
-  if (!startYear) {
-    setErrors((prevErrors) => ({ ...prevErrors, startYear: "Start year is required" }));
-    isValid = false;
-  }
-  if (!endMonth) {
-    setErrors((prevErrors) => ({ ...prevErrors, endMonth: "End month is required" }));
-    isValid = false;
-  }
-  if (!endYear) {
-    setErrors((prevErrors) => ({ ...prevErrors, endYear: "End year is required" }));
-    isValid = false;
-  }
-
-  if (!isValid) return;
-
-  setAddedEd([...addedEd, { school, startMonth, startYear, endMonth, endYear }]);
-  setSubmissionErrorMessage(""); // Remove error after successful addition
-  // ✅ Clear the "Education is Required" error once an entry is added
-  setEducationError("");
-
-  // Clear input fields
-  setSchool("");
-  setStartMonth("");
-  setStartYear("");
-  setEndMonth("");
-  setEndYear("");
-};
-
-
-const handleRemoveEducation = (index) => {
-  if (addedEd.length > 1) {
-    setAddedEd(addedEd.filter((_, i) => i !== index));
-  }
-};
-
-const addConviction = () => {
-  if (!newConviction.charge || !newConviction.date || !newConviction.explanation) {
-    setBackgroundError("Please fill in all background fields before adding.");
-    return;
-  }
-
-  setConvictions([...convictions, newConviction]);
-
-  // Clear the new conviction input fields
-  setNewConviction({
-    type: "Misdemeanor",
-    charge: "",
-    date: "",
-    explanation: "",
-  });
-  setSubmissionErrorMessage(""); // Remove error after successful addition
-  // ✅ Remove error once a background entry is added
-  setBackgroundError("");
-};
-
-const removeConviction = (index) => {
-  setConvictions((prev) => {
-    const updatedConvictions = prev.filter((_, i) => i !== index);
-    return updatedConvictions;
-  });
-
-  // ✅ If the user removes all convictions, re-trigger the error if "Yes" is selected
-  if (convictions.length === 1) {
-    setBackgroundError("Background is required.");
-  }
-};
-const handleBackgroundChange = (event) => {
-  const value = event.target.value;
-  formData({ ...data, background: value });
-
-  if (value === "No") {
-    setConvictions([]); // Clear convictions if "No" is selected
-    setBackgroundError(""); // ✅ Remove error if user selects "No"
-  } else {
-    setConvictions([]); // Reset convictions for "Yes"
-    setBackgroundError(""); // ✅ Remove error message
-  }
-};
-
-const addEmploymentEntry = () => {
-  // Validate fields before adding
-  if (
-    !newEmploy.employerName ||
-    !newEmploy.address ||
-    !newEmploy.city ||
-    !newEmploy.state ||
-    !newEmploy.zip ||
-    !newEmploy.phone ||
-    !newEmploy.duties ||
-    (!newEmploy.currentlyEmployed && !newEmploy.reasonForLeaving) ||
-    !newEmploy.mayContact
-  ) {
-    setWorkError("Please fill in all employment fields before adding.");
-    return;
-  }
-
-  // Add new employment entry to the list
-  setEmploymentEntries((prevEntries) => {
-    const updatedEntries = [...prevEntries, newEmploy];
-    return updatedEntries;
-  });
-
-  // Reset form fields for the next entry
-  setNewEmploy({
-    employerName: "",
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    phone: "",
-    duties: "",
-    currentlyEmployed: false,
-    reasonForLeaving: "",
-    mayContact: "",
-  });
-  setSubmissionErrorMessage(""); // Remove error after successful addition
-  setWorkError(""); // Remove error after successful addition
-};
-
-const handleEmploymentChange = (event) => {
-  const value = event.target.value;
-  formData({ ...data, workHistory: value });
-
-  if (value === "No") {
-    setEmploymentEntries([]); // ✅ Clear employment entries when "No" is selected
-    setWorkError(""); // ✅ Remove error if user selects "No"
-  } else {
-    setEmploymentEntries([]); // ✅ Reset employment for "Yes"
-    setWorkError(""); // ✅ Remove error message
-  }
-};
-
-
-const handleEmployment2Change = (field, value) => {
-  let formattedValue = value;
-
-  // Format Phone Number as (000) 000-0000
-  if (field === "phone") {
-    const rawDigits = value.replace(/\D/g, ""); // Remove non-numeric characters
-
-    if (rawDigits.length <= 10) {
-      formattedValue = rawDigits.replace(
-        /(\d{3})(\d{3})(\d{4})/,
-        "($1) $2-$3"
-      );
-    }
-  }
-
-  // Ensure ZIP Code is exactly 5 digits
-  if (field === "zip") {
-    const rawDigits = value.replace(/\D/g, ""); // Remove non-numeric characters
-    formattedValue = rawDigits.slice(0, 5); // Limit to 5 digits
-  }
-
-  setNewEmploy((prev) => ({
-    ...prev,
-    [field]: formattedValue,
-  }));
-};
-
-
-
-  // Function to remove an employment entry
-  const removeEmploymentEntry = (index) => {
-    setEmploymentEntries((prevEntries) => {
-      const updatedEntries = prevEntries.filter((_, i) => i !== index);
-      return updatedEntries;
-    });
-  
-    // Check employmentEntries.length instead of newEmploy.length
-    if (employmentEntries.length === 1) {
-      setWorkError("Employment is required.");
-    }
-  };
-  
-const handlePhoneChange = (event) => {
-  const input = event.target.value;
-  const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-  const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
-  
-  setPhone(formatted);
-  formData({ ...data, phone: formatted });
-
-  // Check if the input has 10 digits and clear the error if it does
-  if (rawInput.length === 10) {
-    setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
-  } else {
-    setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
-  }
-};
-
-  const handleFileChange = (e, fileType) => {
-    const file = e.target.files[0];
-    formData({ ...data, [fileType]: file });
-  };
-
-  const handleFileRemove = (fileType) => {
-    formData({ ...data, [fileType]: '' });
-  };
-  const handleSubmit = async (e) => {
+          const handleFileRemove = (fileType) => {
+            setFormData({ ...formData, [fileType]: null });
+          };
+          const handleSizeChange = (e) => {
+            const { name, value } = e.target;
+            setFormData({ ...formData, [name]: value });
+          };
+        
+          // Handle Feet/Inches dropdown change
+          const handleUnitChange = (type, unit) => {
+            if (type === 'length') {
+              setLengthUnit(unit);
+            } else if (type === 'width') {
+              setWidthUnit(unit);
+            }
+          };
+        
+          const handleOptionChange = (type, value) => {
+            setFormData({ ...formData, [type]: value });
+          };
+      const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted');
-  
-    // Check for required fields
-    const requiredFields = ["first", "last", "email", "phone", "position", "location", "languages", "skills", "message"];
+    let hasErrors = false;
+          
+            // Validate size
+            if (addedSizes.length === 0) {
+              setErrors((prevErrors) => ({
+                ...prevErrors,
+                bannerSize: 'Please add at least one banner size.',
+              }));
+              hasErrors = true;
+            } else {
+              setErrors((prevErrors) => ({
+                ...prevErrors,
+                bannerSize: '',
+              }));
+            }
+                        if (addedFinishes.length === 0) {
+              setErrors((prevErrors) => ({
+                ...prevErrors,
+                finishing: 'Please add at least one banner finishing option.',
+              }));
+              hasErrors = true;
+            } else {
+              setErrors((prevErrors) => ({
+                ...prevErrors,
+                finishing: '',
+              }));
+            }
+          
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
     const newErrors = {};
-    let hasError = false;
-    
-    requiredFields.forEach(field => {
-      if (!data[field]) {
-        newErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
-        hasError = true;
-      }
-    });
   
-   // ✅ Check if resume is uploaded (optional now)
+  requiredFields.forEach(field => {
+    if (!formData[field]) {
+      let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+      if (field === 'name') fieldLabel = 'Name';
+      if (field === 'company') fieldLabel = 'Company Name';
+      if (field === 'email') fieldLabel = 'Email';
+      if (field === 'phone') fieldLabel = 'Phone Number';
+      if (field === 'img') fieldLabel = 'Logo';
+      if (field === 'terms') fieldLabel = 'Terms & Conditions';
+      newErrors[field] = `${fieldLabel} is required!`;
+      hasErrors = true;
+    }
+  });
 
-// ✅ Education Validation
-if (addedEd.length === 0) {
-    setEducationError("Education is required.");
-    hasError = true;
-} else {
-    setEducationError(""); // ✅ Clears error if education entry exists
-}
-// ✅ Employment Validation
-if (!data.workHistory) {
-  setWorkError("Employment is required.");
-  hasError = true;
-} else if (data.workHistory === "Yes" && employmentEntries.length === 0) {
-  setWorkError("Please add at least one employment, otherwise select 'No'.");
-  hasError = true;
-} else {
-  setWorkError(""); // ✅ Clears error if background is valid
-}
-// ✅ Background Validation
-if (!data.background) {
-    setBackgroundError("Background is required.");
-    hasError = true;
-} else if (data.background === "Yes" && convictions.length === 0) {
-    setBackgroundError("Please add at least one background, otherwise select 'No'.");
-    hasError = true;
-} else {
-    setBackgroundError(""); // ✅ Clears error if background is valid
-}
-    if (hasError || Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.');
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.'); // Set the general error message
       setErrors(newErrors);
       return;
     }
-  
-    const formDataObj = new FormData();
-    
-    // Add basic form fields
-    formDataObj.append('first', data.first);
-    formDataObj.append('last', data.last);
-    formDataObj.append('email', data.email);
-    formDataObj.append('phone', data.phone);
-    formDataObj.append('position', data.position);
-    formDataObj.append('wantsDriver', wantsDriver);
-    formDataObj.append('drivingRecord', JSON.stringify(wantsDriver === 'Yes' ? drivingRecord : {}));
-    formDataObj.append('location', data.location);
-    formDataObj.append('languages', data.languages);
-    formDataObj.append('skills', data.skills);
-    formDataObj.append('message', data.message);
-    
-    // Add files if they exist
-    if (data.resume) {
-      formDataObj.append("resume", data.resume);
-    }
-    if (data.cover) {
-      formDataObj.append("cover", data.cover);
-    }
-    
-    // Convert arrays to JSON strings before appending
-    formDataObj.append("education", JSON.stringify(addedEd));
-    formDataObj.append("background", JSON.stringify(convictions));
-    formDataObj.append("workHistory", JSON.stringify(employmentEntries));
-  for (let pair of formDataObj.entries()) {
-  console.log(pair[0]+ ':', pair[1]);
-}
-    setIsSubmitting(true);
-    const loadingToast = toast.loading('Submitting your application...');
-
-    try {
-      const response = await axios.post('/applynow', formDataObj, {
-        headers: {
-          'Content-Type': 'multipart/form-data' 
+const formDataToSend = new FormData();
+              formDataToSend.append('name', formData.name);
+              formDataToSend.append('company', formData.company);
+              formDataToSend.append('email', formData.email);
+              formDataToSend.append('phone', formData.phone);
+              formDataToSend.append('message', formData.message);
+          
+              // Append the image file (logo)
+        if (formData.img?.length > 0) {
+          formData.img.forEach((file) => {
+            formDataToSend.append('img', file);
+          });
         }
+        if (!termsAccepted) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            terms: 'You must agree to pay upon job completion.'
+          }));
+          setErrorMessage('You must accept the terms and conditions.');
+          setIsSubmitting(false);
+          return;
+        }  
+
+
+         // Append banner size as a formatted string like "2 feet x 2 feet"
+              const formattedSizes = addedSizes.map((size) => `${size.length} x ${size.width}`).join(', ');
+              formDataToSend.append('bannerSize', formattedSizes);
+          
+              // Append placement as a single string (assuming there's only one placement)
+              const formattedPlacement = addedPlaces.map((place) => place.hang).join(', ');
+              formDataToSend.append('hang', formattedPlacement);
+          
+              // Append finishing as a single string (assuming there's only one finishing)
+              const formattedFinishing = addedFinishes.map((finish) => finish.name).join(', ');
+              formDataToSend.append('finishing', formattedFinishing);
+          setIsSubmitting(true);
+              const response = await axios.post('/banners', formDataToSend, {
+                headers: {
+                  'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
+                },
+              });
+      console.log(response.data); // Now this works
+           
+      setFormData({
+                name: '',
+                company: '',
+                email: '',
+                phone: '',
+                bannerSize: {length: '', width: ''},
+                hang: '',
+                finishing: '',
+                img: null,
+                message: '',
+                terms: false
       });
-    
-      if (response.data.errors) {
-        toast.dismiss(loadingToast);
-        if (response.data.error === "Duplicate email or phone") {
-          toast.error("Application already submitted with this email or phone number.");
-          setSubmissionErrorMessage("Application has already been submitted with this email, phone number, resume, or cover letter. If you recently worked for TBS, please call 706-263-0175. If you're new and have submitted before, please wait until we review your application.");
-        } else {
-          setSubmissionErrorMessage('');
-        }
-      } else {
-        toast.dismiss(loadingToast);
-        setSubmissionMessage('Application Submitted! We will be with you as soon as possible!');
-        toast.success('Application Submitted! We will be with you as soon as possible!');
-        navigate('/applynow');
+              setAddedSizes([]);
+              setErrors({});
+              setPhone('');
+              setAddedPlaces([]);
+              setAddedFinishes([]);
+      setSubmissionMessage(
+        '✅ Banner Request Submitted!'
+      );}
+      catch (err) {
+        console.error(err);
+        toast.success('✅ Job submitted! Check your email for confirmation.');
+        setSubmissionErrorMessage("There was an error submitting your request. Please try again.");
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (error) {
-      toast.dismiss(loadingToast);
-      console.error("Submission error:", error);
-      if (error.response && error.response.status === 400) {
-        toast.error(error.response.data.message || "There was an error with your submission.");
-        setSubmissionErrorMessage(error.response.data.message || "There was an error with your submission.");
-      } else {
-        toast.error("An unexpected error occurred. Please try again.");
-        setSubmissionErrorMessage("An unexpected error occurred. Please report any submission errors to William Rowell: (706) 879-0106 to fix the issue on your application.");
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
   };
-  /*
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // ✅ Reset error states before validation begins
-    setErrors({});
-    setSubmissionErrorMessage(""); // ✅ Clear this immediately on new submit
-    setErrorMessage("");
-
-    let hasError = false;
-    let newErrors = {};
-
-    // Required fields validation
-    const requiredFields = ["first", "last", "email", "phone", "position", "languages", "skills", "message"];
-    requiredFields.forEach((field) => {
-        if (!data[field]) {
-            newErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
-            hasError = true;
-        }
-    });
-
-    // ✅ Check if resume is uploaded
-    if (!data.resume) {
-        newErrors.resume = "Resume is required.";
-        hasError = true;
-    }
-
-    // ✅ Education Validation
-    if (addedEd.length === 0) {
-        setEducationError("Education is required.");
-        hasError = true;
-    } else {
-        setEducationError(""); // ✅ Clears error if education entry exists
-    }
-
-    // ✅ Employment Validation
-    if (!data.workHistory) {
-        setWorkError("Please Add an Employment or select No");
-        hasError = true;
-    } else if (data.workHistory === "Yes" && employmentEntries.length === 0) {
-        setWorkError("Please add at least one employment entry.");
-        hasError = true;
-    } else {
-        setWorkError(""); // ✅ Clears error if employment history is valid
-    }
-
-    // ✅ Background Validation
-    if (!data.background) {
-        setBackgroundError("Background is required.");
-        hasError = true;
-    } else if (data.background === "Yes" && convictions.length === 0) {
-        setBackgroundError("Please add at least one background, otherwise select 'No'.");
-        hasError = true;
-    } else {
-        setBackgroundError(""); // ✅ Clears error if background is valid
-    }
-
-    // ✅ If any errors exist, return early
-    if (hasError) {
-        setErrorMessage("Required fields are missing.");
-        setErrors(newErrors);
-        return;
-    }
-
-    // ✅ If everything is correct, clear error messages
-    setErrors({});
-    setErrorMessage("");
-
-    // ✅ Prepare FormData for submission
-    const formDataObj = new FormData();
-    
-    Object.entries(data).forEach(([key, value]) => {
-        formDataObj.append(key, value);
-    });
-
-    // Ensure file inputs are appended correctly
-    if (data.resume) {
-        formDataObj.append("resume", data.resume);
-    }
-    if (data.cover) {
-        formDataObj.append("cover", data.cover);
-    }
-
-    formDataObj.append("education", JSON.stringify(addedEd));
-    formDataObj.append("convictions", JSON.stringify(convictions));
-    formDataObj.append("employmentEntries", JSON.stringify(employmentEntries));
-
-    // 🚀 Debugging: Print all keys before submitting
-    for (let pair of formDataObj.entries()) {
-        console.log(`Key: ${pair[0]}, Value:`, pair[1]); 
-    }
-
-    if (data.resume) {
-        formDataObj.append("resume", data.resume);
-    }
-    if (data.cover) {
-        formDataObj.append("cover", data.cover);
-    }
-
-    try {
-        const response = await axios.post("/applynow", formDataObj, {
-            headers: { "Content-Type": "multipart/form-data" },
-        });
-
-        if (response.data.errors) {
-            if (response.data.error === "Duplicate email or phone") {
-                setSubmissionErrorMessage(
-                    "Application has already been submitted with this email and/or phone number. If you recently worked for TBS, please call (706) 263-0175. If you're new and have submitted before, please wait until we review your application."
-                );
-            } else {
-                setSubmissionErrorMessage("");
-            }
-            return;
-        }
-
-        // ✅ Reset form fields after successful submission
-        formData({
-            first: "",
-            last: "",
-            email: "",
-            phone: "",
-            education: "",
-            position: "",
-            background: "",
-            languages: "",
-            skills: "",
-            workHistory: "",
-            resume: "",
-            cover: "",
-            message: "",
-        });
-
-        setEmploymentEntries([]);
-        setAddedEd([]);
-        setConvictions([]);
-        setPhone("");
-
-        // ✅ Clear error messages upon success
-        setSubmissionErrorMessage(""); // ✅ Ensure it's cleared upon successful submission
-        setErrorMessage("");
-
-        // ✅ Show success message
-        setSubmissionMessage("Application Submitted! We will be with you as soon as possible!");
-        toast.success("Application Submitted! We will be with you as soon as possible!");
-        navigate("/applynow");
-
-    } catch (error) {
-        console.error("Submission error:", error);
-        if (error.response && error.response.status === 400) {
-            console.log("Validation error:", error.response.data);
-        }
-    }
-};
-*/
-  return (
-    <div>
-        <Header />
-      <main className="apply-main">
-        <div className="apply-container">
-          <h1 className="apply-now">CAREERS</h1>
-          <h2 className="descript">Discover a career with TBS,
-            a premier leader in traffic control solutions!
-            As a dynamic and rapidly growing company in the traffic management industry,
-            TBS takes pride in revolutionizing how we navigate and manage traffic flow.
-            Join our dedicated team and contribute to creating safer,
-            more efficient roadways.</h2>
+            return (
+                <div>
+                    <Header />
+                    <main>
+                        <div className="page-banner-container">
+                        <div className="banner-name-container">
+                        <h1 className="banner-description">BANNERS</h1>
+                            </div>
+                        </div>
+                        <div className="photo-gal-banner">
+        <MXBannerGallery /> {/* Render the photo gallery here */}
         </div>
-<section className="carrier-section">
-    <h2 className="carrierh2">🔶 TRAFFIC CONTROL SAFETY ADVISOR (Internal Hiring)</h2>
-    <div className="internal-hiring-notice">
-      <p className="carrier-ops"><strong>We're HIRING an internal Traffic Control Safety Advisor position here at TBS.</strong> This role helps ensure jobsite safety, proper traffic control setups, and compliance with OSHA and MUTCD standards, TTCP production (traffic control plans). This position comes with an hourly pay increase. Interested employees should contact management.</p>
-    </div>
-    <div className="job-lists">
-      <div className="duty-div">
-        <h2 className="duties-div">Job Duties</h2>
-        <li>Inspect jobsites to ensure proper traffic control setups and compliance</li>
-        <li>Produce and review Traffic Control Plans (TTCPs)</li>
-        <li>Ensure compliance with OSHA and MUTCD standards</li>
-        <li>Conduct safety audits and report findings to management</li>
-        <li>Train crew members on safety protocols and best practices</li>
-        <li>Investigate incidents and recommend corrective actions</li>
-      </div>
-      <div className="require-div">
-        <h2 className="requirements">Requirements</h2>
-        <li>Current TBS employee in good standing</li>
-        <li>Knowledge of OSHA and MUTCD standards</li>
-        <li>Experience with traffic control plan production</li>
-        <li>Must pass a background check and drug test</li>
-        <li>Strong attention to detail and safety awareness</li>
-      </div>
-      <div className="skills-div">
-        <h2 className="skills-required">Skills Needed</h2>
-        <li>Leadership and communication skills</li>
-        <li>Knowledge of OSHA/MUTCD regulations</li>
-        <li>Ability to read and produce traffic control plans</li>
-        <li>Problem-solving and critical thinking</li>
-        <li>Ability to train and mentor others</li>
-      </div>
-    </div>
-</section>
-
-<section className="carrier-section">
-    <h2 className="carrierh2">FOREMAN</h2>
-    <div className="job-lists">
-      <div className="duty-div">
-        <h2 className="duties-div">Job Duties</h2>
-        <li>Oversee daily operations of traffic control crews on jobsites</li>
-        <li>Ensure all traffic control setups meet MUTCD and project specifications</li>
-        <li>Coordinate with project managers, DOT, and contractors</li>
-        <li>Manage crew schedules, assignments, and performance</li>
-        <li>Conduct daily safety briefings and enforce safety protocols</li>
-        <li>Maintain accurate daily reports and documentation</li>
-        <li>Ensure all equipment is properly maintained and accounted for</li>
-      </div>
-      <div className="require-div">
-        <h2 className="requirements">Requirements</h2>
-        <li>High School Diploma or GED</li>
-        <li>Minimum 2 years of traffic control or construction experience</li>
-        <li>Valid driver's license with clean driving record</li>
-        <li>Valid Traffic Controller Certification or ability to obtain one</li>
-        <li>Must pass a background check and drug test</li>
-        <li>Able to work in ALL weather conditions</li>
-        <li>Must be able to lift up to 50 lbs</li>
-      </div>
-      <div className="skills-div">
-        <h2 className="skills-required">Skills Needed</h2>
-        <li>Strong leadership and team management skills</li>
-        <li>Excellent communication and organizational skills</li>
-        <li>Knowledge of MUTCD standards and traffic control plans</li>
-        <li>Ability to make quick decisions under pressure</li>
-        <li>Conflict resolution and problem-solving abilities</li>
-      </div>
-    </div>
-</section>
-
-
-<section className="carrier-section">
-    <h2 className="carrierh2">TRAFFIC CONTROL FLAGGER</h2>
-    <p className="carrier-ops">
-      A Traffic Controller is responsible for directing and managing the flow of vehicles and pedestrians in and around designated areas.
-      They ensure the safety of all parties, while also making sure that traffic moves efficiently.
-      We offer traffic controllers with leadership opportunities including crew leads and drivers.
-      If you're dependable, alert, and ready for a rewarding career, apply today and be part of something that keeps communities moving safely!
-    </p>
-    <div className="job-lists">
-      <div className="duty-div">
-        <h2 className="duties-div">Job Duties</h2>
-        <li>Direct vehicles and pedestrians to ensure safety and efficiency</li>
-        <li>Monitor traffic flow and adjust signals and signs as needed</li>
-        <li>Communicate with other traffic controllers and emergency services as necessary</li>
-        <li>Enforce traffic laws and regulations</li>
-        <li>Implement detours and traffic control plans during special events or emergencies</li>
-        <li>Provide assistance to disabled or stranded motorist</li>
-        <li>Maintain records of traffic control activities</li>
-      </div>
-      <div className="require-div">
-        <h2 className="requirements">Requirements</h2>
-        <li>High School Diploma or GED</li>
-        <li>Excellent communication and interpersonal skills</li>
-        <li>Valid Traffic Controller Certification or the ability to obtain one</li>
-        <li>Able to work in ALL weather conditions</li>
-        <li>Ability to stand, walk, and/or direct traffic for extended periods of time</li>
-        <li>Quick decision-making abilities and ability to adapt to changing situations</li>
-        <li>Must pass a background check and drug test</li>
-        <li>Must be able to lift up to 50 lbs</li>
-        <li>Ability to move quickly out of harm's way in case of emergency</li>
-        <li>Must follow company dress code policy</li>
-      </div>
-      <div className="skills-div">
-        <h2 className="skills-required">Skills Needed</h2>
-        <li>Strong communication skills</li>
-        <li>Ability to remain calm under pressure</li>
-        <li>Ability to enforce safety regulations while being courteous with the public</li>
-        <li>Awareness of local and federal laws and regulations</li>
-        <li>Good problem-solving skills</li>
-        <li>Excellent attention to detail</li>
-        <li>Adequate physical stamina to stand for long periods and work in challenging weather conditions</li>
-        <li>Ability to work well with others and follow rules given by your foreman/crew lead</li>
-      </div>
-    </div>
-</section>
-        <form
-          className="apply-set"
-          method="post"
-          onSubmit={handleSubmit}
-        >
-          <div className="job-container container--narrow page-apply-container">
-      <div className="job-app-info">
-            <h1 className="job-app-box">JOB APPLICATION FORM</h1>
-            <h2 className="job-fill">Please Fill Out the Form Below to Submit Your Job Application!</h2>
-        <h3 className="control-fill-info">Fields marked with * are required.</h3>
-    </div>
-    <div className="job-actual">
-      <div className="job-name">
-            <div className="first-input">
-
-              <div className="first-name">
-                <div className="firstname-input">
-                  <label className="first-label-name">First Name *</label>
-                  <input name="first" type="text" className="first-name-input" text="first-name--input" placeholder="Enter First Name"
-                    value={data.first}
-                    onChange={(e) => { 
-                      formData({ ...data, first: e.target.value });
-                    if (e.target.value) {
-                      setErrors((prevErrors) => ({ ...prevErrors, first: '' })); // Clear the error
-                    }
-                    }}
-                    />
+        <form className="banner-set -- box" onSubmit={handleSubmit}>
+            <div className="banner-form-container container--narrow page-section">
+                <div className="banner-form-info">
+                    <h1 className="banner-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
+                    <h2 className="banner-fill">Please Fill Out the Form Below to Submit Your Custom Banner
+                        Information to get an Inquiry or Quote.</h2>
+                        <h3 className="fill-info">Fields marked with * are required.</h3>
                 </div>
-                {errors.first && <div className="error-message">{errors.first}</div>}
-              </div>
-              <div className="last-name">
-                <div className="lastname-input">
-                  <label className="last-label-name">Last Name *</label>
-                  <input name="last" type="text" className="last-name-input" text="last-name--input" placeholder="Enter Last Name"
-                    value={data.last} 
-                    onChange={(e) => { 
-                      formData({ ...data, last: e.target.value });
-                    if (e.target.value) {
-                      setErrors((prevErrors) => ({ ...prevErrors, last: '' })); // Clear the error
-                    }
-                    }}
-                    />
-                </div>
-                {errors.last && <div className="error-message">{errors.last}</div>}
-              </div>
-            </div>
-            <div className="emailphone-input">
-              <div className="email">
-                <div className="emailname-input">
-                  <label className="email-name">Email *</label>
-                  <input name="email" type="text" className="email-box" text="email--input" placeholder="Enter Email"
-                    value={data.email}
-                    onChange={(e) => { 
-                      formData({ ...data, email: e.target.value });
-                    if (e.target.value) {
-                      setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
-                    }
-                    }}
-                    />
-                </div>
-                {errors.email && <div className="error-message">{errors.email}</div>}
-              </div>
+                <div className="banner-actual">
+                  <div className="name-section-banner">
+<div className="first-name-banner-input">
 
-              <div className="phone-apply">
-                <div className="phonename-input">
-                  <label className="phone-apply">Phone Number *</label>
-                  <input
-                    name="phone"
-                    type="text"
-                    className="phone-box"
-                    text="phone--input"
-                    placeholder="Enter Phone Number"
-                    value={phone} // Bind to phone state
-                    onChange={handlePhoneChange}
-                  />
-                </div>
-                {errors.phone && <div className="error-message">{errors.phone}</div>}
-              </div>
-            </div>
-            </div>
-            <div className="job-location">
-              <label className="location-name">Location *</label>
-              <p className="location-p">Which location would you like to work out of?</p>
-              <div>
-                <input className="position-checkbox" id="calhoun" type="radio" name="location"
-                value="Calhoun GA"
-                onChange={(e) => { 
-                  formData({ ...data, location: e.target.value });
-                if (e.target.value) {
-                  setErrors((prevErrors) => ({ ...prevErrors, location: '' })); // Clear the error
-                }
-                }}
-                />
-                <label className="position-li" htmlFor="calhoun">Calhoun GA</label>
-              </div>
-              <div>
-                <input className="position-checkbox" id="atlanta" type="radio" name="location"
-                value="Atlanta GA"
-                onChange={(e) => { 
-                  formData({ ...data, location: e.target.value });
-                if (e.target.value) {
-                  setErrors((prevErrors) => ({ ...prevErrors, location: '' })); // Clear the error
-                }
-                }}
-                />
-                <label className="position-li" htmlFor="atlanta">Atlanta GA</label>
-              </div>
-              {errors.location && <div className="error-message">{errors.location}</div>}
-            </div>
-            <div className="education-info">
-  <label className="education-label">Education History *</label>
-
-
-  <div className="education-entry">
-    <label>School Name:</label>
+  <div className="first-banner-name">
+    <div className="firstname-banner-input">
+    <div className="input-first-banner-container">
+<label className="first-banner-label-name">Name *</label>
 <input
-  type="text"
-  value={school}
-  placeholder="Enter School Name"
-  onChange={(e) => {
-    const value = e.target.value;
-    const capitalized = value.replace(/\b\w/g, (char) => char.toUpperCase());
-    setSchool(capitalized);
-  }}
+name="first"
+type="text"
+className="firstname-banner-name-input"
+text="first-name--input"
+placeholder="Enter First & Name"
+
+value={formData.name}
+onChange={(e) => {
+  setFormData({ ...formData, name: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
+  }
+}}
 />
-{errors.school && <div className="error-message">{errors.school}</div>}
-    <div className="date-inputs">
-      <label>Start Date:</label>
-      <select
-  value={startMonth} // ✅ Correct: Use single selected value
-  onChange={(e) => setStartMonth(e.target.value)}
->
-  <option value="">Month</option>
-  {startMonths.map((month, idx) => (
-    <option key={idx} value={month}>{month}</option>
-  ))}
-</select>
-
-      {errors.startMonth && <div className="error-message">{errors.startMonth}</div>}
-
-      <input
-        type="number"
-        placeholder="Year"
-        onChange={(e) => setStartYear(e.target.value)}
-        min="1900"
-        max={new Date().getFullYear()}
-      />
-      {errors.startYear && <div className="error-message">{errors.startYear}</div>}
-    </div>
-
-    <div className="date-inputs">
-      <label>End Date:</label>
-      <select
-  value={endMonth} // ✅ Correct: Use single selected value
-  onChange={(e) => setEndMonth(e.target.value)}
->
-  <option value="">Month</option>
-  {endMonths.map((month, idx) => (
-    <option key={idx} value={month}>{month}</option>
-  ))}
-</select>
-
-      {errors.endMonth && <div className="error-message">{errors.endMonth}</div>}
-
-      <input
-        type="number"
-        placeholder="Year"
-        onChange={(e) => setEndYear(e.target.value)}
-        min="1900"
-        max={new Date().getFullYear()}
-      />
-      {errors.endYear && <div className="error-message">{errors.endYear}</div>}
+{errors.name && <div className="error-message">{errors.name}</div>}
+</div>
     </div>
   </div>
-
-  <button type="button" className="add-button" onClick={handleAddEducation}>
-    + Add Education
-  </button>
-
-{addedEd.length > 0 ? (
-        <ul className="education-list">
-          {addedEd.map((entry, index) => (
-           <li key={index} className="education-item">
-           <p><b>School:</b> {entry.school}</p>
-           <p><b>Start:</b> {entry.startMonth} {entry.startYear}</p>
-           <p><b>End:</b> {entry.endMonth} {entry.endYear}</p>
-     
-           {/* Remove button only if there's more than one entry */}
-           {addedEd.length > 0 && (
-             <button type="button" className="remove-button" onClick={() => handleRemoveEducation(index)}>
-               Remove
-             </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="no-education-message">No education added yet.</p>
-      )}
-      {educationError && <div className="error-message">{educationError}</div>}
-   </div>
-            <div className="position-info">
-  <label className="position-name">Position *</label>
-  <p className="position-look">What position are you applying for?</p>
-  {["Traffic Control Safety Advisor", "Foreman", "Traffic Control Flagger"].map((pos) => (
-    <div key={pos}>
-      <input className="position-checkbox" id={`pos-${pos}`} type="radio" name="position"
-        value={pos}
-        onChange={(e) => {
-          formData({ ...data, position: e.target.value });
-          if (e.target.value) setErrors((prev) => ({ ...prev, position: '' }));
-        }}
-      />
-      <label className="position-li" htmlFor={`pos-${pos}`}>{pos}</label>
-    </div>
-  ))}
-  {errors.position && <div className="error-message">{errors.position}</div>}
-
-  <div className="driver-section" style={{ marginTop: '20px' }}>
-    <label className="position-name">Would you like to be a Driver? (Pays more hourly)</label>
-    <div>
-      <input className="position-checkbox" id="driver-yes" type="radio" name="wantsDriver" value="Yes"
-        onChange={(e) => setWantsDriver(e.target.value)} checked={wantsDriver === 'Yes'} />
-      <label className="position-li" htmlFor="driver-yes">Yes</label>
-      <input className="position-checkbox" id="driver-no" type="radio" name="wantsDriver" value="No"
-        onChange={(e) => { setWantsDriver(e.target.value); setDrivingRecord({ speedingTickets: '', trafficViolations: '', duis: '', otherViolations: '' }); }} checked={wantsDriver === 'No'} />
-      <label className="position-li" htmlFor="driver-no">No</label>
-    </div>
-    {wantsDriver === 'Yes' && (
-      <div className="driving-record-section">
-        <p className="driving-record-p"><strong>Please provide your driving record details:</strong></p>
-        <label>How many Speeding Tickets?</label>
-        <input type="number" min="0" placeholder="0" value={drivingRecord.speedingTickets}
-          onChange={(e) => setDrivingRecord({ ...drivingRecord, speedingTickets: e.target.value })} />
-        <label>How many Traffic Violations?</label>
-        <input type="number" min="0" placeholder="0" value={drivingRecord.trafficViolations}
-          onChange={(e) => setDrivingRecord({ ...drivingRecord, trafficViolations: e.target.value })} />
-        <label>How many DUIs?</label>
-        <input type="number" min="0" placeholder="0" value={drivingRecord.duis}
-          onChange={(e) => setDrivingRecord({ ...drivingRecord, duis: e.target.value })} />
-        <label>Other Violations (describe):</label>
-        <textarea placeholder="Describe any other driving violations..." value={drivingRecord.otherViolations}
-          onChange={(e) => setDrivingRecord({ ...drivingRecord, otherViolations: e.target.value })} />
-      </div>
-    )}
-  </div>
-  </div>
-  <div className="background-history">
-  <label className="background-label">Background History *</label>
-  <p className="background-p">Have you ever been convicted of a felony, 
-    have any misdemeanors, and/or are on probation or parole?
-    </p>
-
-
-  <div>
-    <input
-      className="position-checkbox"
-      id="back-yes"
-      type="radio"
-      name="background"
-      value="Yes"
-      onChange={handleBackgroundChange}
-      checked={data.background === "Yes"}
-    />
-    <label className="position-li" htmlFor="back-yes">Yes, I have charges</label>
-
-    <input
-      className="position-checkbox"
-      id="back-no"
-      type="radio"
-      name="background"
-      value="No"
-      onChange={handleBackgroundChange}
-      checked={data.background === "No"}
-    />
-    <label className="position-li" htmlFor="back-no">No, my record is clean</label>
-    {data.background === "No" && (
-    <div className="warning-ed-message">
-      <strong className="strong-warning">WARNING:</strong>
-      <p className="ed-warning">
-      As part of our hiring process, we conduct automated background checks to verify any history of felonies, 
-      misdemeanors, parole, or probation. If you have any of these and selected "No" 
-      on your application, it may result in disqualification from the hiring process because
-      of dishonesty and misconduct behavior. Honesty and integrity are fundamental values in our workplace. 
-      Providing false or misleading information may result in your application being withdrawn. 
-      We are committed to maintaining a safe and secure environment for our employees and customers.
-We encourage all applicants to be truthful in their responses. If you have any concerns or would like 
-to provide additional context regarding your background, please reach out to our hiring team.
-      </p>
-    </div>
-  )}
-  </div>
-  {data.background === "Yes" && (
-  <div className="conviction-entries">
-    {/* Input Fields for a New Conviction Before Adding */}
-    <div className="conviction-entry">
-      <label>Type of Charge:</label>
-      <select
-        value={newConviction.type}
-        onChange={(e) => setNewConviction({ ...newConviction, type: e.target.value })}
-      >
-        <option value="Misdemeanor">Misdemeanor</option>
-        <option value="Felony">Felony</option>
-      </select>
-
-      <label>Charge:</label>
-      <select
-        value={newConviction.charge}
-        onChange={(e) => setNewConviction({ ...newConviction, charge: e.target.value })}
-      >
-        <option value="">Select a Charge</option>
-        {newConviction.type === "Misdemeanor"
-          ? misdemeanorCharges.map((charge, idx) => (
-              <option key={idx} value={charge}>{charge}</option>
-            ))
-          : felonyCharges.map((charge, idx) => (
-              <option key={idx} value={charge}>{charge}</option>
-            ))}
-      </select>
-
-      <label>Date of Conviction:</label>
-      <input
-        type="date"
-        value={newConviction.date}
-        onChange={(e) => setNewConviction({ ...newConviction, date: e.target.value })}
-      />
-
-      <label>Explain your charge:</label>
-      <textarea
-        placeholder="Provide details of this charge/conviction..."
-        className="conviction-textarea"
-        value={newConviction.explanation}
-        onChange={(e) => setNewConviction({ ...newConviction, explanation: e.target.value })}
-      />
-
-      {/* Add Conviction Button */}
-      <button type="button" className="add-button" onClick={addConviction}>
-        + Add Background
-      </button>
-    </div>
-    {/* Display Convictions as a List */}
-    {convictions.length > 0 ? (
-        <ul className="conviction-list">
-          {convictions.map((conviction, index) => (
-            <li key={index} className="conviction-item">
-              <p><b>Type:</b> {conviction.type}</p>
-              <p><b>Charge:</b> {conviction.charge}</p>
-              <p><b>Date:</b> {conviction.date}</p>
-              <p><b>Explanation:</b> {conviction.explanation}</p>
-
-              {/* ✅ Remove Button - Only Show if More Than One Employment Entry Exists */}
-              {convictions.length > 0 && (
-                <button type="button" className="remove-button" onClick={() => removeConviction(index)}>
-                Remove
-              </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="no-conviction-message">No charges added yet.</p>
-      )}
-   </div>)}
-   {backgroundError && <div className="error-message">{backgroundError}</div>}
-   </div>
-        <div className="skills">
-      <label className="skills-label">Professional Skills *</label>
-
-      {/* Language Selection */}
-      <div className="language-section">
-        <p className="language-p">Languages Spoken:</p>
-        <select
-  name="languages"
-  className="language-dropbox"
-  value={data.languages || ""}  // ✅ Ensure it always has a default value
-  onChange={(e) => {
-    formData({ ...data, languages: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, languages: '' })); // Clear the error
+</div>
+<div className="company-banner-input">
+  <div className="company-banner">
+    <div className="banner-company-name-input">
+    <div className="banner-input-container">
+      <label className="company-banner-name">Company *</label>
+      <p className="project-company-input-label">
+  If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
+</p>
+  <input
+    className="project-company-input"
+    type="text"
+    placeholder="Enter Company Name"
+    value={formData.company}
+    onChange={(e) => {
+      const  value = e.target.value;
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setCompany(capitalizedValue);
+      setFormData({ ...formData, company: capitalizedValue });
+      // Clear error if the input is no longer empty
+      if (value.trim() !== '') {
+        setErrors((prevErrors) => ({ ...prevErrors, company: '' }));
+      }
     }
-  }}
->
-  <option value="">Select a language</option>
-  {selectLanguages.map((lang, index) => (
-    <option key={index} value={lang.name}>{lang.name}</option>
-  ))}
-</select>
-
-    {errors.languages && <div className="error-message">{errors.languages}</div>}
-      </div>
-
-      {/* Skills Textbox */}
-      <div className="skills-textbox">
-        <p className="skills-p">Tell us about your professional skills (current and past):</p>
-        <textarea
-  className="skills-input"
-  placeholder="Enter your skills here..."
-  value={data.skills || ""}  // ✅ Ensure it always has a default value
-  onChange={(e) => { 
-    formData({ ...data, skills: e.target.value });
-    if (e.target.value) {
-      setErrors((prevErrors) => ({ ...prevErrors, skills: '' })); // Clear the error
     }
-  }}
-/>
-
-      </div>
-      {errors.skills && <div className="error-message">{errors.skills}</div>}
-    </div>
-    <div className="employment-history">
-  <label className="employment-label">Employment History *</label>
-
-  <p className="employment-p">Have you had any previous employment?</p>
-
-  <div>
-    <input
-      type="radio"
-      id="emp-yes"
-      name="employment"
-      value="Yes"
-      onChange={handleEmploymentChange}
-      checked={data.workHistory === "Yes"}
-    />
-    <label className="yes-radio" htmlFor="emp-yes">Yes, I want to add my employment history</label>
-
-    <input
-      type="radio"
-      id="emp-no"
-      name="employment"
-      value="No"
-      onChange={handleEmploymentChange}
-      checked={data.workHistory === "No"}
-    />
-    <label className="no-radio"  htmlFor="emp-no">I don't have or don't want to add my employment history</label>
-  </div>
-
-  {/* Show message if "No" is selected */}
-  {data.workHistory === "No" && (
-    <div className="no-employment-message">
-      <p>It's okay if you're just starting in the workforce or prefer not to provide past employment details.</p>
-    </div>
-  )}
-
-  {/* Show input fields only if "Yes" is selected */}
-  {data.workHistory === "Yes" && (
-    <div className="employment-entries">
-      <div className="employment-entry">
-<input
-  className="employer-name"
-  placeholder="Employer Name"
-  type="text"
-  value={newEmploy.employerName}
-  onChange={(e) => {
-    const raw = e.target.value;
-    const formatted = raw.replace(/\b\w/g, (char) => char.toUpperCase());
-    handleEmployment2Change("employerName", formatted);
-  }}
-/>
-<input
-  className="address"
-  placeholder="Employer Address"
-  type="text"
-  value={newEmploy.address}
-  onChange={(e) => {
-    const value = e.target.value;
-    handleEmployment2Change("address", value);
-    if (value.trim()) {
-      setErrors((prevErrors) => ({ ...prevErrors, address: '' }));
-    }
-  }}
   />
+        {errors.company && <span className="error-message">{errors.company}</span>}
+        </div>
+    </div>
+  </div>
+  </div>
+<div className="emailphone-banner-input">
+  <div className="email-banner">
+    <div className="email-banner-input">
+    <div className="email-banner-input-container">
+<label className="email-banner-name">Email *</label>
 <input
-  className="city"
-  placeholder="City"
-  type="text"
-  value={newEmploy.city}
-  onChange={(e) => {
-    const sanitized = e.target.value.replace(/[^\w\s]/gi, ''); // Removes punctuation
-    const formatted = sanitized
-      .toLowerCase()
-      .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalizes first letter of each word
-    handleEmployment2Change("city", formatted);
-  }}
+name="email"
+type="text"
+className="email-banner-box"
+text="email--input"
+placeholder="Enter Email"
+
+value={formData.email}
+onChange={(e) => {
+  setFormData({ ...formData, email: e.target.value });
+  if (e.target.value) {
+    setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
+  }
+}}
 />
+{errors.email && <div className="error-message">{errors.email}</div>}
+</div>
+    </div>
+  </div>
+
+  <div className="phone-banner">
+    <div className="banner-phone-name-input">
+    <div className="banner-phone-input-container">
+<label className="phone-banner-label">Phone Number *</label>
+<input
+name="phone"
+type="text"
+className="phone-banner-box"
+text="phone--input"
+placeholder="Enter Phone Number"
+
+value={phone}
+onChange={(e) => {
+  handlePhoneChange(e);
+}}
+/>
+{errors.phone && <div className="error-message">{errors.phone}</div>}
+</div>
+    </div>
+  </div>
+</div>
+</div>
+<div className="size-banner-vinyl-section">
+<div className="size-banner-section">
+  <label className="size-banner-label">Banner Size *</label>
+  <div className="length-banner-section">
+    <label className="length-banner-label" htmlFor="length">Banner Length</label>
+    <input
+      className="length-banner-box"
+      type="number"
+      name="length"
+      value={formData.length}
+      onChange={handleSizeChange}
+      placeholder="Enter length"
+    />
+    <select
+      className="length-banner-select"
+      value={lengthUnit}
+      onChange={(e) => handleUnitChange('length', e.target.value)}
+    >
+      <option value="" disabled>Select Measurement</option> {/* Default option */}
+      <option value="feet">Feet</option>
+      <option value="inches">Inches</option>
+    </select>
+  </div>
+
+  <div className="width-banner-section">
+    <label className="width-banner-label" htmlFor="width">Banner Width</label>
+    <input
+      className="width-banner-box"
+      type="number"
+      name="width"
+      value={formData.width}
+      onChange={handleSizeChange}
+      placeholder="Enter width"
+    />
+    <select
+      className="width-banner-select"
+      value={widthUnit}
+      onChange={(e) => handleUnitChange('width', e.target.value)}
+    >
+      <option value="" disabled>Select Measurement</option> {/* Default option */}
+      <option value="feet">Feet</option>
+      <option value="inches">Inches</option>
+    </select>
+  </div>
+
+  <button className="btn -- submit-banner-size" type="button" onClick={handleAddSize}>ADD SIZE</button>
+  <div className="size-banner-list">
+  <ul>
+    {addedSizes.length > 0 ? (
+      addedSizes.map((size, index) => (
+        <li className="size-banner-item" key={index}>
+          Length: {size.length}, Width: {size.width}
+          <button className="btn -- remove-size" onClick={() => handleRemoveSize(index)}>REMOVE SIZE</button>
+        </li>
+      ))
+    ) : (
+      <p className="no-added-banner-size">No sizes added yet.</p>
+    )}
+  </ul>
+</div>
+      {errors.bannerSize && <span className="error-message">{errors.bannerSize}</span>}
+</div>
+<div className="placement-imgs">
+    <div className="place-banner-flex-container">
+        <h1 className="place-examples">Placement Examples</h1>
+    </div>
+<div className="place-banner-flex-container">
+<div className="place-banner-flex-container">
+        <img src={images["retract.png"]} alt="Placement=photo" className="place-banner-img"/>
+        <h3 className="place-img-test">Retractable Stand</h3>
+        <p className="retract-img-test">Retractable Stands are regular printed banners only they are not worked on by any of the banner types.
+          Instead, they are placed on a retractable stand that can be pulled out and retracted when needed and are great for events and trade shows.
+          You can close the banner up and store it in a bag when not in use and move it around easily.
+        </p>
+  </div>
+  <div className="place-banner-flex-containerr">
+        <img src={images["banner types.jpg"]} alt="Placement=photo" className="place-banner-type-img"/>
+        <h3 className="place-img-test">Banner Types</h3>
+  </div>
+    </div>
+</div>
+      <div className="place-banner-section">
+        <label className="place-label" htmlFor="hang">Placement *</label>
         <select
-          className="state"
-          value={newEmploy.state}
-          onChange={(e) => handleEmployment2Change("state", e.target.value)}
+          className="place-select"
+          value={formData.hang}
+          onChange={(e) => handleOptionChange('hang', e.target.value)}
         >
-          <option value="">Select a State</option>
-          {states.map((state) => (
-            <option key={state.abbreviation} value={state.abbreviation}>
-              {state.name}
+          <option value="" disabled>Select Placement</option>
+          {bannerOptions.map((option, index) => (
+            <option key={index} value={option.name} disabled={option.disabled}>
+              {option.name}
             </option>
           ))}
         </select>
-        <input
-          className="zip"
-          placeholder="Zip Code"
-          type="text"
-          value={newEmploy.zip}
-          onChange={(e) => handleEmployment2Change("zip", e.target.value)}
-        />
-        <input
-          className="phone"
-          placeholder="Employer Phone Number"
-          type="text"
-          value={newEmploy.phone}
-          onChange={(e) => handleEmployment2Change("phone", e.target.value)}
-        />
-        <textarea
-          className="duties"
-          placeholder="Describe your job duties"
-          value={newEmploy.duties}
-          onChange={(e) => handleEmployment2Change("duties", e.target.value)}
-        ></textarea>
-
-        <div>
-          <input
-            type="checkbox"
-            id="currently-employed"
-            checked={newEmploy.currentlyEmployed}
-            onChange={(e) => handleEmployment2Change("currentlyEmployed", e.target.checked)}
-          />
-          <label htmlFor="currently-employed">Currently Employed</label>
-        </div>
-
-        {!newEmploy.currentlyEmployed && (
-          <textarea
-            className="reason-for-leaving"
-            placeholder="Reason for Leaving"
-            value={newEmploy.reasonForLeaving}
-            onChange={(e) => handleEmployment2Change("reasonForLeaving", e.target.value)}
-          />
-        )}
-
-        <p className="contact-employer">May we contact this employer?</p>
-        <div>
-          <input
-            type="radio"
-            id="contact-yes"
-            name="mayContact"
-            value="Yes"
-            onChange={(e) => handleEmployment2Change("mayContact", e.target.value)}
-            checked={newEmploy.mayContact === "Yes"}
-          />
-          <label htmlFor="contact-yes">Yes</label>
-
-          <input
-            type="radio"
-            id="contact-no"
-            name="mayContact"
-            value="No"
-            onChange={(e) => handleEmployment2Change("mayContact", e.target.value)}
-            checked={newEmploy.mayContact === "No"}
-          />
-          <label htmlFor="contact-no">No</label>
-        </div>
-
-        {/* ✅ Add Employment Button */}
-        <button type="button" className="add-button" onClick={addEmploymentEntry}>
-          + Add Employment
-        </button>
       </div>
-
-      {/* ✅ Show List Only If an Entry Exists */}
-      {employmentEntries.length > 0 ? (
-        <ul className="employment-list">
-          {employmentEntries.map((entry, index) => (
-            <li key={index} className="employment-item">
-              <p><b>Employer:</b> {entry.employerName}</p>
-              <p><b>Address:</b> {entry.address}, {entry.city}, {entry.state}, {entry.zip}</p>
-              <p><b>Phone:</b> {entry.phone}</p>
-              <p><b>Job Duties:</b> {entry.duties}</p>
-              <p><b>Currently Employed:</b> {entry.currentlyEmployed ? "Yes" : "No"}</p>
-              {!entry.currentlyEmployed && <p><b>Reason for Leaving:</b> {entry.reasonForLeaving}</p>}
-              <p><b>May We Contact?:</b> {entry.mayContact}</p>
-
-              {/* ✅ Remove Button - Only Show if More Than One Employment Entry Exists */}
-              {employmentEntries.length > 0 && (
-                <button type="button" onClick={() => removeEmploymentEntry(index)} className="remove-employment-btn">
-                  Remove Employment
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="no-employment-message">No employments added yet.</p>
-      )}
-    </div>
-  )}
-  {/* ✅ Show error message if needed */}
-  {workError && <div className="error-message">{workError}</div>}
+      <button className="btn -- submit-banner-place" type="button" onClick={handleAddPlacement}>ADD PLACEMENT</button>
+      <div className="place-banner-list">
+  <ul>
+    {addedPlaces.length > 0 ? (
+      addedPlaces.map((hang, index) => (
+        <li className="hang-item" key={index}>
+          {hang.hang}
+          <button className="btn -- remove-banner-place" onClick={() => handleRemovePlace(index)}>REMOVE PLACEMENT</button>
+        </li>
+      ))
+    ) : (
+      <p className="no-added-banner-place">No placements added yet.</p>
+    )}
+  </ul>
 </div>
-            <div className="job-resume">
-            <h2 className="resume-note"><b className="resume-note-b">NOTE:</b> You can only submit .doc, .pdf, .txt, and .pages files. Resumes and
-              cover letters are optional but are recommended. </h2>
-            <div className="resume-input">
-              <div className="resume-section">
-                <div className="name-input">
-                  <label htmlFor="resume-label" className="resume-name">Resume</label>
-                  <div className="file-apply-input-container">
-                    <label className="file-apply-label">
-                      {data.resume ? (
-                        <span>{data.resume.name}</span>
-                      ) : (
-                        <span>CHOOSE RESUME</span>
-                      )}
-<input
+          {errors.hang && <span className="error-message">{errors.hang}</span>}
+      <div className="finish-banner-section">
+        <label className="finish-label" htmlFor="finish">Finishing *</label>
+        <select
+          className="finish-banner-select"
+          value={formData.finishing}
+          onChange={(e) => handleOptionChange('finishing', e.target.value)}
+        >
+          <option value="" disabled>Select Finishing</option>
+          {availablefinishOptions.map((option, index) => (
+            <option key={index} value={option.name} disabled={option.disabled}>
+              {option.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <button className="btn -- submit-banner-finish" type="button" onClick={handleAddFinish}>ADD FINISHING</button>
+      <div className="finish-banner-list">
+  <ul>
+    {addedFinishes.length > 0 ? (
+      addedFinishes.map((finish, index) => (
+        <li className="finish-item" key={index}>
+          {finish.name}
+          <button className="btn -- remove-banner-finish" onClick={() => handleRemoveFinish(index)}>REMOVE FINISHING</button>
+        </li>
+      ))
+    ) : (
+      <p className="no-added-banner-finish">No finishes added yet.</p>
+    )}
+  </ul>
+</div>
+          {errors.finishing && <span className="error-message">{errors.finishing}</span>}
+          </div>
+      <div className="fleet-file-section">
+<label className="fleet-file-label">Logo/Image *</label>
+  <h2 className="apparel-warn">
+    <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
+    <p className="log-re">Need a new logo?</p>
+    <p className="logo-warn">
+      <b className="logo-notice">LOGO REDESIGN</b>: You can upload your old logo <a href="/new-logo">here</a> for a redesign quote.
+    </p>
+  </h2>
+<div className="file-fleet-section">
+<div className="choose-logo-contain">
+  <label className="file-fleet-label">
+    {formData.img && formData.img.length > 0 ? (
+      <span>Add More Photos or Logos</span>
+    ) : (
+      <span>Choose File(s)</span>
+    )}
+    <input
   type="file"
-  name="resume"
-  accept=".pdf,.doc,.docx,.txt,.pages,.jpg,.jpeg,.png,.heic,.heif,image/*"
+  name="img" // ✅ This is correct
+  accept=".pdf,.svg,.doc,.png,.jpg,.jpeg"
   onChange={(e) => {
-    handleFileChange(e, 'resume');
-    if (e.target.files[0]) {
-      setErrors((prevErrors) => ({ ...prevErrors, resume: '' })); // Clear the error
+                        handleFileChange(e, 'img');
+                          if (e.target.files[0]) {
+                            setErrors((prevErrors) => ({ ...prevErrors, img: '' })); // Clear the error
+                          }}}
+                          multiple
+                          />
+  </label>
+
+  {formData.img && formData.img.length > 0 && (
+    <button type="button" className="remove-fleet-file-button" onClick={() => handleFileRemove('img')}>
+      Remove All
+    </button>
+  )}
+
+  {fileError && <span className="error-message">{fileError}</span>}
+
+  {formData.img && formData.img.length > 0 && (
+    <ul className="selected-fleet-files-list">
+      {formData.img.map((file, index) => (
+        <li key={index}>{file.name}</li>
+      ))}
+    </ul>
+  )}
+</div>
+{errors.img && <div className="error-message">{errors.img}</div>}
+</div>
+</div>
+<div className="banner-message-container">
+<label className="message-banner-label">Message *</label>
+<h1 className="message-banner-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
+     and the Quantity of graphics needed. If you need
+to request a crew to help install your banners, please specify where the location is, when 
+and what time you want an MX crew will arrive.</h1>
+
+<textarea className="message-banner-text" name="message" type="text" placeholder="Enter Message"
+  value={formData.message} onChange={(e) => {
+    setFormData({ ...formData, message: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, message: '' })); // Clear the error
     }
   }}
-/>
-                    </label>
-                    {data.resume && (
-                      <button type="button" className="remove-apply-file-button" onClick={() => handleFileRemove('resume')}>REMOVE</button>
-                    )}
-                  </div>
-                  {errors.resume && <div className="error-message">{errors.resume}</div>}
-                </div>
-              </div>
-            </div>
-            <div className="cover-letter">
-              <div className="name-input">
-                <label className="cover-name">Cover Letter</label>
-                <div className="file-input-container">
-                  <label className="file-apply-label">
-                    {data.cover ? (
-                      <span>{data.cover.name}</span>
-                    ) : (
-                      <span>CHOOSE COVER LETTER</span>
-                    )}
-                    <input type="file" name="cover" accept=".pdf,.doc,.docx,.txt,.page" onChange={(e) => handleFileChange(e, 'cover')} />
-                  </label>
-                  {data.cover && (
-                    <button type="button" className="remove-apply-file-button" onClick={() => handleFileRemove('cover')}>REMOVE</button>
-                  )}
-                </div>
-              </div>
-            </div>
-                  </div>
-                  <div className="job-message">
-            <label className="message-label">Message *</label>
-            <h2 className="message-note">Tell us why you want to work for TBS! </h2>
-
-            <textarea className="message-text" name="message" type="text" placeholder="Enter Message"
-              value={data.message}
-              onChange={(e) => { 
-                formData({ ...data, message: e.target.value });
-              if (e.target.value) {
-                setErrors((prevErrors) => ({ ...prevErrors, message: '' })); // Clear the error
-              }
-              }}
-              />
-              {errors.message && <div className="error-message">{errors.message}</div>}
-            <h2 className="warning-message"><b className="submit-notice">NOTICE:</b> If you have already submitted before, you will not be able to submit again. If you're a former
-              employee for TBS and want your job back, please call (706) 263-0175. If you're new and just submitted, your information has already
-                 been received!</h2>
-                 </div>
-                 </div>
-            
-          {/* Display submission error message */}
-          </div>
-          <div className="submit-button-wrapper">
+  />
+  {errors.message && <span className="error-message">{errors.message}</span>}
+  <div className="terms-checkbox">
+  <label className="terms-label">Terms & Conditions *</label>
+  <input
+    type="checkbox"
+    id="terms"
+    checked={termsAccepted}
+    onChange={(e) => {
+      const checked = e.target.checked;
+      setTermsAccepted(checked);
+      setFormData((prev) => ({ ...prev, terms: checked }));
+      if (checked) {
+        setErrors((prevErrors) => ({ ...prevErrors, terms: '' }));
+      }
+    }}
+  />
+<p className="terms-text">
+  <strong>PLEASE READ AND CHECK:</strong><br />
+  You agree to pay for all custom signs and labor once production begins. No cancellations after materials are ordered or work has started.
+</p>
+</div>
+{errors.terms && <div className="error-message">{errors.terms}</div>}
+  </div>
+  <div className="submit-button-wrapper">
     <button
     type="submit"
-    className="btn btn--full submit-app"
+    className="btn btn--full submit-sign"
     disabled={isSubmitting}
   >
     {isSubmitting ? (
@@ -1503,7 +642,7 @@ to provide additional context regarding your background, please reach out to our
         <span className="spinner"></span> Submitting...
       </div>
     ) : (
-      'SUBMIT APPLICATION'
+      'SUBMIT CUSTOM BANNER'
     )}
   </button>
   {submissionMessage && (
@@ -1516,65 +655,63 @@ to provide additional context regarding your background, please reach out to our
     <div className="custom-toast error">{errorMessage}</div>
   )}
          </div> 
-
+</div>
+        </div>
         </form>
-
-      </main>
-      <footer className="footer">
-  <div className="site-footer__inner">
-    <img className="tbs-logo" alt="TBS logo" src={images["../assets/tbs_companies/tbs white.svg"].default} />
+                    </main>
+                    <footer className="material-footer">
+  <div className="site-material-footer__inner">
+    <img className="mx-img" alt="TBS logo" src={images["MX Tan.svg"]} />
     <div className="footer-navigation-content">
-      <h2 className="footer-title">Navigation</h2>
+      <h2 className="footer-title">Digital Services</h2>
     <ul className="footer-navigate">
-      <li><a className="footer-nav-link" href="/about-us">About Us</a></li>
-      <li><a className="footer-nav-link" href="/traffic-control-services">Traffic Control Services</a></li>
-      <li><a className="footer-nav-link" href="product-services">Product Services</a></li>
-      <li><a className="footer-nav-link" href="/contact-us">Contact Us</a></li>
-      <li><a className="footer-nav-link-view" href="">Careers</a></li>
+      <li><a className="footer-material-nav-link" href="/new-logo">New Logos</a></li>
+      <li><a className="footer-material-nav-link" href="/new-website">Websites</a></li>
     </ul>
+    </div>
+    <div className="footer-shop">
+          <h2 className="footer-title">Sign Shop Services</h2>
+        <ul className="footer-navigate">
+            <li><a className="footer-material-nav-link" href="/custom-signs">Custom Signs</a></li>
+            <li><a className="footer-material-nav-link" href="/decals-stickers">Decals & Stickers</a></li>
+            <li><a className="footer-material-nav-link-view" href="/banners">Banners</a></li>
+            <li><a className="footer-material-nav-link" href="/t-shirts-sweatshirts-jackets">Custom Apparel</a></li>
+            <li><a className="footer-material-nav-link" href="/window-frost-tint">Window Frosting & Tinting</a></li>
+            <li><a className="footer-material-nav-link" href="/drywall-floor-concrete">Wall & Floor Decals</a></li>
+            <li><a className="footer-material-nav-link" href="/fleet-graphics">Fleet Graphics</a></li>
+            </ul>
     </div>
     <div className="footer-contact">
       <h2 className="footer-title">Contact</h2>
-      <p className="contact-info">
-        <a className="will-phone" href="tel:+17062630175">Call: 706-263-0175</a>
-        <a className="will-email" href="mailto: tbsolutions1999@gmail.com">Email: tbsolutions1999@gmail.com</a>
-        <a className="will-address" href="https://www.google.com/maps/place/Traffic+and+Barrier+Solutions,+LLC/@34.5025307,-84.899317,660m/data=!3m1!1e3!4m6!3m5!1s0x482edab56d5b039b:0x94615ce25483ace6!8m2!3d34.5018691!4d-84.8994308!16s%2Fg%2F11pl8d7p4t?entry=ttu&g_ep=EgoyMDI1MDEyMC4wIKXMDSoASAFQAw%3D%3D"
+      <ul className="footer-navigate">
+      <li><a className="footer-material-nav-link" href="/contact-us">Contact Us</a></li>
+        <li><a className="footer-material-nav-link" href="tel:+17062630175">Call: (706) 263-0175</a></li>
+        <li><a className="footer-material-nav-link" href="mailto: tbsolutions1999@gmail.com">Email: tbsolutions1999@gmail.com</a></li>
+        <li><a className="footer-material-nav-link" href="https://www.google.com/maps/place/Traffic+%26+Barrier+Solutions%2FMaterial+WorX+Sign+Shop/@34.5115302,-84.9476215,94m/data=!3m1!1e3!4m6!3m5!1s0x886007df83843f3b:0x84510d87790af625!8m2!3d34.5117917!4d-84.948025!16s%2Fg%2F11l28zhlzt?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D"
       >
-        1995 Dews Pond Rd, Calhoun, GA 30701</a>
-      </p>
+        723 N. Wall St, Calhoun, GA, 30701</a></li>
+      </ul>
     </div>
 
     <div className="social-icons">
       <h2 className="footer-title">Follow Us</h2>
       <a className="social-icon" href="https://www.facebook.com/tbssigns2022/" target="_blank" rel="noopener noreferrer">
-                    <img className="facebook-img" src={images["../assets/social media/facebook.png"].default} alt="Facebook" />
-                </a>
-                <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
-                    <img className="tiktok-img" src={images["../assets/social media/tiktok.png"].default} alt="TikTok" />
-                </a>
-                <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                    <img className="insta-img" src={images["../assets/social media/instagram.png"].default} alt="Instagram" />
-                </a>
+        <img className="facebook-img" src={images["facebook.png"]} alt="Facebook" />
+      </a>
+      <a className="social-icon" href="https://www.tiktok.com/@tbsmaterialworx?_t=8lf08Hc9T35&_r=1" target="_blank" rel="noopener noreferrer">
+        <img className="tiktok-img" src={images["tiktok.png"]} alt="TikTok" />
+      </a>
+      <a className="social-icon" href="https://www.instagram.com/tbsmaterialworx?igsh=YzV4b3doaTExcjN4&utm_source=qr" target="_blank" rel="noopener noreferrer">
+        <img className="insta-img" src={images["instagram.png"]} alt="Instagram" />
+      </a>
     </div>
-    <div className="statement-box">
-                <p className="statement">
-                    <b className="safety-b">Safety Statement: </b>
-                    At TBS, safety is our top priority. We are dedicated to ensuring the well-being of our employees, clients, 
-                    and the general public in every aspect of our operations. Through comprehensive safety training, 
-                    strict adherence to regulatory standards, and continuous improvement initiatives, 
-                    we strive to create a work environment where accidents and injuries are preventable. 
-                    Our commitment to safety extends beyond compliance—it's a fundamental value embedded in everything we do. 
-                    Together, we work tirelessly to promote a culture of safety, 
-                    accountability, and excellence, because when it comes to traffic control, there's no compromise on safety.
-                </p>
-            </div>
   </div>
 </footer>
 <div className="footer-copyright">
-      <p className="footer-copy-p">&copy; 2026 Traffic & Barrier Solutions, LLC - 
+      <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
     </div>
-  );
-}
-export default Apply;
+            );
+};
+export default Banner;
