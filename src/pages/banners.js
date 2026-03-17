@@ -24,11 +24,10 @@ import 'react-toastify/dist/ReactToastify.css';
   ];
 const Banner = () => {
     const [phone, setPhone] = useState('');
-            const [selectedSize, setSelectedSize] = useState('');
             const [addedSizes, setAddedSizes] = useState([]);
             const [addedFinishes, setAddedFinishes] = useState([]);
             const [addedPlaces, setAddedPlaces] = useState([]);
-            const [company, setCompany] = useState('');
+
             const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
             const [widthUnit, setWidthUnit] = useState(''); // Default to feet
             const [fileError, setFileError] = useState(''); 
@@ -109,19 +108,7 @@ const Banner = () => {
                 setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
               }
             };
-            const handleZipChange = (event) => {
-              const input = event.target.value;
-              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-            
-              setFormData({ ...formData, zip: rawInput });
-            
-              // Check if the input has 5 digits and clear the error if it does
-              if (rawInput.length === 5) {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: '' }));
-              } else {
-                setErrors((prevErrors) => ({ ...prevErrors, zip: 'Please enter a valid 5-digit zip code.' }));
-              }
-            };
+
     const handleFileChange = (e, fileType) => {
       const newFiles = Array.from(e.target.files);
       setFormData(prevState => ({
@@ -179,6 +166,8 @@ const Banner = () => {
                 finishing: '',
               }));
             }
+
+            if (hasErrors) return;
           
     if (isSubmitting) return;
     setIsSubmitting(true);
@@ -195,7 +184,6 @@ const Banner = () => {
       if (field === 'img') fieldLabel = 'Logo';
       if (field === 'terms') fieldLabel = 'Terms & Conditions';
       newErrors[field] = `${fieldLabel} is required!`;
-      hasErrors = true;
     }
   });
 
@@ -339,7 +327,6 @@ onChange={(e) => {
     onChange={(e) => {
       const  value = e.target.value;
       const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setCompany(capitalizedValue);
       setFormData({ ...formData, company: capitalizedValue });
       // Clear error if the input is no longer empty
       if (value.trim() !== '') {
