@@ -139,59 +139,44 @@ const Banner = () => {
           };
       const handleSubmit = async (e) => {
     e.preventDefault();
-    let hasErrors = false;
-          
-            // Validate size
-            if (addedSizes.length === 0) {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                bannerSize: 'Please add at least one banner size.',
-              }));
-              hasErrors = true;
-            } else {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                bannerSize: '',
-              }));
-            }
-                        if (addedFinishes.length === 0) {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                finishing: 'Please add at least one banner finishing option.',
-              }));
-              hasErrors = true;
-            } else {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                finishing: '',
-              }));
-            }
-
-            if (hasErrors) return;
-          
     if (isSubmitting) return;
-    setIsSubmitting(true);
-    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
+
     const newErrors = {};
-  
-  requiredFields.forEach(field => {
-    if (!formData[field]) {
-      let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-      if (field === 'name') fieldLabel = 'Name';
-      if (field === 'company') fieldLabel = 'Company Name';
-      if (field === 'email') fieldLabel = 'Email';
-      if (field === 'phone') fieldLabel = 'Phone Number';
-      if (field === 'img') fieldLabel = 'Logo';
-      if (field === 'terms') fieldLabel = 'Terms & Conditions';
-      newErrors[field] = `${fieldLabel} is required!`;
+
+    // Validate required form fields
+    const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+        if (field === 'name') fieldLabel = 'Name';
+        if (field === 'company') fieldLabel = 'Company Name';
+        if (field === 'email') fieldLabel = 'Email';
+        if (field === 'phone') fieldLabel = 'Phone Number';
+        if (field === 'img') fieldLabel = 'Logo';
+        if (field === 'terms') fieldLabel = 'Terms & Conditions';
+        newErrors[field] = `${fieldLabel} is required!`;
+      }
+    });
+
+    // Validate banner-specific fields
+    if (addedSizes.length === 0) {
+      newErrors.bannerSize = 'Please add at least one banner size.';
     }
-  });
+    if (addedFinishes.length === 0) {
+      newErrors.finishing = 'Please add at least one banner finishing option.';
+    }
+    if (!termsAccepted) {
+      newErrors.terms = 'You must agree to pay upon job completion.';
+    }
 
     if (Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.'); // Set the general error message
+      setErrorMessage('Required fields are missing.');
       setErrors(newErrors);
       return;
     }
+
+    setIsSubmitting(true);
+    try {
 const formDataToSend = new FormData();
               formDataToSend.append('name', formData.name);
               formDataToSend.append('company', formData.company);
@@ -205,16 +190,6 @@ const formDataToSend = new FormData();
             formDataToSend.append('img', file);
           });
         }
-        if (!termsAccepted) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            terms: 'You must agree to pay upon job completion.'
-          }));
-          setErrorMessage('You must accept the terms and conditions.');
-          setIsSubmitting(false);
-          return;
-        }  
-
 
          // Append banner size as a formatted string like "2 feet x 2 feet"
               const formattedSizes = addedSizes.map((size) => `${size.length} x ${size.width}`).join(', ');
@@ -227,7 +202,6 @@ const formDataToSend = new FormData();
               // Append finishing as a single string (assuming there's only one finishing)
               const formattedFinishing = addedFinishes.map((finish) => finish.name).join(', ');
               formDataToSend.append('finishing', formattedFinishing);
-          setIsSubmitting(true);
               const response = await axios.post('/banners', formDataToSend, {
                 headers: {
                   'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
