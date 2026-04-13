@@ -8,10 +8,10 @@ import MXDecalGallery from '../photogallery/DecalMXgallery';
 import images from '../utils/dynamicImportImages';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const decalTypeOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false },
-    { name: 'Transparent', disabled: false },
     { name: 'Perforated Window', disabled: false },
     { name: 'Chrome', disabled: false },
     { name: 'Football Helmet Gloss', disabled: false },
@@ -41,6 +41,7 @@ const Decal = () => {
     const [lengthUnit, setLengthUnit] = useState('feet'); // Length measurement unit
     const [widthUnit, setWidthUnit] = useState('feet'); // Width measurement unit
     const [errors, setErrors] = useState({});
+    const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
     const [errorMessage, setErrorMessage] = useState('');
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
@@ -171,6 +172,10 @@ const handleFileRemove = (fileType) => {
       setErrors(newErrors);
       return;
     }
+    if (!validateCaptcha()) {
+      setErrorMessage('Please complete the reCAPTCHA.');
+      return;
+    }
     if (addedDecals.length === 0) {
         setDecalErrorMessage('You must add at least one decal before submitting.');
     } else {
@@ -203,6 +208,7 @@ const formDataToSend = new FormData();
         
   setIsSubmitting(true);
               formDataToSend.append('decals', JSON.stringify(addedDecals));
+              formDataToSend.append('captchaToken', captchaToken);
           
               const response = await axios.post('/decals-stickers', formDataToSend, {
                 headers: {
@@ -223,6 +229,7 @@ const formDataToSend = new FormData();
       setAddedDecals([]);
       setErrors({});
       setPhone('');
+      resetCaptcha();
       setSubmissionMessage(
         '✅ Decals & Stickers Request Submitted!'
       );}
@@ -595,11 +602,12 @@ const formDataToSend = new FormData();
   />
 <p className="terms-text">
   <strong>PLEASE READ AND CHECK:</strong><br />
-  You agree to pay for all decals and labor once production begins. No cancellations after materials are ordered or work has started.
+  You agree to pay for all custom signs and labor once production begins. No cancellations after materials are ordered or work has started.
 </p>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   <div className="submit-button-wrapper">
     <button
     type="submit"
