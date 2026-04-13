@@ -123,8 +123,8 @@ body {
 .material-logo-buttons {
     display: flex;
     flex-wrap: wrap;
-    align-self:center ;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
    }
    .custom-sign-logo-button, .decals-stickers-logo-button, 
    .banner-logo-button, .t-shirt-logo-button, .window-logo-button, .drywall-logo-button, .fleet-logo-button 
