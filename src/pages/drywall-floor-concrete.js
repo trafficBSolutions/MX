@@ -7,6 +7,7 @@ import MXDrywallGallery from '../photogallery/DrywallMXgallery';
 import Header from '../components/headerviews/HeaderDry';
 import images from '../utils/dynamicImportImages';
 import { toast } from 'react-toastify';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const placeOptions = [
     { name: 'Drywall Graphics (Examples: Homes and Office Buildings)', disabled: false },
     { name: 'Floor Graphics', disabled: false },
@@ -43,6 +44,7 @@ const Adhesive = () => {
               terms: false
             });
             const [errors, setErrors] = useState({});
+            const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
             const [submissionMessage, setSubmissionMessage] = useState('');
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
             const handlePhoneChange = (event) => {
@@ -162,6 +164,10 @@ const handleFinishChange = (e) => {
       setErrors(newErrors);
       return;
     }
+    if (!validateCaptcha()) {
+      setErrorMessage('Please complete the reCAPTCHA.');
+      return;
+    }
         if (!termsAccepted) {
           setErrors((prevErrors) => ({
             ...prevErrors,
@@ -190,6 +196,7 @@ if (addedFinishing.length === 0) {
 } else {
   formDataToSend.append('finishing', addedFinishing.join(', '));
 }
+formDataToSend.append('captchaToken', captchaToken);
 
         
   setIsSubmitting(true);
@@ -217,6 +224,7 @@ if (addedFinishing.length === 0) {
         setAddedFinishing([]);
         setErrors({});
         setPhone('');
+        resetCaptcha();
       setSubmissionMessage(
         '✅ Drywall/Floor/Concrete Graphics Request Submitted!'
       );}
@@ -234,7 +242,7 @@ if (addedFinishing.length === 0) {
                     <main>
                         <div className="page-dry-container">
                         <div className="dry-name-container">
-                        <h1 className="dry-description">WALL & FLOOR GRAPHICS</h1>
+                        <h1 className="dry-description">DRYWALL FLOOR CONCRETE GRAPHICS</h1>
                             </div>
                         </div>
                         <div className="photo-gal-dry">
@@ -244,7 +252,7 @@ if (addedFinishing.length === 0) {
             <div className="dry-form-container container--narrow page-section">
                 <div className="dry-form-info">
                     <h1 className="dry-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
-                    <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Wall & Floor Graphics
+                    <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Drywall/Floor/Concrete Graphics
                         Information to get an Inquiry or Quote.</h2>
                         <h3 className="fill-info">Fields marked with * are required.</h3>
                 </div>
@@ -600,11 +608,12 @@ and what time you want an MX crew will arrive.</h1>
   />
 <p className="terms-text">
   <strong>PLEASE READ AND CHECK:</strong><br />
-  You agree to pay for all wall & floor prints and labor once production begins. No cancellations after materials are ordered or work has started.
+  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
 </p>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
     <div className="submit-button-wrapper">
     <button
     type="submit"
@@ -616,7 +625,7 @@ and what time you want an MX crew will arrive.</h1>
         <span className="spinner"></span> Submitting...
       </div>
     ) : (
-      'SUBMIT CUSTOM WALL & FLOOR GRAPHICS'
+      'SUBMIT CUSTOM DRYWALL FLOOR CONCRETE GRAPHICS'
     )}
   </button>
   {submissionMessage && (
