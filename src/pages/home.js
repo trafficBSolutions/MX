@@ -102,14 +102,14 @@ const Home = () => {
   </p>
 
   <div className="will-contact-link">
-    <h2 className="will-contact">Talk to William Rowell</h2>
+    <h2 className="will-contact">Contact Us for a Quote</h2>
     <p className="contact-info">
-      <a className="will-phone" href="tel:+17068790106">
-        📞 Call/Text: (706) 879-0106
+      <a className="will-phone" href="tel:+17062630175">
+        📞 Call/Text: (706) 263-0175
       </a>
       <br />
-      <a className="will-email" href="mailto:tbsolutions9@gmail.com">
-        📧 Email: tbsolutions9@gmail.com
+      <a className="will-email" href="mailto:tbsolutions1999@gmail.com">
+        📧 Email: tbsolutions1999@gmail.com
       </a>
     </p>
 
