@@ -84,10 +84,19 @@ body {
     width: 100%;
 }
 .section-home-service {
-        background-color: #fdf2e9;
-    display: flex;
+    background-color: #fdf2e9;
     width: 100%;
     height: auto;
+}
+.logo-website-row {
+    display: flex;
+    width: 100%;
+}
+.logo-website-row .logo-container {
+    flex: 1;
+}
+.logo-website-row .material-website-container {
+    flex: 1;
 }
 .section-mx-featured {
     display: flex;
@@ -97,6 +106,15 @@ body {
 }
 .material-website-container {
     background-color: #b9b1ab;
+    padding: 20px;
+    text-align: center;
+}
+.website-sample-img {
+    width: 60%;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
 }
 .logo-subheading {
   font-size: 1.2rem;
@@ -183,9 +201,10 @@ width: 100%;
 .logo-container {
     flex: 1;
     width: 100%;
-    padding: 0 10px;
+    padding: 20px 10px;
     border: none;
     text-align: center;
+    background-color: #fdf2e9;
 }
 .container {
     width: 100%;
@@ -947,6 +966,9 @@ position: relative;
     .section-home-service {
         display: block;
     }
+    .logo-website-row {
+        flex-direction: column;
+    }
     .logo-container-content {
         display: block;
     }
@@ -1033,6 +1055,9 @@ position: relative;
 }
 .section-home-service {
     display: block;
+}
+.logo-website-row {
+    flex-direction: column;
 }
 .logo-container-content {
     display: block;
@@ -1127,6 +1152,9 @@ position: relative;
 }
 .section-home-service {
     display: block;
+}
+.logo-website-row {
+    flex-direction: column;
 }
 .logo-container-content {
     display: block;
