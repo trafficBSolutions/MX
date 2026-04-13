@@ -8,6 +8,7 @@ import Header from '../components/headerviews/HeaderSign';
 import images from '../utils/dynamicImportImages';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
       const sizeAluminumBlankOptions = [
         {name: '12"x6"', disabled: false},
         {name: '18"x6"'},
@@ -96,6 +97,7 @@ import 'react-toastify/dist/ReactToastify.css';
           const [signThicknessValue, setSignThicknessValue] = useState('');
           const [signSidesValue, setSignSidesValue] = useState('');
           const [errors, setErrors] = useState({});
+          const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
           const [termsAccepted, setTermsAccepted] = useState(false);
           const [errorMessage, setErrorMessage] = useState('');
           const [submissionMessage, setSubmissionMessage] = useState('');
@@ -298,6 +300,10 @@ import 'react-toastify/dist/ReactToastify.css';
     }
   });
 
+    if (!validateCaptcha()) {
+      newErrors.captcha = 'Please complete the reCAPTCHA.';
+    }
+
     if (Object.keys(newErrors).length > 0) {
       setErrorMessage('Required fields are missing.'); // Set the general error message
       setErrors(newErrors);
@@ -340,6 +346,7 @@ const formDataToSend = new FormData();
   setIsSubmitting(true);
               // Append added signs
               formDataToSend.append('signs', JSON.stringify(addedSigns));
+              formDataToSend.append('captchaToken', captchaToken);
           
               const response = await axios.post('/custom-signs', formDataToSend, {
                 headers: {
@@ -363,6 +370,7 @@ const formDataToSend = new FormData();
               setAcmColor('');
               setAcrylicColor('');
               setSignThicknessValue('');
+              resetCaptcha();
       setSubmissionMessage(
         '✅ Customizable Signage Request Submitted!'
       );}
@@ -977,6 +985,7 @@ and what time you want an MX crew will arrive.</h1>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   <div className="submit-button-wrapper">
     <button
     type="submit"
