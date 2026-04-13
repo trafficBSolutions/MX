@@ -94,6 +94,7 @@ const Home = () => {
   <a href="/new-logo" className="logo-link">New Logo</a>
 </div>
 <div className="material-website-container">
+  <img src={images["website-sample.svg"]} alt="Website Sample" className="website-sample-img" />
   <h1 className="contact-materialX">Need a Website That Works?</h1>
   <p className="contact-descript">
     Stop renting from Wix. Get a fast, custom website that’s fully yours with no limits, and no fluff. Request edits or updates anytime after publication.
