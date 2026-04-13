@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" fill="none">
+  <!-- Browser window -->
+  <rect x="10" y="10" width="180" height="140" rx="8" fill="#fff" stroke="#333" stroke-width="3"/>
+  <!-- Title bar -->
+  <rect x="10" y="10" width="180" height="28" rx="8" fill="#555"/>
+  <rect x="10" y="30" width="180" height="8" fill="#555"/>
+  <!-- Dots -->
+  <circle cx="26" cy="24" r="5" fill="#ff5f57"/>
+  <circle cx="42" cy="24" r="5" fill="#febc2e"/>
+  <circle cx="58" cy="24" r="5" fill="#28c840"/>
+  <!-- URL bar -->
+  <rect x="74" y="18" width="100" height="12" rx="4" fill="#ddd"/>
+  <!-- Header bar -->
+  <rect x="24" y="50" width="152" height="14" rx="3" fill="#757064"/>
+  <!-- Nav links -->
+  <rect x="24" y="72" width="30" height="6" rx="2" fill="#b9b1ab"/>
+  <rect x="62" y="72" width="30" height="6" rx="2" fill="#b9b1ab"/>
+  <rect x="100" y="72" width="30" height="6" rx="2" fill="#b9b1ab"/>
+  <rect x="138" y="72" width="38" height="6" rx="2" fill="#b9b1ab"/>
+  <!-- Image placeholder -->
+  <rect x="24" y="86" width="70" height="50" rx="4" fill="#e0dcd5"/>
+  <polygon points="34,126 54,102 64,112 74,100 84,126" fill="#c4bfb4"/>
+  <circle cx="42" cy="98" r="6" fill="#c4bfb4"/>
+  <!-- Text lines -->
+  <rect x="104" y="86" width="72" height="6" rx="2" fill="#ccc"/>
+  <rect x="104" y="98" width="60" height="6" rx="2" fill="#ddd"/>
+  <rect x="104" y="110" width="68" height="6" rx="2" fill="#ddd"/>
+  <!-- CTA button -->
+  <rect x="104" y="124" width="50" height="12" rx="4" fill="#757064"/>
+</svg>
