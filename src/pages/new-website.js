@@ -5,6 +5,7 @@ import '../css/headerfooter.css';
 import axios from 'axios';
 import images from '../utils/dynamicImportImages';
 import { toast } from 'react-toastify';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const Web = () => {
     const [phone, setPhone] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -19,6 +20,7 @@ import { toast } from 'react-toastify';
         message: ''
     })
     const [errors, setErrors] = useState({});
+    const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
             const [submissionMessage, setSubmissionMessage] = useState('');
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
             const handlePhoneChange = (event) => {
@@ -67,11 +69,17 @@ const handleSubmit = async (e) => {
     setIsSubmitting(false);
     return;
   }
+  if (!validateCaptcha()) {
+    setErrorMessage('Please complete the reCAPTCHA.');
+    setIsSubmitting(false);
+    return;
+  }
 
   try {
     const response = await axios.post('/new-website', {
       ...formData,
-      terms: termsAccepted, // send as boolean
+      terms: termsAccepted,
+      captchaToken,
     }, {
       headers: {
         'Content-Type': 'application/json',
@@ -91,6 +99,7 @@ const handleSubmit = async (e) => {
     setTermsAccepted(false);
     setPhone('');
     setErrors({});
+    resetCaptcha();
     toast.success('✅ Job submitted! Check your email for confirmation.');
     setSubmissionMessage('✅ New Website Request Submitted! Check your email for confirmation.');
   } catch (err) {
@@ -289,6 +298,7 @@ onChange={(e) => {
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
 </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   <div className="submit-button-wrapper">
     <button
     type="submit"
