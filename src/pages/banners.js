@@ -8,6 +8,7 @@ import Header from '../components/headerviews/HeaderBanner';
 import images from '../utils/dynamicImportImages';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const bannerOptions = [ 
     { name: 'Retractable Stand', disabled: false },
     { name: 'Grommet Pressed', disabled: false },
@@ -47,6 +48,7 @@ const Banner = () => {
               message: ''
             });
             const [errors, setErrors] = useState({});
+            const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
             const [submissionMessage, setSubmissionMessage] = useState('');
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
             const handleAddSize = () => {
@@ -174,6 +176,10 @@ const Banner = () => {
       setErrors(newErrors);
       return;
     }
+    if (!validateCaptcha()) {
+      setErrorMessage('Please complete the reCAPTCHA.');
+      return;
+    }
 
     setIsSubmitting(true);
     try {
@@ -202,6 +208,7 @@ const formDataToSend = new FormData();
               // Append finishing as a single string (assuming there's only one finishing)
               const formattedFinishing = addedFinishes.map((finish) => finish.name).join(', ');
               formDataToSend.append('finishing', formattedFinishing);
+              formDataToSend.append('captchaToken', captchaToken);
               const response = await axios.post('/banners', formDataToSend, {
                 headers: {
                   'Content-Type': 'multipart/form-data', // Ensure multipart/form-data is set
@@ -226,6 +233,7 @@ const formDataToSend = new FormData();
               setPhone('');
               setAddedPlaces([]);
               setAddedFinishes([]);
+              resetCaptcha();
       setSubmissionMessage(
         '✅ Banner Request Submitted!'
       );}
@@ -592,6 +600,7 @@ and what time you want an MX crew will arrive.</h1>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   <div className="submit-button-wrapper">
     <button
     type="submit"
@@ -669,7 +678,7 @@ and what time you want an MX crew will arrive.</h1>
   </div>
 </footer>
 <div className="footer-copyright">
-      <p className="footer-copy-p">&copy; 2025 Traffic & Barrier Solutions, LLC/Material WorX - 
+      <p className="footer-copy-p">&copy; 2026 Traffic & Barrier Solutions, LLC/Material WorX - 
         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
     </div>
     </div>
