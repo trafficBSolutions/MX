@@ -7,6 +7,7 @@ import '../css/toaster.css';
 import MXShirtGallery from '../photogallery/ShirtMXgallery';
 import { toast } from 'react-toastify';
 import images from '../utils/dynamicImportImages';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const apparelTypes = [
     { name: 'T-Shirts', disabled: false },
     { name: 'Sweatshirts', disabled: false },
@@ -59,6 +60,7 @@ import images from '../utils/dynamicImportImages';
     const [colorErrorMessage, setColorErrorMessage] = useState(''); // For color error
     const [quantityErrorMessage, setQuantityErrorMessage] = useState(''); // For quantity error
     const [errors, setErrors] = useState({});
+    const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false); 
     const [fileError, setFileError] = useState(''); 
@@ -190,6 +192,11 @@ if (Object.keys(newErrors).length > 0 || hasError) {
   setIsSubmitting(false);
   return;
 }
+if (!validateCaptcha()) {
+  setErrorMessage('Please complete the reCAPTCHA.');
+  setIsSubmitting(false);
+  return;
+}
 
         const formDataToSend = new FormData();
         formDataToSend.append('name', formData.name);
@@ -213,6 +220,7 @@ if (Object.keys(newErrors).length > 0 || hasError) {
           return;
         }  
         formDataToSend.append('apparels', JSON.stringify(addedApparel));
+        formDataToSend.append('captchaToken', captchaToken);
   setIsSubmitting(true);
       const response = await axios.post('/t-shirts-sweatshirts-jackets', formDataToSend, {
   headers: {
@@ -234,6 +242,7 @@ if (Object.keys(newErrors).length > 0 || hasError) {
 setAddedApparel([]);
         setErrors({});
         setPhone('');
+        resetCaptcha();
       setSubmissionMessage(
         '✅ T-Shirt/Sweatshirt/Jacket Request Submitted!'
       );}
@@ -562,6 +571,7 @@ setAddedApparel([]);
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   <div className="submit-button-wrapper">
     <button
     type="submit"
