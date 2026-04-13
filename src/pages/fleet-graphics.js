@@ -60,6 +60,7 @@ import axios from 'axios';
 import Header from '../components/headerviews/HeaderFleet';
 import {toast } from 'react-toastify';
 import images from '../utils/dynamicImportImages';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const finishOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false },
@@ -99,6 +100,7 @@ const FleetGraphics = () => {
     });
     
     const [errors, setErrors] = useState({});
+    const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
     
@@ -438,6 +440,10 @@ const handleModelChange = (e) => {
       setErrors(newErrors);
       return;
     }
+    if (!validateCaptcha()) {
+      setErrorMessage('Please complete the reCAPTCHA.');
+      return;
+    }
         if (!termsAccepted) {
           setErrors((prevErrors) => ({
             ...prevErrors,
@@ -463,6 +469,7 @@ formDataToSend.append('vehicle', addedVehicles.join(', '));
 formDataToSend.append('message', formData.message);
 formDataToSend.append('terms', termsAccepted);
 formDataToSend.append('finishing', formData.finishing.join(', ')); // ✅ correctly from formData.finishing
+formDataToSend.append('captchaToken', captchaToken);
 
 
         
@@ -487,6 +494,7 @@ formDataToSend.append('finishing', formData.finishing.join(', ')); // ✅ correc
       });
         setErrors({});
         setPhone('');
+        resetCaptcha();
       setSubmissionMessage(
         '✅ Fleet/Decal Vehicle Graphics Request Submitted!'
       );}
@@ -799,11 +807,12 @@ onChange={(e) => {
   />
 <p className="terms-text">
   <strong>PLEASE READ AND CHECK:</strong><br />
-  You agree to pay for all fleet graphics and labor once production begins. No cancellations after materials are ordered or work has started.
+  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
 </p>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   <div className="submit-button-wrapper">
     <button
     type="submit"
