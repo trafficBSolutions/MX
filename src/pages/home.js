@@ -85,11 +85,12 @@ const Home = () => {
 </section>
 <div className="logo-website-row">
 <div className="logo-container">
+  <img src={images["new logo symbol.svg"]} className="new-logo-img-home"alt="Logo Design" />
   <h3 className="logo-text">Logo Redesign</h3>
   <div className="logo-container-content">
     <h4 className="logo-subheading">Need us to design a logo or create a new one?</h4>
   <p className="logo-home-description">We offer custom logo design services tailored to your brand. Whether it's a refresh or something new, we've got you covered.</p>
-<img src={images["new logo symbol.svg"]} className="new-logo-img-home"alt="Logo Design" />
+
 </div>
   <a href="/new-logo" className="logo-link">New Logo</a>
 </div>
