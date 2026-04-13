@@ -5,6 +5,7 @@ import axios from 'axios'
 import MapComponent from '../components/GoogleMapComponent'
 import images from '../utils/dynamicImportImages';
 import '../css/headerfooter.css';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
 const Contact = () => {
     const [phone, setPhone] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -17,6 +18,7 @@ const Contact = () => {
         message: ''
     });
     const [errors, setErrors] = useState({});
+    const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
             const [submissionMessage, setSubmissionMessage] = useState('');
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
         
@@ -59,10 +61,13 @@ const Contact = () => {
                   }
               });
           
-              // If there are any errors, set the error message and stop submission
               if (Object.keys(newErrors).length > 0) {
                   setErrors(newErrors);
                   setErrorMessage('Required fields are missing.');
+                  return;
+              }
+              if (!validateCaptcha()) {
+                  setErrorMessage('Please complete the reCAPTCHA.');
                   return;
               }
           
@@ -70,7 +75,7 @@ const Contact = () => {
               setErrorMessage('');  // This ensures the error message is cleared before submission
           
               try {
-                  const formDataToSend = { ...formData };
+                  const formDataToSend = { ...formData, captchaToken };
                   const response = await axios.post('/contact-us', formDataToSend, {
                       headers: {
                           'Content-Type': 'application/json',
@@ -89,6 +94,7 @@ const Contact = () => {
                   });
                   setErrors({});
                   setPhone('');
+                  resetCaptcha();
                   setSubmissionMessage('Message has been sent! We will be with you within 48 hours.');
               } catch (error) {
                   console.error('Error submitting message:', error);
@@ -242,6 +248,7 @@ onChange={handlePhoneChange}
   }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   {submissionMessage && (
   <div className="submission-message">{submissionMessage}</div>
 )}
