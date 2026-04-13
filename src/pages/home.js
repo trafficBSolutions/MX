@@ -115,7 +115,7 @@ const Home = () => {
 
     <a className="home-web-button" href="/new-website">Start Your Website</a>
     <a className="home-web-button" href="https://william-rowell.netlify.app/" target="_blank" rel="noopener noreferrer">
-      View My Work
+      View Some Work
     </a>
   </div>
 </div>
