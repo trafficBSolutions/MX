@@ -8,6 +8,7 @@ import Header from '../components/headerviews/HeaderWindow';
 import images from '../utils/dynamicImportImages';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const windowOptions = [
     { name: 'Black Out', disabled: false },
     { name: 'White Out', disabled: false },
@@ -39,6 +40,7 @@ const Window = () => {
               terms: false
             });
             const [errors, setErrors] = useState({});
+            const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
             const [submissionMessage, setSubmissionMessage] = useState('');
             const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
             const handlePhoneChange = (event) => {
@@ -140,6 +142,10 @@ const Window = () => {
       setErrors(newErrors);
       return;
     }
+    if (!validateCaptcha()) {
+      setErrorMessage('Please complete the reCAPTCHA.');
+      return;
+    }
     if (!termsAccepted) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -154,8 +160,9 @@ const Window = () => {
                 .join(' | ');
                 const formDataToSend = {
                   ...formData,
-                  windowSize: formattedWindowSize, // Join the added sizes array into a string
-                  tint: addedTint.join(', '),      // Join the added tints array into a string
+                  windowSize: formattedWindowSize,
+                  tint: addedTint.join(', '),
+                  captchaToken,
                 };
           setIsSubmitting(true);
       const response = await axios.post('/window-frost-tint', formDataToSend, {
@@ -178,6 +185,7 @@ const Window = () => {
       setAddedTint([]);   // Clear added tints
       setErrors({});
       setPhone('');
+      resetCaptcha();
       setSubmissionMessage(
         '✅ Your window job has been submitted! We will be with you as soon as possible.'
       );}
@@ -514,11 +522,12 @@ and what time you want an MX crew will arrive.</h1>
   />
 <p className="terms-text">
   <strong>PLEASE READ AND CHECK:</strong><br />
-  You agree to pay for all window prints and labor once production begins. No cancellations after materials are ordered or work has started.
+  You agree to pay for all custom shirts and labor once production begins. No cancellations after materials are ordered or work has started.
 </p>
 </div>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
+  <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
   <div className="submit-button-wrapper">
     <button
     type="submit"
