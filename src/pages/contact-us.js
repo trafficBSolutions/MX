@@ -62,13 +62,12 @@ const Contact = () => {
                   }
               });
           
+              if (!validateCaptcha()) {
+                  newErrors.captcha = 'Please complete the reCAPTCHA.';
+              }
               if (Object.keys(newErrors).length > 0) {
                   setErrors(newErrors);
                   setErrorMessage('Required fields are missing.');
-                  return;
-              }
-              if (!validateCaptcha()) {
-                  setErrorMessage('Please complete the reCAPTCHA.');
                   return;
               }
           
