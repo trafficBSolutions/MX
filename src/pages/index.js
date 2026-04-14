@@ -12,5 +12,5 @@ import Web from './new-website'
 import Error from './error'
 import ApplyNow from './apply-now'
 import Portfolio from './portfolio'
-export { Home,, Portfolio, ApplyNow, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error }
+export { Home, Portfolio, ApplyNow, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error }
 
