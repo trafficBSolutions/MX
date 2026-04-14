@@ -11,5 +11,6 @@ import Shirt from './t-shirts-sweatshirts-jackets'
 import Web from './new-website'
 import Error from './error'
 import ApplyNow from './apply-now'
-export { Home, ApplyNow, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error }
+import Portfolio from './portfolio'
+export { Home,, Portfolio, ApplyNow, Signs, Adhesive, Banner, Window, FleetGraphics, Logo, Contact, Decal, Shirt, Web, Error }
 
