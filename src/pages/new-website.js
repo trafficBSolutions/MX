@@ -64,14 +64,13 @@ const handleSubmit = async (e) => {
           return;
         }  
 
+  if (!validateCaptcha()) {
+    newErrors.captcha = 'Please complete the reCAPTCHA.';
+    hasErrors = true;
+  }
   if (hasErrors) {
     setErrorMessage('Required fields are missing.');
     setErrors(newErrors);
-    setIsSubmitting(false);
-    return;
-  }
-  if (!validateCaptcha()) {
-    setErrorMessage('Please complete the reCAPTCHA.');
     setIsSubmitting(false);
     return;
   }
