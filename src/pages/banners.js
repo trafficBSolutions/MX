@@ -172,13 +172,12 @@ const Banner = () => {
       newErrors.terms = 'You must agree to pay upon job completion.';
     }
 
+    if (!validateCaptcha()) {
+      newErrors.captcha = 'Please complete the reCAPTCHA.';
+    }
     if (Object.keys(newErrors).length > 0) {
       setErrorMessage('Required fields are missing.');
       setErrors(newErrors);
-      return;
-    }
-    if (!validateCaptcha()) {
-      setErrorMessage('Please complete the reCAPTCHA.');
       return;
     }
 
