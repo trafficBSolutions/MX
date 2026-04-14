@@ -4,7 +4,7 @@ import Header from '../components/headerviews/HeaderDrop';
 import '../css/headerfooter.css';
 import '../css/home.css';
 import images from '../utils/dynamicImportImages'; // Import the dynamic image loader
-import FooterCopyright from '../components/footerviews/FooterCopyright';
+import FooterCopyright from '../components/FooterCopyright';
 const Home = () => {
   return (
     <div>
