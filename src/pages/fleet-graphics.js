@@ -436,13 +436,12 @@ const handleModelChange = (e) => {
     }
   });
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.'); // Set the general error message
-      setErrors(newErrors);
-      return;
-    }
     if (!validateCaptcha()) {
-      setErrorMessage('Please complete the reCAPTCHA.');
+      newErrors.captcha = 'Please complete the reCAPTCHA.';
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.');
+      setErrors(newErrors);
       return;
     }
         if (!termsAccepted) {
