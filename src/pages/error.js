@@ -1,3 +1,4 @@
+import FooterCopyright from '../components/FooterCopyright';
 import '../css/error.css';
 import '../css/headerfooter.css';
 import Header from '../components/headerviews/HeaderError';
@@ -70,10 +71,7 @@ const Error = () => {
     </div>
   </div>
 </footer>
-<div className="footer-copyright">
-      <p className="footer-copy-p">&copy; 2026 Traffic & Barrier Solutions, LLC/Material WorX - 
-        Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
-    </div>
+<FooterCopyright />
     </div>
     )
   };
