@@ -187,14 +187,13 @@ let hasError = false;
       } else {
         setApparelErrorMessage('');
       }
+if (!validateCaptcha()) {
+  newErrors.captcha = 'Please complete the reCAPTCHA.';
+  hasError = true;
+}
 if (Object.keys(newErrors).length > 0 || hasError) {
   setErrorMessage('Required fields are missing.');
   setErrors(newErrors);
-  setIsSubmitting(false);
-  return;
-}
-if (!validateCaptcha()) {
-  setErrorMessage('Please complete the reCAPTCHA.');
   setIsSubmitting(false);
   return;
 }
