@@ -54,16 +54,10 @@ const handleSubmit = async (e) => {
       hasErrors = true;
     }
   });
-        if (!termsAccepted) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            terms: 'You must agree to pay upon job completion.'
-          }));
-          setErrorMessage('You must accept the terms and conditions.');
-          setIsSubmitting(false);
-          return;
-        }  
-
+  if (!termsAccepted) {
+    newErrors.terms = 'You must agree to pay upon job completion.';
+    hasErrors = true;
+  }
   if (!validateCaptcha()) {
     newErrors.captcha = 'Please complete the reCAPTCHA.';
     hasErrors = true;
