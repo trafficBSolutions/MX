@@ -1,172 +1,447 @@
 import FooterCopyright from '../components/FooterCopyright';
-import { useState } from 'react';
-import '../css/dry.css';
+import { useState} from 'react';
+import '../css/fleet.css';
 import '../css/headerfooter.css';
 import '../css/toaster.css';
+import vehicleData from '../components/Vehicle Types/regularVehicles';
+import { acuraModels, 
+  AlfaRomeoModels, 
+  audiModels,
+  bmwModels,
+  buickModels,
+ cadillacModels,
+ chevroletModels,
+chryslerModels,
+dodgeModels,
+fiatModels,
+fordModels,
+genesisModels,
+gmcModels,
+hondaModels,
+hyundaiModels,
+infinitiModels,
+jaguarModels,
+jeepModels,
+kiaModels,
+landRoverModels,
+lexusModels,
+lincolnModels,
+mazdaModels,
+mercedesBenzModels,
+miniModels,
+mitsubishiModels,
+nissanModels,
+paganiModels,
+porscheModels,
+ramModels,
+subaruModels,
+teslaModels,
+toyotaModels,
+volkswagenModels,
+volvoModels} from '../components/Vehicle Models/vehicleModels';
+import {chevroletBoxTruckModels,
+  fordBoxTruckModels,
+  freightlinerBoxTruckModels,
+  gmcBoxTruckModels,
+  hinoBoxTruckModels,
+  internationalBoxTruckModels,
+  IsuzuBoxTruckModels,
+  kenworthBoxTruckModels,
+  mackBoxTruckModels,
+  mercedesBenzBoxTruckModels,
+  mitsubishiFusoBoxTruckModels,
+  nissanBoxTruckModels,
+  peterbiltBoxTruckModels,
+  ramBoxTruckModels,
+  scaniaBoxTruckModels,
+  volvoBoxTruckModels} from '../components/Vehicle Models/boxTruckModels';
+import boxTruckVehicles from '../components/Vehicle Types/boxTruckVehicles';
+import MXFleetGallery from '../photogallery/FleetMXgallery';
 import axios from 'axios';
-import MXDrywallGallery from '../photogallery/DrywallMXgallery';
-import Header from '../components/headerviews/HeaderDry';
+import Header from '../components/headerviews/HeaderFleet';
+import {toast } from 'react-toastify';
 import images from '../utils/dynamicImportImages';
-import { toast } from 'react-toastify';
 import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
-  const placeOptions = [
-    { name: 'Drywall Graphics (Examples: Homes and Office Buildings)', disabled: false },
-    { name: 'Floor Graphics', disabled: false },
-    { name: 'Concrete Graphics (Examples: Sidewalks and Roads)', disabled: false },
-    { name: 'Brick Wall Graphics', disabled: false },
-    { name: 'Cinder Block Wall Graphics (School Cinder Block Graphics)', disabled: false }
-  ];
   const finishOptions = [
     { name: 'Matte', disabled: false },
-    { name: 'Gloss', disabled: false }
+    { name: 'Gloss', disabled: false },
+    { name: 'Reflective Fleet Graphics', disabled: false }
   ];
-const Adhesive = () => {
+  const vehicleType = [
+    { name: 'Box Truck', disabled: false },
+    { name: 'Car/Pickup Truck/SUV/Van', disabled: false },
+    { name: 'Trailer', disabled: false }
+  ];
+const FleetGraphics = () => {
+  const currentYear = new Date().getFullYear();
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedMake, setSelectedMake] = useState('');
+  const [selectedModel, setSelectedModel] = useState('');
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [selectedVehicleType, setSelectedVehicleType] = useState(''); // New state for vehicle type
+  const [availableMakes, setAvailableMakes] = useState([]);
+  const [availableModels, setAvailableModels] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false); 
     const [phone, setPhone] = useState('');
-            const [addedvinylSizes, setAddedvinylSizes] = useState([]);
-            const [vinylLengthUnit, setVinylLengthUnit] = useState('');
-            const [vinylWidthUnit, setVinylWidthUnit] = useState('');
-            const [selectedPlacement, setSelectedPlacement] = useState('');
-            const [fileError, setFileError] = useState('');
-            const [addedPlacement, setAddedPlacement] = useState([]);
-            const [termsAccepted, setTermsAccepted] = useState(false);
-            const [isSubmitting, setIsSubmitting] = useState(false); 
-            const [addedFinishing, setAddedFinishing] = useState([]);
-            const [errorMessage, setErrorMessage] = useState('');
-            const [formData, setFormData] = useState({
-              name: '',
-              company: '',
-              email: '',
-              phone: '',
-              vinylSize: { length: '', width: '' },
-              placement: '',
-              finishing: '',
-              img: null,
-              message: '',
-              terms: false
-            });
-            const [errors, setErrors] = useState({});
-            const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
-            const [submissionMessage, setSubmissionMessage] = useState('');
-            const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
-            const handlePhoneChange = (event) => {
-              const input = event.target.value;
-              const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
-              const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
-              
-              setPhone(formatted);
-              setFormData({ ...formData, phone: formatted });
-            
-              // Check if the input has 10 digits and clear the error if it does
-              if (rawInput.length === 10) {
-                setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
-              } else {
-                setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
-              }
-            };
-const handleFinishChange = (e) => {
-  const { value, checked } = e.target;
-  let updated = [...addedFinishing];
-
-  if (checked) {
-    if (!updated.includes(value)) {
-      updated.push(value);
-    }
+    const [isTrailerSelected, setIsTrailerSelected] = useState(false); // New state for trailer selection
+    const [addedVehicles, setAddVehicles] = useState([]);
+    const [fileError, setFileError] = useState('');
+    const [vehicleError, setVehicleError] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [formData, setFormData] = useState({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      vehicle: '',
+      finishing: [],
+      img: null,
+      message: '',
+      terms: false,
+    });
+    
+    const [errors, setErrors] = useState({});
+    const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
+    const [submissionMessage, setSubmissionMessage] = useState('');
+    const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
+    
+    const handlePhoneChange = (event) => {
+      const input = event.target.value;
+      const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
+      const formatted = rawInput.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      
+      setPhone(formatted);
+      setFormData({ ...formData, phone: formatted });
+    
+      // Check if the input has 10 digits and clear the error if it does
+      if (rawInput.length === 10) {
+        setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, phone: 'Please enter a valid 10-digit phone number.' }));
+      }
+    };
+    const handleFileChange = (e, fileType) => {
+      const newFiles = Array.from(e.target.files);
+      setFormData(prevState => ({
+        ...prevState,
+        [fileType]: [...(prevState[fileType] || []), ...newFiles]
+      }));
+      setFileError('');
+    };
+    const handleFinishChange = (e) => {
+      const { value, checked } = e.target;
+      let updatedFinishing = [...formData.finishing];
+    
+      if (checked) {
+        // Add if not already included
+        if (!updatedFinishing.includes(value)) {
+          updatedFinishing.push(value);
+        }
+      } else {
+        // Remove if unchecked
+        updatedFinishing = updatedFinishing.filter(item => item !== value);
+      }
+    
+      setFormData({ ...formData, finishing: updatedFinishing });
+    
+      if (updatedFinishing.length > 0) {
+        setErrors((prev) => ({ ...prev, finishing: '' }));
+      }
+    };
+    const handleFileRemove = (fileType) => {
+      setFormData({ ...formData, [fileType]: [] }); // Clear all files in the array
+    };
+    
+    const handleAddVehicle = () => {
+      let newVehicle;
+    
+      // Validate that all fields (year, make, model) are filled for cars/pickup trucks/SUVs/Vans
+      if (selectedVehicleType === 'Trailer') {
+        // If adding a trailer, just specify the type
+        newVehicle = `Trailer`; // You can include more details if needed, such as specific trailer info
+      } else if (selectedYear && selectedMake && selectedModel) {
+        // If it's another type of vehicle, construct the full vehicle description
+        newVehicle = `${selectedYear} ${selectedMake} ${selectedModel}`;
+      } else {
+        // Set an error message if any required field is missing
+        setErrorMessage('Please select year, make, and model before adding a vehicle.');
+        return; // Exit the function if validation fails
+      }
+    
+      // Append the new vehicle to the existing list of vehicles
+      setAddVehicles([...addedVehicles, newVehicle]);
+    
+      // Clear the form fields to allow adding another vehicle
+      setSelectedYear('');  
+      setSelectedMake('');
+      setSelectedModel('');
+      
+      // Clear vehicle error message
+      setVehicleError(''); // Clear the vehicle error when a vehicle is added
+    
+      // Clear any previous general error messages
+      setErrorMessage('');   
+    };
+  // Function to remove a vehicle by index
+  const handleRemoveVehicle = (index) => {
+    const updatedVehicles = addedVehicles.filter((_, i) => i !== index); // Remove vehicle at index
+    setAddVehicles(updatedVehicles);
+  };
+// Handle Vehicle Type Change
+const handleTypeChange = (e) => {
+  const vehicleType = e.target.value;
+  setSelectedVehicleType(vehicleType);
+  setSelectedYear('');
+  setSelectedMake('');
+  setSelectedModel('');
+  if (vehicleType === 'Trailer') {
+    // When trailer is selected, clear year, make, model, and set trailer selected to true
+    setSelectedYear('');
+    setSelectedMake('');
+    setSelectedModel('');
+    setIsTrailerSelected(true);
   } else {
-    updated = updated.filter((item) => item !== value);
+    // Clear the trailer selection if another vehicle type is selected
+    setIsTrailerSelected(false);
   }
-
-  setAddedFinishing(updated);
-  setFormData((prev) => ({ ...prev, finishing: updated })); // Still used for checkbox state
-
-  if (updated.length > 0) {
-    setErrors((prev) => ({ ...prev, finishing: '' }));
+  if (vehicleType === 'Car/Pickup Truck/SUV/Van') {
+    setAvailableMakes(vehicleData.filter((make) => !make.disabled));
+  } else if (vehicleType === 'Box Truck') {
+    setAvailableMakes(boxTruckVehicles.filter((make) => !make.disabled));
+  } else {
+    setAvailableMakes([]);
   }
 };
-            const handleAddPlacement = () => {
-              if (selectedPlacement && addedPlacement.length < 5) {
-                setAddedPlacement([...addedPlacement, selectedPlacement]);
-                setSelectedPlacement('');
-                setErrors((prevErrors) => ({ ...prevErrors, placement: '' }));
-              } else {
-                setErrorMessage('Please select a placement option.');
-              }
-            };
-            
-            
-            // Function to remove a placement
-            const handleRemovePlacement = (index) => {
-              const updatedPlacement = addedPlacement.filter((_, i) => i !== index);
-              setAddedPlacement(updatedPlacement);
-            };
-            const handleAddVinylSize = () => {
-              const { vinylSize } = formData;
-            
-              if (vinylSize.length && vinylSize.width && vinylLengthUnit && vinylWidthUnit) {
-                // Create a new size string with units
-                const newSize = `${vinylSize.length} ${vinylLengthUnit} x ${vinylSize.width} ${vinylWidthUnit}`;
-                
-                // Add the new size to the list
-                setAddedvinylSizes([...addedvinylSizes, newSize]);
-                setErrors((prevErrors) => ({ ...prevErrors, vinylSize: '' }));
-                // Clear the form inputs after adding
-                setFormData((prevState) => ({
-                  ...prevState,
-                  vinylSize: { length: '', width: '' }
-                }));
-                setVinylLengthUnit('');
-                setVinylWidthUnit('');
-                setErrorMessage(''); // Clear any previous errors
-              } else {
-                setErrorMessage('Please enter both length, width, and their units.');
-              }
-            };
-            
-            const handleRemoveVinylSize = (index) => {
-              const updatedVinylSizes = addedvinylSizes.filter((_, i) => i !== index);
-              setAddedvinylSizes(updatedVinylSizes);
-            };
-            const handleFileChange = (e, fileType) => {
-              const newFiles = Array.from(e.target.files);
-              setFormData(prevState => ({
-                ...prevState,
-                [fileType]: [...(prevState[fileType] || []), ...newFiles]
-              }));
-              setFileError('');
-            };
-            const handleFileRemove = (fileType) => {
-              setFormData({ ...formData, [fileType]: [] }); // Clear all files in the array
-            };
+
+// Handle Year Change
+const handleYearChange = (e) => {
+  setSelectedYear(e.target.value);
+  setSelectedMake('');
+  setSelectedModel('');
+};
+
+// Handle Make Change
+const handleMakeChange = (e) => {
+  const selectedMake = e.target.value;
+  setSelectedMake(selectedMake);
+  setSelectedModel(''); // Clear model selection when make changes
+
+  if (selectedMake === 'Acura' /*1*/) {
+    setAvailableModels(acuraModels.filter((model) => !model.disabled)); // Show Acura models
+  } else if (selectedMake === 'Alfa Romeo' /*2*/) {
+    setAvailableModels(AlfaRomeoModels.filter((model) => !model.disabled)); // Show Alfa Romeo models
+  } else if (selectedMake === 'Audi' /*3*/) {
+    setAvailableModels(audiModels.filter((model) => !model.disabled)); // Show Audi models
+  } else if (selectedMake === 'BMW' /*4*/) {
+    setAvailableModels(bmwModels.filter((model) => !model.disabled)); // Show BMW models
+  } else if (selectedMake === 'Buick' /*5*/) {
+    setAvailableModels(buickModels.filter((model) => !model.disabled)); // Show Buick models
+  } else if (selectedMake === 'Cadillac' /*6*/) {
+    setAvailableModels(cadillacModels.filter((model) => !model.disabled)); // Show Cadillac models
+  } else if (selectedMake === 'Chevrolet') {
+    setAvailableModels(chevroletModels.filter((model) => !model.disabled)); // Show Chevrolet regular models
+  } else if (selectedMake === 'Chrysler' /*8*/) {
+    setAvailableModels(chryslerModels.filter((model) => !model.disabled)); // Show Chrysler models
+  } else if (selectedMake === 'Dodge' /*9*/) {
+    setAvailableModels(dodgeModels.filter((model) => !model.disabled)); // Show Dodge models
+  } else if (selectedMake === 'Fiat' /*10*/) {
+    setAvailableModels(fiatModels.filter((model) => !model.disabled)); // Show Fiat models
+  } else if (selectedMake === 'Ford' /*11*/) {
+    setAvailableModels(fordModels.filter((model) => !model.disabled)); // Show Ford 
+  } else if (selectedMake === 'Genesis' /*12*/) {
+    setAvailableModels(genesisModels.filter((model) => !model.disabled)); // Show Genesis models
+  } else if (selectedMake === 'GMC' /*13*/) {
+    setAvailableModels(gmcModels.filter((model) => !model.disabled)); // Show GMC models
+  } else if (selectedMake === 'Honda' /*14*/) {
+    setAvailableModels(hondaModels.filter((model) => !model.disabled)); // Show Honda models
+  } else if (selectedMake === 'Hyundai' /*15*/) {
+    setAvailableModels(hyundaiModels.filter((model) => !model.disabled)); // Show Hyundai models
+  } else if (selectedMake === 'Infiniti' /*16*/) {
+    setAvailableModels(infinitiModels.filter((model) => !model.disabled)); // Show Infiniti models
+  } else if (selectedMake === 'Jaguar' /*17*/) {
+    setAvailableModels(jaguarModels.filter((model) => !model.disabled)); // Show Jaguar models
+  } else if (selectedMake === 'Jeep' /*18*/) {
+    setAvailableModels(jeepModels.filter((model) => !model.disabled)); // Show Jeep models
+  } else if (selectedMake === 'Kia' /*19*/) {
+    setAvailableModels(kiaModels.filter((model) => !model.disabled)); // Show Kia models
+  } else if (selectedMake === 'Land Rover' /*20*/) {
+    setAvailableModels(landRoverModels.filter((model) => !model.disabled)); //
+  } else if (selectedMake === 'Lexus' /*21*/) {
+    setAvailableModels(lexusModels.filter((model) => !model.disabled)); // Show Lexus models
+  } else if (selectedMake === 'Lincoln' /*22*/) {
+    setAvailableModels(lincolnModels.filter((model) => !model.disabled)); // Show Lincoln models
+  } else if (selectedMake === 'Mazda' /*23*/) {
+    setAvailableModels(mazdaModels.filter((model) => !model.disabled)); // Show Mazda models
+  } else if (selectedMake === 'Mercedes-Benz' /*24*/) {
+    setAvailableModels(mercedesBenzModels.filter((model) => !model.disabled)); // Show Mercedes-Benz models
+  } else if (selectedMake === 'Mini' /*25*/) {
+    setAvailableModels(miniModels.filter((model) => !model.disabled)); // Show MINI models
+  } else if (selectedMake === 'Mitsubishi' /*26*/) {
+    setAvailableModels(mitsubishiModels.filter((model) => !model.disabled)); // Show Mitsubishi models
+  } else if (selectedMake === 'Nissan' /*27*/) {
+    setAvailableModels(nissanModels.filter((model) => !model.disabled)); // Show Nissan models
+  } else if (selectedMake === 'Pagani' /*28*/) {
+    setAvailableModels(paganiModels.filter((model) => !model.disabled)); // Show Pagani models
+  } else if (selectedMake === 'Porsche' /*29*/) {
+    setAvailableModels(porscheModels.filter((model) => !model.disabled)); // Show Porsche models
+  } else if (selectedMake === 'RAM' /*30*/) {
+    setAvailableModels(ramModels.filter((model) => !model.disabled)); // Show Ram models
+  } else if (selectedMake === 'Subaru' /*31*/) {
+    setAvailableModels(subaruModels.filter((model) => !model.disabled)); // Show Subaru models
+  } else if (selectedMake === 'Tesla' /*32*/) {
+    setAvailableModels(teslaModels.filter((model) => !model.disabled)); // Show Tesla models
+  } else if (selectedMake === 'Toyota' /*33*/) {
+    setAvailableModels(toyotaModels.filter((model) => !model.disabled)); // Show Toyota models
+  } else if (selectedMake === 'Volkswagen' /*34*/) {
+    setAvailableModels(volkswagenModels.filter((model) => !model.disabled)); // Show Volkswagen models
+  } else if (selectedMake === 'Volvo' /*35*/) {
+    setAvailableModels(volvoModels.filter((model) => !model.disabled)); // Show Volvo models
+  } else {
+    setAvailableModels([]); // Clear models if no valid make is selected
+  }
+
+  //Box Truck Model Selections
+  if (selectedVehicleType === 'Box Truck' && selectedMake === 'Chevrolet') {
+    setAvailableModels(chevroletBoxTruckModels.filter((model) => !model.disabled));
+  } else if (selectedMake === 'Chevrolet') {
+    setAvailableModels(chevroletModels.filter((model) => !model.disabled));
+  } else if (selectedMake === 'Ford') {
+    // Check if the vehicleType is "Box Truck"
+    if (selectedVehicleType === 'Box Truck') {
+        setAvailableModels(fordBoxTruckModels.filter((model) => !model.disabled)); // Show Ford box truck models
+    } else {
+        setAvailableModels(fordModels.filter((model) => !model.disabled)); // Show Ford regular models
+    } 
+} else if (selectedMake === 'Freightliner') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(freightlinerBoxTruckModels.filter((model) => !model.disabled)); // Show Freightliner box truck models
+  } else {
+      setAvailableModels(freightlinerBoxTruckModels.filter((model) => !model.disabled)); // Show regular Freightliner models
+  }
+} else if (selectedMake === 'GMC') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(gmcBoxTruckModels.filter((model) => !model.disabled)); // Show GMC box truck models
+  } else {
+      setAvailableModels(gmcModels.filter((model) => !model.disabled)); // Show regular GMC models
+  }
+}else if (selectedMake === 'Hino') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(hinoBoxTruckModels.filter((model) => !model.disabled)); // Show Hino box truck models
+  } else {
+      setAvailableModels(hinoBoxTruckModels.filter((model) => !model.disabled)); // Show regular Hino models
+  }
+}
+else if (selectedMake === 'International') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(internationalBoxTruckModels.filter((model) => !model.disabled)); // Show International box truck models
+  } else {
+      setAvailableModels(internationalBoxTruckModels.filter((model) => !model.disabled)); // Show regular International models
+  }
+} else if (selectedMake === 'Isuzu') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(IsuzuBoxTruckModels.filter((model) => !model.disabled)); // Show Isuzu box truck models
+  } else {
+      setAvailableModels(IsuzuBoxTruckModels.filter((model) => !model.disabled)); // Show regular Isuzu models
+  }
+} else if (selectedMake === 'Kenworth') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(kenworthBoxTruckModels.filter((model) => !model.disabled)); // Show Kenworth box truck models
+  } else {
+      setAvailableModels(kenworthBoxTruckModels.filter((model) => !model.disabled)); // Show regular Kenworth models
+  }
+} else if (selectedMake === 'Mack') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(mackBoxTruckModels.filter((model) => !model.disabled)); // Show Mack box truck models
+  } else {
+      setAvailableModels(mackBoxTruckModels.filter((model) => !model.disabled)); // Show regular Mack models
+  }
+} else if (selectedMake === 'Mercedes-Benz') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(mercedesBenzBoxTruckModels.filter((model) => !model.disabled)); // Show Mercedes-Benz box truck models
+  } else {
+      setAvailableModels(mercedesBenzModels.filter((model) => !model.disabled)); // Show regular Mercedes-Benz models
+  }
+} else if (selectedMake === 'Mitsubishi Fuso') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(mitsubishiFusoBoxTruckModels.filter((model) => !model.disabled)); // Show Mitsubishi Fuso box truck models
+  } else {
+      setAvailableModels(mitsubishiFusoBoxTruckModels.filter((model) => !model.disabled)); // Show regular Mitsubishi Fuso models
+  }
+} else if (selectedMake === 'Nissan') {
+  if (selectedVehicleType === 'Box Truck') {
+    setAvailableModels(nissanBoxTruckModels.filter((model) => !model.disabled));
+  } else {
+    setAvailableModels(nissanModels.filter((model) => !model.disabled));
+  }
+} else if (selectedMake === 'Peterbilt') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(peterbiltBoxTruckModels.filter((model) => !model.disabled)); // Show Peterbilt box truck models
+  } else {
+      setAvailableModels(peterbiltBoxTruckModels.filter((model) => !model.disabled)); // Show regular Peterbilt models
+  }
+} else if (selectedMake === 'Ram') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(ramBoxTruckModels.filter((model) => !model.disabled)); // Show Ram box truck models
+} else {
+      setAvailableModels(ramModels.filter((model) => !model.disabled)); // Show regular Ram models
+  }
+} else if (selectedMake === 'Scania') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(scaniaBoxTruckModels.filter((model) => !model.disabled)); // Show Scania box truck models
+  } else {
+      setAvailableModels(scaniaBoxTruckModels.filter((model) => !model.disabled)); // Show regular Scania models
+  }
+} else if (selectedMake === 'Volvo') {
+  // Check if the vehicleType is "Box Truck"
+  if (selectedVehicleType === 'Box Truck') {
+      setAvailableModels(volvoBoxTruckModels.filter((model) => !model.disabled)); // Show Volvo box truck models
+  } else {
+      setAvailableModels(volvoModels.filter((model) => !model.disabled)); // Show regular Volvo models
+  }
+}
+} 
+
+const handleModelChange = (e) => {
+  const selectedModel = e.target.value;
+  setSelectedModel(selectedModel); // Update selected model
+};
       const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
-    try { const requiredFields = ['name','company', 'email', 'phone','message', 'terms', 'img'];
+    try { const requiredFields = ['name', 'company', 'email', 'phone', 'message', 'terms', 'img'];
     const newErrors = {};
-    requiredFields.forEach(field => {
-      if (!formData[field]) {
-        let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
-          if (field === 'name') fieldLabel = 'First & Last Name';
-          if (field === 'company') fieldLabel = 'Company Name';
-          if (field === 'phone') fieldLabel = 'Phone Number';
-          if (field === 'img') fieldLabel = 'Logo';
-          if (field === 'terms') fieldLabel = 'Terms & Conditions';
-        newErrors[field] = `${fieldLabel} is required!`;
-      }
-    });
- if (!addedPlacement.length) {
-              newErrors.placement = 'At least one placement is required.';
-            }
-            if (formData.finishing.length === 0) {
-              newErrors.finishing = 'Please select at least one finishing.';
-            }
-    
-    if (Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.'); // Set the general error message
-      setErrors(newErrors);
-      return;
+  requiredFields.forEach(field => {
+    if (!formData[field]) {
+      let fieldLabel = field.charAt(0).toUpperCase() + field.slice(1);
+      if (field === 'name') fieldLabel = 'Name';
+      if (field === 'company') fieldLabel = 'Company Name';
+      if (field === 'email') fieldLabel = 'Email';
+      if (field === 'phone') fieldLabel = 'Phone Number';
+      if (field === 'img') fieldLabel = 'Logo';
+      if (field === 'terms') fieldLabel = 'Terms & Conditions';
+      newErrors[field] = `${fieldLabel} is required!`;
     }
+  });
+
     if (!validateCaptcha()) {
-      setErrorMessage('Please complete the reCAPTCHA.');
+      newErrors.captcha = 'Please complete the reCAPTCHA.';
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.');
+      setErrors(newErrors);
       return;
     }
         if (!termsAccepted) {
@@ -178,30 +453,28 @@ const handleFinishChange = (e) => {
           setIsSubmitting(false);
           return;
         }  
-              const formDataToSend = new FormData(); 
-              if (formData.img?.length > 0) {
-          formData.img.forEach((file) => {
-            formDataToSend.append('img', file);
-          });
-        }
+const formDataToSend = new FormData();
+
+if (formData.img?.length > 0) {
+  formData.img.forEach((file) => {
+    formDataToSend.append('img', file);
+  });
+}
+
 formDataToSend.append('name', formData.name);
 formDataToSend.append('company', formData.company);
 formDataToSend.append('email', formData.email);
 formDataToSend.append('phone', formData.phone);
+formDataToSend.append('vehicle', addedVehicles.join(', '));
 formDataToSend.append('message', formData.message);
-formDataToSend.append('terms', formData.terms);
-formDataToSend.append('vinylSize', addedvinylSizes.join(', '));
-formDataToSend.append('placement', addedPlacement.join(', '));
-if (addedFinishing.length === 0) {
-  newErrors.finishing = 'Please select at least one finishing.';
-} else {
-  formDataToSend.append('finishing', addedFinishing.join(', '));
-}
+formDataToSend.append('terms', termsAccepted);
+formDataToSend.append('finishing', formData.finishing.join(', ')); // ✅ correctly from formData.finishing
 formDataToSend.append('captchaToken', captchaToken);
+
 
         
   setIsSubmitting(true);
-      const response = await axios.post('/drywall-floor-concrete', formDataToSend, {
+      const response = await axios.post('/fleet-graphics', formDataToSend, {
   headers: {
     'Content-Type': 'multipart/form-data'
   }
@@ -209,25 +482,21 @@ formDataToSend.append('captchaToken', captchaToken);
       console.log(response.data); // Now this works
            
       setFormData({
-          name: '',
-          company: '',
-          email: '',
-          phone: '',
-          vinylSize: { length: '', width: '' },
-          placement: '',
-          finishing: '',
-          img: null,
-          message: '',
-          terms: ''
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      vehicle: '',
+      finishing: [],
+      img: null,
+      message: '',
+      terms: ''
       });
-        setAddedvinylSizes([]);
-        setAddedPlacement([]);
-        setAddedFinishing([]);
         setErrors({});
         setPhone('');
         resetCaptcha();
       setSubmissionMessage(
-        '✅ Drywall/Floor/Concrete Graphics Request Submitted!'
+        '✅ Fleet/Decal Vehicle Graphics Request Submitted!'
       );}
       catch (err) {
         console.error(err);
@@ -237,63 +506,54 @@ formDataToSend.append('captchaToken', captchaToken);
         setIsSubmitting(false);
       }
   };
-            return (
-                <div>
-                    <Header />
-                    <main>
-                        <div className="page-dry-container">
-                        <div className="dry-name-container">
-                        <h1 className="dry-description">DRYWALL FLOOR CONCRETE GRAPHICS</h1>
-                            </div>
-                        </div>
-                        <div className="photo-gal-dry">
-        <MXDrywallGallery /> {/* Render the photo gallery here */}
+    return (
+        <div>
+            <Header/>
+            <main className="main-fleet-graphics">
+            <div className="page-fleet-banner">
+    <div className="fleet-name-container">
+    <h1 className="fleet-description">FLEET & DECALED VEHICLE GRAPHICS</h1>
+</div>
+</div>
+<div className="photo-fleet-gal-fleet">
+  <MXFleetGallery />
         </div>
-        <form className="dry-set -- box" onSubmit={handleSubmit}>
-            <div className="dry-form-container container--narrow page-section">
-                <div className="dry-form-info">
-                    <h1 className="dry-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
-                    <h2 className="dry-fill">Please Fill Out the Form Below to Submit Your Custom Drywall/Floor/Concrete Graphics
-                        Information to get an Inquiry or Quote.</h2>
-                        <h3 className="fill-info">Fields marked with * are required.</h3>
-                </div>
-                <div className="dry-actual">
-                  <div className="name-section-dry">
-<div className="first-dry-dry-input">
+        <form className="fleet-set -- box"
+        onSubmit={handleSubmit}
+        >
+            <div className="fleet-form-container container--narrow page-section">
+        <div className="fleet-form-info">
+        <h1 className="fleet-app-box">SEND AN INQUIRY OR GET A QUOTE</h1>
+<h2 className="fleet-fill">Please Fill Out the Form Below to Submit Your FLEET GRAPHICS Information to get an Inquiry or Quote.</h2>
+<h3 className="fill-info">Fields marked with * are required.</h3>
+</div>
+<div className="fleet-actual">
+<div className="name-section-apparel">
+<div className="first-name-apparel-input">
 
-  <div className="first-dry-name">
-    <div className="firstname-dry-input">
-    <div className="input-first-dry-container">
-<label className="first-dry-label-name">Name *</label>
+  <div className="first-apparel-name">
+    <div className="firstname-apparel-input">
+    <div className="input-first-apparel-container">
+<label className="first-apparel-label-name">Name *</label>
 <input
-name="name"
-type="text"
-className="firstname-dry-name-input"
-text="first-name--input"
-placeholder="Enter First & Last Name"
-
-value={formData.name}
-onChange={(e) => {
-  setFormData({ ...formData, name: e.target.value });
-  if (e.target.value) {
-    setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
-  }
-}}
+  name="name"
+  type="text"
+  className="firstname-apparel-name-input"
+  placeholder="Enter First & Last Name"
+  value={formData.name}
+  onChange={(e) => {
+    setFormData({ ...formData, name: e.target.value });
+    if (e.target.value) {
+      setErrors((prevErrors) => ({ ...prevErrors, name: '' })); // Clear the error
+    }
+  }}
 />
 {errors.name && <div className="error-message">{errors.name}</div>}
-</div>
-    </div>
-  </div>
-</div>
-<div className="company-dry-input">
-  <div className="company-dry">
-    <div className="dry-company-name-input">
-    <div className="dry-input-container">
-    <label className="project-control-label">Company Name *</label>
+<label className="project-control-label">Company Name *</label>
 <p className="project-company-input-label">
   If you are wanting to submit a project that isn't for a company, please enter your name in the company field.
 </p>
-<input
+  <input
     className="project-company-input"
     type="text"
     placeholder="Enter Company Name"
@@ -309,20 +569,20 @@ onChange={(e) => {
     }
     }
   />
-  {errors.company && <div className="error-message">{errors.company}</div>}
-        </div>
+{errors.company && <div className="error-message">{errors.company}</div>}
+</div>
     </div>
   </div>
-  </div>
-<div className="emailphone-dry-input">
-  <div className="email-dry">
-    <div className="email-dry-input">
-    <div className="email-dry-input-container">
-<label className="email-dry-name">Email *</label>
+</div>
+<div className="emailphone-fleet-input">
+  <div className="email-fleet">
+    <div className="email-fleet-input">
+    <div className="email-fleet-input-container">
+<label className="email-fleet-name">Email *</label>
 <input
 name="email"
 type="text"
-className="email-dry-box"
+className="email-fleet-box"
 text="email--input"
 placeholder="Enter Email"
 
@@ -333,20 +593,20 @@ onChange={(e) => {
     setErrors((prevErrors) => ({ ...prevErrors, email: '' })); // Clear the error
   }
 }}
-
 />
 {errors.email && <div className="error-message">{errors.email}</div>}
 </div>
     </div>
   </div>
-  <div className="phone-dry">
-    <div className="dry-phone-name-input">
-    <div className="dry-phone-input-container">
-<label className="phone-dry-label">Phone Number *</label>
+
+  <div className="phone-fleet">
+    <div className="fleet-phone-name-input">
+    <div className="fleet-phone-input-container">
+<label className="phone-fleet-label">Phone Number *</label>
 <input
 name="phone"
 type="text"
-className="phone-dry-box"
+className="phone-fleet-box"
 text="phone--input"
 placeholder="Enter Phone Number"
 
@@ -361,150 +621,92 @@ onChange={(e) => {
   </div>
 </div>
 </div>
-<div className="size-dry-vinyl-section">
-  <h2 className="size-dry-label">Job Details</h2>
-<div className="size-dry-section">
-  <div className="length-dry-section">
-    <label className="length-dry-label" htmlFor="length">Vinyl Length *</label>
-    <input
-      className="length-dry-box"
-      type="number"
-      name="length"
-      value={formData.vinylSize.length}
-      onChange={(e) => setFormData({ ...formData, vinylSize: { ...formData.vinylSize, length: e.target.value } })}
-      placeholder="Enter length"
-    />
-    <select
-      className="length-dry-select"
-      value={vinylLengthUnit}
-      onChange={(e) => setVinylLengthUnit(e.target.value)}
-    >
-      <option value="" disabled>Select Unit</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-  </div>
+<div className="vehicle-type-fleet-section">
+  <label className="vehicle-fleet-label">Vehicle Specifications *</label>
+<label className="type-fleet-label" htmlFor="vehicleType">Vehicle Type</label>
+<div className="type-fleet-section">
+  {/* Vehicle Type Dropdown */}
+  <select className="type-fleet-box" value={selectedVehicleType} onChange={handleTypeChange}>
+    <option value="">Select Vehicle Type</option>
+    {vehicleType.map((type) => (
+      <option key={type.name} value={type.name} disabled={type.disabled}>
+        {type.name}
+      </option>
+    ))}
+  </select>
 
-  <div className="width-dry-section">
-    <label className="width-dry-label" htmlFor="width">Vinyl Width *</label>
-    <input
-      className="width-dry-box"
-      type="number"
-      name="width"
-      value={formData.vinylSize.width}
-      onChange={(e) => setFormData({ ...formData, vinylSize: { ...formData.vinylSize, width: e.target.value } })}
-      placeholder="Enter width"
-    />
-    <select
-      className="width-dry-select"
-      value={vinylWidthUnit}
-      onChange={(e) => setVinylWidthUnit(e.target.value)}
-    >
-      <option value="" disabled>Select Unit</option>
-      <option value="feet">Feet</option>
-      <option value="inches">Inches</option>
-    </select>
-  </div>
+  {/* Conditionally Render Year Dropdown */}
+  {!isTrailerSelected && (
+    <>
+      <label className="year-fleet-label" htmlFor="year">Year</label>
+      <select className="year-fleet-box" value={selectedYear} onChange={handleYearChange} disabled={!selectedVehicleType}>
+        <option value="">Select Year</option>
+        {Array.from({ length: currentYear - 1990 + 1 }, (_, i) => 1990 + i).map((year) => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
 
-  {/* Add button to add the size */}
-  <button
-    type="button"
-    className="btn -- dry-vinyl-submit-size"
-    onClick={handleAddVinylSize}
-  >
-    ADD VINYL SIZE
-  </button>
+      {/* Make Dropdown */}
+      <label className="make-fleet-label" htmlFor="make">Make</label>
+      <select className="make-fleet-box" value={selectedMake} onChange={handleMakeChange} disabled={!selectedYear}>
+        <option value="">Select Make</option>
+        {availableMakes.map((make) => (
+          <option key={make.name} value={make.name}>
+            {make.name}
+          </option>
+        ))}
+      </select>
 
-  {/* Display the list of added sizes */}
+      {/* Model Dropdown */}
+      <label className="model-fleet-label" htmlFor="model">Model</label>
+      <select
+        className="model-fleet-box"
+        value={selectedModel}
+        onChange={handleModelChange}
+        disabled={!selectedMake}
+      >
+        <option value="">Select Model</option>
+        {availableModels.map((model) => (
+          <option key={model.name} value={model.name}>
+            {model.name}
+          </option>
+        ))}
+      </select>
+    </>
+  )}
+</div>
+
+    <button className="btn -- submit-vehicle" type="button" onClick={handleAddVehicle}>
+          ADD VEHICLE
+        </button>
+<div className="vehicle-section">
+  <label className="added-vehicle-label">Added Vehicles:</label>
   <ul>
-    {addedvinylSizes.length > 0 ? (
-      addedvinylSizes.map((size, index) => (
-        <li className="dry-vinyl-size-li" key={index}>
-          {size}
-          <button
-            className="btn -- dry-vinyl-remove-submit-size"
-            type="button"
-            onClick={() => handleRemoveVinylSize(index)}
+    {addedVehicles.length > 0 ? (
+      addedVehicles.map((vehicle, index) => (
+        <li className="vehicle-list" key={index}>
+          {vehicle}
+          <button 
+            className="btn -- submit-vehicle"
+            type="button" 
+            onClick={() => handleRemoveVehicle(index)}
           >
-            REMOVE SIZE
+            REMOVE VEHICLE
           </button>
         </li>
       ))
     ) : (
-      <p className="no-added-vinyl">No vinyl sizes added yet.</p>
+      <p className="no-added-vehicles">No vehicles added yet.</p>
     )}
   </ul>
-
-  {/* Show error messages if any */}
-  {errors.vinylSize && <p className="error-message">{errors.vinylSize}</p>}
+  {vehicleError && <span className="error-message">{vehicleError}</span>}
 </div>
-<div className="placement-imgs">
-<div className="place-img-dry-container">
-    <div className="place-img-container">
-      <img src={images["Nance 2.jpg"]} alt="Placement=photo" className="place-img"/>
-        <h3 className="place-img-test">Drywall Graphics</h3>
+{errors.vehicle && <span className="error-message">{errors.vehicle}</span>}
 </div>
-<div className="place-img-container">
-        <img src={images["floor graphics.jpg"]} alt="Placement=photo" className="place-img"/>
-        <h3 className="place-img-test">Floor Graphics</h3>
-</div>
-<div className="place-img-container">
-        <img src={images["concrete graphic.jpg"]} alt="Placement=photo" className="place-img"/>
-        <h3 className="place-img-test">Concrete Graphics</h3>
-</div>
-<div className="place-img-container">
-        <img src={images["brick graphic.jpg"]} alt="Placement=photo" className="place-img"/>
-        <h3 className="place-img-test">Brick Wall Graphics</h3>
-</div>
-<div className="place-img-container">
-        <img src={images["cinder graphics.jpg"]} alt="Placement=photo" className="place-img"/>
-        <h3 className="place-img-test">Cinder Block Graphics</h3>
-</div>
-    </div>
-</div>
-      <div className="place-dry-section">
-        <label className="place-label" htmlFor="placement">Placement *</label>
-        <select
-  className="place-dry-selection"
-  value={selectedPlacement}
-  onChange={(e) => setSelectedPlacement(e.target.value)} // Make sure this line is updating the state
->
-  <option value="" disabled>Select Placement</option>
-  {placeOptions.map((option, index) => (
-    <option key={index} value={option.name} disabled={option.disabled}>
-      {option.name}
-    </option>
-  ))}
-</select>
-
-        <button className="btn -- submit-place" type="button" onClick={handleAddPlacement}>
-    ADD PLACEMENT
-  </button>
-  <div className="placement-list">
-  <ul>
-  {addedPlacement.length > 0 ? (
-    addedPlacement.map((placement, index) => (
-      <li className="placement-item" key={index}>
-        {placement}
-        <button
-          className="btn -- remove-placement"
-          onClick={() => handleRemovePlacement(index)}
-        >
-          REMOVE PLACEMENT
-        </button>
-      </li>
-    ))
-  ) : (
-    <p className="no-added-placement">No added placements yet.</p>
-  )}
-</ul>
-
-    {errors.placement && <span className="error-message">{errors.placement}</span>}
-  </div>
-      </div>
-      <div className="dry-finish-img-section">
-      <label className="finish-label">Finishing Options *</label>
-
+<div className="finishing-fleet-section">
+  <label className="finish-label">Finishing Options *</label>
 <div className="finish-fleet-section">
 <div className="checkbox-finish-options">
   {finishOptions.map((option, index) => (
@@ -523,8 +725,7 @@ onChange={(e) => {
 {errors.finishing && <div className="error-message">{errors.finishing}</div>}
   </div>
 </div>
-      </div>
-      <div className="fleet-file-section">
+<div className="fleet-file-section">
 <label className="fleet-file-label">Logo/Image *</label>
 <h2 className="apparel-warn">
     <b className="apparel-notice">NOTICE</b>: Submitting PNG or JPG files may require a vectorization fee if they're pixelated. To avoid this, please upload true vector files (PDF or SVG without embedded images). This ensures your apparel prints crisp and clean.
@@ -573,14 +774,14 @@ onChange={(e) => {
 {errors.img && <div className="error-message">{errors.img}</div>}
 </div>
 </div>
-<div className="dry-message-container">
-<label className="message-dry-label">Message *</label>
-<h1 className="message-dry-note">Tell us about your graphics and how you want it designed! Please Specify Logo Redesigning,
-     and the Quantity of graphics needed. If you need
-to request a crew to help install your drywall/concrete/floor graphics, please specify where the location is, when 
-and what time you want an MX crew will arrive.</h1>
+<div className="fleet-message-container">
+<label className="message-fleet-label">Message *</label>
+<h1 className="message-fleet-note">
+  Tell us about your vehicle fleet/decal job and how you want it designed! 
+</h1>
 
-<textarea className="message-dry-text" name="message" type="text" placeholder="Enter Message"
+
+<textarea className="message-fleet-text" name="message" type="text" placeholder="Enter Message"
   value={formData.message} onChange={(e) => {
     setFormData({ ...formData, message: e.target.value });
     if (e.target.value) {
@@ -589,10 +790,7 @@ and what time you want an MX crew will arrive.</h1>
   }}
   />
   {errors.message && <span className="error-message">{errors.message}</span>}
-  {submissionMessage && (
-<div className="submission-message">{submissionMessage}</div>
-)}
-<div className="terms-checkbox">
+  <div className="terms-checkbox">
   <label className="terms-label">Terms & Conditions *</label>
   <input
     type="checkbox"
@@ -615,10 +813,10 @@ and what time you want an MX crew will arrive.</h1>
 {errors.terms && <div className="error-message">{errors.terms}</div>}
   </div>
   <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
-    <div className="submit-button-wrapper">
+  <div className="submit-button-wrapper">
     <button
     type="submit"
-    className="btn btn--full submit-dry"
+    className="btn -- submit-fleet"
     disabled={isSubmitting}
   >
     {isSubmitting ? (
@@ -626,7 +824,7 @@ and what time you want an MX crew will arrive.</h1>
         <span className="spinner"></span> Submitting...
       </div>
     ) : (
-      'SUBMIT CUSTOM DRYWALL FLOOR CONCRETE GRAPHICS'
+      'SUBMIT VEHICLE FLEET/DECAL GRAPHICS'
     )}
   </button>
   {submissionMessage && (
@@ -640,9 +838,9 @@ and what time you want an MX crew will arrive.</h1>
   )}
          </div> 
 </div>
-        </div>
+</div>
         </form>
-                    </main>
+        </main>
       <footer className="material-footer">
   <div className="site-material-footer__inner">
     <img className="mx-img" alt="TBS logo" src={images["MX Tan.svg"]} />
@@ -661,8 +859,8 @@ and what time you want an MX crew will arrive.</h1>
             <li><a className="footer-material-nav-link" href="/banners">Banners</a></li>
             <li><a className="footer-material-nav-link" href="/t-shirts-sweatshirts-jackets">Custom Apparel</a></li>
             <li><a className="footer-material-nav-link" href="/window-frost-tint">Window Frosting & Tinting</a></li>
-            <li><a className="footer-material-nav-link-view" href="/drywall-floor-concrete">Wall & Floor Decals</a></li>
-            <li><a className="footer-material-nav-link" href="/fleet-graphics">Fleet Graphics</a></li>
+            <li><a className="footer-material-nav-link" href="/drywall-floor-concrete">Wall & Floor Decals</a></li>
+            <li><a className="footer-material-nav-link-view" href="/fleet-graphics">Fleet Graphics</a></li>
             </ul>
     </div>
     <div className="footer-contact">
@@ -695,4 +893,4 @@ and what time you want an MX crew will arrive.</h1>
     </div>
     )
   };
-export default Adhesive;
+export default FleetGraphics;
