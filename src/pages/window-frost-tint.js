@@ -138,13 +138,12 @@ const Window = () => {
               if (addedTint.length === 0) {
                 newErrors.tint = 'Please add at least one frost/tint option.';
               }
-    if (Object.keys(newErrors).length > 0) {
-      setErrorMessage('Required fields are missing.'); // Set the general error message
-      setErrors(newErrors);
-      return;
-    }
     if (!validateCaptcha()) {
-      setErrorMessage('Please complete the reCAPTCHA.');
+      newErrors.captcha = 'Please complete the reCAPTCHA.';
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrorMessage('Required fields are missing.');
+      setErrors(newErrors);
       return;
     }
     if (!termsAccepted) {
