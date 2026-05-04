@@ -1,6 +1,7 @@
 import Header from '../components/headerviews/HeaderDrop';
 import '../css/headerfooter.css';
 import '../css/portfolio.css';
+import images from '../utils/dynamicImportImages';
 
 const Portfolio = () => {
   return (
@@ -76,13 +77,15 @@ const Portfolio = () => {
           <p className="portfolio-subtitle">Check out some of the websites we've built</p>
           <div className="portfolio-projects-grid">
             {[
-              { icon: '🤝', title: 'Direct Connection', desc: 'Business networking platform with member directory', url: 'https://www.directconnectiondc.com' },
-              { icon: '🚧', title: 'Traffic & Barrier Solutions, LLC', desc: 'Traffic Control website with online scheduling and record viewing', url: 'https://www.trafficbarriersolutions.com' },
-              { icon: '🏗️', title: 'Skyline Builders GA, LLC', desc: 'Construction company website with project gallery and service inquiries', url: 'https://www.skylinebuildersgallc.com' },
-              { icon: '🚗', title: 'High Visibility Detailing', desc: 'Professional auto detailing service with online booking', url: 'https://www.highvisibilitydetailing.com' },
+              { img: images['connection.svg'], title: 'Direct Connection', desc: 'Business networking platform with member directory', url: 'https://www.directconnectiondc.com' },
+              { img: images['TBS.svg'], title: 'Traffic & Barrier Solutions, LLC', desc: 'Traffic Control website with online scheduling and record viewing', url: 'https://www.trafficbarriersolutions.com' },
+              { img: images['Skyline Builders Georgia PDF.svg'], title: 'Skyline Builders GA, LLC', desc: 'Construction company website with project gallery and service inquiries', url: 'https://www.skylinebuildersgallc.com' },
+              { img: images['High Visibility PDF.svg'], title: 'High Visibility Detailing', desc: 'Professional auto detailing service with online booking', url: 'https://www.highvisibilitydetailing.com' },
             ].map((p, i) => (
               <div className="portfolio-project-card" key={i}>
-                <div className="portfolio-project-icon">{p.icon}</div>
+                <div className="portfolio-project-icon">
+                  <img src={p.img} alt={p.title} className="portfolio-project-logo" />
+                </div>
                 <div className="portfolio-project-content">
                   <h3>{p.title}</h3>
                   <p>{p.desc}</p>
