@@ -1,4 +1,5 @@
 import Header from '../components/headerviews/HeaderDrop';
+import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
 import '../css/headerfooter.css';
 import '../css/portfolio.css';
 import images from '../utils/dynamicImportImages';
@@ -10,6 +11,21 @@ const Portfolio = () => {
       <main className="portfolio-main">
         {/* Hero */}
         <section className="portfolio-hero">
+          <div className="shader-gradient-bg">
+            <ShaderGradientCanvas>
+              <ShaderGradient
+                type="waterPlane"
+                animate="on"
+                uSpeed={0.3}
+                uStrength={1.5}
+                uDensity={1.2}
+                uFrequency={5.5}
+                color1="#0055ff"
+                color2="#8b5cf6"
+                color3="#00d4ff"
+              />
+            </ShaderGradientCanvas>
+          </div>
           <h1>MX Systems</h1>
           <p>Professional MERN Stack Web Development for Modern Businesses</p>
         </section>
