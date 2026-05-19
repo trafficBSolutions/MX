@@ -4,10 +4,21 @@
 
 /* Hero */
 .portfolio-hero {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
   color: #fff;
   text-align: center;
   padding: 100px 20px 80px;
+  overflow: hidden;
+}
+.shader-gradient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.portfolio-hero h1,
+.portfolio-hero p {
+  position: relative;
+  z-index: 1;
 }
 .portfolio-hero h1 {
   font-size: 3rem;
