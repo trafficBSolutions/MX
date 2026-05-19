@@ -30,7 +30,7 @@ const Portfolio = () => {
       <main className="portfolio-main parallax-container">
         {/* Hero */}
         <section className="portfolio-hero parallax-section">
-          <div className="shader-gradient-bg" data-speed="-0.3">
+          <div className="shader-gradient-bg">
             <ShaderGradientCanvas>
               <ShaderGradient
                 type="waterPlane"
