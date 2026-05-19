@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import Header from '../components/headerviews/HeaderDrop';
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
 import '../css/headerfooter.css';
@@ -5,13 +6,31 @@ import '../css/portfolio.css';
 import images from '../utils/dynamicImportImages';
 
 const Portfolio = () => {
+  const parallaxRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const layers = parallaxRef.current?.querySelectorAll('[data-speed]');
+      if (!layers) return;
+      const scrollY = window.scrollY;
+      layers.forEach((layer) => {
+        const speed = parseFloat(layer.dataset.speed);
+        const offset = layer.getBoundingClientRect().top + scrollY;
+        const yPos = (scrollY - offset) * speed;
+        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div>
+    <div ref={parallaxRef}>
       <Header />
-      <main className="portfolio-main">
+      <main className="portfolio-main parallax-container">
         {/* Hero */}
-        <section className="portfolio-hero">
-          <div className="shader-gradient-bg">
+        <section className="portfolio-hero parallax-section">
+          <div className="shader-gradient-bg" data-speed="-0.3">
             <ShaderGradientCanvas>
               <ShaderGradient
                 type="waterPlane"
@@ -26,13 +45,15 @@ const Portfolio = () => {
               />
             </ShaderGradientCanvas>
           </div>
-          <h1>MX Systems</h1>
-          <p>Professional MERN Stack Web Development for Modern Businesses</p>
+          <div className="parallax-content" data-speed="0.2">
+            <h1>MX Systems</h1>
+            <p>Professional MERN Stack Web Development for Modern Businesses</p>
+          </div>
         </section>
 
         {/* Services */}
-        <section className="portfolio-section">
-          <h2>Our Services</h2>
+        <section className="portfolio-section parallax-section">
+          <h2 data-speed="0.05">Our Services</h2>
           <div className="portfolio-services-grid">
             {[
               { icon: '📅', title: 'Appointment Scheduling', desc: 'Let your customers book appointments 24/7 with an intuitive scheduling system. Automated reminders and calendar integration included.' },
@@ -52,8 +73,8 @@ const Portfolio = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="portfolio-section portfolio-features-bg">
-          <h2>Why Choose Us?</h2>
+        <section className="portfolio-section portfolio-features-bg parallax-section">
+          <h2 data-speed="0.05">Why Choose Us?</h2>
           <div className="portfolio-features-grid">
             {[
               { icon: '⚡', title: 'Fast Performance', desc: 'Lightning-fast load times with optimized code and modern architecture' },
@@ -70,8 +91,8 @@ const Portfolio = () => {
         </section>
 
         {/* Tech Stack */}
-        <section className="portfolio-section">
-          <h2>Built with Modern Technology</h2>
+        <section className="portfolio-section parallax-section">
+          <h2 data-speed="0.05">Built with Modern Technology</h2>
           <div className="portfolio-tech-logos">
             {[
               { letter: 'M', name: 'MongoDB' },
@@ -88,8 +109,8 @@ const Portfolio = () => {
         </section>
 
         {/* Portfolio Projects */}
-        <section className="portfolio-section portfolio-projects-bg">
-          <h2>Our Portfolio</h2>
+        <section className="portfolio-section portfolio-projects-bg parallax-section">
+          <h2 data-speed="0.05">Our Portfolio</h2>
           <p className="portfolio-subtitle">Check out some of the websites we've built</p>
           <div className="portfolio-projects-grid">
             {[
@@ -113,10 +134,12 @@ const Portfolio = () => {
         </section>
 
         {/* CTA */}
-        <section className="portfolio-cta">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>Let's build something amazing together</p>
-          <a className="portfolio-cta-button" href="/new-website">Start Your Website</a>
+        <section className="portfolio-cta parallax-section">
+          <div data-speed="0.1">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let's build something amazing together</p>
+            <a className="portfolio-cta-button" href="/new-website">Start Your Website</a>
+          </div>
         </section>
       </main>
     </div>
