@@ -29,8 +29,8 @@ const Portfolio = () => {
       <Header />
       <main className="portfolio-main parallax-container">
         {/* Hero */}
-        <section className="portfolio-hero parallax-section">
-          <div className="shader-gradient-bg" data-speed="-0.3">
+        <section className="portfolio-hero">
+          <div className="shader-gradient-bg">
             <ShaderGradientCanvas>
               <ShaderGradient
                 type="waterPlane"
@@ -45,10 +45,8 @@ const Portfolio = () => {
               />
             </ShaderGradientCanvas>
           </div>
-          <div className="parallax-content" data-speed="0.2">
-            <h1>MX Systems</h1>
-            <p>Professional MERN Stack Web Development for Modern Businesses</p>
-          </div>
+          <h1>MX Systems</h1>
+          <p>Professional MERN Stack Web Development for Modern Businesses</p>
         </section>
 
         {/* Services */}
