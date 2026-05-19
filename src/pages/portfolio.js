@@ -135,11 +135,9 @@ const Portfolio = () => {
 
         {/* CTA */}
         <section className="portfolio-cta parallax-section">
-          <div data-speed="0.1">
             <h2>Ready to Transform Your Business?</h2>
             <p>Let's build something amazing together</p>
             <a className="portfolio-cta-button" href="/new-website">Start Your Website</a>
-          </div>
         </section>
       </main>
     </div>
