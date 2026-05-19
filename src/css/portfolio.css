@@ -272,13 +272,12 @@
 /* 3D Scroll Reveal */
 .scroll-reveal {
   opacity: 0;
-  transform: perspective(1000px) rotateX(5deg) translateY(60px) scale(0.95);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: perspective(1000px) rotateX(3deg) translateY(30px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 .scroll-reveal.revealed {
   opacity: 1;
-  transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+  transform: perspective(1000px) rotateX(0deg) translateY(0);
 }
 
 /* Staggered card animations */
@@ -286,32 +285,32 @@
 .scroll-reveal.revealed .portfolio-feature-item,
 .scroll-reveal.revealed .portfolio-project-card,
 .scroll-reveal.revealed .portfolio-tech-item {
-  animation: cardReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: cardReveal 0.3s ease-out forwards;
   opacity: 0;
 }
 .scroll-reveal.revealed .portfolio-service-card:nth-child(1),
 .scroll-reveal.revealed .portfolio-feature-item:nth-child(1),
 .scroll-reveal.revealed .portfolio-project-card:nth-child(1),
-.scroll-reveal.revealed .portfolio-tech-item:nth-child(1) { animation-delay: 0.1s; }
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(1) { animation-delay: 0.05s; }
 .scroll-reveal.revealed .portfolio-service-card:nth-child(2),
 .scroll-reveal.revealed .portfolio-feature-item:nth-child(2),
 .scroll-reveal.revealed .portfolio-project-card:nth-child(2),
-.scroll-reveal.revealed .portfolio-tech-item:nth-child(2) { animation-delay: 0.2s; }
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(2) { animation-delay: 0.1s; }
 .scroll-reveal.revealed .portfolio-service-card:nth-child(3),
 .scroll-reveal.revealed .portfolio-feature-item:nth-child(3),
 .scroll-reveal.revealed .portfolio-project-card:nth-child(3),
-.scroll-reveal.revealed .portfolio-tech-item:nth-child(3) { animation-delay: 0.3s; }
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(3) { animation-delay: 0.15s; }
 .scroll-reveal.revealed .portfolio-service-card:nth-child(4),
 .scroll-reveal.revealed .portfolio-feature-item:nth-child(4),
 .scroll-reveal.revealed .portfolio-project-card:nth-child(4),
-.scroll-reveal.revealed .portfolio-tech-item:nth-child(4) { animation-delay: 0.4s; }
-.scroll-reveal.revealed .portfolio-service-card:nth-child(5) { animation-delay: 0.5s; }
-.scroll-reveal.revealed .portfolio-service-card:nth-child(6) { animation-delay: 0.6s; }
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(4) { animation-delay: 0.2s; }
+.scroll-reveal.revealed .portfolio-service-card:nth-child(5) { animation-delay: 0.25s; }
+.scroll-reveal.revealed .portfolio-service-card:nth-child(6) { animation-delay: 0.3s; }
 
 @keyframes cardReveal {
   from {
     opacity: 0;
-    transform: perspective(800px) rotateY(8deg) translateZ(-50px) translateY(30px);
+    transform: perspective(800px) rotateY(5deg) translateZ(-30px) translateY(15px);
   }
   to {
     opacity: 1;
