@@ -10,17 +10,33 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Parallax layers
       const layers = parallaxRef.current?.querySelectorAll('[data-speed]');
-      if (!layers) return;
-      const scrollY = window.scrollY;
-      layers.forEach((layer) => {
-        const speed = parseFloat(layer.dataset.speed);
-        const offset = layer.getBoundingClientRect().top + scrollY;
-        const yPos = (scrollY - offset) * speed;
-        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
-      });
+      if (layers) {
+        const scrollY = window.scrollY;
+        layers.forEach((layer) => {
+          const speed = parseFloat(layer.dataset.speed);
+          const offset = layer.getBoundingClientRect().top + scrollY;
+          const yPos = (scrollY - offset) * speed;
+          layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        });
+      }
+
+      // 3D reveal on scroll
+      const reveals = parallaxRef.current?.querySelectorAll('.scroll-reveal');
+      if (reveals) {
+        reveals.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const visible = rect.top < windowHeight * 0.85;
+          if (visible) {
+            el.classList.add('revealed');
+          }
+        });
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -52,7 +68,7 @@ const Portfolio = () => {
         </section>
 
         {/* Services */}
-        <section className="portfolio-section parallax-section">
+        <section className="portfolio-section parallax-section scroll-reveal">
           <h2 data-speed="0.05">Our Services</h2>
           <div className="portfolio-services-grid">
             {[
@@ -73,7 +89,7 @@ const Portfolio = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="portfolio-section portfolio-features-bg parallax-section">
+        <section className="portfolio-section portfolio-features-bg parallax-section scroll-reveal">
           <h2 data-speed="0.05">Why Choose Us?</h2>
           <div className="portfolio-features-grid">
             {[
@@ -91,7 +107,7 @@ const Portfolio = () => {
         </section>
 
         {/* Tech Stack */}
-        <section className="portfolio-section parallax-section">
+        <section className="portfolio-section parallax-section scroll-reveal">
           <h2 data-speed="0.05">Built with Modern Technology</h2>
           <div className="portfolio-tech-logos">
             {[
@@ -109,7 +125,7 @@ const Portfolio = () => {
         </section>
 
         {/* Portfolio Projects */}
-        <section className="portfolio-section portfolio-projects-bg parallax-section">
+        <section className="portfolio-section portfolio-projects-bg parallax-section scroll-reveal">
           <h2 data-speed="0.05">Our Portfolio</h2>
           <p className="portfolio-subtitle">Check out some of the websites we've built</p>
           <div className="portfolio-projects-grid">
@@ -134,7 +150,7 @@ const Portfolio = () => {
         </section>
 
         {/* CTA */}
-        <section className="portfolio-cta parallax-section">
+        <section className="portfolio-cta parallax-section scroll-reveal">
           <div data-speed="0.1">
             <h2>Ready to Transform Your Business?</h2>
             <p>Let's build something amazing together</p>
