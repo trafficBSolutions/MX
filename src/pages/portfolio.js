@@ -58,7 +58,7 @@ const Portfolio = () => {
               />
             </ShaderGradientCanvas>
           </div>
-          <div className="parallax-content" data-speed="0.2">
+          <div className="parallax-content">
             <h1>MX Systems</h1>
             <p>Professional MERN Stack Web Development for Modern Businesses</p>
           </div>
@@ -147,8 +147,8 @@ const Portfolio = () => {
         </section>
 
         {/* CTA */}
-        <section className="portfolio-cta parallax-section scroll-reveal">
-          <div data-speed="0.1">
+        <section className="portfolio-cta scroll-reveal">
+          <div>
             <h2>Ready to Transform Your Business?</h2>
             <p>Let's build something amazing together</p>
             <a className="portfolio-cta-button" href="/new-website">Start Your Website</a>
