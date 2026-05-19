@@ -1,5 +1,17 @@
 .portfolio-main {
   width: 100%;
+  perspective: 1px;
+  overflow-x: hidden;
+}
+
+/* Parallax */
+.parallax-container {
+  transform-style: preserve-3d;
+}
+.parallax-section {
+  position: relative;
+  transform-style: preserve-3d;
+  overflow: hidden;
 }
 
 /* Hero */
@@ -7,8 +19,13 @@
   position: relative;
   color: #fff;
   text-align: center;
-  padding: 100px 20px 80px;
+  padding: 120px 20px 100px;
   overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .shader-gradient-bg {
   position: absolute;
@@ -21,11 +38,11 @@
   z-index: 1;
 }
 .portfolio-hero h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 15px;
 }
 .portfolio-hero p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #ccc;
 }
 
@@ -58,11 +75,13 @@
   background: #fff;
   border-radius: 12px;
   padding: 30px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+  transform: translateZ(0);
 }
 .portfolio-service-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 .portfolio-service-icon {
   font-size: 2.5rem;
@@ -92,7 +111,12 @@
   border-radius: 10px;
   padding: 25px;
   text-align: left;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+}
+.portfolio-feature-item:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 .portfolio-feature-item h3 {
   font-size: 1.1rem;
@@ -121,6 +145,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 10px 30px rgba(15, 52, 96, 0.3);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+}
+.portfolio-tech-item:hover {
+  transform: translateY(-8px) rotateX(5deg);
+  box-shadow: 0 20px 50px rgba(15, 52, 96, 0.4);
 }
 .portfolio-tech-item h3 {
   font-size: 2.5rem;
@@ -147,11 +177,12 @@
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
 }
 .portfolio-project-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
 }
 .portfolio-project-icon {
   padding: 25px;
@@ -197,7 +228,12 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
   color: #fff;
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .portfolio-cta h2 {
   font-size: 2rem;
@@ -230,4 +266,53 @@
   .portfolio-projects-grid { grid-template-columns: 1fr; }
   .portfolio-tech-item { width: 90px; height: 90px; }
   .portfolio-tech-item h3 { font-size: 2rem; }
+}
+
+/* 3D Scroll Reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(3deg) translateY(30px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg) translateY(0);
+}
+
+/* Staggered card animations */
+.scroll-reveal.revealed .portfolio-service-card,
+.scroll-reveal.revealed .portfolio-feature-item,
+.scroll-reveal.revealed .portfolio-project-card,
+.scroll-reveal.revealed .portfolio-tech-item {
+  animation: cardReveal 0.3s ease-out forwards;
+  opacity: 0;
+}
+.scroll-reveal.revealed .portfolio-service-card:nth-child(1),
+.scroll-reveal.revealed .portfolio-feature-item:nth-child(1),
+.scroll-reveal.revealed .portfolio-project-card:nth-child(1),
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(1) { animation-delay: 0.05s; }
+.scroll-reveal.revealed .portfolio-service-card:nth-child(2),
+.scroll-reveal.revealed .portfolio-feature-item:nth-child(2),
+.scroll-reveal.revealed .portfolio-project-card:nth-child(2),
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(2) { animation-delay: 0.1s; }
+.scroll-reveal.revealed .portfolio-service-card:nth-child(3),
+.scroll-reveal.revealed .portfolio-feature-item:nth-child(3),
+.scroll-reveal.revealed .portfolio-project-card:nth-child(3),
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(3) { animation-delay: 0.15s; }
+.scroll-reveal.revealed .portfolio-service-card:nth-child(4),
+.scroll-reveal.revealed .portfolio-feature-item:nth-child(4),
+.scroll-reveal.revealed .portfolio-project-card:nth-child(4),
+.scroll-reveal.revealed .portfolio-tech-item:nth-child(4) { animation-delay: 0.2s; }
+.scroll-reveal.revealed .portfolio-service-card:nth-child(5) { animation-delay: 0.25s; }
+.scroll-reveal.revealed .portfolio-service-card:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(5deg) translateZ(-30px) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg) translateZ(0) translateY(0);
+  }
 }
