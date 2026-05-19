@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "resolutions": {
-  "form-data": "^4.0.0"
-},
+    "form-data": "^4.0.0"
+  },
   "dependencies": {
+    "@react-three/fiber": "^9.6.1",
+    "@shadergradient/react": "^2.4.20",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -13,14 +15,15 @@
     "axios": "^1.9.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
     "react-ionicons": "^4.2.1",
     "react-responsive-carousel": "^3.2.23",
-    "react-google-recaptcha": "^3.1.0",
     "react-router-dom": "^7.6.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^11.0.5",
+    "three": "^0.184.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -49,4 +52,3 @@
     ]
   }
 }
-
