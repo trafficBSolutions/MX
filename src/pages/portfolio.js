@@ -22,17 +22,14 @@ const Portfolio = () => {
         });
       }
 
-      // 3D reveal on scroll
-      const reveals = parallaxRef.current?.querySelectorAll('.scroll-reveal');
-      if (reveals) {
-        reveals.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          const visible = rect.top < windowHeight * 0.85;
-          if (visible) {
-            el.classList.add('revealed');
-          }
-        });
+      // 3D reveal on scroll — one section at a time
+      const reveals = parallaxRef.current?.querySelectorAll('.scroll-reveal:not(.revealed)');
+      if (reveals && reveals.length > 0) {
+        const next = reveals[0];
+        const rect = next.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.75) {
+          next.classList.add('revealed');
+        }
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
