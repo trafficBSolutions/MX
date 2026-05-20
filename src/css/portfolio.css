@@ -1,17 +1,5 @@
 .portfolio-main {
   width: 100%;
-  perspective: 1px;
-  overflow-x: hidden;
-}
-
-/* Parallax */
-.parallax-container {
-  transform-style: preserve-3d;
-}
-.parallax-section {
-  position: relative;
-  transform-style: preserve-3d;
-  overflow: hidden;
 }
 
 /* Hero */
