@@ -12,7 +12,9 @@ const Portfolio = () => {
         {/* Hero */}
         <section className="portfolio-hero">
           <div className="shader-gradient-bg">
-            <ShaderGradientCanvas>
+            <ShaderGradientCanvas
+              style={{ pointerEvents: 'none' }}
+            >
               <ShaderGradient
                 type="waterPlane"
                 animate="on"
@@ -23,6 +25,7 @@ const Portfolio = () => {
                 color1="#0055ff"
                 color2="#8b5cf6"
                 color3="#00d4ff"
+                cameraZoom={1}
               />
             </ShaderGradientCanvas>
           </div>
