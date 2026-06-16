@@ -10,16 +10,7 @@ import images from '../utils/dynamicImportImages';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
-  const bannerOptions = [ 
-    { name: 'Retractable Stand', disabled: false },
-    { name: 'Grommet Pressed', disabled: false },
-    { name: 'Reinforced Hemmed', disabled: false },
-    { name: 'Pole Pockets', disabled: false },
-    { name: 'Wind Slits', disabled: false },
-    { name: 'Velcro Taped', disabled: false },
-    { name: 'Webbing Ringed', disabled: false },
-    { name: 'Roped', disabled: false },
-  ];
+
   const finishOptions = [
     { name: 'Matte', disabled: false },
     { name: 'Gloss', disabled: false }
@@ -28,7 +19,7 @@ const Banner = () => {
     const [phone, setPhone] = useState('');
             const [addedSizes, setAddedSizes] = useState([]);
             const [addedFinishes, setAddedFinishes] = useState([]);
-            const [addedPlaces, setAddedPlaces] = useState([]);
+            const [retractableStand, setRetractableStand] = useState(false);
 
             const [lengthUnit, setLengthUnit] = useState(''); // Default to feet
             const [widthUnit, setWidthUnit] = useState(''); // Default to feet
@@ -69,19 +60,7 @@ const Banner = () => {
               const updatedSizes = addedSizes.filter((_, i) => i !== index);
               setAddedSizes(updatedSizes); // Update state after removing the size
             };
-            const handleAddPlacement = () => {
-              if (formData.hang) {
-                setAddedPlaces([...addedPlaces, { hang: formData.hang }]); // Add placement
-                setFormData({ ...formData, hang: '' }); // Clear the selection
-                setErrors((prevErrors) => ({ ...prevErrors, hang: '' })); // Clear placement error
-              } else {
-                setErrorMessage('Please select a placement type.');
-              }
-            };
-            const handleRemovePlace = (index) => {
-              const updatedPlaces = addedPlaces.filter((_, i) => i !== index);
-              setAddedPlaces(updatedPlaces); // Update state after removing the placement
-            };
+
             const handleAddFinish = () => {
               if (formData.finishing) {
                 setAddedFinishes([...addedFinishes, { name: formData.finishing }]); // Add finish
@@ -201,9 +180,7 @@ const formDataToSend = new FormData();
               const formattedSizes = addedSizes.map((size) => `${size.length} x ${size.width}`).join(', ');
               formDataToSend.append('bannerSize', formattedSizes);
           
-              // Append placement as a single string (assuming there's only one placement)
-              const formattedPlacement = addedPlaces.map((place) => place.hang).join(', ');
-              formDataToSend.append('hang', formattedPlacement);
+              formDataToSend.append('retractableStand', retractableStand);
           
               // Append finishing as a single string (assuming there's only one finishing)
               const formattedFinishing = addedFinishes.map((finish) => finish.name).join(', ');
@@ -231,7 +208,7 @@ const formDataToSend = new FormData();
               setAddedSizes([]);
               setErrors({});
               setPhone('');
-              setAddedPlaces([]);
+              setRetractableStand(false);
               setAddedFinishes([]);
               resetCaptcha();
       setSubmissionMessage(
@@ -431,56 +408,17 @@ onChange={(e) => {
 </div>
       {errors.bannerSize && <span className="error-message">{errors.bannerSize}</span>}
 </div>
-<div className="placement-imgs">
-    <div className="place-banner-flex-container">
-        <h1 className="place-examples">Placement Examples</h1>
-    </div>
-<div className="place-banner-flex-container">
-<div className="place-banner-flex-container">
-        <img src={images["retract.png"]} alt="Placement=photo" className="place-banner-img"/>
-        <h3 className="place-img-test">Retractable Stand</h3>
-        <p className="retract-img-test">Retractable Stands are regular printed banners only they are not worked on by any of the banner types.
-          Instead, they are placed on a retractable stand that can be pulled out and retracted when needed and are great for events and trade shows.
-          You can close the banner up and store it in a bag when not in use and move it around easily.
-        </p>
-  </div>
-  <div className="place-banner-flex-containerr">
-        <img src={images["banner types.jpg"]} alt="Placement=photo" className="place-banner-type-img"/>
-        <h3 className="place-img-test">Banner Types</h3>
-  </div>
-    </div>
+<div className="retractable-stand-section">
+  <label className="retractable-stand-label">
+    <input
+      type="checkbox"
+      checked={retractableStand}
+      onChange={(e) => setRetractableStand(e.target.checked)}
+    />
+    Retractable Stand
+  </label>
+  <p className="retract-img-test">Retractable Stands are printed banners placed on a retractable stand that can be pulled out and retracted when needed. Great for events and trade shows.</p>
 </div>
-      <div className="place-banner-section">
-        <label className="place-label" htmlFor="hang">Placement *</label>
-        <select
-          className="place-select"
-          value={formData.hang}
-          onChange={(e) => handleOptionChange('hang', e.target.value)}
-        >
-          <option value="" disabled>Select Placement</option>
-          {bannerOptions.map((option, index) => (
-            <option key={index} value={option.name} disabled={option.disabled}>
-              {option.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <button className="btn -- submit-banner-place" type="button" onClick={handleAddPlacement}>ADD PLACEMENT</button>
-      <div className="place-banner-list">
-  <ul>
-    {addedPlaces.length > 0 ? (
-      addedPlaces.map((hang, index) => (
-        <li className="hang-item" key={index}>
-          {hang.hang}
-          <button className="btn -- remove-banner-place" onClick={() => handleRemovePlace(index)}>REMOVE PLACEMENT</button>
-        </li>
-      ))
-    ) : (
-      <p className="no-added-banner-place">No placements added yet.</p>
-    )}
-  </ul>
-</div>
-          {errors.hang && <span className="error-message">{errors.hang}</span>}
       <div className="finish-banner-section">
         <label className="finish-label" htmlFor="finish">Finishing *</label>
         <select
