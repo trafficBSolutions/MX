@@ -318,7 +318,12 @@ import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
           setErrorMessage('You must accept the terms and conditions.');
           setIsSubmitting(false);
           return;
-        }  
+        }
+    if (addedSigns.length === 0) {
+      setSubmissionErrorMessage('You must add at least one sign before submitting.');
+      setIsSubmitting(false);
+      return;
+    }
 const formDataToSend = new FormData();
               formDataToSend.append('name', formData.name);
               formDataToSend.append('company', formData.company);
