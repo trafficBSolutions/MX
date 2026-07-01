@@ -11,18 +11,18 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha';
   const decalTypeOptions = [
-    { name: 'Matte', disabled: false },
-    { name: 'Gloss', disabled: false },
-    { name: 'Perforated Window', disabled: false },
-    { name: 'Chrome', disabled: false },
-    { name: 'Football Helmet Gloss', disabled: false },
-    { name: 'Football Helmet Chrome', disabled: false },
+    { name: 'Matte', value: 'Matte', disabled: false },
+    { name: 'Gloss', value: 'Gloss', disabled: false },
+    { name: 'Perforated Window', value: 'Perforated Window', disabled: false },
+    { name: 'Chrome', value: 'Chrome', disabled: false },
+    { name: 'Football Helmet Gloss', value: 'Football Helmet Gloss', disabled: false },
+    { name: 'Football Helmet Chrome', value: 'Football Helmet Chrome', disabled: false },
   ];
 
   const decalCutTypeOptions = [
-    { name: 'Transfer-Cut', disabled: false },
-    { name: 'Kiss-Cut', disabled: false },
-    { name: 'Die-Cut', disabled: false }
+    { name: 'Transfer-Cut', value: 'Transfer-Cut', disabled: false },
+    { name: 'Kiss-Cut', value: 'Kiss-Cut', disabled: false },
+    { name: 'Die-Cut', value: 'Die-Cut', disabled: false }
   ];
 const Decal = () => {
     const [phone, setPhone] = useState('')
@@ -178,6 +178,8 @@ const handleFileRemove = (fileType) => {
     }
     if (addedDecals.length === 0) {
         setDecalErrorMessage('You must add at least one decal before submitting.');
+        setIsSubmitting(false);
+        return;
     } else {
         setDecalErrorMessage('');
     }
