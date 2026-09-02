@@ -170,7 +170,7 @@ const jobDetailsByPosition = {
         }
 
         try {
-            const response = await axios.post('/apply-now', formData, {
+            const response = await axios.post('/apply-now', { ...formData, captchaToken }, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
