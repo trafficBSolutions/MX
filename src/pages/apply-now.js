@@ -4,6 +4,7 @@ import '../css/apply.css'
 import Header from '../components/headerviews/HeaderDrop'
 import {useState} from 'react'
 import axios from 'axios'
+import ReCaptchaWidget, { useRecaptcha } from '../components/ReCaptcha'
 import images from '../utils/dynamicImportImages';
 import '../css/headerfooter.css';
 
@@ -21,6 +22,7 @@ const ApplyNow = () => {
     const [errors, setErrors] = useState({});
     const [submissionMessage, setSubmissionMessage] = useState('');
     const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
+    const { recaptchaRef, captchaToken, captchaError, onCaptchaChange, validateCaptcha, resetCaptcha } = useRecaptcha();
 const jobDetailsByPosition = {
   "Receptionist": {
     requirements: [
@@ -157,6 +159,10 @@ const jobDetailsByPosition = {
             }
         });
 
+        if (!validateCaptcha()) {
+            newErrors.captcha = 'Please complete the reCAPTCHA.';
+        }
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             setSubmissionErrorMessage('Required fields are missing.');
@@ -182,6 +188,7 @@ const jobDetailsByPosition = {
             });
             setErrors({});
             setPhone('');
+            resetCaptcha();
             setSubmissionMessage('Application submitted successfully! We will contact you soon.');
         } catch (error) {
             console.error('Error submitting application:', error);
@@ -401,6 +408,7 @@ const jobDetailsByPosition = {
                                     <div className="submission-error-message">{submissionErrorMessage}</div>
                                 )}
                             </div>
+                            <ReCaptchaWidget recaptchaRef={recaptchaRef} onCaptchaChange={onCaptchaChange} captchaError={captchaError} />
                             <button type="submit" className="btn -- submit-contact">SUBMIT APPLICATION</button>
                         </div>
                     </form>
