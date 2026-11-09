@@ -101,6 +101,7 @@ const Portfolio = () => {
               { img: images['Skyline Builders Georgia PDF.svg'], title: 'Skyline Builders GA, LLC', desc: 'Construction company website with project gallery and service inquiries', url: 'https://www.skylinebuildersgallc.com' },
               { img: images['High Visibility PDF.svg'], title: 'High Visibility Detailing', desc: 'Professional auto detailing service with online booking', url: 'https://www.highvisibilitydetailing.com' },
               { img: images['Southern Gas Solutions White.svg'], title: 'Southern Gas Solutions', desc: 'Professional gas installation, repairs, propane connections, and emergency service across North Georgia and Metro Atlanta', url: 'https://www.southerngassolutions.com' },
+              { img: images['Gordon Memorial Baptist Cross.svg'], title: 'Gordon Memorial Baptist Association', desc: 'Baptist association website with church directory, events, and ministry resources for the Gordon County community', url: 'https://www.hopegordon.com' },
             ].map((p, i) => (
               <div className="portfolio-project-card" key={i}>
                 <div className="portfolio-project-icon">
